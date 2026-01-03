@@ -1,151 +1,78 @@
----
+Barber Cam® Preview License
+ALL RIGHTS RESERVED — PROPRIETARY SOFTWARE
 
-# Barber Cam® Preview License
-
-**All Rights Reserved — Proprietary Software**
-
-Copyright © 2022–2026 Barber Cam.
+Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust.
 All rights reserved.
 
----
+IMPORTANT: This repository is publicly viewable for evaluation and discussion only.
+Public availability does not grant permission to use, copy, modify, or distribute any portion
+of the Materials (defined below).
 
-## 1. Ownership and Reservation of Rights
+1. Ownership and Reservation of Rights
+This repository and all contents, including without limitation all source code, scripts,
+pipelines, workflows, build processes, documentation, comments, schemas, UI/UX, designs,
+assets, naming conventions, and architecture (collectively, the “Materials”), are the
+exclusive property of Faith Frontier Ecclesiastical Trust (“Licensor”).
 
-This repository, including **all source code, object code, scripts, workflows, documentation, comments, architecture, data schemas, pipelines, build processes, media assets, trademarks, service marks, logos, trade dress, and associated materials** (collectively, the “Materials”), is the **exclusive property of Barber Cam**.
+No rights are granted except as expressly stated in this License. All rights not expressly
+granted are reserved.
 
-No rights are granted except as expressly stated in this License.
-**All rights not expressly granted are reserved.**
+2. No License Granted (No Use)
+No license or right is granted under any copyright, trade secret, trademark, patent, or other
+intellectual property right of Licensor—whether by implication, estoppel, or otherwise.
 
----
+You may not use the Materials for any purpose except the narrow “Permitted Viewing” in Section 3.
 
-## 2. Purpose of This Repository
+3. Permitted Viewing (Narrow)
+You may only:
+(a) view the Materials in read-only form via GitHub’s standard web interface; and
+(b) discuss high-level concepts without copying or reproducing code, text, or assets.
 
-This repository is made publicly visible **solely for evaluation, transparency, and discussion purposes** related to Barber Cam’s mission and technical approach.
+Any other activity is prohibited, including but not limited to cloning, forking, downloading,
+copying, mirroring, scraping, indexing, training AI models, compiling, executing, or deploying.
 
-**Public availability does not imply permission.**
+4. Strict Prohibitions
+You may NOT, directly or indirectly:
+(a) copy, reproduce, snapshot, scrape, archive, mirror, or otherwise reproduce any Materials;
+(b) clone or fork this repository (or any portion of it);
+(c) modify, adapt, translate, refactor, annotate, or create derivative works;
+(d) distribute, publish, sublicense, sell, assign, lease, or transfer the Materials;
+(e) use the Materials to provide a product or service (including SaaS, hosted, or internal tools);
+(f) use any part of the Materials for training, benchmarking, or evaluating machine learning systems;
+(g) reverse engineer or infer proprietary methods, pipelines, or workflows from the Materials;
+(h) use automated tools (bots, crawlers, CI systems, AI agents) to process the code beyond ordinary
+    human reading in a browser;
+(i) remove, obscure, or alter copyright, trademark, or proprietary notices;
+(j) represent or imply endorsement, partnership, or affiliation with Licensor.
 
----
+5. Trademarks and Branding
+“Barber Cam” and any associated names, logos, slogans, and marks are proprietary to Licensor.
+No trademark rights are granted. See TRADEMARKS.md for usage restrictions.
 
-## 3. No License Granted
+6. Feedback
+If you submit feedback, ideas, or suggestions (“Feedback”), you grant Licensor a perpetual,
+irrevocable, royalty-free, worldwide right to use, modify, and incorporate the Feedback without
+compensation or obligation.
 
-Nothing in this repository shall be construed as granting, by implication, estoppel, or otherwise, **any license or right** under:
+7. No Warranty
+THE MATERIALS ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR SECURITY.
 
-* copyright
-* patent
-* trade secret
-* trademark
-* service mark
-* or any other intellectual property right
+8. Limitation of Liability
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING FROM OR RELATING TO THE MATERIALS.
 
-of Barber Cam.
+9. Enforcement
+Unauthorized use may result in enforcement actions including DMCA takedown notices, platform reports,
+cease-and-desist demands, injunctive relief, and claims for damages, costs, and attorneys’ fees.
 
----
+10. Governing Law and Venue
+This License is governed by the laws of the State of New Jersey, excluding conflict-of-law rules.
+Any dispute shall be brought exclusively in state or federal courts located in New Jersey, and you
+consent to personal jurisdiction and venue there.
 
-## 4. Strict Prohibitions
+11. Contact
+Licensing, permission, or collaboration requests must be in writing:
+BarberCamX@ProtonMail.com
 
-You may **NOT**, directly or indirectly:
-
-1. **Copy, reproduce, snapshot, scrape, archive, or mirror** any portion of the Materials
-2. **Modify, adapt, translate, refactor, annotate, or create derivative works**
-3. **Fork, clone, or otherwise replicate** this repository or any portion thereof
-4. **Distribute, publish, sublicense, sell, assign, lease, or transfer** the Materials
-5. **Use the Materials in whole or in part** for:
-
-   * commercial purposes
-   * internal tools
-   * SaaS, hosted, or cloud services
-   * training, benchmarking, or evaluation of AI/ML models
-   * security research, red-team exercises, or competitive analysis
-6. **Incorporate any portion** of the Materials into another project, repository, or product
-7. **Reverse engineer, decompile, disassemble, or infer** proprietary methods, workflows, or pipelines
-8. **Use automated tools** (including bots, crawlers, CI systems, or AI agents) to analyze or process the code beyond ordinary human reading
-9. **Remove, obscure, or alter** copyright, trademark, or proprietary notices
-10. **Represent or imply** that you are affiliated with, endorsed by, or partnered with Barber Cam
-
----
-
-## 5. Permitted Uses (Narrow and Explicit)
-
-You **MAY ONLY**:
-
-1. **View the repository in read-only form** via GitHub’s standard interface
-2. **Discuss high-level concepts** derived from publicly visible information (without copying code)
-3. **Reference the existence of the project** in academic, journalistic, or policy discussions
-4. **Link to the repository** without reproducing its contents
-
-Any use outside these narrow permissions is prohibited unless expressly authorized in writing.
-
----
-
-## 6. No Trademarks or Branding Rights
-
-“Barber Cam,” associated logos, names, slogans, and marks are **protected trademarks or service marks** of Barber Cam.
-
-This License does **not** grant permission to use Barber Cam branding in any manner.
-
----
-
-## 7. Feedback and Suggestions
-
-If you voluntarily submit feedback, ideas, or suggestions regarding the Materials (“Feedback”), you grant Barber Cam a **perpetual, irrevocable, royalty-free, worldwide right** to use, modify, and incorporate such Feedback **without obligation or compensation**, and without creating any ownership or attribution rights.
-
----
-
-## 8. No Warranty
-
-THE MATERIALS ARE PROVIDED **“AS IS”** AND **“AS AVAILABLE”**, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF:
-
-* MERCHANTABILITY
-* FITNESS FOR A PARTICULAR PURPOSE
-* NON-INFRINGEMENT
-* SECURITY OR ERROR-FREE OPERATION
-
----
-
-## 9. Limitation of Liability
-
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, BARBER CAM SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR EXEMPLARY DAMAGES ARISING OUT OF OR RELATING TO THE MATERIALS, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
----
-
-## 10. Enforcement and Remedies
-
-Unauthorized use may result in **immediate enforcement**, including but not limited to:
-
-* DMCA takedown requests
-* GitHub abuse and infringement reports
-* Cease-and-desist demands
-* Injunctive relief
-* Claims for damages, costs, and attorneys’ fees
-
-No failure to enforce any provision constitutes a waiver.
-
----
-
-## 11. Governing Law and Venue
-
-This License shall be governed by and construed under the laws of the **State of New Jersey**, without regard to conflict-of-law principles.
-
-Any dispute shall be brought exclusively in **state or federal courts located in New Jersey**, and you consent to personal jurisdiction therein.
-
----
-
-## 12. Contact and Licensing Requests
-
-For **licensing, collaboration, or written permission** inquiries:
-
-**Email:** [BarberCamX@ProtonMail.com](mailto:BarberCamX@ProtonMail.com)
-
----
-
-## 13. Entire Agreement
-
-This License constitutes the **entire agreement** regarding use of the Materials and supersedes any prior understandings or representations.
-
----
-
-**Last updated:** January 2026
-**Repository:** Barber Cam Preview (Public)
-
----
-
+LAST UPDATED: 2026-01-03
