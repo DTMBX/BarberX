@@ -2,6 +2,13 @@ const $q = document.getElementById("q");
 const $results = document.getElementById("results");
 const $meta = document.getElementById("meta");
 
+// Configuration constants
+const MAX_RESULTS = 50; // Maximum number of search results to display
+const MAX_TAGS_DISPLAY = 6; // Maximum number of tags to show per item
+const SCORE_PHRASE_MATCH = 10; // Bonus points for exact phrase match
+const SCORE_TOKEN_MAX_HITS = 20; // Maximum points per token occurrence
+const DEBOUNCE_DELAY_MS = 300; // Delay in ms before triggering search
+
 let data = [];
 
 /**
@@ -14,11 +21,11 @@ let data = [];
  *
  * Scoring strategy:
  * - If the entire normalized query appears as a contiguous substring of the
- *   normalized text, a fixed bonus of 10 points is added.
+ *   normalized text, a fixed bonus of SCORE_PHRASE_MATCH points is added.
  * - The query is then split on whitespace into tokens. For each token, the
  *   number of (potentially overlapping) occurrences in the text is counted,
- *   and up to 20 points per token are added to the score (1 point per hit,
- *   capped at 20 for that token).
+ *   and up to SCORE_TOKEN_MAX_HITS points per token are added to the score
+ *   (1 point per hit, capped at SCORE_TOKEN_MAX_HITS for that token).
  *
  * The final score is a non-negative integer; 0 indicates no match or an empty
  * query/text, and larger values indicate a stronger match. The score is not
@@ -39,12 +46,12 @@ function scoreMatch(query, text) {
 
   // Simple scoring: phrase > token hits
   let score = 0;
-  if (t.includes(q)) score += 10;
+  if (t.includes(q)) score += SCORE_PHRASE_MATCH;
 
   const tokens = q.split(/\s+/).filter(Boolean);
   for (const tok of tokens) {
     const hits = t.split(tok).length - 1;
-    score += Math.min(hits, 20);
+    score += Math.min(hits, SCORE_TOKEN_MAX_HITS);
   }
   return score;
 }
@@ -56,7 +63,7 @@ function scoreMatch(query, text) {
  * - Scores each item in the global `data` array using {@link scoreMatch},
  *   based on the query, title, case ID, tags, and text/snippet content.
  * - Filters out items with zero score when a non-empty query is provided.
- * - Sorts the remaining items by descending score and limits to the top 50.
+ * - Sorts the remaining items by descending score and limits to the top MAX_RESULTS.
  * - Updates the `$meta` element with result and index counts.
  * - Populates the `$results` element with result cards.
  *
@@ -72,7 +79,7 @@ function scoreMatch(query, text) {
  * - `url` {string} URL to the underlying PDF resource.
  *
  * @param {string} query - The search query string; may be empty or whitespace.
- *                         An empty query shows up to 50 unfiltered items.
+ *                         An empty query shows up to MAX_RESULTS unfiltered items.
  */
 function render(query) {
   const q = (query || "").trim();
@@ -84,14 +91,16 @@ function render(query) {
     })
     .filter(x => q ? x.s > 0 : true)
     .sort((a,b) => b.s - a.s)
-    .slice(0, 50);
+    .slice(0, MAX_RESULTS);
 
   $meta.textContent = data.length
     ? `${rows.length} result(s) shown • ${data.length} document(s) indexed`
     : "Loading index…";
 
   $results.innerHTML = rows.map(({item, s}) => {
-    const tags = (item.tags || []).slice(0, 6);
+    const allTags = item.tags || [];
+    const tags = allTags.slice(0, MAX_TAGS_DISPLAY);
+    const hasMoreTags = allTags.length > MAX_TAGS_DISPLAY;
     const ocr = item.ocrNeeded ? `<span class="badge">OCR needed</span>` : "";
     const ok = item.ok ? "" : `<span class="badge">Index error</span>`;
     const err = item.error ? `<div class="snip">Index error: ${item.error}</div>` : "";
@@ -101,6 +110,7 @@ function render(query) {
         <div class="badges">
           <span class="badge">${escapeHtml(item.caseId || "")}</span>
           ${tags.map(t => `<span class="badge">${escapeHtml(t)}</span>`).join("")}
+          ${hasMoreTags ? `<span class="badge">+${allTags.length - MAX_TAGS_DISPLAY} more</span>` : ""}
           ${ocr}
           ${ok}
           ${q ? `<span class="badge">score: ${s}</span>` : ""}
@@ -115,6 +125,36 @@ function render(query) {
   }).join("");
 }
 
+/**
+ * Sanitizes a URL to prevent javascript: and data: URI attacks.
+ * Only allows http:, https:, and relative URLs.
+ *
+ * @param {string} url - The URL to sanitize.
+ * @returns {string} The sanitized URL, or "#" if invalid.
+ */
+function sanitizeUrl(url) {
+  if (!url || typeof url !== "string") return "#";
+  const trimmed = url.trim();
+  if (!trimmed) return "#";
+  
+  // Allow relative URLs (starting with / or ./ or ../)
+  if (trimmed.startsWith("/") || trimmed.startsWith("./") || trimmed.startsWith("../")) {
+    return trimmed;
+  }
+  
+  // Only allow http: and https: protocols
+  try {
+    const parsed = new URL(trimmed, window.location.href);
+    if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+      return trimmed;
+    }
+  } catch (e) {
+    // Invalid URL format
+  }
+  
+  return "#";
+}
+
 function escapeHtml(s) {
   return (s || "").replace(/[&<>"'`]/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;","`":"&#96;"
@@ -122,6 +162,7 @@ function escapeHtml(s) {
 }
 
 /**
+<<<<<<< HEAD
  * Sanitizes a URL to ensure it uses a safe protocol (http or https) or is a safe relative path.
  *
  * This function validates URLs to prevent XSS attacks via malicious protocols (e.g., javascript:, data:).
@@ -158,6 +199,21 @@ function sanitizeUrl(url) {
   }
   
   return "#";
+=======
+ * Creates a debounced version of a function that delays its execution
+ * until after the specified delay has elapsed since the last invocation.
+ *
+ * @param {Function} func - The function to debounce.
+ * @param {number} delay - The delay in milliseconds.
+ * @returns {Function} The debounced function.
+ */
+function debounce(func, delay) {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+>>>>>>> 505c562 (Address review comments: add constants, URL sanitization, debouncing, and tag truncation indicator)
 }
 
 async function init() {
@@ -170,7 +226,7 @@ async function init() {
   render("");
 }
 
-$q.addEventListener("input", () => render($q.value));
+$q.addEventListener("input", debounce(() => render($q.value), DEBOUNCE_DELAY_MS));
 init().catch(err => {
   $meta.textContent = "Failed to load index.json";
   $results.innerHTML = `<div class="card"><div class="snip">${escapeHtml(String(err))}</div></div>`;
