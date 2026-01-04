@@ -1485,7 +1485,7 @@ h1, h2, h3, h4, h5, h6 {
    MARKDOWN / DOCS PAGES
    ========================================================================== */
 
-.md{
+.md {
   max-width: 72ch;
   margin: 0 auto;
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -1493,13 +1493,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Header */
-.md-header{
+.md-header {
   margin-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding-bottom: 1.5rem;
 }
 
-.md-title{
+.md-title {
   font-size: clamp(1.9rem, 3vw, 2.6rem);
   line-height: 1.15;
   letter-spacing: -.02em;
@@ -1508,12 +1508,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .md-lead {
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: var(--muted);
   max-width: 60ch;
 }
 
 /* Content */
-.md-content h2{
+.md-content h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-size: 1.6rem;
@@ -1521,7 +1521,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: .75rem;
 }
 
-.md-content h3{
+.md-content h3 {
   margin-top: 2rem;
   margin-bottom: .75rem;
   font-size: 1.25rem;
@@ -1532,11 +1532,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .md-content ul,
-.md-content ol{
+.md-content ol {
   margin: 1rem 0 1rem 1.25rem;
 }
 
-.md-content li{
+.md-content li {
   margin: .4rem 0;
 }
 
@@ -1553,17 +1553,17 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border);
   padding: 1rem;
   overflow-x: auto;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 /* Footer */
 .md-footer {
   margin-top: 4rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.md-meta{
+.md-meta {
   font-size: .9rem;
-  color: var(--text-muted);
+  color: var(--muted);
 }
