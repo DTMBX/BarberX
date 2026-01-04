@@ -1,0 +1,69 @@
+# -------------------------------------------------
+# Site identity
+# -------------------------------------------------
+title: Barber Cam
+description: Citizen Accountability Platform
+tagline: "Precision. Patience. Virtue. Honor."
+
+url: https://dtb396.github.io
+baseurl: /barber-cam-preview
+
+# -------------------------------------------------
+# Build & rendering
+# -------------------------------------------------
+theme: null
+markdown: kramdown
+permalink: pretty
+
+# Prevent GitHub from injecting a theme
+remote_theme: null
+
+# -------------------------------------------------
+# Plugins (GitHub Pages–safe)
+# -------------------------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# -------------------------------------------------
+# SEO defaults (used by jekyll-seo-tag)
+# -------------------------------------------------
+lang: en-US
+
+author:
+  name: Barber Cam
+  email: BarberCamX@ProtonMail.com
+
+logo: /assets/img/logo/barbercam-social-square.svg
+image: /assets/img/logo/barbercam-social-square.svg
+
+social:
+  name: Barber Cam
+  links:
+    - https://github.com/DTB396/barber-cam-preview
+
+# -------------------------------------------------
+# Files & directories
+# -------------------------------------------------
+include:
+  - _pages
+  - _includes
+  - _layouts
+
+exclude:
+  - node_modules
+  - vendor
+  - tools
+  - scripts
+  - components
+  - "*.ps1"
+  - "*.txt"
+  - README_START_HERE.md
+
+# -------------------------------------------------
+# GitHub Pages compatibility
+# -------------------------------------------------
+safe: true
+future: false
+timezone: America/New_York
+

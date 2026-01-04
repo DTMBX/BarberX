@@ -1,19 +1,21 @@
 <header class="site-header">
   <div class="container">
-    <a href="/" class="brand">
-      <span class="brand-icon">✂</span>
+    <a href="{{ '/' | relative_url }}" class="brand" aria-label="Barber Cam home">
+      <span class="brand-icon" aria-hidden="true">✂</span>
       <span class="brand-text">BARBER CAM</span>
     </a>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-      <a href="#preview">Preview</a>
-      <a href="#principles">Principles</a>
-      <a href="#status">Status</a>
-      <a href="#connect">Connect</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+
+      <picture class="brand-mark">
+        <source srcset="{{ '/assets/img/logo/barbercam-header-lockup.svg' | relative_url }}" type="image/svg+xml">
+        <img src="{{ '/assets/img/logo/barbercam-header-lockup.png' | relative_url }}" alt="Barber Cam" width="260"
+          height="64" loading="eager">
+      </picture>
+    </a>
+
+    {% include nav.html %}
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
     </button>
   </div>
 </header>

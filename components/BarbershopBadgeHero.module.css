@@ -1,0 +1,351 @@
+/**
+ * BarbershopBadgeHero.module.css
+ * 
+ * Mobile-first CSS module for BarbershopBadgeHero React component.
+ * Uses CSS variables for theming and dark mode support.
+ * 
+ * Features:
+ * - Responsive design (360px+ mobile-first)
+ * - Subtle spinning animation (6s cycle)
+ * - Respects prefers-reduced-motion
+ * - Dark mode support
+ * - Touch-friendly interactions
+ */
+
+:root {
+  /* Color Palette - CSS Variables for easy customization */
+  --color-primary: #c41e3a;      /* Barber red */
+  --color-primary-dark: #a01830;
+  --color-secondary: #1e40af;    /* Barber blue */
+  --color-accent: #d4a574;       /* Gold */
+  --color-white: #ffffff;
+  --color-dark: #0a0a0f;
+  --color-gray-light: #f5f5f7;
+  --color-gray-dark: #1a1a22;
+  
+  /* Text colors */
+  --text-primary: #0a0a0f;
+  --text-secondary: #6b7280;
+  --text-light: #f5f5f7;
+  
+  /* Spacing (8px base unit) */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  
+  /* Animation */
+  --duration-slow: 0.5s;
+  --duration-base: 0.3s;
+  --duration-fast: 0.15s;
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f5f5f7;
+    --text-secondary: #8b8b97;
+  }
+}
+
+/* ===================================================================
+   MAIN HERO SECTION
+   ================================================================== */
+
+.barbershopHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-gray-light) 0%, #f9f9fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero container - flex layout for badge + content */
+.badgeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ===================================================================
+   BARBERSHOP BADGE (The main visual element)
+   ================================================================== */
+
+.barbershopBadge {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Subtle 3D perspective */
+  perspective: 1000px;
+}
+
+/* Badge background circle */
+.badgeBg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-white);
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  box-shadow: var(--shadow-md);
+  
+  /* Smooth hover transition */
+  transition: box-shadow var(--duration-base) var(--easing-smooth),
+              transform var(--duration-base) var(--easing-smooth);
+}
+
+/* Hover effect - subtle lift (desktop only) */
+.barbershopHero:hover .badgeBg {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Disable hover on mobile/touch */
+@media (hover: none) {
+  .barbershopHero:hover .badgeBg {
+    transform: none;
+  }
+}
+
+/* SVG Barber Pole - the spinning element */
+.barberPole {
+  position: relative;
+  width: 100px;
+  height: 140px;
+  z-index: 2;
+  
+  /* 6-second smooth rotation */
+  animation: spinPole 6s linear infinite;
+}
+
+/* Animation for the spinning pole */
+@keyframes spinPole {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Disable animation for users who prefer reduced motion */
+.barberPole.noAnimation {
+  animation: none;
+  opacity: 0.8;
+}
+
+/* Badge text overlay */
+.badgeText {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: var(--spacing-md);
+  z-index: 1;
+}
+
+.badgeYear {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+.badgeTagline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 90px;
+  line-height: 1.2;
+}
+
+/* ===================================================================
+   HERO CONTENT (Text section below badge)
+   ================================================================== */
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.heroHeading {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  max-width: 90vw;
+}
+
+.heroDescription {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.heroCta {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-base) var(--easing-smooth);
+  box-shadow: var(--shadow-sm);
+  
+  /* Accessible focus outline */
+  outline-offset: 2px;
+}
+
+.heroCta:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.heroCta:active {
+  transform: translateY(0);
+}
+
+.heroCta:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+/* Disable hover transform on touch devices */
+@media (hover: none) {
+  .heroCta:hover {
+    transform: none;
+  }
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN - Mobile First
+   ================================================================== */
+
+/* Mobile (360px - 480px) - Base styles above cover this */
+
+/* Small Mobile (480px - 640px) */
+@media (min-width: 480px) {
+  .badgeContainer {
+    gap: var(--spacing-xl);
+  }
+
+  .barbershopBadge {
+    width: 240px;
+    height: 240px;
+  }
+
+  .heroHeading {
+    font-size: 1.75rem;
+  }
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) {
+  .badgeContainer {
+    gap: var(--spacing-2xl);
+  }
+
+  .barbershopBadge {
+    width: 300px;
+    height: 300px;
+  }
+
+  .heroHeading {
+    font-size: 2rem;
+  }
+}
+
+/* Large Tablet / Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .barbershopHero {
+    padding: var(--spacing-2xl);
+  }
+
+  .barbershopBadge {
+    width: 360px;
+    height: 360px;
+  }
+
+  .heroHeading {
+    font-size: 2.25rem;
+  }
+}
+
+/* ===================================================================
+   DARK MODE
+   ================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  .barbershopHero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #141418 100%);
+  }
+
+  .badgeBg {
+    background: var(--color-gray-dark);
+    border-color: var(--color-accent);
+  }
+
+  .heroCta {
+    background: var(--color-primary);
+  }
+
+  .heroCta:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
+/* ===================================================================
+   ACCESSIBILITY - Respects motion preferences
+   ================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .barberPole {
+    animation: none !important;
+    opacity: 0.8;
+  }
+
+  /* Disable all animations for users with motion sensitivity */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

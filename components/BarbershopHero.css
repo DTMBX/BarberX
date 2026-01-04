@@ -1,0 +1,388 @@
+/**
+ * BarbershopHero.css
+ * Shared stylesheet for React/Next.js BarbershopHero components
+ * Supports three layout variants: default, minimal, full
+ * Mobile-first design with dark mode support
+ * 
+ * Usage:
+ *   import './BarbershopHero.css';
+ *   <BarbershopHero variant="default" />
+ */
+
+/* ===== CSS Variables & Root Styles ===== */
+:root {
+  /* Color palette */
+  --hero-bg-light: #fafafa;
+  --hero-bg-dark: #0a0a0f;
+  --hero-text-light: #0a0a0f;
+  --hero-text-dark: #f5f5f7;
+  --hero-accent: #d4af37;
+  --hero-border-light: #e5e5ea;
+  --hero-border-dark: #424245;
+  --hero-shadow-light: rgba(0, 0, 0, 0.08);
+  --hero-shadow-dark: rgba(0, 0, 0, 0.32);
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-2xl: 3rem;
+  
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px var(--hero-shadow-light);
+  --shadow-md: 0 2px 8px var(--hero-shadow-light);
+  --shadow-lg: 0 4px 16px var(--hero-shadow-light);
+  --shadow-xl: 0 8px 24px var(--hero-shadow-light);
+  
+  /* Animation */
+  --duration-normal: 0.3s;
+  --duration-slow: 0.5s;
+  --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-out: cubic-bezier(0, 0, 0.2, 1);
+  
+  /* Barber pole animation duration */
+  --animation-duration: 5.5s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hero-bg-light: #0a0a0f;
+    --hero-bg-dark: #0a0a0f;
+    --hero-text-light: #f5f5f7;
+    --hero-text-dark: #f5f5f7;
+    --hero-border-light: #424245;
+    --hero-border-dark: #424245;
+    --hero-shadow-light: rgba(0, 0, 0, 0.32);
+    --hero-shadow-dark: rgba(0, 0, 0, 0.64);
+  }
+}
+
+/* ===== Component Container ===== */
+.barbershop-hero {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, var(--hero-bg-light) 0%, rgba(212, 175, 55, 0.03) 100%);
+  font-family: var(--font-sans);
+  color: var(--hero-text-dark);
+  overflow: hidden;
+  position: relative;
+  transition: background-color var(--duration-slow) var(--easing-in-out);
+}
+
+.barbershop-hero.no-animation {
+  --animation-duration: 0s;
+}
+
+/* ===== Layout Variants ===== */
+
+/* Default Variant */
+.barbershop-hero--default {
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.barbershop-hero--default .hero-inner {
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Minimal Variant */
+.barbershop-hero--minimal .hero-inner {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.barbershop-hero--minimal .hero-title,
+.barbershop-hero--minimal .hero-tagline {
+  display: none;
+}
+
+/* Full Variant */
+.barbershop-hero--full {
+  padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.barbershop-hero--full .hero-inner {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.barbershop-hero--full .hero-content {
+  order: 2;
+  text-align: left;
+}
+
+.barbershop-hero--full .hero-visual {
+  order: 1;
+}
+
+/* ===== Hero Visual (Barber Pole SVG) ===== */
+.hero-visual {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+}
+
+.hero-visual svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 8px var(--hero-shadow-md));
+  animation: spin-pole var(--animation-duration) linear infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+.hero-visual svg.paused {
+  animation: none;
+  opacity: 0.8;
+}
+
+/* ===== Hero Content ===== */
+.hero-content {
+  flex: 1;
+  min-width: 0; /* Prevents flex children from overflowing */
+}
+
+.hero-content h1 {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--hero-text-dark);
+}
+
+.hero-content p {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: rgba(var(--hero-text-dark-rgb, 0, 0, 0), 0.7);
+}
+
+/* ===== Hero Title & Tagline ===== */
+.hero-title {
+  margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  color: var(--hero-text-dark);
+}
+
+.hero-tagline {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: rgba(var(--hero-text-dark-rgb, 0, 0, 0), 0.6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ===== CTA Button ===== */
+.hero-cta {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-top: var(--spacing-md);
+  background: var(--hero-accent);
+  color: #0a0a0f;
+  border: 2px solid var(--hero-accent);
+  border-radius: 0.375rem;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--easing-in-out);
+  outline: none;
+  text-decoration: none;
+  
+  will-change: transform, background-color, border-color;
+}
+
+.hero-cta:hover,
+.hero-cta:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  background: rgba(212, 175, 55, 0.9);
+}
+
+.hero-cta:active {
+  transform: translateY(0);
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid var(--hero-accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion: disable hover effects */
+@media (hover: none) and (pointer: coarse) {
+  .hero-cta:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ===== Badge Container (Optional) ===== */
+.hero-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--hero-accent);
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--hero-accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== Animations ===== */
+@keyframes spin-pole {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* ===== Responsive Design ===== */
+
+/* Small mobile (480px) */
+@media (min-width: 480px) {
+  .barbershop-hero {
+    padding: var(--spacing-lg);
+  }
+  
+  .hero-content h1 {
+    font-size: calc(var(--font-size-2xl) * 1.1);
+  }
+  
+  .hero-title {
+    font-size: calc(var(--font-size-xl) * 1.05);
+  }
+}
+
+/* Tablet (640px) */
+@media (min-width: 640px) {
+  .barbershop-hero {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    min-height: auto;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-title {
+    font-size: calc(var(--font-size-xl) * 1.15);
+  }
+  
+  /* Full variant layout switches to grid at 640px */
+  .barbershop-hero--full .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* Desktop (1024px) */
+@media (min-width: 1024px) {
+  .barbershop-hero {
+    min-height: 100vh;
+    padding: var(--spacing-2xl);
+  }
+  
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .barbershop-hero--full .hero-inner {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+/* ===== Dark Mode Support ===== */
+@media (prefers-color-scheme: dark) {
+  .barbershop-hero {
+    background: linear-gradient(135deg, var(--hero-bg-dark) 0%, rgba(212, 175, 55, 0.05) 100%);
+  }
+  
+  .hero-cta {
+    color: var(--hero-bg-dark);
+  }
+  
+  .hero-cta:hover,
+  .hero-cta:focus {
+    background: rgba(212, 175, 55, 0.85);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+  .barbershop-hero,
+  .hero-visual svg,
+  .hero-cta {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .hero-visual svg {
+    opacity: 0.8;
+  }
+}
+
+/* ===== Accessibility ===== */
+.hero-visual svg {
+  aria-hidden: true;
+}
+
+.hero-content a:focus-visible,
+.hero-cta:focus-visible {
+  outline: 2px solid var(--hero-accent);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .barbershop-hero {
+    background: white;
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+  
+  .hero-visual svg {
+    animation: none;
+    filter: none;
+  }
+}

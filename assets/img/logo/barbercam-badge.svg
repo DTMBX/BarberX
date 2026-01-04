@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="900" height="900" viewBox="0 0 900 900" role="img">
+<title>Barber Cam Badge</title><desc>Circular Barber Cam badge with camera mark.</desc>
+
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <circle cx="450.0" cy="450.0" r="414.0" fill="none" stroke="#0B1320" stroke-width="28.00"/>
+  <circle cx="450.0" cy="450.0" r="356.04" fill="none" stroke="#0B1320" stroke-width="10.00" opacity="0.9"/>
+  <circle cx="450.0" cy="450.0" r="306.36" fill="none" stroke="#0B1320" stroke-width="4.00" opacity="0.5"/>
+  
+  <defs>
+    <linearGradient id="b_gBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#121E33"/>
+      <stop offset="100%" stop-color="#0B1320"/>
+    </linearGradient>
+  </defs>
+
+  <g id="b_camera">
+    <rect x="266.00" y="349.25" width="368.00" height="241.50" rx="32.20" fill="url(#b_gBody)"/>
+    <circle cx="450.00" cy="470.00" r="105.80" fill="none" stroke="#FFFFFF" stroke-width="16.10"/>
+    <circle cx="450.00" cy="470.00" r="82.80" fill="none" stroke="#FFFFFF" stroke-width="11.50"/>
+    <circle cx="450.00" cy="470.00" r="29.90" fill="#FFFFFF" opacity="0.96"/>
+    <circle cx="588.00" cy="410.20" r="13.80" fill="#D12A2A" opacity="1.0"/>
+    <g transform="translate(450.00,313.60)">
+      <rect x="-138.00" y="-20.70" width="276.00" height="25.30" rx="11.50" fill="#0B1320"/>
+      <rect x="-11.50" y="-11.50" width="23.00" height="80.50" rx="9.20" fill="#0B1320"/>
+      <circle cx="-101.20" cy="48.30" r="29.90" fill="none" stroke="#0B1320" stroke-width="11.50"/>
+      <circle cx="101.20" cy="48.30" r="29.90" fill="none" stroke="#0B1320" stroke-width="11.50"/>
+    </g>
+  </g>
+
+  
+  <defs>
+    <path id="topArc" d="M 127.1 450.0 A 322.9 322.9 0 0 1 772.9 450.0"/>
+    <path id="bottomArc" d="M 772.9 450.0 A 322.9 322.9 0 0 1 127.1 450.0"/>
+  </defs>
+  <text font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="56.00" letter-spacing="4" fill="#0B1320">
+    <textPath xlink:href="#topArc" startOffset="50%" text-anchor="middle" dy="-18">BARBER CAM</textPath>
+  </text>
+  <text font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="28.00" letter-spacing="2" fill="#0B1320">
+    <textPath xlink:href="#bottomArc" startOffset="50%" text-anchor="middle" dy="36">RECORD CLEAN • STORE SAFE • SHARE FAIR</textPath>
+  </text>
+
+
+</svg>

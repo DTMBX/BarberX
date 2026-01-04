@@ -1,0 +1,57 @@
+@'
+import fs from "node:fs";
+import path from "node:path";
+
+const root = process.cwd();
+const manifestPath = path.join(root, "cases", "manifest.json");
+const outPath = path.join(root, "cases", "index.json");
+
+function normalize(s) {
+  return (s ?? "").toString().trim();
+}
+
+function guessDocType(name) {
+  const n = (name || "").toLowerCase();
+  if (n.includes("motion")) return "motion";
+  if (n.includes("order")) return "order";
+  if (n.includes("brief")) return "brief";
+  if (n.includes("certification") || n.includes("cert")) return "certification";
+  if (n.includes("transcript")) return "transcript";
+  if (n.includes("exhibit") || n.includes("exh")) return "exhibit";
+  if (n.includes("notice")) return "notice";
+  return "document";
+}
+
+function guessDate(name) {
+  const m = (name || "").match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
+  if (!m) return "";
+  return `${m[1]}-${m[2]}-${m[3]}`;
+}
+
+if (!fs.existsSync(manifestPath)) {
+  console.error(`Missing ${manifestPath}`);
+  process.exit(1);
+}
+
+const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+
+const docs = manifest.map((x, i) => {
+  const caseId = normalize(x.caseId || x.id);
+  const url = normalize(x.url);
+  const fileName = url ? url.split("/").pop() : "";
+  const docTitle = normalize(x.docTitle || x.title || fileName);
+  const docId = normalize(x.docId || fileName || `doc-${i}`);
+  const tags = Array.isArray(x.tags) ? x.tags.map(normalize).filter(Boolean) : [];
+  const date = normalize(x.date) || guessDate(fileName);
+  const docType = normalize(x.docType) || guessDocType(docTitle);
+  const text = normalize(x.text);
+  const snippet = normalize(x.snippet);
+
+  return { caseId, caseTitle: normalize(x.caseTitle || caseId), docId, docTitle, docType, date, url, tags, text, snippet };
+});
+
+const out = { generatedAt: new Date().toISOString(), count: docs.length, docs };
+
+fs.writeFileSync(outPath, JSON.stringify(out, null, 2), "utf8");
+console.log(`Wrote ${outPath} (${docs.length} docs)`);
+'@ | Set-Content -Encoding UTF8 ".\scripts\build-index.mjs"

@@ -1,4 +1,10 @@
-# Barber Cam - Project Status
+<article class="md" role="article">
+  <header class="md-header">
+    <h1 class="md-title">Barber Cam - Project Status</h1>
+    <p class="md-lead">Barber Cam is a citizen-led accountability initiative focused on ethical documentation, due process, and dignity.</p>
+  </header>
+
+  <section class="md-content">
 
 ## Current Phase: Validation and Framework Development
 
@@ -6,7 +12,7 @@
 
 ## Overview
 
-Barber Cam is a citizen-led accountability initiative focused on ethical documentation, due process, and dignity. The project combines precision tools with principled governance to preserve accurate records and reduce harm through responsible recording practices.
+This project combines precision tools with principled governance to preserve accurate records and reduce harm through responsible recording practices.
 
 ---
 
@@ -121,4 +127,7 @@ For inquiries about Barber Cam development status:
 
 ---
 
-Last Updated: January 2026
+  <footer class="md-footer">
+    <p class="md-meta">Last updated: <time datetime="2026-01-04">Jan 4, 2026</time></p>
+  </footer>
+</article>

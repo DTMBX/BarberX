@@ -16,7 +16,23 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://dtb396.github.io/barber-cam-preview/">
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta name="twitter:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:image" content="{{ '/assets/img/logo/barbercam-social-square.svg' | absolute_url }}">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dtb396.github.io/barber-cam-preview/">
 <meta property="og:title" content="Barber Cam | Citizen Accountability Platform">
@@ -27,14 +43,6 @@
 <meta property="og:image:alt" content="Barber Cam - Citizen Accountability Through Record">
 <meta property="og:site_name" content="Barber Cam">
 <meta property="og:locale" content="en_US">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://dtb396.github.io/barber-cam-preview/">
-<meta name="twitter:title" content="Barber Cam | Citizen Accountability Platform">
-<meta name="twitter:description" content="Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on transparency and due process.">
-<meta name="twitter:image" content="https://dtb396.github.io/barber-cam-preview/assets/img/og-image.png">
-<meta name="twitter:image:alt" content="Barber Cam - Citizen Accountability Through Record">
 
 <!-- Additional SEO Meta -->
 <meta name="format-detection" content="telephone=no">

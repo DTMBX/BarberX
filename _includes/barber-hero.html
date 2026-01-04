@@ -1,0 +1,116 @@
+{%- assign cta_label = include.cta_label | default: "Explore Now" -%}
+{%- assign cta_href = include.cta_href | default: "#preview" -%}
+{%- assign badge = include.badge | default: "Under Development" -%}
+
+{%- comment -%}
+Unique-ish suffix to avoid duplicate SVG ids if included more than once.
+{%- endcomment -%}
+{%- assign uid = include.uid | default: page.url | default: "home" -%}
+{%- assign uid = uid | slugify | replace: "-", "" | truncate: 12, "" -%}
+
+<section class="hero hero-wrapper" aria-labelledby="hero-heading">
+    <!-- Background stripes (pure CSS) -->
+    <div class="hero-bg" aria-hidden="true">
+        <div class="stripe stripe-1"></div>
+        <div class="stripe stripe-2"></div>
+        <div class="stripe stripe-3"></div>
+    </div>
+
+<div class="container">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Under Development</span>
+        </div>
+
+            <h1 class="hero-title" id="hero-heading">
+                <span class="title-line">Citizen</span>
+                <span class="title-line accent">Accountability</span>
+                <span class="title-line">Through Record</span>
+            </h1>
+
+            <p class="hero-lead">
+                Like a fresh fade — precision, patience, and the right tools make all the difference.
+                Barber Cam is citizen-led documentation built on dignity, restraint, and due process.
+            </p>
+
+            <div class="hero-values" aria-label="Core values">
+                <div class="value"><span class="value-icon" aria-hidden="true">◆</span><span
+                        class="value-text">Precision</span></div>
+                <div class="value"><span class="value-icon" aria-hidden="true">◆</span><span
+                        class="value-text">Patience</span></div>
+                <div class="value"><span class="value-icon" aria-hidden="true">◆</span><span
+                        class="value-text">Virtue</span></div>
+                <div class="value"><span class="value-icon" aria-hidden="true">◆</span><span
+                        class="value-text">Honor</span></div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="{{ cta_href }}" class="btn btn-primary btn-lg">
+                    <span>{{ cta_label }}</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"
+                        aria-hidden="true" focusable="false">
+                        <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </a>
+                <a href="#principles" class="btn btn-ghost btn-lg">Our Principles</a>
+            </div>
+        </div>
+
+        <!-- VISUAL -->
+        <div class="hero-visual" aria-hidden="true">
+            <div class="visual-frame">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+
+                <div class="visual-content">
+                    <div class="barber-pole-container">
+                        <picture>
+                            <source srcset="{{ '/assets/img/pole-fallback.png' | relative_url }}" type="image/png">
+                            <svg class="barber-pole-svg pole-spin" viewBox="0 0 80 200"
+                                preserveAspectRatio="xMidYMid meet" focusable="false">
+                                <defs>
+                                    <linearGradient id="poleGradient-{{ uid }}" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#fff" />
+                                        <stop offset="25%" stop-color="#c41e3a" />
+                                        <stop offset="50%" stop-color="#fff" />
+                                        <stop offset="75%" stop-color="#1e40af" />
+                                        <stop offset="100%" stop-color="#fff" />
+                                    </linearGradient>
+
+                                    <pattern id="spiralPattern-{{ uid }}" patternUnits="userSpaceOnUse" width="80"
+                                        height="200">
+                                        <rect width="80" height="200" fill="url(#poleGradient-{{ uid }})" />
+                                        <line x1="0" y1="0" x2="80" y2="200" stroke="#c41e3a" stroke-width="8"
+                                            opacity="0.8" />
+                                        <line x1="0" y1="40" x2="80" y2="240" stroke="#1e40af" stroke-width="8"
+                                            opacity="0.8" />
+                                    </pattern>
+                                </defs>
+
+                                <rect rx="20" ry="20" width="80" height="200" fill="#fff" />
+                                <rect class="pole-spin" rx="20" ry="20" width="80" height="200"
+                                    fill="url(#spiralPattern-{{ uid }})" />
+                                <rect rx="20" ry="20" width="80" height="200" fill="none" stroke="rgba(0,0,0,0.05)"
+                                    stroke-width="1" />
+                            </svg>
+                        </picture>
+                    </div>
+
+                    <div class="visual-text">
+                        <span class="est">EST. 2024</span>
+                        <span class="tagline">A CUT ABOVE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll indicator (mobile only; hide via CSS on desktop) -->
+    <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>

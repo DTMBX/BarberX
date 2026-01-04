@@ -1,0 +1,21 @@
+{
+  "notice": "Informational index only. No legal conclusions are stated.",
+  "cases": [
+    {
+      "id": "FF-2023-001",
+      "title": "Faith Frontier Ecclesiastical Trust v. [Redacted]",
+      "year": 2023,
+      "type": "Filing",
+      "format": "PDF",
+      "file": "2023-001-example.pdf"
+    },
+    {
+      "id": "FF-2024-002",
+      "title": "Recorded Trust Declaration",
+      "year": 2024,
+      "type": "Recorded Instrument",
+      "format": "PDF",
+      "file": "2024-002-example.pdf"
+    }
+  ]
+}

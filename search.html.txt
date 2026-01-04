@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Faith Frontier Cases — Search</title>
+  <meta name="description" content="Search filed and recorded case PDFs" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+    header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee; padding: 12px 16px; z-index: 5; }
+    .wrap { display: grid; grid-template-columns: 320px 1fr; gap: 16px; padding: 16px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 900px){ .wrap { grid-template-columns: 1fr; } }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 12px; background: #fff; }
+    input, select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; }
+    .row { display: grid; gap: 10px; margin-bottom: 10px; }
+    .chip { display: inline-block; padding: 4px 8px; border-radius: 999px; border: 1px solid #ddd; margin-right: 6px; margin-top: 6px; font-size: 12px; }
+    .result { padding: 12px; border-bottom: 1px solid #f0f0f0; }
+    .result:last-child{ border-bottom: none; }
+    .title { font-weight: 700; margin-bottom: 6px; }
+    .meta { color: #666; font-size: 13px; margin-bottom: 8px; }
+    .snippet { color: #222; font-size: 14px; line-height: 1.35; }
+    mark { padding: 0 2px; border-radius: 4px; }
+    .btn { display: inline-block; padding: 8px 10px; border: 1px solid #ddd; border-radius: 10px; text-decoration: none; color: inherit; font-size: 13px; }
+    .btn + .btn { margin-left: 8px; }
+    .muted { color: #666; }
+  </style>
+</head>
+
+<body>
+<header>
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:space-between;">
+    <div>
+      <div style="font-weight:800;">Faith Frontier Cases</div>
+      <div class="muted" style="font-size:13px;">Search PDFs • Link cases • Build timelines</div>
+    </div>
+    <a class="btn" href="https://faithfrontier.org/cases/" target="_blank" rel="noreferrer">Open Cases Directory</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="card">
+    <div class="row">
+      <label>
+        <div class="muted" style="margin-bottom:6px;">Search</div>
+        <input id="q" type="search" placeholder='Try: "3:22", "due process", "notice", "Brady", "hearing"' />
+      </label>
+
+      <label>
+        <div class="muted" style="margin-bottom:6px;">Case</div>
+        <select id="caseId"></select>
+      </label>
+
+      <label>
+        <div class="muted" style="margin-bottom:6px;">Document type</div>
+        <select id="docType"></select>
+      </label>
+
+      <label>
+        <div class="muted" style="margin-bottom:6px;">Tag</div>
+        <select id="tag"></select>
+      </label>
+
+      <button id="clear" class="btn" type="button" style="width:100%;">Clear</button>
+    </div>
+
+    <div class="muted" style="font-size:12px;line-height:1.35;">
+      <strong>Note:</strong> “Flags” are keyword-based (“Review Needed”). No claims of violation — just surfacing likely areas.
+    </div>
+  </aside>
+
+  <main class="card">
+    <div class="muted" id="status" style="margin-bottom:10px;">Loading index…</div>
+    <div id="results"></div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/minisearch@7.1.1/dist/umd/index.min.js"></script>
+<script type="module" src="./assets/js/search.js"></script>
+</body>
+</html>

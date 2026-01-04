@@ -1,10 +1,14 @@
 <article class="md">
+  <header class="md-header">
+    <h1 class="md-title">Barber-Cam Vision</h1>
+    <p class="md-lead">Barber Cam exists to preserve truth, reduce harm, and reinforce accountability through ethical record-keeping.</p>
+  </header>
 
-# Barber-Cam Vision
+  <section class="md-content">
 
 ## Our Mission
 
-Barber Cam exists to preserve truth, reduce harm, and reinforce accountability through ethical record-keeping. We are dedicated to educating and empowering citizens to understand and engage with constitutional principles, lawful governance, and community stewardship.
+We are dedicated to educating and empowering citizens to understand and engage with constitutional principles, lawful governance, and community stewardship.
 
 ## Core Philosophy
 
@@ -328,5 +332,9 @@ We will build tools with restraint. We will operate with accountability. We will
 ---
 
 *This vision document reflects Barber Cam's commitment to ethical, lawful, and transparent operation. It is a living document, subject to refinement as we learn from experience and community feedback.*
+  </section>
 
+  <footer class="md-footer">
+    <p class="md-meta">Last updated: <time datetime="2026-01-04">Jan 4, 2026</time></p>
+  </footer>
 </article>

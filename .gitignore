@@ -32,6 +32,9 @@ dist/
 *.p12
 *.pfx
 
+# Local operator / admin scripts (not part of preview)
+tools/ops/
+
 # OS
 .DS_Store
 Thumbs.db
