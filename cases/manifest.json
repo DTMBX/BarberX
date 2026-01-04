@@ -1,0 +1,12 @@
+{
+  "description": "Manifest of legal case documents available to the application. Each entry in the 'cases' array represents a single case and associated metadata required to locate its PDF.",
+  "integrationPlan": "Application code or external tooling should load this JSON file at runtime or build time, iterate over the 'cases' array, and for each entry: (1) resolve the [PDF_FILENAME] placeholder in the 'url' field to the actual PDF filename, (2) use 'id' as the primary identifier, (3) display 'title' in any user-facing lists, and (4) use 'tags' for filtering or categorization (e.g., by jurisdiction or court). Future integrations should treat this manifest as the single source of truth for available case documents and regenerate any derived indices or search metadata from it.",
+  "cases": [
+    {
+      "id": "atl-l-003252-25",
+      "title": "ATL-L-003252-25",
+      "url": "https://faithfrontier.org/cases/atl-l-003252-25/[PDF_FILENAME].pdf",
+      "tags": ["NJ", "Superior Court", "ATL"]
+    }
+  ]
+}
