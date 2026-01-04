@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512" height="512" viewBox="0 0 512 512" role="img">
+<title>Barber Cam Mark</title>
+
+  <rect width="100%" height="100%" fill="none"/>
+  
+  <defs>
+    <linearGradient id="mc_gBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#121E33"/>
+      <stop offset="100%" stop-color="#0B1320"/>
+    </linearGradient>
+  </defs>
+
+  <g id="mc_camera">
+    <rect x="96.00" y="151.00" width="320.00" height="210.00" rx="28.00" fill="url(#mc_gBody)"/>
+    <circle cx="256.00" cy="256.00" r="92.00" fill="none" stroke="#FFFFFF" stroke-width="14.00"/>
+    <circle cx="256.00" cy="256.00" r="72.00" fill="none" stroke="#FFFFFF" stroke-width="10.00"/>
+    <circle cx="256.00" cy="256.00" r="26.00" fill="#FFFFFF" opacity="0.96"/>
+    <circle cx="376.00" cy="204.00" r="12.00" fill="#D12A2A" opacity="1.0"/>
+    <g transform="translate(256.00,120.00)">
+      <rect x="-120.00" y="-18.00" width="240.00" height="22.00" rx="10.00" fill="#0B1320"/>
+      <rect x="-10.00" y="-10.00" width="20.00" height="70.00" rx="8.00" fill="#0B1320"/>
+      <circle cx="-88.00" cy="42.00" r="26.00" fill="none" stroke="#0B1320" stroke-width="10.00"/>
+      <circle cx="88.00" cy="42.00" r="26.00" fill="none" stroke="#0B1320" stroke-width="10.00"/>
+    </g>
+  </g>
+
+
+</svg>

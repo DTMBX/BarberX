@@ -1483,3 +1483,292 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg);
   }
 }
+/* ------------------------------------------------------------------
+   COMPONENT: Barber‑Cam Hero (badge‑hero)
+   ------------------------------------------------------------------ */
+
+/* ---------- Custom properties (add to your existing :root) ---------- */
+:root {
+  /* Core Colors – keep if not already defined */
+  --ink: #0a0a0f;
+  --ink-light: #1a1a2e;
+  --muted: #6b7280;
+  --bg: #fafafa;
+  --alt: #f0f0f5;
+  --card: #ffffff;
+
+  /* Barber‑Pole accents */
+  --accent: #c41e3a;
+  --accent-hover: #a01830;
+  --accent-blue: #1e40af;
+  --accent-gold: #d4a574;
+
+  /* Gradient presets */
+  --gradient-warm: linear-gradient(135deg, #c41e3a 0%, #ff6b6b 100%);
+  --gradient-cool: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  --gradient-gold: linear-gradient(135deg, #d4a574 0%, #f0d9b5 100%);
+  --gradient-dark: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, .08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, .12);
+  --shadow-glow: 0 0 40px rgba(196, 30, 58, .15);
+
+  /* Radii, spacing, transitions – keep if you already have equivalents */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: .3s var(--ease-smooth);
+}
+
+/* ------------------- Hero component ------------------- */
+.barbershop-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--bg) 0%, #f9f9fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container that holds badge + copy */
+.badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ----- Badge ----- */
+.barbershop-badge {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.badge-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-white);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--duration-base) var(--easing-smooth),
+    transform var(--duration-base) var(--easing-smooth);
+}
+
+.barbershop-hero:hover .badge-bg {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+@media (hover:none) {
+  .barbershop-hero:hover .badge-bg {
+    transform: none;
+  }
+}
+
+/* Spinning pole */
+.barber-pole {
+  width: 100px;
+  height: 140px;
+  animation: spinPole 6s linear infinite;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .barber-pole {
+    animation: none;
+    opacity: .8;
+  }
+}
+
+@keyframes spinPole {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Text overlay on badge */
+.badge-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: var(--spacing-md);
+  z-index: 1;
+}
+
+.badge-year {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: var(--accent-gold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.badge-tagline {
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 90px;
+  line-height: 1.2;
+}
+
+/* ----- Hero copy ----- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.hero-heading {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  max-width: 90vw;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-base) var(--easing-smooth);
+  box-shadow: var(--shadow-sm);
+  outline-offset: 2px;
+}
+
+.hero-cta:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.hero-cta:active {
+  transform: translateY(0);
+}
+
+.hero-cta:focus {
+  outline: 2px solid var(--accent);
+}
+
+@media (hover:none) {
+  .hero-cta:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Responsive (mobile‑first) ---------- */
+@media (max-width:480px) {
+  .barbershop-hero {
+    min-height: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .barbershop-badge {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-heading {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: .9rem;
+  }
+}
+
+@media (min-width:768px) {
+  .badge-container {
+    gap: var(--spacing-2xl);
+  }
+
+  .barbershop-badge {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width:1024px) {
+  .barbershop-hero {
+    padding: var(--spacing-2xl);
+  }
+
+  .barbershop-badge {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+/* ---------- Dark‑mode overrides (only the hero) ---------- */
+@media (prefers-color-scheme:dark) {
+  .barbershop-hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #141418 100%);
+  }
+
+  .badge-bg {
+    background: var(--color-gray-dark);
+    border-color: var(--accent-gold);
+  }
+
+  .hero-cta {
+    background: var(--accent);
+  }
+
+  .hero-cta:hover {
+    background: var(--accent-hover);
+  }
+}
+@media (min-width: 900px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pole-spin {
+    animation: none !important;
+  }
+}

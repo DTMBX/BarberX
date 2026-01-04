@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1600" height="420" viewBox="0 0 1600 420" role="img">
+<title>Barber Cam Header Lockup</title>
+
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  
+  <defs>
+    <linearGradient id="h_gBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#121E33"/>
+      <stop offset="100%" stop-color="#0B1320"/>
+    </linearGradient>
+  </defs>
+
+  <g id="h_camera">
+    <rect x="64.00" y="94.50" width="352.00" height="231.00" rx="30.80" fill="url(#h_gBody)"/>
+    <circle cx="240.00" cy="210.00" r="101.20" fill="none" stroke="#FFFFFF" stroke-width="15.40"/>
+    <circle cx="240.00" cy="210.00" r="79.20" fill="none" stroke="#FFFFFF" stroke-width="11.00"/>
+    <circle cx="240.00" cy="210.00" r="28.60" fill="#FFFFFF" opacity="0.96"/>
+    <circle cx="372.00" cy="152.80" r="13.20" fill="#D12A2A" opacity="1.0"/>
+    <g transform="translate(240.00,60.40)">
+      <rect x="-132.00" y="-19.80" width="264.00" height="24.20" rx="11.00" fill="#0B1320"/>
+      <rect x="-11.00" y="-11.00" width="22.00" height="77.00" rx="8.80" fill="#0B1320"/>
+      <circle cx="-96.80" cy="46.20" r="28.60" fill="none" stroke="#0B1320" stroke-width="11.00"/>
+      <circle cx="96.80" cy="46.20" r="28.60" fill="none" stroke="#0B1320" stroke-width="11.00"/>
+    </g>
+  </g>
+
+  <text x="420" y="190.0" font-family="Montserrat, Arial, sans-serif" font-weight="800"
+        font-size="96.00" letter-spacing="4" fill="#0B1320">BARBER CAM</text>
+  <text x="420" y="274.0" font-family="Montserrat, Arial, sans-serif" font-weight="600"
+        font-size="34.00" letter-spacing="2" fill="#0B1320" opacity="0.9">Record clean. Store safe. Share fair.</text>
+
+</svg>

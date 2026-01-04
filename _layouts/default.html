@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <title>{{ page.title | default: site.title }}</title>
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+    <!-- Optional: favicon, Open Graph tags, etc. -->
+</head>
+
+<body>
+
+    <!-- Header / Nav could go here -->
+
+    {{ content }}
+
+    <!-- Footer could go here -->
+
+    <!-- Optional global script (only if you need it) -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+
+</html>

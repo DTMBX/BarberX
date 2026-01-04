@@ -1,0 +1,56 @@
+const INDEX_URL = "./cases/index.json"; // same as search.js
+
+const params = new URLSearchParams(location.search);
+const caseId = params.get("caseId");
+
+const titleEl = document.getElementById("title");
+const metaEl = document.getElementById("meta");
+const chipsEl = document.getElementById("chips");
+const docsEl = document.getElementById("docs");
+
+function escapeHtml(str) {
+  return (str || "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));
+}
+
+async function init() {
+  if (!caseId) {
+    titleEl.textContent = "Missing caseId";
+    metaEl.textContent = "Open a case from search results.";
+    return;
+  }
+
+  const res = await fetch(INDEX_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load index: ${res.status}`);
+  const data = await res.json();
+  const docs = (data.docs || []).filter(d => d.caseId === caseId);
+
+  titleEl.textContent = `Case: ${caseId}`;
+  metaEl.textContent = `${docs.length} document(s)`;
+
+  // tags summary
+  const tagCounts = new Map();
+  for (const d of docs) for (const t of (d.tags || [])) tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
+  const topTags = [...tagCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0, 12);
+
+  chipsEl.innerHTML = topTags.map(([t,c]) => `<span class="chip">${escapeHtml(t)} (${c})</span>`).join("");
+
+  // timeline sort
+  docs.sort((a,b) => (a.date || "").localeCompare(b.date || ""));
+
+  docsEl.innerHTML = docs.map(d => `
+    <div class="doc">
+      <div style="font-weight:700;">${escapeHtml(d.docTitle || d.docId || d.url)}</div>
+      <div class="muted" style="margin-top:4px;">
+        ${d.date ? `Date: ${escapeHtml(d.date)} • ` : ""}${d.docType ? `Type: ${escapeHtml(d.docType)}` : ""}
+      </div>
+      <div style="margin-top:8px;">
+        <a class="btn" href="${escapeHtml(d.url)}" target="_blank" rel="noreferrer">Open PDF</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+init().catch((e) => {
+  titleEl.textContent = "Error";
+  metaEl.textContent = e.message;
+});

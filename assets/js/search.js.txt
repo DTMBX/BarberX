@@ -1,0 +1,200 @@
+// CONFIG: where to load the search data from
+// Option A (recommended): keep manifest/index IN THIS REPO under /cases/
+// Option B: point to https://faithfrontier.org/cases/index.json once you generate it there.
+const INDEX_URL = "./cases/index.json"; // change if you host index.json elsewhere
+
+const $ = (id) => document.getElementById(id);
+const qEl = $("q");
+const caseEl = $("caseId");
+const typeEl = $("docType");
+const tagEl = $("tag");
+const resultsEl = $("results");
+const statusEl = $("status");
+const clearEl = $("clear");
+
+let mini;
+let docs = [];
+let allTags = new Set();
+let allCases = new Set();
+let allTypes = new Set();
+
+function normalize(s) {
+  return (s || "").toString().trim();
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));
+}
+
+function highlight(snippet, query) {
+  const s = escapeHtml(snippet || "");
+  const terms = normalize(query).split(/\s+/).filter(Boolean).slice(0, 8);
+  if (!terms.length) return s;
+  const re = new RegExp(`(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "ig");
+  return s.replace(re, "<mark>$1</mark>");
+}
+
+function buildFilters() {
+  // Populate selects with "All"
+  const mkOptions = (values, allLabel) => {
+    const opts = [`<option value="">${allLabel}</option>`];
+    for (const v of [...values].sort()) opts.push(`<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`);
+    return opts.join("");
+  };
+
+  caseEl.innerHTML = mkOptions(allCases, "All cases");
+  typeEl.innerHTML = mkOptions(allTypes, "All document types");
+  tagEl.innerHTML  = mkOptions(allTags, "All tags");
+}
+
+function applyKeywordFlags(text) {
+  const t = (text || "").toLowerCase();
+  const flags = [];
+  const add = (name, patterns) => { if (patterns.some(p => t.includes(p))) flags.push(name); };
+
+  add("Review Needed: Notice/Service", ["notice", "served", "service", "mail", "certified"]);
+  add("Review Needed: Hearing/Oral Argument", ["hearing", "oral argument", "argument", "adjourn", "calendar"]);
+  add("Review Needed: Discovery/Brady", ["discovery", "brady", "giglio", "exculp", "suppression"]);
+  add("Review Needed: Findings/Reasons", ["no findings", "without findings", "without explanation", "no reasons", "summary denial"]);
+  add("Review Needed: Rule 3:22 / PCR", ["3:22", "pcr", "post-conviction"]);
+
+  return flags;
+}
+
+function render(results, query) {
+  if (!results.length) {
+    resultsEl.innerHTML = `<div class="muted">No matches.</div>`;
+    return;
+  }
+
+  const rows = results.slice(0, 100).map((r) => {
+    const d = docsById.get(r.id);
+    const snippet = d.snippet || d.text || d.docTitle || d.caseTitle || "";
+    const flags = applyKeywordFlags((d.text || "") + " " + (d.docTitle || "") + " " + (d.tags || []).join(" "));
+    const chips = [
+      ...(d.tags || []).slice(0, 8).map(t => `<span class="chip">${escapeHtml(t)}</span>`),
+      ...flags.slice(0, 3).map(f => `<span class="chip">${escapeHtml(f)}</span>`)
+    ].join("");
+
+    const caseLink = `./case.html?caseId=${encodeURIComponent(d.caseId)}`;
+    return `
+      <div class="result">
+        <div class="title">${escapeHtml(d.docTitle || d.docId || d.url)}</div>
+        <div class="meta">
+          <strong>Case:</strong> ${escapeHtml(d.caseId)} ${d.date ? `• <strong>Date:</strong> ${escapeHtml(d.date)}` : ""} ${d.docType ? `• <strong>Type:</strong> ${escapeHtml(d.docType)}` : ""}
+        </div>
+        <div class="snippet">${highlight(snippet, query)}</div>
+        <div style="margin-top:8px;">${chips}</div>
+        <div style="margin-top:10px;">
+          <a class="btn" href="${caseLink}">Open case</a>
+          <a class="btn" href="${escapeHtml(d.url)}" target="_blank" rel="noreferrer">Open PDF</a>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  resultsEl.innerHTML = rows;
+}
+
+function filteredDocs() {
+  const caseId = normalize(caseEl.value);
+  const docType = normalize(typeEl.value);
+  const tag = normalize(tagEl.value);
+
+  return docs.filter(d => {
+    if (caseId && d.caseId !== caseId) return false;
+    if (docType && d.docType !== docType) return false;
+    if (tag && !(d.tags || []).includes(tag)) return false;
+    return true;
+  });
+}
+
+function searchNow() {
+  const query = normalize(qEl.value);
+  const subset = filteredDocs();
+
+  // Rebuild MiniSearch index on-the-fly for the filtered subset (fast enough for thousands)
+  mini.removeAll();
+  mini.addAll(subset);
+
+  const results = query
+    ? mini.search(query, { prefix: true, fuzzy: 0.2 })
+    : subset.slice(0, 100).map(d => ({ id: d._id, score: 1 }));
+
+  statusEl.textContent = query
+    ? `Results: ${Math.min(results.length, 100)} shown (query: "${query}")`
+    : `Showing ${Math.min(subset.length, 100)} documents (no query)`;
+
+  render(results, query);
+}
+
+const docsById = new Map();
+
+async function init() {
+  const res = await fetch(INDEX_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load index: ${res.status}`);
+  const data = await res.json();
+
+  docs = data.docs || [];
+
+  // Normalize / enrich
+  docs = docs.map((d, i) => {
+    const dd = { ...d };
+    dd.caseId = normalize(dd.caseId);
+    dd.docType = normalize(dd.docType);
+    dd.docTitle = normalize(dd.docTitle);
+    dd.docId = normalize(dd.docId) || `doc-${i}`;
+    dd.tags = Array.isArray(dd.tags) ? dd.tags.map(normalize).filter(Boolean) : [];
+    dd.text = normalize(dd.text);
+    dd.snippet = normalize(dd.snippet);
+
+    // MiniSearch requires a stable id field
+    dd._id = `${dd.caseId}::${dd.docId}::${i}`;
+    docsById.set(dd._id, dd);
+
+    allCases.add(dd.caseId);
+    if (dd.docType) allTypes.add(dd.docType);
+    for (const t of dd.tags) allTags.add(t);
+
+    return dd;
+  });
+
+  buildFilters();
+
+  mini = new MiniSearch({
+    fields: ["docTitle", "caseId", "docType", "tags", "text"],
+    storeFields: ["_id"],
+    idField: "_id"
+  });
+
+  mini.addAll(docs);
+
+  // Default UI
+  statusEl.textContent = `Loaded ${docs.length} documents.`;
+  searchNow();
+
+  // Events
+  qEl.addEventListener("input", debounce(searchNow, 120));
+  caseEl.addEventListener("change", searchNow);
+  typeEl.addEventListener("change", searchNow);
+  tagEl.addEventListener("change", searchNow);
+
+  clearEl.addEventListener("click", () => {
+    qEl.value = "";
+    caseEl.value = "";
+    typeEl.value = "";
+    tagEl.value = "";
+    searchNow();
+    qEl.focus();
+  });
+}
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+init().catch((e) => {
+  statusEl.textContent = `Error: ${e.message}`;
+  resultsEl.innerHTML = `<div class="muted">Check that ${INDEX_URL} exists and is readable from Pages.</div>`;
+});

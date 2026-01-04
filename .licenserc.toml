@@ -1,6 +1,24 @@
 # HawkEye license header checker config (v6)
 
 baseDir = "."
+<<<<<<< HEAD
+
+# Prefer inlineHeader OR headerPath (inlineHeader wins)
+inlineHeader = """\
+Copyright © 2024–2026 Faith Frontier. All rights reserved.
+baseDir = "."
+strictCheck = true
+useDefaultExcludes = true
+useDefaultMapping = true
+
+inlineHeader = """\
+Copyright © 2024–2026 BARBER CAM, Faith Frontier Ecclesiastical Trust. All rights reserved. 
+PROPRIETARY — See LICENSE.\
+"""
+
+# Strict match (your “SOLO STRICT”)
+=======
+>>>>>>> origin/main
 strictCheck = true
 useDefaultExcludes = true
 useDefaultMapping = true
@@ -41,6 +59,9 @@ excludes = [
   "**/.git/**"
 ]
 
+<<<<<<< HEAD
+mapping = { py="#", js="//", ts="//", tsx="//", jsx="//", go="//", rs="//", java="//", kt="//", c="/*", h="/*", cpp="/*", hpp="/*", sh="#", yaml="#", yml="#" }
+=======
 # Optional but nice: what HawkEye looks for
 keywords = ["copyright", "proprietary"]
 
@@ -67,3 +88,4 @@ c    = { blockComment = ["/*", "*/"] }
 h    = { blockComment = ["/*", "*/"] }
 cpp  = { blockComment = ["/*", "*/"] }
 hpp  = { blockComment = ["/*", "*/"] }
+>>>>>>> origin/main

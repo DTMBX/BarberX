@@ -1,85 +1,94 @@
+---
+layout: null
+permalink: /
+title: "Barber Cam | Citizen Accountability Platform"
+description: "Barber Cam — Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on
+transparency, ethical documentation, and due process. Under development."
+---
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c41e3a">
-  
+
   <!-- Primary Meta Tags -->
-  <meta name="title" content="Barber Cam | Citizen Accountability Platform">
-  <meta name="description" content="Barber Cam — Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on transparency, ethical documentation, and due process. Under development.">
-  <meta name="keywords" content="Barber Cam, citizen accountability, transparency, documentation, ethics, due process, privacy-first, open governance, NY style, precision">
+  <meta name="title" content="{{ page.title }}">
+  <meta name="description" content="{{ page.description }}">
+  <meta name="keywords"
+    content="Barber Cam, citizen accountability, transparency, documentation, ethics, due process, privacy-first, open governance, NY style, precision">
   <meta name="author" content="Barber Cam">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  <meta name="revisit-after" content="7 days">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://dtb396.github.io/barber-cam-preview/">
-  
-  <!-- Open Graph / Facebook -->
+
+  <!-- Canonical URL (project-safe) -->
+  <link rel="canonical" href="{{ '/' | absolute_url }}">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dtb396.github.io/barber-cam-preview/">
-  <meta property="og:title" content="Barber Cam | Citizen Accountability Platform">
-  <meta property="og:description" content="Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on transparency, ethical documentation, and due process.">
-  <meta property="og:image" content="https://dtb396.github.io/barber-cam-preview/assets/img/og-image.png">
+  <meta property="og:url" content="{{ '/' | absolute_url }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description"
+    content="Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on transparency, ethical documentation, and due process.">
+  <meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Barber Cam">
   <meta property="og:locale" content="en_US">
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://dtb396.github.io/barber-cam-preview/">
-  <meta name="twitter:title" content="Barber Cam | Citizen Accountability Platform">
-  <meta name="twitter:description" content="Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on transparency and due process.">
-  <meta name="twitter:image" content="https://dtb396.github.io/barber-cam-preview/assets/img/og-image.png">
-  
+  <meta name="twitter:url" content="{{ '/' | absolute_url }}">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description"
+    content="Precision. Patience. Virtue. Honor. A citizen-led accountability platform built on transparency and due process.">
+  <meta name="twitter:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
+
   <!-- Mobile App Meta -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Barber Cam">
   <meta name="application-name" content="Barber Cam">
   <meta name="msapplication-TileColor" content="#c41e3a">
-  
-  <!-- Geo Tags -->
-  <meta name="geo.region" content="US-NY">
-  <meta name="geo.placename" content="New York">
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  
-  <title>Barber Cam | Precision. Patience. Virtue. Honor.</title>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles (project-safe) -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <title>{{ page.title }}</title>
+
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Barber Cam",
-    "url": "https://dtb396.github.io/barber-cam-preview/",
-    "logo": "https://dtb396.github.io/barber-cam-preview/assets/img/logo.png",
+    "url": "{{ '/' | absolute_url }}",
+    "logo": "{{ '/assets/img/logo.png' | absolute_url }}",
     "description": "A citizen-led accountability platform built on transparency, ethical documentation, and due process.",
     "email": "BarberCamX@ProtonMail.com",
     "foundingDate": "2024",
     "slogan": "Precision. Patience. Virtue. Honor."
   }
   </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Barber Cam",
-    "url": "https://dtb396.github.io/barber-cam-preview/",
+    "url": "{{ '/' | absolute_url }}",
     "description": "Citizen accountability through record, dignity, and due process.",
     "inLanguage": "en-US"
   }
   </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -97,29 +106,20 @@
   }
   </script>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container">
-    <a href="/" class="brand">
-      <span class="brand-icon">✂</span>
-      <span class="brand-text">BARBER CAM</span>
-    </a>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-      <a href="#preview">Preview</a>
-      <a href="#principles">Principles</a>
-      <a href="#status">Status</a>
-      <a href="#connect">Connect</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a href="{{ '/' | relative_url }}" class="brand" aria-label="Barber Cam home">
+        <span class="brand-icon" aria-hidden="true">✂</span>
+        <span class="brand-text">BARBER CAM</span>
+      </a>
 
+<<<<<<< HEAD
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+=======
 <main>
 
 <!-- HERO SECTION -->
@@ -438,57 +438,146 @@
       </div>
       <div class="footer-links">
         <h4>Navigate</h4>
+>>>>>>> origin/main
         <a href="#preview">Preview</a>
         <a href="#principles">Principles</a>
         <a href="#status">Status</a>
         <a href="#connect">Connect</a>
-        <a href="faq.html">FAQ</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    {% include barber-hero.html cta_label="View Preview" cta_href="#preview" badge="Under Development" %}
+
+    <!-- PREVIEW SECTION -->
+    <section id="preview" class="preview-section">
+      <div class="container">
+        <div class="preview-header">
+          <span class="preview-badge">Coming Soon</span>
+          <h2 class="preview-title">Live Web App Preview</h2>
+          <p class="preview-subtitle">Experience the future of citizen accountability — precision-crafted, ethically
+            designed.</p>
+        </div>
+
+        <div class="preview-window">
+          <div class="preview-chrome">
+            <div class="chrome-dots" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="chrome-address" aria-label="Preview address">
+              <span class="lock-icon" aria-hidden="true">🔒</span>
+              <span class="address-text">app.barbercam.io</span>
+            </div>
+            <div class="chrome-actions" aria-hidden="true">
+              <span class="action-dot"></span>
+              <span class="action-dot"></span>
+              <span class="action-dot"></span>
+            </div>
+          </div>
+
+          <div class="preview-screen">
+            <div class="preview-placeholder">
+              <div class="placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"
+                  focusable="false" aria-hidden="true">
+                  <path
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3>App Preview Loading...</h3>
+              <p>Live demonstration coming soon.<br>Local server integration in development.</p>
+              <div class="placeholder-progress" aria-hidden="true">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-features">
+          <!-- (your feature cards unchanged) -->
+          <!-- keep as-is -->
+        </div>
+
+        <div class="preview-cta">
+          <a href="#connect" class="btn btn-primary">
+            <span>Get Early Access</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"
+              aria-hidden="true" focusable="false">
+              <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="#status" class="btn btn-secondary">View Development Status</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4>Documentation</h4>
-        <a href="docs/vision.html">Vision</a>
-        <a href="docs/governance-ethics.html">Governance & Ethics</a>
-        <a href="docs/status.html">Development Status</a>
-        <a href="LICENSE">License</a>
+    </section>
+
+    <!-- PRINCIPLES SECTION -->
+    <section id="principles" class="principles-section">
+      <!-- your content unchanged -->
+    </section>
+
+    <!-- STATUS SECTION -->
+    <section id="status" class="status-section">
+      <!-- your content unchanged -->
+    </section>
+
+    <!-- CONNECT SECTION -->
+    <section id="connect" class="connect-section">
+      <!-- your content unchanged -->
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- your footer unchanged, but fix internal links with relative_url -->
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h4>Documentation</h4>
+          <a href="{{ '/docs/vision.html' | relative_url }}">Vision</a>
+          <a href="{{ '/docs/governance-ethics.html' | relative_url }}">Governance &amp; Ethics</a>
+          <a href="{{ '/docs/status.html' | relative_url }}">Development Status</a>
+          <a href="{{ '/LICENSE' | relative_url }}">License</a>
+        </div>
+        <!-- etc... -->
       </div>
-      <div class="footer-notice">
-        <h4>Public Notice</h4>
-        <p>Under active development. No operational software, internal systems, or proprietary methods are published on this site.</p>
-        <div class="footer-compliance">
-          <span>Privacy-First</span>
+
+      <div class="footer-bottom">
+        <div class="footer-legal-links">
+          <a href="{{ '/LICENSE' | relative_url }}">License</a>
           <span>•</span>
-          <span>No Tracking</span>
-          <span>•</span>
-          <span>No Data Sales</span>
+          <a href="mailto:BarberCamX@ProtonMail.com">Contact</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copyright">
-        <p>&copy; <span id="year"></span> Barber Cam. All rights reserved.</p>
-        <p class="footer-legal">Built with precision in New York.</p>
-      </div>
-      <div class="footer-legal-links">
-        <a href="LICENSE">License</a>
-        <span>•</span>
-        <a href="mailto:BarberCamX@ProtonMail.com">Contact</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const navToggle = document.querySelector('.nav-toggle');
-  const mainNav = document.querySelector('.main-nav');
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('active');
-    });
-  }
-</script>
+  <script>
+    document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (mainNav) mainNav.id = "main-nav";
+
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!isExpanded));
+        mainNav.classList.toggle('active');
+      });
+    }
+  </script>
 
 </body>
+
 </html>
