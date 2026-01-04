@@ -1,16 +1,14 @@
-# HawkEye license header checker config
+﻿baseDir = "."
+strictCheck = true
+useDefaultExcludes = true
+useDefaultMapping = true
 
-[header]
-# Minimal header — short, consistent, enforceable.
-# (This is NOT the full license; full terms live in LICENSE.)
-text = """\
-Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+inlineHeader = """\
+Copyright © 2024–2026 BARBER CAM, Faith Frontier Ecclesiastical Trust. All rights reserved. 
 PROPRIETARY — See LICENSE.\
 """
 
-[files]
-# File globs to check
-include = [
+includes = [
   "**/*.py",
   "**/*.js",
   "**/*.ts",
@@ -29,7 +27,7 @@ include = [
   "**/*.yml"
 ]
 
-exclude = [
+excludes = [
   "**/node_modules/**",
   "**/.venv/**",
   "**/venv/**",
@@ -38,21 +36,4 @@ exclude = [
   "**/.git/**"
 ]
 
-[comment]
-# Comment styles by extension
-py = "#"
-js = "//"
-ts = "//"
-tsx = "//"
-jsx = "//"
-go = "//"
-rs = "//"
-java = "//"
-kt = "//"
-c = "/*"
-h = "/*"
-cpp = "/*"
-hpp = "/*"
-sh = "#"
-yaml = "#"
-yml = "#"
+mapping = { py="#", js="//", ts="//", tsx="//", jsx="//", go="//", rs="//", java="//", kt="//", c="/*", h="/*", cpp="/*", hpp="/*", sh="#", yaml="#", yml="#" }
