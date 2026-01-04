@@ -1,24 +1,44 @@
-# Barber Cam — Preview
+# Barber Cam® (Preview)
 
-This repository contains a **public preview landing page** for the Barber Cam project.
+**Record clean. Store safe. Share fair.**
 
-## What This Is
-- A front-facing informational site
-- Project vision, principles, and development status
-- A point of contact for early interest
+This is the *public preview* repository for Barber Cam. It exists to communicate direction,
+safeguards, and design intent — not to grant reuse rights.
 
-## What This Is Not
-- Operational software
-- Source code for core systems
-- Deployment scripts or internal tooling
+## License / Permissions (Read This First)
+
+This repository is **PROPRIETARY — ALL RIGHTS RESERVED**.
+
+You may **view** this repository in read-only form via GitHub’s web interface for evaluation and discussion.
+You may **NOT** clone, fork, download, copy, modify, distribute, deploy, or otherwise use any portion of the code,
+documentation, assets, pipelines, or build processes.
+
+See: **LICENSE** and **NOTICE**.
+
+Licensing / collaboration: **BarberCamX@ProtonMail.com**
+
+## What Barber Cam Is
+
+Barber Cam is a resident-first capture + evidence management concept focused on:
+- lawful documentation
+- privacy-by-default storage
+- controlled sharing (attorney/court-ready exports)
+- tamper-evidence and chain-of-custody principles
+
+## Safety & Non-Interference
+
+Barber Cam is not an “auditing” or confrontation tool.
+Users should avoid interference, keep distance, and prioritize de-escalation.
+
+## Security
+
+Please report vulnerabilities responsibly. See: **SECURITY.md**
+
+## Trademarks
+
+“Barber Cam” and related branding are proprietary. See: **TRADEMARKS.md**
 
 ## Status
-Barber Cam is in active development.  
-This repository exists solely for public communication and transparency.
 
-## License
-All rights reserved.  
-This repository is published for informational purposes only.  
-No license is granted for use, modification, or redistribution.
-- Governance & Ethics: docs/governance-ethics.md
-- FAQ: FAQ.md
+This repo is a preview. Production systems (if/when released) will be governed by stronger operational
+controls (private repos, release signing, access logs, and formal licensing).
