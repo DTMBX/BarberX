@@ -137,16 +137,26 @@ function sanitizeUrl(url) {
   const trimmed = url.trim();
   if (!trimmed) return "#";
   
-  // Allow relative URLs (starting with / or ./ or ../)
-  if (trimmed.startsWith("/") || trimmed.startsWith("./") || trimmed.startsWith("../")) {
-    return trimmed;
+  // Reject protocol-relative URLs (//evil.com) and backslash paths (/\evil.com)
+  if (trimmed.startsWith("//") || trimmed.includes("\\")) {
+    return "#";
   }
   
-  // Only allow http: and https: protocols
+  // Try to parse the URL
   try {
+    // For relative URLs, use window.location.href as base
     const parsed = new URL(trimmed, window.location.href);
+    
+    // Only allow http: and https: protocols
     if (parsed.protocol === "http:" || parsed.protocol === "https:") {
-      return trimmed;
+      // For absolute URLs, verify they start with http:// or https://
+      if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+        return trimmed;
+      }
+      // For relative URLs, return as-is (they were parsed successfully with base)
+      if (trimmed.startsWith("/") || trimmed.startsWith("./") || trimmed.startsWith("../")) {
+        return trimmed;
+      }
     }
   } catch (e) {
     // Invalid URL format
