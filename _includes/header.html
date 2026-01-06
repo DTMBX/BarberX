@@ -1,46 +1,23 @@
-<header class="site-header" id="siteHeader">
+<header id="siteHeader" class="site-header" role="banner">
   <div class="container header-inner">
-    <!-- Left: placeholder for balance (keeps brand centered) -->
-    <div class="header-slot header-left" aria-hidden="true"></div>
-
-    <!-- Center: Brand -->
-    <a class="brand" href="{{ "/" | relative_url }}" aria-label="Barber Cam Home">
-      <picture class="brand-picture">
-        <source
-          media="(prefers-color-scheme: dark)"
-          srcset="{{ "/assets/img/logo/barbercam-header-lockup.dark.svg" | relative_url }}"
-        >
-        <img
-          class="brand-logo"
-          src="{{ "/assets/img/logo/barbercam-header-lockup.light.svg" | relative_url }}"
-          alt="Barber Cam"
-          width="320"
-          height="84"
-          loading="eager"
-          decoding="async"
-        >
-      </picture>
+    <a class="brand" href="{{ "/" | relative_url }}" aria-label="Barber Cam home">
+      <img class="brand-logo" src="{{ "/assets/img/logo/barbercam-header-lockup.svg" | relative_url }}" alt="Barber Cam" />
     </a>
 
-    <!-- Right: Actions -->
-    <div class="header-slot header-right">
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-controls="mainNav"
-        aria-expanded="false"
-        data-nav-toggle
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
+    <button class="nav-toggle" type="button"
+      aria-expanded="false"
+      aria-controls="primaryNav"
+      aria-label="Open menu"
+      data-nav-toggle>
+      <span></span><span></span><span></span>
+    </button>
 
-  <nav class="main-nav" id="mainNav" aria-label="Primary navigation" data-nav>
-    <a href="#preview">Preview</a>
-    <a href="#principles">Principles</a>
-    <a href="#status">Status</a>
-    <a href="#connect">Connect</a>
-  </nav>
+    <nav id="primaryNav" class="main-nav" aria-label="Primary" data-nav>
+      <!-- keep your links -->
+      <a href="#preview">Preview</a>
+      <a href="#principles">Principles</a>
+      <a href="#status">Status</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </div>
 </header>
