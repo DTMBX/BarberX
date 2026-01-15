@@ -55,62 +55,62 @@
 
 /* Button variants */
 .btn-main,
-.btn-primary {
+.btn--primary {
   background: linear-gradient(135deg, var(--ff-primary) 0%, #0d6860 100%);
   color: var(--ff-highlight);
   box-shadow: 0 4px 12px rgb(15 118 110 / 30%);
 }
 
 .btn-main:hover,
-.btn-primary:hover {
+.btn--primary:hover {
   box-shadow: 0 8px 20px rgb(15 118 110 / 40%);
 }
 
 .btn-ghost,
-.btn-ghost {
+.btn--ghost {
   background: transparent;
   border-color: var(--ff-secondary);
   color: var(--ff-secondary);
 }
 
 .btn-ghost:hover,
-.btn-ghost:hover {
+.btn--ghost:hover {
   background: rgb(212 165 116 / 10%);
   border-color: var(--ff-secondary);
 }
 
-.btn-secondary {
+.btn--secondary {
   background: linear-gradient(90deg, var(--ff-secondary), var(--ff-highlight));
   color: var(--ink-900);
   border: none;
   box-shadow: 0 2px 12px rgb(212 165 116 / 12%);
 }
 
-.btn-secondary:hover {
+.btn--secondary:hover {
   background: linear-gradient(90deg, var(--ff-highlight), var(--ff-secondary));
   box-shadow: 0 4px 18px rgb(212 165 116 / 18%);
 }
 
-.btn-outline {
+.btn--outline {
   background: transparent;
   border-color: currentcolor;
   color: var(--ff-text);
 }
 
-.btn-outline:hover {
+.btn--outline:hover {
   background: var(--ff-surface-alt);
   border-color: var(--ff-primary);
   color: var(--ff-primary);
 }
 
 /* Button sizes */
-.btn-sm {
+.btn--sm {
   padding: 0.5rem 1rem;
   font-size: var(--text-sm);
   min-width: 100px;
 }
 
-.btn-lg {
+.btn--lg {
   padding: 1rem 2rem;
   font-size: var(--text-lg);
   min-width: 180px;
@@ -143,31 +143,31 @@
   background: rgb(0 0 0 / 3%);
 }
 
-.badge-primary {
+.badge--primary {
   background: var(--ff-primary);
   color: var(--text-on-emerald);
   border-color: var(--ff-primary);
 }
 
-.badge-secondary {
+.badge--secondary {
   background: var(--ff-secondary);
   color: var(--text-on-brass);
   border-color: var(--ff-secondary);
 }
 
-.badge-success {
+.badge--success {
   background: var(--emerald-400);
   color: var(--text-on-emerald);
   border-color: var(--emerald-400);
 }
 
-.badge-warning {
+.badge--warning {
   background: var(--brass-700);
   color: var(--text-on-brass);
   border-color: var(--brass-700);
 }
 
-.badge-muted {
+.badge--muted {
   background: var(--ff-surface-alt);
   color: var(--adaptive-text-muted);
   border-color: var(--adaptive-border);
@@ -191,11 +191,11 @@
   text-decoration-thickness: 2px;
 }
 
-.link-secondary {
+.link--secondary {
   color: var(--ff-secondary);
 }
 
-.link-secondary:hover {
+.link--secondary:hover {
   color: var(--brass-700);
 }
 

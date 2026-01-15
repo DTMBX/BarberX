@@ -133,7 +133,7 @@
 
 /* Hero (home / page hero) */
 
-.hero-home {
+.hero--home {
   padding: var(--space-3xl, 4rem) 1.25rem var(--space-2xl, 3rem);
   min-height: 70vh;
   display: flex;
@@ -144,7 +144,7 @@
     radial-gradient(ellipse at bottom, rgb(15 118 110 / 5%) 0%, transparent 60%);
 }
 
-.hero-home::before {
+.hero--home::before {
   content: "";
   position: absolute;
   top: 0;

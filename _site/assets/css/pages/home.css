@@ -334,27 +334,27 @@
   opacity: 0.85;
 }
 
-.ff-home .section-band {
+.ff-home .section--band {
   padding-block: clamp(2.25rem, 5vw, 4rem);
 }
 
-.ff-home .section-emerald {
+.ff-home .section--emerald {
   background: var(--emerald-600);
   color: var(--text-on-emerald);
 }
 
-.ff-home .section-emerald h2,
-.ff-home .section-emerald h3,
-.ff-home .section-emerald p,
-.ff-home .section-emerald li {
+.ff-home .section--emerald h2,
+.ff-home .section--emerald h3,
+.ff-home .section--emerald p,
+.ff-home .section--emerald li {
   color: var(--text-on-emerald);
 }
 
-.ff-home .section-emerald .section-eyebrow {
+.ff-home .section--emerald .section-eyebrow {
   color: var(--ink-900, 0.92);
 }
 
-.ff-home .container-narrow {
+.ff-home .container--narrow {
   max-width: 900px;
   margin-inline: auto;
   padding-inline: 1.5rem;

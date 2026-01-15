@@ -14,15 +14,15 @@
   padding-right: var(--container-pad);
 }
 
-.container-wide {
+.container--wide {
   max-width: var(--container-wide);
 }
 
-.container-narrow {
+.container--narrow {
   max-width: var(--container-narrow);
 }
 
-.container-text {
+.container--text {
   max-width: var(--container-text);
 }
 
@@ -32,11 +32,11 @@
   padding-block: var(--section-pad-y);
 }
 
-.section-sm {
+.section--sm {
   padding-block: var(--space-2xl);
 }
 
-.section-lg {
+.section--lg {
   padding-block: var(--space-4xl);
 }
 
@@ -113,24 +113,24 @@
   gap: var(--gutter);
 }
 
-.grid-2 {
+.grid--2 {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.grid-3 {
+.grid--3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.grid-4 {
+.grid--4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
 /* Responsive auto-fit grids */
-.grid-auto {
+.grid--auto {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.grid-auto-lg {
+.grid--auto-lg {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
@@ -159,9 +159,9 @@
 
 /* Mobile responsive */
 @media (width <= 900px) {
-  .grid-2,
-  .grid-3,
-  .grid-4,
+  .grid--2,
+  .grid--3,
+  .grid--4,
   .hero-grid,
   .law-grid {
     grid-template-columns: 1fr;
@@ -169,8 +169,8 @@
 }
 
 @media (width <= 640px) {
-  .grid-auto,
-  .grid-auto-lg {
+  .grid--auto,
+  .grid--auto-lg {
     grid-template-columns: 1fr;
   }
 }
@@ -182,21 +182,21 @@
   gap: var(--space-md);
 }
 
-.flex-center {
+.flex--center {
   align-items: center;
   justify-content: center;
 }
 
-.flex-between {
+.flex--between {
   justify-content: space-between;
   align-items: center;
 }
 
-.flex-col {
+.flex--col {
   flex-direction: column;
 }
 
-.flex-wrap {
+.flex--wrap {
   flex-wrap: wrap;
 }
 
@@ -220,12 +220,12 @@
   border-color: var(--ff-secondary);
 }
 
-.card-flat {
+.card--flat {
   box-shadow: none;
   border: 1px solid rgb(255 255 255 / 10%);
 }
 
-.card-elevated {
+.card--elevated {
   box-shadow: var(--shadow-xl);
 }
 
@@ -246,7 +246,7 @@
   box-shadow: var(--shadow-lg);
 }
 
-.panel-highlight {
+.panel--highlight {
   background: linear-gradient(
     135deg,
     rgb(212 165 116 / 15%) 0%,
@@ -265,13 +265,13 @@
   position: relative;
 }
 
-.hero-home {
+.hero--home {
   background:
     radial-gradient(ellipse at top, rgb(212 165 116 / 8%) 0%, transparent 60%),
     radial-gradient(ellipse at bottom, rgb(15 118 110 / 5%) 0%, transparent 60%);
 }
 
-.hero-home::before {
+.hero--home::before {
   content: "";
   position: absolute;
   top: 0;
