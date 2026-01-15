@@ -11,13 +11,21 @@
     </nav>
 
     <!-- Center-aligned brand (unified with footer) -->
-    <a class="premium-brand js-site-logo" href="{{ '/' | relative_url }}" aria-label="Faith Frontier Ecclesiastical Trust home">
-      <img src="{{ site.logo_mark | default: '/assets/img/faithfrontier-mark.svg' | relative_url }}"
-           alt="Faith Frontier Ecclesiastical Trust"
-           class="footer-logo premium-brand__mark"
-           itemprop="logo">
-      <span class="footer-name premium-brand__wordmark" itemprop="name">Faith Frontier</span>
+    <a class="premium-brand js-site-logo" href="{{ '/' | relative_url }}" aria-label="Barber Cam home">
+      <picture>
+        <source srcset="{{ '/assets/img/logo/barbercam-header-lockup.svg' | relative_url }}" type="image/svg+xml">
+        <img class="brand-logo" src="{{ '/assets/img/logo/barbercam-header-lockup.png' | relative_url }}" alt="Barber Cam"
+          width="240" height="44" loading="eager" decoding="async">
+      </picture>
     </a>
+
+    {% include nav.html %}
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
     <!-- Right Navigation (4 items + CTA) -->
     <nav class="premium-nav premium-nav--right" aria-label="Primary navigation right">
