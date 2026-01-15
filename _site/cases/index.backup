@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  Case Records & Legal Archive | Faith Frontier Ecclesiastical Trust
+</title>
+
+<meta name="description" content="Complete archive of Faith Frontier's legal proceedings—documenting competence, transparency, and constitutional literacy through public court records.">
+<meta name="author" content="Devon Tyler Barber">
+<meta name="keywords" content="faith frontier, ecclesiastical trust, new jersey, civic literacy, public records, stewardship, accountability, transparency">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://barberx.info/cases/">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="Faith Frontier RSS Feed" href="https://barberx.info/feed.xml">
+
+
+
+
+<!-- Favicon / Icons -->
+<link rel="icon" type="image/svg+xml" href="/assets/img/faithfrontier-mark.svg">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/favicon.png">
+<link rel="mask-icon" href="/assets/img/faithfrontier-mark.svg" color="#d4a574">
+<meta name="theme-color" content="#020617">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Faith Frontier Ecclesiastical Trust">
+<meta property="og:title" content="Case Records & Legal Archive | Faith Frontier">
+<meta property="og:description" content="Complete archive of Faith Frontier's legal proceedings—documenting competence, transparency, and constitutional literacy through public court records.">
+<meta property="og:url" content="https://barberx.info/cases/">
+<meta property="og:locale" content="en_US">
+
+
+  
+    <meta property="og:image" content="https://barberx.info/assets/img/og/og-faithfrontier-default.png">
+    <meta property="og:image:alt" content="Faith Frontier Ecclesiastical Trust">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+  
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Records & Legal Archive | Faith Frontier">
+<meta name="twitter:description" content="Complete archive of Faith Frontier's legal proceedings—documenting competence, transparency, and constitutional literacy through public court records.">
+
+  
+    <meta name="twitter:image" content="https://barberx.info/assets/img/og/og-faithfrontier-default.png">
+  
+
+<meta name="twitter:image:alt" content="Case Records & Legal Archive">
+
+<!-- Performance hints -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+<!-- Fonts - Inter and Manrope optimized for FaithFrontier -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!-- Main stylesheet (imports all base, layout, component, utility CSS) -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!-- Case-only styles -->
+
+
+<!-- Enhanced case styles (only for the enhanced layout) -->
+
+
+<!-- Page-specific styles (optional) -->
+
+
+<!-- Structured Data for SEO -->
+<!-- Structured Data (JSON-LD) for Rich Search Results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://barberx.info/#organization",
+      "name": "Faith Frontier Ecclesiastical Trust",
+      "url": "https://barberx.info",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://barberx.info/assets/img/faithfrontier-mark.svg",
+        "width": 600,
+        "height": 600
+      },
+      "description": "Faith-informed public trust documenting public records, teaching civic literacy, and stewarding property initiatives with humility and accountability.",
+      "founder": {
+        "@type": "Person",
+        "name": "Devon Tyler Barber"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "NJ",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://github.com/XTX33/FaithFrontier"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://barberx.info/#website",
+      "url": "https://barberx.info",
+      "name": "Faith Frontier Ecclesiastical Trust",
+      "description": "Public records documentation, civic literacy education, and property stewardship for New Jersey residents.",
+      "publisher": {
+        "@id": "https://barberx.info/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+    
+    
+  ]
+}
+</script>
+
+
+<!-- Page Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://barberx.info"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Records & Legal Archive",
+      "item": "https://barberx.info/cases/"
+    }
+  ]
+}
+</script>
+
+
+  </head>
+  <body class="">
+    <header class="premium-header" role="banner">
+  <div class="premium-header__inner">
+    
+    <!-- Left Navigation (3 items) -->
+    <nav class="premium-nav premium-nav--left" aria-label="Primary navigation left">
+      <ul class="premium-nav__list">
+        <li><a href="/story/" class="premium-nav__link">Story</a></li>
+        <li><a href="/manifesto/" class="premium-nav__link">Manifesto</a></li>
+        <li><a href="/tillerstead-sanctuary-vision/" class="premium-nav__link">Sanctuary</a></li>
+      </ul>
+    </nav>
+
+    <!-- Center-aligned brand (unified with footer) -->
+    <a class="premium-brand js-site-logo" href="/" aria-label="Faith Frontier Ecclesiastical Trust home">
+      <img src="/assets/img/faithfrontier-mark.svg"
+           alt="Faith Frontier Ecclesiastical Trust"
+           class="footer-logo premium-brand__mark"
+           itemprop="logo">
+      <span class="footer-name premium-brand__wordmark" itemprop="name">Faith Frontier</span>
+    </a>
+
+    <!-- Right Navigation (4 items + CTA) -->
+    <nav class="premium-nav premium-nav--right" aria-label="Primary navigation right">
+      <ul class="premium-nav__list">
+        <li><a href="/health/holistic-independence/" class="premium-nav__link" >Health Map</a></li>
+        <li><a href="/essays/" class="premium-nav__link" >Essays</a></li>
+        <li><a href="/cases/" class="premium-nav__link premium-nav__link--active" aria-current="page">Cases</a></li>
+        <li><a href="/stewardship-resources/" class="premium-nav__link premium-nav__link--highlight" >Resources</a></li>
+        <li><a href="/contact/" class="premium-nav__link" >Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile hamburger toggle -->
+    <button class="premium-nav-toggle" 
+            aria-label="Toggle navigation menu" 
+            aria-expanded="false" 
+            aria-controls="premium-nav-mobile">
+      <span class="premium-nav-toggle__bar"></span>
+      <span class="premium-nav-toggle__bar"></span>
+      <span class="premium-nav-toggle__bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer (outside header for proper positioning) -->
+<nav id="premium-nav-mobile" class="premium-nav premium-nav--mobile" aria-label="Mobile navigation">
+  <div class="premium-nav__header">
+    <button class="premium-nav__close" aria-label="Close navigation menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <ul class="premium-nav__list">
+    <li><a href="/story/" class="premium-nav__link" >Story</a></li>
+    <li><a href="/manifesto/" class="premium-nav__link" >Manifesto</a></li>
+    <li><a href="/tillerstead-sanctuary-vision/" class="premium-nav__link" >Sanctuary</a></li>
+    <li><a href="/health/holistic-independence/" class="premium-nav__link" >Health Map</a></li>
+    <li><a href="/essays/" class="premium-nav__link" >Essays</a></li>
+    <li><a href="/cases/" class="premium-nav__link premium-nav__link--active" aria-current="page">Cases</a></li>
+    <li><a href="/stewardship-resources/" class="premium-nav__link premium-nav__link--highlight" >Resources</a></li>
+    <li><a href="/contact/" class="premium-nav__link" >Contact</a></li>
+  </ul>
+</nav>
+
+      <header class="hero hero--page hero--homepage u-bg-surface u-py-xs u-mb-md u-radius-md u-shadow-md" id="hero"
+        aria-labelledby="hero-heading"
+        aria-describedby="hero-summary">
+  <div class="hero-surface u-relative">
+    <div class="hero-pattern u-absolute u-inset-0" aria-hidden="true"></div>
+
+    <div class="hero-inner u-relative u-z-1">
+      <div class="hero-main u-flex u-flex-col u-align-start">
+
+        
+
+        <h1 id="hero-heading" class="u-text-2xl u-text-bold u-mb-xs">
+          Case Records & Legal Archive
+        </h1>
+
+        
+
+        
+
+      </div>
+    </div>
+  </div>
+</header>
+    
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumbs__item">
+        <a itemprop="item" href="/" class="breadcrumbs__link">
+          <span>Home</span>
+        </a>
+        <meta itemprop="position" content="1">
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><span itemprop="name" class="breadcrumbs__current" aria-current="page">Case records & legal archive</span><meta itemprop="position" content="2"></li></ol>
+  </nav>
+    
+
+    <main id="main" class="site-main u-max-w-5xl u-mx-auto u-pb-2xl" aria-label="Main content">
+      <style>
+  .cases-hero {
+    background: linear-gradient(135deg, rgba(16, 92, 74, 0.95) 0%, rgba(28, 27, 25, 0.98) 100%);
+    color: white;
+    padding: 3rem 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 12px;
+  }
+  
+  .cases-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .cases-hero-lead {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+  
+  .cases-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .case-stat {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+  
+  .case-stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent-brass, #d4a574);
+    margin-bottom: 0.25rem;
+  }
+  
+  .case-stat-label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .cases-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .btn-cases {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  
+  .btn-primary {
+    background: var(--accent-brass, #d4a574);
+    color: #0f172a;
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .btn-cases:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .case-filters {
+    background: var(--color-surface-alt, #2a2826);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent-brass, #d4a574);
+  }
+  
+  .filter-input,
+  .filter-select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    background: var(--color-surface, #1a1918);
+    color: var(--color-text, #e5e3df);
+  }
+  
+  .filter-input:focus,
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--accent-brass, #d4a574);
+  }
+  
+  .case-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .case-card {
+    background: var(--color-surface-alt, #2a2826);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid rgba(212, 165, 116, 0.2);
+    transition: all 0.3s;
+  }
+  
+  .case-card:hover {
+    border-color: rgba(212, 165, 116, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .case-card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  .case-card h2 a {
+    color: var(--color-highlight, #d4a574);
+    text-decoration: none;
+  }
+  
+  .case-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: var(--color-muted, #a8a39e);
+  }
+  
+  .case-meta strong {
+    color: var(--accent-brass, #d4a574);
+  }
+  
+  .status-active {
+    color: var(--accent-emerald-light, #10b981) !important;
+    font-weight: 600;
+  }
+  
+  .status-pending {
+    color: var(--accent-brass, #d4a574) !important;
+    font-weight: 600;
+  }
+  
+  .status-closed {
+    color: var(--color-muted, #a8a39e) !important;
+  }
+  
+  .case-overview {
+    margin: 1rem 0;
+    line-height: 1.6;
+    color: var(--color-text, #e5e3df);
+  }
+  
+  .case-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  
+  .case-tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(212, 165, 116, 0.15);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--accent-brass, #d4a574);
+  }
+  
+  .view-case-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--accent-brass, #d4a574);
+    color: #0f172a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .view-case-btn:hover {
+    background: #c49564;
+    transform: translateX(4px);
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-muted, #a8a39e);
+  }
+  
+  @media (max-width: 768px) {
+    .cases-hero {
+      padding: 2rem 1rem;
+    }
+    
+    .cases-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .filter-row {
+      flex-direction: column;
+    }
+    
+    .case-meta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="cases-hero">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <h1>Case Records & Legal Archive</h1>
+    <p class="cases-hero-lead">
+      Every filing. Every order. Every motion. Faith Frontier's complete legal record demonstrates <strong>procedural competence</strong>, 
+      <strong>constitutional literacy</strong>, and <strong>transparent accountability</strong>—the foundation of trust for government partnerships and community stewardship.
+    </p>
+    
+    <div class="cases-stats">
+      
+      
+      
+      
+      
+      <div class="case-stat">
+        <span class="case-stat-number">1</span>
+        <span class="case-stat-label">Total Cases</span>
+      </div>
+      <div class="case-stat">
+        <span class="case-stat-number">1</span>
+        <span class="case-stat-label">Active Litigation</span>
+      </div>
+      <div class="case-stat">
+        <span class="case-stat-number">0</span>
+        <span class="case-stat-label">Pending Decisions</span>
+      </div>
+      <div class="case-stat">
+        <span class="case-stat-number">100%</span>
+        <span class="case-stat-label">Transparency</span>
+      </div>
+    </div>
+    
+    <div class="cases-actions">
+      <a href="/stewardship/" class="btn-cases btn-primary">Join the Stewardship Journey</a>
+      <a href="/government-partnerships/" class="btn-cases btn-secondary">Municipal Partnerships</a>
+      <a href="/cases/active/" class="btn-cases btn-secondary">Active Case Digest</a>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
+  
+  <!-- Why This Matters -->
+  <section style="margin-bottom: 3rem;">
+    <h2 style="font-size: 1.75rem; margin-bottom: 1rem;">Why This Archive Matters</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      <div style="padding: 1.25rem; background: var(--color-surface-alt, #2a2826); border-radius: 8px; border-left: 4px solid var(--accent-brass, #d4a574);">
+        <h3 style="margin-top: 0; color: var(--accent-brass, #d4a574);">For Government Partners</h3>
+        <p style="margin-bottom: 0;">Documented track record of procedural competence, constitutional knowledge, and ability to navigate complex legal systems—essential for emergency housing contracts and reentry partnerships.</p>
+      </div>
+      <div style="padding: 1.25rem; background: var(--color-surface-alt, #2a2826); border-radius: 8px; border-left: 4px solid var(--accent-brass, #d4a574);">
+        <h3 style="margin-top: 0; color: var(--accent-brass, #d4a574);">For Community Members</h3>
+        <p style="margin-bottom: 0;">Real-world civics education showing how ordinary people can advocate for their rights, follow proper procedures, and hold institutions accountable through lawful process.</p>
+      </div>
+      <div style="padding: 1.25rem; background: var(--color-surface-alt, #2a2826); border-radius: 8px; border-left: 4px solid var(--accent-brass, #d4a574);">
+        <h3 style="margin-top: 0; color: var(--accent-brass, #d4a574);">For Future Stewards</h3>
+        <p style="margin-bottom: 0;">This is transparency in action—see how Faith Frontier operates, makes decisions, and handles conflict. No hidden agendas. No secret dealings. Everything documented.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Filters -->
+  <div class="case-filters">
+    <div class="filter-row">
+      <div class="filter-group">
+        <label for="case-search">Search Cases</label>
+        <input 
+          type="search" 
+          id="case-search" 
+          class="filter-input"
+          placeholder="Search by title, docket, court, or keywords..."
+        >
+      </div>
+      
+      <div class="filter-group" style="max-width: 200px;">
+        <label for="status-filter">Status</label>
+        <select id="status-filter" class="filter-select">
+          <option value="all">All Statuses</option>
+          <option value="active">Active</option>
+          <option value="pending">Pending</option>
+          <option value="closed">Closed</option>
+        </select>
+      </div>
+      
+      <div class="filter-group" style="max-width: 200px;">
+        <label for="court-filter">Court</label>
+        <select id="court-filter" class="filter-select">
+          <option value="all">All Courts</option>
+          <option value="superior">NJ Superior Court</option>
+          <option value="appellate">NJ Appellate Division</option>
+          <option value="federal">Federal District</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Case List -->
+  <div class="case-list" id="case-list">
+    
+    
+    
+      <article 
+        class="case-card" 
+        data-status="active" 
+        data-court=""
+        data-search="hard rock cafe international (n.j.) inc. and boardwalk 1000, llc as single/joint employers      "
+      >
+        <h2>
+          <a href="/cases/nlrb-04-ca-361301/">
+            Hard Rock Cafe International (N.J.) Inc. and Boardwalk 1000, LLC as single/joint employers
+          </a>
+        </h2>
+        
+        <div class="case-meta">
+          <div><strong>Court:</strong> </div>
+          <div><strong>Docket:</strong> 04-CA-361301</div>
+          <div>
+            <strong>Status:</strong> 
+            <span class="status-active">Active</span>
+          </div>
+          
+        </div>
+        
+        
+        
+        
+        
+        <a href="/cases/nlrb-04-ca-361301/" class="view-case-btn">
+          View Full Case Record →
+        </a>
+      </article>
+    
+  </div>
+  
+  <div class="no-results" id="no-results" style="display: none;">
+    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">No cases match your search.</p>
+    <p style="margin-bottom: 0;">Try adjusting your filters or search terms.</p>
+  </div>
+  
+  <!-- Bottom CTA -->
+  <section style="margin: 4rem 0; padding: 2.5rem; background: var(--color-surface-alt, #2a2826); border-radius: 12px; text-align: center;">
+    <h2 style="font-size: 1.75rem; margin-bottom: 1rem;">See Transparency, Build Trust</h2>
+    <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem; line-height: 1.7;">
+      These cases aren't just legal battles—they're proof that Faith Frontier operates with integrity, follows proper procedures, 
+      and documents everything. This is the foundation for government partnerships and community stewardship.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/government-partnerships/" class="btn-cases btn-primary">Explore Partnerships</a>
+      <a href="/stewardship/" class="btn-cases btn-secondary" style="color: var(--color-text, #e5e3df);">Begin Your Journey</a>
+    </div>
+  </section>
+  
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('case-search');
+  const statusFilter = document.getElementById('status-filter');
+  const courtFilter = document.getElementById('court-filter');
+  const caseCards = document.querySelectorAll('.case-card');
+  const noResults = document.getElementById('no-results');
+  
+  function filterCases() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const statusValue = statusFilter.value;
+    const courtValue = courtFilter.value;
+    
+    let visibleCount = 0;
+    
+    caseCards.forEach(card => {
+      const searchData = card.dataset.search || '';
+      const status = card.dataset.status || '';
+      const court = card.dataset.court || '';
+      
+      // Check search match
+      const matchesSearch = !searchTerm || searchData.includes(searchTerm);
+      
+      // Check status filter
+      const matchesStatus = statusValue === 'all' || status === statusValue;
+      
+      // Check court filter
+      let matchesCourt = true;
+      if (courtValue === 'superior') {
+        matchesCourt = court.includes('superior') || court.includes('law division') || court.includes('special civil');
+      } else if (courtValue === 'appellate') {
+        matchesCourt = court.includes('appellate');
+      } else if (courtValue === 'federal') {
+        matchesCourt = court.includes('district') || court.includes('sdny') || court.includes('federal');
+      }
+      
+      // Show or hide card
+      if (matchesSearch && matchesStatus && matchesCourt) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    // Show/hide no results message
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+  
+  // Attach event listeners
+  searchInput.addEventListener('input', filterCases);
+  statusFilter.addEventListener('change', filterCases);
+  courtFilter.addEventListener('change', filterCases);
+});
+</script>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/Organization">
+  <div class="footer-inner container">
+    <!-- Brand / Logo -->
+    <div class="footer-brand">
+      <a href="/" class="footer-logo-link" itemprop="url" aria-label="Faith Frontier Ecclesiastical Trust home">
+        <img src="/assets/img/faithfrontier-mark.svg"
+             alt="Faith Frontier Ecclesiastical Trust"
+             class="footer-logo"
+             itemprop="logo">
+        <span class="footer-name" itemprop="name">Faith Frontier</span>
+      </a>
+      <p class="footer-tagline">In the World, But Not of It</p>
+    </div>
+
+    <!-- Mission summary -->
+    <div class="footer-about">
+      <p>
+        <strong>Faith Frontier</strong> is an ecclesiastical trust guided by the teachings of Jesus Christ
+        and the witness tradition preserved in the Geneva Bible. We seek justice, mercy, and humility
+        in public recordkeeping — restoring community, sovereignty, and faith at human scale.
+      </p>
+    </div>
+
+    <!-- Navigation links -->
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul>
+        <li><a href="/story/">Story</a></li>
+        <li><a href="/about/">About Devon</a></li>
+        <li><a href="/manifesto/">Manifesto</a></li>
+        <li><a href="/tillerstead-sanctuary-vision/">Sanctuary</a></li>
+        <li><a href="/health/holistic-independence/">Health Map</a></li>
+        <li><a href="/essays/">Essays</a></li>
+        <li><a href="/cases/">Cases</a></li>
+        <li><a href="/stewardship-resources/">Resources</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Legal -->
+    <div class="footer-bottom">
+      <p class="footer-meta">
+        &copy; 2026 Faith Frontier · Devon Tyler Barber
+        <br>All Rights Preserved.
+        <br><span class="footer-motto">Soli Deo Gloria · Lex Dei Supra · Covenant over Contract</span>
+      </p>
+    </div>
+
+    <!-- Disclaimer notice -->
+    <div class="footer-notice">
+      <strong>Notice:</strong>
+      All materials published on Faith Frontier—including essays, commentary, and narrative content—are informational only and reflect good-faith documentation. 
+      Court dockets and official records referenced on faithfrontier.org are presented in trust to honor New Jersey Courts' commitment to integrity and transparency. 
+      Documents filed under penalty of perjury (such as court filings and sworn statements) remain under the jurisdiction of the appropriate court and should be read in their official context. 
+      Nothing authored on this site constitutes sworn testimony unless explicitly identified as a court document. 
+      For clarity, context, or pastoral guidance, email
+      <a href="mailto:info@Tillerstead.com">info@Tillerstead.com</a>
+      to speak with a Faith Frontier representative.
+    </div>
+  </div>
+</footer>
+<script defer class="u-hidden-print" src="/assets/js/theme-toggle.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+<script defer class="u-hidden-print" src="/assets/js/premium-header.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+<script defer class="u-hidden-print" src="/assets/js/page-transitions.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+<script defer class="u-hidden-print" src="/assets/js/lazy-loading.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script><script defer type="module" class="u-hidden-print" src="/assets/js/contrast-utils.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+<script defer type="module" class="u-hidden-print" src="/assets/js/adaptive-contrast.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script><script defer class="u-hidden-print" src="/assets/js/animations.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+<script defer class="u-hidden-print" src="/assets/js/logo-easter-egg.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+<script defer class="u-hidden-print" src="/assets/js/main.js?v=de3feb9ae598a10ce894f76bcf35511685bc8f96"></script>
+
+    <!-- Floating Spotify Player -->
+<div id="spotify-player-container" class="spotify-player-collapsed">
+  <button id="spotify-toggle" class="spotify-toggle-btn" aria-label="Toggle Spotify Player">
+    <svg class="spotify-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+    </svg>
+    <span class="spotify-text">Music</span>
+  </button>
+  
+  <div id="spotify-player-content" class="spotify-player-content">
+    <div class="spotify-header">
+      <h3 class="spotify-title">Faith Frontier Music</h3>
+      <button id="spotify-close" class="spotify-close-btn" aria-label="Close Player">×</button>
+    </div>
+    
+    <div class="spotify-embed-wrapper">
+      <iframe 
+        id="spotify-iframe"
+        src="https://open.spotify.com/embed/playlist/2JOI5fYMltyGdNCuh8H2s1?utm_source=generator&si=Px0tAmM3S1mejzXe1s1WKw&theme=0" 
+        width="100%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy"
+        title="Faith Frontier Spotify Playlist">
+      </iframe>
+    </div>
+    
+    <div class="spotify-disclaimer">
+      <p><strong>Note:</strong> While we appreciate this music, Faith Frontier does not endorse any political views. 
+      If you hear anything that conflicts with our mission, please contact 
+      <a href="mailto:dTb33@PM.me">dTb33@PM.me</a>. We will listen, consider removing the artist or song, 
+      or reply with pastoral advisement on why we left it up. <em>Darkness to light.</em></p>
+      <p style="margin-top: 8px; font-size: 11px; color: #6c757d;"><strong>Full songs require Spotify Premium.</strong> 
+      Free users hear 30-second previews. Click any song to open in Spotify for full playback. Artists receive credit for all plays.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Spotify Player Styles */
+.spotify-player-collapsed {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Moved to left to avoid theme toggle */
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.spotify-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #1DB954; /* Spotify green */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.spotify-toggle-btn:hover {
+  background: #1ed760;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.spotify-icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.spotify-player-content {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  left: 20px; /* Aligned with toggle button */
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spotify-player-expanded .spotify-player-content {
+  display: block;
+}
+
+.spotify-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+  color: white;
+}
+
+.spotify-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.spotify-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.spotify-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.spotify-embed-wrapper {
+  background: #121212;
+}
+
+.spotify-disclaimer {
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.spotify-disclaimer p {
+  margin: 0;
+}
+
+.spotify-disclaimer strong {
+  color: #212529;
+}
+
+.spotify-disclaimer a {
+  color: #1DB954;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.spotify-disclaimer a:hover {
+  text-decoration: underline;
+}
+
+.spotify-disclaimer em {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .spotify-player-content {
+    background: #1a1a1a;
+    color: #e9ecef;
+  }
+  
+  .spotify-disclaimer {
+    background: #2d2d2d;
+    border-top-color: #404040;
+    color: #e9ecef;
+  }
+  
+  .spotify-disclaimer strong {
+    color: #f8f9fa;
+  }
+  
+  .spotify-disclaimer em {
+    color: #adb5bd;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .spotify-player-collapsed {
+    bottom: 10px;
+    left: 10px; /* Aligned to left on mobile */
+  }
+  
+  .spotify-toggle-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .spotify-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .spotify-player-content {
+    bottom: 60px;
+    left: 10px; /* Aligned to left on mobile */
+    width: calc(100vw - 20px);
+  }
+  
+  .spotify-disclaimer {
+    font-size: 10px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .spotify-player-content {
+    animation: none;
+  }
+  
+  .spotify-toggle-btn {
+    transition: none;
+  }
+}
+</style>
+
+<script>
+// Spotify Player Controller
+(function() {
+  'use strict';
+  
+  const container = document.getElementById('spotify-player-container');
+  const toggleBtn = document.getElementById('spotify-toggle');
+  const closeBtn = document.getElementById('spotify-close');
+  const content = document.getElementById('spotify-player-content');
+  
+  // Load saved state from localStorage
+  const savedState = localStorage.getItem('spotifyPlayerExpanded');
+  if (savedState === 'true') {
+    container.classList.add('spotify-player-expanded');
+  }
+  
+  // Toggle player
+  function togglePlayer() {
+    container.classList.toggle('spotify-player-expanded');
+    const isExpanded = container.classList.contains('spotify-player-expanded');
+    localStorage.setItem('spotifyPlayerExpanded', isExpanded);
+    
+    // Update ARIA
+    toggleBtn.setAttribute('aria-expanded', isExpanded);
+  }
+  
+  // Close player
+  function closePlayer() {
+    container.classList.remove('spotify-player-expanded');
+    localStorage.setItem('spotifyPlayerExpanded', 'false');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+  
+  // Event listeners
+  toggleBtn.addEventListener('click', togglePlayer);
+  closeBtn.addEventListener('click', closePlayer);
+  
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && container.classList.contains('spotify-player-expanded')) {
+      closePlayer();
+    }
+  });
+  
+  // Keep player state across page navigation (for SPAs)
+  window.addEventListener('beforeunload', function() {
+    const isExpanded = container.classList.contains('spotify-player-expanded');
+    localStorage.setItem('spotifyPlayerExpanded', isExpanded);
+  });
+  
+  console.log('✓ Faith Frontier Spotify Player initialized');
+})();
+</script>
+
+  </body>
+</html>

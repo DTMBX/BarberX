@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="markTitle markDesc">
+  <title id="markTitle">Faith Frontier crest mark</title>
+  <desc id="markDesc">Orthodox cross with two witness crosses and regal halo inside a transparent seal.</desc>
+  <defs>
+    <style>
+      :root {
+        --logo-gold: #d8b061;
+        --logo-emerald: #059669;
+        --logo-emerald-deep: #0f766e;
+        --logo-cream: #fdf8ef;
+      }
+
+      .mark-ring {
+        fill: none;
+        stroke-width: 2.4;
+      }
+
+      .mark-ring--outer {
+        stroke: var(--logo-gold);
+      }
+
+      .mark-ring--inner {
+        stroke: var(--logo-emerald-deep);
+        stroke-dasharray: 4 6;
+        stroke-linecap: round;
+      }
+
+      .mark-arch {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 2;
+        stroke: var(--logo-emerald);
+      }
+
+      .mark-arch--halo {
+        stroke: var(--logo-gold);
+        stroke-width: 1.8;
+      }
+
+      .mark-foundation {
+        fill: none;
+        stroke: var(--logo-emerald-deep);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .mark-rays line {
+        stroke: var(--logo-gold);
+        stroke-width: 1.8;
+        stroke-linecap: round;
+      }
+
+      .side-cross line {
+        stroke: var(--logo-emerald);
+        stroke-width: 1.9;
+        stroke-linecap: round;
+      }
+
+      .cross-core {
+        fill: var(--logo-cream);
+        stroke: var(--logo-gold);
+        stroke-width: 1.2;
+        stroke-linejoin: round;
+      }
+
+      .cross-foot {
+        fill: var(--logo-gold);
+        opacity: 0.85;
+      }
+
+      .crest-star {
+        fill: var(--logo-gold);
+      }
+    
+      /* --- Subtle animation (brand-safe) --- */
+      @keyframes ffDash {
+        to { stroke-dashoffset: -44; }
+      }
+
+      @keyframes ffOrbitDrift {
+        0%   { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      @keyframes ffGlowBreath {
+        0%, 100% { filter: drop-shadow(0 0 0 rgba(216,176,97,0.0)); }
+        50%      { filter: drop-shadow(0 0 6px rgba(216,176,97,0.28)); }
+      }
+
+      /* Animate the inner dashed ring gently */
+      .mark-ring--inner {
+        stroke-dashoffset: 0;
+        animation: ffDash 10s linear infinite;
+      }
+
+      /* Animate the small orbit markers around the center */
+      .mark-rays {
+        transform-origin: 48px 48px;
+        animation: ffOrbitDrift 22s linear infinite;
+      }
+
+      /* Gentle breathing glow on the primary cross */
+      .cross-core {
+        animation: ffGlowBreath 6.5s ease-in-out infinite;
+      }
+
+      /* Respect reduced-motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .mark-ring--inner, .mark-rays, .cross-core { animation: none !important; }
+      }
+
+    </style>
+  </defs>
+
+  <g id="crest">
+    <circle class="mark-ring mark-ring--outer" cx="48" cy="48" r="42" />
+    <circle class="mark-ring mark-ring--inner" cx="48" cy="48" r="32" />
+    <path class="mark-arch mark-arch--halo" d="M24 30 Q48 12 72 30" />
+    <path class="mark-arch" d="M18 52 Q48 64 78 52" />
+    <path class="mark-foundation" d="M16 64 Q48 78 80 64" />
+    <g class="mark-rays">
+      <line x1="48" y1="8" x2="48" y2="16" />
+      <line x1="34" y1="14" x2="30" y2="22" />
+      <line x1="62" y1="14" x2="66" y2="22" />
+    </g>
+    <g class="side-cross">
+      <line x1="26" y1="38" x2="26" y2="60" />
+      <line x1="20" y1="46" x2="32" y2="46" />
+    </g>
+    <g class="side-cross">
+      <line x1="70" y1="38" x2="70" y2="60" />
+      <line x1="64" y1="46" x2="76" y2="46" />
+    </g>
+    <path class="cross-core" d="M44 18h8c1.6 0 3 1.4 3 3v13h11c1.6 0 3 1.4 3 3v4c0 1.6-1.4 3-3 3H55v28c0 2-1.6 3.8-3.6 3.8H44.6A3.7 3.7 0 0 1 41 72V44h-11c-1.6 0-3-1.4-3-3v-4c0-1.6 1.4-3 3-3h11V21c0-1.6 1.4-3 3-3Z" />
+    <rect class="cross-foot" x="45.6" y="56" width="4.8" height="16" rx="2.2" />
+    <circle class="crest-star" cx="48" cy="26" r="2.2" />
+    <circle class="crest-star" cx="48" cy="70" r="1.7" />
+  </g>
+</svg>

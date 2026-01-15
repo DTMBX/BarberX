@@ -1,0 +1,439 @@
+/* ============================================================================
+   Faith Frontier Layout Components
+   Containers, grids, sections, and structural elements
+   ============================================================================ */
+
+/* ===== CONTAINERS ===== */
+
+.container,
+.shell {
+  max-width: var(--container);
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.container-wide {
+  max-width: var(--container-wide);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.container-text {
+  max-width: var(--container-text);
+}
+
+/* ===== SECTIONS ===== */
+
+.section {
+  padding-block: var(--section-pad-y);
+}
+
+.section-sm {
+  padding-block: var(--space-2xl);
+}
+
+.section-lg {
+  padding-block: var(--space-4xl);
+}
+
+.section-block {
+  padding: clamp(var(--space-xl), 6vw, var(--space-3xl)) var(--container-pad);
+}
+
+.section-divider {
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+
+.section-divider span {
+  display: inline-block;
+  width: 140px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--ff-secondary),
+    transparent
+  );
+  opacity: 0.5;
+}
+
+/* ===== SECTION CONTENT ===== */
+
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  font-size: var(--text-xs);
+  color: var(--ff-secondary);
+  margin-bottom: var(--space-sm);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-sans);
+}
+
+.section-heading {
+  margin: 0 0 var(--space-md);
+  font-size: clamp(var(--text-3xl), 4.5vw, var(--text-4xl));
+  color: var(--ff-highlight);
+}
+
+.section-lead {
+  font-size: var(--text-lg);
+  color: var(--ff-text);
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-md);
+}
+
+.section-intro {
+  max-width: var(--container-text);
+  margin: 0 auto var(--space-2xl);
+  padding: 0 var(--container-pad);
+}
+
+.section-intro .lead {
+  margin-top: var(--space-xs);
+  color: var(--ff-text-muted);
+  font-size: var(--text-md);
+  line-height: var(--lh-relaxed);
+}
+
+.section-content {
+  max-width: var(--container-text);
+  margin: 0 auto var(--space-2xl);
+  padding: 0 var(--container-pad);
+}
+
+/* ===== GRID SYSTEMS ===== */
+
+.grid {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Responsive auto-fit grids */
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.grid-auto-lg {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+/* Hero grid (2-column with sidebar) */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
+  gap: var(--gutter);
+  align-items: start;
+}
+
+/* Law/content grid (2-column) */
+.law-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Mobile responsive */
+@media (width <= 900px) {
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .hero-grid,
+  .law-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width <= 640px) {
+  .grid-auto,
+  .grid-auto-lg {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== FLEX UTILITIES ===== */
+
+.flex {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+  background: var(--ff-surface-alt);
+  border: 1px solid rgb(212 165 116 / 30%);
+  border-radius: var(--radius-base);
+  padding: var(--card-pad);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--ff-secondary);
+}
+
+.card-flat {
+  box-shadow: none;
+  border: 1px solid rgb(255 255 255 / 10%);
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Card grid containers */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* ===== PANELS ===== */
+
+.panel {
+  background: rgb(15 23 42 / 72%);
+  border: 1px solid rgb(212 165 116 / 30%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.panel-highlight {
+  background: linear-gradient(
+    135deg,
+    rgb(212 165 116 / 15%) 0%,
+    rgb(15 118 110 / 10%) 100%
+  );
+  border: 2px solid var(--ff-secondary);
+}
+
+/* ===== HERO COMPONENTS ===== */
+
+.hero {
+  padding: var(--space-3xl) var(--container-pad) var(--space-2xl);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-home {
+  background:
+    radial-gradient(ellipse at top, rgb(212 165 116 / 8%) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom, rgb(15 118 110 / 5%) 0%, transparent 60%);
+}
+
+.hero-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--ff-secondary) 50%,
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.hero-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  font-size: var(--text-xs);
+  color: var(--ff-secondary);
+  margin: 0 0 var(--space-md);
+  font-weight: var(--fw-semibold);
+  font-family: var(--ff-sans);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin: 0 0 var(--space-lg);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-bold);
+  color: var(--ff-highlight);
+}
+
+.hero-lead {
+  max-width: 56rem; /* Increased from 48rem */
+  margin: 0 0 var(--space-xl);
+  color: var(--ff-text);
+  font-size: clamp(var(--text-lg), 2.2vw, var(--text-xl));
+  line-height: var(--lh-relaxed);
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-normal);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.hero-actions--centered {
+  justify-content: center;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  gap: var(--space-md);
+}
+
+/* Hero side panel */
+.hero-side-panel {
+  background: rgb(2 6 23 / 85%);
+  border: 1px solid rgb(212 165 116 / 35%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-xl);
+  align-self: start;
+}
+
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-xl) 0 var(--space-2xl);
+  grid-auto-rows: 1fr;
+}
+
+.hero-highlight {
+  background: rgb(4 19 34 / 65%);
+  border: 1px solid rgb(212 165 116 / 30%);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.hero-highlight:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brass);
+}
+
+.hero-highlight p {
+  margin: 0;
+  color: var(--ff-text);
+  line-height: var(--lh-normal);
+}
+
+.hero-highlight__label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  font-size: var(--text-xs);
+  color: var(--ff-secondary);
+  margin-bottom: var(--space-3xs);
+  font-weight: var(--fw-semibold);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (width >= 768px) {
+  .hero--home {
+    padding: 6rem var(--container-pad) 5rem;
+  }
+}
+
+@media (width >= 1024px) {
+  .hero-grid {
+    align-items: stretch;
+  }
+
+  .hero-side-panel {
+    height: 100%;
+  }
+}
+
+@media (width <= 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-side-panel {
+    order: -1;
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-actions--centered {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .hero-main {
+    text-align: center;
+  }
+}
+
+@media (width <= 640px) {
+  .section-block {
+    padding: var(--space-2xl) var(--space-md);
+  }
+}

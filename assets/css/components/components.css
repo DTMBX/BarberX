@@ -12,7 +12,6 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  
   padding: 0.75rem 1.5rem;
   min-width: 150px;
   font-size: var(--text-base);
@@ -20,27 +19,27 @@
   font-weight: var(--fw-semibold);
   letter-spacing: var(--ls-wide);
   line-height: 1;
-  
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   text-decoration: none;
-  
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
 }
 
 .btn:hover::before {
@@ -59,12 +58,12 @@
 .btn--primary {
   background: linear-gradient(135deg, var(--ff-primary) 0%, #0d6860 100%);
   color: var(--ff-highlight);
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 12px rgb(15 118 110 / 30%);
 }
 
 .btn-main:hover,
 .btn--primary:hover {
-  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.4);
+  box-shadow: 0 8px 20px rgb(15 118 110 / 40%);
 }
 
 .btn-ghost,
@@ -76,7 +75,7 @@
 
 .btn-ghost:hover,
 .btn--ghost:hover {
-  background: rgba(212, 165, 116, 0.1);
+  background: rgb(212 165 116 / 10%);
   border-color: var(--ff-secondary);
 }
 
@@ -84,17 +83,17 @@
   background: linear-gradient(90deg, var(--ff-secondary), var(--ff-highlight));
   color: var(--ink-900);
   border: none;
-  box-shadow: 0 2px 12px rgba(212, 165, 116, 0.12);
+  box-shadow: 0 2px 12px rgb(212 165 116 / 12%);
 }
 
 .btn--secondary:hover {
   background: linear-gradient(90deg, var(--ff-highlight), var(--ff-secondary));
-  box-shadow: 0 4px 18px rgba(212, 165, 116, 0.18);
+  box-shadow: 0 4px 18px rgb(212 165 116 / 18%);
 }
 
 .btn--outline {
   background: transparent;
-  border-color: currentColor;
+  border-color: currentcolor;
   color: var(--ff-text);
 }
 
@@ -125,7 +124,6 @@
   pointer-events: none;
 }
 
-
 /* ===== BADGES ===== */
 
 .badge {
@@ -138,11 +136,11 @@
   text-transform: uppercase;
   letter-spacing: var(--ls-wider);
   border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid rgb(0 0 0 / 14%);
 }
 
 .badge-status {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgb(0 0 0 / 3%);
 }
 
 .badge--primary {
@@ -175,7 +173,6 @@
   border-color: var(--adaptive-border);
 }
 
-
 /* ===== LINKS ===== */
 
 .link {
@@ -183,7 +180,9 @@
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
-  transition: color var(--transition-base), text-decoration-thickness var(--transition-fast);
+  transition:
+    color var(--transition-base),
+    text-decoration-thickness var(--transition-fast);
 }
 
 .link:hover,
@@ -199,7 +198,6 @@
 .link--secondary:hover {
   color: var(--brass-700);
 }
-
 
 /* ===== BREADCRUMBS ===== */
 
@@ -227,7 +225,7 @@
 }
 
 .breadcrumbs-list li::after {
-  content: '/';
+  content: "/";
   color: var(--ff-text-muted);
   opacity: 0.5;
 }
@@ -252,24 +250,27 @@
   font-weight: var(--fw-medium);
 }
 
-
 /* ===== MAINTENANCE BANNER ===== */
 
 .maintenance-banner {
-  background: linear-gradient(135deg, rgba(212, 165, 116, 0.18) 0%, rgba(15, 118, 110, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(212 165 116 / 18%) 0%,
+    rgb(15 118 110 / 30%) 100%
+  );
   color: var(--ff-text);
-  border-bottom: 1px solid rgba(212, 165, 116, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgb(212 165 116 / 40%);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 25%);
   position: relative;
 }
 
 .maintenance-banner::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(212, 165, 116, 0.25), transparent 40%);
+  background:
+    radial-gradient(circle at 15% 20%, rgb(255 255 255 / 10%), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgb(212 165 116 / 25%), transparent 40%);
   pointer-events: none;
 }
 
@@ -285,17 +286,17 @@
 
 .maintenance-banner__icon {
   font-size: var(--text-3xl);
-  background: rgba(15, 23, 42, 0.45);
-  border: 2px solid rgba(212, 165, 116, 0.6);
+  background: rgb(15 23 42 / 45%);
+  border: 2px solid rgb(212 165 116 / 60%);
   color: var(--ff-highlight);
   width: 56px;
   height: 56px;
   display: grid;
   place-items: center;
   border-radius: var(--radius-lg);
-  box-shadow: 
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08), 
-    0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 8%),
+    0 6px 18px rgb(0 0 0 / 25%);
 }
 
 .maintenance-banner__content {
@@ -325,7 +326,7 @@
   line-height: var(--lh-normal);
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .maintenance-banner__inner {
     grid-template-columns: 1fr;
     text-align: left;
@@ -335,7 +336,6 @@
     justify-self: start;
   }
 }
-
 
 /* ===== VINTAGE/DECORATIVE ELEMENTS ===== */
 
@@ -354,13 +354,18 @@
   text-align: center;
   position: relative;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ff-secondary) 50%, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--ff-secondary) 50%,
+    transparent
+  );
   max-width: 200px;
 }
 
 .vintage-divider::before,
 .vintage-divider::after {
-  content: '❖';
+  content: "❖";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -376,7 +381,6 @@
 .vintage-divider::after {
   right: -20px;
 }
-
 
 /* ===== METADATA & LABELS ===== */
 
@@ -397,7 +401,6 @@
   font-family: var(--ff-sans);
 }
 
-
 /* ===== NOTICE/ALERT BOXES ===== */
 
 .ff-notice,
@@ -407,24 +410,24 @@
   margin-top: var(--space-md);
   color: var(--ff-text-muted);
   padding: var(--space-md);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
   border-left: 4px solid var(--ff-secondary);
   border-radius: var(--radius-xs);
 }
 
 .notice--info {
   border-left-color: var(--ff-primary);
-  background: rgba(16, 92, 74, 0.1);
+  background: rgb(16 92 74 / 10%);
 }
 
 .notice--warning {
   border-left-color: var(--brass-700);
-  background: rgba(212, 165, 116, 0.1);
+  background: rgb(212 165 116 / 10%);
   color: var(--brass-500);
 }
 
 .notice--success {
   border-left-color: var(--emerald-400);
-  background: rgba(36, 181, 138, 0.1);
+  background: rgb(36 181 138 / 10%);
   color: var(--emerald-400);
 }

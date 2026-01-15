@@ -4,4 +4,6 @@ permalink: /cases.json
 ---
 [
 {% assign items = site.cases %}
-{% for c in items %}
+{% for c in items %}{{ c | jsonify }}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

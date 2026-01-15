@@ -33,6 +33,9 @@ collections:
   cases:
     output: true
     permalink: /cases/:name/
+  essays:
+    output: true
+    permalink: /essays/:name/
 
 # Excludes (keeps build clean)
 exclude:

@@ -1,0 +1,72 @@
+[
+  {
+    "from": "_inbox\\atl-dc-007956-25\\Barber ADA Request.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Filing_barber-ada-request.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\CORRESPONDENCE BY BARBER.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Filing_correspondence-by-barber.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\Further Certification and Opposition to Plaintiffs Motion.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Motion_further-certification-and-opposition-to-plaintiffs-motion.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\Motion Proposing Class Action, Service and Memorilization of Mediation.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Motion_motion-proposing-class-action-service-and-memorilization-of-mediation.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\Motion to Squash.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Motion_motion-to-squash.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\Opposition to Plaintiffs Motion for Protective Order.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Order_opposition-to-plaintiffs-motion-for-protective-order.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\ORDER WAIVING FEES.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Order_order-waiving-fees.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-dc-007956-25\\pLAINTIFFS MOTION TO SQUASH DISCOVERY.pdf",
+    "to": "cases\\atl-dc-007956-25\\filings\\2026-01-10_Motion_plaintiffs-motion-to-squash-discovery.pdf",
+    "docketFile": "_data\\docket\\atl-dc-007956-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-l-002794-25\\Defendants Reply Brief and Certification.pdf",
+    "to": "cases\\atl-l-002794-25\\filings\\2026-01-10_Brief_defendants-reply-brief-and-certification.pdf",
+    "docketFile": "_data\\docket\\atl-l-002794-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-l-002794-25\\Motion to Dismiss, order granted without prejudice.pdf",
+    "to": "cases\\atl-l-002794-25\\filings\\2026-01-10_Order_motion-to-dismiss-order-granted-without-prejudice.pdf",
+    "docketFile": "_data\\docket\\atl-l-002794-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-l-002794-25\\Plaintiffs Limited Letter Response.pdf",
+    "to": "cases\\atl-l-002794-25\\filings\\2026-01-10_Filing_plaintiffs-limited-letter-response.pdf",
+    "docketFile": "_data\\docket\\atl-l-002794-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-l-002794-25\\Proposed Amended Complaint 11-25.pdf",
+    "to": "cases\\atl-l-002794-25\\filings\\2026-01-10_Filing_proposed-amended-complaint-11-25.pdf",
+    "docketFile": "_data\\docket\\atl-l-002794-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-l-003252-25\\Order dismissing first OTSC.pdf",
+    "to": "cases\\atl-l-003252-25\\filings\\2026-01-10_Order_order-dismissing-first-otsc.pdf",
+    "docketFile": "_data\\docket\\atl-l-003252-25.yml"
+  },
+  {
+    "from": "_inbox\\atl-l-003252-25\\Plaintiffs 12-29-2025 Motion to Compel Discovery.pdf",
+    "to": "cases\\atl-l-003252-25\\filings\\2026-01-10_Motion_plaintiffs-12-29-2025-motion-to-compel-discovery.pdf",
+    "docketFile": "_data\\docket\\atl-l-003252-25.yml"
+  }
+]

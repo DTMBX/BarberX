@@ -14,20 +14,20 @@
 
 :root {
   /* Color Palette - CSS Variables for easy customization */
-  --color-primary: #c41e3a;      /* Barber red */
+  --color-primary: #c41e3a; /* Barber red */
   --color-primary-dark: #a01830;
-  --color-secondary: #1e40af;    /* Barber blue */
-  --color-accent: #d4a574;       /* Gold */
-  --color-white: #ffffff;
+  --color-secondary: #1e40af; /* Barber blue */
+  --color-accent: #d4a574; /* Gold */
+  --color-white: #fff;
   --color-dark: #0a0a0f;
   --color-gray-light: #f5f5f7;
   --color-gray-dark: #1a1a22;
-  
+
   /* Text colors */
   --text-primary: #0a0a0f;
   --text-secondary: #6b7280;
   --text-light: #f5f5f7;
-  
+
   /* Spacing (8px base unit) */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -35,17 +35,17 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
-  
+
   /* Border radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
-  
+
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-  
+  --shadow-sm: 0 2px 8px rgb(0 0 0 / 8%);
+  --shadow-md: 0 4px 16px rgb(0 0 0 / 12%);
+  --shadow-lg: 0 8px 32px rgb(0 0 0 / 16%);
+
   /* Animation */
   --duration-slow: 0.5s;
   --duration-base: 0.3s;
@@ -98,7 +98,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   /* Subtle 3D perspective */
   perspective: 1000px;
 }
@@ -111,10 +111,11 @@
   border-radius: 50%;
   border: 2px solid var(--color-primary);
   box-shadow: var(--shadow-md);
-  
+
   /* Smooth hover transition */
-  transition: box-shadow var(--duration-base) var(--easing-smooth),
-              transform var(--duration-base) var(--easing-smooth);
+  transition:
+    box-shadow var(--duration-base) var(--easing-smooth),
+    transform var(--duration-base) var(--easing-smooth);
 }
 
 /* Hover effect - subtle lift (desktop only) */
@@ -136,7 +137,7 @@
   width: 100px;
   height: 140px;
   z-index: 2;
-  
+
   /* 6-second smooth rotation */
   animation: spinPole 6s linear infinite;
 }
@@ -146,6 +147,7 @@
   0% {
     transform: rotateZ(0deg);
   }
+
   100% {
     transform: rotateZ(360deg);
   }
@@ -229,7 +231,7 @@
   cursor: pointer;
   transition: all var(--duration-base) var(--easing-smooth);
   box-shadow: var(--shadow-sm);
-  
+
   /* Accessible focus outline */
   outline-offset: 2px;
 }
@@ -262,7 +264,7 @@
 /* Mobile (360px - 480px) - Base styles above cover this */
 
 /* Small Mobile (480px - 640px) */
-@media (min-width: 480px) {
+@media (width >= 480px) {
   .badgeContainer {
     gap: var(--spacing-xl);
   }
@@ -278,7 +280,7 @@
 }
 
 /* Tablet (640px - 1024px) */
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .badgeContainer {
     gap: var(--spacing-2xl);
   }
@@ -294,7 +296,7 @@
 }
 
 /* Large Tablet / Desktop (1024px+) */
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .barbershopHero {
     padding: var(--spacing-2xl);
   }

@@ -19,9 +19,9 @@
   --hero-accent: #d4af37;
   --hero-border-light: #e5e5ea;
   --hero-border-dark: #424245;
-  --hero-shadow-light: rgba(0, 0, 0, 0.08);
-  --hero-shadow-dark: rgba(0, 0, 0, 0.32);
-  
+  --hero-shadow-light: rgb(0 0 0 / 8%);
+  --hero-shadow-dark: rgb(0 0 0 / 32%);
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -29,9 +29,11 @@
   --spacing-lg: 2rem;
   --spacing-xl: 2.5rem;
   --spacing-2xl: 3rem;
-  
+
   /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans:
+    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue",
+    arial, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -42,19 +44,19 @@
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px var(--hero-shadow-light);
   --shadow-md: 0 2px 8px var(--hero-shadow-light);
   --shadow-lg: 0 4px 16px var(--hero-shadow-light);
   --shadow-xl: 0 8px 24px var(--hero-shadow-light);
-  
+
   /* Animation */
   --duration-normal: 0.3s;
   --duration-slow: 0.5s;
   --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --easing-out: cubic-bezier(0, 0, 0.2, 1);
-  
+
   /* Barber pole animation duration */
   --animation-duration: 5.5s;
 }
@@ -67,8 +69,8 @@
     --hero-text-dark: #f5f5f7;
     --hero-border-light: #424245;
     --hero-border-dark: #424245;
-    --hero-shadow-light: rgba(0, 0, 0, 0.32);
-    --hero-shadow-dark: rgba(0, 0, 0, 0.64);
+    --hero-shadow-light: rgb(0 0 0 / 32%);
+    --hero-shadow-dark: rgb(0 0 0 / 64%);
   }
 }
 
@@ -80,7 +82,11 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md);
-  background: linear-gradient(135deg, var(--hero-bg-light) 0%, rgba(212, 175, 55, 0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--hero-bg-light) 0%,
+    rgb(212 175 55 / 3%) 100%
+  );
   font-family: var(--font-sans);
   color: var(--hero-text-dark);
   overflow: hidden;
@@ -186,7 +192,7 @@
   margin: 0 0 var(--spacing-md) 0;
   font-size: var(--font-size-lg);
   line-height: var(--line-height-relaxed);
-  color: rgba(var(--hero-text-dark-rgb, 0, 0, 0), 0.7);
+  color: rgb(var(--hero-text-dark-rgb, 0, 0, 0), 0.7);
 }
 
 /* ===== Hero Title & Tagline ===== */
@@ -202,7 +208,7 @@
   margin: 0 0 var(--spacing-lg) 0;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
-  color: rgba(var(--hero-text-dark-rgb, 0, 0, 0), 0.6);
+  color: rgb(var(--hero-text-dark-rgb, 0, 0, 0), 0.6);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -222,15 +228,14 @@
   transition: all var(--duration-normal) var(--easing-in-out);
   outline: none;
   text-decoration: none;
-  
   will-change: transform, background-color, border-color;
 }
 
 .hero-cta:hover,
 .hero-cta:focus {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-  background: rgba(212, 175, 55, 0.9);
+  box-shadow: 0 4px 12px rgb(212 175 55 / 30%);
+  background: rgb(212 175 55 / 90%);
 }
 
 .hero-cta:active {
@@ -254,7 +259,7 @@
 .hero-badge {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-sm);
-  background: rgba(212, 175, 55, 0.1);
+  background: rgb(212 175 55 / 10%);
   border: 1px solid var(--hero-accent);
   border-radius: 9999px;
   font-size: var(--font-size-xs);
@@ -270,6 +275,7 @@
   from {
     transform: rotateZ(0deg);
   }
+
   to {
     transform: rotateZ(360deg);
   }
@@ -278,35 +284,35 @@
 /* ===== Responsive Design ===== */
 
 /* Small mobile (480px) */
-@media (min-width: 480px) {
+@media (width >= 480px) {
   .barbershop-hero {
     padding: var(--spacing-lg);
   }
-  
+
   .hero-content h1 {
     font-size: calc(var(--font-size-2xl) * 1.1);
   }
-  
+
   .hero-title {
     font-size: calc(var(--font-size-xl) * 1.05);
   }
 }
 
 /* Tablet (640px) */
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .barbershop-hero {
     padding: var(--spacing-2xl) var(--spacing-lg);
     min-height: auto;
   }
-  
+
   .hero-content h1 {
     font-size: var(--font-size-3xl);
   }
-  
+
   .hero-title {
     font-size: calc(var(--font-size-xl) * 1.15);
   }
-  
+
   /* Full variant layout switches to grid at 640px */
   .barbershop-hero--full .hero-inner {
     grid-template-columns: 1fr 1fr;
@@ -315,17 +321,17 @@
 }
 
 /* Desktop (1024px) */
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .barbershop-hero {
     min-height: 100vh;
     padding: var(--spacing-2xl);
   }
-  
+
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+
   .barbershop-hero--full .hero-inner {
     grid-template-columns: 1fr 1.2fr;
   }
@@ -334,17 +340,21 @@
 /* ===== Dark Mode Support ===== */
 @media (prefers-color-scheme: dark) {
   .barbershop-hero {
-    background: linear-gradient(135deg, var(--hero-bg-dark) 0%, rgba(212, 175, 55, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--hero-bg-dark) 0%,
+      rgb(212 175 55 / 5%) 100%
+    );
   }
-  
+
   .hero-cta {
     color: var(--hero-bg-dark);
   }
-  
+
   .hero-cta:hover,
   .hero-cta:focus {
-    background: rgba(212, 175, 55, 0.85);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    background: rgb(212 175 55 / 85%);
+    box-shadow: 0 4px 12px rgb(212 175 55 / 20%);
   }
 }
 
@@ -356,7 +366,7 @@
     animation: none !important;
     transition: none !important;
   }
-  
+
   .hero-visual svg {
     opacity: 0.8;
   }
@@ -378,9 +388,9 @@
   .barbershop-hero {
     background: white;
     min-height: auto;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
-  
+
   .hero-visual svg {
     animation: none;
     filter: none;

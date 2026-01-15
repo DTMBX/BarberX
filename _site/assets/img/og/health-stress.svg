@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#071A14"/>
+  <rect x="0" y="0" width="1200" height="630" fill="#0B2B22" opacity="0.55"/>
+  <path d="M0,210 C200,150 420,250 600,190 C780,130 980,230 1200,170" fill="none" stroke="#C7B27A" stroke-width="6" opacity="0.35"/>
+
+  <text x="80" y="140" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="26" fill="#C7B27A" letter-spacing="0.12em">
+    FAITH FRONTIER • HEALTH
+  </text>
+
+  <text x="80" y="285" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="78" font-weight="850" fill="#F2F0E8">
+    Stress
+  </text>
+  <text x="80" y="355" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="50" font-weight="750" fill="#F2F0E8" opacity="0.92">
+    &amp; Nervous System
+  </text>
+
+  <text x="80" y="435" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" fill="#D7D2C4" opacity="0.92">
+    Regulation • boundaries • daily inputs
+  </text>
+
+  <text x="80" y="545" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#B9B3A2" opacity="0.9">
+    faithfrontier.org/health/stress/
+  </text>
+</svg>

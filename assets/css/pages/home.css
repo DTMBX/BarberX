@@ -4,7 +4,7 @@
    ============================================================================ */
 
 /* Import the global theme first */
-@import url('../base/theme.css');
+@import url("../base/theme.css");
 
 /* ===== HOME PAGE LIGHT MODE OVERRIDES ===== */
 
@@ -100,7 +100,11 @@
 
 /* Side panel (home specific) */
 .ff-home .hero-side-panel {
-  background: linear-gradient(135deg, rgba(220, 217, 210, 0.95), rgba(200, 197, 190, 0.92));
+  background: linear-gradient(
+    135deg,
+    rgb(220 217 210 / 95%),
+    rgb(200 197 190 / 92%)
+  );
   color: var(--ink-900);
   display: flex;
   flex-direction: column;
@@ -134,7 +138,7 @@
   width: 100%;
   border-left: 4px solid var(--emerald-600);
   padding: 0.75rem 0.85rem;
-  background: rgba(200, 197, 190, 0.55);
+  background: rgb(200 197 190 / 55%);
   border-radius: var(--radius-md);
 }
 
@@ -187,14 +191,16 @@
   padding: calc(var(--card-pad) + 4px);
   border-radius: var(--radius-lg);
   border: 1px solid var(--stone-200);
-  box-shadow: 0 8px 24px rgba(120, 116, 108, 0.18);
+  box-shadow: 0 8px 24px rgb(120 116 108 / 18%);
   min-height: 160px;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .ff-home .hero-highlight:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(120, 116, 108, 0.25);
+  box-shadow: 0 12px 32px rgb(120 116 108 / 25%);
 }
 
 .ff-home .hero-highlight__label {
@@ -232,21 +238,23 @@
   justify-content: center;
   gap: var(--space-xs);
   line-height: 1.2;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .ff-home .btn-primary,
 .ff-home .btn-main {
   background: var(--emerald-600);
   color: var(--text-on-emerald);
-  box-shadow: 0 4px 16px rgba(16, 92, 74, 0.25);
+  box-shadow: 0 4px 16px rgb(16 92 74 / 25%);
   border-color: var(--emerald-600);
 }
 
 .ff-home .btn-primary:hover,
 .ff-home .btn-main:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(16, 92, 74, 0.35);
+  box-shadow: 0 8px 24px rgb(16 92 74 / 35%);
   text-decoration: none;
 }
 
@@ -261,31 +269,31 @@
   background: var(--emerald-600);
   color: var(--text-on-emerald);
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(16, 92, 74, 0.25);
+  box-shadow: 0 4px 16px rgb(16 92 74 / 25%);
 }
 
 .ff-home .btn:focus-visible {
-  outline: 3px solid rgba(16, 92, 74, 0.35);
+  outline: 3px solid rgb(16 92 74 / 35%);
   outline-offset: 2px;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .ff-home .hero-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .ff-home .hero-side-panel {
     order: 2;
     width: 100%;
     max-width: none;
     min-width: 0;
   }
-  
+
   .ff-home .hero-actions .btn {
     flex: 1 1 45%;
   }
-  
+
   .ff-home .hero-highlights {
     grid-template-columns: 1fr;
   }
@@ -297,6 +305,7 @@
     transition-duration: 0.001ms !important;
   }
 }
+
 /* ============================================================================
    Home: pathway + cards + boundaries (scoped)
    Supports homepage markup: home-overview, section--band, section--emerald, 
@@ -402,10 +411,10 @@
 }
 
 .ff-home .home-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgb(255 255 255 / 95%);
   border: 1px solid var(--stone-200);
   border-radius: var(--radius-lg);
-  box-shadow: 0 10px 28px rgba(120, 116, 108, 0.18);
+  box-shadow: 0 10px 28px rgb(120 116 108 / 18%);
   padding: calc(var(--card-pad) + 2px);
   min-height: 180px;
   display: flex;
@@ -434,7 +443,7 @@
 }
 
 .ff-home .home-boundaries {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgb(255 255 255 / 65%);
   border: 2px solid var(--stone-200);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
@@ -448,8 +457,8 @@
 /* Dark Mode Boundaries */
 .dark-mode .home-boundaries,
 [data-theme="dark"] .home-boundaries {
-  background: rgba(14, 27, 42, 0.7);
-  border: 2px solid rgba(110, 231, 183, 0.2);
+  background: rgb(14 27 42 / 70%);
+  border: 2px solid rgb(110 231 183 / 20%);
 }
 
 .ff-home .home-boundaries .section-eyebrow {
@@ -477,23 +486,23 @@
 /* Dark Mode Boundaries Text */
 .dark-mode .home-boundaries .section-eyebrow,
 [data-theme="dark"] .home-boundaries .section-eyebrow {
-  color: var(--link-on-dark, #6EE7B7);
+  color: var(--link-on-dark, #6ee7b7);
 }
 
 .dark-mode .home-boundaries .section-heading,
 [data-theme="dark"] .home-boundaries .section-heading {
-  color: var(--text-on-dark, #F9FAFB);
+  color: var(--text-on-dark, #f9fafb);
 }
 
 .dark-mode .home-boundaries .bullets li,
 [data-theme="dark"] .home-boundaries .bullets li {
-  color: var(--text-on-dark-muted, #CBD5E1);
+  color: var(--text-on-dark-muted, #cbd5e1);
 }
 
 .dark-mode .home-boundaries .bullets li::before,
 [data-theme="dark"] .home-boundaries .bullets li::before {
-  background: var(--link-on-dark, #6EE7B7);
-  box-shadow: 0 2px 8px rgba(110, 231, 183, 0.3);
+  background: var(--link-on-dark, #6ee7b7);
+  box-shadow: 0 2px 8px rgb(110 231 183 / 30%);
 }
 
 .ff-home .bullets {
@@ -518,11 +527,11 @@
   height: 0.55rem;
   border-radius: 999px;
   background: var(--emerald-600);
-  box-shadow: 0 2px 8px rgba(16, 92, 74, 0.25);
+  box-shadow: 0 2px 8px rgb(16 92 74 / 25%);
 }
 
 .ff-home .section--emerald .bullets li::before {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgb(255 255 255 / 92%);
   box-shadow: none;
 }
 
@@ -534,7 +543,7 @@
 }
 
 /* Responsive additions for the new blocks */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .home-overview {
     padding: var(--space-xl) var(--space-md);
     gap: var(--space-lg);
@@ -553,7 +562,7 @@
     flex-direction: column;
     justify-content: center;
   }
-  
+
   .ff-home .cta-row--split .btn {
     flex: 1 1 auto;
     width: 100%;
@@ -561,7 +570,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .home-overview {
     padding: var(--space-lg) var(--space-sm);
     gap: var(--space-md);
@@ -572,7 +581,7 @@
     padding: 0.75rem 1.25rem;
     font-size: 0.95rem;
   }
-  
+
   .ff-home .cta-row {
     gap: 0.75rem;
   }

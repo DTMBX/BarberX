@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071A14"/>
+      <stop offset="1" stop-color="#0B2B22"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="980" cy="140" r="260" fill="#0E3A2E" opacity="0.55"/>
+  <circle cx="220" cy="520" r="340" fill="#0A2A21" opacity="0.55"/>
+
+  <text x="80" y="140"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial"
+        font-size="26"
+        fill="#C7B27A"
+        letter-spacing="0.12em">
+    FAITH FRONTIER • HEALTH
+  </text>
+
+  <text x="80" y="275"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial"
+        font-size="86"
+        font-weight="850"
+        fill="#F2F0E8">
+    Health
+  </text>
+
+  <text x="80" y="350"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial"
+        font-size="44"
+        font-weight="700"
+        fill="#F2F0E8"
+        opacity="0.92">
+    Guides for stewardship &amp; independence
+  </text>
+
+  <text x="80" y="430"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial"
+        font-size="28"
+        fill="#D7D2C4"
+        opacity="0.92">
+    Food • Plants • Movement • Sleep • Nervous system
+  </text>
+
+  <text x="80" y="545"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial"
+        font-size="22"
+        fill="#B9B3A2"
+        opacity="0.9">
+    faithfrontier.org/health/
+  </text>
+</svg>
