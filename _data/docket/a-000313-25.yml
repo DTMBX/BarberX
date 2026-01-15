@@ -1,0 +1,12 @@
+- id: order-granted
+  date: '2026-01-11'
+  type: Order
+  title: order granted
+  file: /assets/cases/a-000313-25/docket/order-granted.pdf
+  notes: 'Repaired: auto-registered'
+- id: order-granted-ifp
+  date: '2026-01-11'
+  type: Order
+  title: order granted ifp
+  file: /assets/cases/a-000313-25/docket/order-granted-ifp.pdf
+  notes: 'Repaired: auto-registered'

@@ -1,0 +1,12 @@
+- id: order-granted
+  date: '2026-01-11'
+  type: Order
+  title: order granted
+  file: /assets/cases/pcr-appeal-2024-union/docket/order-granted.pdf
+  notes: 'Repaired: auto-registered'
+- id: order-granted-ifp
+  date: '2026-01-11'
+  type: Order
+  title: order granted ifp
+  file: /assets/cases/pcr-appeal-2024-union/docket/order-granted-ifp.pdf
+  notes: 'Repaired: auto-registered'
