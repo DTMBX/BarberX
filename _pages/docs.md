@@ -1,10 +1,18 @@
 ---
 layout: default
-title: Docs
+title: "BarberX Documentation"
+description: "Complete technical documentation, API references, and guides for the BarberX Legal Technologies platform"
 permalink: /docs/
+badge: "Technical Reference • User Guides • API Docs"
+cta_primary: "Quick Start Guide"
+cta_primary_url: "#getting-started"
+cta_secondary: "API Reference"
+cta_secondary_url: "#api"
 ---
 
-# Docs
+{% include components/heroes/unified-hero.html %}
+
+## Documentation Library
 
 <ul>
   {% assign sorted_docs = site.docs | sort: 'title' %}

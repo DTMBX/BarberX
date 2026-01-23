@@ -1,0 +1,121 @@
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     UNIFIED HERO - BarberX 1920's Golden Age
+     Dynamically ingests page data for unique display on each page
+═══════════════════════════════════════════════════════════════════════════ -->
+
+{%- assign hero_title = include.title | default: page.title | default: site.title -%}
+{%- assign hero_description = include.description | default: page.description | default: site.description -%}
+{%- assign hero_badge = include.badge | default: page.badge | default: "Est. 2024 • Precision & Honor" -%}
+{%- assign hero_cta_primary = include.cta_primary | default: page.cta_primary | default: "Get Started" -%}
+{%- assign hero_cta_primary_url = include.cta_primary_url | default: page.cta_primary_url | default: "#get-started" -%}
+{%- assign hero_cta_secondary = include.cta_secondary | default: page.cta_secondary | default: "Learn More" -%}
+{%- assign hero_cta_secondary_url = include.cta_secondary_url | default: page.cta_secondary_url | default: "/docs" -%}
+{%- assign hero_image = include.image | default: page.image | default: page.hero_image -%}
+
+<section class="barberx-unified-hero" role="banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 100%); position: relative; overflow: hidden; padding: 6rem 0 4rem;">
+  
+  <!-- Art Deco Background Pattern -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(212, 175, 55, 0.03) 50px, rgba(212, 175, 55, 0.03) 51px), repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(212, 175, 55, 0.03) 50px, rgba(212, 175, 55, 0.03) 51px); pointer-events: none;"></div>
+  
+  <!-- Optional Hero Image Background -->
+  {%- if hero_image -%}
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('{{ hero_image | relative_url }}'); background-size: cover; background-position: center; opacity: 0.15; pointer-events: none;"></div>
+  {%- endif -%}
+  
+  <div class="container" style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+    <div class="hero-content" style="text-align: center;">
+      
+      <!-- Golden Age Badge -->
+      <div class="hero-badge" style="background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); color: #D4AF37; font-family: 'Montserrat', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; padding: 0.75rem 1.5rem; border-radius: 4px; display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
+        <span style="display: inline-block; width: 8px; height: 8px; background: #D4AF37; border-radius: 50%; box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);"></span>
+        <span>{{ hero_badge }}</span>
+      </div>
+
+      <!-- Main Headline - Art Deco Typography -->
+      <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: white;">
+        {%- if hero_title contains "BarberX" -%}
+          {{ hero_title | replace: "BarberX", '<span style="color: #D4AF37;">BarberX</span>' }}
+        {%- else -%}
+          <span style="color: #D4AF37;">{{ hero_title | split: " " | first }}</span> {{ hero_title | split: " " | shift | join: " " }}
+        {%- endif -%}
+      </h1>
+
+      <!-- Lead Description -->
+      <p class="hero-lead" style="font-size: 1.25rem; line-height: 1.7; color: rgba(255, 255, 255, 0.85); max-width: 800px; margin: 0 auto 2.5rem; font-family: 'Montserrat', sans-serif;">
+        {{ hero_description }}
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 3rem;">
+        <a href="{{ hero_cta_primary_url }}" class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 10l5 5 5-5M10 3v12"/>
+          </svg>
+          {{ hero_cta_primary }}
+        </a>
+        <a href="{{ hero_cta_secondary_url }}" class="btn btn-ghost btn-lg">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          {{ hero_cta_secondary }}
+        </a>
+      </div>
+
+      <!-- Page-Specific Features (if provided) -->
+      {%- if include.features or page.hero_features -%}
+      {%- assign hero_features = include.features | default: page.hero_features -%}
+      <div class="hero-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+        {%- for feature in hero_features -%}
+        <div class="hero-feature" style="text-align: center;">
+          <div class="hero-feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">{{ feature.icon }}</div>
+          <div class="hero-feature-text">
+            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: #D4AF37; margin-bottom: 0.5rem;">{{ feature.title }}</h3>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; line-height: 1.5;">{{ feature.description }}</p>
+          </div>
+        </div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{%- comment -%}
+<!-- Usage Examples:
+
+1. Basic usage (uses page front matter):
+{% include components/heroes/unified-hero.html %}
+
+2. Override with custom values:
+{% include components/heroes/unified-hero.html
+   title="Custom Title"
+   description="Custom description text"
+   badge="Custom Badge Text"
+   cta_primary="Start Now"
+   cta_primary_url="/get-started"
+   cta_secondary="View Docs"
+   cta_secondary_url="/documentation"
+%}
+
+3. Page front matter example:
+---
+layout: default
+title: "BarberX Platform"
+description: "Professional-grade eDiscovery tools"
+badge: "Est. 2024 • Excellence & Honor"
+cta_primary: "Try Platform"
+cta_primary_url: "/platform"
+cta_secondary: "View Pricing"
+cta_secondary_url: "/pricing"
+hero_features:
+  - icon: "🎥"
+    title: "Video Processing"
+    description: "AI-powered enhancement"
+  - icon: "📊"
+    title: "Document Analysis"
+    description: "Intelligent extraction"
+---
+
+-->
+{%- endcomment -%}
