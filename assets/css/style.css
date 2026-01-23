@@ -1909,10 +1909,18 @@ h6 {
 /* Connect Form Button Overrides */
 .connect-form .btn {
   margin-top: 0.5rem;
+  min-height: 48px;
+  max-height: 52px;
+  padding: 0.875rem 1.75rem;
 }
 
 .connect-form .btn-block {
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  width: 100%;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
