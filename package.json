@@ -3,7 +3,15 @@
   "scripts": {
     "setup:agents": "node scripts/setup-copilot-agents.mjs",
     "test": "playwright test",
-    "lint:css": "stylelint '**/*.css'"
+    "lint:css": "stylelint '**/*.css'",
+    "deploy": "netlify deploy --prod",
+    "deploy:preview": "netlify deploy",
+    "deploy:init": "netlify init",
+    "deploy:login": "netlify login",
+    "deploy:status": "netlify status",
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "clean": "bundle exec jekyll clean"
   },
   "devDependencies": {
     "@copilot-extensions/preview-sdk": "^5.0.1",

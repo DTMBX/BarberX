@@ -1,0 +1,117 @@
+# Netlify Configuration for BarberX Legal Technologies
+# Optimized for Jekyll + Custom Domain Deployment
+
+[build]
+  # Jekyll build command
+  command = "bundle exec jekyll build"
+  
+  # Output directory (Jekyll default)
+  publish = "_site"
+  
+  # Build environment
+  environment = { JEKYLL_ENV = "production" }
+
+[build.processing]
+  # Skip processing - we'll handle optimization ourselves
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Custom headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Performance - cache static assets for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    # HTML files - shorter cache
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    # Service worker - no cache
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Custom redirects and rewrites
+[[redirects]]
+  from = "/auth/*"
+  to = "/.netlify/functions/auth-handler/:splat"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = false
+
+# Pretty URLs - redirect /page.html to /page
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = false
+
+# 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Custom domain setup
+[context.production]
+  environment = { JEKYLL_ENV = "production", SITE_URL = "https://barberx.info" }
+
+[context.deploy-preview]
+  environment = { JEKYLL_ENV = "staging", SITE_URL = "https://deploy-preview-$DEPLOY_ID--barberx.netlify.app" }
+
+[context.branch-deploy]
+  environment = { JEKYLL_ENV = "development", SITE_URL = "https://$BRANCH--barberx.netlify.app" }
+
+# Ruby version for Jekyll
+[build.environment]
+  RUBY_VERSION = "3.1.0"
+  NODE_VERSION = "18"
+
+# Forms - if you're using Netlify Forms
+[forms]
+  # Spam protection
+  spam_protection = true
+
+# Functions configuration (for Flask backend integration)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  
+# Development server
+[dev]
+  command = "bundle exec jekyll serve --watch --livereload"
+  port = 4000
+  targetPort = 4000
+  publish = "_site"
+  autoLaunch = false

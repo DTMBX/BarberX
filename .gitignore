@@ -24,6 +24,18 @@ pnpm-debug.log*
 out/
 dist/
 
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
+
+# Netlify
+.netlify/
+.netlify-state/
+
 # Env / secrets
 .env
 .env.*
