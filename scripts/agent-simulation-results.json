@@ -1,0 +1,145 @@
+{
+  "timestamp": "2026-01-23T16:10:37.763445",
+  "simulations": [
+    {
+      "agent": "legal-compliance",
+      "prompt": "Review this export function that pulls full Westlaw case text",
+      "context": "Developer created new export feature that may violate copyright",
+      "expected_actions": [
+        "Identify that full-text export violates Pattern 1",
+        "Suggest citation + link pattern instead",
+        "Check for 200-word excerpt limit",
+        "Recommend adding attribution manifest",
+        "Block the export if it exceeds fair use"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    },
+    {
+      "agent": "bwc-forensics",
+      "prompt": "Add chain of custody logging to video upload pipeline",
+      "context": "Court requires proof that video evidence was not tampered with",
+      "expected_actions": [
+        "Implement SHA-256 hashing on upload",
+        "Store hash in database",
+        "Log all file access events",
+        "Generate chain of custody report",
+        "Add timestamp to every operation"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    },
+    {
+      "agent": "flask-backend",
+      "prompt": "Secure this API endpoint that returns user data",
+      "context": "API endpoint has no authentication or rate limiting",
+      "expected_actions": [
+        "Add @login_required decorator",
+        "Implement rate limiting",
+        "Validate user owns requested data",
+        "Sanitize inputs to prevent SQL injection",
+        "Log access attempts"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    },
+    {
+      "agent": "frontend-dev",
+      "prompt": "Make this form accessible for keyboard-only users",
+      "context": "Attorney using only keyboard navigation cannot submit form",
+      "expected_actions": [
+        "Add ARIA labels to form fields",
+        "Ensure all interactive elements are keyboard accessible",
+        "Add focus indicators (visible outline)",
+        "Test with Tab/Enter navigation",
+        "Validate WCAG AA contrast ratios"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    },
+    {
+      "agent": "database-architect",
+      "prompt": "Case search is taking 10+ seconds with 50,000 records",
+      "context": "Users complaining about slow search performance",
+      "expected_actions": [
+        "Run EXPLAIN on slow query",
+        "Add composite index on search columns",
+        "Implement pagination (LIMIT/OFFSET)",
+        "Use .joinedload() to avoid N+1 queries",
+        "Consider full-text search for text fields"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    },
+    {
+      "agent": "security-devops",
+      "prompt": "Prepare app for production launch tomorrow",
+      "context": "Need to ensure all security measures are in place",
+      "expected_actions": [
+        "Verify SSL/TLS certificate is installed",
+        "Rotate SECRET_KEY and all secrets",
+        "Run security vulnerability scan",
+        "Enable rate limiting on all public endpoints",
+        "Set up monitoring and logging"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    },
+    {
+      "agent": "documentation",
+      "prompt": "Write quick start guide for new attorney users",
+      "context": "Non-technical attorneys need to upload and analyze BWC footage",
+      "expected_actions": [
+        "Create step-by-step guide (< 5 minutes)",
+        "Add screenshots for each step",
+        "Use non-technical language",
+        "Include troubleshooting FAQ",
+        "Add link to detailed user guide"
+      ],
+      "validation": {
+        "has_sufficient_instructions": true,
+        "references_key_files": true,
+        "has_examples": true,
+        "score": 100
+      }
+    }
+  ],
+  "improvements": [
+    {
+      "category": "Examples",
+      "priority": "High",
+      "improvement": "Add concrete code examples to each agent instruction set",
+      "rationale": "Agents learn better from specific examples than abstract descriptions"
+    },
+    {
+      "category": "Testing",
+      "priority": "High",
+      "improvement": "Require agents to suggest tests for code changes",
+      "rationale": "All code changes should include corresponding tests"
+    }
+  ]
+}
