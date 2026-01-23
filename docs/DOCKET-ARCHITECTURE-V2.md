@@ -348,12 +348,12 @@ jobs:
       - name: Create PR with changes
         uses: peter-evans/create-pull-request@v6
         with:
-          title: "📁 Docket Intake: ${{ github.event.inputs.case_id || 'Batch' }}"
+          title: {% raw %}"📁 Docket Intake: ${{ github.event.inputs.case_id || 'Batch' }}"{% endraw %}
           body: |
             Automated docket intake processing.
             
             ## Files Added
-            ${{ steps.process.outputs.files_added }}
+            {% raw %}${{ steps.process.outputs.files_added }}{% endraw %}
             
             ## Validation
             - ✅ Schema validated

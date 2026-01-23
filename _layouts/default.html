@@ -1,26 +1,41 @@
 <!doctype html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}"{% if page.dir %} dir="{{ page.dir }}"{% endif %}>
   <head>
-    {%- comment -%} BarberX Golden Age Branding - Load First {%- endcomment -%}
-    <link rel="stylesheet" href="{{ '/assets/css/barberx-golden-age.css' | relative_url }}" />
-    <link rel="stylesheet" href="{{ '/assets/css/brand-tokens.css' | relative_url }}" />
-    <link rel="stylesheet" href="{{ '/assets/css/components/barber-branding.css' | relative_url }}" />
-    
-    {%- comment -%} Google Fonts - 1920's Typography {%- endcomment -%}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    {%- comment -%} UX Enhancements {%- endcomment -%}
-    <link rel="stylesheet" href="{{ '/assets/css/components/ux-enhancements.css' | relative_url }}" />
-    
-    {%- comment -%} Enhanced Animation System {%- endcomment -%}
-    <link rel="stylesheet" href="{{ '/assets/css/enhanced-animations.css' | relative_url }}" />
+    {%- comment -%} Meta tags and SEO - Load First {%- endcomment -%}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="{{ site.theme_color | default: '#D4AF37' }}" />
     
     {%- comment -%} SEO & Social Meta Tags {%- endcomment -%}
     {% include components/seo-meta.html %}
+    {% include seo.html %}
+    {% include schema.html %}
     
-    {% include layout/head/head.html %}
+    {%- comment -%} Icons {%- endcomment -%}
+    <link rel="icon" href="{{ '/assets/img/favicon.png' | relative_url }}" />
+    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
+    
+    {%- comment -%} Preconnect to Google Fonts for Performance {%- endcomment -%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    {%- comment -%} Critical CSS - Base Styles (Load First) {%- endcomment -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/brand-tokens.css' | relative_url }}" />
+    
+    {%- comment -%} BarberX Golden Age Branding - Core Theme {%- endcomment -%}
+    <link rel="stylesheet" href="{{ '/assets/css/barberx-golden-age.css' | relative_url }}" />
+    
+    {%- comment -%} Google Fonts - 1920's Typography (Non-blocking) {%- endcomment -%}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    {%- comment -%} Component Styles {%- endcomment -%}
+    <link rel="stylesheet" href="{{ '/assets/css/components/barber-branding.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/components/ux-enhancements.css' | relative_url }}" />
+    
+    {%- comment -%} Animation System {%- endcomment -%}
+    <link rel="stylesheet" href="{{ '/assets/css/enhanced-animations.css' | relative_url }}" />
     
     {%- comment -%} Page-specific stylesheet from front matter {%- endcomment -%}
     {% if page.stylesheet %}

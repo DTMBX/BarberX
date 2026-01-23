@@ -1,24 +1,12 @@
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta
-  name="theme-color"
-  content="{{ site.theme_color | default: '#c41e3a' }}"
-/>
+{%- comment -%}
+  This head include is deprecated - content moved to default.html for better control
+  Keeping this file for backwards compatibility with legacy layouts
+{%- endcomment -%}
 
-{% include seo.html %} {% include schema.html %}
-
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+{%- comment -%} Legacy font fallback - Inter family {%- endcomment -%}
 <link
   href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
   rel="stylesheet"
-/>
-
-<!-- Icons -->
-<link rel="icon" href="{{ '/assets/img/favicon.png' | relative_url }}" />
-<link
-  rel="apple-touch-icon"
-  href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}"
+  media="print"
+  onload="this.media='all'"
 />
