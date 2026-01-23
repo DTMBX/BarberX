@@ -1,0 +1,574 @@
+{%- comment -%}
+SEARCH MODAL COMPONENT
+Fullscreen search modal with keyboard shortcuts
+Triggered by Ctrl/Cmd+K or search button in header
+{%- endcomment -%}
+
+<!-- Search Modal Overlay -->
+<div id="search-modal-overlay" class="search-modal-overlay" aria-hidden="true"></div>
+
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+  <h2 id="search-modal-title" class="sr-only">Search BarberX</h2>
+  
+  <div class="search-modal__header">
+    <div class="search-modal__input-wrapper">
+      <input 
+        type="search"
+        id="modal-search-input"
+        class="search-modal__input"
+        placeholder="Search cases, documents, tools..."
+        aria-label="Search site content"
+        autocomplete="off"
+      >
+      
+      <svg 
+        class="search-modal__icon"
+        width="22" 
+        height="22" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      
+      <button
+        id="modal-search-close"
+        class="search-modal__close"
+        aria-label="Close search"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18M6 6L18 18"/>
+        </svg>
+      </button>
+
+      <div class="search-modal__hint">
+        <kbd>ESC</kbd> to close
+      </div>
+    </div>
+  </div>
+  
+  <div id="modal-search-results" class="search-modal__results"></div>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .search-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .search-modal-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .search-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    background: rgba(17, 24, 39, 0.98);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--color-primary, #dc2626);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .search-modal.active {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .search-modal__header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+  }
+
+  .search-modal__input-wrapper {
+    position: relative;
+  }
+
+  .search-modal__input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 3.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md, 8px);
+    color: white;
+    font-size: 1.125rem;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .search-modal__input:focus {
+    border-color: var(--color-primary, #dc2626);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+  }
+
+  .search-modal__input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .search-modal__icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted, rgba(255, 255, 255, 0.6));
+    pointer-events: none;
+  }
+
+  .search-modal__close {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-text-muted, rgba(255, 255, 255, 0.6));
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-modal__close:hover {
+    color: white;
+  }
+
+  .search-modal__hint {
+    position: absolute;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--color-text-muted, rgba(255, 255, 255, 0.4));
+    pointer-events: none;
+  }
+
+  .search-modal__hint kbd {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.7rem;
+  }
+
+  .search-modal__results {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .search-modal__results::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .search-modal__results::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .search-modal__results::-webkit-scrollbar-thumb {
+    background: var(--color-primary, #dc2626);
+    border-radius: 4px;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .search-modal {
+      width: 100%;
+      max-width: none;
+      max-height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translate(0, 0);
+      border-radius: 0;
+      border: none;
+    }
+
+    .search-modal.active {
+      transform: translate(0, 0);
+    }
+
+    .search-modal__input {
+      font-size: 1rem;
+    }
+
+    .search-modal__hint {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  const searchToggle = document.getElementById('header-search-toggle');
+  const searchModal = document.getElementById('search-modal');
+  const searchOverlay = document.getElementById('search-modal-overlay');
+  const modalSearchInput = document.getElementById('modal-search-input');
+  const modalSearchClose = document.getElementById('modal-search-close');
+  const modalSearchResults = document.getElementById('modal-search-results');
+
+  if (!searchToggle || !searchModal) return;
+
+  let searchIndex = [];
+  let debounceTimer;
+  let currentResultIndex = -1;
+  const RECENT_SEARCHES_KEY = 'barberx_recent_searches';
+  const MAX_RECENT_SEARCHES = 5;
+
+  // Load search index
+  fetch('{{ "/search.json" | relative_url }}')
+    .then(response => response.json())
+    .then(data => {
+      searchIndex = data;
+    })
+    .catch(err => console.error('Failed to load search index:', err));
+
+  // Open modal
+  function openSearchModal() {
+    searchModal.classList.add('active');
+    searchOverlay.classList.add('active');
+    searchModal.setAttribute('aria-hidden', 'false');
+    searchOverlay.setAttribute('aria-hidden', 'false');
+    
+    setTimeout(() => {
+      modalSearchInput.focus();
+      showRecentSearches();
+    }, 100);
+    
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close modal
+  function closeSearchModal() {
+    searchModal.classList.remove('active');
+    searchOverlay.classList.remove('active');
+    searchModal.setAttribute('aria-hidden', 'true');
+    searchOverlay.setAttribute('aria-hidden', 'true');
+    modalSearchInput.value = '';
+    modalSearchResults.innerHTML = '';
+    currentResultIndex = -1;
+    document.body.style.overflow = '';
+  }
+
+  // Event listeners
+  searchToggle.addEventListener('click', openSearchModal);
+  modalSearchClose.addEventListener('click', closeSearchModal);
+  searchOverlay.addEventListener('click', closeSearchModal);
+
+  // Keyboard shortcut: Ctrl/Cmd + K
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    }
+    if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+      closeSearchModal();
+    }
+  });
+
+  // Search functionality
+  function getRecentSearches() {
+    try {
+      return JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY) || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function saveRecentSearch(query) {
+    if (!query || query.length < 2) return;
+    let recent = getRecentSearches();
+    recent = recent.filter(s => s !== query);
+    recent.unshift(query);
+    recent = recent.slice(0, MAX_RECENT_SEARCHES);
+    try {
+      localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(recent));
+    } catch {}
+  }
+
+  function showRecentSearches() {
+    const recent = getRecentSearches();
+    if (recent.length === 0) {
+      modalSearchResults.innerHTML = `
+        <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+          <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">Start typing to search...</p>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Try: cases, BWC, legal tools, analysis</p>
+        </div>
+      `;
+      return;
+    }
+
+    modalSearchResults.innerHTML = `
+      <div style="padding: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <div style="font-size: 0.85rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Recent Searches</div>
+          <button onclick="clearRecentSearches()" style="background: none; border: none; color: var(--color-primary); cursor: pointer; font-size: 0.85rem; padding: 0.25rem 0.5rem;">Clear</button>
+        </div>
+        ${recent.map(search => `
+          <button 
+            class="recent-search-item"
+            onclick="document.getElementById('modal-search-input').value='${escapeHtml(search)}'; document.getElementById('modal-search-input').dispatchEvent(new Event('input'));"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              width: 100%;
+              padding: 0.75rem;
+              margin: 0.25rem 0;
+              border: 1px solid rgba(255, 255, 255, 0.05);
+              border-radius: var(--radius-md, 8px);
+              background: rgba(255, 255, 255, 0.03);
+              color: white;
+              text-align: left;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+            onmouseover="this.style.background='rgba(220, 38, 38, 0.15)'; this.style.borderColor='rgba(220, 38, 38, 0.3)'"
+            onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='rgba(255, 255, 255, 0.05)'"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; opacity: 0.6;">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            <span>${escapeHtml(search)}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  window.clearRecentSearches = function() {
+    try {
+      localStorage.removeItem(RECENT_SEARCHES_KEY);
+      showRecentSearches();
+    } catch {}
+  };
+
+  function performSearch(query) {
+    if (!query || query.length < 2) {
+      showRecentSearches();
+      return;
+    }
+
+    // Show loading state
+    modalSearchResults.innerHTML = `
+      <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+        <div style="
+          width: 40px;
+          height: 40px;
+          border: 3px solid rgba(220, 38, 38, 0.2);
+          border-top-color: var(--color-primary, #dc2626);
+          border-radius: 50%;
+          margin: 0 auto 1rem;
+          animation: spin 0.8s linear infinite;
+        "></div>
+        <p>Searching...</p>
+      </div>
+    `;
+
+    const lowerQuery = query.toLowerCase();
+    const results = searchIndex.filter(item => {
+      return (
+        item.title.toLowerCase().includes(lowerQuery) ||
+        item.content.toLowerCase().includes(lowerQuery) ||
+        (item.tags && item.tags.some(tag => tag.toLowerCase().includes(lowerQuery)))
+      );
+    }).slice(0, 10);
+
+    setTimeout(() => displayResults(results, query), 100);
+    currentResultIndex = -1;
+  }
+
+  function displayResults(results, query) {
+    saveRecentSearch(query);
+
+    if (results.length === 0) {
+      const suggestions = ['cases', 'BWC', 'video', 'analysis', 'legal', 'evidence', 'admin'];
+      modalSearchResults.innerHTML = `
+        <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto 1rem; opacity: 0.5;">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+          <p style="margin-bottom: 1rem;">No results found for "<strong>${escapeHtml(query)}</strong>"</p>
+          <div style="margin-top: 1.5rem;">
+            <div style="font-size: 0.9rem; margin-bottom: 0.75rem; opacity: 0.7;">Try searching for:</div>
+            ${suggestions.map(s => `
+              <button 
+                onclick="document.getElementById('modal-search-input').value='${s}'; document.getElementById('modal-search-input').dispatchEvent(new Event('input'));"
+                style="
+                  display: inline-block;
+                  padding: 0.5rem 0.75rem;
+                  margin: 0.25rem;
+                  background: rgba(220, 38, 38, 0.15);
+                  border: 1px solid rgba(220, 38, 38, 0.3);
+                  border-radius: var(--radius-md, 8px);
+                  color: white;
+                  cursor: pointer;
+                  font-size: 0.9rem;
+                  transition: all 0.2s;
+                "
+                onmouseover="this.style.background='rgba(220, 38, 38, 0.25)'"
+                onmouseout="this.style.background='rgba(220, 38, 38, 0.15)'"
+              >${s}</button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    modalSearchResults.innerHTML = `
+      <div style="padding: 0.75rem 0.5rem; margin-bottom: 0.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: var(--color-text-muted);">
+        Found ${results.length} result${results.length === 1 ? '' : 's'} • Use ↑↓ to navigate, Enter to open
+      </div>
+      ${results.map((result, index) => `
+        <a 
+          href="${result.url}"
+          class="modal-search-result-item"
+          data-index="${index}"
+          style="
+            display: block;
+            padding: 1rem;
+            margin: 0.25rem 0;
+            border-radius: var(--radius-md, 8px);
+            text-decoration: none;
+            transition: all 0.2s;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+          onmouseover="highlightModalResult(${index})"
+        >
+          <div style="font-weight: 600; color: white; margin-bottom: 0.25rem;">
+            ${highlightMatch(result.title, query)}
+          </div>
+          <div style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.5;">
+            ${highlightMatch(truncate(result.content, 120), query)}
+          </div>
+          ${result.type ? `<div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(37, 99, 235, 0.15); padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block;">${result.type}</div>` : ''}
+        </a>
+      `).join('')}
+    `;
+  }
+
+  window.highlightModalResult = function(index) {
+    currentResultIndex = index;
+    updateModalResultHighlight();
+  };
+
+  function updateModalResultHighlight() {
+    const items = document.querySelectorAll('.modal-search-result-item');
+    items.forEach((item, i) => {
+      if (i === currentResultIndex) {
+        item.style.background = 'rgba(220, 38, 38, 0.15)';
+        item.style.borderColor = 'rgba(220, 38, 38, 0.5)';
+        item.style.boxShadow = '0 0 0 2px rgba(220, 38, 38, 0.2)';
+        item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      } else {
+        item.style.background = 'rgba(255, 255, 255, 0.03)';
+        item.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+        item.style.boxShadow = 'none';
+      }
+    });
+  }
+
+  function highlightMatch(text, query) {
+    const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+    return escapeHtml(text).replace(regex, '<mark style="background: var(--color-primary); color: white; padding: 0 0.2rem; border-radius: 2px;">$1</mark>');
+  }
+
+  function truncate(str, length) {
+    return str.length > length ? str.substring(0, length) + '...' : str;
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Search input handler
+  modalSearchInput.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      performSearch(this.value.trim());
+    }, 300);
+  });
+
+  // Keyboard navigation
+  modalSearchInput.addEventListener('keydown', function(e) {
+    const items = document.querySelectorAll('.modal-search-result-item');
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (items.length > 0) {
+        currentResultIndex = Math.min(currentResultIndex + 1, items.length - 1);
+        updateModalResultHighlight();
+      }
+    }
+    
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (items.length > 0) {
+        currentResultIndex = Math.max(currentResultIndex - 1, 0);
+        updateModalResultHighlight();
+      }
+    }
+    
+    if (e.key === 'Enter' && currentResultIndex >= 0 && items[currentResultIndex]) {
+      e.preventDefault();
+      window.location.href = items[currentResultIndex].getAttribute('href');
+    }
+  });
+})();
+</script>
