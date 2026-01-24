@@ -1,0 +1,38 @@
+# Ignore Python virtual environments
+.venv/
+venv/
+
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore node modules and build artifacts
+node_modules/
+dist/
+build/
+
+# Ignore git and editor files
+.git/
+.gitignore
+*.swp
+*.swo
+.DS_Store
+
+# Ignore OS and log files
+*.log
+*.tmp
+*.bak
+
+# Ignore Jupyter and notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore other large or unnecessary files
+*.sqlite3
+*.db
+# Ignore node modules and build artifacts
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Add more as needed for your project
