@@ -34,7 +34,7 @@
   align-items: start;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .connect-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -47,7 +47,7 @@
 
 .section-tag {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -69,7 +69,7 @@
   line-height: 1.2;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .section-title {
     font-size: 3rem;
   }
@@ -78,7 +78,7 @@
 .connect-lead {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   margin-bottom: 3rem;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .way-content h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--barberx-gold);
@@ -123,22 +123,22 @@
 
 .way-content p {
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   line-height: 1.5;
   margin: 0;
 }
 
 /* Connect Form */
 .connect-form-wrapper {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid rgb(212 175 55 / 30%);
   border-radius: 16px;
   padding: 2.5rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .connect-form-wrapper {
     padding: 3rem;
   }
@@ -163,7 +163,7 @@
 
 .form-header p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   margin: 0;
 }
 
@@ -173,10 +173,10 @@
 
 .form-group label {
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   margin-bottom: 0.5rem;
   letter-spacing: 0.025em;
 }
@@ -186,22 +186,22 @@
   width: 100%;
   padding: 0.875rem 1rem;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  font-family: Montserrat, sans-serif;
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(212 175 55 / 30%);
   border-radius: 8px;
   color: #fff;
   transition: all 0.2s ease;
 }
 
 .form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255 255 255 / 50%);
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgb(255 255 255 / 12%);
   border-color: var(--barberx-gold);
   box-shadow: 0 0 0 3px rgb(212 175 55 / 15%);
 }
@@ -226,12 +226,12 @@
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
   margin-top: 1.5rem;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
   border-radius: 8px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgb(212 175 55 / 20%);
 }
 
 .form-notice svg {
@@ -267,41 +267,41 @@
   gap: 2.5rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .compliance-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .compliance-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .compliance-card {
-  background: rgba(212, 175, 55, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgb(212 175 55 / 5%);
+  border: 1px solid rgb(212 175 55 / 20%);
   border-radius: 12px;
   padding: 2rem;
   transition: all 0.3s ease;
 }
 
 .compliance-card:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+  border-color: rgb(212 175 55 / 40%);
+  box-shadow: 0 4px 20px rgb(212 175 55 / 15%);
   transform: translateY(-2px);
 }
 
 @media (prefers-color-scheme: dark) {
   .compliance-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(212, 175, 55, 0.25);
+    background: rgb(255 255 255 / 3%);
+    border-color: rgb(212 175 55 / 25%);
   }
   
   .compliance-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(212, 175, 55, 0.4);
+    background: rgb(255 255 255 / 5%);
+    border-color: rgb(212 175 55 / 40%);
   }
 }
 
@@ -312,7 +312,7 @@
   color: var(--barberx-gold);
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 2px solid rgb(212 175 55 / 30%);
 }
 
 .compliance-card p {
@@ -324,7 +324,7 @@
 
 @media (prefers-color-scheme: dark) {
   .compliance-card p {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgb(255 255 255 / 85%);
   }
 }
 
@@ -345,7 +345,7 @@
 
 @media (prefers-color-scheme: dark) {
   .compliance-card ul li {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgb(255 255 255 / 75%);
   }
 }
 
@@ -377,7 +377,7 @@
 .compliance-contact {
   font-size: 0.9375rem;
   padding: 1rem;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgb(212 175 55 / 8%);
   border-radius: 8px;
   border-left: 3px solid var(--barberx-gold);
 }
@@ -391,12 +391,12 @@
 .compliance-footer {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 2px solid rgba(212, 175, 55, 0.3);
+  border-top: 2px solid rgb(212 175 55 / 30%);
   text-align: center;
 }
 
 .compliance-footer p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 0.9375rem;
   color: #666;
   margin-bottom: 0.75rem;
@@ -404,7 +404,7 @@
 
 @media (prefers-color-scheme: dark) {
   .compliance-footer p {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(255 255 255 / 60%);
   }
 }
 
@@ -415,7 +415,7 @@
 
 @media (prefers-color-scheme: dark) {
   .compliance-license {
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: rgb(255 255 255 / 50%) !important;
   }
 }
 
@@ -436,7 +436,7 @@
 
 .site-footer {
   background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 100%);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   padding: 4rem 0 2rem;
   border-top: 3px solid var(--barberx-gold);
   position: relative;
@@ -463,13 +463,13 @@
   margin-bottom: 3rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr;
   }
@@ -488,7 +488,7 @@
 .footer-description {
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
   margin-bottom: 1.5rem;
 }
 
@@ -511,14 +511,14 @@
 }
 
 .footer-notice {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid rgb(212 175 55 / 30%);
   border-radius: 12px;
   padding: 1.5rem;
 }
 
 .footer-notice h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: var(--barberx-gold);
@@ -538,7 +538,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255 255 255 / 60%);
 }
 
 .footer-compliance span:not(:last-child) {
@@ -550,10 +550,10 @@
   flex-direction: column;
   gap: 1.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-top: 1px solid rgb(212 175 55 / 30%);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .footer-bottom {
     flex-direction: row;
     justify-content: space-between;
@@ -563,7 +563,7 @@
 
 .footer-copyright p {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255 255 255 / 60%);
   margin-bottom: 0.5rem;
 }
 
@@ -580,7 +580,7 @@
 }
 
 .footer-legal-links a {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -590,14 +590,14 @@
 }
 
 .footer-legal-links span {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgb(255 255 255 / 30%);
 }
 
 /* ===========================================
    RESPONSIVE ADJUSTMENTS
    =========================================== */
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .connect-section,
   .compliance-section,
   .site-footer {

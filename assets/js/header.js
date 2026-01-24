@@ -1,50 +1,54 @@
+
 (() => {
-  const header = document.getElementById("siteHeader");
+  const header = document.querySelector('[data-header]');
   if (!header) return;
 
-  const toggle = header.querySelector("[data-nav-toggle]");
-  const nav = header.querySelector("[data-nav]");
-  if (!toggle || !nav) return;
+  const toggle = header.querySelector('[data-nav-toggle]');
+  const nav = document.getElementById('premium-nav-mobile');
+  const overlay = document.querySelector('[data-nav-overlay]');
+  if (!toggle || !nav || !overlay) return;
 
-  const setOpen = (open) => {
-    header.classList.toggle("nav-open", open);
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  };
+  function setOpen(open) {
+    header.classList.toggle('nav-open', open);
+    nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    overlay.classList.toggle('is-active', open);
+    document.body.classList.toggle('no-scroll', open);
+    if (open) {
+      nav.focus();
+    }
+  }
 
-  toggle.addEventListener("click", () => {
-    const open = !header.classList.contains("nav-open");
-    setOpen(open);
+  toggle.addEventListener('click', () => {
+    setOpen(!header.classList.contains('nav-open'));
   });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && header.classList.contains("nav-open"))
-      setOpen(false);
+  overlay.addEventListener('click', () => setOpen(false));
+
+  nav.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
   });
 
-  nav.addEventListener("click", (e) => {
-    const a = e.target.closest("a");
-    if (!a) return;
-    if (window.matchMedia("(max-width: 768px)").matches) setOpen(false);
+  nav.querySelectorAll('a,button').forEach(el => {
+    el.addEventListener('click', () => {
+      if (window.innerWidth < 1024) setOpen(false);
+    });
   });
 
   let lastY = window.scrollY;
   const onScroll = () => {
     const y = window.scrollY;
-    header.classList.toggle("is-scrolled", y > 8);
-
-    if (header.classList.contains("nav-open")) {
-      header.classList.remove("is-hidden");
+    header.classList.toggle('is-scrolled', y > 8);
+    if (header.classList.contains('nav-open')) {
+      header.classList.remove('is-hidden');
       lastY = y;
       return;
     }
-
     const goingDown = y > lastY;
     const past = y > 140;
-    header.classList.toggle("is-hidden", goingDown && past);
+    header.classList.toggle('is-hidden', goingDown && past);
     lastY = y;
   };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();

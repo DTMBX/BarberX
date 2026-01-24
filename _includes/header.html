@@ -1,21 +1,22 @@
+<!DOCTYPE html>
 <!-- BarberX 1920's Golden Age Header -->
-<header id="siteHeader" class="site-header premium-header barberx-golden-header" role="banner">
+<header id="siteHeader" class="site-header premium-header barberx-golden-header" role="banner" data-header>
   <div class="container header-inner premium-header__inner">
     
     <!-- Logo -->
     <a class="brand premium-brand barberx-brand" href="{{ "/" | relative_url }}" aria-label="BarberX Legal Technologies - Home">
       <div class="barberx-logo">
         <span class="barberx-logo__text" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 1.75rem; color: #D4AF37; letter-spacing: 0.1em;">
-          BARBER<span style="color: #8B0000;">X</span>
+          BARBER&lt;span style=&quot;color: #8B0000;&quot;&gt;X&lt;/span&gt;
         </span>
         <span class="barberx-logo__tagline" style="font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; color: #666; display: block; margin-top: -4px;">
           LEGAL TECHNOLOGIES
         </span>
       </div>
-    </a>
+    <!-- /a tag intentionally left open for logo markup, close after logo if needed -->
 
     <!-- Desktop Navigation -->
-    <nav class="premium-nav premium-nav--desktop" aria-label="Main navigation">
+    <nav class="premium-nav premium-nav--desktop" aria-label="Main navigation" data-nav>
       <ul class="premium-nav__list">
         
         <!-- Cases -->
@@ -100,7 +101,7 @@
     </nav>
 
     <!-- Mobile Menu Toggle -->
-    <button class="premium-nav-toggle" type="button" aria-expanded="false" aria-controls="premium-nav-mobile" aria-label="Open navigation menu">
+    <button class="premium-nav-toggle" type="button" aria-expanded="false" aria-controls="premium-nav-mobile" aria-label="Open navigation menu" data-nav-toggle>
       <span class="premium-nav-toggle__bar"></span>
       <span class="premium-nav-toggle__bar"></span>
       <span class="premium-nav-toggle__bar"></span>
@@ -110,7 +111,7 @@
 </header>
 
 <!-- Mobile Navigation Drawer -->
-<nav id="premium-nav-mobile" class="premium-nav--mobile" aria-label="Mobile menu" aria-hidden="true">
+<nav id="premium-nav-mobile" class="premium-nav--mobile" aria-label="Mobile menu" aria-hidden="true" data-nav>
   
   <div class="premium-nav__header">
     <span class="premium-nav__mobile-brand">Menu</span>
@@ -232,4 +233,4 @@
 {% include components/search-modal.html %}
 
 <!-- Mobile Nav Overlay -->
-<div class="premium-nav-overlay" aria-hidden="true"></div>
+<div class="premium-nav-overlay" aria-hidden="true" data-nav-overlay></div>

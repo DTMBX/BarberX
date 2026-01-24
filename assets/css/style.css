@@ -1,3 +1,71 @@
+/* GLOBAL PREMIUM UX ENHANCEMENTS */
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+.card, .panel, .premium-card {
+  box-shadow: 0 4px 32px rgb(212 165 116 / 10%), 0 1.5px 8px rgb(0 0 0 / 8%);
+  border-radius: 18px;
+  transition: box-shadow 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth);
+  background: linear-gradient(135deg, #fff 80%, #f8f5ef 100%);
+}
+.card:hover, .panel:hover, .premium-card:hover {
+  box-shadow: 0 8px 40px rgb(212 165 116 / 18%), 0 4px 24px rgb(0 0 0 / 12%);
+  transform: translateY(-2px) scale(1.012);
+}
+
+.btn, .btn-premium, .btn-primary {
+  box-shadow: 0 2px 12px rgb(212 175 55 / 18%);
+  border-radius: 12px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn:hover, .btn-premium:hover, .btn-primary:hover {
+  box-shadow: 0 8px 24px rgb(212 175 55 / 28%);
+  transform: translateY(-2px) scale(1.03);
+}
+.btn:active, .btn-premium:active, .btn-primary:active {
+  transform: scale(0.98);
+}
+
+.input, input, textarea, select {
+  border-radius: 10px;
+  border: 1.5px solid var(--border, #e5e7eb);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgb(212 175 55 / 6%);
+}
+.input:focus, input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-gold, #d4a574);
+  box-shadow: 0 0 0 2px rgb(212 175 55 / 18%);
+}
+
+.divider {
+  background: linear-gradient(90deg, transparent, #d4a574 40%, transparent);
+  height: 2px;
+  border-radius: 1px;
+  margin: 2.5rem 0;
+}
+
+.shadow-premium {
+  box-shadow: 0 8px 32px rgb(212 165 116 / 18%), 0 0 0 1px rgb(212 165 116 / 10%);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(18px);
+}
+
+.focus-visible, *:focus-visible {
+  outline: 2.5px solid #d4a574;
+  outline-offset: 2px;
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1) both;
+}
 /* ═══════════════════════════════════════════════════════════════════════════
    BARBER CAM — NY Barbershop Style
    Precision. Patience. Virtue. Honor.
@@ -1466,15 +1534,15 @@ h6 {
 }
 
 .principles-note {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, rgb(212 175 55 / 10%) 0%, rgb(212 175 55 / 5%) 100%);
+  border: 1px solid rgb(212 175 55 / 30%);
   border-radius: 12px;
   padding: 2rem;
   max-width: 700px;
   margin: 0 auto;
   box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(212, 175, 55, 0.2);
+    0 8px 24px rgb(0 0 0 / 30%),
+    inset 0 1px 0 rgb(212 175 55 / 20%);
 }
 
 .principles-note p {

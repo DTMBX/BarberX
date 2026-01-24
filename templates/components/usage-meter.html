@@ -1,4 +1,5 @@
 <!-- Usage Meter Component - Visual usage tracking with contextual messaging -->
+<!DOCTYPE html>
 {% set percentage = ((current / limit * 100) if limit > 0 and limit != -1 else 0) | int %}
 {% set is_unlimited = limit == -1 %}
 {% set is_warning = percentage >= 75 and percentage < 90 %}
