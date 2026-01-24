@@ -1,0 +1,618 @@
+/**
+ * Connect, Compliance, and Footer Sections
+ * BarberX Golden Age Styling
+ */
+
+/* ===========================================
+   CONNECT SECTION - Get Involved & Early Access
+   =========================================== */
+
+.connect-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 50%, #1a1a2e 100%);
+  position: relative;
+}
+
+.connect-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--barberx-gold) 50%, 
+    transparent 100%
+  );
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .connect-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Connect Info Side */
+.connect-info {
+  color: #fff;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--barberx-gold);
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--barberx-gold);
+  border-radius: 4px;
+  background: rgb(212 175 55 / 10%);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--barberx-gold);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.connect-lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+}
+
+/* Connect Ways */
+.connect-ways {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.way {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.way-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgb(212 175 55 / 20%) 0%, rgb(212 175 55 / 10%) 100%);
+  border: 1px solid rgb(212 175 55 / 30%);
+}
+
+.way-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--barberx-gold);
+}
+
+.way-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--barberx-gold);
+  margin-bottom: 0.5rem;
+}
+
+.way-content p {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Connect Form */
+.connect-form-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
+}
+
+@media (min-width: 768px) {
+  .connect-form-wrapper {
+    padding: 3rem;
+  }
+}
+
+.connect-form {
+  width: 100%;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--barberx-gold);
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.025em;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--barberx-gold);
+  box-shadow: 0 0 0 3px rgb(212 175 55 / 15%);
+}
+
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+  appearance: none;
+}
+
+.form-group select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.form-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.form-notice svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--barberx-gold);
+}
+
+.form-notice span {
+  line-height: 1.5;
+}
+
+/* ===========================================
+   COMPLIANCE SECTION - Legal & Privacy
+   =========================================== */
+
+.compliance-section {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%);
+  border-top: 3px solid var(--barberx-gold);
+}
+
+@media (prefers-color-scheme: dark) {
+  .compliance-section {
+    background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+  }
+}
+
+.compliance-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .compliance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .compliance-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.compliance-card {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.compliance-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .compliance-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(212, 175, 55, 0.25);
+  }
+  
+  .compliance-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+}
+
+.compliance-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--barberx-gold);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.compliance-card p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .compliance-card p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.compliance-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.compliance-card ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+@media (prefers-color-scheme: dark) {
+  .compliance-card ul li {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.compliance-card ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--barberx-gold);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.compliance-card ul li strong {
+  color: var(--barberx-gold);
+  font-weight: 600;
+}
+
+.compliance-card a {
+  color: var(--barberx-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.compliance-card a:hover {
+  border-bottom-color: var(--barberx-gold);
+}
+
+.compliance-contact {
+  font-size: 0.9375rem;
+  padding: 1rem;
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 8px;
+  border-left: 3px solid var(--barberx-gold);
+}
+
+.compliance-contact a {
+  color: var(--barberx-gold);
+  font-weight: 600;
+}
+
+/* Compliance Footer */
+.compliance-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(212, 175, 55, 0.3);
+  text-align: center;
+}
+
+.compliance-footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9375rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .compliance-footer p {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.compliance-license {
+  font-size: 0.875rem !important;
+  color: #888 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .compliance-license {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+.compliance-footer a {
+  color: var(--barberx-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.compliance-footer a:hover {
+  border-bottom-color: var(--barberx-gold);
+}
+
+/* ===========================================
+   FOOTER ENHANCEMENTS
+   =========================================== */
+
+.site-footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 100%);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4rem 0 2rem;
+  border-top: 3px solid var(--barberx-gold);
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--barberx-gold) 50%, 
+    transparent 100%
+  );
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand {
+  max-width: 400px;
+}
+
+.footer-tagline {
+  font-size: 1.125rem;
+  color: var(--barberx-gold);
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.footer-contact {
+  margin-top: 1.5rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--barberx-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--barberx-brass);
+}
+
+.footer-notice {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.footer-notice h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--barberx-gold);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-notice p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.footer-compliance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-compliance span:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-copyright p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.footer-legal {
+  font-size: 0.8125rem !important;
+  color: var(--barberx-gold) !important;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.footer-legal-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--barberx-gold);
+}
+
+.footer-legal-links span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===========================================
+   RESPONSIVE ADJUSTMENTS
+   =========================================== */
+
+@media (max-width: 640px) {
+  .connect-section,
+  .compliance-section,
+  .site-footer {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .connect-form-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .compliance-footer {
+    margin-top: 2rem;
+  }
+}
