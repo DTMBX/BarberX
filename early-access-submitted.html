@@ -1,0 +1,255 @@
+---
+layout: default
+title: Early Access Submitted - BarberX.info
+description: You're on the waitlist! We'll notify you when the beta launches.
+permalink: /early-access-submitted/
+---
+
+<style>
+  .thank-you-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+  
+  .thank-you-container {
+    max-width: 650px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--card-background) 0%, var(--elevated-surface) 100%);
+    padding: 4rem 3rem;
+    border-radius: 16px;
+    box-shadow: 
+      0 10px 40px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  
+  .thank-you-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+    }
+  }
+  
+  .thank-you-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .thank-you-message {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  
+  .waitlist-info {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  
+  .waitlist-info h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .waitlist-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .waitlist-info li {
+    padding: 0.5rem 0 0.5rem 1.75rem;
+    position: relative;
+    color: var(--text-secondary);
+  }
+  
+  .waitlist-info li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #D4AF37;
+    font-weight: bold;
+  }
+  
+  .next-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .step-card {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .step-card:hover {
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+  }
+  
+  .step-card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .step-card h4 {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  .step-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    color: #1a1a2e;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+  }
+  
+  .btn-secondary:hover {
+    border-color: #D4AF37;
+    background: rgba(212, 175, 55, 0.1);
+  }
+  
+  @media (max-width: 640px) {
+    .thank-you-container {
+      padding: 3rem 2rem;
+    }
+    
+    .thank-you-title {
+      font-size: 2rem;
+    }
+    
+    .next-steps {
+      grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<div class="thank-you-page">
+  <div class="thank-you-container">
+    <div class="thank-you-icon">
+      🎉
+    </div>
+    
+    <h1 class="thank-you-title">You're on the Waitlist!</h1>
+    
+    <p class="thank-you-message">
+      Thank you for your interest in BarberX.info! We've added you to our early access list and will notify you as soon as the beta program launches.
+    </p>
+    
+    <div class="waitlist-info">
+      <h3>What Happens Next:</h3>
+      <ul>
+        <li>Check your email for a confirmation message</li>
+        <li>We'll notify you when beta access opens</li>
+        <li>You'll get early access to new features</li>
+        <li>Your feedback will help shape the platform</li>
+      </ul>
+    </div>
+    
+    <div class="next-steps">
+      <div class="step-card">
+        <div class="step-card-icon">📚</div>
+        <h4>Explore Documentation</h4>
+        <p>Learn about BarberX features and capabilities</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-card-icon">💬</div>
+        <h4>Join the Community</h4>
+        <p>Connect with other early adopters and contributors</p>
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <a href="/" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0L0 6v10h6v-6h4v6h6V6L8 0z"/>
+        </svg>
+        Return Home
+      </a>
+      <a href="/docs" class="btn btn-secondary">
+        Browse Documentation
+      </a>
+    </div>
+  </div>
+</div>

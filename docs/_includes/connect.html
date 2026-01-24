@@ -73,7 +73,21 @@
       </div>
 
       <div class="connect-form-wrapper">
-        <form class="connect-form" action="#" method="post">
+        <form 
+          class="connect-form" 
+          name="docs-early-access"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/early-access-submitted/"
+        >
+          <!-- Netlify Forms requirement -->
+          <input type="hidden" name="form-name" value="docs-early-access" />
+          
+          <!-- Honeypot for spam protection -->
+          <p class="hidden" style="position: absolute; left: -9999px;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
           <div class="form-header">
             <h3>Request Early Access</h3>
             <p>Be notified when the beta launches.</p>

@@ -54,11 +54,12 @@ Supports Mailchimp, ConvertKit, Buttondown, and custom endpoints
 
     <form 
       class="newsletter-form" 
-      action="{{ site.newsletter_action_url }}" 
-      method="post"
-      {% if site.newsletter_provider == 'mailchimp' %}target="_blank"{% endif %}
+      name="newsletter-signup"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thank-you/newsletter/"
       id="newsletter-form-element"
-      novalidate
       style="
         display: flex;
         gap: 0.75rem;
@@ -67,12 +68,13 @@ Supports Mailchimp, ConvertKit, Buttondown, and custom endpoints
         flex-wrap: wrap;
       "
     >
-      {% if site.newsletter_provider == 'mailchimp' %}
-        <!-- Mailchimp honeypot -->
-        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-          <input type="text" name="{{ site.newsletter_honeypot_field }}" tabindex="-1" value="">
-        </div>
-      {% endif %}
+      <!-- Netlify Forms requirement -->
+      <input type="hidden" name="form-name" value="newsletter-signup" />
+      
+      <!-- Honeypot for spam protection -->
+      <div class="hidden" style="position: absolute; left: -5000px;" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" /></label>
+      </div>
 
       <div style="flex: 1; min-width: 250px; position: relative;">
         <label for="newsletter-email" class="sr-only">Email address</label>

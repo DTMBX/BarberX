@@ -513,6 +513,19 @@ def index():
     return send_file('index-standalone.html')
 
 
+@app.route('/bwc-dashboard')
+@login_required
+def bwc_dashboard():
+    """BWC Analysis Dashboard - Frontend Interface"""
+    return send_file('bwc-dashboard.html')
+
+
+@app.route('/test-separation')
+def test_separation():
+    """Frontend/Backend separation test suite"""
+    return send_file('test_separation.html')
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """User registration - redirect to enhanced signup"""
