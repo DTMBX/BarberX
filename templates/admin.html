@@ -1,784 +1,204 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Panel | BarberX Legal Tech</title>
-    <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+---
+layout: default
+title: "BarberX Admin Panel"
+description: "Secure administrative access for BarberX Legal Technologies platform management"
+permalink: /admin/
+badge: "Authorized Personnel Only"
+cta_primary: "Dashboard Overview"
+cta_primary_url: "#dashboard"
+cta_secondary: "Documentation"
+cta_secondary_url: "/docs"
+---
 
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #f8f9fa;
-        color: #1a202c;
-      }
+{% include components/heroes/unified-hero.html %}
 
-      .admin-header {
-        background: linear-gradient(135deg, #1e293b, #0f172a);
-        color: white;
-        padding: 1.5rem 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
+<style>
+  .admin-login-container {
+    max-width: 480px;
+    margin: 120px auto 60px;
+    padding: var(--space-8);
+  }
 
-      .header-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+  .admin-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--space-8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
 
-      .header-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
+  .admin-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
 
-      .admin-badge {
-        background: #ef4444;
-        padding: 0.25rem 0.75rem;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
+  .admin-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+  }
 
-      .main-container {
-        max-width: 1400px;
-        margin: 2rem auto;
-        padding: 0 2rem;
-      }
+  .admin-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
 
-      .tabs {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        border-bottom: 2px solid #e2e8f0;
-      }
+  .admin-alert {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: var(--space-4);
+    margin-bottom: var(--space-6);
+    color: #856404;
+  }
 
-      .tab {
-        padding: 1rem 1.5rem;
-        cursor: pointer;
-        font-weight: 600;
-        color: #64748b;
-        border-bottom: 3px solid transparent;
-        transition: all 0.2s;
-      }
+  .admin-alert strong {
+    display: block;
+    margin-bottom: var(--space-1);
+  }
 
-      .tab:hover {
-        color: #3b82f6;
-      }
+  .admin-form-group {
+    margin-bottom: var(--space-5);
+  }
 
-      .tab.active {
-        color: #3b82f6;
-        border-bottom-color: #3b82f6;
-      }
+  .admin-form-group label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
 
-      .tab-content {
-        display: none;
-      }
+  .admin-form-group input {
+    width: 100%;
+    padding: var(--space-3);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
 
-      .tab-content.active {
-        display: block;
-      }
+  .admin-form-group input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
 
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-      }
+  .admin-btn {
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
 
-      .stat-card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-left: 4px solid #3b82f6;
-      }
+  .admin-btn:hover {
+    background: #0056b3;
+  }
 
-      .stat-label {
-        font-size: 0.875rem;
-        color: #64748b;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
+  .admin-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
 
-      .stat-value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1e293b;
-      }
+  .admin-footer {
+    text-align: center;
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid #eee;
+  }
 
-      .card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        overflow: hidden;
-        margin-bottom: 2rem;
-      }
+  .admin-footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+  }
 
-      .card-header {
-        padding: 1.5rem;
-        border-bottom: 1px solid #e2e8f0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+  .admin-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
 
-      .card-title {
-        font-size: 1.125rem;
-        font-weight: 700;
-      }
-
-      .card-body {
-        padding: 1.5rem;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      th {
-        text-align: left;
-        padding: 0.75rem;
-        background: #f8f9fa;
-        font-weight: 600;
-        font-size: 0.875rem;
-        color: #64748b;
-        text-transform: uppercase;
-      }
-
-      td {
-        padding: 1rem 0.75rem;
-        border-bottom: 1px solid #e2e8f0;
-      }
-
-      .btn {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 6px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-size: 0.875rem;
-      }
-
-      .btn-primary {
-        background: #3b82f6;
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background: #2563eb;
-      }
-
-      .btn-danger {
-        background: #ef4444;
-        color: white;
-      }
-
-      .btn-danger:hover {
-        background: #dc2626;
-      }
-
-      .btn-success {
-        background: #10b981;
-        color: white;
-      }
-
-      .btn-success:hover {
-        background: #059669;
-      }
-
-      .badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 999px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-      }
-
-      .badge-free {
-        background: #e2e8f0;
-        color: #475569;
-      }
-
-      .badge-professional {
-        background: #dbeafe;
-        color: #1e40af;
-      }
-
-      .badge-enterprise {
-        background: #fce7f3;
-        color: #be123c;
-      }
-
-      .badge-active {
-        background: #d1fae5;
-        color: #065f46;
-      }
-
-      .badge-inactive {
-        background: #fee2e2;
-        color: #991b1b;
-      }
-
-      .search-box {
-        padding: 0.75rem 1rem;
-        border: 2px solid #e2e8f0;
-        border-radius: 8px;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .search-box:focus {
-        outline: none;
-        border-color: #3b82f6;
-      }
-
-      .action-buttons {
-        display: flex;
-        gap: 0.5rem;
-      }
-
-      .chart-container {
-        position: relative;
-        height: 400px;
-        margin-top: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <header class="admin-header">
-      <div class="header-content">
-        <div>
-          <div class="header-title">⚖️ BarberX Admin Panel</div>
-          <div
-            style="
-              font-size: 0.875rem;
-              color: rgba(255, 255, 255, 0.7);
-              margin-top: 0.25rem;
-            "
-          >
-            Platform Management & Analytics
-          </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 1rem">
-          <span class="admin-badge">Administrator</span>
-          <a href="/dashboard" style="color: white; text-decoration: none">
-            ← Back to Dashboard
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <div class="main-container">
-      <!-- Tabs -->
-      <div class="tabs">
-        <div class="tab active" data-tab="overview">📊 Overview</div>
-        <div class="tab" data-tab="users">👥 Users</div>
-        <div class="tab" data-tab="analyses">🎥 Analyses</div>
-        <div class="tab" data-tab="system">⚙️ System</div>
-        <div class="tab" data-tab="logs">📋 Audit Logs</div>
-      </div>
-
-      <!-- Overview Tab -->
-      <div class="tab-content active" id="overview">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-label">Total Users</div>
-            <div class="stat-value" id="totalUsers">0</div>
-          </div>
-          <div class="stat-card" style="border-left-color: #06b6d4">
-            <div class="stat-label">Total Analyses</div>
-            <div class="stat-value" id="totalAnalyses">0</div>
-          </div>
-          <div class="stat-card" style="border-left-color: #10b981">
-            <div class="stat-label">Success Rate</div>
-            <div class="stat-value" id="successRate">0%</div>
-          </div>
-          <div class="stat-card" style="border-left-color: #8b5cf6">
-            <div class="stat-label">Active Sessions</div>
-            <div class="stat-value" id="activeSessions">0</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">Platform Activity</h2>
-          </div>
-          <div class="card-body">
-            <div class="chart-container">
-              <canvas id="activityChart"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-          "
-        >
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Subscription Distribution</h2>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 300px">
-                <canvas id="subscriptionChart"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">Analysis Status</h2>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 300px">
-                <canvas id="statusChart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Users Tab -->
-      <div class="tab-content" id="users">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">User Management</h2>
-            <input
-              type="text"
-              class="search-box"
-              placeholder="Search users by email or name..."
-              id="userSearch"
-            />
-          </div>
-          <div class="card-body">
-            <table>
-              <thead>
-                <tr>
-                  <th>User</th>
-                  <th>Email</th>
-                  <th>Tier</th>
-                  <th>Analyses</th>
-                  <th>Storage</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="usersTable">
-                <tr>
-                  <td
-                    colspan="7"
-                    style="text-align: center; padding: 2rem; color: #64748b"
-                  >
-                    Loading users...
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Analyses Tab -->
-      <div class="tab-content" id="analyses">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">All Analyses</h2>
-            <select
-              class="search-box"
-              style="max-width: 200px"
-              id="analysisFilter"
-            >
-              <option value="">All Statuses</option>
-              <option value="completed">Completed</option>
-              <option value="analyzing">Analyzing</option>
-              <option value="failed">Failed</option>
-              <option value="uploaded">Uploaded</option>
-            </select>
-          </div>
-          <div class="card-body">
-            <table>
-              <thead>
-                <tr>
-                  <th>File Name</th>
-                  <th>User</th>
-                  <th>Status</th>
-                  <th>Created</th>
-                  <th>Size</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="analysesTable">
-                <tr>
-                  <td
-                    colspan="6"
-                    style="text-align: center; padding: 2rem; color: #64748b"
-                  >
-                    Loading analyses...
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- System Tab -->
-      <div class="tab-content" id="system">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-label">Database Size</div>
-            <div class="stat-value" id="dbSize">0 MB</div>
-          </div>
-          <div class="stat-card" style="border-left-color: #06b6d4">
-            <div class="stat-label">Upload Storage</div>
-            <div class="stat-value" id="uploadStorage">0 GB</div>
-          </div>
-          <div class="stat-card" style="border-left-color: #10b981">
-            <div class="stat-label">Server Uptime</div>
-            <div class="stat-value" id="uptime">0h</div>
-          </div>
-          <div class="stat-card" style="border-left-color: #8b5cf6">
-            <div class="stat-label">API Requests</div>
-            <div class="stat-value" id="apiRequests">0</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">System Health</h2>
-          </div>
-          <div class="card-body">
-            <div style="display: grid; gap: 1rem">
-              <div
-                style="
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                "
-              >
-                <span>Database Connection</span>
-                <span class="badge badge-active" id="dbStatus">Connected</span>
-              </div>
-              <div
-                style="
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                "
-              >
-                <span>AI Models</span>
-                <span class="badge badge-active" id="aiStatus">Loaded</span>
-              </div>
-              <div
-                style="
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                "
-              >
-                <span>Upload Directory</span>
-                <span class="badge badge-active" id="uploadStatus"
-                  >Writable</span
-                >
-              </div>
-              <div
-                style="
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                "
-              >
-                <span>Background Workers</span>
-                <span class="badge badge-active" id="workerStatus"
-                  >Running</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Logs Tab -->
-      <div class="tab-content" id="logs">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">Audit Logs</h2>
-            <select class="search-box" style="max-width: 200px" id="logFilter">
-              <option value="">All Actions</option>
-              <option value="user_login">Logins</option>
-              <option value="file_uploaded">Uploads</option>
-              <option value="subscription_upgraded">Upgrades</option>
-              <option value="api_key_created">API Keys</option>
-            </select>
-          </div>
-          <div class="card-body">
-            <table>
-              <thead>
-                <tr>
-                  <th>Action</th>
-                  <th>User</th>
-                  <th>Resource</th>
-                  <th>IP Address</th>
-                  <th>Timestamp</th>
-                </tr>
-              </thead>
-              <tbody id="logsTable">
-                <tr>
-                  <td
-                    colspan="5"
-                    style="text-align: center; padding: 2rem; color: #64748b"
-                  >
-                    Loading audit logs...
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+<div class="admin-login-container">
+  <div class="admin-card">
+    <div class="admin-header">
+      <h1>🔐 Admin Panel</h1>
+      <p>BarberX Legal Tech Platform Administration</p>
     </div>
 
-    <script>
-      // Tab switching
-      document.querySelectorAll(".tab").forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const targetTab = tab.dataset.tab;
+    <div class="admin-alert">
+      <strong>⚠️ Local Development Only</strong>
+      The admin panel requires the Flask backend running locally.<br />
+      Start with: <code>python app.py</code>
+    </div>
 
-          document
-            .querySelectorAll(".tab")
-            .forEach((t) => t.classList.remove("active"));
-          document
-            .querySelectorAll(".tab-content")
-            .forEach((c) => c.classList.remove("active"));
+    <div class="admin-form-group">
+      <label for="admin-url">Admin Panel URL:</label>
+      <input
+        type="text"
+        id="admin-url"
+        value="http://localhost:5000/admin"
+        readonly
+        style="background: #f5f5f5"
+      />
+    </div>
 
-          tab.classList.add("active");
-          document.getElementById(targetTab).classList.add("active");
+    <div class="admin-form-group">
+      <label for="admin-email">Default Admin Email:</label>
+      <input
+        type="text"
+        id="admin-email"
+        value="admin@barberx.info"
+        readonly
+        style="background: #f5f5f5"
+      />
+    </div>
 
-          // Load data for the tab
-          loadTabData(targetTab);
-        });
+    <button
+      class="admin-btn"
+      onclick="window.open('http://localhost:5000/admin', '_blank')"
+    >
+      Open Admin Panel →
+    </button>
+
+    <div class="admin-footer">
+      <p>
+        <strong>Admin Features:</strong><br />
+        ✅ User Management (CRUD)<br />
+        ✅ Settings Configuration (29 defaults)<br />
+        ✅ System Monitoring<br />
+        ✅ Audit Logs<br />
+        ✅ Analysis Management<br />
+        ✅ API Key Control
+      </p>
+      <p style="margin-top: var(--space-4)">
+        <a href="/">← Back to Home</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Check if Flask backend is running
+  async function checkBackend() {
+    try {
+      const response = await fetch("http://localhost:5000/health", {
+        mode: "no-cors",
       });
+      // If no error, backend is running
+      document.querySelector(".admin-alert").innerHTML =
+        "<strong>✅ Backend Status: Running</strong>Flask application is active on port 5000.";
+      document.querySelector(".admin-alert").style.background = "#d4edda";
+      document.querySelector(".admin-alert").style.borderColor = "#28a745";
+      document.querySelector(".admin-alert").style.color = "#155724";
+    } catch (e) {
+      // Backend not running
+      console.log("Flask backend not detected");
+    }
+  }
 
-      async function loadTabData(tab) {
-        switch (tab) {
-          case "overview":
-            await loadOverview();
-            break;
-          case "users":
-            await loadUsers();
-            break;
-          case "analyses":
-            await loadAnalyses();
-            break;
-          case "system":
-            await loadSystemInfo();
-            break;
-          case "logs":
-            await loadAuditLogs();
-            break;
-        }
-      }
-
-      async function loadOverview() {
-        try {
-          const response = await fetch("/admin/stats");
-          const data = await response.json();
-
-          document.getElementById("totalUsers").textContent = data.total_users;
-          document.getElementById("totalAnalyses").textContent =
-            data.total_analyses;
-          document.getElementById("successRate").textContent =
-            Math.round(data.success_rate) + "%";
-          document.getElementById("activeSessions").textContent =
-            data.active_sessions || 0;
-
-          // Create charts
-          createActivityChart();
-          createSubscriptionChart();
-          createStatusChart();
-        } catch (error) {
-          console.error("Error loading overview:", error);
-        }
-      }
-
-      async function loadUsers() {
-        try {
-          const response = await fetch("/admin/users");
-          const data = await response.json();
-
-          const tbody = document.getElementById("usersTable");
-
-          if (data.users.length === 0) {
-            tbody.innerHTML = `
-                        <tr>
-                            <td colspan="7" style="text-align: center; padding: 2rem;">
-                                No users found
-                            </td>
-                        </tr>
-                    `;
-            return;
-          }
-
-          tbody.innerHTML = data.users
-            .map(
-              (user) => `
-                    <tr>
-                        <td style="font-weight: 600;">${user.full_name || "N/A"}</td>
-                        <td>${user.email}</td>
-                        <td>
-                            <span class="badge badge-${user.subscription_tier}">
-                                ${user.subscription_tier}
-                            </span>
-                        </td>
-                        <td>${user.analyses_count || 0}</td>
-                        <td>${(user.storage_used_mb || 0).toFixed(2)} MB</td>
-                        <td>
-                            <span class="badge ${user.is_active ? "badge-active" : "badge-inactive"}">
-                                ${user.is_active ? "Active" : "Inactive"}
-                            </span>
-                        </td>
-                        <td>
-                            <div class="action-buttons">
-                                <button class="btn btn-primary" onclick="viewUser('${user.id}')">
-                                    View
-                                </button>
-                                ${
-                                  !user.is_active
-                                    ? `<button class="btn btn-success" onclick="enableUser('${user.id}')">Enable</button>`
-                                    : `<button class="btn btn-danger" onclick="disableUser('${user.id}')">Disable</button>`
-                                }
-                            </div>
-                        </td>
-                    </tr>
-                `,
-            )
-            .join("");
-        } catch (error) {
-          console.error("Error loading users:", error);
-        }
-      }
-
-      async function loadAnalyses() {
-        // Implementation similar to loadUsers
-        console.log("Loading analyses...");
-      }
-
-      async function loadSystemInfo() {
-        // Mock data for now
-        document.getElementById("dbSize").textContent = "125 MB";
-        document.getElementById("uploadStorage").textContent = "4.2 GB";
-        document.getElementById("uptime").textContent = "48h";
-        document.getElementById("apiRequests").textContent = "15,234";
-      }
-
-      async function loadAuditLogs() {
-        // Implementation for audit logs
-        console.log("Loading audit logs...");
-      }
-
-      function createActivityChart() {
-        const ctx = document.getElementById("activityChart").getContext("2d");
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-            datasets: [
-              {
-                label: "Analyses",
-                data: [65, 59, 80, 81, 56, 55, 40],
-                borderColor: "#3b82f6",
-                backgroundColor: "rgba(59, 130, 246, 0.1)",
-                tension: 0.4,
-                fill: true,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: true },
-            },
-          },
-        });
-      }
-
-      function createSubscriptionChart() {
-        const ctx = document
-          .getElementById("subscriptionChart")
-          .getContext("2d");
-        new Chart(ctx, {
-          type: "doughnut",
-          data: {
-            labels: ["Free", "Professional", "Enterprise"],
-            datasets: [
-              {
-                data: [75, 20, 5],
-                backgroundColor: ["#e2e8f0", "#3b82f6", "#8b5cf6"],
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-          },
-        });
-      }
-
-      function createStatusChart() {
-        const ctx = document.getElementById("statusChart").getContext("2d");
-        new Chart(ctx, {
-          type: "pie",
-          data: {
-            labels: ["Completed", "Analyzing", "Failed"],
-            datasets: [
-              {
-                data: [85, 10, 5],
-                backgroundColor: ["#10b981", "#3b82f6", "#ef4444"],
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-          },
-        });
-      }
-
-      function viewUser(userId) {
-        alert(`View user: ${userId}`);
-      }
-
-      function disableUser(userId) {
-        if (confirm("Are you sure you want to disable this user?")) {
-          console.log("Disable user:", userId);
-        }
-      }
-
-      function enableUser(userId) {
-        console.log("Enable user:", userId);
-      }
-
-      // Load initial data
-      loadOverview();
-    </script>
-  </body>
-</html>
+  // Check on page load
+  checkBackend();
+</script>

@@ -22,7 +22,7 @@ import flask
 
 # Enhanced authentication imports
 try:
-    from models_auth import UsageTracking, ApiKey, TierLevel
+    from models_auth import User, UsageTracking, ApiKey, TierLevel
     from auth_routes import auth_bp
     ENHANCED_AUTH_AVAILABLE = True
 except ImportError as e:
@@ -65,10 +65,10 @@ if database_url:
     # Fix for Heroku/Render postgres URL
     if database_url.startswith('postgres://'):
         database_url = database_url.replace('postgres://', 'postgresql://', 1)
-    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
 else:
     # Local development with SQLite
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "instance", "barberx_auth.db")}'
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_CONTENT_LENGTH', 5 * 1024 * 1024 * 1024))  # 5GB default
@@ -122,100 +122,13 @@ analysis_tasks = {}  # Track background analysis tasks
 # ========================================
 # DATABASE MODELS
 # ========================================
-
-class User(UserMixin, db.Model):
-    """User model for authentication and authorization"""
-    __tablename__ = 'users'
-    
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False, index=True)
-    password_hash = db.Column(db.String(256), nullable=False)
-    full_name = db.Column(db.String(100), nullable=False)
-    organization = db.Column(db.String(200))
-    role = db.Column(db.String(20), default='user')  # user, pro, admin
-    subscription_tier = db.Column(db.String(20), default='free')  # free, professional, enterprise
-    
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    last_login = db.Column(db.DateTime)
-    is_active = db.Column(db.Boolean, default=True)
-    is_verified = db.Column(db.Boolean, default=False)
-    
-    # Relationships
-    analyses = db.relationship('Analysis', backref='user', lazy='dynamic', cascade='all, delete-orphan')
-    api_keys = db.relationship('APIKey', backref='user', lazy='dynamic', cascade='all, delete-orphan')
-    
-    # Usage limits
-    analyses_count = db.Column(db.Integer, default=0)
-    storage_used_mb = db.Column(db.Float, default=0.0)
-    
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-    
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
-    
-    def get_tier_limits(self):
-        """Get usage limits based on subscription tier"""
-        limits = {
-            'free': {
-                'max_analyses_per_month': 5,
-                'max_file_size_mb': 500,
-                'max_storage_gb': 5,
-                'batch_processing': False,
-                'api_access': False,
-                'team_collaboration': False,
-                'priority_support': False
-            },
-            'professional': {
-                'max_analyses_per_month': 100,
-                'max_file_size_mb': 2000,
-                'max_storage_gb': 100,
-                'batch_processing': True,
-                'api_access': True,
-                'team_collaboration': True,
-                'priority_support': True
-            },
-            'enterprise': {
-                'max_analyses_per_month': -1,  # unlimited
-                'max_file_size_mb': 5000,
-                'max_storage_gb': -1,  # unlimited
-                'batch_processing': True,
-                'api_access': True,
-                'team_collaboration': True,
-                'priority_support': True
-            }
-        }
-        return limits.get(self.subscription_tier, limits['free'])
-    
-    def can_analyze(self):
-        """Check if user can perform analysis based on tier limits"""
-        limits = self.get_tier_limits()
-        if limits['max_analyses_per_month'] == -1:
-            return True
-        
-        # Count analyses this month
-        month_start = datetime.utcnow().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-        month_count = self.analyses.filter(Analysis.created_at >= month_start).count()
-        
-        return month_count < limits['max_analyses_per_month']
-    
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'email': self.email,
-            'full_name': self.full_name,
-            'organization': self.organization,
-            'role': self.role,
-            'subscription_tier': self.subscription_tier,
-            'created_at': self.created_at.isoformat(),
-            'analyses_count': self.analyses_count,
-            'tier_limits': self.get_tier_limits()
-        }
-
+# Note: User model is imported from models_auth.py to avoid duplicate definitions
+# Analysis, APIKey, AppSettings, PDFUpload are defined here
 
 class Analysis(db.Model):
     """Analysis record for BWC video processing"""
     __tablename__ = 'analyses'
+    __table_args__ = {'extend_existing': True}
     
     id = db.Column(db.String(32), primary_key=True)  # UUID
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
@@ -234,7 +147,7 @@ class Analysis(db.Model):
     known_officers = db.Column(db.JSON)
     
     # Analysis status
-    status = db.Column(db.String(20), default='uploaded')  # uploaded, analyzing, completed, failed
+    status = db.Column(db.String(20), default='uploaded')
     progress = db.Column(db.Integer, default=0)
     current_step = db.Column(db.String(100))
     error_message = db.Column(db.Text)
@@ -298,6 +211,7 @@ class Analysis(db.Model):
 class APIKey(db.Model):
     """API key for programmatic access"""
     __tablename__ = 'api_keys'
+    __table_args__ = {'extend_existing': True}
     
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -327,6 +241,7 @@ class APIKey(db.Model):
 class AppSettings(db.Model):
     """Application settings and configuration"""
     __tablename__ = 'app_settings'
+    __table_args__ = {'extend_existing': True}
     
     id = db.Column(db.Integer, primary_key=True)
     key = db.Column(db.String(100), unique=True, nullable=False, index=True)
@@ -424,7 +339,7 @@ class PDFUpload(db.Model):
     is_public = db.Column(db.Boolean, default=False)
     share_token = db.Column(db.String(64), unique=True)
     
-    def generate_hash(self, file_path):
+def generate_hash(self, file_path):
         """Generate SHA-256 hash of file"""
         sha256 = hashlib.sha256()
         with open(file_path, 'rb') as f:
@@ -432,7 +347,7 @@ class PDFUpload(db.Model):
                 sha256.update(chunk)
         self.file_hash = sha256.hexdigest()
     
-    def to_dict(self):
+def to_dict(self):
         return {
             'id': self.id,
             'filename': self.filename,
@@ -633,6 +548,13 @@ def logout():
     AuditLog.log('user_logout', 'user', str(current_user.id))
     logout_user()
     return redirect(url_for('index'))
+
+
+@app.route('/batch-pdf-upload.html')
+@login_required
+def batch_pdf_upload():
+    """Batch PDF upload page"""
+    return render_template('batch-pdf-upload.html')
 
 
 @app.route('/dashboard')
@@ -2820,7 +2742,7 @@ if __name__ == '__main__':
     Press Ctrl+C to stop the server.
     """.format(
         port=port,
-        db_type='PostgreSQL' if 'postgresql' in app.config['SQLALCHEMY_DATABASE_URI'] else 'SQLite'
+        db_type='SQLite'
     ))
     
     app.run(host='0.0.0.0', port=port, debug=debug)

@@ -211,10 +211,22 @@ def logout():
 @login_required
 def dashboard():
     """User dashboard showing usage and limits"""
+    from models_auth import UsageTracking
+    from app import Analysis
+    
     usage = UsageTracking.get_or_create_current(current_user.id)
     limits = current_user.get_tier_limits()
     
-    return render_template('auth/dashboard.html', usage=usage, limits=limits)
+    # Get recent analyses
+    recent_analyses = Analysis.query.filter_by(user_id=current_user.id)\
+        .order_by(Analysis.created_at.desc())\
+        .limit(10)\
+        .all()
+    
+    return render_template('auth/dashboard.html', 
+                         usage=usage, 
+                         limits=limits,
+                         recent_analyses=recent_analyses)
 
 
 @auth_bp.route('/usage/api')
