@@ -51,42 +51,42 @@ def calculate_file_hash(filepath):
 
 
 def process_video_file(file, user_id=None):
-    """Process BWC video file"""
-    try:
-        original_filename = file.filename
-        filename = secure_filename(file.filename)
-        timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
-        unique_filename = f"{user_id or 'anon'}_{timestamp}_{filename}"
+"""Process BWC video file"""
+try:
+    # Import here to avoid circular imports
+    from app import db, Analysis
         
-        # Create upload directory
-        upload_dir = Path('./uploads/bwc_videos')
-        upload_dir.mkdir(parents=True, exist_ok=True)
+    original_filename = file.filename
+    filename = secure_filename(file.filename)
+    timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
+    unique_filename = f"{user_id or 'anon'}_{timestamp}_{filename}"
         
-        filepath = upload_dir / unique_filename
+    # Create upload directory
+    upload_dir = Path('./uploads/bwc_videos')
+    upload_dir.mkdir(parents=True, exist_ok=True)
         
-        # Save file
-        file.save(filepath)
+    filepath = upload_dir / unique_filename
         
-        # Get file info
-        file_size = os.path.getsize(filepath)
-        file_hash = calculate_file_hash(filepath)
+    # Save file
+    file.save(filepath)
         
-        # Import here to avoid circular imports
-        from app import db, Analysis
+    # Get file info
+    file_size = os.path.getsize(filepath)
+    file_hash = calculate_file_hash(filepath)
         
-        # Create analysis record
-        analysis = Analysis(
-            user_id=user_id,
-            filename=original_filename,
-            file_hash=file_hash,
-            file_size=file_size,
-            file_path=str(filepath),
-            status='uploaded'
-        )
-        analysis.generate_id()
+    # Create analysis record
+    analysis = Analysis(
+        user_id=user_id,
+        filename=original_filename,
+        file_hash=file_hash,
+        file_size=file_size,
+        file_path=str(filepath),
+        status='uploaded'
+    )
+    analysis.generate_id()
         
-        db.session.add(analysis)
-        db.session.commit()
+    db.session.add(analysis)
+    db.session.commit()
         
         return {
             'success': True,
@@ -107,42 +107,42 @@ def process_video_file(file, user_id=None):
 
 
 def process_pdf_file(file, user_id=None):
-    """Process PDF document file"""
-    try:
-        original_filename = file.filename
-        filename = secure_filename(file.filename)
-        timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
-        unique_filename = f"{timestamp}_{filename}"
+"""Process PDF document file"""
+try:
+    # Import here to avoid circular imports
+    from app import db, PDFUpload
         
-        # Create upload directory
-        upload_dir = Path('./uploads/pdfs')
-        upload_dir.mkdir(parents=True, exist_ok=True)
+    original_filename = file.filename
+    filename = secure_filename(file.filename)
+    timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
+    unique_filename = f"{timestamp}_{filename}"
         
-        filepath = upload_dir / unique_filename
+    # Create upload directory
+    upload_dir = Path('./uploads/pdfs')
+    upload_dir.mkdir(parents=True, exist_ok=True)
         
-        # Save file
-        file.save(filepath)
+    filepath = upload_dir / unique_filename
         
-        # Get file info
-        file_size = os.path.getsize(filepath)
-        file_hash = calculate_file_hash(filepath)
+    # Save file
+    file.save(filepath)
         
-        # Import here to avoid circular imports
-        from app import db, PDFUpload
+    # Get file info
+    file_size = os.path.getsize(filepath)
+    file_hash = calculate_file_hash(filepath)
         
-        # Create PDF upload record
-        pdf_upload = PDFUpload(
-            user_id=user_id,
-            filename=unique_filename,
-            original_filename=original_filename,
-            file_path=str(filepath),
-            file_size=file_size,
-            status='uploaded'
-        )
-        pdf_upload.file_hash = file_hash
+    # Create PDF upload record
+    pdf_upload = PDFUpload(
+        user_id=user_id,
+        filename=unique_filename,
+        original_filename=original_filename,
+        file_path=str(filepath),
+        file_size=file_size,
+        status='uploaded'
+    )
+    pdf_upload.file_hash = file_hash
         
-        db.session.add(pdf_upload)
-        db.session.commit()
+    db.session.add(pdf_upload)
+    db.session.commit()
         
         return {
             'success': True,
