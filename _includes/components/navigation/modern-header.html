@@ -1,0 +1,250 @@
+<!-- Modern Accessible BarberX Header -->
+<header class="barberx-header" role="banner">
+  <div class="header-container">
+    
+    <!-- Skip to main content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Logo -->
+    <a href="{{ "/" | relative_url }}" class="header-logo" aria-label="BarberX Legal Technologies - Home">
+      <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="barberPoleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#C41E3A;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#1E3A8A;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#C41E3A;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect width="40" height="40" rx="8" fill="url(#barberPoleGradient)"/>
+        <text x="20" y="27" font-family="'Arial', sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">BX</text>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">BarberX</span>
+        <span class="logo-tagline">Legal Technologies</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop" aria-label="Primary navigation">
+      <ul class="nav-list">
+        
+        <li class="nav-item">
+          <a href="{{ "/cases/" | relative_url }}" class="nav-link">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="7" width="18" height="13" rx="2" ry="2"/>
+              <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+            Cases
+          </a>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            Platform
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/bwc-analyzer.html" class="dropdown-link">BWC Analyzer</a></li>
+            <li><a href="{{ "/" | relative_url }}#platform" class="dropdown-link">Features</a></li>
+            <li><a href="{{ "/" | relative_url }}#how-it-works" class="dropdown-link">How It Works</a></li>
+            <li><a href="/docs" class="dropdown-link">Documentation</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            Tools
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/bwc-analyzer.html" class="dropdown-link">BWC Analyzer</a></li>
+            <li><a href="/tools/evidence" class="dropdown-link">Evidence Processing</a></li>
+            <li><a href="/tools/transcription" class="dropdown-link">Transcription</a></li>
+            <li><a href="{{ "/admin/" | relative_url }}" class="dropdown-link">Admin Panel</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{ "/faq/" | relative_url }}" class="nav-link">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            FAQ
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{ "/pricing.html" | relative_url }}" class="nav-link">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+            Pricing
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <!-- Action Buttons -->
+    <div class="header-actions">
+      
+      <!-- Search Button -->
+      <button class="icon-button" aria-label="Search" title="Search (Ctrl+K)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button class="icon-button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display: none;">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Login/User Menu -->
+      <a href="{{ "/auth/login" | relative_url }}" class="button-primary" aria-label="Sign in to your account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        Sign In
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<nav class="nav-mobile" id="mobile-nav" aria-label="Mobile navigation" hidden>
+  <div class="mobile-nav-header">
+    <span class="mobile-nav-title">Menu</span>
+    <button class="mobile-nav-close" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="mobile-nav-list">
+    <li class="mobile-nav-item">
+      <a href="{{ "/cases/" | relative_url }}" class="mobile-nav-link">
+        <svg class="mobile-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="13" rx="2" ry="2"/>
+          <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>
+        </svg>
+        Cases
+      </a>
+    </li>
+
+    <li class="mobile-nav-item has-submenu">
+      <button class="mobile-nav-link submenu-toggle" aria-expanded="false">
+        <svg class="mobile-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        Platform
+        <svg class="submenu-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <ul class="mobile-submenu">
+        <li><a href="/bwc-analyzer.html" class="mobile-submenu-link">BWC Analyzer</a></li>
+        <li><a href="{{ "/" | relative_url }}#platform" class="mobile-submenu-link">Features</a></li>
+        <li><a href="{{ "/" | relative_url }}#how-it-works" class="mobile-submenu-link">How It Works</a></li>
+        <li><a href="/docs" class="mobile-submenu-link">Documentation</a></li>
+      </ul>
+    </li>
+
+    <li class="mobile-nav-item has-submenu">
+      <button class="mobile-nav-link submenu-toggle" aria-expanded="false">
+        <svg class="mobile-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+        </svg>
+        Tools
+        <svg class="submenu-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <ul class="mobile-submenu">
+        <li><a href="/bwc-analyzer.html" class="mobile-submenu-link">BWC Analyzer</a></li>
+        <li><a href="/tools/evidence" class="mobile-submenu-link">Evidence Processing</a></li>
+        <li><a href="/tools/transcription" class="mobile-submenu-link">Transcription</a></li>
+        <li><a href="{{ "/admin/" | relative_url }}" class="mobile-submenu-link">Admin Panel</a></li>
+      </ul>
+    </li>
+
+    <li class="mobile-nav-item">
+      <a href="{{ "/faq/" | relative_url }}" class="mobile-nav-link">
+        <svg class="mobile-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        FAQ
+      </a>
+    </li>
+
+    <li class="mobile-nav-item">
+      <a href="{{ "/pricing.html" | relative_url }}" class="mobile-nav-link">
+        <svg class="mobile-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="12" y1="1" x2="12" y2="23"/>
+          <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+        </svg>
+        Pricing
+      </a>
+    </li>
+  </ul>
+
+  <div class="mobile-nav-footer">
+    <a href="{{ "/auth/login" | relative_url }}" class="mobile-button-primary">
+      Sign In
+    </a>
+    <a href="{{ "/auth/signup" | relative_url }}" class="mobile-button-secondary">
+      Get Started Free
+    </a>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" aria-hidden="true"></div>
