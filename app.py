@@ -223,32 +223,31 @@ def initialize_backend_services():
     if not BACKEND_OPTIMIZATION_AVAILABLE:
         return
 
-    with app.app_context():
-        try:
-            # Create database indexes for performance
-            optimizer = DatabaseOptimizer(db)
-            optimizer.create_indexes()
-            app.logger.info("[OK] Database indexes created/verified")
+    try:
+        # Create database indexes for performance
+        optimizer = DatabaseOptimizer(db)
+        optimizer.create_indexes()
+        app.logger.info("[OK] Database indexes created/verified")
 
-            # Initialize evidence processor
-            evidence_processor = UnifiedEvidenceProcessor()
-            report_generator = EvidenceReportGenerator()
-            app.logger.info("[OK] Evidence processor initialized")
+        # Initialize evidence processor
+        evidence_processor = UnifiedEvidenceProcessor()
+        report_generator = EvidenceReportGenerator()
+        app.logger.info("[OK] Evidence processor initialized")
 
-            # Subscribe to events (optional)
-            def on_evidence_processed(event):
-                app.logger.info(f"Evidence {event.data.get('evidence_id')} processed")
+        # Subscribe to events (optional)
+        def on_evidence_processed(event):
+            app.logger.info(f"Evidence {event.data.get('evidence_id')} processed")
 
-            event_bus.subscribe("evidence.processed", on_evidence_processed)
-            event_bus.subscribe(
-                "evidence.processing_failed",
-                lambda e: app.logger.error(f"Processing failed: {e.data}"),
-            )
+        event_bus.subscribe("evidence.processed", on_evidence_processed)
+        event_bus.subscribe(
+            "evidence.processing_failed",
+            lambda e: app.logger.error(f"Processing failed: {e.data}"),
+        )
 
-            app.logger.info("[OK] Backend optimization services initialized")
+        app.logger.info("[OK] Backend optimization services initialized")
 
-        except Exception as e:
-            app.logger.error(f"Failed to initialize backend services: {e}")
+    except Exception as e:
+        app.logger.error(f"Failed to initialize backend services: {e}")
 
 
 # Global analyzer instance (lazy load)
@@ -3714,15 +3713,22 @@ def admin_system_info():
 # INITIALIZE DATABASE
 # ========================================
 
-with app.app_context():
-    db.create_all()
-    app.logger.info("Database tables initialized")
-    
-    # Initialize backend optimization services (indexes, evidence processor)
-    initialize_backend_services()
+try:
+    with app.app_context():
+        db.create_all()
+        app.logger.info("Database tables initialized")
+        
+        # Initialize backend optimization services (indexes, evidence processor)
+        initialize_backend_services()
 
-    # Admin user already created via create_admin.py
-    # Use admin@barberx.info with the 33-char password from that script
+        # Admin user already created via create_admin.py
+        # Use admin@barberx.info with the 33-char password from that script
+except Exception as e:
+    print(f"[CRITICAL] Failed to initialize app: {e}")
+    import traceback
+    traceback.print_exc()
+    # Don't crash - let app start but log the error
+    app.logger.error(f"Initialization error: {e}")
 
 
 # ========================================
