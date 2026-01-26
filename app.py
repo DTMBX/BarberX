@@ -20,8 +20,10 @@ from flask_cors import CORS
 from flask_login import (LoginManager, UserMixin, current_user, login_required,
                          login_user, logout_user)
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
+from flask_compress import Compress
 
 # Enhanced authentication imports
 try:
@@ -115,6 +117,12 @@ except ImportError as e:
 # Initialize Flask app
 app = Flask(__name__)
 
+# Enable compression for all responses
+compress = Compress()
+
+# Initialize CSRF protection
+csrf = CSRFProtect()
+
 # Load environment variables
 from dotenv import load_dotenv
 
@@ -186,9 +194,19 @@ app.config["ANALYSIS_FOLDER"].mkdir(parents=True, exist_ok=True)
 from models_auth import db
 
 db.init_app(app)
+compress.init_app(app)
+csrf.init_app(app)
+
+# Exempt Stripe webhook from CSRF (it uses signature verification instead)
+csrf.exempt('stripe_payments.webhook')
+
 CORS(app, origins=CORS_ORIGINS_LIST, supports_credentials=True)
 login_manager = LoginManager(app)
 login_manager.login_view = "auth.login"  # Updated to use auth blueprint
+
+# Configure request timeout
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000  # 1 year for static files
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 
 # Register enhanced authentication blueprint
 if ENHANCED_AUTH_AVAILABLE:
@@ -1074,10 +1092,7 @@ def admin_panel_old():
 
             from models_auth import UsageTracking, User
 
-            # Get all users
-            users = User.query.all()
-
-            # Calculate stats
+            # Optimize: Get aggregated stats without loading all users
             total_users = User.query.count()
             total_analyses = (
                 db.session.query(func.sum(UsageTracking.bwc_videos_processed)).scalar() or 0
@@ -1085,11 +1100,15 @@ def admin_panel_old():
             total_storage = db.session.query(func.sum(UsageTracking.storage_used_mb)).scalar() or 0
             storage_gb = round(total_storage / 1024, 2) if total_storage else 0
 
-            # Calculate MRR (Monthly Recurring Revenue)
+            # Calculate MRR efficiently using SQL aggregation
+            from models_auth import TierLevel
             revenue = 0
-            for user in users:
-                if user.tier and hasattr(user.tier, "value"):
-                    revenue += user.tier.value
+            for tier in TierLevel:
+                tier_count = User.query.filter_by(tier=tier).count()
+                revenue += tier_count * tier.value
+            
+            # Only get users for display (with limit)
+            users = User.query.order_by(User.created_at.desc()).limit(100).all()
 
             return render_template(
                 "admin/dashboard.html",
@@ -1400,10 +1419,14 @@ def evidence_intake_submit():
 @app.route("/api/evidence/list", methods=["GET"])
 @login_required
 def list_evidence():
-    """List all evidence items for current user"""
-    analyses = (
-        Analysis.query.filter_by(user_id=current_user.id).order_by(Analysis.created_at.desc()).all()
-    )
+    """List all evidence items for current user with pagination"""
+    # Add pagination
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('per_page', 20, type=int)
+    per_page = min(per_page, 100)  # Cap at 100
+    
+    analyses_query = Analysis.query.filter_by(user_id=current_user.id).order_by(Analysis.created_at.desc())
+    analyses = analyses_query.limit(per_page).offset((page - 1) * per_page).all()
 
     evidence_list = []
     for analysis in analyses:
@@ -2282,11 +2305,12 @@ def workflow_scan_document():
         if file.filename == "":
             return jsonify({"error": "Empty filename"}), 400
 
-        # Read file data
+        # Read file data (fix: only read once)
+        file_content = file.read()
         file_data = {
             "name": secure_filename(file.filename),
-            "content": file.read().decode("utf-8", errors="ignore"),
-            "size": len(file.read()),
+            "content": file_content.decode("utf-8", errors="ignore"),
+            "size": len(file_content),
         }
 
         orchestrator = get_orchestrator(current_user.id)
@@ -3714,12 +3738,25 @@ def list_audit_logs():
 @app.route("/admin/users", methods=["GET"])
 @login_required
 def admin_list_users():
-    """Admin: List all users"""
+    """Admin: List all users with pagination"""
     if current_user.role != "admin":
         return jsonify({"error": "Admin access required"}), 403
 
-    users = User.query.all()
-    return jsonify({"total": len(users), "users": [u.to_dict() for u in users]})
+    # Add pagination
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('per_page', 50, type=int)
+    per_page = min(per_page, 100)  # Cap at 100
+    
+    users_query = User.query.order_by(User.created_at.desc())
+    total = users_query.count()
+    users = users_query.limit(per_page).offset((page - 1) * per_page).all()
+    
+    return jsonify({
+        "total": total,
+        "page": page,
+        "per_page": per_page,
+        "users": [u.to_dict() for u in users]
+    })
 
 
 @app.route("/admin/users/<int:user_id>", methods=["GET", "PUT", "DELETE"])
@@ -3901,7 +3938,7 @@ def admin_delete_analysis(analysis_id):
 @app.route("/admin/stats", methods=["GET"])
 @login_required
 def admin_stats():
-    """Admin: Get platform statistics"""
+    """Admin: Get platform statistics (optimized with aggregation queries)"""
     if current_user.role != "admin":
         return jsonify({"error": "Admin access required"}), 403
 
@@ -3909,16 +3946,30 @@ def admin_stats():
 
     from sqlalchemy import func
 
+    # Use single queries with aggregation instead of multiple count queries
     total_users = User.query.count()
     total_analyses = Analysis.query.count()
-    completed_analyses = Analysis.query.filter_by(status="completed").count()
-    analyzing = Analysis.query.filter_by(status="analyzing").count()
-    failed = Analysis.query.filter_by(status="failed").count()
+    
+    # Get status counts in a single query
+    status_counts = dict(
+        db.session.query(Analysis.status, func.count(Analysis.id))
+        .group_by(Analysis.status)
+        .all()
+    )
+    completed_analyses = status_counts.get("completed", 0)
+    analyzing = status_counts.get("analyzing", 0)
+    failed = status_counts.get("failed", 0)
 
-    # Subscription breakdown
-    free_users = User.query.filter_by(subscription_tier="free").count()
-    pro_users = User.query.filter_by(subscription_tier="professional").count()
-    enterprise_users = User.query.filter_by(subscription_tier="enterprise").count()
+    # Get subscription tier counts in a single query
+    from models_auth import TierLevel
+    tier_counts = {}
+    if hasattr(User, 'tier'):
+        tier_result = db.session.query(User.tier, func.count(User.id)).group_by(User.tier).all()
+        tier_counts = {tier.name if hasattr(tier, 'name') else str(tier): count for tier, count in tier_result}
+    
+    free_users = tier_counts.get('FREE', 0)
+    pro_users = tier_counts.get('PROFESSIONAL', 0)
+    enterprise_users = tier_counts.get('ENTERPRISE', 0)
 
     # Storage stats
     total_storage = db.session.query(func.sum(User.storage_used_mb)).scalar() or 0
@@ -3927,7 +3978,7 @@ def admin_stats():
     thirty_days_ago = datetime.utcnow() - timedelta(days=30)
     active_users = User.query.filter(User.last_login >= thirty_days_ago).count()
 
-    # Daily activity for last 7 days
+    # Daily activity for last 7 days (optimized with group by)
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
     daily_analyses = (
         db.session.query(

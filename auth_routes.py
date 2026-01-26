@@ -4,6 +4,7 @@ Login, logout, signup, and user management
 """
 
 from functools import wraps
+from urllib.parse import urlparse, urljoin
 from flask import Blueprint, render_template, redirect, url_for, flash, request, session, jsonify
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models_auth import db, User, UsageTracking, TierLevel
@@ -11,6 +12,15 @@ from datetime import datetime
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 login_manager = LoginManager()
+
+
+def is_safe_url(target):
+    """Check if a redirect URL is safe (same host)"""
+    if not target:
+        return False
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    return test_url.scheme in ('http', 'https') and ref_url.netloc == test_url.netloc
 
 
 def init_auth(app):
@@ -122,9 +132,11 @@ def login():
             
             flash(f'Welcome back, {user.full_name or user.email}!', 'success')
             
-            # Redirect to next page or dashboard
+            # Redirect to next page or dashboard (with open redirect protection)
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('dashboard'))
+            if next_page and is_safe_url(next_page):
+                return redirect(next_page)
+            return redirect(url_for('dashboard'))
         else:
             flash('Invalid email or password.', 'danger')
     
@@ -142,7 +154,6 @@ def signup():
         password = request.form.get('password', '')
         confirm_password = request.form.get('confirm_password', '')
         full_name = request.form.get('full_name', '').strip()
-        tier = request.form.get('tier', 'FREE')
         
         # Validation
         if not email or not password:
@@ -153,9 +164,18 @@ def signup():
             flash('Passwords do not match.', 'danger')
             return redirect(url_for('auth.signup'))
         
-        if len(password) < 8:
-            flash('Password must be at least 8 characters long.', 'danger')
-            return redirect(url_for('auth.signup'))
+        # Use strong password validation from utils
+        try:
+            from utils.security import InputValidator
+            is_valid, error_msg = InputValidator.validate_password(password)
+            if not is_valid:
+                flash(error_msg, 'danger')
+                return redirect(url_for('auth.signup'))
+        except ImportError:
+            # Fallback if utils not available
+            if len(password) < 8:
+                flash('Password must be at least 8 characters long.', 'danger')
+                return redirect(url_for('auth.signup'))
         
         # Check if user exists
         existing_user = User.query.filter_by(email=email).first()
@@ -163,12 +183,12 @@ def signup():
             flash('An account with this email already exists.', 'danger')
             return redirect(url_for('auth.login'))
         
-        # Create new user
+        # Create new user - ALWAYS start with FREE tier
         try:
             new_user = User(
                 email=email,
                 full_name=full_name,
-                tier=TierLevel[tier],
+                tier=TierLevel.FREE,  # Security: Always FREE on signup
                 is_active=True,
                 is_verified=False  # Email verification required
             )

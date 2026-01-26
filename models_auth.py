@@ -40,6 +40,9 @@ class User(UserMixin, db.Model):
     subscription_start = db.Column(db.DateTime, default=datetime.utcnow)
     subscription_end = db.Column(db.DateTime)
     
+    # Storage tracking
+    storage_used_mb = db.Column(db.Float, default=0.0)
+    
     # Status
     is_active = db.Column(db.Boolean, default=True)
     is_verified = db.Column(db.Boolean, default=False)
@@ -155,6 +158,28 @@ class User(UserMixin, db.Model):
         """Check if user has access to a feature"""
         limits = self.get_tier_limits()
         return limits.get(feature, False)
+    
+    def can_analyze(self):
+        """Check if user can perform analysis (based on monthly limits)"""
+        limits = self.get_tier_limits()
+        bwc_limit = limits.get('bwc_videos_per_month', 0)
+        
+        # Unlimited for some tiers
+        if bwc_limit == -1:
+            return True
+        
+        # Check current month usage
+        from datetime import datetime
+        current_month = datetime.utcnow().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        usage_this_month = UsageTracking.query.filter(
+            UsageTracking.user_id == self.id,
+            UsageTracking.month >= current_month
+        ).first()
+        
+        if not usage_this_month:
+            return True
+        
+        return usage_this_month.bwc_videos_analyzed < bwc_limit
     
     def __repr__(self):
         return f'<User {self.email} ({self.tier_name})>'
