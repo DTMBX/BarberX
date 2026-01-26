@@ -781,8 +781,12 @@ def register():
 
         logger.info(f"New user registered: {user.email}")
 
+        # Redirect new users to onboarding welcome screen
         return success_response(
-            data={"user": user.to_dict()},
+            data={
+                "user": user.to_dict(),
+                "redirect": "/welcome"
+            },
             message="Registration successful",
             status_code=201
         )
@@ -845,6 +849,31 @@ def logout():
 def batch_pdf_upload():
     """Batch PDF upload page"""
     return render_template("batch-pdf-upload.html")
+
+
+@app.route("/welcome")
+@login_required
+def welcome():
+    """First-time user onboarding welcome screen"""
+    return render_template("onboarding/welcome.html", user=current_user)
+
+
+@app.route("/skip-onboarding", methods=["POST"])
+@login_required
+def skip_onboarding():
+    """Mark onboarding as complete and redirect to dashboard"""
+    try:
+        # Mark onboarding complete in session (database update can be added later)
+        session['onboarding_complete'] = True
+        
+        from utils.logging_config import get_logger
+        logger = get_logger('app')
+        logger.info(f"User {current_user.email} skipped onboarding")
+        
+        return redirect(url_for('dashboard'))
+    except Exception as e:
+        app.logger.error(f"Skip onboarding error: {e}")
+        return redirect(url_for('dashboard'))
 
 
 @app.route("/dashboard")

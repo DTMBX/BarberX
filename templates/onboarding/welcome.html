@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BarberX | Get Started</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .onboarding-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+        }
+
+        .onboarding-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .onboarding-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .onboarding-header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 1rem 0;
+            font-weight: 700;
+        }
+
+        .onboarding-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .onboarding-body {
+            padding: 3rem 2rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .step-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .step-description {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .checklist {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .checklist h3 {
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            background: #edf2f7;
+        }
+
+        .checklist-checkbox {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checklist-label {
+            flex: 1;
+            font-size: 1rem;
+            color: #2d3748;
+            cursor: pointer;
+        }
+
+        .checklist-badge {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2d3748;
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-header h1 {
+                font-size: 2rem;
+            }
+            
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="onboarding-container">
+        <div class="onboarding-card">
+            <div class="onboarding-header">
+                <h1>🎉 Welcome to BarberX!</h1>
+                <p>Your AI-Powered Legal Analysis Platform</p>
+            </div>
+
+            <div class="onboarding-body">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+
+                <h2>Let's get you started in 3 simple steps</h2>
+
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-icon">📁</div>
+                        <div class="step-title">1. Upload Evidence</div>
+                        <div class="step-description">
+                            Upload your first case file - PDF, video, audio, or document. Our AI will analyze it automatically.
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-icon">🤖</div>
+                        <div class="step-title">2. AI Analysis</div>
+                        <div class="step-description">
+                            Watch as our AI extracts key facts, identifies violations, and builds a timeline for your case.
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-icon">📄</div>
+                        <div class="step-title">3. Generate Documents</div>
+                        <div class="step-description">
+                            Create professional legal documents with one click - motions, briefs, letters, and more.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checklist">
+                    <h3>✅ Your Success Checklist</h3>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" class="checklist-checkbox" id="check1" onchange="updateProgress()">
+                        <label class="checklist-label" for="check1">
+                            Complete your profile (name, firm, contact)
+                        </label>
+                        <span class="checklist-badge">1 min</span>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" class="checklist-checkbox" id="check2" onchange="updateProgress()">
+                        <label class="checklist-label" for="check2">
+                            Watch the 2-minute platform tour video
+                        </label>
+                        <span class="checklist-badge">2 min</span>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" class="checklist-checkbox" id="check3" onchange="updateProgress()">
+                        <label class="checklist-label" for="check3">
+                            Upload your first evidence file
+                        </label>
+                        <span class="checklist-badge">2 min</span>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" class="checklist-checkbox" id="check4" onchange="updateProgress()">
+                        <label class="checklist-label" for="check4">
+                            Review AI analysis results
+                        </label>
+                        <span class="checklist-badge">3 min</span>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" class="checklist-checkbox" id="check5" onchange="updateProgress()">
+                        <label class="checklist-label" for="check5">
+                            Generate your first legal document
+                        </label>
+                        <span class="checklist-badge">2 min</span>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" class="checklist-checkbox" id="check6" onchange="updateProgress()">
+                        <label class="checklist-label" for="check6">
+                            Explore the command palette (press Cmd+K)
+                        </label>
+                        <span class="checklist-badge">1 min</span>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <button class="btn-primary" onclick="skipToUpload()">
+                        🚀 Start Uploading Evidence
+                    </button>
+                    <button class="btn-secondary" onclick="goToDashboard()">
+                        Go to Dashboard
+                    </button>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; color: #718096;">
+                    <p>Need help? <a href="/support" style="color: #667eea; text-decoration: none; font-weight: 600;">Contact Support</a> | <a href="/docs" style="color: #667eea; text-decoration: none; font-weight: 600;">View Documentation</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checklist-checkbox');
+            const checked = document.querySelectorAll('.checklist-checkbox:checked').length;
+            const total = checkboxes.length;
+            const percentage = (checked / total) * 100;
+            
+            document.getElementById('progressBar').style.width = percentage + '%';
+            
+            localStorage.setItem('onboardingProgress', checked);
+            
+            if (checked === total) {
+                setTimeout(() => {
+                    alert('🎉 Congratulations! You\'ve completed the onboarding checklist!');
+                    localStorage.setItem('onboardingComplete', 'true');
+                }, 300);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('onboardingProgress');
+            if (saved) {
+                const checkboxes = document.querySelectorAll('.checklist-checkbox');
+                for (let i = 0; i < saved && i < checkboxes.length; i++) {
+                    checkboxes[i].checked = true;
+                }
+                updateProgress();
+            }
+        });
+
+        function skipToUpload() {
+            localStorage.setItem('onboardingStarted', 'true');
+            window.location.href = '/evidence-intake';
+        }
+
+        function goToDashboard() {
+            window.location.href = '/dashboard';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('check6').checked = true;
+                updateProgress();
+                alert('Great! You discovered the command palette shortcut. Press Cmd+K (or Ctrl+K) anywhere in the app to access it.');
+            }
+        });
+    </script>
+</body>
+</html>
