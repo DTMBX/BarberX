@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
+             xmlns:models="clr-namespace:BarberX.MatterDocket.MAUI.Models"
+             x:Class="BarberX.MatterDocket.MAUI.Views.ChatPage"
+             x:DataType="viewmodels:ChatViewModel"
+             Title="Legal AI Assistant"
+             Shell.BackgroundColor="#1e293b">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="0">
+        
+        <!-- Header with Project Info and Settings -->
+        <Grid ColumnDefinitions="*,Auto,Auto" Padding="16,12" BackgroundColor="#0f172a">
+            <Label Text="{Binding CurrentProject.Name, FallbackValue='Select Project'}"
+                   FontSize="18" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" />
+            
+            <Button Grid.Column="1" Text="⚙️" FontSize="20" BackgroundColor="Transparent"
+                    Command="{Binding OpenProjectSettingsCommand}" Margin="8,0" />
+            
+            <Button Grid.Column="2" Text="📁" FontSize="20" BackgroundColor="Transparent"
+                    Command="{Binding SelectProjectCommand}" />
+        </Grid>
+
+        <!-- Messages List -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Messages}" x:Name="MessagesView"
+                        SelectionMode="None" BackgroundColor="#1e293b">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ChatMessage">
+                    <Grid Padding="16,8">
+                        <!-- User Message (right-aligned) -->
+                        <Frame IsVisible="{Binding IsUserMessage}" 
+                               BackgroundColor="#3b82f6" CornerRadius="12"
+                               Padding="12,8" Margin="40,4,0,4" HorizontalOptions="End"
+                               HasShadow="True">
+                            <Label Text="{Binding Content}" TextColor="White" 
+                                   FontSize="15" LineBreakMode="WordWrap" />
+                        </Frame>
+
+                        <!-- Assistant Message (left-aligned) -->
+                        <StackLayout IsVisible="{Binding IsAssistantMessage}" Padding="0,4">
+                            <Frame BackgroundColor="#334155" CornerRadius="12"
+                                   Padding="12,8" Margin="0,4,40,4" HorizontalOptions="Start"
+                                   HasShadow="True">
+                                <Grid>
+                                    <Label Text="{Binding Content}" TextColor="White" 
+                                           FontSize="15" LineBreakMode="WordWrap"
+                                           IsVisible="{Binding IsMarkdownRendered, Converter={StaticResource InvertedBoolConverter}}" />
+                                    
+                                    <!-- TODO: Add markdown rendering here -->
+                                    <!-- <markdig:MarkdownView Markdown="{Binding Content}" 
+                                           IsVisible="{Binding IsMarkdownRendered}" /> -->
+                                </Grid>
+                            </Frame>
+
+                            <!-- Metadata: Model, Tokens, Timestamp -->
+                            <Grid ColumnDefinitions="Auto,Auto,Auto" Margin="4,0" Opacity="0.6">
+                                <Label Text="{Binding Model, StringFormat='🤖 {0}'}" 
+                                       FontSize="11" TextColor="White" />
+                                <Label Grid.Column="1" 
+                                       Text="{Binding TokensUsed, StringFormat='🎫 {0} tokens'}" 
+                                       FontSize="11" TextColor="White" Margin="12,0,0,0" />
+                                <Label Grid.Column="2" 
+                                       Text="{Binding Timestamp, StringFormat='{0:HH:mm}'}" 
+                                       FontSize="11" TextColor="White" Margin="12,0,0,0" />
+                            </Grid>
+                        </StackLayout>
+
+                        <!-- System Message (centered) -->
+                        <Frame IsVisible="{Binding IsSystemMessage}" 
+                               BackgroundColor="#475569" CornerRadius="8"
+                               Padding="8,6" Margin="20,4" HorizontalOptions="Center"
+                               HasShadow="False">
+                            <Label Text="{Binding Content}" TextColor="#94a3b8" 
+                                   FontSize="13" HorizontalTextAlignment="Center" />
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <!-- Loading Indicator -->
+            <CollectionView.EmptyView>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="robot_assistant.png" WidthRequest="100" HeightRequest="100" Opacity="0.3" />
+                    <Label Text="Start a conversation" TextColor="White" Opacity="0.5" FontSize="16" Margin="0,16,0,0" />
+                    <Label Text="Ask legal questions, analyze evidence, or run AI tools" 
+                           TextColor="White" Opacity="0.4" FontSize="13" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <!-- Typing Indicator -->
+        <Grid Grid.Row="1" VerticalOptions="End" Margin="16,0,0,8" IsVisible="{Binding IsAssistantTyping}">
+            <Frame BackgroundColor="#334155" CornerRadius="12" Padding="12,8" HorizontalOptions="Start" HasShadow="True">
+                <HorizontalStackLayout Spacing="4">
+                    <Label Text="●" TextColor="White" />
+                    <Label Text="●" TextColor="White" Opacity="0.7" />
+                    <Label Text="●" TextColor="White" Opacity="0.4" />
+                    <Label Text="●" TextColor="White" Opacity="0.3" />
+                    <Label Text="  AI is thinking..." TextColor="White" Opacity="0.6" FontSize="13" />
+                </HorizontalStackLayout>
+            </Frame>
+        </Grid>
+
+        <!-- Legal Tools Quick Access (Above Input) -->
+        <ScrollView Grid.Row="2" Orientation="Horizontal" HeightRequest="60" 
+                    BackgroundColor="#0f172a" Padding="8,4"
+                    IsVisible="{Binding ShowLegalTools}">
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="🔍 Brady" Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="brady" Style="{StaticResource QuickToolButton}" />
+                <Button Text="⚖️ 4th Amd" Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="fourth" Style="{StaticResource QuickToolButton}" />
+                <Button Text="🗣️ Miranda" Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="miranda" Style="{StaticResource QuickToolButton}" />
+                <Button Text="📅 Timeline" Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="timeline" Style="{StaticResource QuickToolButton}" />
+                <Button Text="📝 Inconsist." Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="inconsistency" Style="{StaticResource QuickToolButton}" />
+                <Button Text="🔗 Chain" Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="chain" Style="{StaticResource QuickToolButton}" />
+                <Button Text="📚 Case Law" Command="{Binding RunLegalToolCommand}" 
+                        CommandParameter="caselaw" Style="{StaticResource QuickToolButton}" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- Input Area -->
+        <Grid Grid.Row="2" ColumnDefinitions="Auto,*,Auto,Auto" Padding="12" 
+              BackgroundColor="#1e293b" RowSpacing="0">
+            
+            <!-- Attach Evidence Button -->
+            <Button Grid.Column="0" Text="📎" FontSize="20" BackgroundColor="Transparent"
+                    Command="{Binding AttachEvidenceCommand}" VerticalOptions="End"
+                    ToolTipProperties.Text="Attach evidence for context" />
+
+            <!-- Message Input -->
+            <Frame Grid.Column="1" BackgroundColor="#334155" CornerRadius="20" 
+                   Padding="12,8" Margin="8,0" HasShadow="False">
+                <Editor x:Name="MessageInput" Text="{Binding MessageText}" 
+                        Placeholder="Ask a legal question..." PlaceholderColor="#94a3b8"
+                        TextColor="White" FontSize="15" AutoSize="TextChanges"
+                        MaximumHeightRequest="120" VerticalOptions="Start"
+                        Completed="OnMessageInputCompleted" />
+            </Frame>
+
+            <!-- Legal Tools Toggle -->
+            <Button Grid.Column="2" Text="🛠️" FontSize="20" 
+                    BackgroundColor="{Binding ShowLegalTools, Converter={StaticResource BoolToColorConverter}}"
+                    Command="{Binding ToggleLegalToolsCommand}" VerticalOptions="End"
+                    ToolTipProperties.Text="Show legal analysis tools" />
+
+            <!-- Send Button -->
+            <Button Grid.Column="3" Text="➤" FontSize="22" BackgroundColor="#3b82f6"
+                    Command="{Binding SendMessageCommand}" 
+                    IsEnabled="{Binding CanSendMessage}" VerticalOptions="End"
+                    CornerRadius="20" Padding="12,8" />
+        </Grid>
+
+        <!-- Attached Evidence Preview -->
+        <CollectionView Grid.Row="2" ItemsSource="{Binding AttachedEvidence}" 
+                        IsVisible="{Binding HasAttachedEvidence}"
+                        HeightRequest="80" Margin="12,0,12,4" BackgroundColor="#0f172a">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:EvidenceItem">
+                    <Frame BackgroundColor="#1e293b" CornerRadius="8" Padding="8" HasShadow="True">
+                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto">
+                            <Label Text="📄" FontSize="24" VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="{Binding Filename}" 
+                                   TextColor="White" FontSize="12" VerticalOptions="Center" Margin="8,0" />
+                            <Button Grid.Column="2" Text="✕" FontSize="14" 
+                                    BackgroundColor="Transparent" TextColor="#ef4444"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ChatViewModel}}, Path=RemoveEvidenceCommand}"
+                                    CommandParameter="{Binding}" />
+                            <Label Grid.Row="1" Grid.ColumnSpan="3" 
+                                   Text="{Binding FileSize, Converter={StaticResource BytesToSizeConverter}}" 
+                                   TextColor="#94a3b8" FontSize="10" Margin="0,4,0,0" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

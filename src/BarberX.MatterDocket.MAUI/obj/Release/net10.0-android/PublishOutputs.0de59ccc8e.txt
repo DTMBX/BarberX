@@ -1,0 +1,4 @@
+C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\publish\com.companyname.barberx.matterdocket.maui-Signed.aab
+C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\publish\com.companyname.barberx.matterdocket.maui.aab
+C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\publish\com.companyname.barberx.matterdocket.maui-Signed.apk
+C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\publish\_Microsoft.Android.Resource.Designer.dll

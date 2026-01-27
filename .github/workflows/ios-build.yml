@@ -1,0 +1,50 @@
+name: iOS Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Install MAUI workload
+      run: dotnet workload install maui
+    
+    - name: Restore dependencies
+      run: dotnet restore src/BarberX.MatterDocket.MAUI/BarberX.MatterDocket.MAUI.csproj
+    
+    - name: Build iOS app (Development)
+      run: |
+        dotnet build src/BarberX.MatterDocket.MAUI/BarberX.MatterDocket.MAUI.csproj \
+          -f net10.0-ios \
+          -c Debug \
+          /p:RuntimeIdentifier=ios-arm64 \
+          /p:BuildIpa=true
+    
+    - name: Upload IPA artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: BarberX-iOS-Development
+        path: |
+          src/BarberX.MatterDocket.MAUI/bin/Debug/net10.0-ios/ios-arm64/**/*.ipa
+          src/BarberX.MatterDocket.MAUI/bin/Debug/net10.0-ios/ios-arm64/**/*.app
+        retention-days: 30
+    
+    - name: Build summary
+      run: |
+        echo "✅ iOS build complete!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "📦 Download the IPA from the Artifacts section above" >> $GITHUB_STEP_SUMMARY
+        echo "📱 Install via Xcode or Apple Configurator" >> $GITHUB_STEP_SUMMARY

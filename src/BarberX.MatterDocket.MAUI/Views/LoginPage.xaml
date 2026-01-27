@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
+             x:Class="BarberX.MatterDocket.MAUI.Views.LoginPage"
+             x:DataType="viewmodel:LoginViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#0f0f0f">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="40" Spacing="25" VerticalOptions="Center">
+            
+            <!-- Logo and Title -->
+            <VerticalStackLayout Spacing="15" Margin="0,0,0,40">
+                <Image Source="appicon.png" 
+                       WidthRequest="120" 
+                       HeightRequest="120"
+                       HorizontalOptions="Center"/>
+                
+                <Label Text="BarberX Matter Docket"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#d4a574"
+                       HorizontalTextAlignment="Center"/>
+                
+                <Label Text="DTMB - Professional Legal Evidence Platform"
+                       FontSize="14"
+                       TextColor="#b0b0b0"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Login Form -->
+            <VerticalStackLayout Spacing="20">
+                
+                <!-- Email Input -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Email Address"
+                           TextColor="#ffffff"
+                           FontSize="14"/>
+                    <Border Stroke="#d4a574"
+                            StrokeThickness="1"
+                            BackgroundColor="#1a1a1a"
+                            Padding="15,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Entry Placeholder="your.email@example.com"
+                               PlaceholderColor="#666666"
+                               Text="{Binding Email}"
+                               Keyboard="Email"
+                               TextColor="#ffffff"
+                               BackgroundColor="Transparent"
+                               ReturnType="Next"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Password Input -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Password"
+                           TextColor="#ffffff"
+                           FontSize="14"/>
+                    <Border Stroke="#d4a574"
+                            StrokeThickness="1"
+                            BackgroundColor="#1a1a1a"
+                            Padding="15,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Entry Placeholder="Enter your password"
+                               PlaceholderColor="#666666"
+                               Text="{Binding Password}"
+                               IsPassword="True"
+                               TextColor="#ffffff"
+                               BackgroundColor="Transparent"
+                               ReturnType="Done"
+                               ReturnCommand="{Binding LoginCommand}"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Remember Me & Forgot Password -->
+                <Grid ColumnDefinitions="*,Auto">
+                    <CheckBox IsChecked="{Binding RememberMe}"
+                              Color="#d4a574"/>
+                    <Label Text="Remember me"
+                           TextColor="#b0b0b0"
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"/>
+                    
+                    <Label Grid.Column="1"
+                           Text="Forgot password?"
+                           TextColor="#d4a574"
+                           TextDecorations="Underline"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <!-- Error Message -->
+                <Label Text="{Binding ErrorMessage}"
+                       IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                       TextColor="#ff4444"
+                       FontSize="13"
+                       HorizontalTextAlignment="Center"
+                       Padding="10,5"/>
+
+                <!-- Login Button -->
+                <Button Text="Sign In"
+                        Command="{Binding LoginCommand}"
+                        BackgroundColor="#d4a574"
+                        TextColor="#0f0f0f"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        CornerRadius="8"
+                        Margin="0,10,0,0">
+                    <Button.Shadow>
+                        <Shadow Brush="#d4a574" Opacity="0.5" Radius="10" Offset="0,4"/>
+                    </Button.Shadow>
+                </Button>
+
+                <!-- Loading Indicator -->
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                 IsVisible="{Binding IsBusy}"
+                                 Color="#d4a574"
+                                 HeightRequest="40"/>
+
+                <!-- Register Link -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5" Margin="0,20,0,0">
+                    <Label Text="Don't have an account?"
+                           TextColor="#b0b0b0"/>
+                    <Label Text="Sign Up"
+                           TextColor="#d4a574"
+                           FontAttributes="Bold"
+                           TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToRegisterCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- Footer -->
+            <Label Text="© 2026 BarberX Matter Docket. All rights reserved."
+                   TextColor="#666666"
+                   FontSize="11"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,40,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

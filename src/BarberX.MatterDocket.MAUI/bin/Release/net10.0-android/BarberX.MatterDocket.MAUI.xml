@@ -1,0 +1,846 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BarberX.MatterDocket.MAUI</name>
+    </assembly>
+    <members>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.BoolToVisibilityConverter">
+            <summary>
+            Converts boolean to visibility (true = visible, false = collapsed)
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.InverseBoolConverter">
+            <summary>
+            Inverts a boolean value
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.StringNotNullOrEmptyConverter">
+            <summary>
+            Returns true if string is not null or empty
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.BytesToMegabytesConverter">
+            <summary>
+            Converts bytes to megabytes
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.PercentageConverter">
+            <summary>
+            Formats a percentage value
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.TierNameConverter">
+            <summary>
+            Converts tier name to display text
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.TierColorConverter">
+            <summary>
+            Converts tier name to color
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToPdfBorderConverter">
+            <summary>
+            Converts file type to PDF border color
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToVideoBorderConverter">
+            <summary>
+            Converts file type to Video border color
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToPdfColorConverter">
+            <summary>
+            Converts file type to PDF text color
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToVideoColorConverter">
+            <summary>
+            Converts file type to Video text color
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.GetCasesAsync(System.Int32,System.Int32)">
+            <summary>
+            Get a paginated list of cases
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.GetCaseAsync(System.Int32)">
+            <summary>
+            Get detailed information about a specific case
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.CreateCaseAsync(BarberX.MatterDocket.MAUI.Services.CreateCaseRequest)">
+            <summary>
+            Create a new case
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.UpdateCaseAsync(System.Int32,BarberX.MatterDocket.MAUI.Services.UpdateCaseRequest)">
+            <summary>
+            Update an existing case
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.DeleteCaseAsync(System.Int32)">
+            <summary>
+            Delete a case
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.SearchCasesAsync(System.String)">
+            <summary>
+            Search cases by query string
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Services.CreateCaseRequest">
+            <summary>
+            Request model for creating a new case
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Services.UpdateCaseRequest">
+            <summary>
+            Request model for updating a case
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Services.CaseListItem">
+            <summary>
+            List item model for cases (summary view)
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Services.CaseDetails">
+            <summary>
+            Detailed case model
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.SendMessageAsync(BarberX.MatterDocket.MAUI.Models.ChatRequest)">
+            <summary>
+            Send a message and get GPT response
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.GetConversationMessagesAsync(System.Int32)">
+            <summary>
+            Get all messages in a conversation
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.ValidateApiKeyAsync(System.String)">
+            <summary>
+            Validate an OpenAI API key
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.StoreApiKeyAsync(System.String,System.String)">
+            <summary>
+            Store encrypted API key on server
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.GetStoredApiKeyAsync">
+            <summary>
+            Get stored API key from SecureStorage
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.GetEvidenceListAsync(System.Int32)">
+            <summary>
+            Get list of evidence items for a specific case
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.GetEvidenceAsync(System.Int32)">
+            <summary>
+            Get detailed information about a specific evidence item
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.TranscribeVideoAsync(System.Int32)">
+            <summary>
+            Transcribe video evidence using AI (Whisper)
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.ExtractTextFromPdfAsync(System.Int32)">
+            <summary>
+            Extract text from PDF evidence using OCR
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.DeleteEvidenceAsync(System.Int32)">
+            <summary>
+            Delete an evidence item
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.GetProjectsAsync">
+            <summary>
+            Get all projects for current user
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.CreateProjectAsync(BarberX.MatterDocket.MAUI.Models.CreateProjectRequest)">
+            <summary>
+            Create a new project
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.UpdateProjectAsync(System.Int32,BarberX.MatterDocket.MAUI.Models.CreateProjectRequest)">
+            <summary>
+            Update project settings
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.DeleteProjectAsync(System.Int32)">
+            <summary>
+            Delete a project
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.GetConversationsAsync(System.Int32)">
+            <summary>
+            Get conversations for a project
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetCurrentTierAsync">
+            <summary>
+            Get the current user's tier information
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.CanUploadPdfAsync(System.Int64)">
+            <summary>
+            Check if user can upload a PDF of given size
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.CanUploadVideoAsync(System.Int64)">
+            <summary>
+            Check if user can upload a video of given size
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.CanUseAiAnalysisAsync">
+            <summary>
+            Check if user can use AI analysis features
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetMaxPdfSize(System.String)">
+            <summary>
+            Get the maximum PDF file size for a tier (in bytes)
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetMaxVideoSize(System.String)">
+            <summary>
+            Get the maximum video file size for a tier (in bytes)
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.IsFeatureAvailable(System.String,System.String)">
+            <summary>
+            Check if a feature is available for a specific tier
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetUpgradeMessage(System.String)">
+            <summary>
+            Get an upgrade message for a feature
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Services.UserTier">
+            <summary>
+            Represents user tier information
+            </summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ClearError">
+            <summary>
+            Clears the current error message
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.SetError(System.String)">
+            <summary>
+            Sets an error message
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ExecuteAsync(System.Func{System.Threading.Tasks.Task},System.String)">
+            <summary>
+            Executes an async task with IsBusy management and error handling
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.String)">
+            <summary>
+            Executes an async task with return value, IsBusy management and error handling
+            </summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel._isBusy"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel._title"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ErrorMessage">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel._errorMessage"/>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.CurrentProject">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.currentProject"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.CurrentConversation">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.currentConversation"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.messageText"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.IsAssistantTyping">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.isAssistantTyping"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ShowLegalTools">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.showLegalTools"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.Messages">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.messages"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachedEvidence">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.attachedEvidence"/>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OnMessageTextChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText"/> is changed.</remarks>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.loadConversationCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.sendMessageCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.attachEvidenceCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.removeEvidenceCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidenceCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidenceCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidence(BarberX.MatterDocket.MAUI.Models.EvidenceItem)"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.toggleLegalToolsCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalToolsCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalToolsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalTools"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.runLegalToolCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolAsync(System.String)"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.selectProjectCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.openProjectSettingsCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsAsync"/>.</summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardAsync">
+            <summary>
+            Loads dashboard data
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadAsync">
+            <summary>
+            Navigate to upload page
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesAsync">
+            <summary>
+            Navigate to cases page
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsAsync">
+            <summary>
+            Navigate to settings page
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutAsync">
+            <summary>
+            Logout user
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseAsync(BarberX.MatterDocket.MAUI.Services.CaseListItem)">
+            <summary>
+            Navigate to case details
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierAsync">
+            <summary>
+            Upgrade tier
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshAsync">
+            <summary>
+            Refresh dashboard data
+            </summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StoragePercentage">
+            <summary>
+            Calculate storage percentage
+            </summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageColor">
+            <summary>
+            Get storage color based on usage
+            </summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.CurrentUser">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._currentUser"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UserTier">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._userTier"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.TotalCases">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._totalCases"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ActiveCases">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._activeCases"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageUsedMB">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._storageUsedMB"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageAvailableMB">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._storageAvailableMB"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RecentCases">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._recentCases"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RecentAnalyses">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._recentAnalyses"/>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.loadDashboardCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToUploadCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToCasesCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToSettingsCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.logoutCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.viewCaseCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseAsync(BarberX.MatterDocket.MAUI.Services.CaseListItem)"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.upgradeTierCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshAsync"/>.</summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.Email">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel._email"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.Password">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel._password"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RememberMe">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel._rememberMe"/>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.loginCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.navigateToRegisterCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.registerCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.forgotPasswordCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordAsync"/>.</summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileAsync">
+            <summary>
+            Select a file to upload
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileAsync">
+            <summary>
+            Upload the selected file
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisAsync">
+            <summary>
+            Start AI analysis on uploaded file
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUpload">
+            <summary>
+            Reset upload form
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfType">
+            <summary>
+            Select PDF file type
+            </summary>
+        </member>
+        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoType">
+            <summary>
+            Select Video file type
+            </summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.FormattedFileSize">
+            <summary>
+            Get formatted file size
+            </summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFilePath">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFilePath"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFileName">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFileName"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFileSize">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFileSize"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.FileType">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._fileType"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadProgress">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadProgress"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.IsUploading">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._isUploading"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadComplete">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadComplete"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadedFileId">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadedFileId"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.RunAnalysisAfterUpload">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._runAnalysisAfterUpload"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.AnalysisType">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._analysisType"/>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.AnalysisTypes">
+            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._analysisTypes"/>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.selectFileCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.uploadFileCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.startAnalysisCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisAsync"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.resetUploadCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUploadCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUploadCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUpload"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.selectPdfTypeCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfTypeCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfTypeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfType"/>.</summary>
+        </member>
+        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.selectVideoTypeCommand">
+            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoTypeCommand"/>.</summary>
+        </member>
+        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoTypeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoType"/>.</summary>
+        </member>
+        <member name="T:BarberX.MatterDocket.MAUI.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CurrentProject">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CurrentProject" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CurrentConversation">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CurrentConversation" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.MessageText">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "MessageText" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsAssistantTyping">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsAssistantTyping" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ShowLegalTools">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ShowLegalTools" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Messages">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Messages" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AttachedEvidence">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "AttachedEvidence" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CurrentUser">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CurrentUser" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UserTier">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UserTier" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalCases">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalCases" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ActiveCases">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ActiveCases" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StorageUsedMB">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StorageUsedMB" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StorageAvailableMB">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StorageAvailableMB" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecentCases">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecentCases" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RecentAnalyses">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RecentAnalyses" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RememberMe">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RememberMe" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedFilePath">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedFilePath" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedFileName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedFileName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedFileSize">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedFileSize" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FileType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FileType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UploadProgress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UploadProgress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsUploading">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsUploading" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UploadComplete">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UploadComplete" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UploadedFileId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UploadedFileId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RunAnalysisAfterUpload">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RunAnalysisAfterUpload" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AnalysisType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "AnalysisType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AnalysisTypes">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "AnalysisTypes" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CurrentProject">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CurrentProject" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CurrentConversation">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CurrentConversation" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.MessageText">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "MessageText" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsAssistantTyping">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsAssistantTyping" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ShowLegalTools">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ShowLegalTools" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Messages">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Messages" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.AttachedEvidence">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "AttachedEvidence" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CurrentUser">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CurrentUser" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UserTier">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UserTier" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalCases">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalCases" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ActiveCases">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ActiveCases" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StorageUsedMB">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StorageUsedMB" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StorageAvailableMB">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StorageAvailableMB" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecentCases">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecentCases" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RecentAnalyses">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RecentAnalyses" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RememberMe">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RememberMe" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedFilePath">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedFilePath" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedFileName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedFileName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedFileSize">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedFileSize" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FileType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FileType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UploadProgress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UploadProgress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsUploading">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsUploading" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UploadComplete">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UploadComplete" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UploadedFileId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UploadedFileId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RunAnalysisAfterUpload">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RunAnalysisAfterUpload" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.AnalysisType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "AnalysisType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.AnalysisTypes">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "AnalysisTypes" generated properties.</summary>
+        </member>
+    </members>
+</doc>

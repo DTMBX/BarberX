@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
+             x:Class="BarberX.MatterDocket.MAUI.Views.DashboardPage"
+             x:DataType="viewmodel:DashboardViewModel"
+             Title="Dashboard"
+             BackgroundColor="#0f0f0f">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+            
+            <!-- Welcome Header -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding CurrentUser.Name, StringFormat='Welcome, {0}!', FallbackValue='Welcome to BarberX!'}"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#d4a574"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Plan:"
+                           FontSize="16"
+                           TextColor="#b0b0b0"/>
+                    <Label Text="{Binding UserTier, Converter={StaticResource TierNameConverter}}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="{Binding UserTier, Converter={StaticResource TierColorConverter}}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Stats Cards -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,20,0,0">
+                <Border Stroke="#d4a574"
+                        StrokeThickness="1"
+                        BackgroundColor="#1a1a1a"
+                        Padding="20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="{Binding TotalCases}"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               TextColor="#d4a574"/>
+                        <Label Text="Total Cases"
+                               FontSize="14"
+                               TextColor="#b0b0b0"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1"
+                        Stroke="#d4a574"
+                        StrokeThickness="1"
+                        BackgroundColor="#1a1a1a"
+                        Padding="20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="{Binding ActiveCases}"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               TextColor="#d4a574"/>
+                        <Label Text="Active Cases"
+                               FontSize="14"
+                               TextColor="#b0b0b0"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Storage Usage -->
+            <Border Stroke="#d4a574"
+                    StrokeThickness="1"
+                    BackgroundColor="#1a1a1a"
+                    Padding="20"
+                    Margin="0,10,0,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Storage Usage"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#ffffff"/>
+                    <ProgressBar Progress="{Binding StoragePercentage}"
+                                 ProgressColor="{Binding StorageColor}"
+                                 HeightRequest="8"/>
+                    <Label Text="{Binding StorageUsedMB, StringFormat='{0} MB used', Converter={StaticResource BytesToMegabytesConverter}}"
+                           FontSize="14"
+                           TextColor="#b0b0b0"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Quick Actions -->
+            <VerticalStackLayout Spacing="15" Margin="0,20,0,0">
+                <Label Text="Quick Actions"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#ffffff"
+                       Margin="0,0,0,10"/>
+
+                <!-- Upload Evidence Button -->
+                <Border Stroke="#d4a574"
+                        StrokeThickness="2"
+                        BackgroundColor="#1a1a1a"
+                        Padding="20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToUploadCommand}"/>
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="📤 Upload Evidence"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#d4a574"/>
+                        <Label Text="Upload PDFs, videos, and documents"
+                               FontSize="14"
+                               TextColor="#b0b0b0"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- View Cases Button -->
+                <Border Stroke="#d4a574"
+                        StrokeThickness="2"
+                        BackgroundColor="#1a1a1a"
+                        Padding="20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToCasesCommand}"/>
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="📁 View Cases"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#d4a574"/>
+                        <Label Text="Browse and manage your cases"
+                               FontSize="14"
+                               TextColor="#b0b0b0"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Settings Button -->
+                <Border Stroke="#d4a574"
+                        StrokeThickness="2"
+                        BackgroundColor="#1a1a1a"
+                        Padding="20">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToSettingsCommand}"/>
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="⚙️ Settings"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#d4a574"/>
+                        <Label Text="Manage account and preferences"
+                               FontSize="14"
+                               TextColor="#b0b0b0"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+
+            <!-- Recent Cases -->
+            <VerticalStackLayout Spacing="15" Margin="0,20,0,0" IsVisible="{Binding RecentCases.Count, Converter={StaticResource BoolToVisibilityConverter}}">
+                <Label Text="Recent Cases"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#ffffff"/>
+
+                <CollectionView ItemsSource="{Binding RecentCases}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Stroke="#d4a574"
+                                    StrokeThickness="1"
+                                    BackgroundColor="#1a1a1a"
+                                    Padding="15"
+                                    Margin="0,5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DashboardViewModel}}, Path=ViewCaseCommand}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                    <Label Text="{Binding Title}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="#ffffff"/>
+                                    <Label Grid.Row="1"
+                                           Text="{Binding CaseNumber}"
+                                           FontSize="14"
+                                           TextColor="#b0b0b0"/>
+                                    <Label Grid.Column="1"
+                                           Grid.RowSpan="2"
+                                           Text="{Binding Status}"
+                                           VerticalOptions="Center"
+                                           FontSize="14"
+                                           TextColor="#10B981"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                             IsVisible="{Binding IsBusy}"
+                             Color="#d4a574"
+                             HeightRequest="40"
+                             Margin="0,20"/>
+
+            <!-- Error Message -->
+            <Label Text="{Binding ErrorMessage}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                   TextColor="#ff4444"
+                   FontSize="14"
+                   HorizontalTextAlignment="Center"
+                   Padding="10"/>
+
+            <!-- Logout Button -->
+            <Button Text="Logout"
+                    Command="{Binding LogoutCommand}"
+                    BackgroundColor="Transparent"
+                    BorderColor="#d4a574"
+                    BorderWidth="1"
+                    TextColor="#d4a574"
+                    CornerRadius="8"
+                    Margin="0,20,0,40"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

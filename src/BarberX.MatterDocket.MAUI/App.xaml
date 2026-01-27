@@ -1,0 +1,30 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BarberX.MatterDocket.MAUI"
+             xmlns:helpers="clr-namespace:BarberX.MatterDocket.MAUI.Helpers"
+             xmlns:converters="clr-namespace:BarberX.MatterDocket.MAUI.Converters"
+             x:Class="BarberX.MatterDocket.MAUI.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Value Converters -->
+            <helpers:StringNotNullOrEmptyConverter x:Key="StringNotNullOrEmptyConverter" />
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:BytesToMegabytesConverter x:Key="BytesToMegabytesConverter" />
+            <converters:PercentageConverter x:Key="PercentageConverter" />
+            <converters:TierNameConverter x:Key="TierNameConverter" />
+            <converters:TierColorConverter x:Key="TierColorConverter" />
+            <converters:FileTypeToPdfBorderConverter x:Key="FileTypeToPdfBorderConverter" />
+            <converters:FileTypeToVideoBorderConverter x:Key="FileTypeToVideoBorderConverter" />
+            <converters:FileTypeToPdfColorConverter x:Key="FileTypeToPdfColorConverter" />
+            <converters:FileTypeToVideoColorConverter x:Key="FileTypeToVideoColorConverter" />
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
