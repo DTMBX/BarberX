@@ -694,12 +694,12 @@ def api_key_required(f):
 
 @app.route("/")
 def index():
-    """Landing page - modern standalone version"""
+    """Public landing page - Founding Member conversion focus"""
     try:
         if current_user.is_authenticated:
             return redirect(url_for("dashboard"))
-        # Use render_template instead of send_file for better compatibility
-        return render_template("index-standalone.html")
+        # New conversion-optimized landing page
+        return render_template("landing-public.html")
     except Exception as e:
         # Fallback to a simple response if template fails
         app.logger.error(f"Index route error: {e}")
@@ -2630,6 +2630,111 @@ def press():
 def serve_assets(filename):
     """Serve static assets from assets folder"""
     return send_file(os.path.join("assets", filename))
+
+
+# ========================================
+# API ROUTES - Public/Unauthenticated
+# ========================================
+
+
+@app.route("/api/founding-member-signup", methods=["POST"])
+def founding_member_signup():
+    """
+    Handle Founding Member email capture
+    
+    Stores email, name, firm in database for Founding Member program.
+    First 100 members get lifetime $19/month rate lock.
+    
+    Returns:
+        - success: true/false
+        - spots_remaining: int (out of 100)
+        - message: str
+    """
+    try:
+        data = request.get_json()
+        
+        if not data or 'email' not in data:
+            return jsonify({
+                'success': False,
+                'message': 'Email is required'
+            }), 400
+        
+        email = data.get('email', '').strip().lower()
+        name = data.get('name', '').strip()
+        firm = data.get('firm', '').strip()
+        source = data.get('source', 'unknown')
+        
+        # Basic email validation
+        if '@' not in email or '.' not in email:
+            return jsonify({
+                'success': False,
+                'message': 'Invalid email address'
+            }), 400
+        
+        # Use simple flat file for email capture (avoid database complexity)
+        # Production version should integrate with Stripe customer creation
+        import csv
+        import os
+        from datetime import datetime
+        
+        signups_file = Path("founding_member_signups.csv")
+        
+        # Check if already signed up
+        if signups_file.exists():
+            with open(signups_file, 'r', newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    if row.get('email', '').lower() == email:
+                        # Count total signups
+                        f.seek(0)
+                        count = sum(1 for _ in reader) - 1  # -1 for header
+                        spots_remaining = max(0, 100 - count)
+                        return jsonify({
+                            'success': True,
+                            'message': 'You\'re already on the list!',
+                            'spots_remaining': spots_remaining
+                        }), 200
+        
+        # Append new signup
+        file_exists = signups_file.exists()
+        with open(signups_file, 'a', newline='', encoding='utf-8') as f:
+            fieldnames = ['email', 'name', 'firm', 'source', 'signup_date', 'status']
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            
+            if not file_exists:
+                writer.writeheader()
+            
+            writer.writerow({
+                'email': email,
+                'name': name,
+                'firm': firm,
+                'source': source,
+                'signup_date': datetime.utcnow().isoformat(),
+                'status': 'pending'
+            })
+        
+        # Count total signups
+        with open(signups_file, 'r', newline='', encoding='utf-8') as f:
+            count = sum(1 for _ in f) - 1  # -1 for header
+            spots_remaining = max(0, 100 - count)
+        
+        app.logger.info(f"Founding Member signup: {email} ({name}) from {firm} - {spots_remaining} spots remaining")
+        
+        # TODO: Send welcome email with checkout link
+        # TODO: Integrate with Stripe checkout session
+        
+        return jsonify({
+            'success': True,
+            'message': 'Success! Check your email for next steps.',
+            'spots_remaining': spots_remaining
+        }), 200
+        
+    except Exception as e:
+        app.logger.error(f"Founding Member signup error: {e}")
+        return jsonify({
+            'success': False,
+            'message': 'An error occurred. Please try again or contact founders@barberx.info'
+        }), 500
 
 
 # ========================================
