@@ -12,6 +12,7 @@ SQLAlchemy==2.0.36
 python-dotenv==1.0.1
 requests==2.32.5
 Pillow==11.0.0
+PyPDF2==3.0.1
 pypdf==5.1.0
 pdfplumber==0.11.4
 openai==2.15.0
@@ -25,3 +26,4 @@ pdf2image==1.17.0         # PDF to image conversion
 pyotp==2.9.0              # 2FA/TOTP authentication
 qrcode[pil]==8.0          # QR code generation for 2FA
 stripe==11.4.0            # Payment processing
+PyJWT==2.10.1             # JWT token authentication for mobile/desktop clients
