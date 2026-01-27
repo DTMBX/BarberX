@@ -8,404 +8,10 @@
     </title>
     <link rel="stylesheet" href="/assets/css/enhanced-animations.css" />
     <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
-    <style>
-      /* Navigation Styles */
-      .main-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border-color);
-        z-index: 1000;
-        box-shadow: 0 2px 8px rgba(10, 37, 64, 0.05);
-      }
-
-      .nav-container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-      }
-
-      .nav-logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--primary-navy);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .nav-menu {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .nav-item {
-        position: relative;
-      }
-
-      .nav-link {
-        color: var(--text-primary);
-        text-decoration: none;
-        font-weight: 500;
-        padding: 0.5rem 0;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        transition: color 0.2s;
-      }
-
-      .nav-link:hover {
-        color: var(--accent-blue);
-      }
-
-      .nav-link.active {
-        color: var(--accent-blue);
-        border-bottom: 2px solid var(--accent-blue);
-      }
-
-      /* Dropdown Menu */
-      .dropdown {
-        position: relative;
-      }
-
-      .dropdown-toggle {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-      }
-
-      .dropdown-toggle::after {
-        content: "▼";
-        font-size: 0.7rem;
-        transition: transform 0.3s;
-      }
-
-      .dropdown:hover .dropdown-toggle::after {
-        transform: rotate(180deg);
-      }
-
-      .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        margin-top: 0.5rem;
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        box-shadow: 0 8px 24px rgba(10, 37, 64, 0.1);
-        min-width: 220px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        z-index: 100;
-      }
-
-      .dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      .dropdown-menu a {
-        display: block;
-        padding: 0.75rem 1.25rem;
-        color: var(--text-primary);
-        text-decoration: none;
-        transition: all 0.2s;
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      .dropdown-menu a:last-child {
-        border-bottom: none;
-      }
-
-      .dropdown-menu a:hover {
-        background: var(--primary-navy-10);
-        color: var(--accent-blue);
-        padding-left: 1.5rem;
-      }
-
-      .dropdown-menu a::before {
-        content: "→";
-        margin-right: 0.5rem;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-
-      .dropdown-menu a:hover::before {
-        opacity: 1;
-      }
-
-      /* Mobile Menu Button */
-      .mobile-menu-btn {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
-
-      .mobile-menu-btn span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--primary-navy);
-        transition: all 0.3s;
-        border-radius: 3px;
-      }
-
-      .mobile-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-      }
-
-      .mobile-menu-btn.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .mobile-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-      }
-
-      /* CTA Buttons */
-      .nav-cta {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-      }
-
-      .nav-cta .btn {
-        padding: 0.625rem 1.25rem;
-        font-size: 0.9rem;
-      }
-
-      /* Mobile Styles */
-      @media (max-width: 768px) {
-        body {
-          padding-top: 70px;
-        }
-
-        .mobile-menu-btn {
-          display: flex;
-        }
-
-        .nav-menu {
-          position: fixed;
-          top: 70px;
-          left: 0;
-          right: 0;
-          background: white;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 0;
-          padding: 1rem 0;
-          box-shadow: 0 8px 24px rgba(10, 37, 64, 0.15);
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease;
-        }
-
-        .nav-menu.active {
-          max-height: calc(100vh - 70px);
-          overflow-y: auto;
-        }
-
-        .nav-item {
-          border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-item:last-child {
-          border-bottom: none;
-        }
-
-        .nav-link {
-          padding: 1rem 2rem;
-          display: block;
-        }
-
-        .dropdown-menu {
-          position: static;
-          opacity: 1;
-          visibility: visible;
-          transform: none;
-          box-shadow: none;
-          border: none;
-          border-radius: 0;
-          background: var(--bg-color);
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease;
-        }
-
-        .dropdown.active .dropdown-menu {
-          max-height: 500px;
-        }
-
-        .dropdown-toggle::after {
-          margin-left: auto;
-        }
-
-        .dropdown-menu a {
-          padding-left: 3rem;
-        }
-
-        .dropdown-menu a:hover {
-          padding-left: 3.5rem;
-        }
-
-        .nav-cta {
-          flex-direction: column;
-          padding: 1rem 2rem;
-          gap: 0.75rem;
-        }
-
-        .nav-cta .btn {
-          width: 100%;
-          text-align: center;
-        }
-      }
-
-      /* Scroll Effect */
-      .main-nav.scrolled {
-        box-shadow: 0 4px 16px rgba(10, 37, 64, 0.1);
-      }
-
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      .pricing-card {
-        background: var(--surface-color);
-        padding: 2rem;
-        border-radius: 12px;
-        border: 2px solid var(--border-color);
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .pricing-card.featured {
-        border-color: var(--accent-blue);
-        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
-        transform: scale(1.05);
-      }
-
-      .pricing-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(10, 37, 64, 0.15);
-      }
-
-      .tier-badge {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        background: var(--accent-blue);
-        color: white;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-      }
-
-      .tier-badge.free {
-        background: var(--text-secondary);
-      }
-
-      .tier-badge.featured {
-        background: linear-gradient(
-          135deg,
-          var(--accent-blue),
-          var(--accent-cyan)
-        );
-      }
-
-      .price {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--primary-navy);
-        margin: 1rem 0;
-      }
-
-      .price-period {
-        font-size: 1rem;
-        color: var(--text-secondary);
-        font-weight: 400;
-      }
-
-      .features-list {
-        list-style: none;
-        padding: 0;
-        margin: 2rem 0;
-      }
-
-      .features-list li {
-        padding: 0.75rem 0;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .features-list li:last-child {
-        border-bottom: none;
-      }
-
-      .feature-check {
-        color: var(--accent-blue);
-        font-weight: 700;
-      }
-
-      .feature-cross {
-        color: var(--text-secondary);
-      }
-
-      .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      .testimonial-card {
-        background: var(--surface-color);
-        padding: 2rem;
-        border-radius: 12px;
-        border-left: 4px solid var(--accent-blue);
-      }
-
-      .testimonial-text {
-        font-style: italic;
-        margin-bottom: 1rem;
-        color: var(--text-secondary);
-      }
-
-      .testimonial-author {
-        font-weight: 600;
-        color: var(--primary-navy);
-      }
-
-      .testimonial-role {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/css/breakpoints.css" />
+    <link rel="stylesheet" href="/assets/css/landing-page.css" />
+    <link rel="stylesheet" href="/assets/css/toast.css" />
+    <link rel="stylesheet" href="/assets/css/skeleton.css" />
   </head>
   <body>
     <!-- Main Navigation -->
@@ -500,7 +106,7 @@
               "
             ></span>
             <span style="font-weight: 600"
-              >100% Local Processing • Zero Cloud Costs • Court-Defensible</span
+              >100% Local Processing • Zero Cloud Costs • Evidence Tools</span
             >
           </div>
 
@@ -512,20 +118,53 @@
               line-height: 1.1;
             "
           >
-            Professional BWC Forensic Analysis Platform
+            Legal Research for Everyone
           </h1>
 
           <p
             style="
               font-size: 1.5rem;
               color: var(--text-secondary);
-              margin-bottom: 3rem;
+              margin-bottom: 1rem;
               line-height: 1.6;
             "
           >
-            Enterprise-grade body-worn camera analysis for civil rights
-            litigation, law enforcement accountability, and legal research
+            Professional-grade case law, citation analysis, and AI-powered research—<br>
+            at 1/10th the cost of Westlaw and LexisNexis
           </p>
+
+          <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: white;">10M+</div>
+              <div style="font-size: 1rem; opacity: 0.9;">Federal Opinions</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: white;">270 Years</div>
+              <div style="font-size: 1rem; opacity: 0.9;">Legal History</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: white;">20x Cheaper</div>
+              <div style="font-size: 1rem; opacity: 0.9;">Than Westlaw</div>
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer Banner -->
+          <div
+            style="
+              background: #fff3cd;
+              border-left: 4px solid #ffc107;
+              padding: 1rem 1.5rem;
+              border-radius: 8px;
+              margin-bottom: 2rem;
+              text-align: left;
+            "
+          >
+            <p style="font-size: 0.95rem; color: #856404; margin: 0; line-height: 1.6">
+              <strong>⚖️ Not Legal Advice:</strong> BarberX is an evidence analysis tool, not a substitute for legal counsel.
+              Evidence admissibility is determined by courts based on jurisdiction-specific rules.
+              Consult an attorney before using in litigation.
+            </p>
+          </div>
 
           <div
             style="
@@ -572,18 +211,21 @@
             <div style="opacity: 0.8">Analyses Completed</div>
           </div>
           <div>
-            <div style="font-size: 2.5rem; font-weight: 700">99.8%</div>
-            <div style="opacity: 0.8">Transcription Accuracy</div>
+            <div style="font-size: 2.5rem; font-weight: 700">99%+</div>
+            <div style="opacity: 0.8">Transcription Accuracy*</div>
           </div>
           <div>
             <div style="font-size: 2.5rem; font-weight: 700">$200+</div>
-            <div style="opacity: 0.8">Saved Per Video</div>
+            <div style="opacity: 0.8">Est. Savings Per Video*</div>
           </div>
           <div>
             <div style="font-size: 2.5rem; font-weight: 700">24/7</div>
             <div style="opacity: 0.8">Self-Service Access</div>
           </div>
         </div>
+        <p style="text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 1.5rem">
+          *Accuracy varies by audio quality. Savings vs. commercial transcription services (est. $1.50-$2.50/min).
+        </p>
       </div>
     </section>
 
@@ -592,22 +234,23 @@
       <div class="container">
         <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem">
           <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem">
-            Everything You Need for Court-Defensible Analysis
+            Everything You Need for Evidence Analysis
           </h2>
           <p style="font-size: 1.25rem; color: var(--text-secondary)">
-            Professional-grade tools built for legal practitioners, civil rights
+            AI-powered tools for legal practitioners, civil rights
             advocates, and investigative journalists
           </p>
         </div>
 
         <div
+          class="stagger-container"
           style="
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
           "
         >
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">🎙️</div>
             <h3>AI Transcription</h3>
             <p>
@@ -616,7 +259,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">👥</div>
             <h3>Speaker Diarization</h3>
             <p>
@@ -625,7 +268,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">📋</div>
             <h3>Entity Extraction</h3>
             <p>
@@ -634,7 +277,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">⚖️</div>
             <h3>Discrepancy Detection</h3>
             <p>
@@ -643,7 +286,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">🔒</div>
             <h3>Chain of Custody</h3>
             <p>
@@ -652,7 +295,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">📊</div>
             <h3>Court-Ready Reports</h3>
             <p>
@@ -841,11 +484,14 @@
             font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
           "
         >
-          Trusted by Legal Professionals
+          Used by Legal Professionals
         </h2>
+        <p style="text-align: center; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto">
+          Testimonials from verified users. Results depend on case facts, jurisdiction, and legal strategy.
+        </p>
 
         <div class="testimonial-grid">
           <div class="testimonial-card">
@@ -873,12 +519,11 @@
           <div class="testimonial-card">
             <p class="testimonial-text">
               "The chain of custody documentation and FRE 901(b)(9) compliance
-              made our BWC evidence admissible without challenge. Court accepted
-              reports immediately."
+              helped support our BWC evidence submission. The analysis tools were invaluable."
             </p>
             <div class="testimonial-author">Devon Tyler</div>
             <div class="testimonial-role">
-              Pro Se Plaintiff, Atlantic County
+              Pro Se Plaintiff, Atlantic County (Founder/Developer)
             </div>
           </div>
         </div>
@@ -1039,7 +684,7 @@
             color: var(--text-secondary);
           "
         >
-          <p>&copy; 2026 BarberX Legal Technologies. All rights reserved.</p>
+          <p>&copy; 2025 BarberX Legal Technologies. All rights reserved.</p>
           <p style="margin-top: 0.5rem">
             🇺🇸 Made in the USA • 100% Open Source • MIT License
           </p>
@@ -1165,7 +810,10 @@
       document.body.style.paddingTop = mainNav.offsetHeight + "px";
     </script>
 
-    <!-- Enhanced Animation System -->
+    <!-- Enhanced Animation, Scroll Reveal, Toast & Dark Mode Systems -->
+    <script src="/assets/js/scroll-reveal.js" defer></script>
+    <script src="/assets/js/toast.js" defer></script>
+    <script src="/assets/js/dark-mode.js" defer></script>
     <script src="/assets/js/enhanced-animations.js" defer></script>
     <script src="/assets/js/theme-toggle-upgraded.js" defer></script>
     <script src="/assets/js/main-upgraded.js" defer></script>
