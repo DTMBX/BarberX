@@ -8,6 +8,7 @@
 ## Incident Summary
 
 Sensitive credentials were committed to the public GitHub repository:
+
 - **Email:** dTb33@pm.me (ProtonMail)
 - **Password:** LoveAll33!
 - **Name:** Devon Tyler Barber
@@ -25,6 +26,7 @@ Sensitive credentials were committed to the public GitHub repository:
 ## Immediate Actions Taken
 
 ### ✅ Completed
+
 1. Removed all instances of exposed credentials from files
 2. Updated `init_auth.py` to use environment variables (ADMIN_EMAIL, ADMIN_PASSWORD)
 3. Created `.env.template` for secure configuration documentation
@@ -33,6 +35,7 @@ Sensitive credentials were committed to the public GitHub repository:
 6. Created `scrub-credentials.ps1` script for history cleaning
 
 ### ⏳ Pending (DO NOW)
+
 1. Clean Git history using `scrub-credentials.ps1`
 2. Force push to GitHub to overwrite history
 3. Rotate ALL exposed credentials
@@ -42,12 +45,14 @@ Sensitive credentials were committed to the public GitHub repository:
 ## Affected Systems
 
 ### Confirmed Exposure
+
 - GitHub repository (public)
 - Git commit history
 - Documentation files (MD files)
 - Python initialization scripts
 
 ### Potentially Compromised
+
 - ProtonMail account (dTb33@pm.me)
 - BarberX platform admin account
 - Any systems using the exposed password
@@ -55,6 +60,7 @@ Sensitive credentials were committed to the public GitHub repository:
 ## Required Credential Rotation
 
 ### HIGH PRIORITY (Do First)
+
 - [ ] **ProtonMail Password** (dTb33@pm.me)
   - Change password immediately
   - Enable 2FA
@@ -70,6 +76,7 @@ Sensitive credentials were committed to the public GitHub repository:
   - Will invalidate all sessions
 
 ### MEDIUM PRIORITY (Do Second)
+
 - [ ] **Database Passwords**
   - If admin password used elsewhere
   - Update connection strings
@@ -79,12 +86,14 @@ Sensitive credentials were committed to the public GitHub repository:
   - Any other third-party services
 
 ### LOW PRIORITY (Do Later)
+
 - [ ] **SSH Keys** (if shared with compromised email)
 - [ ] **AWS/Cloud Credentials** (if any)
 
 ## Technical Remediation Steps
 
 ### 1. Clean Git History
+
 ```powershell
 # Run the scrubber script
 .\scrub-credentials.ps1
@@ -95,6 +104,7 @@ git log --all --grep="LoveAll33"  # Should return nothing
 ```
 
 ### 2. Force Push to Remote
+
 ```powershell
 # WARNING: Rewrites history permanently
 git push origin --force --all
@@ -102,6 +112,7 @@ git push origin --force --tags
 ```
 
 ### 3. Create Secure Environment File
+
 ```powershell
 # Copy template
 cp .env.template .env
@@ -116,6 +127,7 @@ SECRET_KEY=<GENERATE_NEW_SECRET_HERE>
 ```
 
 ### 4. Deploy Updated Configuration
+
 ```powershell
 # Update Render.com environment variables
 # Dashboard → Service → Environment
@@ -139,6 +151,7 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 ## Monitoring & Detection
 
 ### Immediate Checks
+
 - [ ] Check ProtonMail login history
 - [ ] Check BarberX admin access logs
 - [ ] Review GitHub webhook deliveries
@@ -146,6 +159,7 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 - [ ] Review Stripe dashboard for unusual activity
 
 ### Indicators of Compromise
+
 - Unexpected logins from unknown IPs
 - Password change notifications (not by you)
 - Unusual admin actions in logs
@@ -156,11 +170,13 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 ## Communication Plan
 
 ### Internal Team
+
 - All developers must re-clone repository after force push
 - Update local .env files with new credentials
 - Clear all git cached credentials
 
 ### External Stakeholders
+
 - No customer data exposed (credentials were dev/admin only)
 - No user notification required at this time
 - Monitor for any unusual activity
@@ -168,11 +184,13 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 ## Lessons Learned
 
 ### What Went Wrong
+
 1. Hardcoded credentials in initialization scripts
 2. No pre-commit hooks to prevent credential commits
 3. No automated secret scanning in CI/CD
 
 ### Prevention Measures
+
 1. ✅ Added `.env.template` (safe) and `.env` (gitignored)
 2. ✅ Updated code to use environment variables exclusively
 3. ✅ Enhanced `.gitignore` to block all `.env*` files
@@ -200,6 +218,7 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 ## CRITICAL: Manual Steps Required
 
 **DO NOT CONSIDER THIS INCIDENT CLOSED** until:
+
 1. ✅ Git history cleaned with `scrub-credentials.ps1`
 2. ✅ Force pushed to GitHub
 3. ✅ ProtonMail password changed

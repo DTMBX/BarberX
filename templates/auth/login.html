@@ -5,20 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#c41e3a" />
     <title>Login | BarberX — A Cut Above</title>
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
-    
+
     <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon-16.png"
+    />
     <link rel="shortcut icon" href="/favicon.ico" />
-    
+
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152.png" />
-    <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/apple-touch-icon-167.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/assets/images/apple-touch-icon-152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="/assets/images/apple-touch-icon-167.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/apple-touch-icon-180.png"
+    />
 
     <!-- Brand Tokens -->
     <link rel="stylesheet" href="/assets/css/brand-tokens.css" />
@@ -441,7 +463,12 @@
         <div class="forgot-password">
           <a
             href="#"
-            onclick="event.preventDefault(); toast.info('Password reset functionality coming soon. Please contact support@barberx.info for assistance.');"
+            onclick="
+              event.preventDefault();
+              toast.info(
+                'Password reset functionality coming soon. Please contact support@barberx.info for assistance.',
+              );
+            "
             >Forgot password?</a
           >
         </div>
@@ -467,73 +494,75 @@
     <script src="/static/js/loading-states.js"></script>
     <script src="/static/js/form-validation.js"></script>
     <script>
-      const loginForm = document.getElementById('loginForm');
+      const loginForm = document.getElementById("loginForm");
       const submitBtn = loginForm.querySelector('button[type="submit"]');
 
       // Add enhanced form handling
-      loginForm.addEventListener('submit', function(e) {
+      loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value;
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
 
         // Basic client-side validation
         if (!email || !password) {
-          toast.error('Please fill in all required fields');
+          toast.error("Please fill in all required fields");
           return;
         }
 
-        if (!email.includes('@')) {
-          toast.error('Please enter a valid email address');
-          document.getElementById('email').focus();
+        if (!email.includes("@")) {
+          toast.error("Please enter a valid email address");
+          document.getElementById("email").focus();
           return;
         }
 
         // Show loading state
-        LoadingState.showButtonLoading(submitBtn, 'Signing in...');
+        LoadingState.showButtonLoading(submitBtn, "Signing in...");
 
         // Submit form
         const formData = new FormData(loginForm);
-        
+
         fetch(loginForm.action || window.location.href, {
-          method: 'POST',
-          body: formData
+          method: "POST",
+          body: formData,
         })
-        .then(response => {
-          if (response.redirected) {
-            toast.success('Login successful! Redirecting...');
-            setTimeout(() => {
-              window.location.href = response.url;
-            }, 500);
-          } else {
-            return response.text().then(html => {
-              // Check if there's an error message in the response
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              const errorAlert = doc.querySelector('.alert-danger');
-              
-              LoadingState.hideButtonLoading(submitBtn);
-              
-              if (errorAlert) {
-                toast.error(errorAlert.textContent.trim());
-              } else {
-                // Re-submit using traditional form if AJAX fails
-                loginForm.submit();
-              }
-            });
-          }
-        })
-        .catch(error => {
-          console.error('Login error:', error);
-          LoadingState.hideButtonLoading(submitBtn);
-          toast.error('Unable to connect to the server. Please check your connection and try again.');
-        });
+          .then((response) => {
+            if (response.redirected) {
+              toast.success("Login successful! Redirecting...");
+              setTimeout(() => {
+                window.location.href = response.url;
+              }, 500);
+            } else {
+              return response.text().then((html) => {
+                // Check if there's an error message in the response
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                const errorAlert = doc.querySelector(".alert-danger");
+
+                LoadingState.hideButtonLoading(submitBtn);
+
+                if (errorAlert) {
+                  toast.error(errorAlert.textContent.trim());
+                } else {
+                  // Re-submit using traditional form if AJAX fails
+                  loginForm.submit();
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Login error:", error);
+            LoadingState.hideButtonLoading(submitBtn);
+            toast.error(
+              "Unable to connect to the server. Please check your connection and try again.",
+            );
+          });
       });
 
       // Initialize form validator
       const validator = new FormValidator(loginForm, {
         validateOnBlur: true,
-        showSuccessIcons: false
+        showSuccessIcons: false,
       });
     </script>
   </body>

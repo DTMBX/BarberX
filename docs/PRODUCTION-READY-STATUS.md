@@ -65,23 +65,23 @@ docs/
 
 ### Before vs After
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| **First Contentful Paint** | 1.1s | 0.8s | -27% (300ms faster) |
-| **Largest Contentful Paint** | 1.8s | 0.8s | -56% (1.0s faster) |
-| **Time to Interactive** | 2.1s | 1.2s | -43% (900ms faster) |
-| **Total Blocking Time** | 180ms | 45ms | -75% (135ms faster) |
-| **Cumulative Layout Shift** | 0.05 | 0.01 | -80% |
-| **Initial CSS Load** | 32KB (blocking) | 13KB (inline) + 19KB (async) | 59% reduction in blocking |
+| Metric                       | Before          | After                        | Improvement               |
+| ---------------------------- | --------------- | ---------------------------- | ------------------------- |
+| **First Contentful Paint**   | 1.1s            | 0.8s                         | -27% (300ms faster)       |
+| **Largest Contentful Paint** | 1.8s            | 0.8s                         | -56% (1.0s faster)        |
+| **Time to Interactive**      | 2.1s            | 1.2s                         | -43% (900ms faster)       |
+| **Total Blocking Time**      | 180ms           | 45ms                         | -75% (135ms faster)       |
+| **Cumulative Layout Shift**  | 0.05            | 0.01                         | -80%                      |
+| **Initial CSS Load**         | 32KB (blocking) | 13KB (inline) + 19KB (async) | 59% reduction in blocking |
 
 ### Lighthouse Scores (Mobile)
 
-| Category | Before | After | Change |
-|----------|--------|-------|--------|
-| **Performance** | 82/100 | 95/100 | +13 ✅ |
-| **Accessibility** | 100/100 | 100/100 | — |
-| **Best Practices** | 83/100 | 96/100 | +13 ✅ |
-| **SEO** | 78/100 | 92/100 | +14 ✅ |
+| Category           | Before  | After   | Change |
+| ------------------ | ------- | ------- | ------ |
+| **Performance**    | 82/100  | 95/100  | +13 ✅ |
+| **Accessibility**  | 100/100 | 100/100 | —      |
+| **Best Practices** | 83/100  | 96/100  | +13 ✅ |
+| **SEO**            | 78/100  | 92/100  | +14 ✅ |
 
 ---
 
@@ -123,12 +123,12 @@ All responses now include comprehensive security headers:
 
 ### Cache Strategies
 
-| Asset Type | Strategy | TTL |
-|------------|----------|-----|
-| Static (CSS, JS, fonts) | Cache-first | 1 hour |
-| Images | Cache-first | 1 week |
-| API calls | Network-first | 30 seconds |
-| HTML pages | Network-first | 5 minutes |
+| Asset Type              | Strategy      | TTL        |
+| ----------------------- | ------------- | ---------- |
+| Static (CSS, JS, fonts) | Cache-first   | 1 hour     |
+| Images                  | Cache-first   | 1 week     |
+| API calls               | Network-first | 30 seconds |
+| HTML pages              | Network-first | 5 minutes  |
 
 ### User Benefits
 
@@ -157,6 +157,7 @@ Implemented in `templates/components/structured-data.html`:
 ### Social Media Tags
 
 **Open Graph (Facebook, LinkedIn)**
+
 - og:title
 - og:description
 - og:image (1200×630px)
@@ -164,6 +165,7 @@ Implemented in `templates/components/structured-data.html`:
 - og:type
 
 **Twitter Card**
+
 - twitter:card (summary_large_image)
 - twitter:title
 - twitter:description
@@ -460,6 +462,7 @@ curl -I https://localhost:5000
    - Location: `/assets/images/icon-*.png`
 
 2. **Git Commit All Changes** (10 minutes)
+
    ```powershell
    git add .
    git commit -m "Production optimization: PWA, CSP, SEO, CSS split"
@@ -553,7 +556,7 @@ All requested optimizations are complete and production-ready:
 ✅ Structured data for SEO — 7 schemas, rich snippets  
 ✅ CSP headers — 13 security headers, A+ grade  
 ✅ Service worker for PWA — Offline support, installable  
-✅ Documentation organized — Logical folder structure  
+✅ Documentation organized — Logical folder structure
 
 ### Pending (Before Deploy)
 
@@ -561,7 +564,7 @@ All requested optimizations are complete and production-ready:
 ⏳ Social media images (OG, Twitter)  
 ⏳ Main templates updated  
 ⏳ Real device testing  
-⏳ Git commit & deploy  
+⏳ Git commit & deploy
 
 ---
 

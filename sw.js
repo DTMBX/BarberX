@@ -4,108 +4,112 @@
  * Features: Offline support, asset caching, background sync
  */
 
-const CACHE_VERSION = 'barberx-v1.0.0';
+const CACHE_VERSION = "barberx-v1.0.0";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 
 // Assets to cache immediately on install
 const STATIC_ASSETS = [
-  '/',
-  '/assets/css/critical.css',
-  '/assets/css/mobile.css',
-  '/offline.html',
-  '/manifest.json'
+  "/",
+  "/assets/css/critical.css",
+  "/assets/css/mobile.css",
+  "/offline.html",
+  "/manifest.json",
 ];
 
 // Install event - cache static assets
-self.addEventListener('install', (event) => {
-  console.log('[ServiceWorker] Installing...');
-  
+self.addEventListener("install", (event) => {
+  console.log("[ServiceWorker] Installing...");
+
   event.waitUntil(
-    caches.open(STATIC_CACHE)
+    caches
+      .open(STATIC_CACHE)
       .then((cache) => {
-        console.log('[ServiceWorker] Caching static assets');
+        console.log("[ServiceWorker] Caching static assets");
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => {
-        console.log('[ServiceWorker] Installation complete');
+        console.log("[ServiceWorker] Installation complete");
         return self.skipWaiting(); // Activate immediately
       })
       .catch((error) => {
-        console.error('[ServiceWorker] Installation failed:', error);
-      })
+        console.error("[ServiceWorker] Installation failed:", error);
+      }),
   );
 });
 
 // Activate event - cleanup old caches
-self.addEventListener('activate', (event) => {
-  console.log('[ServiceWorker] Activating...');
-  
+self.addEventListener("activate", (event) => {
+  console.log("[ServiceWorker] Activating...");
+
   event.waitUntil(
-    caches.keys()
+    caches
+      .keys()
       .then((cacheNames) => {
         return Promise.all(
           cacheNames
             .filter((cacheName) => {
               // Delete caches that don't match current version
-              return cacheName.startsWith('barberx-') && 
-                     cacheName !== STATIC_CACHE &&
-                     cacheName !== DYNAMIC_CACHE &&
-                     cacheName !== IMAGE_CACHE;
+              return (
+                cacheName.startsWith("barberx-") &&
+                cacheName !== STATIC_CACHE &&
+                cacheName !== DYNAMIC_CACHE &&
+                cacheName !== IMAGE_CACHE
+              );
             })
             .map((cacheName) => {
-              console.log('[ServiceWorker] Deleting old cache:', cacheName);
+              console.log("[ServiceWorker] Deleting old cache:", cacheName);
               return caches.delete(cacheName);
-            })
+            }),
         );
       })
       .then(() => {
-        console.log('[ServiceWorker] Activation complete');
+        console.log("[ServiceWorker] Activation complete");
         return self.clients.claim(); // Take control immediately
-      })
+      }),
   );
 });
 
 // Fetch event - serve from cache, fallback to network
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
   // Skip non-GET requests
-  if (request.method !== 'GET') {
+  if (request.method !== "GET") {
     return;
   }
 
   // Skip chrome-extension and other non-http(s) requests
-  if (!url.protocol.startsWith('http')) {
+  if (!url.protocol.startsWith("http")) {
     return;
   }
 
   // API requests - network first, cache fallback
-  if (url.pathname.startsWith('/api/')) {
+  if (url.pathname.startsWith("/api/")) {
     event.respondWith(networkFirstStrategy(request));
     return;
   }
 
   // Images - cache first, network fallback
-  if (request.destination === 'image') {
+  if (request.destination === "image") {
     event.respondWith(cacheFirstStrategy(request, IMAGE_CACHE));
     return;
   }
 
   // Static assets (CSS, JS) - cache first
   if (
-    request.destination === 'style' ||
-    request.destination === 'script' ||
-    request.destination === 'font'
+    request.destination === "style" ||
+    request.destination === "script" ||
+    request.destination === "font"
   ) {
     event.respondWith(cacheFirstStrategy(request, STATIC_CACHE));
     return;
   }
 
   // HTML pages - network first, cache fallback
-  if (request.destination === 'document') {
+  if (request.destination === "document") {
     event.respondWith(networkFirstStrategy(request));
     return;
   }
@@ -121,13 +125,13 @@ self.addEventListener('fetch', (event) => {
 async function cacheFirstStrategy(request, cacheName = DYNAMIC_CACHE) {
   try {
     const cachedResponse = await caches.match(request);
-    
+
     if (cachedResponse) {
-      console.log('[ServiceWorker] Serving from cache:', request.url);
+      console.log("[ServiceWorker] Serving from cache:", request.url);
       return cachedResponse;
     }
 
-    console.log('[ServiceWorker] Fetching from network:', request.url);
+    console.log("[ServiceWorker] Fetching from network:", request.url);
     const networkResponse = await fetch(request);
 
     // Cache successful responses
@@ -138,8 +142,8 @@ async function cacheFirstStrategy(request, cacheName = DYNAMIC_CACHE) {
 
     return networkResponse;
   } catch (error) {
-    console.error('[ServiceWorker] Cache-first strategy failed:', error);
-    return await caches.match('/offline.html');
+    console.error("[ServiceWorker] Cache-first strategy failed:", error);
+    return await caches.match("/offline.html");
   }
 }
 
@@ -149,7 +153,7 @@ async function cacheFirstStrategy(request, cacheName = DYNAMIC_CACHE) {
  */
 async function networkFirstStrategy(request) {
   try {
-    console.log('[ServiceWorker] Fetching from network:', request.url);
+    console.log("[ServiceWorker] Fetching from network:", request.url);
     const networkResponse = await fetch(request);
 
     // Cache successful responses
@@ -160,7 +164,7 @@ async function networkFirstStrategy(request) {
 
     return networkResponse;
   } catch (error) {
-    console.log('[ServiceWorker] Network failed, trying cache:', request.url);
+    console.log("[ServiceWorker] Network failed, trying cache:", request.url);
     const cachedResponse = await caches.match(request);
 
     if (cachedResponse) {
@@ -168,17 +172,17 @@ async function networkFirstStrategy(request) {
     }
 
     // Return offline page for navigation requests
-    if (request.destination === 'document') {
-      return await caches.match('/offline.html');
+    if (request.destination === "document") {
+      return await caches.match("/offline.html");
     }
 
     // For other requests, return a basic error response
-    return new Response('Offline - Content not available', {
+    return new Response("Offline - Content not available", {
       status: 503,
-      statusText: 'Service Unavailable',
+      statusText: "Service Unavailable",
       headers: new Headers({
-        'Content-Type': 'text/plain'
-      })
+        "Content-Type": "text/plain",
+      }),
     });
   }
 }
@@ -186,87 +190,83 @@ async function networkFirstStrategy(request) {
 /**
  * Background Sync - Queue failed requests
  */
-self.addEventListener('sync', (event) => {
-  console.log('[ServiceWorker] Background sync:', event.tag);
+self.addEventListener("sync", (event) => {
+  console.log("[ServiceWorker] Background sync:", event.tag);
 
-  if (event.tag === 'sync-uploads') {
+  if (event.tag === "sync-uploads") {
     event.waitUntil(syncUploads());
   }
 });
 
 async function syncUploads() {
   // Get pending uploads from IndexedDB and retry
-  console.log('[ServiceWorker] Syncing pending uploads...');
+  console.log("[ServiceWorker] Syncing pending uploads...");
   // Implementation would go here
 }
 
 /**
  * Push Notifications
  */
-self.addEventListener('push', (event) => {
-  console.log('[ServiceWorker] Push notification received');
+self.addEventListener("push", (event) => {
+  console.log("[ServiceWorker] Push notification received");
 
   const options = {
-    body: event.data ? event.data.text() : 'New update available',
-    icon: '/assets/images/icon-192.png',
-    badge: '/assets/images/badge-72.png',
+    body: event.data ? event.data.text() : "New update available",
+    icon: "/assets/images/icon-192.png",
+    badge: "/assets/images/badge-72.png",
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
-      primaryKey: 1
+      primaryKey: 1,
     },
     actions: [
       {
-        action: 'explore',
-        title: 'View',
-        icon: '/assets/images/checkmark.png'
+        action: "explore",
+        title: "View",
+        icon: "/assets/images/checkmark.png",
       },
       {
-        action: 'close',
-        title: 'Close',
-        icon: '/assets/images/xmark.png'
-      }
-    ]
+        action: "close",
+        title: "Close",
+        icon: "/assets/images/xmark.png",
+      },
+    ],
   };
 
-  event.waitUntil(
-    self.registration.showNotification('BarberX', options)
-  );
+  event.waitUntil(self.registration.showNotification("BarberX", options));
 });
 
 /**
  * Notification Click Handler
  */
-self.addEventListener('notificationclick', (event) => {
-  console.log('[ServiceWorker] Notification clicked:', event.action);
+self.addEventListener("notificationclick", (event) => {
+  console.log("[ServiceWorker] Notification clicked:", event.action);
   event.notification.close();
 
-  if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/')
-    );
+  if (event.action === "explore") {
+    event.waitUntil(clients.openWindow("/"));
   }
 });
 
 /**
  * Message Handler - Commands from main app
  */
-self.addEventListener('message', (event) => {
-  console.log('[ServiceWorker] Message received:', event.data);
+self.addEventListener("message", (event) => {
+  console.log("[ServiceWorker] Message received:", event.data);
 
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+  if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 
-  if (event.data && event.data.type === 'CLEAR_CACHE') {
+  if (event.data && event.data.type === "CLEAR_CACHE") {
     event.waitUntil(
       caches.keys().then((cacheNames) => {
         return Promise.all(
-          cacheNames.map((cacheName) => caches.delete(cacheName))
+          cacheNames.map((cacheName) => caches.delete(cacheName)),
         );
-      })
+      }),
     );
   }
 });
 
-console.log('[ServiceWorker] Loaded successfully');
+console.log("[ServiceWorker] Loaded successfully");

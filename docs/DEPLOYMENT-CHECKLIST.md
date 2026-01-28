@@ -11,24 +11,28 @@
 ### Code Quality
 
 - [ ] **All tests passing**
+
   ```powershell
   pytest
   # Expected: All tests pass
   ```
 
 - [ ] **Security audit clean**
+
   ```powershell
   python security_audit.py
   # Expected: 0 vulnerabilities
   ```
 
 - [ ] **Mobile validation passing**
+
   ```powershell
   python validate_mobile.py
   # Expected: All checks pass
   ```
 
 - [ ] **No linting errors**
+
   ```powershell
   npx prettier --check .
   npx stylelint "**/*.css"
@@ -59,8 +63,8 @@
   - [ ] Migrations applied
 
 - [ ] **Stripe Payment Processing**
-  - [ ] `STRIPE_SECRET_KEY` - Live key (sk_live_...)
-  - [ ] `STRIPE_PUBLISHABLE_KEY` - Live key (pk_live_...)
+  - [ ] `STRIPE_SECRET_KEY` - Live key (sk*live*...)
+  - [ ] `STRIPE_PUBLISHABLE_KEY` - Live key (pk*live*...)
   - [ ] `STRIPE_WEBHOOK_SECRET` - Webhook signing secret
   - [ ] `STRIPE_PRICE_PRO` - Professional tier price ID
   - [ ] `STRIPE_PRICE_PREMIUM` - Premium tier price ID
@@ -92,6 +96,7 @@
   - SSL enabled
 
 - [ ] **Schema initialized**
+
   ```python
   from app import app, db
   with app.app_context():
@@ -306,6 +311,7 @@
 ### 1. Final Code Review
 
 - [ ] **Code committed to git**
+
   ```powershell
   git add .
   git commit -m "Production optimization: PWA, CSP, SEO, CSS split"
@@ -320,11 +326,13 @@
 ### 2. Database Migration
 
 - [ ] **Backup current database** (if updating existing)
+
   ```bash
   pg_dump -U username -h hostname dbname > backup.sql
   ```
 
 - [ ] **Run migrations**
+
   ```python
   # If using Flask-Migrate
   flask db upgrade
@@ -371,6 +379,7 @@
 ### 5. Post-Deployment Verification
 
 - [ ] **Health check endpoint**
+
   ```powershell
   curl https://barberx.info/health
   # Expected: {"status": "ok"}
@@ -391,6 +400,7 @@
   - [ ] Install prompt appears (mobile)
 
 - [ ] **Security headers present**
+
   ```powershell
   curl -I https://barberx.info
   # Check for: CSP, HSTS, X-Frame-Options, etc.
@@ -621,12 +631,14 @@
    - Low: Fix in next release
 
 2. **Rollback procedure**
+
    ```bash
    # Render: Rollback to previous deployment
    # In Render dashboard → Deployments → Select previous → Redeploy
    ```
 
 3. **Database rollback** (if needed)
+
    ```bash
    # Restore from backup
    pg_restore -U username -h hostname -d dbname backup.sql
@@ -671,26 +683,29 @@
 
 ## ✅ Final Sign-Off
 
-**Deployed By:** _____________________  
-**Date:** _____________________  
-**Time:** _____________________  
-**Version:** _____________________  
-**Git Commit:** _____________________  
+**Deployed By:** **********\_**********  
+**Date:** **********\_**********  
+**Time:** **********\_**********  
+**Version:** **********\_**********  
+**Git Commit:** **********\_**********
 
 **Approvals:**
 
-- [ ] **Tech Lead:** _____________________ Date: _____
-- [ ] **Product Owner:** _____________________ Date: _____
-- [ ] **QA Lead:** _____________________ Date: _____
+- [ ] **Tech Lead:** **********\_********** Date: **\_**
+- [ ] **Product Owner:** **********\_********** Date: **\_**
+- [ ] **QA Lead:** **********\_********** Date: **\_**
 
 ---
 
 **Deployment Status:** ⏳ Pending / ✅ Complete / ❌ Failed
 
 **Notes:**
-_____________________________________________________________________
-_____________________________________________________________________
-_____________________________________________________________________
+
+---
+
+---
+
+---
 
 ---
 

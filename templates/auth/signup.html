@@ -5,20 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#c41e3a" />
     <title>Sign Up | BarberX — A Cut Above</title>
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
-    
+
     <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon-16.png"
+    />
     <link rel="shortcut icon" href="/favicon.ico" />
-    
+
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152.png" />
-    <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/apple-touch-icon-167.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/assets/images/apple-touch-icon-152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="/assets/images/apple-touch-icon-167.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/apple-touch-icon-180.png"
+    />
 
     <!-- Brand Tokens -->
     <link rel="stylesheet" href="/assets/css/brand-tokens.css" />
@@ -479,24 +501,47 @@
       </div>
 
       {% if requested_tier and tier_param != 'free' %}
-      <div style="background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(30, 64, 175, 0.1)); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 2px solid rgba(196, 30, 58, 0.2);">
-        <div style="text-align: center;">
-          <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.5rem;">Signing up for</div>
-          <div style="font-size: 1.5rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">{{ requested_tier }} Plan</div>
+      <div
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(196, 30, 58, 0.1),
+            rgba(30, 64, 175, 0.1)
+          );
+          padding: 1.5rem;
+          border-radius: 16px;
+          margin-bottom: 2rem;
+          border: 2px solid rgba(196, 30, 58, 0.2);
+        "
+      >
+        <div style="text-align: center">
+          <div
+            style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.5rem"
+          >
+            Signing up for
+          </div>
+          <div
+            style="
+              font-size: 1.5rem;
+              font-weight: 700;
+              color: #c41e3a;
+              margin-bottom: 0.5rem;
+            "
+          >
+            {{ requested_tier }} Plan
+          </div>
           {% if trial_period %}
-          <div style="font-size: 0.875rem; color: #10b981; font-weight: 600;">
+          <div style="font-size: 0.875rem; color: #10b981; font-weight: 600">
             ✓ {{ trial_period }} free trial included
           </div>
           {% endif %}
-          <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.75rem;">
+          <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.75rem">
             You'll start with a Free account and can upgrade after registration
           </div>
         </div>
       </div>
-      {% endif %}
-
-      {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %} {% for category, message in messages %}
+      {% endif %} {% with messages = get_flashed_messages(with_categories=true)
+      %} {% if messages %} {% for category, message in messages %}
       <div class="alert alert-{{ category }}">{{ message }}</div>
       {% endfor %} {% endif %} {% endwith %}
 
@@ -740,7 +785,7 @@
           return false;
         }
 
-        if (!email || !email.includes('@')) {
+        if (!email || !email.includes("@")) {
           toast.error("Please enter a valid email address");
           document.getElementById("email").focus();
           return false;
@@ -759,7 +804,9 @@
         }
 
         if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-          toast.warning("For better security, include a special character in your password");
+          toast.warning(
+            "For better security, include a special character in your password",
+          );
         }
 
         if (password !== confirmPassword) {
@@ -770,62 +817,66 @@
         }
 
         // Show loading state
-        LoadingState.showButtonLoading(submitBtn, 'Creating account...');
+        LoadingState.showButtonLoading(submitBtn, "Creating account...");
 
         // Submit form
         const formData = new FormData(signupForm);
-        
+
         fetch(signupForm.action || window.location.href, {
-          method: 'POST',
-          body: formData
+          method: "POST",
+          body: formData,
         })
-        .then(response => {
-          if (response.redirected) {
-            toast.success('Account created successfully! Welcome to BarberX!');
-            setTimeout(() => {
-              window.location.href = response.url;
-            }, 1000);
-          } else {
-            return response.text().then(html => {
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              const errorAlert = doc.querySelector('.alert-danger');
-              
-              LoadingState.hideButtonLoading(submitBtn);
-              
-              if (errorAlert) {
-                const errorMsg = errorAlert.textContent.trim();
-                toast.error(errorMsg);
-                
-                // Focus appropriate field based on error
-                if (errorMsg.toLowerCase().includes('email')) {
-                  document.getElementById('email').focus();
-                } else if (errorMsg.toLowerCase().includes('password')) {
-                  passwordInput.focus();
+          .then((response) => {
+            if (response.redirected) {
+              toast.success(
+                "Account created successfully! Welcome to BarberX!",
+              );
+              setTimeout(() => {
+                window.location.href = response.url;
+              }, 1000);
+            } else {
+              return response.text().then((html) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                const errorAlert = doc.querySelector(".alert-danger");
+
+                LoadingState.hideButtonLoading(submitBtn);
+
+                if (errorAlert) {
+                  const errorMsg = errorAlert.textContent.trim();
+                  toast.error(errorMsg);
+
+                  // Focus appropriate field based on error
+                  if (errorMsg.toLowerCase().includes("email")) {
+                    document.getElementById("email").focus();
+                  } else if (errorMsg.toLowerCase().includes("password")) {
+                    passwordInput.focus();
+                  }
+                } else {
+                  signupForm.submit();
                 }
-              } else {
-                signupForm.submit();
-              }
-            });
-          }
-        })
-        .catch(error => {
-          console.error('Signup error:', error);
-          LoadingState.hideButtonLoading(submitBtn);
-          toast.error('Unable to create account. Please check your connection and try again.');
-        });
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Signup error:", error);
+            LoadingState.hideButtonLoading(submitBtn);
+            toast.error(
+              "Unable to create account. Please check your connection and try again.",
+            );
+          });
       });
 
       // Add real-time validation feedback
-      confirmPasswordInput.addEventListener('input', function() {
+      confirmPasswordInput.addEventListener("input", function () {
         const password = passwordInput.value;
         const confirmPassword = this.value;
-        
+
         if (confirmPassword && password !== confirmPassword) {
-          this.classList.add('is-invalid');
+          this.classList.add("is-invalid");
         } else if (confirmPassword && password === confirmPassword) {
-          this.classList.remove('is-invalid');
-          this.classList.add('is-valid');
+          this.classList.remove("is-invalid");
+          this.classList.add("is-valid");
         }
       });
     </script>

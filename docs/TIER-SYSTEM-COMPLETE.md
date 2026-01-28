@@ -273,12 +273,12 @@ def process_bwc():
 
 For testing different tier experiences:
 
-| Email               | Password   | Tier         |
-| ------------------- | ---------- | ------------ |
-| free@example.com    | test123    | Free         |
-| pro@example.com     | test123    | Professional |
-| premium@example.com | test123    | Premium      |
-| admin@barberx.info  | (env var)  | **Admin**    |
+| Email               | Password  | Tier         |
+| ------------------- | --------- | ------------ |
+| free@example.com    | test123   | Free         |
+| pro@example.com     | test123   | Professional |
+| premium@example.com | test123   | Premium      |
+| admin@barberx.info  | (env var) | **Admin**    |
 
 ---
 

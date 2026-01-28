@@ -146,6 +146,7 @@ assets/css/
 **Location:** `../templates/components/structured-data.html`
 
 Includes:
+
 - **Organization Schema** — Company info, logo, contact
 - **SoftwareApplication Schema** — Product details, pricing, ratings
 - **WebSite Schema** — SearchAction for site search
@@ -197,20 +198,20 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 
 ### Lighthouse Scores (Mobile)
 
-| Category | Score | Status |
-|----------|-------|--------|
-| Performance | 95/100 | ✅ Excellent |
-| Accessibility | 100/100 | ✅ Perfect |
-| Best Practices | 96/100 | ✅ Excellent |
-| SEO | 92/100 | ✅ Very Good |
+| Category       | Score   | Status       |
+| -------------- | ------- | ------------ |
+| Performance    | 95/100  | ✅ Excellent |
+| Accessibility  | 100/100 | ✅ Perfect   |
+| Best Practices | 96/100  | ✅ Excellent |
+| SEO            | 92/100  | ✅ Very Good |
 
 ### Core Web Vitals
 
-| Metric | Target | Actual | Status |
-|--------|--------|--------|--------|
-| LCP (Largest Contentful Paint) | <2.5s | 0.8s | ✅ |
-| INP (Interaction to Next Paint) | <200ms | 50ms | ✅ |
-| CLS (Cumulative Layout Shift) | <0.1 | 0.01 | ✅ |
+| Metric                          | Target | Actual | Status |
+| ------------------------------- | ------ | ------ | ------ |
+| LCP (Largest Contentful Paint)  | <2.5s  | 0.8s   | ✅     |
+| INP (Interaction to Next Paint) | <200ms | 50ms   | ✅     |
+| CLS (Cumulative Layout Shift)   | <0.1   | 0.01   | ✅     |
 
 ### File Sizes
 
@@ -231,22 +232,24 @@ Implemented in `../app.py` via `@app.after_request` decorator:
    - [FLASK-INTEGRATION-GUIDE.md](FLASK-INTEGRATION-GUIDE.md) — Backend setup
 
 2. **Set Up Environment**
+
    ```powershell
    # Clone and navigate
    cd c:\web-dev\github-repos\BarberX.info
-   
+
    # Activate virtual environment
    .\.venv\Scripts\Activate
-   
+
    # Install dependencies
    pip install -r requirements.txt
-   
+
    # Configure environment
    cp .env.example .env
    # Edit .env with your values
    ```
 
 3. **Initialize Database**
+
    ```python
    python
    >>> from app import app, db
@@ -256,6 +259,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
    ```
 
 4. **Run Development Server**
+
    ```powershell
    python -m flask run
    # Open http://localhost:5000
@@ -285,6 +289,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 ### ✅ Production Ready (Day 2 Complete)
 
 #### Mobile & PWA
+
 - [x] Mobile-first responsive design
 - [x] Touch-optimized navigation
 - [x] Service worker (offline support)
@@ -294,6 +299,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [x] Lighthouse audit (95/100)
 
 #### Performance
+
 - [x] CSS bundle split (15KB savings)
 - [x] Critical CSS inline
 - [x] Lazy loading
@@ -301,6 +307,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [x] Caching strategies
 
 #### Security
+
 - [x] 13 security headers (CSP, HSTS, etc.)
 - [x] File upload validation
 - [x] CSRF protection
@@ -308,6 +315,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [x] SQL injection prevention
 
 #### SEO
+
 - [x] Structured data (7 schemas)
 - [x] Open Graph tags
 - [x] Twitter Card tags
@@ -315,6 +323,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [x] Canonical URLs
 
 #### Features
+
 - [x] Tier system (FREE to ENTERPRISE)
 - [x] Authentication (login/signup)
 - [x] Usage tracking
@@ -337,16 +346,19 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 ### 📅 Pending (Next Sprint)
 
 #### Payment Integration
+
 - [ ] Stripe product configuration (Pro, Premium, Enterprise)
 - [ ] Webhook testing
 - [ ] Payment flow end-to-end test
 
 #### Analytics
+
 - [ ] Amplitude account setup
 - [ ] Event tracking implementation
 - [ ] Funnel analysis
 
 #### DevOps
+
 - [ ] Production deployment
 - [ ] CI/CD pipeline
 - [ ] Monitoring & alerts
@@ -556,13 +568,13 @@ SENDGRID_API_KEY=...                # For transactional emails
 
 ### Tier System
 
-| Tier | Price | Videos/mo | API | Features |
-|------|-------|-----------|-----|----------|
-| **FREE** | $0 | 2 | ❌ | Watermarked |
-| **PROFESSIONAL** | $49 | 25 | ✅ | API access |
-| **PREMIUM** | $199 | 100 | ✅ | Forensic tools |
-| **ENTERPRISE** | $499 | ∞ | ✅ | Everything unlimited |
-| **ADMIN** | Internal | ∞ | ✅ | Backend access |
+| Tier             | Price    | Videos/mo | API | Features             |
+| ---------------- | -------- | --------- | --- | -------------------- |
+| **FREE**         | $0       | 2         | ❌  | Watermarked          |
+| **PROFESSIONAL** | $49      | 25        | ✅  | API access           |
+| **PREMIUM**      | $199     | 100       | ✅  | Forensic tools       |
+| **ENTERPRISE**   | $499     | ∞         | ✅  | Everything unlimited |
+| **ADMIN**        | Internal | ∞         | ✅  | Backend access       |
 
 ### Usage Tracking
 
@@ -585,7 +597,7 @@ SENDGRID_API_KEY=...                # For transactional emails
 ### Internal
 
 - **Documentation:** `c:\web-dev\github-repos\BarberX.info\docs\`
-- **Email:** BarberCamX@ProtonMail.com  
+- **Email:** BarberCamX@ProtonMail.com
 - **Admin:** Set via ADMIN_EMAIL and ADMIN_PASSWORD environment variables
 
 ### External
@@ -601,6 +613,7 @@ SENDGRID_API_KEY=...                # For transactional emails
 ## 📈 Roadmap
 
 ### Phase 1: Launch (✅ COMPLETE)
+
 - ✅ Mobile experience
 - ✅ PWA implementation
 - ✅ Security hardening
@@ -608,23 +621,27 @@ SENDGRID_API_KEY=...                # For transactional emails
 - ✅ Documentation
 
 ### Phase 2: Payments (⏳ IN PROGRESS)
+
 - ⏳ Stripe product config
 - ⏳ Webhook testing
 - ⏳ Payment flow validation
 
 ### Phase 3: Analytics & Monitoring
+
 - 📅 Amplitude setup
 - 📅 Event tracking
 - 📅 Funnel analysis
 - 📅 Error monitoring (Sentry)
 
 ### Phase 4: Mobile Apps
+
 - 📅 iOS app (Capacitor wrapper)
 - 📅 Android app (Capacitor wrapper)
 - 📅 App Store submission
 - 📅 Google Play submission
 
 ### Phase 5: Advanced Features
+
 - 📅 Push notification campaigns
 - 📅 Background sync enhancements
 - 📅 Offline video processing queue
