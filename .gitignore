@@ -48,6 +48,13 @@ bwc_videos/
 # Backups
 backups/
 
+# Large files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+assets/discovery/
+
 # Reports
 improvement-reports/
 overnight-improvements/
