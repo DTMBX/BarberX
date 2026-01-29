@@ -1356,8 +1356,13 @@
                   const json = JSON.parse(text);
                   return json;
                 } catch {
-                  console.error("Server returned HTML instead of JSON:", text.substring(0, 200));
-                  throw new Error("Server error - please ensure the Flask server is running");
+                  console.error(
+                    "Server returned HTML instead of JSON:",
+                    text.substring(0, 200),
+                  );
+                  throw new Error(
+                    "Server error - please ensure the Flask server is running",
+                  );
                 }
               });
             }
@@ -1376,13 +1381,15 @@
                   data.spots_remaining;
               }
             } else {
-              const errorMsg = data.message || "There was an error. Please try again or email us directly at founders@barberx.info";
+              const errorMsg =
+                data.message ||
+                "There was an error. Please try again or email us directly at founders@barberx.info";
               alert(errorMsg);
             }
           })
           .catch((error) => {
             console.error("Error:", error);
-            const errorMsg = error.message.includes("Server error") 
+            const errorMsg = error.message.includes("Server error")
               ? "Server is not responding. Please make sure the Flask application is running, or email us at founders@barberx.info"
               : "There was an error. Please try again or email us directly at founders@barberx.info";
             alert(errorMsg);
