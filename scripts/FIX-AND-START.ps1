@@ -124,7 +124,7 @@ try:
                 is_active=True,
                 is_verified=True
             )
-            admin.set_password("BarberX2026!")
+            admin.set_password(os.environ.get('BARBERX_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
             db.session.add(admin)
             db.session.commit()
             print("? Admin user created")
@@ -162,7 +162,7 @@ Write-Host "  Dashboard: http://localhost:5000/auth/dashboard" -ForegroundColor 
 
 Write-Host "`n?? CREDENTIALS:" -ForegroundColor Cyan
 Write-Host "  Email:    admin@barberx.info" -ForegroundColor White
-Write-Host "  Password: BarberX2026!" -ForegroundColor White
+Write-Host "  Password: [Set BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor White
 
 Write-Host "`n?? CAPABILITIES:" -ForegroundColor Cyan
 Write-Host "  ? User Login & Authentication" -ForegroundColor Green

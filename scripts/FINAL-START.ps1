@@ -120,7 +120,7 @@ with app.app_context():
             is_active=True,
             is_verified=True
         )
-        admin.set_password("BarberX2026!")
+        admin.set_password(os.environ.get('BARBERX_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
         db.session.add(admin)
         db.session.commit()
         print("  ? Admin user created")
@@ -132,8 +132,8 @@ with app.app_context():
 
 Write-Host "`n=====================================" -ForegroundColor Cyan
 Write-Host "? Verification Complete!" -ForegroundColor Green -BackgroundColor DarkGreen
-Write-Host "=====================================" -ForegroundColor Cyan
-
+Write-Host "=====================================" -ForegroundColor CyanWrite-Host "`n? Admin credentials stored in environment variables" -ForegroundColor Yellow
+Write-Host "  Set BARBERX_ADMIN_PASSWORD before first login" -ForegroundColor Yellow
 Write-Host "`n?? STARTING FLASK APPLICATION..." -ForegroundColor Cyan
 
 Write-Host "`n?? CAPABILITIES ENABLED:" -ForegroundColor Yellow
@@ -154,7 +154,7 @@ Write-Host "  PDF Upload: http://localhost:5000/batch-pdf-upload.html" -Foregrou
 
 Write-Host "`n?? CREDENTIALS:" -ForegroundColor Cyan
 Write-Host "  Email:    admin@barberx.info" -ForegroundColor White
-Write-Host "  Password: BarberX2026!" -ForegroundColor White
+Write-Host "  Password: [Set BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor White
 
 Write-Host "`n??  PRESS CTRL+C TO STOP" -ForegroundColor Yellow
 Write-Host "`n=====================================" -ForegroundColor Cyan

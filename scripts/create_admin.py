@@ -9,10 +9,13 @@ from datetime import datetime
 
 from werkzeug.security import generate_password_hash
 
-# SECURE ADMIN CREDENTIALS
-ADMIN_EMAIL = "admin@barberx.info"
-ADMIN_PASSWORD = "BxAdm!n#2026$Secur3*P@ssw0rd%33^"  # 33 characters with special chars
+# SECURE ADMIN CREDENTIALS - LOADED FROM ENVIRONMENT
+ADMIN_EMAIL = os.environ.get('BARBERX_ADMIN_EMAIL', 'admin@barberx.info')
+ADMIN_PASSWORD = os.environ.get('BARBERX_ADMIN_PASSWORD')  # MUST be set in environment
 ADMIN_NAME = "BarberX System Administrator"
+
+if not ADMIN_PASSWORD:
+    raise ValueError("BARBERX_ADMIN_PASSWORD environment variable must be set")
 
 # Database path
 DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "barberx.db")

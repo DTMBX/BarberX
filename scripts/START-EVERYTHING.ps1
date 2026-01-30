@@ -65,7 +65,7 @@ with app.app_context():
                 is_active=True,
                 is_verified=True
             )
-            admin.set_password("BarberX2026!")
+            admin.set_password(os.environ.get('BARBERX_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
             db.session.add(admin)
             db.session.commit()
             print("\n? Admin user created!")
@@ -88,7 +88,7 @@ Write-Host "  PDF Upload:       http://localhost:5000/batch-pdf-upload.html" -Fo
 
 Write-Host "`n?? ADMIN CREDENTIALS:" -ForegroundColor Cyan
 Write-Host "  Email:    admin@barberx.info" -ForegroundColor White
-Write-Host "  Password: BarberX2026!" -ForegroundColor White
+Write-Host "  Password: [Set via BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor Yellow
 
 Write-Host "`n?? YOUR FEATURES (All Working):" -ForegroundColor Cyan
 Write-Host "  ? BWC Forensic Analyzer (bwc_forensic_analyzer.py)" -ForegroundColor Green

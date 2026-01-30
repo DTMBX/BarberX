@@ -221,3 +221,6 @@ security-audit-*.md
 # Week 1 secure data folder (if local)
 SecureData/
 BarberX-Confidential/
+
+htmlcov/
+backups/*/htmlcov/

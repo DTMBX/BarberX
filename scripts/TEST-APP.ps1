@@ -8,8 +8,8 @@ Write-Host "=====================================" -ForegroundColor Cyan
 Write-Host "`n[1/4] Testing Login..." -ForegroundColor Yellow
 try {
     $body = @{
-        email = "admin@barberx.info"
-        password = "BarberX2026!"
+        email = $env:BARBERX_ADMIN_EMAIL ?? "admin@barberx.info"
+        password = $env:BARBERX_ADMIN_PASSWORD ?? (Read-Host "Enter admin password" -AsSecureString | ConvertFrom-SecureString -AsPlainText)
     } | ConvertTo-Json
 
     $response = Invoke-WebRequest `
@@ -74,7 +74,7 @@ Write-Host "=====================================" -ForegroundColor Cyan
 Write-Host "`n?? MANUAL TESTS:" -ForegroundColor Yellow
 Write-Host "  1. Open: http://localhost:5000" -ForegroundColor White
 Write-Host "  2. Click Login" -ForegroundColor White
-Write-Host "  3. Use: admin@barberx.info / BarberX2026!" -ForegroundColor White
+Write-Host "  3. Use: admin@barberx.info / [BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor White
 Write-Host "  4. Go to Dashboard" -ForegroundColor White
 Write-Host "  5. Try uploading a PDF or BWC video" -ForegroundColor White
 Write-Host ""

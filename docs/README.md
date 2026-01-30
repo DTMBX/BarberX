@@ -8,41 +8,41 @@
 
 ## 📁 Folder Structure
 
-| Folder | Purpose | Files |
-|--------|---------|-------|
-| **api/** | API reference documentation | 7 |
-| **architecture/** | System design & architecture | 11 |
-| **deployment/** | Hosting & deployment guides | 17 |
-| **development/** | Development workflow & debugging | 9 |
-| **features/** | Feature documentation | 12 |
-| **guides/** | How-to guides & tutorials | 52 |
-| **health/** | Health check & monitoring | 10 |
-| **integration/** | Third-party integrations | 8 |
-| **legal/** | Legal documents | 7 |
-| **mission/** | Mission & values documentation | 6 |
-| **mobile/** | Mobile app documentation | 6 |
-| **releases/** | Release notes & changelogs | 3 |
-| **security-docs/** | Security implementation docs | 7 |
-| **setup/** | Setup & installation guides | 21 |
-| **status/** | Project status & tracking | 77 |
-| **stripe/** | Stripe payment documentation | 1 |
+| Folder             | Purpose                          | Files |
+| ------------------ | -------------------------------- | ----- |
+| **api/**           | API reference documentation      | 7     |
+| **architecture/**  | System design & architecture     | 11    |
+| **deployment/**    | Hosting & deployment guides      | 17    |
+| **development/**   | Development workflow & debugging | 9     |
+| **features/**      | Feature documentation            | 12    |
+| **guides/**        | How-to guides & tutorials        | 52    |
+| **health/**        | Health check & monitoring        | 10    |
+| **integration/**   | Third-party integrations         | 8     |
+| **legal/**         | Legal documents                  | 7     |
+| **mission/**       | Mission & values documentation   | 6     |
+| **mobile/**        | Mobile app documentation         | 6     |
+| **releases/**      | Release notes & changelogs       | 3     |
+| **security-docs/** | Security implementation docs     | 7     |
+| **setup/**         | Setup & installation guides      | 21    |
+| **status/**        | Project status & tracking        | 77    |
+| **stripe/**        | Stripe payment documentation     | 1     |
 
 ---
 
 ## 📝 Where to Put New Documentation
 
-| Creating... | Put it in... | Example |
-|-------------|--------------|---------|
-| Completed feature report | `status/` | `FEATURE-NAME-COMPLETE.md` |
-| Setup/installation guide | `setup/` | `SERVICE-SETUP.md` |
-| API documentation | `api/` | `ENDPOINT-REFERENCE.md` |
-| Bug fix documentation | `development/` | `BUG-NAME-FIX.md` |
-| Architecture design | `architecture/` | `SYSTEM-DESIGN.md` |
-| Deployment instructions | `deployment/` | `PLATFORM-DEPLOY.md` |
-| Feature documentation | `features/` | `FEATURE-NAME.md` |
-| User guide/tutorial | `guides/` | `HOW-TO-USE-X.md` |
-| Security update | `security-docs/` | `SECURITY-UPDATE.md` |
-| Release notes | `releases/` | `VERSION-CHANGELOG.md` |
+| Creating...              | Put it in...     | Example                    |
+| ------------------------ | ---------------- | -------------------------- |
+| Completed feature report | `status/`        | `FEATURE-NAME-COMPLETE.md` |
+| Setup/installation guide | `setup/`         | `SERVICE-SETUP.md`         |
+| API documentation        | `api/`           | `ENDPOINT-REFERENCE.md`    |
+| Bug fix documentation    | `development/`   | `BUG-NAME-FIX.md`          |
+| Architecture design      | `architecture/`  | `SYSTEM-DESIGN.md`         |
+| Deployment instructions  | `deployment/`    | `PLATFORM-DEPLOY.md`       |
+| Feature documentation    | `features/`      | `FEATURE-NAME.md`          |
+| User guide/tutorial      | `guides/`        | `HOW-TO-USE-X.md`          |
+| Security update          | `security-docs/` | `SECURITY-UPDATE.md`       |
+| Release notes            | `releases/`      | `VERSION-CHANGELOG.md`     |
 
 ---
 
