@@ -77,7 +77,10 @@
         font-weight: 700;
         border: none;
         cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.2s;
         box-shadow: 0 10px 18px rgba(17, 24, 39, 0.18);
       }
 
@@ -92,7 +95,10 @@
         background: #f8fafc;
         border-radius: 12px;
         cursor: pointer;
-        transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+        transition:
+          transform 0.2s,
+          background 0.2s,
+          box-shadow 0.2s;
         border: 1px solid transparent;
       }
 
@@ -226,7 +232,9 @@
         border: 1px solid #d1d5db;
         border-radius: 12px;
         font-size: 1rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
         background: #f9fafb;
       }
 
@@ -244,7 +252,10 @@
         border-radius: 12px;
         font-weight: 700;
         cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.2s;
         box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
       }
 
@@ -498,11 +509,14 @@
           <div class="upgrade-card" aria-live="polite">
             <div class="upgrade-title">⚡ OpenAI Pro Models</div>
             <p class="upgrade-description">
-              BarberX uses an organization-managed OpenAI key. Select the upgraded model you want.
+              BarberX uses an organization-managed OpenAI key. Select the
+              upgraded model you want.
             </p>
 
             <div class="toggle-row">
-              <span style="font-size: 0.85rem; font-weight: 600">Use Pro Models</span>
+              <span style="font-size: 0.85rem; font-weight: 600"
+                >Use Pro Models</span
+              >
               <label class="toggle-switch">
                 <input type="checkbox" id="openai-mode-toggle" />
                 <span class="toggle-slider"></span>
@@ -510,7 +524,11 @@
             </div>
 
             <div class="openai-controls">
-              <select id="openai-model-select" class="chat-input" style="padding: 0.5rem">
+              <select
+                id="openai-model-select"
+                class="chat-input"
+                style="padding: 0.5rem"
+              >
                 <option value="gpt-4o">GPT-4o (fast, flagship)</option>
                 <option value="gpt-4.1">GPT-4.1 (reasoning)</option>
                 <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
@@ -521,7 +539,9 @@
                 <option value="gpt-4">GPT-4 (legacy)</option>
               </select>
 
-              <div id="openai-status" class="status-pill">Managed by BarberX</div>
+              <div id="openai-status" class="status-pill">
+                Managed by BarberX
+              </div>
             </div>
 
             <div class="upgrade-actions">
@@ -660,7 +680,10 @@
             credentials: "same-origin",
             headers: {
               "Content-Type": "application/json",
-              "X-CSRFToken": document.querySelector('meta[name="csrf-token"]')?.getAttribute("content") || "",
+              "X-CSRFToken":
+                document
+                  .querySelector('meta[name="csrf-token"]')
+                  ?.getAttribute("content") || "",
             },
             body: JSON.stringify({
               query: query,
@@ -726,7 +749,9 @@
         openaiMode = openaiToggle.checked;
         localStorage.setItem("openai_mode", openaiMode);
 
-        showOpenAiStatus(openaiMode ? "Managed by BarberX" : "Using standard model");
+        showOpenAiStatus(
+          openaiMode ? "Managed by BarberX" : "Using standard model",
+        );
       }
 
       function showOpenAiStatus(message) {
@@ -794,7 +819,7 @@
       async function loadConversations() {
         try {
           const response = await fetch("/api/chat/conversations?limit=20", {
-            credentials: "same-origin"
+            credentials: "same-origin",
           });
           const data = await response.json();
 
@@ -831,7 +856,7 @@
         try {
           const response = await fetch(
             `/api/chat/conversation/${conversationId}`,
-            { credentials: "same-origin" }
+            { credentials: "same-origin" },
           );
           const data = await response.json();
 

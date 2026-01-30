@@ -1,1 +1,13 @@
-web: gunicorn app:app --bind 0.0.0.0:$PORT --workers 4 --timeout 120
+# BarberX Legal Tech Platform - Production Process Configuration
+# Last Updated: 2026-01-30
+
+# Web Process - Gunicorn WSGI Server
+# --workers: Number of worker processes (2-4 for free tier)
+# --threads: Threads per worker (helps with I/O bound operations)
+# --timeout: Request timeout in seconds (300 = 5 min for large uploads)
+# --keep-alive: Keep connections alive for better performance
+# --max-requests: Restart workers after N requests (prevents memory leaks)
+# --max-requests-jitter: Add randomness to prevent simultaneous restarts
+# --access-logfile: Log all HTTP requests
+# --error-logfile: Log errors to stderr
+web: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --keep-alive 5 --max-requests 1000 --max-requests-jitter 50 --access-logfile - --error-logfile - --log-level info

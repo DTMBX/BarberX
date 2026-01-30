@@ -1,0 +1,68 @@
+# BarberX Git Attributes
+# =======================
+
+# Git-Crypt Encryption for Sensitive Files
+# These files will be encrypted at rest in the repository
+# but decrypted automatically for authorized users
+
+# Encrypted secrets file (CAN be committed - will be encrypted)
+secrets.enc filter=git-crypt diff=git-crypt
+secrets.encrypted filter=git-crypt diff=git-crypt
+*.secrets filter=git-crypt diff=git-crypt
+
+# Environment files with secrets (if tracked)
+.env filter=git-crypt diff=git-crypt
+.env-temp filter=git-crypt diff=git-crypt
+.env.local filter=git-crypt diff=git-crypt
+.env.production filter=git-crypt diff=git-crypt
+.env.staging filter=git-crypt diff=git-crypt
+
+# Private keys and certificates
+*.key filter=git-crypt diff=git-crypt
+*.pem filter=git-crypt diff=git-crypt
+*.p12 filter=git-crypt diff=git-crypt
+*.pfx filter=git-crypt diff=git-crypt
+
+# Security scripts with sensitive logic
+scripts/security/*.key filter=git-crypt diff=git-crypt
+
+# Secure output directory
+secure/** filter=git-crypt diff=git-crypt
+
+# Database credentials file (if exists)
+database.ini filter=git-crypt diff=git-crypt
+credentials.json filter=git-crypt diff=git-crypt
+
+# =======================
+# Standard Git Attributes
+# =======================
+
+# Normalize line endings
+* text=auto
+
+# Force LF for shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Force LF for Python
+*.py text eol=lf
+
+# Force CRLF for Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.db binary
+*.sqlite binary
+*.sqlite3 binary

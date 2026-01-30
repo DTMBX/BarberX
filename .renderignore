@@ -1,0 +1,123 @@
+# BarberX Legal Tech Platform - Render Ignore File
+# Files/folders listed here will not trigger a new build on Render
+# Last Updated: 2026-01-30
+
+# ===========================================
+# MAUI Desktop/Mobile App (separate project)
+# ===========================================
+src/BarberX.MatterDocket.MAUI/
+
+# ===========================================
+# Local Development Scripts
+# ===========================================
+*.ps1
+*.sh
+!build.sh
+deploy-*.ps1
+cleanup-*.ps1
+build-*.ps1
+Configure-*.ps1
+BarberX-Profile.ps1
+emergency-*.ps1
+
+# ===========================================
+# CI/CD and Editor Configuration
+# ===========================================
+.github/
+.vscode/
+.idea/
+*.code-workspace
+
+# ===========================================
+# Documentation (non-deployed)
+# ===========================================
+*.md
+!README.md
+docs/
+*.txt
+!requirements.txt
+!runtime.txt
+ADMIN-ACCESS-CARD.txt
+COPYRIGHT-ARCHITECTURE.txt
+
+# ===========================================
+# Python Development Artifacts
+# ===========================================
+__pycache__/
+.venv/
+venv/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+*.egg-info/
+.eggs/
+
+# ===========================================
+# Test Files
+# ===========================================
+tests/
+test_*.py
+*_test.py
+conftest.py
+
+# ===========================================
+# Encrypted/Secret Files
+# ===========================================
+*.enc
+secrets/
+.env.local
+.env.development
+.env.test
+
+# ===========================================
+# Build Artifacts & Caches
+# ===========================================
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+node_modules/
+bower_components/
+vendor/bundle/
+
+# ===========================================
+# IDE/Editor Files
+# ===========================================
+*.sln
+*.slnx
+*.csproj
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+
+# ===========================================
+# OS Generated Files
+# ===========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===========================================
+# Logs and Databases (local)
+# ===========================================
+*.log
+*.sqlite
+*.db
+logs/

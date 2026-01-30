@@ -5,6 +5,7 @@
 ### ?? What's Installed:
 
 #### Core Flask Application:
+
 - ? Flask 3.0.0
 - ? Flask-CORS
 - ? Flask-SQLAlchemy
@@ -14,6 +15,7 @@
 - ? Dashboard with usage tracking
 
 #### AI & Machine Learning:
+
 - ? **PyTorch 2.5.1** - Deep learning framework
 - ? **Whisper AI** - Audio transcription from OpenAI
 - ? **PyAnnote** - Speaker diarization (Officer vs Civilian identification)
@@ -23,6 +25,7 @@
 - ? **ChromaDB** - Vector database for case law matching
 
 #### Video & Audio Processing:
+
 - ? **MoviePy** - Video editing and frame extraction
 - ? **OpenCV** - Computer vision and video analysis
 - ? **Librosa** - Audio enhancement and noise reduction
@@ -30,6 +33,7 @@
 - ? **SoundFile** - Audio I/O
 
 #### Document Processing:
+
 - ? **PyPDF2** - PDF text extraction
 - ? **pdfplumber** - Advanced PDF parsing
 - ? **python-docx** - Word document processing
@@ -39,17 +43,20 @@
 ## ?? HOW TO START THE APPLICATION:
 
 ### Quick Start:
+
 ```powershell
 .\scripts\FINAL-START.ps1
 ```
 
 This will:
+
 1. ? Verify all AI components
 2. ? Test Flask app
 3. ? Create/verify admin user
 4. ? Start the server
 
 ### Manual Start:
+
 ```powershell
 python app.py
 ```
@@ -58,15 +65,16 @@ python app.py
 
 ## ?? ACCESS THE APPLICATION:
 
-| Page | URL |
-|------|-----|
-| **Homepage** | http://localhost:5000 |
-| **Login** | http://localhost:5000/auth/login |
-| **Dashboard** | http://localhost:5000/auth/dashboard |
+| Page           | URL                                         |
+| -------------- | ------------------------------------------- |
+| **Homepage**   | http://localhost:5000                       |
+| **Login**      | http://localhost:5000/auth/login            |
+| **Dashboard**  | http://localhost:5000/auth/dashboard        |
 | **PDF Upload** | http://localhost:5000/batch-pdf-upload.html |
-| **BWC Upload** | http://localhost:5000/upload |
+| **BWC Upload** | http://localhost:5000/upload                |
 
 ### ?? Admin Credentials:
+
 - **Email:** admin@barberx.info
 - **Password:** BarberX2026!
 
@@ -75,12 +83,14 @@ python app.py
 ## ?? WHAT YOU CAN DO:
 
 ### 1. User Management
+
 - ? Login/Logout
 - ? User registration
 - ? Role-based access (Free, Professional, Premium, Enterprise, Admin)
 - ? Usage tracking per tier
 
 ### 2. PDF Document Processing
+
 - ? Batch upload multiple PDFs
 - ? Automatic text extraction
 - ? OCR for scanned documents
@@ -89,6 +99,7 @@ python app.py
 - ? Full-text search
 
 ### 3. BWC Video Analysis (.mp4, .mov, .avi)
+
 - ? Upload body-worn camera footage
 - ? **Audio transcription** (Whisper AI)
 - ? **Speaker diarization** - Identify Officer vs Civilian
@@ -98,6 +109,7 @@ python app.py
 - ? **Chain of custody** - SHA-256 hashing
 
 ### 4. Constitutional Violation Detection (Requires API Keys)
+
 - ? Miranda violations (5th/6th Amendment)
 - ? Illegal search/seizure (4th Amendment)
 - ? Excessive force (4th/8th Amendment)
@@ -107,6 +119,7 @@ python app.py
 - ? 1st Amendment retaliation
 
 ### 5. Audio Enhancement
+
 - ? Noise reduction
 - ? Audio normalization
 - ? Multi-speaker separation
@@ -130,6 +143,7 @@ HUGGINGFACE_TOKEN=hf_...
 ```
 
 ### Get API Keys:
+
 1. **OpenAI:** https://platform.openai.com/api-keys
 2. **Anthropic:** https://console.anthropic.com/
 3. **HuggingFace:** https://huggingface.co/settings/tokens
@@ -173,26 +187,34 @@ BarberX.info/
 ## ?? TROUBLESHOOTING:
 
 ### "BWC Forensic Analyzer not available"
+
 **Solution:** This is just a warning. The app works without AI analysis. To enable:
+
 ```powershell
 .\scripts\install-ai-FIXED.ps1
 ```
 
 ### Database Errors
+
 **Solution:** Delete and recreate database:
+
 ```powershell
 Remove-Item instance\*.db -Force
 python app.py
 ```
 
 ### "Cannot connect to localhost:5000"
+
 **Solution:** Make sure Flask is running:
+
 ```powershell
 python app.py
 ```
 
 ### Port Already in Use
+
 **Solution:** Kill existing process:
+
 ```powershell
 Get-Process python | Stop-Process -Force
 python app.py
@@ -247,6 +269,7 @@ All Rights Reserved
 ## ? YOU'RE READY TO GO!
 
 **Start the application:**
+
 ```powershell
 .\scripts\FINAL-START.ps1
 ```
@@ -254,6 +277,7 @@ All Rights Reserved
 **Then open your browser to:** http://localhost:5000
 
 **Login with:**
+
 - Email: admin@barberx.info
 - Password: BarberX2026!
 

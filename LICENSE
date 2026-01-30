@@ -15,12 +15,12 @@ ENTERPRISE SELF-HOSTED LICENSING: For traditional deployment with source code ac
 contact sales@barberx.info. Minimum $75,000/year. Unauthorized deployment will be prosecuted.
 
 1. Ownership and Comprehensive Reservation of Rights
-This repository and all contents, including without limitation all source code, scripts,
-pipelines, workflows, algorithms, processes, methods, build systems, documentation, comments,
-schemas, UI/UX, designs, assets, naming conventions, architecture, trade secrets, know-how,
-business methods, data structures, and any other tangible or intangible materials
-(collectively, the "Materials"), are the exclusive proprietary property of Faith Frontier
-Ecclesiastical Trust ("Licensor").
+   This repository and all contents, including without limitation all source code, scripts,
+   pipelines, workflows, algorithms, processes, methods, build systems, documentation, comments,
+   schemas, UI/UX, designs, assets, naming conventions, architecture, trade secrets, know-how,
+   business methods, data structures, and any other tangible or intangible materials
+   (collectively, the "Materials"), are the exclusive proprietary property of Faith Frontier
+   Ecclesiastical Trust ("Licensor").
 
 All intellectual property rights, including copyrights, trade secrets, trademarks, patents,
 and patent applications (whether issued or pending), are exclusively owned by Licensor.
@@ -29,16 +29,16 @@ NO RIGHTS ARE GRANTED except as expressly and explicitly stated in this License.
 ALL RIGHTS NOT EXPRESSLY GRANTED ARE RESERVED. Silence is not consent.
 
 2. No License Granted (No Use)
-No license or right is granted under any copyright, trade secret, trademark, patent, or other
-intellectual property right of Licensor—whether by implication, estoppel, or otherwise.
+   No license or right is granted under any copyright, trade secret, trademark, patent, or other
+   intellectual property right of Licensor—whether by implication, estoppel, or otherwise.
 
 You may not use the Materials for any purpose except the narrow “Permitted Viewing” in Section 3.
 
 3. Permitted Viewing (Narrow)
-You may only:
-(a) view the Materials in read-only form via GitHub’s standard web interface; and
-(b) discuss high-level concepts without copying or reproducing code, text, or assets; and
-(c) use the SaaS platform at https://app.barberx.info under the applicable Terms of Service.
+   You may only:
+   (a) view the Materials in read-only form via GitHub’s standard web interface; and
+   (b) discuss high-level concepts without copying or reproducing code, text, or assets; and
+   (c) use the SaaS platform at https://app.barberx.info under the applicable Terms of Service.
 
 Any other activity is prohibited, including but not limited to cloning, forking, downloading,
 copying, mirroring, scraping, indexing, training AI models, compiling, executing, or deploying.
@@ -47,56 +47,58 @@ SELF-HOSTED DEPLOYMENT requires an Enterprise Self-Hosted License (minimum $75,0
 Unauthorized deployment is a material breach and will be prosecuted.
 
 4. Absolute Prohibitions (No Exceptions Without Written License)
-You may NOT, directly or indirectly, under any circumstances:
-(a) copy, reproduce, snapshot, scrape, archive, mirror, cache, or otherwise duplicate any Materials;
-(b) clone, fork, download, or create local copies of this repository (or any portion thereof);
-(c) modify, adapt, translate, refactor, annotate, enhance, or create derivative works;
-(d) distribute, publish, sublicense, sell, assign, lease, rent, transfer, or convey the Materials;
-(e) use the Materials to develop, provide, or support any product, service, or offering
-    (including SaaS, hosted solutions, consulting services, or internal business tools);
-(f) use any part of the Materials for training, fine-tuning, benchmarking, testing, or evaluating
-    any machine learning, AI, or language models (including but not limited to LLMs, code completion,
-    or automated programming assistants);
-(g) reverse engineer, decompile, disassemble, or attempt to derive source code, algorithms,
-    trade secrets, or proprietary methods from the Materials;
-(h) use automated tools (bots, crawlers, scrapers, CI/CD systems, AI agents, or API clients)
-    to access, process, index, or extract the Materials beyond ordinary human reading via browser;
-(i) remove, obscure, alter, or misrepresent copyright, trademark, patent, or proprietary notices;
-(j) represent, imply, or suggest endorsement, partnership, sponsorship, or affiliation with Licensor;
-(k) incorporate any Materials into open-source projects, public repositories, or shared codebases;
-(l) use the Materials for competitive analysis, benchmarking competitors, or developing competing products;
-(m) circumvent, disable, or interfere with any security, access control, or usage tracking mechanisms;
-(n) sublicense, time-share, or provide third-party access to the Materials in any form.
+   You may NOT, directly or indirectly, under any circumstances:
+   (a) copy, reproduce, snapshot, scrape, archive, mirror, cache, or otherwise duplicate any Materials;
+   (b) clone, fork, download, or create local copies of this repository (or any portion thereof);
+   (c) modify, adapt, translate, refactor, annotate, enhance, or create derivative works;
+   (d) distribute, publish, sublicense, sell, assign, lease, rent, transfer, or convey the Materials;
+   (e) use the Materials to develop, provide, or support any product, service, or offering
+   (including SaaS, hosted solutions, consulting services, or internal business tools);
+   (f) use any part of the Materials for training, fine-tuning, benchmarking, testing, or evaluating
+   any machine learning, AI, or language models (including but not limited to LLMs, code completion,
+   or automated programming assistants);
+   (g) reverse engineer, decompile, disassemble, or attempt to derive source code, algorithms,
+   trade secrets, or proprietary methods from the Materials;
+   (h) use automated tools (bots, crawlers, scrapers, CI/CD systems, AI agents, or API clients)
+   to access, process, index, or extract the Materials beyond ordinary human reading via browser;
+   (i) remove, obscure, alter, or misrepresent copyright, trademark, patent, or proprietary notices;
+   (j) represent, imply, or suggest endorsement, partnership, sponsorship, or affiliation with Licensor;
+   (k) incorporate any Materials into open-source projects, public repositories, or shared codebases;
+   (l) use the Materials for competitive analysis, benchmarking competitors, or developing competing products;
+   (m) circumvent, disable, or interfere with any security, access control, or usage tracking mechanisms;
+   (n) sublicense, time-share, or provide third-party access to the Materials in any form.
 
 5. Trademarks and Branding
-“Barber Cam” and any associated names, logos, slogans, and marks are proprietary to Licensor.
-No trademark rights are granted. See TRADEMARKS.md for usage restrictions.
+   “Barber Cam” and any associated names, logos, slogans, and marks are proprietary to Licensor.
+   No trademark rights are granted. See TRADEMARKS.md for usage restrictions.
 
 6. Feedback
-If you submit feedback, ideas, or suggestions (“Feedback”), you grant Licensor a perpetual,
-irrevocable, royalty-free, worldwide right to use, modify, and incorporate the Feedback without
-compensation or obligation.
+   If you submit feedback, ideas, or suggestions (“Feedback”), you grant Licensor a perpetual,
+   irrevocable, royalty-free, worldwide right to use, modify, and incorporate the Feedback without
+   compensation or obligation.
 
 7. No Warranty
-THE MATERIALS ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR SECURITY.
+   THE MATERIALS ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR SECURITY.
 
 8. Limitation of Liability
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
-SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING FROM OR RELATING TO THE MATERIALS.
+   TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+   SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING FROM OR RELATING TO THE MATERIALS.
 
 9. Enforcement and Remedies
-Licensor takes unauthorized use seriously and will pursue all available legal remedies.
+   Licensor takes unauthorized use seriously and will pursue all available legal remedies.
 
 9.1 Immediate Actions
 Unauthorized use will result in:
+
 - Immediate DMCA takedown notices to hosting providers
 - Automated detection and platform abuse reports (GitHub, GitLab, etc.)
 - Cease-and-desist demands with 48-hour compliance deadline
 - Public disclosure of violation to protect other users
 
-9.2 Legal Remedies
-Licensor reserves the right to seek:
+  9.2 Legal Remedies
+  Licensor reserves the right to seek:
+
 - Preliminary and permanent injunctive relief
 - Statutory damages up to $150,000 per work under 17 U.S.C. § 504(c)
 - Actual damages and Licensor's lost profits
@@ -105,16 +107,16 @@ Licensor reserves the right to seek:
 - Costs, expenses, and reasonable attorneys' fees
 - Destruction of all unauthorized copies and derivatives
 
-9.3 No Waiver
-Failure to enforce any provision does not constitute waiver. Licensor may enforce at any time.
+  9.3 No Waiver
+  Failure to enforce any provision does not constitute waiver. Licensor may enforce at any time.
 
-9.4 Cumulative Remedies
-All remedies are cumulative and non-exclusive. Each violation is a separate offense.
+  9.4 Cumulative Remedies
+  All remedies are cumulative and non-exclusive. Each violation is a separate offense.
 
 10. Governing Law and Venue
-This License is governed by the laws of the State of New Jersey, excluding conflict-of-law rules.
-Any dispute shall be brought exclusively in state or federal courts located in New Jersey, and you
-consent to personal jurisdiction and venue there.
+    This License is governed by the laws of the State of New Jersey, excluding conflict-of-law rules.
+    Any dispute shall be brought exclusively in state or federal courts located in New Jersey, and you
+    consent to personal jurisdiction and venue there.
 
 11. SaaS Platform & Enterprise Self-Hosted Licensing
 
@@ -122,6 +124,7 @@ consent to personal jurisdiction and venue there.
 BarberX is offered as a cloud-based SaaS platform at https://app.barberx.info
 
 Available Tiers:
+
 - Free Tier: $0/month (5 analyses, 500MB limit)
 - Professional Tier: $99/month (100 analyses, 2GB limit, API access)
 - Enterprise SaaS Tier: Custom pricing (unlimited, white-label, 24/7 support)
@@ -135,6 +138,7 @@ Pricing: Minimum $75,000/year (includes 50 users)
 Additional users: $1,000/user/year
 
 Includes:
+
 - Full source code access (with restrictions on modification/redistribution)
 - Self-hosted deployment rights for licensed organization only
 - Priority support (24/7)
@@ -143,26 +147,28 @@ Includes:
 - Annual security audits
 
 Restrictions:
+
 - Cannot sublicense, resell, or provide third-party access
 - Cannot create competing products or services
 - Must maintain all copyright and proprietary notices
 - Subject to annual compliance audit
 
-11.3 License Inquiries
-All licensing requests must be submitted in writing to:
-**SaaS Sales:** sales@barberx.info (Free, Professional tiers)  
-**Enterprise Self-Hosted:** enterprise@barberx.info
+  11.3 License Inquiries
+  All licensing requests must be submitted in writing to:
+  **SaaS Sales:** sales@barberx.info (Free, Professional tiers)  
+  **Enterprise Self-Hosted:** enterprise@barberx.info
 
 Include:
+
 - Intended deployment model (SaaS or self-hosted)
 - Number of users
 - Organization details and use case
 - Compliance requirements (HIPAA, CJIS, etc.)
 
 12. Contact Information
-**Licensing & Business Inquiries:** sales@barberx.info
-**Legal/Compliance:** legal@barberx.info
-**Enforcement/Violations:** enforcement@barberx.info
+    **Licensing & Business Inquiries:** sales@barberx.info
+    **Legal/Compliance:** legal@barberx.info
+    **Enforcement/Violations:** enforcement@barberx.info
 
 ---
 

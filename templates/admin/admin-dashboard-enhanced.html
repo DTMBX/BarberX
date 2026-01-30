@@ -718,25 +718,55 @@
   <div class="modal-dialog">
     <div class="modal-content glass-modal">
       <div class="modal-header">
-        <h5 class="modal-title"><i class="fas fa-user-plus"></i> Create New User</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title">
+          <i class="fas fa-user-plus"></i> Create New User
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
           <label class="form-label">Full Name</label>
-          <input type="text" id="newUserName" class="glass-input" placeholder="John Doe" required />
+          <input
+            type="text"
+            id="newUserName"
+            class="glass-input"
+            placeholder="John Doe"
+            required
+          />
         </div>
         <div class="mb-3">
           <label class="form-label">Email Address</label>
-          <input type="email" id="newUserEmail" class="glass-input" placeholder="john@example.com" required />
+          <input
+            type="email"
+            id="newUserEmail"
+            class="glass-input"
+            placeholder="john@example.com"
+            required
+          />
         </div>
         <div class="mb-3">
           <label class="form-label">Password</label>
-          <input type="password" id="newUserPassword" class="glass-input" placeholder="Min 8 characters" required />
+          <input
+            type="password"
+            id="newUserPassword"
+            class="glass-input"
+            placeholder="Min 8 characters"
+            required
+          />
         </div>
         <div class="mb-3">
           <label class="form-label">Organization</label>
-          <input type="text" id="newUserOrganization" class="glass-input" placeholder="Law Firm Name" />
+          <input
+            type="text"
+            id="newUserOrganization"
+            class="glass-input"
+            placeholder="Law Firm Name"
+          />
         </div>
         <div class="mb-3">
           <label class="form-label">Tier</label>
@@ -749,13 +779,26 @@
           </select>
         </div>
         <div class="form-check mb-3">
-          <input type="checkbox" id="newUserSendEmail" class="form-check-input" checked />
-          <label for="newUserSendEmail" class="form-check-label">Send welcome email with credentials</label>
+          <input
+            type="checkbox"
+            id="newUserSendEmail"
+            class="form-check-input"
+            checked
+          />
+          <label for="newUserSendEmail" class="form-check-label"
+            >Send welcome email with credentials</label
+          >
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-glass" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-glass-primary" onclick="createUser()">
+        <button type="button" class="btn btn-glass" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-glass-primary"
+          onclick="createUser()"
+        >
           <i class="fas fa-user-plus"></i> Create User
         </button>
       </div>
@@ -769,35 +812,74 @@
     <div class="modal-content glass-modal">
       <div class="modal-header">
         <h5 class="modal-title"><i class="fas fa-cog"></i> System Settings</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs mb-4" id="settingsTabs">
           <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#settingsGeneral">General</button>
+            <button
+              class="nav-link active"
+              data-bs-toggle="tab"
+              data-bs-target="#settingsGeneral"
+            >
+              General
+            </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#settingsSecurity">Security</button>
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#settingsSecurity"
+            >
+              Security
+            </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#settingsIntegrations">Integrations</button>
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#settingsIntegrations"
+            >
+              Integrations
+            </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#settingsAdvanced">Advanced</button>
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#settingsAdvanced"
+            >
+              Advanced
+            </button>
           </li>
         </ul>
-        
+
         <div class="tab-content">
           <!-- General Settings -->
           <div class="tab-pane fade show active" id="settingsGeneral">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label">Site Name</label>
-                <input type="text" id="settingSiteName" class="glass-input" value="BarberX" />
+                <input
+                  type="text"
+                  id="settingSiteName"
+                  class="glass-input"
+                  value="BarberX"
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label">Support Email</label>
-                <input type="email" id="settingSupportEmail" class="glass-input" placeholder="support@barberx.info" />
+                <input
+                  type="email"
+                  id="settingSupportEmail"
+                  class="glass-input"
+                  placeholder="support@barberx.info"
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label">Default Timezone</label>
@@ -819,17 +901,31 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Security Settings -->
           <div class="tab-pane fade" id="settingsSecurity">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label">Session Timeout (minutes)</label>
-                <input type="number" id="settingSessionTimeout" class="glass-input" value="60" min="5" max="1440" />
+                <input
+                  type="number"
+                  id="settingSessionTimeout"
+                  class="glass-input"
+                  value="60"
+                  min="5"
+                  max="1440"
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label">Max Login Attempts</label>
-                <input type="number" id="settingMaxLoginAttempts" class="glass-input" value="5" min="3" max="10" />
+                <input
+                  type="number"
+                  id="settingMaxLoginAttempts"
+                  class="glass-input"
+                  value="5"
+                  min="3"
+                  max="10"
+                />
               </div>
               <div class="col-12 mb-3">
                 <label class="form-label">Security Features</label>
@@ -839,7 +935,11 @@
                     <span>Require 2FA for Admins</span>
                   </label>
                   <label class="toggle-item">
-                    <input type="checkbox" id="settingEnforceStrongPasswords" checked />
+                    <input
+                      type="checkbox"
+                      id="settingEnforceStrongPasswords"
+                      checked
+                    />
                     <span>Enforce Strong Passwords</span>
                   </label>
                   <label class="toggle-item">
@@ -850,25 +950,45 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Integrations Settings -->
           <div class="tab-pane fade" id="settingsIntegrations">
             <div class="row">
               <div class="col-12 mb-3">
                 <label class="form-label">OpenAI API Key</label>
                 <div class="input-group">
-                  <input type="password" id="settingOpenAIKey" class="glass-input" placeholder="sk-..." />
-                  <button class="btn btn-glass" onclick="togglePasswordVisibility('settingOpenAIKey')" aria-label="Toggle OpenAI key visibility">
+                  <input
+                    type="password"
+                    id="settingOpenAIKey"
+                    class="glass-input"
+                    placeholder="sk-..."
+                  />
+                  <button
+                    class="btn btn-glass"
+                    onclick="togglePasswordVisibility('settingOpenAIKey')"
+                    aria-label="Toggle OpenAI key visibility"
+                  >
                     <i class="fas fa-eye"></i>
                   </button>
                 </div>
-                <small class="text-muted">Used for AI chat and analysis features</small>
+                <small class="text-muted"
+                  >Used for AI chat and analysis features</small
+                >
               </div>
               <div class="col-12 mb-3">
                 <label class="form-label">Stripe Secret Key</label>
                 <div class="input-group">
-                  <input type="password" id="settingStripeKey" class="glass-input" placeholder="sk_live_..." />
-                  <button class="btn btn-glass" onclick="togglePasswordVisibility('settingStripeKey')" aria-label="Toggle Stripe key visibility">
+                  <input
+                    type="password"
+                    id="settingStripeKey"
+                    class="glass-input"
+                    placeholder="sk_live_..."
+                  />
+                  <button
+                    class="btn btn-glass"
+                    onclick="togglePasswordVisibility('settingStripeKey')"
+                    aria-label="Toggle Stripe key visibility"
+                  >
                     <i class="fas fa-eye"></i>
                   </button>
                 </div>
@@ -877,29 +997,59 @@
               <div class="col-12 mb-3">
                 <label class="form-label">Email Service (SendGrid/SES)</label>
                 <div class="input-group">
-                  <input type="password" id="settingEmailKey" class="glass-input" placeholder="API Key" />
-                  <button class="btn btn-glass" onclick="togglePasswordVisibility('settingEmailKey')" aria-label="Toggle email key visibility">
+                  <input
+                    type="password"
+                    id="settingEmailKey"
+                    class="glass-input"
+                    placeholder="API Key"
+                  />
+                  <button
+                    class="btn btn-glass"
+                    onclick="togglePasswordVisibility('settingEmailKey')"
+                    aria-label="Toggle email key visibility"
+                  >
                     <i class="fas fa-eye"></i>
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <!-- Advanced Settings -->
           <div class="tab-pane fade" id="settingsAdvanced">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label">Max Upload Size (MB)</label>
-                <input type="number" id="settingMaxUploadSize" class="glass-input" value="100" min="10" max="500" />
+                <input
+                  type="number"
+                  id="settingMaxUploadSize"
+                  class="glass-input"
+                  value="100"
+                  min="10"
+                  max="500"
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label">Storage Retention (days)</label>
-                <input type="number" id="settingStorageRetention" class="glass-input" value="365" min="30" max="3650" />
+                <input
+                  type="number"
+                  id="settingStorageRetention"
+                  class="glass-input"
+                  value="365"
+                  min="30"
+                  max="3650"
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label">API Rate Limit (req/min)</label>
-                <input type="number" id="settingRateLimit" class="glass-input" value="60" min="10" max="1000" />
+                <input
+                  type="number"
+                  id="settingRateLimit"
+                  class="glass-input"
+                  value="60"
+                  min="10"
+                  max="1000"
+                />
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label">Debug Mode</label>
@@ -913,9 +1063,24 @@
                   <i class="fas fa-exclamation-triangle"></i>
                   <strong>Danger Zone</strong>
                   <div class="mt-2">
-                    <button class="btn btn-danger btn-sm" onclick="clearCache()">Clear All Cache</button>
-                    <button class="btn btn-danger btn-sm" onclick="rebuildIndexes()">Rebuild Search Indexes</button>
-                    <button class="btn btn-danger btn-sm" onclick="exportAllData()">Export All Data</button>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      onclick="clearCache()"
+                    >
+                      Clear All Cache
+                    </button>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      onclick="rebuildIndexes()"
+                    >
+                      Rebuild Search Indexes
+                    </button>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      onclick="exportAllData()"
+                    >
+                      Export All Data
+                    </button>
                   </div>
                 </div>
               </div>
@@ -924,8 +1089,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-glass" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-glass-primary" onclick="saveAllSettings()">
+        <button type="button" class="btn btn-glass" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-glass-primary"
+          onclick="saveAllSettings()"
+        >
           <i class="fas fa-save"></i> Save All Settings
         </button>
       </div>
@@ -1151,144 +1322,198 @@
   }
 
   async function loadAnalytics() {
-    const days = parseInt(document.getElementById('analyticsRange').value) || 30;
-    
+    const days =
+      parseInt(document.getElementById("analyticsRange").value) || 30;
+
     try {
       // Fetch analytics data
       const response = await fetch(`/admin/stats?days=${days}`);
       const data = await response.json();
-      
+
       // Destroy existing charts if they exist
       if (window.userGrowthChart) window.userGrowthChart.destroy();
       if (window.revenueChart) window.revenueChart.destroy();
       if (window.evidenceChart) window.evidenceChart.destroy();
       if (window.tierDistributionChart) window.tierDistributionChart.destroy();
-      
+
       // Generate date labels
       const labels = [];
       for (let i = days - 1; i >= 0; i--) {
         const date = new Date();
         date.setDate(date.getDate() - i);
-        labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+        labels.push(
+          date.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+        );
       }
-      
+
       // User Growth Chart
-      const userCtx = document.getElementById('userGrowthChart').getContext('2d');
+      const userCtx = document
+        .getElementById("userGrowthChart")
+        .getContext("2d");
       window.userGrowthChart = new Chart(userCtx, {
-        type: 'line',
+        type: "line",
         data: {
           labels: labels,
-          datasets: [{
-            label: 'Total Users',
-            data: generateTrendData(data.total_users || 100, days, 0.05),
-            borderColor: '#3b82f6',
-            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-            fill: true,
-            tension: 0.4
-          }, {
-            label: 'Active Users',
-            data: generateTrendData(data.active_users || 50, days, 0.08),
-            borderColor: '#10b981',
-            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-            fill: true,
-            tension: 0.4
-          }]
+          datasets: [
+            {
+              label: "Total Users",
+              data: generateTrendData(data.total_users || 100, days, 0.05),
+              borderColor: "#3b82f6",
+              backgroundColor: "rgba(59, 130, 246, 0.1)",
+              fill: true,
+              tension: 0.4,
+            },
+            {
+              label: "Active Users",
+              data: generateTrendData(data.active_users || 50, days, 0.08),
+              borderColor: "#10b981",
+              backgroundColor: "rgba(16, 185, 129, 0.1)",
+              fill: true,
+              tension: 0.4,
+            },
+          ],
         },
         options: {
           responsive: true,
           plugins: {
-            title: { display: true, text: 'User Growth', color: '#e5e7eb' },
-            legend: { labels: { color: '#9ca3af' } }
+            title: { display: true, text: "User Growth", color: "#e5e7eb" },
+            legend: { labels: { color: "#9ca3af" } },
           },
           scales: {
-            x: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-            y: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(255,255,255,0.05)' } }
-          }
-        }
+            x: {
+              ticks: { color: "#6b7280" },
+              grid: { color: "rgba(255,255,255,0.05)" },
+            },
+            y: {
+              ticks: { color: "#6b7280" },
+              grid: { color: "rgba(255,255,255,0.05)" },
+            },
+          },
+        },
       });
-      
+
       // Revenue Chart
-      const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+      const revenueCtx = document
+        .getElementById("revenueChart")
+        .getContext("2d");
       window.revenueChart = new Chart(revenueCtx, {
-        type: 'bar',
+        type: "bar",
         data: {
           labels: labels.filter((_, i) => i % 7 === 0), // Weekly
-          datasets: [{
-            label: 'Revenue ($)',
-            data: generateTrendData(data.revenue || 5000, Math.ceil(days / 7), 0.1),
-            backgroundColor: 'rgba(245, 158, 11, 0.7)',
-            borderColor: '#f59e0b',
-            borderWidth: 1
-          }]
+          datasets: [
+            {
+              label: "Revenue ($)",
+              data: generateTrendData(
+                data.revenue || 5000,
+                Math.ceil(days / 7),
+                0.1,
+              ),
+              backgroundColor: "rgba(245, 158, 11, 0.7)",
+              borderColor: "#f59e0b",
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
           responsive: true,
           plugins: {
-            title: { display: true, text: 'Weekly Revenue', color: '#e5e7eb' },
-            legend: { labels: { color: '#9ca3af' } }
+            title: { display: true, text: "Weekly Revenue", color: "#e5e7eb" },
+            legend: { labels: { color: "#9ca3af" } },
           },
           scales: {
-            x: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-            y: { ticks: { color: '#6b7280', callback: (v) => '$' + v }, grid: { color: 'rgba(255,255,255,0.05)' } }
-          }
-        }
+            x: {
+              ticks: { color: "#6b7280" },
+              grid: { color: "rgba(255,255,255,0.05)" },
+            },
+            y: {
+              ticks: { color: "#6b7280", callback: (v) => "$" + v },
+              grid: { color: "rgba(255,255,255,0.05)" },
+            },
+          },
+        },
       });
-      
+
       // Evidence Processed Chart
-      const evidenceCtx = document.getElementById('evidenceChart').getContext('2d');
+      const evidenceCtx = document
+        .getElementById("evidenceChart")
+        .getContext("2d");
       window.evidenceChart = new Chart(evidenceCtx, {
-        type: 'line',
+        type: "line",
         data: {
           labels: labels,
-          datasets: [{
-            label: 'Evidence Processed',
-            data: generateTrendData(data.total_evidence || 500, days, 0.15),
-            borderColor: '#8b5cf6',
-            backgroundColor: 'rgba(139, 92, 246, 0.1)',
-            fill: true,
-            tension: 0.4
-          }]
+          datasets: [
+            {
+              label: "Evidence Processed",
+              data: generateTrendData(data.total_evidence || 500, days, 0.15),
+              borderColor: "#8b5cf6",
+              backgroundColor: "rgba(139, 92, 246, 0.1)",
+              fill: true,
+              tension: 0.4,
+            },
+          ],
         },
         options: {
           responsive: true,
           plugins: {
-            title: { display: true, text: 'Evidence Processing', color: '#e5e7eb' },
-            legend: { labels: { color: '#9ca3af' } }
+            title: {
+              display: true,
+              text: "Evidence Processing",
+              color: "#e5e7eb",
+            },
+            legend: { labels: { color: "#9ca3af" } },
           },
           scales: {
-            x: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-            y: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(255,255,255,0.05)' } }
-          }
-        }
+            x: {
+              ticks: { color: "#6b7280" },
+              grid: { color: "rgba(255,255,255,0.05)" },
+            },
+            y: {
+              ticks: { color: "#6b7280" },
+              grid: { color: "rgba(255,255,255,0.05)" },
+            },
+          },
+        },
       });
-      
+
       // Tier Distribution Chart
-      const tierCtx = document.getElementById('tierDistributionChart').getContext('2d');
-      const tierData = data.tier_distribution || { FREE: 60, PROFESSIONAL: 25, PREMIUM: 10, ENTERPRISE: 5 };
+      const tierCtx = document
+        .getElementById("tierDistributionChart")
+        .getContext("2d");
+      const tierData = data.tier_distribution || {
+        FREE: 60,
+        PROFESSIONAL: 25,
+        PREMIUM: 10,
+        ENTERPRISE: 5,
+      };
       window.tierDistributionChart = new Chart(tierCtx, {
-        type: 'doughnut',
+        type: "doughnut",
         data: {
           labels: Object.keys(tierData),
-          datasets: [{
-            data: Object.values(tierData),
-            backgroundColor: ['#6b7280', '#3b82f6', '#f59e0b', '#8b5cf6'],
-            borderWidth: 0
-          }]
+          datasets: [
+            {
+              data: Object.values(tierData),
+              backgroundColor: ["#6b7280", "#3b82f6", "#f59e0b", "#8b5cf6"],
+              borderWidth: 0,
+            },
+          ],
         },
         options: {
           responsive: true,
           plugins: {
-            title: { display: true, text: 'User Tier Distribution', color: '#e5e7eb' },
-            legend: { position: 'bottom', labels: { color: '#9ca3af' } }
-          }
-        }
+            title: {
+              display: true,
+              text: "User Tier Distribution",
+              color: "#e5e7eb",
+            },
+            legend: { position: "bottom", labels: { color: "#9ca3af" } },
+          },
+        },
       });
-      
     } catch (error) {
-      console.error('Error loading analytics:', error);
+      console.error("Error loading analytics:", error);
     }
   }
-  
+
   function generateTrendData(endValue, points, volatility) {
     const data = [];
     let current = endValue * 0.7;
@@ -1489,44 +1714,47 @@
   let evidenceList = [];
   let filteredEvidence = [];
   let evidencePage = 1;
-  
+
   async function loadEvidence() {
     try {
-      const response = await fetch('/api/evidence/list');
+      const response = await fetch("/api/evidence/list");
       const data = await response.json();
       evidenceList = data.evidence || data || [];
       filteredEvidence = evidenceList;
       renderEvidence();
     } catch (error) {
-      console.error('Error loading evidence:', error);
-      document.getElementById('evidenceTableBody').innerHTML = 
+      console.error("Error loading evidence:", error);
+      document.getElementById("evidenceTableBody").innerHTML =
         '<tr><td colspan="7" class="text-center text-muted">Failed to load evidence data</td></tr>';
     }
   }
-  
+
   function renderEvidence() {
-    const tbody = document.getElementById('evidenceTableBody');
+    const tbody = document.getElementById("evidenceTableBody");
     const startIndex = (evidencePage - 1) * 10;
     const pageEvidence = filteredEvidence.slice(startIndex, startIndex + 10);
-    
+
     if (pageEvidence.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted">No evidence found</td></tr>';
+      tbody.innerHTML =
+        '<tr><td colspan="7" class="text-center text-muted">No evidence found</td></tr>';
       return;
     }
-    
-    tbody.innerHTML = pageEvidence.map(e => `
+
+    tbody.innerHTML = pageEvidence
+      .map(
+        (e) => `
       <tr>
         <td>
           <div class="d-flex align-items-center gap-2">
             <i class="fas ${getFileIcon(e.file_type || e.type)}" style="color: ${getFileColor(e.file_type || e.type)}"></i>
-            <span>${e.filename || e.name || 'Unnamed'}</span>
+            <span>${e.filename || e.name || "Unnamed"}</span>
           </div>
         </td>
-        <td><span class="badge badge-info">${(e.file_type || e.type || 'unknown').toUpperCase()}</span></td>
+        <td><span class="badge badge-info">${(e.file_type || e.type || "unknown").toUpperCase()}</span></td>
         <td>${formatFileSize(e.size || e.file_size || 0)}</td>
-        <td>${e.user_email || e.uploaded_by || 'Unknown'}</td>
+        <td>${e.user_email || e.uploaded_by || "Unknown"}</td>
         <td>${new Date(e.created_at || e.uploaded_at || Date.now()).toLocaleDateString()}</td>
-        <td><span class="badge ${e.status === 'processed' ? 'badge-success' : 'badge-warning'}">${e.status || 'pending'}</span></td>
+        <td><span class="badge ${e.status === "processed" ? "badge-success" : "badge-warning"}">${e.status || "pending"}</span></td>
         <td>
           <button class="btn btn-sm btn-glass" onclick="viewEvidence('${e.id}')" title="View">
             <i class="fas fa-eye"></i>
@@ -1539,269 +1767,324 @@
           </button>
         </td>
       </tr>
-    `).join('');
+    `,
+      )
+      .join("");
   }
-  
+
   function getFileIcon(type) {
     const icons = {
-      'video': 'fa-video', 'audio': 'fa-music', 'document': 'fa-file-alt',
-      'pdf': 'fa-file-pdf', 'image': 'fa-image', 'text': 'fa-file-alt'
+      video: "fa-video",
+      audio: "fa-music",
+      document: "fa-file-alt",
+      pdf: "fa-file-pdf",
+      image: "fa-image",
+      text: "fa-file-alt",
     };
-    return icons[type?.toLowerCase()] || 'fa-file';
+    return icons[type?.toLowerCase()] || "fa-file";
   }
-  
+
   function getFileColor(type) {
     const colors = {
-      'video': '#ef4444', 'audio': '#8b5cf6', 'document': '#3b82f6',
-      'pdf': '#dc2626', 'image': '#10b981', 'text': '#6b7280'
+      video: "#ef4444",
+      audio: "#8b5cf6",
+      document: "#3b82f6",
+      pdf: "#dc2626",
+      image: "#10b981",
+      text: "#6b7280",
     };
-    return colors[type?.toLowerCase()] || '#6b7280';
+    return colors[type?.toLowerCase()] || "#6b7280";
   }
-  
+
   function formatFileSize(bytes) {
-    if (!bytes) return '0 B';
+    if (!bytes) return "0 B";
     const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const sizes = ["B", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
   }
-  
+
   function searchEvidence() {
-    const query = document.getElementById('evidenceSearch').value.toLowerCase();
-    const typeFilter = document.getElementById('evidenceFilter').value;
-    
-    filteredEvidence = evidenceList.filter(e => {
-      const matchesQuery = !query || 
-        (e.filename || e.name || '').toLowerCase().includes(query) ||
-        (e.user_email || '').toLowerCase().includes(query);
-      const matchesType = !typeFilter || (e.file_type || e.type || '').toLowerCase() === typeFilter;
+    const query = document.getElementById("evidenceSearch").value.toLowerCase();
+    const typeFilter = document.getElementById("evidenceFilter").value;
+
+    filteredEvidence = evidenceList.filter((e) => {
+      const matchesQuery =
+        !query ||
+        (e.filename || e.name || "").toLowerCase().includes(query) ||
+        (e.user_email || "").toLowerCase().includes(query);
+      const matchesType =
+        !typeFilter ||
+        (e.file_type || e.type || "").toLowerCase() === typeFilter;
       return matchesQuery && matchesType;
     });
     evidencePage = 1;
     renderEvidence();
   }
-  
+
   function viewEvidence(id) {
-    window.open(`/evidence/view/${id}`, '_blank');
+    window.open(`/evidence/view/${id}`, "_blank");
   }
-  
+
   function downloadEvidence(id) {
     window.location.href = `/evidence/download/${id}`;
   }
-  
+
   async function deleteEvidence(id) {
-    if (!confirm('Are you sure you want to delete this evidence? This action cannot be undone.')) return;
-    
+    if (
+      !confirm(
+        "Are you sure you want to delete this evidence? This action cannot be undone.",
+      )
+    )
+      return;
+
     try {
-      const response = await fetch(`/admin/analyses/${id}`, { method: 'DELETE' });
+      const response = await fetch(`/admin/analyses/${id}`, {
+        method: "DELETE",
+      });
       if (response.ok) {
-        alert('Evidence deleted successfully');
+        alert("Evidence deleted successfully");
         loadEvidence();
       } else {
-        alert('Failed to delete evidence');
+        alert("Failed to delete evidence");
       }
     } catch (error) {
-      console.error('Error deleting evidence:', error);
-      alert('Error deleting evidence');
+      console.error("Error deleting evidence:", error);
+      alert("Error deleting evidence");
     }
   }
-  
+
   // Bind evidence search events
-  document.getElementById('evidenceSearch')?.addEventListener('keyup', searchEvidence);
-  document.getElementById('evidenceFilter')?.addEventListener('change', searchEvidence);
+  document
+    .getElementById("evidenceSearch")
+    ?.addEventListener("keyup", searchEvidence);
+  document
+    .getElementById("evidenceFilter")
+    ?.addEventListener("change", searchEvidence);
 
   // ===== AI AGENTS MANAGEMENT =====
   let agentsList = [];
-  
+
   async function refreshAgents() {
     try {
       // Load agent stats
-      const statsResponse = await fetch('/admin/stats');
+      const statsResponse = await fetch("/admin/stats");
       const stats = await statsResponse.json();
-      
-      document.getElementById('totalAgents').textContent = stats.total_agents || 0;
-      document.getElementById('activeAgents').textContent = stats.active_agents || 0;
-      document.getElementById('completedJobs').textContent = stats.completed_jobs_today || 0;
-      
+
+      document.getElementById("totalAgents").textContent =
+        stats.total_agents || 0;
+      document.getElementById("activeAgents").textContent =
+        stats.active_agents || 0;
+      document.getElementById("completedJobs").textContent =
+        stats.completed_jobs_today || 0;
+
       // Load agents list
-      const response = await fetch('/api/agents/list');
+      const response = await fetch("/api/agents/list");
       const data = await response.json();
       agentsList = data.agents || data || [];
       renderAgents();
     } catch (error) {
-      console.error('Error loading agents:', error);
-      document.getElementById('agentsTableBody').innerHTML = 
+      console.error("Error loading agents:", error);
+      document.getElementById("agentsTableBody").innerHTML =
         '<tr><td colspan="6" class="text-center text-muted">Failed to load agent data</td></tr>';
     }
   }
-  
+
   function renderAgents() {
-    const tbody = document.getElementById('agentsTableBody');
-    
+    const tbody = document.getElementById("agentsTableBody");
+
     if (agentsList.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted">No active agents</td></tr>';
+      tbody.innerHTML =
+        '<tr><td colspan="6" class="text-center text-muted">No active agents</td></tr>';
       return;
     }
-    
-    tbody.innerHTML = agentsList.map(agent => `
+
+    tbody.innerHTML = agentsList
+      .map(
+        (agent) => `
       <tr>
         <td>
           <div class="d-flex align-items-center gap-2">
             <span class="agent-type-icon">${getAgentIcon(agent.type)}</span>
-            <strong>${agent.type || agent.name || 'Unknown Agent'}</strong>
+            <strong>${agent.type || agent.name || "Unknown Agent"}</strong>
           </div>
         </td>
-        <td>${agent.user_email || agent.user || 'System'}</td>
+        <td>${agent.user_email || agent.user || "System"}</td>
         <td>
-          <span class="badge ${getAgentStatusClass(agent.status)}">${agent.status || 'unknown'}</span>
+          <span class="badge ${getAgentStatusClass(agent.status)}">${agent.status || "unknown"}</span>
         </td>
-        <td>${agent.started_at ? new Date(agent.started_at).toLocaleString() : '-'}</td>
+        <td>${agent.started_at ? new Date(agent.started_at).toLocaleString() : "-"}</td>
         <td>${agent.duration || calculateDuration(agent.started_at)}</td>
         <td>
-          ${agent.status === 'running' ? `
+          ${
+            agent.status === "running"
+              ? `
             <button class="btn btn-sm btn-glass text-warning" onclick="pauseAgent('${agent.id}')" title="Pause">
               <i class="fas fa-pause"></i>
             </button>
             <button class="btn btn-sm btn-glass text-danger" onclick="stopAgent('${agent.id}')" title="Stop">
               <i class="fas fa-stop"></i>
             </button>
-          ` : agent.status === 'paused' ? `
+          `
+              : agent.status === "paused"
+                ? `
             <button class="btn btn-sm btn-glass text-success" onclick="resumeAgent('${agent.id}')" title="Resume">
               <i class="fas fa-play"></i>
             </button>
             <button class="btn btn-sm btn-glass text-danger" onclick="stopAgent('${agent.id}')" title="Stop">
               <i class="fas fa-stop"></i>
             </button>
-          ` : `
+          `
+                : `
             <button class="btn btn-sm btn-glass" onclick="viewAgentLogs('${agent.id}')" title="View Logs">
               <i class="fas fa-file-alt"></i>
             </button>
             <button class="btn btn-sm btn-glass text-danger" onclick="deleteAgent('${agent.id}')" title="Delete">
               <i class="fas fa-trash"></i>
             </button>
-          `}
+          `
+          }
         </td>
       </tr>
-    `).join('');
+    `,
+      )
+      .join("");
   }
-  
+
   function getAgentIcon(type) {
     const icons = {
-      'ocr': '📄', 'transcription': '🎙️', 'analysis': '🔍', 
-      'video': '🎬', 'chat': '💬', 'workflow': '⚙️'
+      ocr: "📄",
+      transcription: "🎙️",
+      analysis: "🔍",
+      video: "🎬",
+      chat: "💬",
+      workflow: "⚙️",
     };
-    return icons[type?.toLowerCase()] || '🤖';
+    return icons[type?.toLowerCase()] || "🤖";
   }
-  
+
   function getAgentStatusClass(status) {
     const classes = {
-      'running': 'badge-success', 'paused': 'badge-warning', 
-      'completed': 'badge-info', 'failed': 'badge-danger', 'queued': 'badge-secondary'
+      running: "badge-success",
+      paused: "badge-warning",
+      completed: "badge-info",
+      failed: "badge-danger",
+      queued: "badge-secondary",
     };
-    return classes[status?.toLowerCase()] || 'badge-secondary';
+    return classes[status?.toLowerCase()] || "badge-secondary";
   }
-  
+
   function calculateDuration(startTime) {
-    if (!startTime) return '-';
+    if (!startTime) return "-";
     const diff = Date.now() - new Date(startTime).getTime();
     const mins = Math.floor(diff / 60000);
     const secs = Math.floor((diff % 60000) / 1000);
     return `${mins}m ${secs}s`;
   }
-  
+
   async function stopAgent(agentId) {
-    if (!confirm('Stop this agent? Any in-progress work may be lost.')) return;
-    
+    if (!confirm("Stop this agent? Any in-progress work may be lost.")) return;
+
     try {
-      const response = await fetch(`/api/agents/${agentId}`, { method: 'DELETE' });
+      const response = await fetch(`/api/agents/${agentId}`, {
+        method: "DELETE",
+      });
       if (response.ok) {
-        alert('Agent stopped successfully');
+        alert("Agent stopped successfully");
         refreshAgents();
       } else {
-        alert('Failed to stop agent');
+        alert("Failed to stop agent");
       }
     } catch (error) {
-      console.error('Error stopping agent:', error);
-      alert('Error stopping agent');
+      console.error("Error stopping agent:", error);
+      alert("Error stopping agent");
     }
   }
-  
+
   async function pauseAgent(agentId) {
     try {
-      const response = await fetch(`/api/agents/${agentId}/pause`, { method: 'POST' });
+      const response = await fetch(`/api/agents/${agentId}/pause`, {
+        method: "POST",
+      });
       if (response.ok) refreshAgents();
     } catch (error) {
-      console.error('Error pausing agent:', error);
+      console.error("Error pausing agent:", error);
     }
   }
-  
+
   async function resumeAgent(agentId) {
     try {
-      const response = await fetch(`/api/agents/${agentId}/resume`, { method: 'POST' });
+      const response = await fetch(`/api/agents/${agentId}/resume`, {
+        method: "POST",
+      });
       if (response.ok) refreshAgents();
     } catch (error) {
-      console.error('Error resuming agent:', error);
+      console.error("Error resuming agent:", error);
     }
   }
-  
+
   async function deleteAgent(agentId) {
-    if (!confirm('Delete this agent record?')) return;
-    
+    if (!confirm("Delete this agent record?")) return;
+
     try {
-      const response = await fetch(`/api/agents/${agentId}`, { method: 'DELETE' });
+      const response = await fetch(`/api/agents/${agentId}`, {
+        method: "DELETE",
+      });
       if (response.ok) {
         refreshAgents();
       }
     } catch (error) {
-      console.error('Error deleting agent:', error);
+      console.error("Error deleting agent:", error);
     }
   }
-  
+
   function viewAgentLogs(agentId) {
-    window.open(`/api/agents/status/${agentId}`, '_blank');
+    window.open(`/api/agents/status/${agentId}`, "_blank");
   }
 
   // ===== CREATE USER =====
   function showCreateUser() {
     // Clear form
-    document.getElementById('newUserName').value = '';
-    document.getElementById('newUserEmail').value = '';
-    document.getElementById('newUserPassword').value = '';
-    document.getElementById('newUserOrganization').value = '';
-    document.getElementById('newUserTier').value = 'FREE';
-    document.getElementById('newUserSendEmail').checked = true;
-    
-    new bootstrap.Modal(document.getElementById('createUserModal')).show();
+    document.getElementById("newUserName").value = "";
+    document.getElementById("newUserEmail").value = "";
+    document.getElementById("newUserPassword").value = "";
+    document.getElementById("newUserOrganization").value = "";
+    document.getElementById("newUserTier").value = "FREE";
+    document.getElementById("newUserSendEmail").checked = true;
+
+    new bootstrap.Modal(document.getElementById("createUserModal")).show();
   }
-  
+
   async function createUser() {
-    const name = document.getElementById('newUserName').value.trim();
-    const email = document.getElementById('newUserEmail').value.trim();
-    const password = document.getElementById('newUserPassword').value;
-    const organization = document.getElementById('newUserOrganization').value.trim();
-    const tier = document.getElementById('newUserTier').value;
-    const sendEmail = document.getElementById('newUserSendEmail').checked;
-    
+    const name = document.getElementById("newUserName").value.trim();
+    const email = document.getElementById("newUserEmail").value.trim();
+    const password = document.getElementById("newUserPassword").value;
+    const organization = document
+      .getElementById("newUserOrganization")
+      .value.trim();
+    const tier = document.getElementById("newUserTier").value;
+    const sendEmail = document.getElementById("newUserSendEmail").checked;
+
     // Validation
     if (!name || !email || !password) {
-      alert('Please fill in all required fields (Name, Email, Password)');
+      alert("Please fill in all required fields (Name, Email, Password)");
       return;
     }
-    
+
     if (password.length < 8) {
-      alert('Password must be at least 8 characters long');
+      alert("Password must be at least 8 characters long");
       return;
     }
-    
-    if (!email.includes('@')) {
-      alert('Please enter a valid email address');
+
+    if (!email.includes("@")) {
+      alert("Please enter a valid email address");
       return;
     }
-    
+
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: name,
           email: email,
@@ -1809,153 +2092,212 @@
           organization: organization,
           tier: tier,
           send_welcome_email: sendEmail,
-          admin_created: true
-        })
+          admin_created: true,
+        }),
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
-        alert('User created successfully!');
-        bootstrap.Modal.getInstance(document.getElementById('createUserModal')).hide();
+        alert("User created successfully!");
+        bootstrap.Modal.getInstance(
+          document.getElementById("createUserModal"),
+        ).hide();
         loadUsers();
       } else {
-        alert(data.error || 'Failed to create user');
+        alert(data.error || "Failed to create user");
       }
     } catch (error) {
-      console.error('Error creating user:', error);
-      alert('Error creating user. Please try again.');
+      console.error("Error creating user:", error);
+      alert("Error creating user. Please try again.");
     }
   }
-  
+
   // ===== SYSTEM SETTINGS =====
   function showSystemSettings() {
     loadSettings();
-    new bootstrap.Modal(document.getElementById('settingsModal')).show();
+    new bootstrap.Modal(document.getElementById("settingsModal")).show();
   }
-  
+
   async function loadSettings() {
     try {
-      const response = await fetch('/admin/settings');
+      const response = await fetch("/admin/settings");
       const data = await response.json();
       const settings = data.settings || data || {};
-      
+
       // Populate form fields
-      document.getElementById('settingSiteName').value = settings['site.name'] || 'BarberX';
-      document.getElementById('settingSupportEmail').value = settings['site.support_email'] || '';
-      document.getElementById('settingTimezone').value = settings['site.timezone'] || 'America/New_York';
-      document.getElementById('settingLanguage').value = settings['site.language'] || 'en';
-      document.getElementById('settingSessionTimeout').value = settings['security.session_timeout'] || 60;
-      document.getElementById('settingMaxLoginAttempts').value = settings['security.max_login_attempts'] || 5;
-      document.getElementById('settingRequire2FA').checked = settings['security.require_2fa_admin'] || false;
-      document.getElementById('settingEnforceStrongPasswords').checked = settings['security.strong_passwords'] !== false;
-      document.getElementById('settingLogAllActions').checked = settings['security.log_all_actions'] !== false;
-      document.getElementById('settingMaxUploadSize').value = settings['storage.max_upload_mb'] || 100;
-      document.getElementById('settingStorageRetention').value = settings['storage.retention_days'] || 365;
-      document.getElementById('settingRateLimit').value = settings['api.rate_limit'] || 60;
-      document.getElementById('settingDebugMode').value = settings['debug'] ? 'true' : 'false';
-      
+      document.getElementById("settingSiteName").value =
+        settings["site.name"] || "BarberX";
+      document.getElementById("settingSupportEmail").value =
+        settings["site.support_email"] || "";
+      document.getElementById("settingTimezone").value =
+        settings["site.timezone"] || "America/New_York";
+      document.getElementById("settingLanguage").value =
+        settings["site.language"] || "en";
+      document.getElementById("settingSessionTimeout").value =
+        settings["security.session_timeout"] || 60;
+      document.getElementById("settingMaxLoginAttempts").value =
+        settings["security.max_login_attempts"] || 5;
+      document.getElementById("settingRequire2FA").checked =
+        settings["security.require_2fa_admin"] || false;
+      document.getElementById("settingEnforceStrongPasswords").checked =
+        settings["security.strong_passwords"] !== false;
+      document.getElementById("settingLogAllActions").checked =
+        settings["security.log_all_actions"] !== false;
+      document.getElementById("settingMaxUploadSize").value =
+        settings["storage.max_upload_mb"] || 100;
+      document.getElementById("settingStorageRetention").value =
+        settings["storage.retention_days"] || 365;
+      document.getElementById("settingRateLimit").value =
+        settings["api.rate_limit"] || 60;
+      document.getElementById("settingDebugMode").value = settings["debug"]
+        ? "true"
+        : "false";
+
       // API keys are not returned for security - show placeholder
-      document.getElementById('settingOpenAIKey').placeholder = settings['integrations.openai_configured'] ? '••••••••••••••••' : 'Not configured';
-      document.getElementById('settingStripeKey').placeholder = settings['integrations.stripe_configured'] ? '••••••••••••••••' : 'Not configured';
-      document.getElementById('settingEmailKey').placeholder = settings['integrations.email_configured'] ? '••••••••••••••••' : 'Not configured';
-      
+      document.getElementById("settingOpenAIKey").placeholder = settings[
+        "integrations.openai_configured"
+      ]
+        ? "••••••••••••••••"
+        : "Not configured";
+      document.getElementById("settingStripeKey").placeholder = settings[
+        "integrations.stripe_configured"
+      ]
+        ? "••••••••••••••••"
+        : "Not configured";
+      document.getElementById("settingEmailKey").placeholder = settings[
+        "integrations.email_configured"
+      ]
+        ? "••••••••••••••••"
+        : "Not configured";
     } catch (error) {
-      console.error('Error loading settings:', error);
+      console.error("Error loading settings:", error);
     }
   }
-  
+
   function togglePasswordVisibility(inputId) {
     const input = document.getElementById(inputId);
-    input.type = input.type === 'password' ? 'text' : 'password';
+    input.type = input.type === "password" ? "text" : "password";
   }
-  
+
   async function saveAllSettings() {
     const settings = {
-      'site.name': document.getElementById('settingSiteName').value,
-      'site.support_email': document.getElementById('settingSupportEmail').value,
-      'site.timezone': document.getElementById('settingTimezone').value,
-      'site.language': document.getElementById('settingLanguage').value,
-      'security.session_timeout': parseInt(document.getElementById('settingSessionTimeout').value),
-      'security.max_login_attempts': parseInt(document.getElementById('settingMaxLoginAttempts').value),
-      'security.require_2fa_admin': document.getElementById('settingRequire2FA').checked,
-      'security.strong_passwords': document.getElementById('settingEnforceStrongPasswords').checked,
-      'security.log_all_actions': document.getElementById('settingLogAllActions').checked,
-      'storage.max_upload_mb': parseInt(document.getElementById('settingMaxUploadSize').value),
-      'storage.retention_days': parseInt(document.getElementById('settingStorageRetention').value),
-      'api.rate_limit': parseInt(document.getElementById('settingRateLimit').value),
-      'debug': document.getElementById('settingDebugMode').value === 'true'
+      "site.name": document.getElementById("settingSiteName").value,
+      "site.support_email": document.getElementById("settingSupportEmail")
+        .value,
+      "site.timezone": document.getElementById("settingTimezone").value,
+      "site.language": document.getElementById("settingLanguage").value,
+      "security.session_timeout": parseInt(
+        document.getElementById("settingSessionTimeout").value,
+      ),
+      "security.max_login_attempts": parseInt(
+        document.getElementById("settingMaxLoginAttempts").value,
+      ),
+      "security.require_2fa_admin":
+        document.getElementById("settingRequire2FA").checked,
+      "security.strong_passwords": document.getElementById(
+        "settingEnforceStrongPasswords",
+      ).checked,
+      "security.log_all_actions": document.getElementById(
+        "settingLogAllActions",
+      ).checked,
+      "storage.max_upload_mb": parseInt(
+        document.getElementById("settingMaxUploadSize").value,
+      ),
+      "storage.retention_days": parseInt(
+        document.getElementById("settingStorageRetention").value,
+      ),
+      "api.rate_limit": parseInt(
+        document.getElementById("settingRateLimit").value,
+      ),
+      debug: document.getElementById("settingDebugMode").value === "true",
     };
-    
+
     // Only include API keys if they were changed
-    const openaiKey = document.getElementById('settingOpenAIKey').value;
-    const stripeKey = document.getElementById('settingStripeKey').value;
-    const emailKey = document.getElementById('settingEmailKey').value;
-    
-    if (openaiKey && !openaiKey.includes('•')) settings['integrations.openai_key'] = openaiKey;
-    if (stripeKey && !stripeKey.includes('•')) settings['integrations.stripe_key'] = stripeKey;
-    if (emailKey && !emailKey.includes('•')) settings['integrations.email_key'] = emailKey;
-    
+    const openaiKey = document.getElementById("settingOpenAIKey").value;
+    const stripeKey = document.getElementById("settingStripeKey").value;
+    const emailKey = document.getElementById("settingEmailKey").value;
+
+    if (openaiKey && !openaiKey.includes("•"))
+      settings["integrations.openai_key"] = openaiKey;
+    if (stripeKey && !stripeKey.includes("•"))
+      settings["integrations.stripe_key"] = stripeKey;
+    if (emailKey && !emailKey.includes("•"))
+      settings["integrations.email_key"] = emailKey;
+
     try {
-      const response = await fetch('/admin/settings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(settings)
+      const response = await fetch("/admin/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(settings),
       });
-      
+
       if (response.ok) {
-        alert('Settings saved successfully!');
-        bootstrap.Modal.getInstance(document.getElementById('settingsModal')).hide();
+        alert("Settings saved successfully!");
+        bootstrap.Modal.getInstance(
+          document.getElementById("settingsModal"),
+        ).hide();
       } else {
         const data = await response.json();
-        alert(data.error || 'Failed to save settings');
+        alert(data.error || "Failed to save settings");
       }
     } catch (error) {
-      console.error('Error saving settings:', error);
-      alert('Error saving settings');
+      console.error("Error saving settings:", error);
+      alert("Error saving settings");
     }
   }
-  
+
   async function clearCache() {
-    if (!confirm('Clear all cache? This may temporarily slow down the application.')) return;
-    
+    if (
+      !confirm(
+        "Clear all cache? This may temporarily slow down the application.",
+      )
+    )
+      return;
+
     try {
-      const response = await fetch('/admin/cache/clear', { method: 'POST' });
+      const response = await fetch("/admin/cache/clear", { method: "POST" });
       if (response.ok) {
-        alert('Cache cleared successfully');
+        alert("Cache cleared successfully");
       } else {
-        alert('Failed to clear cache');
+        alert("Failed to clear cache");
       }
     } catch (error) {
-      alert('Error clearing cache');
+      alert("Error clearing cache");
     }
   }
-  
+
   async function rebuildIndexes() {
-    if (!confirm('Rebuild search indexes? This may take several minutes.')) return;
-    
+    if (!confirm("Rebuild search indexes? This may take several minutes."))
+      return;
+
     try {
-      const response = await fetch('/admin/indexes/rebuild', { method: 'POST' });
+      const response = await fetch("/admin/indexes/rebuild", {
+        method: "POST",
+      });
       if (response.ok) {
-        alert('Index rebuild started. You will be notified when complete.');
+        alert("Index rebuild started. You will be notified when complete.");
       } else {
-        alert('Failed to start index rebuild');
+        alert("Failed to start index rebuild");
       }
     } catch (error) {
-      alert('Error starting index rebuild');
+      alert("Error starting index rebuild");
     }
   }
-  
+
   async function exportAllData() {
-    if (!confirm('Export all data? This will create a backup file for download.')) return;
-    
+    if (
+      !confirm("Export all data? This will create a backup file for download.")
+    )
+      return;
+
     try {
-      window.location.href = '/admin/export/all';
+      window.location.href = "/admin/export/all";
     } catch (error) {
-      alert('Error starting export');
+      alert("Error starting export");
     }
   }
-  
+
   function filterLogs() {
     // Re-load logs with filters
     loadAuditLogs();
@@ -2290,71 +2632,75 @@
 
   /* Modal styles */
   .glass-modal {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(30, 41, 59, 0.95) 0%,
+      rgba(15, 23, 42, 0.98) 100%
+    );
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     color: #e5e7eb;
   }
-  
+
   .glass-modal .modal-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.25rem 1.5rem;
   }
-  
+
   .glass-modal .modal-title {
     font-weight: 600;
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
-  
+
   .glass-modal .modal-footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem 1.5rem;
   }
-  
+
   .glass-modal .btn-close {
     filter: invert(1);
     opacity: 0.7;
   }
-  
+
   .glass-modal .nav-tabs {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
+
   .glass-modal .nav-tabs .nav-link {
     color: #9ca3af;
     border: none;
     padding: 0.75rem 1.25rem;
     border-radius: 8px 8px 0 0;
   }
-  
+
   .glass-modal .nav-tabs .nav-link:hover {
     color: #e5e7eb;
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .glass-modal .nav-tabs .nav-link.active {
     color: #3b82f6;
     background: rgba(59, 130, 246, 0.1);
     border-bottom: 2px solid #3b82f6;
   }
-  
+
   .glass-modal .form-label {
     color: #9ca3af;
     font-weight: 500;
     margin-bottom: 0.5rem;
   }
-  
+
   .glass-modal .input-group .glass-input {
     border-radius: 8px 0 0 8px;
   }
-  
+
   .glass-modal .input-group .btn {
     border-radius: 0 8px 8px 0;
   }
-  
+
   .glass-modal .alert-warning {
     background: rgba(245, 158, 11, 0.1);
     border: 1px solid rgba(245, 158, 11, 0.3);
@@ -2362,7 +2708,7 @@
     border-radius: 8px;
     padding: 1rem;
   }
-  
+
   .agent-type-icon {
     font-size: 1.25rem;
   }

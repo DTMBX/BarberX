@@ -420,7 +420,7 @@ psql -U barberx -c "SHOW ssl;"
 
 **Current Status:** \_\_\_% complete (check items above)
 
-**Target Launch Date:** ******\_\_\_\_******
+**Target Launch Date:** **\*\***\_\_\_\_**\*\***
 
 **Launched Successfully:** ☐ YES ☐ NO
 
@@ -443,10 +443,10 @@ support@barberx.info
 
 ---
 
-**Print Date:** ******\_\_\_\_******  
-**Completed By:** ******\_\_\_\_******  
-**Completion Date:** ******\_\_\_\_******  
-**Signature:** ******\_\_\_\_******
+**Print Date:** **\*\***\_\_\_\_**\*\***  
+**Completed By:** **\*\***\_\_\_\_**\*\***  
+**Completion Date:** **\*\***\_\_\_\_**\*\***  
+**Signature:** **\*\***\_\_\_\_**\*\***
 
 ---
 

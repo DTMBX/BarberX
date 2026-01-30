@@ -1,3 +1,7 @@
+# BarberX Legal Tech Platform - Render Blueprint
+# Last Updated: 2026-01-30
+# https://render.com/docs/blueprint-spec
+
 services:
   - type: web
     name: barberx-legal-tech
@@ -5,8 +9,8 @@ services:
     env: python
     region: oregon
     plan: free
-    buildCommand: bash build.sh
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 300 --log-level info
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
@@ -14,6 +18,8 @@ services:
         generateValue: true
       - key: FLASK_ENV
         value: production
+      - key: FLASK_DEBUG
+        value: "0"
       - key: MAX_CONTENT_LENGTH
         value: "21474836480"
       - key: DATABASE_URL
@@ -22,11 +28,68 @@ services:
           property: connectionString
       - key: CORS_ORIGINS
         value: "https://barberx.info,https://www.barberx.info,https://barberx-legal-tech.onrender.com"
-    healthCheckPath: /
+      - key: LOG_LEVEL
+        value: "INFO"
+      - key: WEB_CONCURRENCY
+        value: "2"
+    healthCheckPath: /health
     autoDeploy: true
+    # Build filters - ignore non-web-app changes
+    buildFilter:
+      paths:
+        - "**/*.py"
+        - "**/*.html"
+        - "**/*.css"
+        - "**/*.js"
+        - "templates/**"
+        - "static/**"
+        - "requirements.txt"
+        - "runtime.txt"
+        - "Procfile"
+        - "render.yaml"
+        - "_config.yml"
+        - "Gemfile"
+        - "Gemfile.lock"
+      ignoredPaths:
+        # MAUI Desktop/Mobile App (separate project)
+        - src/BarberX.MatterDocket.MAUI/**
+        # Local development scripts
+        - "*.ps1"
+        - "*.sh"
+        - "!build.sh"
+        # CI/CD and editor config
+        - .github/**
+        - .vscode/**
+        # Documentation
+        - "*.md"
+        - "*.txt"
+        - "!requirements.txt"
+        - "!runtime.txt"
+        - docs/**
+        # Python cache/virtual env
+        - __pycache__/**
+        - .venv/**
+        - "*.pyc"
+        - "*.pyo"
+        # Encrypted secrets (handled separately)
+        - "*.enc"
+        # Test files
+        - tests/**
+        - "*_test.py"
+        - "test_*.py"
+        # Build artifacts
+        - _site/**
+        - bin/**
+        - obj/**
+        # IDE/Editor files
+        - "*.sln"
+        - "*.slnx"
+        - "*.csproj"
+        - "*.user"
 
 databases:
   - name: barberx-db
     databaseName: barberx_production
     plan: free
     region: oregon
+    ipAllowList: []  # Allow all IPs (required for Render free tier)
