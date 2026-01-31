@@ -25,7 +25,7 @@ spacy==3.7.2
 en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl
 
 # Speaker Diarization
-pyannote.audio==3.1.1
+pyannote.audio==4.0.3
 speechbrain==0.5.16
 
 # Legal NLP & Constitutional Analysis
