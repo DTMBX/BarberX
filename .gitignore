@@ -98,6 +98,12 @@ bwc_analysis/
 .git-rewrite/
 
 # Lighthouse reports
+
+# Playwright test artifacts
+playwright-report/
+playwright-results/
+test-results/
+*.webm
 lighthouse-*.html
 
 # Environment files - NEVER COMMIT THESE!
