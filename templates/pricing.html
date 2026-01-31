@@ -5,18 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#c41e3a" />
     <title>Pricing - BarberX Legal Platform</title>
-    
+
     <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32.png"
+    />
     <link rel="shortcut icon" href="/favicon.ico" />
-    
+
     <!-- Brand Tokens -->
     <link rel="stylesheet" href="/assets/css/brand-tokens.css" />
-    <link rel="stylesheet" href="/assets/css/components/barber-pole-spinner.css" />
-    
+    <link
+      rel="stylesheet"
+      href="/assets/css/components/barber-pole-spinner.css"
+    />
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <style>
       * {
         margin: 0;
@@ -34,8 +45,18 @@
       }
 
       body {
-        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-red) 100%);
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--brand-blue) 0%,
+          var(--brand-red) 100%
+        );
         min-height: 100vh;
         min-height: 100dvh;
         overflow-x: hidden;
@@ -82,7 +103,7 @@
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.75rem;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
       .pricing-header p {
@@ -108,7 +129,7 @@
         color: var(--white);
         text-align: center;
         margin-bottom: 2rem;
-        border: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .trial-banner h4 {
@@ -181,7 +202,11 @@
       }
 
       .feature-grid .header-cell.popular {
-        background: linear-gradient(135deg, var(--brand-red), var(--brand-blue));
+        background: linear-gradient(
+          135deg,
+          var(--brand-red),
+          var(--brand-blue)
+        );
         color: var(--white);
       }
 
@@ -292,12 +317,14 @@
         border-radius: 12px;
         font-weight: 600;
         text-decoration: none;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
       }
 
       .footer-cta a:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
 
       /* Mobile Responsive */
@@ -367,18 +394,25 @@
 
     <div class="pricing-header">
       <div class="logo-container">
-        <div class="barber-pole-spinner barber-pole-spinner--static barber-pole-spinner--nav" aria-hidden="true">
+        <div
+          class="barber-pole-spinner barber-pole-spinner--static barber-pole-spinner--nav"
+          aria-hidden="true"
+        >
           <div class="barber-pole-spinner__wrapper">
-            <div class="barber-pole-spinner__finial barber-pole-spinner__finial--top"></div>
+            <div
+              class="barber-pole-spinner__finial barber-pole-spinner__finial--top"
+            ></div>
             <div class="barber-pole-spinner__cap"></div>
             <div class="barber-pole-spinner__glass">
               <div class="barber-pole-spinner__helix"></div>
             </div>
             <div class="barber-pole-spinner__cap"></div>
-            <div class="barber-pole-spinner__finial barber-pole-spinner__finial--bottom"></div>
+            <div
+              class="barber-pole-spinner__finial barber-pole-spinner__finial--bottom"
+            ></div>
           </div>
         </div>
-        <span style="font-size: 1.5rem; font-weight: 700;">BarberX</span>
+        <span style="font-size: 1.5rem; font-weight: 700">BarberX</span>
       </div>
       <h1>Choose Your Plan</h1>
       <p>Professional BWC forensic analysis for defense attorneys</p>
@@ -386,13 +420,19 @@
 
     <div class="pricing-content">
       <div class="trial-banner">
-        <h4><i class="fas fa-gift"></i> Start with a free trial on select plans!</h4>
+        <h4>
+          <i class="fas fa-gift"></i> Start with a free trial on select plans!
+        </h4>
         <p>No commitment required. Cancel anytime.</p>
       </div>
 
       <!-- Stripe Pricing Table -->
       <div class="stripe-pricing-wrapper">
-        <script async src="https://js.stripe.com/v3/pricing-table.js" crossorigin="anonymous"></script>
+        <script
+          async
+          src="https://js.stripe.com/v3/pricing-table.js"
+          crossorigin="anonymous"
+        ></script>
         <stripe-pricing-table
           pricing-table-id="prctbl_1Su2jmHGgvJKMFG1wn1Lum5i"
           publishable-key="pk_live_51RjUMaHGgvJKMFG1baiSBss1LH5qGHAhx02GvqfAWxVszseRfxklan3x6O4Sz1FJtv8hIFz18lbZ0dqCIdwFfJuz005aZZ9LBh"
@@ -410,7 +450,7 @@
             <div class="header-cell popular">Professional</div>
             <div class="header-cell">Enterprise</div>
           </div>
-          
+
           <div class="feature-row">
             <div>BWC Video Analysis</div>
             <div>1/month</div>
@@ -418,7 +458,7 @@
             <div>25/month</div>
             <div>Unlimited</div>
           </div>
-          
+
           <div class="feature-row">
             <div>AI Legal Assistant</div>
             <div><i class="fas fa-check check"></i></div>
@@ -426,7 +466,7 @@
             <div><i class="fas fa-check check"></i></div>
             <div><i class="fas fa-check check"></i></div>
           </div>
-          
+
           <div class="feature-row">
             <div>Document OCR</div>
             <div>5 pages</div>
@@ -434,7 +474,7 @@
             <div>500 pages</div>
             <div>Unlimited</div>
           </div>
-          
+
           <div class="feature-row">
             <div>Audio Transcription</div>
             <div><i class="fas fa-times cross"></i></div>
@@ -442,7 +482,7 @@
             <div>10 hours</div>
             <div>Unlimited</div>
           </div>
-          
+
           <div class="feature-row">
             <div>Voice Stress Analysis</div>
             <div><i class="fas fa-times cross"></i></div>
@@ -450,7 +490,7 @@
             <div><i class="fas fa-check check"></i></div>
             <div><i class="fas fa-check check"></i></div>
           </div>
-          
+
           <div class="feature-row">
             <div>Citation Network</div>
             <div><i class="fas fa-times cross"></i></div>
@@ -458,7 +498,7 @@
             <div><i class="fas fa-check check"></i></div>
             <div><i class="fas fa-check check"></i></div>
           </div>
-          
+
           <div class="feature-row">
             <div>Team Members</div>
             <div>1</div>
@@ -466,7 +506,7 @@
             <div>3</div>
             <div>Unlimited</div>
           </div>
-          
+
           <div class="feature-row">
             <div>Priority Support</div>
             <div><i class="fas fa-times cross"></i></div>
@@ -474,7 +514,7 @@
             <div><i class="fas fa-check check"></i></div>
             <div><i class="fas fa-check check"></i></div>
           </div>
-          
+
           <div class="feature-row">
             <div>API Access</div>
             <div><i class="fas fa-times cross"></i></div>
@@ -490,23 +530,41 @@
         <h2>Frequently Asked Questions</h2>
         <div class="faq-grid">
           <div class="faq-item">
-            <h5><i class="fas fa-question-circle"></i> Can I change plans later?</h5>
-            <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately and billing is prorated.</p>
+            <h5>
+              <i class="fas fa-question-circle"></i> Can I change plans later?
+            </h5>
+            <p>
+              Yes! You can upgrade or downgrade your plan at any time. Changes
+              take effect immediately and billing is prorated.
+            </p>
           </div>
-          
+
           <div class="faq-item">
-            <h5><i class="fas fa-question-circle"></i> What happens after the free trial?</h5>
-            <p>After your trial ends, you'll be automatically enrolled in your chosen plan. You can cancel anytime during the trial with no charge.</p>
+            <h5>
+              <i class="fas fa-question-circle"></i> What happens after the free
+              trial?
+            </h5>
+            <p>
+              After your trial ends, you'll be automatically enrolled in your
+              chosen plan. You can cancel anytime during the trial with no
+              charge.
+            </p>
           </div>
-          
+
           <div class="faq-item">
             <h5><i class="fas fa-question-circle"></i> Is my data secure?</h5>
-            <p>Absolutely. All data is encrypted in transit and at rest. We follow attorney-client privilege standards and are GDPR compliant.</p>
+            <p>
+              Absolutely. All data is encrypted in transit and at rest. We
+              follow attorney-client privilege standards and are GDPR compliant.
+            </p>
           </div>
-          
+
           <div class="faq-item">
             <h5><i class="fas fa-question-circle"></i> Can I get a refund?</h5>
-            <p>Yes, we offer a 30-day money-back guarantee. If you're not satisfied, contact us for a full refund.</p>
+            <p>
+              Yes, we offer a 30-day money-back guarantee. If you're not
+              satisfied, contact us for a full refund.
+            </p>
           </div>
         </div>
       </div>
@@ -514,7 +572,10 @@
 
     <div class="footer-cta">
       <h3>Need a custom solution?</h3>
-      <p>Contact us for enterprise pricing, custom integrations, or volume discounts.</p>
+      <p>
+        Contact us for enterprise pricing, custom integrations, or volume
+        discounts.
+      </p>
       <a href="mailto:enterprise@barberx.info">
         <i class="fas fa-envelope"></i> Contact Sales
       </a>

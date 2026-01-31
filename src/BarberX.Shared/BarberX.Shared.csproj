@@ -4,6 +4,12 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>Shared domain models, DTOs, and service interfaces</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- No dependencies - this is the core domain layer -->
+    <PackageReference Include="System.ComponentModel.Annotations" Version="10.0.0" />
+  </ItemGroup>
 
 </Project>

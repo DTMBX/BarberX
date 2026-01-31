@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Description>Web API and presentation layer</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,12 @@
     </PackageReference>
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Web depends on Infrastructure and Shared -->
+    <ProjectReference Include="..\BarberX.Infrastructure\BarberX.Infrastructure.csproj" />
+    <ProjectReference Include="..\BarberX.Shared\BarberX.Shared.csproj" />
   </ItemGroup>
 
 </Project>

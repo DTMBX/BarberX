@@ -4,11 +4,18 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>Data access, repositories, and infrastructure implementations</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Infrastructure depends on Shared (domain layer) -->
+    <ProjectReference Include="..\BarberX.Shared\BarberX.Shared.csproj" />
   </ItemGroup>
 
 </Project>
