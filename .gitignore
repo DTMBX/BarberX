@@ -27,6 +27,8 @@ logs/
 
 # Encrypted outputs
 secure/
+# Allow encrypted git-crypt key backup
+!secure/barberx-git-crypt.key
 
 # Environment
 .env

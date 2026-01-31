@@ -29,6 +29,9 @@ scripts/security/*.key filter=git-crypt diff=git-crypt
 # Secure output directory
 secure/** filter=git-crypt diff=git-crypt
 
+# Barber-cam directory (body-worn camera footage and tools)
+barber-cam/** filter=git-crypt diff=git-crypt
+
 # Database credentials file (if exists)
 database.ini filter=git-crypt diff=git-crypt
 credentials.json filter=git-crypt diff=git-crypt
