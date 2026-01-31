@@ -19,7 +19,7 @@
   "devDependencies": {
     "@copilot-extensions/preview-sdk": "^5.0.1",
     "@playwright/test": "^1.57.0",
-    "playwright": "^1.57.0",
+    "playwright": "^1.58.1",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1"
   }
