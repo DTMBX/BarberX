@@ -257,7 +257,7 @@
 
       <!-- Stripe Pricing Table Embed -->
       <div class="stripe-pricing-wrapper">
-        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+        <script async src="https://js.stripe.com/v3/pricing-table.js" crossorigin="anonymous"></script>
         <stripe-pricing-table
           pricing-table-id="{{ config.STRIPE_PRICING_TABLE_ID or 'prctbl_REPLACE_WITH_YOUR_TABLE_ID' }}"
           publishable-key="{{ config.STRIPE_PUBLISHABLE_KEY or 'pk_test_REPLACE_WITH_YOUR_KEY' }}"

@@ -416,7 +416,8 @@ def add_security_headers(response):
     )
 
     # Cross-Origin policies
-    response.headers["Cross-Origin-Embedder-Policy"] = "require-corp"
+    # Use credentialless mode to allow Stripe pricing tables while maintaining security
+    response.headers["Cross-Origin-Embedder-Policy"] = "credentialless"
     response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
     response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
 
