@@ -77,6 +77,14 @@
 
 /* Show on mobile/tablet */
 @media (max-width: 1024px) {
+  /* CRITICAL: Force premium-nav__actions div to show on mobile */
+  /* This overrides connect-compliance-footer.css which hides it below 900px */
+  .premium-nav__actions {
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
   .mobile-nav-hamburger {
     display: flex !important;
     align-items: center;
