@@ -3,9 +3,11 @@
 ## Root Causes Found
 
 ### 1. Database Path Mismatch ❌
+
 **Problem**: App configuration says to use `barberx_FRESH.db` but something is changing it to `barberx_test.db`
 
 **File**: `app.py` Line 224
+
 ```python
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
 ```
@@ -15,7 +17,9 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
 **Solution**: Force the correct database path
 
 ### 2. POST Login Returns 400 ❌
+
 **Problem**: Login form POST request returns HTTP 400 (Bad Request)
+
 - Likely cause: Missing CSRF token
 - Or: Form validation failing
 

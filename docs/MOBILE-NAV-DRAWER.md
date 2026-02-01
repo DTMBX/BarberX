@@ -30,13 +30,19 @@ Modern, accessible slide-out navigation menu with animated hamburger icon.
 In `_layouts/default.html`, add to `<head>`:
 
 ```html
-<link rel="stylesheet" href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}">
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}"
+/>
 ```
 
 ### Step 2: Add JavaScript before `</body>`
 
 ```html
-<script src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}" defer></script>
+<script
+  src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}"
+  defer
+></script>
 ```
 
 ### Step 3: Include HTML component
@@ -56,10 +62,10 @@ Or copy the HTML from `_includes/mobile-nav-drawer.html` directly into your layo
 Edit these CSS custom properties in `mobile-nav-drawer.css`:
 
 ```css
---barberx-red-primary: #c41e3a;    /* Brand red */
---color-background: #ffffff;        /* Drawer background */
---color-text: #1f2937;             /* Text color */
---color-border: #e5e7eb;           /* Border color */
+--barberx-red-primary: #c41e3a; /* Brand red */
+--color-background: #ffffff; /* Drawer background */
+--color-text: #1f2937; /* Text color */
+--color-border: #e5e7eb; /* Border color */
 ```
 
 ### Width
@@ -68,8 +74,8 @@ Change drawer width in `mobile-nav-drawer.js`:
 
 ```javascript
 const CONFIG = {
-  drawerWidth: '85%',        // Mobile width
-  maxDrawerWidth: '400px',   // Desktop max width
+  drawerWidth: "85%", // Mobile width
+  maxDrawerWidth: "400px", // Desktop max width
   // ...
 };
 ```
@@ -78,7 +84,7 @@ const CONFIG = {
 
 ```javascript
 const CONFIG = {
-  animationDuration: 300,  // Milliseconds
+  animationDuration: 300, // Milliseconds
   // ...
 };
 ```
@@ -102,11 +108,12 @@ const CONFIG = {
 
 ```html
 <li class="mobile-nav-item">
-  <a 
-    href="/features" 
-    class="mobile-nav-link" 
+  <a
+    href="/features"
+    class="mobile-nav-link"
     data-submenu-toggle
-    aria-expanded="false">
+    aria-expanded="false"
+  >
     <span>
       <svg class="mobile-nav-link__icon"><!-- icon --></svg>
       Features
@@ -115,11 +122,15 @@ const CONFIG = {
       <svg class="mobile-nav-submenu-toggle__icon"><!-- arrow --></svg>
     </span>
   </a>
-  
+
   <div class="mobile-nav-submenu">
     <ul class="mobile-nav-submenu__list">
-      <li><a href="/features/item1" class="mobile-nav-submenu__link">Item 1</a></li>
-      <li><a href="/features/item2" class="mobile-nav-submenu__link">Item 2</a></li>
+      <li>
+        <a href="/features/item1" class="mobile-nav-submenu__link">Item 1</a>
+      </li>
+      <li>
+        <a href="/features/item2" class="mobile-nav-submenu__link">Item 2</a>
+      </li>
     </ul>
   </div>
 </li>
@@ -130,9 +141,7 @@ const CONFIG = {
 Add `.is-active` class to highlight current page:
 
 ```html
-<a href="/current-page" class="mobile-nav-link is-active">
-  Current Page
-</a>
+<a href="/current-page" class="mobile-nav-link is-active"> Current Page </a>
 ```
 
 ## 🔧 JavaScript API
@@ -151,13 +160,14 @@ MobileNav.toggle();
 
 // Check if open
 if (MobileNav.isOpen()) {
-  console.log('Drawer is open');
+  console.log("Drawer is open");
 }
 ```
 
 ## 🎯 Events
 
 The drawer automatically:
+
 - Closes when window resized above 1024px
 - Closes when ESC key pressed
 - Closes when backdrop clicked
@@ -190,7 +200,7 @@ Already implemented in the template! Just swap the SVG paths.
 ### Using Image Icons
 
 ```html
-<img src="/assets/images/icon-home.svg" class="mobile-nav-link__icon" alt="">
+<img src="/assets/images/icon-home.svg" class="mobile-nav-link__icon" alt="" />
 ```
 
 ## 🌙 Dark Mode
@@ -255,33 +265,35 @@ If using a toggle, add to CSS:
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="/assets/css/components/mobile-nav-drawer.css">
-</head>
-<body>
-  
-  <!-- Header -->
-  <header>
-    <div class="logo">BarberX</div>
-    
-    <!-- Hamburger Button -->
-    <button class="mobile-nav-hamburger" aria-label="Open menu">
-      <span class="mobile-nav-hamburger__line"></span>
-      <span class="mobile-nav-hamburger__line"></span>
-      <span class="mobile-nav-hamburger__line"></span>
-    </button>
-  </header>
-  
-  <!-- Backdrop -->
-  <div class="mobile-nav-backdrop"></div>
-  
-  <!-- Drawer -->
-  <nav class="mobile-nav-drawer">
-    <!-- Content from _includes/mobile-nav-drawer.html -->
-  </nav>
-  
-  <script src="/assets/js/mobile-nav-drawer.js"></script>
-</body>
+  <head>
+    <link
+      rel="stylesheet"
+      href="/assets/css/components/mobile-nav-drawer.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">BarberX</div>
+
+      <!-- Hamburger Button -->
+      <button class="mobile-nav-hamburger" aria-label="Open menu">
+        <span class="mobile-nav-hamburger__line"></span>
+        <span class="mobile-nav-hamburger__line"></span>
+        <span class="mobile-nav-hamburger__line"></span>
+      </button>
+    </header>
+
+    <!-- Backdrop -->
+    <div class="mobile-nav-backdrop"></div>
+
+    <!-- Drawer -->
+    <nav class="mobile-nav-drawer">
+      <!-- Content from _includes/mobile-nav-drawer.html -->
+    </nav>
+
+    <script src="/assets/js/mobile-nav-drawer.js"></script>
+  </body>
 </html>
 ```
 
