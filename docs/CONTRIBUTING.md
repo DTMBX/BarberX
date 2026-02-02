@@ -1,4 +1,4 @@
-﻿# Contributing to BarberX
+# Contributing to Evident
 
 ## Code Standards
 
@@ -11,8 +11,8 @@
 ## Development Setup
 
 \\\ash
-git clone https://github.com/DTB396/BarberX.info
-cd BarberX.info
+git clone https://github.com/DTB396/Evident.info
+cd Evident.info
 pip install -r requirements.txt
 \\\
 

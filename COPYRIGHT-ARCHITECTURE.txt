@@ -3,7 +3,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     BARBERX LEGAL TECH PLATFORM                             │
+│                     EVIDENT TECHNOLOGIES PLATFORM                           │
 │                   Copyright Compliance Framework                            │
 └─────────────────────────────────────────────────────────────────────────────┘
 

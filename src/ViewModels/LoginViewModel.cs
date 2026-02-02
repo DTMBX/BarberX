@@ -1,9 +1,9 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using BarberX.MatterDocket.MAUI.Services;
+using Evident.MatterDocket.MAUI.Services;
 
-namespace BarberX.MatterDocket.MAUI.ViewModels;
+namespace Evident.MatterDocket.MAUI.ViewModels;
 
 public partial class LoginViewModel : BaseViewModel
 {
@@ -21,7 +21,7 @@ public partial class LoginViewModel : BaseViewModel
     public LoginViewModel(IAuthService authService)
     {
         _authService = authService;
-        Title = "Login to BarberX Matter Docket";
+        Title = "Login to Evident Matter Docket";
     }
 
     [RelayCommand]
@@ -142,7 +142,7 @@ public partial class LoginViewModel : BaseViewModel
     private async Task ForgotPasswordAsync()
     {
         // Open forgot password page in browser
-        await Browser.OpenAsync("https://barberx.info/auth/forgot-password", BrowserLaunchMode.SystemPreferred);
+        await Browser.OpenAsync("https://Evident.info/auth/forgot-password", BrowserLaunchMode.SystemPreferred);
     }
 
     private bool IsValidEmail(string email)

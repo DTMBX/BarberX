@@ -7,7 +7,7 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Navigate to repo
-Set-Location C:\web-dev\github-repos\BarberX.info
+Set-Location C:\web-dev\github-repos\Evident.info
 
 # Stage files
 Write-Host "Staging files..." -ForegroundColor Yellow
@@ -46,7 +46,7 @@ PROBLEM/SOLUTION UPDATED:
 - Added: Truth surfaces / Confidence not guesswork
 
 CONFIDENCE FRAMING:
-"BarberX gives you confidence in the evidence—that you found every
+"Evident gives you confidence in the evidence—that you found every
 Miranda warning, every 4th Amendment issue, every contradiction. When
 defense attorneys have tools to uncover truth, good officers are
 protected and bad actors are held accountable. That's how the system
@@ -68,7 +68,7 @@ POSITIONING:
 - Not divisive, truth-seeking
 - Protects everyone who honors their oath
 
-READY: BarberX can launch Founding Member program today
+READY: Evident can launch Founding Member program today
 with messaging that honors both sides' service to justice.
 
 Phase 1 Ignition: Deployed → Credible → Conversion-capable → Honorable
@@ -85,7 +85,7 @@ Write-Host "✅ DAY 1 DEPLOYMENT COMPLETE" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
-Write-Host "1. Test at https://barberx.info" -ForegroundColor White
+Write-Host "1. Test at https://Evident.info" -ForegroundColor White
 Write-Host "2. Verify email capture works" -ForegroundColor White
 Write-Host "3. Share with first potential customer" -ForegroundColor White
 Write-Host ""

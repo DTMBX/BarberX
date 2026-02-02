@@ -2,7 +2,7 @@
 
 **Generated:** $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")  
 **Test Framework:** pytest 7.4.3, Playwright 1.58.1, Locust, K6  
-**Project:** BarberX.info - Legal Tech Platform
+**Project:** Evident.info - Legal Tech Platform
 
 ---
 

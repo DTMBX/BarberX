@@ -1,4 +1,4 @@
-# 📚 BarberX Documentation Index
+# 📚 Evident Documentation Index
 
 **Last Updated:** January 27, 2026  
 **Version:** 2.1.0  
@@ -100,7 +100,7 @@
 ### Branding System
 
 - **[BRAND-GUIDE.md](BRAND-GUIDE.md)** — Brand guidelines (5.7 KB)  
-  _Official BarberX design system_
+  _Official Evident design system_
 
 - **[BRAND-QUICK-REFERENCE.md](BRAND-QUICK-REFERENCE.md)** — Quick reference (2.4 KB)  
   _Developer cheat sheet for brand tokens_
@@ -275,7 +275,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 
    ```powershell
    # Clone and navigate
-   cd c:\web-dev\github-repos\BarberX.info
+   cd c:\web-dev\github-repos\Evident.info
 
    # Activate virtual environment
    .\.venv\Scripts\Activate
@@ -482,7 +482,7 @@ npx htmlhint "**/*.html"
 ## 📁 Project Structure
 
 ```
-BarberX.info/
+Evident.info/
 ├── app.py                    # Main Flask application (security headers)
 ├── sw.js                     # Service worker (PWA)
 ├── manifest.json             # PWA manifest
@@ -636,8 +636,8 @@ SENDGRID_API_KEY=...                # For transactional emails
 
 ### Internal
 
-- **Documentation:** `c:\web-dev\github-repos\BarberX.info\docs\`
-- **Email:** support@barberx.info
+- **Documentation:** `c:\web-dev\github-repos\Evident.info\docs\`
+- **Email:** support@Evident.info
 - **Admin:** Set via ADMIN_EMAIL and ADMIN_PASSWORD environment variables
 
 ### External
@@ -694,5 +694,5 @@ SENDGRID_API_KEY=...                # For transactional emails
 ---
 
 **Last Updated:** January 27, 2026  
-**Maintained By:** BarberX Development Team  
+**Maintained By:** Evident Development Team  
 **Status:** Production Ready 🚀

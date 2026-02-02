@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ---
 
-Projects using BSD-3-Clause License in BarberX Legal Technologies:
+Projects using BSD-3-Clause License in Evident Legal Technologies:
 
 • Flask - Copyright (c) 2010 Pallets
 • Flask-SQLAlchemy - Copyright (c) 2010 Pallets

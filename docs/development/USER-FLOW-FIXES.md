@@ -1,4 +1,4 @@
-# BarberX User Flow Issues & Fixes
+# Evident User Flow Issues & Fixes
 
 ## Critical Issues Identified
 

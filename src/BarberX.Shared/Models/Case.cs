@@ -1,4 +1,4 @@
-namespace BarberX.Shared.Models;
+namespace Evident.Shared.Models;
 
 public class Case
 {

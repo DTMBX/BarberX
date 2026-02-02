@@ -493,14 +493,14 @@ A: DELETE endpoint coming soon. For now, use SQL: `DELETE FROM legal_documents W
 
 ## 🎯 Business Value
 
-### For BarberX Users
+### For Evident Users
 - **Faster research** - 96% time savings vs. Westlaw manual search
 - **Offline access** - Store cases locally for court prep
 - **Custom libraries** - Build case-specific reference collections
 - **AI augmented** - ChatGPT cites YOUR library, not generic sources
 - **Cost savings** - Reduce Westlaw/Lexis dependency
 
-### For BarberX Platform
+### For Evident Platform
 - **Premium feature** - Upsell to PRO/PREMIUM tiers
 - **User retention** - Valuable library = sticky users
 - **Differentiation** - No other BWC platform has this

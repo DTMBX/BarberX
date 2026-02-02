@@ -300,7 +300,7 @@ Environment variables:
 
 ```bash
 # Database
-DATABASE_URL=postgresql://user:pass@host/barberx
+DATABASE_URL=postgresql://user:pass@host/Evident
 
 # AI Pipeline
 STORAGE_ROOT=./uploads
@@ -420,5 +420,5 @@ pytest tests/test_chat_api.py
 
 For issues or questions:
 
-- GitHub Issues: https://github.com/BarberX/BarberX.info/issues
-- Email: support@barberx.info
+- GitHub Issues: https://github.com/Evident/Evident.info/issues
+- Email: support@Evident.info

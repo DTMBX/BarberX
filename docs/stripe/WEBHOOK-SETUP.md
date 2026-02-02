@@ -1,4 +1,4 @@
-# Stripe Webhook Setup Guide for BarberX
+# Stripe Webhook Setup Guide for Evident
 
 > Complete guide for connecting Stripe webhooks to handle subscriptions, payments, and member management.
 
@@ -25,12 +25,12 @@ Look for the **"+ Add endpoint"** button (top right corner).
 │                                                              │
 │  Endpoint URL:                                               │
 │  ┌─────────────────────────────────────────────────────────┐│
-│  │ https://barberx.info/api/stripe/webhook                 ││
+│  │ https://Evident.info/api/stripe/webhook                 ││
 │  └─────────────────────────────────────────────────────────┘│
 │                                                              │
 │  Description (optional):                                     │
 │  ┌─────────────────────────────────────────────────────────┐│
-│  │ BarberX Membership & Subscription Webhooks              ││
+│  │ Evident Membership & Subscription Webhooks              ││
 │  └─────────────────────────────────────────────────────────┘│
 │                                                              │
 │  Listen to:  ○ Events on your account                        │
@@ -68,7 +68,7 @@ In Stripe's new UI, events are organized by category. Here's exactly what to sel
 
 Click **"Checkout"** in the left sidebar, then check:
 
-| ✓ | Event Name | What It Does for BarberX |
+| ✓ | Event Name | What It Does for Evident |
 |---|------------|--------------------------|
 | ☑️ | `checkout.session.completed` | **CRITICAL:** Activates new subscription, upgrades user to paid tier |
 | ☐ | `checkout.session.expired` | Optional: Track abandoned checkouts |
@@ -81,7 +81,7 @@ Click **"Checkout"** in the left sidebar, then check:
 
 Click **"Customer"** in the left sidebar, then check:
 
-| ✓ | Event Name | What It Does for BarberX |
+| ✓ | Event Name | What It Does for Evident |
 |---|------------|--------------------------|
 | ☑️ | `customer.created` | Logs new Stripe customer creation |
 | ☑️ | `customer.updated` | Syncs email/name changes from Stripe |
@@ -95,7 +95,7 @@ Click **"Customer"** in the left sidebar, then check:
 
 This is the **MOST IMPORTANT** category. Click **"Customer"** → expand **"subscription"**:
 
-| ✓ | Event Name | What It Does for BarberX |
+| ✓ | Event Name | What It Does for Evident |
 |---|------------|--------------------------|
 | ☑️ | `customer.subscription.created` | Records new subscription in database |
 | ☑️ | `customer.subscription.updated` | **CRITICAL:** Handles plan changes, renewals, status changes |
@@ -112,7 +112,7 @@ This is the **MOST IMPORTANT** category. Click **"Customer"** → expand **"subs
 
 Click **"Invoice"** in the left sidebar:
 
-| ✓ | Event Name | What It Does for BarberX |
+| ✓ | Event Name | What It Does for Evident |
 |---|------------|--------------------------|
 | ☑️ | `invoice.paid` | **CRITICAL:** Confirms successful payment, extends subscription |
 | ☑️ | `invoice.payment_failed` | **CRITICAL:** Marks account as past_due, triggers dunning emails |
@@ -129,7 +129,7 @@ Click **"Invoice"** in the left sidebar:
 
 For one-time payments or add-ons. Click **"Payment Intent"**:
 
-| ✓ | Event Name | What It Does for BarberX |
+| ✓ | Event Name | What It Does for Evident |
 |---|------------|--------------------------|
 | ☐ | `payment_intent.succeeded` | Confirms one-time payment (add-ons, credits) |
 | ☐ | `payment_intent.payment_failed` | Logs failed one-time payments |
@@ -362,7 +362,7 @@ stripe trigger customer.subscription.deleted
 ## ✅ FINAL CHECKLIST
 
 ```
-□ Created webhook endpoint with URL: https://barberx.info/api/stripe/webhook
+□ Created webhook endpoint with URL: https://Evident.info/api/stripe/webhook
 
 □ Selected these events:
   □ checkout.session.completed
@@ -409,7 +409,7 @@ stripe trigger customer.subscription.deleted
 - Don't modify the raw request body before verification
 
 ### "Endpoint not receiving events"
-- Verify URL is exactly `https://barberx.info/api/stripe/webhook`
+- Verify URL is exactly `https://Evident.info/api/stripe/webhook`
 - Check your server is running and accessible
 - Look at "Recent events" in Stripe Dashboard for delivery attempts
 

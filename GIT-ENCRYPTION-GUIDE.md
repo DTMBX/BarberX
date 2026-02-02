@@ -1,4 +1,4 @@
-# Git Encryption Setup Guide for BarberX
+# Git Encryption Setup Guide for Evident
 
 This repository uses **git-crypt** to transparently encrypt sensitive files at rest in Git. This guide explains how team members can set up and use git-crypt properly.
 
@@ -60,7 +60,7 @@ git-crypt add-gpg-user user.gpg
 3. **Or export symmetric key** (simpler for small teams):
 ```bash
 # Export the key to a secure location
-git-crypt export-key /secure/location/barberx-git-crypt.key
+git-crypt export-key /secure/location/Evident-git-crypt.key
 ```
 
 ### For Team Members
@@ -71,13 +71,13 @@ git-crypt export-key /secure/location/barberx-git-crypt.key
 
 2. **Clone the repository**:
 ```bash
-git clone https://github.com/DTMBX/BarberX.git
-cd BarberX
+git clone https://github.com/DTMBX/Evident.git
+cd Evident
 ```
 
 3. **Unlock the repository**:
 ```bash
-git-crypt unlock /path/to/barberx-git-crypt.key
+git-crypt unlock /path/to/Evident-git-crypt.key
 ```
 
 4. **Verify it's working**:
@@ -92,8 +92,8 @@ git-crypt status
 
 2. **Clone and unlock**:
 ```bash
-git clone https://github.com/DTMBX/BarberX.git
-cd BarberX
+git clone https://github.com/DTMBX/Evident.git
+cd Evident
 git-crypt unlock
 ```
 
@@ -210,7 +210,7 @@ git add path/to/file
 ### Store Key in GitHub Secrets
 ```bash
 # Encode key
-base64 < barberx-git-crypt.key
+base64 < Evident-git-crypt.key
 
 # Add to GitHub Secrets as GIT_CRYPT_KEY
 ```
@@ -219,7 +219,7 @@ base64 < barberx-git-crypt.key
 
 - [git-crypt Documentation](https://github.com/AGWA/git-crypt)
 - [Git Attributes Documentation](https://git-scm.com/docs/gitattributes)
-- [Security Best Practices](https://github.com/DTMBX/BarberX/security)
+- [Security Best Practices](https://github.com/DTMBX/Evident/security)
 
 ## 🆘 Support
 
@@ -232,5 +232,5 @@ If you have issues with git-crypt setup:
 ---
 
 **Last Updated**: January 31, 2026  
-**Repository**: https://github.com/DTMBX/BarberX  
-**Maintained by**: BarberX Team
+**Repository**: https://github.com/DTMBX/Evident  
+**Maintained by**: Evident Team

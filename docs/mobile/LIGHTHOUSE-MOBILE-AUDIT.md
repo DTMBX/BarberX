@@ -1,7 +1,7 @@
-# BarberX Mobile Lighthouse Audit Report
+# Evident Mobile Lighthouse Audit Report
 
 **Audit Date:** January 27, 2026  
-**Page:** BarberX Legal Technologies Mobile Experience  
+**Page:** Evident Legal Technologies Mobile Experience  
 **URL:** http://localhost:5000 (Static test: test_mobile.html)  
 **Device:** Mobile (375px × 667px)  
 **Network:** 4G
@@ -152,7 +152,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "BarberX Legal Technologies",
+  "name": "Evident Legal Technologies",
   "applicationCategory": "BusinessApplication",
   "offers": {
     "@type": "Offer",
@@ -165,10 +165,10 @@
 
 ### 3. **Add Open Graph Tags** (Social sharing)
 ```html
-<meta property="og:title" content="BarberX Legal Technologies">
+<meta property="og:title" content="Evident Legal Technologies">
 <meta property="og:description" content="Professional BWC forensic analysis">
-<meta property="og:image" content="https://barberx.info/og-image.jpg">
-<meta property="og:url" content="https://barberx.info">
+<meta property="og:image" content="https://Evident.info/og-image.jpg">
+<meta property="og:url" content="https://Evident.info">
 <meta name="twitter:card" content="summary_large_image">
 ```
 

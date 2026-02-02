@@ -3,12 +3,12 @@
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path(__file__).parent.parent.parent / "instance" / "barberx_legal.db"
+DB_PATH = Path(__file__).parent.parent.parent / "instance" / "Evident_legal.db"
 SCHEMA_PATH = Path(__file__).parent / "schema.sql"
 
 
 def init_legal_db():
-    """Create tables in barberx_legal.db"""
+    """Create tables in Evident_legal.db"""
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     with sqlite3.connect(DB_PATH) as conn:

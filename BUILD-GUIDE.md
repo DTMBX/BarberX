@@ -1,7 +1,7 @@
-# BarberX Multi-Platform Build Guide
+# Evident Multi-Platform Build Guide
 
 ## Overview
-BarberX is a comprehensive legal tech platform with support for:
+Evident is a comprehensive legal tech platform with support for:
 - **Windows Desktop** (.NET MAUI)
 - **iOS Mobile** (.NET MAUI)
 - **Android Mobile** (.NET MAUI)
@@ -32,12 +32,12 @@ BarberX is a comprehensive legal tech platform with support for:
 ## Project Structure
 
 ```
-BarberX.info/
+Evident.info/
 ├── src/
-│   ├── BarberX.Mobile/          # .NET MAUI cross-platform app
-│   ├── BarberX.Web/             # ASP.NET Core Web API
-│   ├── BarberX.Shared/          # Shared models and services
-│   └── BarberX.Infrastructure/  # Infrastructure layer
+│   ├── Evident.Mobile/          # .NET MAUI cross-platform app
+│   ├── Evident.Web/             # ASP.NET Core Web API
+│   ├── Evident.Shared/          # Shared models and services
+│   └── Evident.Infrastructure/  # Infrastructure layer
 ├── app.py                       # Flask backend
 ├── templates/                   # Web templates
 ├── static/                      # Web static assets
@@ -52,7 +52,7 @@ BarberX.info/
 
 ```powershell
 # Navigate to project
-cd src\BarberX.Mobile
+cd src\Evident.Mobile
 
 # Restore dependencies
 dotnet restore
@@ -121,7 +121,7 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ### ASP.NET Core Web API
 
 ```powershell
-cd src\BarberX.Web
+cd src\Evident.Web
 
 # Restore and build
 dotnet restore
@@ -140,13 +140,13 @@ dotnet publish -c Release -o publish
 
 ### Mobile App Configuration
 
-Edit `src\BarberX.Mobile\MauiProgram.cs`:
+Edit `src\Evident.Mobile\MauiProgram.cs`:
 
 ```csharp
 #if DEBUG
     client.BaseAddress = new Uri("http://localhost:5000");
 #else
-    client.BaseAddress = new Uri("https://api.barberx.info");
+    client.BaseAddress = new Uri("https://api.Evident.info");
 #endif
 ```
 
@@ -222,7 +222,7 @@ netlify deploy --prod
 # render.yaml
 services:
   - type: web
-    name: barberx-api
+    name: Evident-api
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
@@ -281,7 +281,7 @@ npx playwright test
 
 1. **Start Flask backend:** `python app.py`
 2. **Run mobile app:** `dotnet run -f net10.0-android` (or desired platform)
-3. **Make changes** to shared code in `BarberX.Shared`
+3. **Make changes** to shared code in `Evident.Shared`
 4. **Test on multiple platforms** before committing
 5. **Commit and push** to git repository
 
@@ -291,7 +291,7 @@ npx playwright test
 
 - [.NET MAUI Documentation](https://learn.microsoft.com/dotnet/maui/)
 - [Flask Documentation](https://flask.palletsprojects.com/)
-- [BarberX API Reference](docs/api/API-REFERENCE.md)
+- [Evident API Reference](docs/api/API-REFERENCE.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 
 ---
@@ -299,6 +299,6 @@ npx playwright test
 ## Support
 
 For issues or questions:
-- GitHub Issues: https://github.com/DTB396/BarberX.info/issues
-- Email: support@barberx.info
-- Documentation: https://barberx.info/docs
+- GitHub Issues: https://github.com/DTB396/Evident.info/issues
+- Email: support@Evident.info
+- Documentation: https://Evident.info/docs

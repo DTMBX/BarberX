@@ -2,7 +2,7 @@
 Code360 API Client
 Universal municipal code integration via eCode360, GeneralCode, and other providers
 
-Enables BarberX users to integrate ANY municipality's code into their legal research.
+Enables Evident users to integrate ANY municipality's code into their legal research.
 """
 
 import hashlib
@@ -111,11 +111,11 @@ class Code360Client:
     }
 
     def __init__(self, db_path: Optional[Path] = None):
-        self.db_path = db_path or Path(__file__).parent / "instance" / "barberx_legal.db"
+        self.db_path = db_path or Path(__file__).parent / "instance" / "Evident_legal.db"
         self.session = requests.Session()
         self.session.headers.update(
             {
-                "User-Agent": "BarberX Legal Research/1.0 (legal research tool)",
+                "User-Agent": "Evident Legal Research/1.0 (legal research tool)",
                 "Accept": "application/json, text/html",
             }
         )
@@ -731,7 +731,7 @@ def add_municipality(
     state: str, name: str, county: str = "", auto_discover: bool = True
 ) -> Optional[Municipality]:
     """
-    Add a new municipality to BarberX
+    Add a new municipality to Evident
 
     Example:
         add_municipality("NJ", "Atlantic City", "Atlantic")

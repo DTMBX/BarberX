@@ -1,15 +1,15 @@
-# BarberX Day 2 - Encryption & Backup Setup
+# Evident Day 2 - Encryption & Backup Setup
 # Run this script to automate secure folder creation and file migration
 # Created: January 28, 2026
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "BarberX Day 2: Encryption & Backups" -ForegroundColor Cyan
+Write-Host "Evident Day 2: Encryption & Backups" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Repository and secure folder paths
-$repoRoot = "C:\web-dev\github-repos\BarberX.info"
-$secureRoot = "C:\SecureData\BarberX-Confidential"
+$repoRoot = "C:\web-dev\github-repos\Evident.info"
+$secureRoot = "C:\SecureData\Evident-Confidential"
 
 # ============================================
 # Task 2.1: Create Secure Folder Structure
@@ -88,14 +88,14 @@ if (Test-Path $csvSource) {
 }
 
 # Copy database backup
-$dbSource = Join-Path $repoRoot "instance\barberx_FRESH.db"
-$dbDest = Join-Path $secureRoot "Backups\barberx_FRESH-$(Get-Date -Format 'yyyyMMdd').db"
+$dbSource = Join-Path $repoRoot "instance\Evident_FRESH.db"
+$dbDest = Join-Path $secureRoot "Backups\Evident_FRESH-$(Get-Date -Format 'yyyyMMdd').db"
 
 if (Test-Path $dbSource) {
     Copy-Item -Path $dbSource -Destination $dbDest -Force
     Write-Host "  ✓ Copied: Database backup → Backups\" -ForegroundColor Green
 } else {
-    Write-Host "  ⚠ Database not found at instance\barberx_FRESH.db" -ForegroundColor Yellow
+    Write-Host "  ⚠ Database not found at instance\Evident_FRESH.db" -ForegroundColor Yellow
 }
 
 Write-Host ""
@@ -121,12 +121,12 @@ Write-Host "Task 2.4: Creating automated backup script..." -ForegroundColor Cyan
 $backupScriptPath = Join-Path $repoRoot "scripts\backup-confidential-data.ps1"
 
 $backupScriptContent = @'
-# BarberX Automated Backup Script
+# Evident Automated Backup Script
 # Scheduled to run daily at 2 AM via Task Scheduler
 
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
-$sourcePath = "C:\SecureData\BarberX-Confidential"
-$backupPath = "C:\SecureData\BarberX-Confidential\Backups\backup-$timestamp"
+$sourcePath = "C:\SecureData\Evident-Confidential"
+$backupPath = "C:\SecureData\Evident-Confidential\Backups\backup-$timestamp"
 
 # Create backup
 Write-Host "Starting backup at $(Get-Date)" -ForegroundColor Cyan
@@ -170,9 +170,9 @@ Write-Host @"
 
 `$trigger = New-ScheduledTaskTrigger -Daily -At 2AM
 
-Register-ScheduledTask -TaskName "BarberX-Confidential-Backup" ``
+Register-ScheduledTask -TaskName "Evident-Confidential-Backup" ``
   -Action `$action -Trigger `$trigger ``
-  -Description "Daily backup of BarberX confidential data"
+  -Description "Daily backup of Evident confidential data"
 "@ -ForegroundColor Cyan
 Write-Host ""
 
@@ -184,7 +184,7 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "IMPORTANT: Encryption Setup" -ForegroundColor Yellow
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Files are now in C:\SecureData\BarberX-Confidential\" -ForegroundColor Green
+Write-Host "Files are now in C:\SecureData\Evident-Confidential\" -ForegroundColor Green
 Write-Host "but are NOT yet encrypted." -ForegroundColor Red
 Write-Host ""
 Write-Host "Next steps (choose ONE):" -ForegroundColor Yellow
@@ -197,12 +197,12 @@ Write-Host ""
 Write-Host "Option 2: VeraCrypt (Free, Cross-platform)" -ForegroundColor Cyan
 Write-Host "  1. Download: https://www.veracrypt.fr/" -ForegroundColor Gray
 Write-Host "  2. Create encrypted container (500 MB)" -ForegroundColor Gray
-Write-Host "  3. Move BarberX-Confidential folder into container" -ForegroundColor Gray
+Write-Host "  3. Move Evident-Confidential folder into container" -ForegroundColor Gray
 Write-Host ""
 Write-Host "Option 3: Google Drive with 2FA (Cloud Backup)" -ForegroundColor Cyan
 Write-Host "  1. Install Google Drive for Desktop" -ForegroundColor Gray
 Write-Host "  2. Enable 2FA on Google Account" -ForegroundColor Gray
-Write-Host "  3. Move BarberX-Confidential to Google Drive folder" -ForegroundColor Gray
+Write-Host "  3. Move Evident-Confidential to Google Drive folder" -ForegroundColor Gray
 Write-Host "  4. Enable 'Make available offline'" -ForegroundColor Gray
 Write-Host ""
 
@@ -212,7 +212,7 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Summary:" -ForegroundColor Yellow
 Write-Host "  ✓ Secure folder structure created" -ForegroundColor Green
-Write-Host "  ✓ Confidential files copied to C:\SecureData\BarberX-Confidential\" -ForegroundColor Green
+Write-Host "  ✓ Confidential files copied to C:\SecureData\Evident-Confidential\" -ForegroundColor Green
 Write-Host "  ✓ File integrity verified (SHA256 hashes)" -ForegroundColor Green
 Write-Host "  ✓ Backup script created" -ForegroundColor Green
 Write-Host "  □ Encryption pending (choose Option 1, 2, or 3 above)" -ForegroundColor Yellow

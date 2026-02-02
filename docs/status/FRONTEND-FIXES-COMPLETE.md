@@ -74,9 +74,9 @@
 
 ? Contact options:
 
-- **Sales:** sales@barberx.info
-- **Support:** support@barberx.info
-- **General:** info@barberx.info
+- **Sales:** sales@Evident.info
+- **Support:** support@Evident.info
+- **General:** info@Evident.info
 
 ? Contact form (ready for Formspree)  
 ? GitHub community links  
@@ -104,7 +104,7 @@
 ## ?? **Frontend File Structure (Updated):**
 
 ```
-BarberX.info/
+Evident.info/
 ??? index.html                         ? Main landing (Jekyll)
 ??? docs.html                          ? NEW - Documentation
 ??? pricing.html                       ? NEW - Pricing page
@@ -260,9 +260,9 @@ Dashboard (/auth/dashboard) ?
 
 | Service       | URL                                           | Status |
 | ------------- | --------------------------------------------- | ------ |
-| GitHub Repo   | https://github.com/DTB396/BarberX.info        | ?      |
-| Render App    | https://barberx-legal-tech.onrender.com       | ?      |
-| GitHub Issues | https://github.com/DTB396/BarberX.info/issues | ?      |
+| GitHub Repo   | https://github.com/DTB396/Evident.info        | ?      |
+| Render App    | https://Evident-legal-tech.onrender.com       | ?      |
+| GitHub Issues | https://github.com/DTB396/Evident.info/issues | ?      |
 | DNSChecker    | https://dnschecker.org                        | ?      |
 
 ---
@@ -321,20 +321,20 @@ Dashboard (/auth/dashboard) ?
 
 **Marketing Pages (GitHub Pages):**
 
-- Home: https://dtb396.github.io/BarberX.info/
-- Docs: https://dtb396.github.io/BarberX.info/docs
-- Pricing: https://dtb396.github.io/BarberX.info/pricing
-- Contact: https://dtb396.github.io/BarberX.info/contact
+- Home: https://dtb396.github.io/Evident.info/
+- Docs: https://dtb396.github.io/Evident.info/docs
+- Pricing: https://dtb396.github.io/Evident.info/pricing
+- Contact: https://dtb396.github.io/Evident.info/contact
 
 **Web App (Render):**
 
-- App: https://barberx-legal-tech.onrender.com
-- Login: https://barberx-legal-tech.onrender.com/auth/login
-- Dashboard: https://barberx-legal-tech.onrender.com/auth/dashboard
+- App: https://Evident-legal-tech.onrender.com
+- Login: https://Evident-legal-tech.onrender.com/auth/login
+- Dashboard: https://Evident-legal-tech.onrender.com/auth/dashboard
 
 **Custom Domain (Once DNS configured):**
 
-- App: https://app.barberx.info
+- App: https://app.Evident.info
 
 ---
 
@@ -354,14 +354,14 @@ Dashboard (/auth/dashboard) ?
 
 **Questions about frontend?**
 
-- Email: support@barberx.info
-- GitHub Issues: https://github.com/DTB396/BarberX.info/issues
+- Email: support@Evident.info
+- GitHub Issues: https://github.com/DTB396/Evident.info/issues
 - Tag: `frontend` or `documentation`
 
 ---
 
 ## ?? **Your Frontend is Production-Ready!**
 
-All pages are created, all links work, all documentation is complete. Your BarberX.info frontend is professional, accessible, and ready for users!
+All pages are created, all links work, all documentation is complete. Your Evident.info frontend is professional, accessible, and ready for users!
 
 **Enjoy! ??**

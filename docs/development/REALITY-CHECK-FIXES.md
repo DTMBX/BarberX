@@ -65,7 +65,7 @@
 **AFTER:**
 - "Westlaw Enterprise: $1,500-2,500/month depending on features"
 - "Entry-level Westlaw: $500-800/month"
-- "BarberX Professional: $50/month (comparable to entry-level features)"
+- "Evident Professional: $50/month (comparable to entry-level features)"
 
 ### 5. Reframed **Timeline as Goals, Not Promises**
 
@@ -130,10 +130,10 @@
 ### Mission Page - Ground in Reality
 
 **CURRENT:**
-"BarberX provides research-grade tools at 1/10th the cost"
+"Evident provides research-grade tools at 1/10th the cost"
 
 **BETTER:**
-"BarberX is building affordable legal research tools by integrating CourtListener's free legal data with AI, mobile apps, and professional support. We're in early beta."
+"Evident is building affordable legal research tools by integrating CourtListener's free legal data with AI, mobile apps, and professional support. We're in early beta."
 
 ### Pricing Comparison - Add Context
 
@@ -144,7 +144,7 @@
 "Westlaw Enterprise: $1,500-2,500/month | Entry-level: $500-800/month"
 
 Add disclaimer:
-"BarberX is in beta. Our Professional tier ($50/month) targets entry-level features. Enterprise features coming 2026-2027."
+"Evident is in beta. Our Professional tier ($50/month) targets entry-level features. Enterprise features coming 2026-2027."
 
 ### Timeline - Reframe as Roadmap
 
@@ -213,7 +213,7 @@ Add disclaimer:
 - ⏳ Donate 2-5% of revenue to Free Law Project
 
 **Our Positioning:**
-"BarberX brings CourtListener's exceptional legal data to mobile devices with AI-powered research tools and professional support. The data is always free at CourtListener.com—we charge for our added value."
+"Evident brings CourtListener's exceptional legal data to mobile devices with AI-powered research tools and professional support. The data is always free at CourtListener.com—we charge for our added value."
 
 ---
 

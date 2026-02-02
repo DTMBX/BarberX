@@ -1,14 +1,14 @@
 {
-  "name": "BarberX Legal Technologies",
-  "short_name": "BarberX",
-  "description": "Professional legal video analysis, forensic tools, and AI-powered document intelligence",
+  "name": "Evident Technologies",
+  "short_name": "Evident",
+  "description": "Legal-grade evidence processing and verification platform for video, documents, and records",
   "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#0a2540",
-  "theme_color": "#c41e3a",
+  "theme_color": "#3b82f6",
   "orientation": "any",
   "scope": "/",
-  "id": "barberx-legal-tech",
+  "id": "evident-technologies",
   "lang": "en-US",
   "dir": "ltr",
   "icons": [
@@ -133,7 +133,13 @@
       "files": [
         {
           "name": "documents",
-          "accept": ["application/pdf", "text/plain", ".doc", ".docx", "application/msword"]
+          "accept": [
+            "application/pdf",
+            "text/plain",
+            ".doc",
+            ".docx",
+            "application/msword"
+          ]
         }
       ]
     }
@@ -145,13 +151,15 @@
         "application/pdf": [".pdf"],
         "text/plain": [".txt"],
         "application/msword": [".doc"],
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"]
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [
+          ".docx"
+        ]
       }
     }
   ],
   "protocol_handlers": [
     {
-      "protocol": "web+barberx",
+      "protocol": "web+Evident",
       "url": "/protocol-handler?url=%s"
     }
   ],

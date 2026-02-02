@@ -85,7 +85,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
     environment:
       name: staging
-      url: https://staging.barberx.info
+      url: https://staging.Evident.info
       
     steps:
     - name: Checkout code
@@ -104,7 +104,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: production
-      url: https://barberx.info
+      url: https://Evident.info
       
     steps:
     - name: Checkout code

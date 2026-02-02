@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using BarberX.MatterDocket.MAUI.Services;
-using BarberX.MatterDocket.MAUI.ViewModels;
-using BarberX.MatterDocket.MAUI.Views;
+using Microsoft.Extensions.Logging;
+using Evident.MatterDocket.MAUI.Services;
+using Evident.MatterDocket.MAUI.ViewModels;
+using Evident.MatterDocket.MAUI.Views;
 
-namespace BarberX.MatterDocket.MAUI;
+namespace Evident.MatterDocket.MAUI;
 
 public static class MauiProgram
 {

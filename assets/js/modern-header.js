@@ -253,7 +253,7 @@
    */
   let lastScroll = 0;
   window.addEventListener("scroll", () => {
-    const header = document.querySelector(".barberx-header");
+    const header = document.querySelector(".Evident-header");
     if (!header) return;
 
     const currentScroll = window.pageYOffset;

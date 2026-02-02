@@ -23,16 +23,16 @@ def test_admin_login():
     print("=" * 70)
 
     # Check environment variable
-    admin_password = os.environ.get("BARBERX_ADMIN_PASSWORD")
+    admin_password = os.environ.get("Evident_ADMIN_PASSWORD")
     if not admin_password:
-        print("❌ BARBERX_ADMIN_PASSWORD environment variable NOT SET")
-        print("   Run: $env:BARBERX_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
+        print("❌ Evident_ADMIN_PASSWORD environment variable NOT SET")
+        print("   Run: $env:Evident_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
         return False
 
     print(f"✅ Environment variable set: {admin_password[:10]}...")
 
     # Check database
-    db_path = "instance/barberx.db"
+    db_path = "instance/Evident.db"
     if not os.path.exists(db_path):
         print(f"❌ Database not found: {db_path}")
         return False
@@ -47,7 +47,7 @@ def test_admin_login():
         """
         SELECT email, password_hash, role, subscription_tier, is_active 
         FROM user 
-        WHERE email = 'admin@barberx.info'
+        WHERE email = 'admin@Evident.info'
     """
     )
 
@@ -180,13 +180,13 @@ def main():
         print("2. Test admin login: http://localhost:5000/auth/login")
         print("3. Test mobile nav: Resize browser to < 1024px width")
         print("\nAdmin credentials:")
-        print("   Email: admin@barberx.info")
-        print("   Password: (in BARBERX_ADMIN_PASSWORD env var)")
+        print("   Email: admin@Evident.info")
+        print("   Password: (in Evident_ADMIN_PASSWORD env var)")
     else:
         print("\n❌ SOME TESTS FAILED")
         print("\nSee error messages above for details.")
         print("\nQuick fixes:")
-        print("1. Set password: $env:BARBERX_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
+        print("1. Set password: $env:Evident_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
         print("2. Create admin: python scripts/create_admin.py")
         print("3. Check _layouts/default.html has premium-header.js")
 

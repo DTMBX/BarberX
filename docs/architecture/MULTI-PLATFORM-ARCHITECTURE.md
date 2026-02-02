@@ -1,4 +1,4 @@
-# BarberX Matter Docket (DTMB) - Multi-Platform Architecture
+# Evident Matter Docket (DTMB) - Multi-Platform Architecture
 
 **Date:** January 27, 2026  
 **Status:** Multi-Platform Development Active  
@@ -9,7 +9,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    BARBERX MATTER DOCKET                         │
+│                    Evident MATTER DOCKET                         │
 │              Professional Legal Evidence Platform                │
 └─────────────────────────────────────────────────────────────────┘
                                │
@@ -35,7 +35,7 @@
 ## 📁 Repository Structure (Multi-Platform)
 
 ```
-BarberX.info/
+Evident.info/
 │
 ├── 🌐 WEB APPLICATION (Root)
 │   ├── app.py                          # Flask main application
@@ -47,7 +47,7 @@ BarberX.info/
 │   └── requirements.txt                # Python dependencies
 │
 ├── 📱 WINDOWS/MOBILE APP (src/)
-│   └── BarberX.MatterDocket.MAUI/
+│   └── Evident.MatterDocket.MAUI/
 │       ├── ViewModels/                 # MVVM ViewModels
 │       │   ├── BaseViewModel.cs
 │       │   └── LoginViewModel.cs
@@ -139,7 +139,7 @@ GET    /api/user/invoices                 # All platforms
 ### Colors (Consistent Across All Platforms)
 
 ```
-Primary Gold:     #d4a574  (BarberX brand color)
+Primary Gold:     #d4a574  (Evident brand color)
 Background Dark:  #0f0f0f  (Main background)
 Surface Dark:     #1a1a1a  (Cards, inputs)
 Text Primary:     #ffffff  (Headings)
@@ -200,7 +200,7 @@ Cards:
                │ Sync on network available
                ▼
 ┌──────────────────────────────────────────────────┐
-│  Flask REST API (barberx.info)                   │
+│  Flask REST API (Evident.info)                   │
 │  - PostgreSQL (source of truth)                  │
 │  - S3 file storage                               │
 │  - Stripe payments                               │
@@ -245,7 +245,7 @@ if (NetworkConnectivity.Current.NetworkAccess == NetworkAccess.Internet)
 ### Step 3: Web Implementation
 - Create Flask templates
 - Add JavaScript interactions
-- Test on barberx.info
+- Test on Evident.info
 
 ### Step 4: Windows/Mobile Implementation
 - Create XAML views
@@ -326,13 +326,13 @@ Test the same user flows across all platforms to ensure consistency.
 ## 📈 Platform Statistics
 
 ### Web Application
-- **Status:** ✅ Live at barberx.info
+- **Status:** ✅ Live at Evident.info
 - **Users:** Active production system
 - **Features:** 100% complete
 - **Tech Stack:** Flask, PostgreSQL, Stripe, OpenAI
 
 ### REST API
-- **Status:** ✅ Live at barberx.info/api
+- **Status:** ✅ Live at Evident.info/api
 - **Endpoints:** 20+ endpoints
 - **Auth:** JWT Bearer tokens
 - **Tech Stack:** Flask, PostgreSQL

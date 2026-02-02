@@ -36,7 +36,7 @@ def test_database_path():
             print(f"❌ Database file NOT found at: {db_path}")
 
             # Check common locations
-            common_paths = ["instance/barberx.db", "barberx.db", "barberx_FRESH.db"]
+            common_paths = ["instance/Evident.db", "Evident.db", "Evident_FRESH.db"]
 
             print("\nChecking common locations:")
             for path in common_paths:
@@ -59,7 +59,7 @@ def test_admin_user():
 
     with app.app_context():
         try:
-            admin = User.query.filter_by(email="admin@barberx.info").first()
+            admin = User.query.filter_by(email="admin@Evident.info").first()
 
             if admin:
                 print("✅ Admin user found in database")
@@ -94,10 +94,10 @@ def test_password_verification():
     print("TEST 3: Password Verification")
     print("=" * 70)
 
-    password = os.environ.get("BARBERX_ADMIN_PASSWORD")
+    password = os.environ.get("Evident_ADMIN_PASSWORD")
 
     if not password:
-        print("❌ BARBERX_ADMIN_PASSWORD environment variable NOT SET")
+        print("❌ Evident_ADMIN_PASSWORD environment variable NOT SET")
         return False
 
     print(f"✅ Environment variable set: {password[:10]}...")
@@ -106,7 +106,7 @@ def test_password_verification():
     from models_auth import User, db
 
     with app.app_context():
-        admin = User.query.filter_by(email="admin@barberx.info").first()
+        admin = User.query.filter_by(email="admin@Evident.info").first()
 
         if not admin:
             print("❌ Cannot test - admin user not found")
@@ -149,11 +149,11 @@ def test_login_route():
 
         # Test POST request
         print("\nTesting POST login...")
-        password = os.environ.get("BARBERX_ADMIN_PASSWORD", "test")
+        password = os.environ.get("Evident_ADMIN_PASSWORD", "test")
 
         response = client.post(
             "/auth/login",
-            data={"email": "admin@barberx.info", "password": password},
+            data={"email": "admin@Evident.info", "password": password},
             follow_redirects=False,
         )
 
@@ -229,7 +229,7 @@ def main():
     if results.get("database_path") == "FAIL":
         print("❌ FIX DATABASE:")
         print("   Database not found at expected location")
-        print("   Run: Copy-Item scripts\\instance\\barberx.db instance\\barberx.db -Force")
+        print("   Run: Copy-Item scripts\\instance\\Evident.db instance\\Evident.db -Force")
 
     if results.get("admin_user") == "FAIL":
         print("❌ FIX ADMIN USER:")
@@ -240,7 +240,7 @@ def main():
         print("❌ FIX PASSWORD:")
         print("   Password doesn't match database hash")
         print("   Option 1: Set correct password in environment:")
-        print("     $env:BARBERX_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
+        print("     $env:Evident_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
         print("   Option 2: Recreate admin account:")
         print("     python scripts/create_admin.py")
 

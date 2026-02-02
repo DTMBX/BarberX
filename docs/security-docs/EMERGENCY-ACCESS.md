@@ -1,11 +1,11 @@
 # 🆘 EMERGENCY ACCESS FIX
 
-## ISSUE: Cannot login to live BarberX app
+## ISSUE: Cannot login to live Evident app
 
 **Test accounts not working:**
-- free@barberx.test
-- pro@barberx.test  
-- admin@barberx.test
+- free@Evident.test
+- pro@Evident.test  
+- admin@Evident.test
 
 ---
 
@@ -15,10 +15,10 @@
 
 **Try these URLs:**
 
-1. **Main site:** https://barberx.info/
-2. **Render URL:** https://barberx-backend.onrender.com/
-3. **Login page:** https://barberx.info/login
-4. **Register page:** https://barberx.info/register
+1. **Main site:** https://Evident.info/
+2. **Render URL:** https://Evident-backend.onrender.com/
+3. **Login page:** https://Evident.info/login
+4. **Register page:** https://Evident.info/register
 
 **What do you see?**
 - Working page? ✅
@@ -32,7 +32,7 @@
 
 **Don't use test emails!** Use a real email you can access.
 
-1. **Go to:** https://barberx.info/register
+1. **Go to:** https://Evident.info/register
 
 2. **Fill out with YOUR real info:**
    ```
@@ -51,7 +51,7 @@
 
 **Try the Render URL directly:**
 
-1. **Go to:** https://barberx-backend.onrender.com/register
+1. **Go to:** https://Evident-backend.onrender.com/register
 2. **Register with real email**
 3. **Try to login**
 
@@ -63,7 +63,7 @@
 
 Run this to diagnose:
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python check_live_app.py
 ```
 
@@ -77,11 +77,11 @@ This will:
 
 ## 🆘 TELL ME WHAT YOU SEE
 
-**When you visit https://barberx.info/ what happens?**
+**When you visit https://Evident.info/ what happens?**
 
 - "Cannot connect" → App isn't deployed
 - "Internal Server Error" → App crashed
-- "Welcome to BarberX" → App is running!
+- "Welcome to Evident" → App is running!
 - "404 Not Found" → Wrong URL
 
 **Tell me exactly what you see and I'll fix it!**

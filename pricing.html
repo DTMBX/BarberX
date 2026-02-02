@@ -1,496 +1,558 @@
 ---
 layout: default
-title: "Founding Member Pricing | BarberX Legal Technologies"
-description: "Limited founding member pricing with generous soft caps. Lock in early-adopter rates permanently. AI-powered legal evidence analysis."
+title: "Founding Member Pricing | Evident Technologies"
+description: "Limited founding member pricing with generous soft caps. Lock in early-adopter rates permanently. Legal-grade evidence processing and analysis."
 permalink: /pricing/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/legal-tech-platform.css' | relative_url }}">
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/legal-tech-platform.css' | relative_url }}"
+/>
 
 <style>
-/* Founding Member Pricing Styles */
-.founding-banner {
-  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #2563eb 100%);
-  padding: var(--space-3) var(--space-6);
-  text-align: center;
-  color: white;
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-}
-
-.founding-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(50%); }
-}
-
-.founding-banner .spots {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-left: var(--space-4);
-  background: rgba(0,0,0,0.25);
-  padding: var(--space-1) var(--space-3);
-  border-radius: 20px;
-  font-size: 0.875rem;
-}
-
-/* Pricing Card Base */
-.pricing-card {
-  padding: var(--space-6) var(--space-5);
-  background: var(--surface-color);
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
-  overflow: hidden;
-}
-
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-blue), var(--primary-navy));
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-  border-color: var(--accent-blue);
-}
-
-.pricing-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* Featured Card */
-.pricing-card.featured {
-  border: 2px solid #7c3aed;
-  background: linear-gradient(180deg, rgba(124, 58, 237, 0.04) 0%, var(--surface-color) 100%);
-  transform: scale(1.03);
-  z-index: 2;
-}
-
-.pricing-card.featured::before {
-  transform: scaleX(1);
-  background: linear-gradient(90deg, #7c3aed, #4f46e5, #2563eb);
-}
-
-.pricing-card.featured:hover {
-  transform: scale(1.03) translateY(-8px);
-  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
-}
-
-/* Enterprise Card */
-.pricing-card.enterprise {
-  background: linear-gradient(135deg, var(--primary-navy) 0%, #1e3a5f 100%);
-  color: white;
-}
-
-.pricing-card.enterprise::before {
-  background: linear-gradient(90deg, #d4af37, #f0d78c);
-  transform: scaleX(1);
-}
-
-.pricing-card.enterprise:hover {
-  box-shadow: 0 20px 40px rgba(0, 51, 102, 0.35);
-}
-
-/* Badges */
-.pricing-badge {
-  position: absolute;
-  top: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
-  color: white;
-  padding: var(--space-1) var(--space-4);
-  border-radius: 0 0 10px 10px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
-}
-
-.pricing-badge.hot {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  animation: pulse-badge 2s infinite;
-}
-
-@keyframes pulse-badge {
-  0%, 100% { box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4); }
-  50% { box-shadow: 0 4px 20px rgba(239, 68, 68, 0.6); }
-}
-
-/* Pricing Header */
-.pricing-header {
-  text-align: center;
-  margin-bottom: var(--space-5);
-  padding-top: var(--space-3);
-}
-
-.pricing-title {
-  font-size: 1.35rem;
-  margin-bottom: var(--space-1);
-  font-weight: 700;
-}
-
-.pricing-subtitle {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-3);
-}
-
-.pricing-card.enterprise .pricing-subtitle {
-  color: rgba(255,255,255,0.7);
-}
-
-/* Price Display */
-.price-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: var(--space-2);
-}
-
-.pricing-original {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  text-decoration: line-through;
-}
-
-.pricing-price {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--primary-navy);
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.pricing-card:hover .pricing-price {
-  transform: scale(1.05);
-}
-
-.pricing-card.enterprise .pricing-price {
-  color: #d4af37;
-}
-
-.pricing-period {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-top: var(--space-1);
-}
-
-.pricing-card.enterprise .pricing-period {
-  color: rgba(255,255,255,0.7);
-}
-
-/* Savings Badge */
-.savings-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  padding: 2px var(--space-2);
-  border-radius: 12px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  margin-top: var(--space-2);
-  text-transform: uppercase;
-}
-
-/* Features List */
-.pricing-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-5) 0;
-}
-
-.pricing-features li {
-  padding: var(--space-2) 0;
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
-  font-size: 0.9rem;
-  border-bottom: 1px solid var(--border-color);
-  transition: padding-left 0.2s ease;
-}
-
-.pricing-features li:last-child {
-  border-bottom: none;
-}
-
-.pricing-card:hover .pricing-features li {
-  padding-left: var(--space-1);
-}
-
-.pricing-card.enterprise .pricing-features li {
-  border-color: rgba(255,255,255,0.12);
-}
-
-/* Feature Icons */
-.feature-icon {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.65rem;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.feature-icon.check {
-  background: #10b981;
-  color: white;
-}
-
-.feature-icon.soft {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
-  color: white;
-  font-size: 0.6rem;
-  font-weight: 700;
-}
-
-.feature-icon.unlimited {
-  background: linear-gradient(135deg, #d4af37, #f0d78c);
-  color: #1e3a5f;
-  font-weight: 700;
-}
-
-.feature-text {
-  flex: 1;
-  line-height: 1.4;
-}
-
-.feature-text strong {
-  font-weight: 600;
-}
-
-/* CTA Buttons */
-.pricing-cta {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-align: center;
-  display: block;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing-cta::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s, height 0.5s;
-}
-
-.pricing-cta:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
-.pricing-cta.primary {
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
-  color: white;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
-}
-
-.pricing-cta.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
-}
-
-.pricing-cta.secondary {
-  background: transparent;
-  color: var(--primary-navy);
-  border: 2px solid var(--border-color);
-}
-
-.pricing-cta.secondary:hover {
-  border-color: var(--primary-navy);
-  background: var(--primary-navy);
-  color: white;
-}
-
-.pricing-cta.gold {
-  background: linear-gradient(135deg, #d4af37, #f0d78c);
-  color: var(--primary-navy);
-  font-weight: 700;
-}
-
-.pricing-cta.gold:hover {
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
-}
-
-/* Pricing Grid */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-5);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-4);
-  align-items: start;
-}
-
-@media (min-width: 1100px) {
-  .pricing-grid {
-    grid-template-columns: repeat(4, 1fr);
+  /* Founding Member Pricing Styles */
+  .founding-banner {
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #2563eb 100%);
+    padding: var(--space-3) var(--space-6);
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
   }
+
+  .founding-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+
+  .founding-banner .spots {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: var(--space-4);
+    background: rgba(0, 0, 0, 0.25);
+    padding: var(--space-1) var(--space-3);
+    border-radius: 20px;
+    font-size: 0.875rem;
+  }
+
+  /* Pricing Card Base */
+  .pricing-card {
+    padding: var(--space-6) var(--space-5);
+    background: var(--surface-color);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    overflow: hidden;
+  }
+
+  .pricing-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--primary-navy));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-blue);
+  }
+
+  .pricing-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Featured Card */
   .pricing-card.featured {
-    margin-top: calc(-1 * var(--space-4));
-    padding-top: calc(var(--space-6) + var(--space-4));
-    padding-bottom: calc(var(--space-6) + var(--space-4));
+    border: 2px solid #7c3aed;
+    background: linear-gradient(
+      180deg,
+      rgba(124, 58, 237, 0.04) 0%,
+      var(--surface-color) 100%
+    );
+    transform: scale(1.03);
+    z-index: 2;
   }
-}
 
-/* Soft Cap Info */
-.soft-cap-info {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(99, 102, 241, 0.08));
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 14px;
-  padding: var(--space-5);
-  margin-top: var(--space-8);
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .pricing-card.featured::before {
+    transform: scaleX(1);
+    background: linear-gradient(90deg, #7c3aed, #4f46e5, #2563eb);
+  }
 
-.soft-cap-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: var(--space-4);
-  color: #7c3aed;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
+  .pricing-card.featured:hover {
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
+  }
 
-.soft-cap-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-4);
-}
+  /* Enterprise Card */
+  .pricing-card.enterprise {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, #1e3a5f 100%);
+    color: white;
+  }
 
-.soft-cap-item {
-  display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
-}
+  .pricing-card.enterprise::before {
+    background: linear-gradient(90deg, #d4af37, #f0d78c);
+    transform: scaleX(1);
+  }
 
-.soft-cap-item .icon {
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
+  .pricing-card.enterprise:hover {
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.35);
+  }
 
-.soft-cap-item strong {
-  display: block;
-  font-size: 0.85rem;
-  margin-bottom: 2px;
-}
+  /* Badges */
+  .pricing-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: white;
+    padding: var(--space-1) var(--space-4);
+    border-radius: 0 0 10px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+  }
 
-.soft-cap-item p {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.4;
-}
+  .pricing-badge.hot {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    animation: pulse-badge 2s infinite;
+  }
 
-/* Guarantee Banner */
-.guarantee-banner {
-  text-align: center;
-  margin-top: var(--space-6);
-  padding: var(--space-4);
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-}
+  @keyframes pulse-badge {
+    0%,
+    100% {
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.6);
+    }
+  }
 
-.guarantee-banner strong {
-  color: var(--primary-navy);
-}
+  /* Pricing Header */
+  .pricing-header {
+    text-align: center;
+    margin-bottom: var(--space-5);
+    padding-top: var(--space-3);
+  }
 
-/* Animation */
-@keyframes checkPop {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
+  .pricing-title {
+    font-size: 1.35rem;
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+  }
 
-.pricing-card:hover .feature-icon {
-  animation: checkPop 0.3s ease forwards;
-}
+  .pricing-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3);
+  }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .founding-banner .spots { display: none; }
-  .pricing-price { font-size: 2.5rem; }
-  .pricing-card { padding: var(--space-5) var(--space-4); }
-}
+  .pricing-card.enterprise .pricing-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Price Display */
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+
+  .pricing-original {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+  }
+
+  .pricing-price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .pricing-card:hover .pricing-price {
+    transform: scale(1.05);
+  }
+
+  .pricing-card.enterprise .pricing-price {
+    color: #d4af37;
+  }
+
+  .pricing-period {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: var(--space-1);
+  }
+
+  .pricing-card.enterprise .pricing-period {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Savings Badge */
+  .savings-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 2px var(--space-2);
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-top: var(--space-2);
+    text-transform: uppercase;
+  }
+
+  /* Features List */
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-5) 0;
+  }
+
+  .pricing-features li {
+    padding: var(--space-2) 0;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: padding-left 0.2s ease;
+  }
+
+  .pricing-features li:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-card:hover .pricing-features li {
+    padding-left: var(--space-1);
+  }
+
+  .pricing-card.enterprise .pricing-features li {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Feature Icons */
+  .feature-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-icon.check {
+    background: #10b981;
+    color: white;
+  }
+
+  .feature-icon.soft {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+
+  .feature-icon.unlimited {
+    background: linear-gradient(135deg, #d4af37, #f0d78c);
+    color: #1e3a5f;
+    font-weight: 700;
+  }
+
+  .feature-text {
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .feature-text strong {
+    font-weight: 600;
+  }
+
+  /* CTA Buttons */
+  .pricing-cta {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-cta::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.5s,
+      height 0.5s;
+  }
+
+  .pricing-cta:hover::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  .pricing-cta.primary {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: white;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+  }
+
+  .pricing-cta.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+  }
+
+  .pricing-cta.secondary {
+    background: transparent;
+    color: var(--primary-navy);
+    border: 2px solid var(--border-color);
+  }
+
+  .pricing-cta.secondary:hover {
+    border-color: var(--primary-navy);
+    background: var(--primary-navy);
+    color: white;
+  }
+
+  .pricing-cta.gold {
+    background: linear-gradient(135deg, #d4af37, #f0d78c);
+    color: var(--primary-navy);
+    font-weight: 700;
+  }
+
+  .pricing-cta.gold:hover {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+  }
+
+  /* Pricing Grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-5);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-4);
+    align-items: start;
+  }
+
+  @media (min-width: 1100px) {
+    .pricing-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .pricing-card.featured {
+      margin-top: calc(-1 * var(--space-4));
+      padding-top: calc(var(--space-6) + var(--space-4));
+      padding-bottom: calc(var(--space-6) + var(--space-4));
+    }
+  }
+
+  /* Soft Cap Info */
+  .soft-cap-info {
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.08),
+      rgba(99, 102, 241, 0.08)
+    );
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 14px;
+    padding: var(--space-5);
+    margin-top: var(--space-8);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .soft-cap-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-4);
+    color: #7c3aed;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .soft-cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .soft-cap-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .soft-cap-item .icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .soft-cap-item strong {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+
+  .soft-cap-item p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Guarantee Banner */
+  .guarantee-banner {
+    text-align: center;
+    margin-top: var(--space-6);
+    padding: var(--space-4);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .guarantee-banner strong {
+    color: var(--primary-navy);
+  }
+
+  /* Animation */
+  @keyframes checkPop {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .pricing-card:hover .feature-icon {
+    animation: checkPop 0.3s ease forwards;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .founding-banner .spots {
+      display: none;
+    }
+    .pricing-price {
+      font-size: 2.5rem;
+    }
+    .pricing-card {
+      padding: var(--space-5) var(--space-4);
+    }
+  }
 </style>
 
-<main id="main-content" style="padding-top: 80px;">
-  
+<main id="main-content" style="padding-top: 80px">
   <!-- Founding Member Banner -->
   <div class="founding-banner">
-    🚀 <strong>Founding Member Pricing</strong> — Lock in these rates permanently
+    🚀 <strong>Founding Member Pricing</strong> — Lock in these rates
+    permanently
     <span class="spots">🎯 Limited early-access spots</span>
   </div>
 
   <!-- Hero Section -->
-  <section class="section" style="background: linear-gradient(135deg, var(--primary-navy) 0%, #1e3a5f 100%); color: white; padding: var(--space-12) 0;">
-    <div class="container-narrow" style="text-align: center;">
-      <h1 style="font-size: 2.5rem; margin-bottom: var(--space-3); color: white; font-weight: 800;">Generous Limits. No Surprise Charges.</h1>
-      <p style="font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.6;">
-        Soft caps let you keep working — we notify you at 80%, then gracefully slow down instead of cutting you off. 
-        Founding members lock in discounted rates forever.
+  <section
+    class="section"
+    style="
+      background: linear-gradient(135deg, var(--primary-navy) 0%, #1e3a5f 100%);
+      color: white;
+      padding: var(--space-12) 0;
+    "
+  >
+    <div class="container-narrow" style="text-align: center">
+      <h1
+        style="
+          font-size: 2.5rem;
+          margin-bottom: var(--space-3);
+          color: white;
+          font-weight: 800;
+        "
+      >
+        Generous Limits. No Surprise Charges.
+      </h1>
+      <p
+        style="
+          font-size: 1.1rem;
+          opacity: 0.9;
+          max-width: 650px;
+          margin: 0 auto;
+          line-height: 1.6;
+        "
+      >
+        Soft caps let you keep working — we notify you at 80%, then gracefully
+        slow down instead of cutting you off. Founding members lock in
+        discounted rates forever.
       </p>
     </div>
   </section>
 
   <!-- Pricing Tiers -->
-  <section class="section" style="padding: var(--space-12) 0;">
+  <section class="section" style="padding: var(--space-12) 0">
     <div class="container">
-      
       <div class="pricing-grid">
-        
         <!-- FREE TIER -->
         <div class="pricing-card">
           <div class="pricing-header">
@@ -499,7 +561,7 @@ permalink: /pricing/
             <div class="pricing-price">$0</div>
             <div class="pricing-period">forever free</div>
           </div>
-          
+
           <ul class="pricing-features">
             <li>
               <span class="feature-icon soft">~</span>
@@ -507,11 +569,15 @@ permalink: /pricing/
             </li>
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~100 pages</strong>/month</span>
+              <span class="feature-text"
+                ><strong>~100 pages</strong>/month</span
+              >
             </li>
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~1 hr</strong> transcription</span>
+              <span class="feature-text"
+                ><strong>~1 hr</strong> transcription</span
+              >
             </li>
             <li>
               <span class="feature-icon check">✓</span>
@@ -526,14 +592,14 @@ permalink: /pricing/
               <span class="feature-text">Community support</span>
             </li>
           </ul>
-          
+
           <a href="/register" class="pricing-cta secondary">Get Started</a>
         </div>
 
         <!-- FOUNDING SOLO (Featured) -->
         <div class="pricing-card featured">
           <div class="pricing-badge hot">🔥 Most Popular</div>
-          
+
           <div class="pricing-header">
             <h3 class="pricing-title">Founding Solo</h3>
             <p class="pricing-subtitle">Solo & small firm practitioners</p>
@@ -544,19 +610,25 @@ permalink: /pricing/
             <div class="pricing-period">/month</div>
             <span class="savings-badge">🔒 Save 50% Forever</span>
           </div>
-          
+
           <ul class="pricing-features">
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~50 videos</strong>/month</span>
+              <span class="feature-text"
+                ><strong>~50 videos</strong>/month</span
+              >
             </li>
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~2,500 pages</strong>/month</span>
+              <span class="feature-text"
+                ><strong>~2,500 pages</strong>/month</span
+              >
             </li>
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~20 hrs</strong> transcription</span>
+              <span class="feature-text"
+                ><strong>~20 hrs</strong> transcription</span
+              >
             </li>
             <li>
               <span class="feature-icon check">✓</span>
@@ -575,14 +647,16 @@ permalink: /pricing/
               <span class="feature-text">Email support (24hr)</span>
             </li>
           </ul>
-          
-          <a href="/register?tier=founding-solo" class="pricing-cta primary">Lock In This Rate</a>
+
+          <a href="/register?tier=founding-solo" class="pricing-cta primary"
+            >Lock In This Rate</a
+          >
         </div>
 
         <!-- FOUNDING FIRM -->
         <div class="pricing-card">
           <div class="pricing-badge">Founding Rate</div>
-          
+
           <div class="pricing-header">
             <h3 class="pricing-title">Founding Firm</h3>
             <p class="pricing-subtitle">Growing teams & power users</p>
@@ -593,19 +667,25 @@ permalink: /pricing/
             <div class="pricing-period">/month</div>
             <span class="savings-badge">🔒 Save 40% Forever</span>
           </div>
-          
+
           <ul class="pricing-features">
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~200 videos</strong>/month</span>
+              <span class="feature-text"
+                ><strong>~200 videos</strong>/month</span
+              >
             </li>
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~15K pages</strong>/month</span>
+              <span class="feature-text"
+                ><strong>~15K pages</strong>/month</span
+              >
             </li>
             <li>
               <span class="feature-icon soft">~</span>
-              <span class="feature-text"><strong>~100 hrs</strong> transcription</span>
+              <span class="feature-text"
+                ><strong>~100 hrs</strong> transcription</span
+              >
             </li>
             <li>
               <span class="feature-icon check">✓</span>
@@ -624,27 +704,33 @@ permalink: /pricing/
               <span class="feature-text">Priority support (4hr)</span>
             </li>
           </ul>
-          
-          <a href="/register?tier=founding-firm" class="pricing-cta secondary">Lock In This Rate</a>
+
+          <a href="/register?tier=founding-firm" class="pricing-cta secondary"
+            >Lock In This Rate</a
+          >
         </div>
 
         <!-- ENTERPRISE -->
         <div class="pricing-card enterprise">
           <div class="pricing-header">
-            <h3 class="pricing-title" style="color: white;">Enterprise</h3>
+            <h3 class="pricing-title" style="color: white">Enterprise</h3>
             <p class="pricing-subtitle">Large organizations</p>
             <div class="pricing-price">Custom</div>
             <div class="pricing-period">tailored pricing</div>
           </div>
-          
+
           <ul class="pricing-features">
             <li>
               <span class="feature-icon unlimited">∞</span>
-              <span class="feature-text"><strong>Unlimited</strong> processing</span>
+              <span class="feature-text"
+                ><strong>Unlimited</strong> processing</span
+              >
             </li>
             <li>
               <span class="feature-icon unlimited">∞</span>
-              <span class="feature-text"><strong>Unlimited</strong> storage</span>
+              <span class="feature-text"
+                ><strong>Unlimited</strong> storage</span
+              >
             </li>
             <li>
               <span class="feature-icon check">✓</span>
@@ -667,10 +753,11 @@ permalink: /pricing/
               <span class="feature-text">99.9% SLA</span>
             </li>
           </ul>
-          
-          <a href="/contact?subject=enterprise" class="pricing-cta gold">Talk to Sales</a>
-        </div>
 
+          <a href="/contact?subject=enterprise" class="pricing-cta gold"
+            >Talk to Sales</a
+          >
+        </div>
       </div>
 
       <!-- Soft Cap Explanation -->
@@ -709,43 +796,129 @@ permalink: /pricing/
       </div>
 
       <div class="guarantee-banner">
-        💎 <strong>Founding rates are permanent.</strong> When early access ends, standard pricing will be 2× higher — but your rate stays locked.
+        💎 <strong>Founding rates are permanent.</strong> When early access
+        ends, standard pricing will be 2× higher — but your rate stays locked.
       </div>
-
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section" style="background: var(--bg-secondary); padding: var(--space-12) 0;">
+  <section
+    class="section"
+    style="background: var(--bg-secondary); padding: var(--space-12) 0"
+  >
     <div class="container-narrow">
-      <h2 style="text-align: center; margin-bottom: var(--space-8); font-size: 1.75rem;">Common Questions</h2>
-      
-      <div style="display: grid; gap: var(--space-3);">
-        <details style="padding: var(--space-4); background: var(--surface-color); border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1rem;">What happens if I exceed a soft cap?</summary>
-          <p style="margin-top: var(--space-3); color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-            Processing continues but may be slower during peak times. You'll never be cut off mid-work and there are no overage charges. Upgrade anytime for higher limits.
+      <h2
+        style="
+          text-align: center;
+          margin-bottom: var(--space-8);
+          font-size: 1.75rem;
+        "
+      >
+        Common Questions
+      </h2>
+
+      <div style="display: grid; gap: var(--space-3)">
+        <details
+          style="
+            padding: var(--space-4);
+            background: var(--surface-color);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+          "
+        >
+          <summary style="font-weight: 600; font-size: 1rem">
+            What happens if I exceed a soft cap?
+          </summary>
+          <p
+            style="
+              margin-top: var(--space-3);
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+              line-height: 1.6;
+            "
+          >
+            Processing continues but may be slower during peak times. You'll
+            never be cut off mid-work and there are no overage charges. Upgrade
+            anytime for higher limits.
           </p>
         </details>
 
-        <details style="padding: var(--space-4); background: var(--surface-color); border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1rem;">How long are founding rates available?</summary>
-          <p style="margin-top: var(--space-3); color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-            Limited time during early access. Once you sign up at a founding rate, that price is locked to your account forever — even when standard rates increase.
+        <details
+          style="
+            padding: var(--space-4);
+            background: var(--surface-color);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+          "
+        >
+          <summary style="font-weight: 600; font-size: 1rem">
+            How long are founding rates available?
+          </summary>
+          <p
+            style="
+              margin-top: var(--space-3);
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+              line-height: 1.6;
+            "
+          >
+            Limited time during early access. Once you sign up at a founding
+            rate, that price is locked to your account forever — even when
+            standard rates increase.
           </p>
         </details>
 
-        <details style="padding: var(--space-4); background: var(--surface-color); border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1rem;">Can I upgrade or downgrade later?</summary>
-          <p style="margin-top: var(--space-3); color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-            Yes. Upgrading keeps your founding discount. Downgrading is available, but if you later re-upgrade you may be subject to then-current rates.
+        <details
+          style="
+            padding: var(--space-4);
+            background: var(--surface-color);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+          "
+        >
+          <summary style="font-weight: 600; font-size: 1rem">
+            Can I upgrade or downgrade later?
+          </summary>
+          <p
+            style="
+              margin-top: var(--space-3);
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+              line-height: 1.6;
+            "
+          >
+            Yes. Upgrading keeps your founding discount. Downgrading is
+            available, but if you later re-upgrade you may be subject to
+            then-current rates.
           </p>
         </details>
 
-        <details style="padding: var(--space-4); background: var(--surface-color); border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1rem;">Public defender or non-profit discounts?</summary>
-          <p style="margin-top: var(--space-3); color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-            Yes — 40% additional discount for public defenders, legal aid, and registered non-profits. Contact us with verification to apply.
+        <details
+          style="
+            padding: var(--space-4);
+            background: var(--surface-color);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+          "
+        >
+          <summary style="font-weight: 600; font-size: 1rem">
+            Public defender or non-profit discounts?
+          </summary>
+          <p
+            style="
+              margin-top: var(--space-3);
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+              line-height: 1.6;
+            "
+          >
+            Yes — 40% additional discount for public defenders, legal aid, and
+            registered non-profits. Contact us with verification to apply.
           </p>
         </details>
       </div>
@@ -753,17 +926,48 @@ permalink: /pricing/
   </section>
 
   <!-- Final CTA -->
-  <section class="section" style="text-align: center; padding: var(--space-12) 0;">
+  <section
+    class="section"
+    style="text-align: center; padding: var(--space-12) 0"
+  >
     <div class="container-narrow">
-      <h2 style="margin-bottom: var(--space-3); font-size: 1.75rem;">Ready to Lock In Founding Rates?</h2>
-      <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: var(--space-6);">
+      <h2 style="margin-bottom: var(--space-3); font-size: 1.75rem">
+        Ready to Lock In Founding Rates?
+      </h2>
+      <p
+        style="
+          color: var(--text-secondary);
+          font-size: 1rem;
+          margin-bottom: var(--space-6);
+        "
+      >
         Generous soft caps. No overage fees. Your rate, locked forever.
       </p>
-      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-        <a href="/register?tier=founding-solo" class="btn btn-primary" style="padding: var(--space-3) var(--space-6); background: linear-gradient(135deg, #7c3aed, #4f46e5); font-weight: 600;">Claim Founding Rate</a>
-        <a href="/contact" class="btn btn-secondary" style="padding: var(--space-3) var(--space-6);">Questions? Let's Talk</a>
+      <div
+        style="
+          display: flex;
+          gap: var(--space-4);
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="/register?tier=founding-solo"
+          class="btn btn-primary"
+          style="
+            padding: var(--space-3) var(--space-6);
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            font-weight: 600;
+          "
+          >Claim Founding Rate</a
+        >
+        <a
+          href="/contact"
+          class="btn btn-secondary"
+          style="padding: var(--space-3) var(--space-6)"
+          >Questions? Let's Talk</a
+        >
       </div>
     </div>
   </section>
-
 </main>

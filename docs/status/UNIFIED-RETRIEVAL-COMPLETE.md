@@ -340,7 +340,7 @@ This allows unified retrieval across legal library + BWC without changing BWC in
 - `chatgpt_legal_library_integration.py` - Updated to use RetrievalService
 
 **Database:**
-- `instance/barberx_legal.db` - Unified legal retrieval database
+- `instance/Evident_legal.db` - Unified legal retrieval database
 
 All requirements met:
 ✅ ONE unified RetrievalService  

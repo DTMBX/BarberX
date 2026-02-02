@@ -130,7 +130,7 @@ class AlertManager:
         
         # TODO: Send email notification
         # email_body = AlertManager._build_alert_email(user, alert_type, quota_name, percent, quota_obj)
-        # send_email(to=user.email, subject=f"BarberX Usage Alert: {quota_name}", body=email_body)
+        # send_email(to=user.email, subject=f"Evident Usage Alert: {quota_name}", body=email_body)
         
         # TODO: Send in-app notification
         # create_notification(user_id=user.id, type=alert_type, message=message)
@@ -177,7 +177,7 @@ class AlertManager:
 <body>
     <div class="container">
         <div class="header">
-            <h1>{emoji} BarberX Usage Alert</h1>
+            <h1>{emoji} Evident Usage Alert</h1>
         </div>
         <div class="content">
             <h2>{title}</h2>
@@ -206,21 +206,21 @@ class AlertManager:
             </div>
             
             <p style="margin-top: 30px;">
-                {'<strong>Action Required:</strong> Your quota has been exceeded. Please upgrade your plan to continue using BarberX.' if percent >= 100 else 
+                {'<strong>Action Required:</strong> Your quota has been exceeded. Please upgrade your plan to continue using Evident.' if percent >= 100 else 
                  '<strong>Recommended:</strong> Consider upgrading your plan to avoid service interruptions.' if percent >= 95 else
                  'You\'re approaching your quota limit. Monitor your usage to avoid interruptions.'}
             </p>
             
             <p style="text-align: center; margin: 30px 0;">
-                <a href="https://barberx.info/pricing" class="button">View Upgrade Options</a>
+                <a href="https://Evident.info/pricing" class="button">View Upgrade Options</a>
             </p>
             
             <p style="text-align: center; margin: 30px 0;">
-                <a href="https://barberx.info/workspace">View Your Dashboard</a>
+                <a href="https://Evident.info/workspace">View Your Dashboard</a>
             </p>
         </div>
         <div style="text-align: center; padding: 20px; color: #666; font-size: 12px;">
-            <p>BarberX - Legal Intelligence Platform</p>
+            <p>Evident - Legal Intelligence Platform</p>
             <p>This is an automated usage alert. To adjust notification settings, visit your account settings.</p>
         </div>
     </div>

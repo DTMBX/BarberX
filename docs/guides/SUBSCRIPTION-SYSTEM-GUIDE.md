@@ -1,8 +1,8 @@
-# BarberX Subscription System - Complete Implementation Guide
+# Evident Subscription System - Complete Implementation Guide
 
 ## 🎯 Overview
 
-This guide covers the complete implementation of the **tiered subscription system** with Stripe integration, usage tracking, and access gating for BarberX.
+This guide covers the complete implementation of the **tiered subscription system** with Stripe integration, usage tracking, and access gating for Evident.
 
 ---
 
@@ -135,14 +135,14 @@ python integrate_subscription_system.py
 2. Click **"+ Add product"**
 
 **PRO Product:**
-- Name: `BarberX Professional`
+- Name: `Evident Professional`
 - Price: `$49.00 USD`
 - Billing period: `Monthly`
 - Trial period: **3 days**
 - Copy the **Price ID** (starts with `price_...`)
 
 **PREMIUM Product:**
-- Name: `BarberX Premium`
+- Name: `Evident Premium`
 - Price: `$249.00 USD`
 - Billing period: `Monthly`
 - Trial period: **None**
@@ -170,7 +170,7 @@ STRIPE_PRICE_PREMIUM=price_YOUR_PREMIUM_PRICE_ID_HERE
 
 1. Go to https://dashboard.stripe.com/webhooks
 2. Click **"+ Add endpoint"**
-3. Endpoint URL: `https://barberx.info/api/stripe/webhook`
+3. Endpoint URL: `https://Evident.info/api/stripe/webhook`
 4. Select events:
    - `checkout.session.completed`
    - `customer.subscription.updated`
@@ -191,11 +191,11 @@ python create_test_subscription_accounts.py
 ```
 
 **Test Accounts Created:**
-- `free@barberx.test` / test123 (FREE tier)
-- `pro@barberx.test` / test123 (PRO tier)
-- `premium@barberx.test` / test123 (PREMIUM tier)
-- `enterprise@barberx.test` / test123 (ENTERPRISE tier)
-- `admin@barberx.test` / admin123 (ADMIN)
+- `free@Evident.test` / test123 (FREE tier)
+- `pro@Evident.test` / test123 (PRO tier)
+- `premium@Evident.test` / test123 (PREMIUM tier)
+- `enterprise@Evident.test` / test123 (ENTERPRISE tier)
+- `admin@Evident.test` / admin123 (ADMIN)
 
 ### **Step 5: Restart Flask App**
 
@@ -211,7 +211,7 @@ python app.py
 
 1. **Login as FREE user:**
    ```
-   Email: free@barberx.test
+   Email: free@Evident.test
    Password: test123
    ```
 
@@ -506,8 +506,8 @@ total_videos = db.session.query(
 ## 📞 Support
 
 **Issues?**
-- Check logs: `./logs/barberx.log`
-- Test accounts: Use `*@barberx.test` credentials
+- Check logs: `./logs/Evident.log`
+- Test accounts: Use `*@Evident.test` credentials
 - Stripe logs: https://dashboard.stripe.com/logs
 - Webhook events: https://dashboard.stripe.com/webhooks
 

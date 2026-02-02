@@ -1,5 +1,5 @@
 """
-Stripe Payment Service for BarberX Legal Technologies
+Stripe Payment Service for Evident Legal Technologies
 Handles subscriptions, checkouts, and customer management
 """
 

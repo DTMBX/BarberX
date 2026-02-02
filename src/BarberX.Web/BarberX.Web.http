@@ -1,6 +1,6 @@
-@BarberX.Web_HostAddress = http://localhost:5237
+@Evident.Web_HostAddress = http://localhost:5237
 
-GET {{BarberX.Web_HostAddress}}/weatherforecast/
+GET {{Evident.Web_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

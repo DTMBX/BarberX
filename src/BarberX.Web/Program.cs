@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using BarberX.Web.Services;
+using Evident.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "BarberX API", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "Evident API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new()
     {
         Description = "JWT Authorization header using the Bearer scheme",
@@ -40,8 +40,8 @@ builder.Services.AddCors(options =>
 
 // Configure JWT Authentication
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "your-secret-key-min-32-chars-long-for-security";
-var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "BarberX";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "BarberX";
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "Evident";
+var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "Evident";
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -85,7 +85,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BarberX API v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Evident API v1"));
 }
 
 app.UseHttpsRedirection();

@@ -126,7 +126,7 @@ Create template files:
 
 Add to crontab for daily cleanup at 3 AM:
 ```bash
-0 3 * * * cd /path/to/barberx && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
+0 3 * * * cd /path/to/Evident && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
 ```
 
 ### 4. Test Everything (15 minutes)
@@ -134,7 +134,7 @@ Add to crontab for daily cleanup at 3 AM:
 Create test FREE account:
 ```bash
 python create_test_accounts.py
-# Login as free@barberx.test
+# Login as free@Evident.test
 ```
 
 Test flow:

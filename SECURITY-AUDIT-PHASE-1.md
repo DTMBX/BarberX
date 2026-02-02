@@ -1,4 +1,4 @@
-# BarberX Security Audit Report
+# Evident Security Audit Report
 ## PHASE 1 — REPOSITORY INVENTORY
 
 **Audit Date**: January 31, 2026  
@@ -15,12 +15,12 @@
   - Static assets in `assets/` (192 items)
   - Client-side JavaScript in `static/js/`
   
-- **.NET MAUI Mobile App** (`src/BarberX.Mobile/`)
+- **.NET MAUI Mobile App** (`src/Evident.Mobile/`)
   - Cross-platform (Windows, Android, iOS)
   - XAML views with MVVM architecture
   - Recently added configuration management (appsettings.json)
 
-- **ASP.NET Core Web API** (`src/BarberX.Web/`)
+- **ASP.NET Core Web API** (`src/Evident.Web/`)
   - API Gateway (optional proxy to Flask)
   - JWT authentication configured
   - Controllers for analysis operations
@@ -145,7 +145,7 @@
 - `config_manager.py` (13,011 bytes)
 
 **Mobile App Configuration**:
-- `src/BarberX.Mobile/appsettings.json` (embedded resource)
+- `src/Evident.Mobile/appsettings.json` (embedded resource)
 - Environment-based API endpoint selection
 - Configuration loaded at runtime
 

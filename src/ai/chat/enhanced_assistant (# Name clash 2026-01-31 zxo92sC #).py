@@ -337,7 +337,7 @@ class EnhancedChatAssistant:
         """Generate system message with instructions"""
         return {
             "role": "system",
-            "content": """You are BarberX Legal Assistant, a precise and helpful AI trained in constitutional law, 
+            "content": """You are Evident Legal Assistant, a precise and helpful AI trained in constitutional law, 
 criminal procedure, and civil rights. You provide answers based ONLY on retrieved documents and cite all sources.
 
 Guidelines:
@@ -438,7 +438,7 @@ Always ground your answers in evidence and cite your sources.""",
             if msg["role"] == "system":
                 continue
 
-            role_label = "**You:**" if msg["role"] == "user" else "**BarberX:**"
+            role_label = "**You:**" if msg["role"] == "user" else "**Evident:**"
             md += f"{role_label} {msg['content']}\n\n"
 
             if include_citations and msg["role"] == "assistant" and "citations" in msg:

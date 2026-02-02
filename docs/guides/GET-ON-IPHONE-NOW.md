@@ -1,4 +1,4 @@
-# 📱 Get BarberX on Your iPhone - Practical Guide
+# 📱 Get Evident on Your iPhone - Practical Guide
 
 **Reality:** iOS apps require a Mac to build. Here are your **real options** with timelines.
 
@@ -18,7 +18,7 @@ bm
 dotnet build -f net10.0-android34.0 -c Release
 
 # 3. APK location:
-# bin\Release\net10.0-android34.0\com.barberx.matterdocket-Signed.apk
+# bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 ```
 
 ### Install on Android Phone
@@ -63,8 +63,8 @@ dotnet build -f net10.0-android34.0 -c Release
    ```
 5. **Clone repo** to cloud Mac:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/BarberX.info.git
-   cd BarberX.info/src/BarberX.MatterDocket.MAUI
+   git clone https://github.com/YOUR-USERNAME/Evident.info.git
+   cd Evident.info/src/Evident.MatterDocket.MAUI
    ```
 6. **Build iOS app**:
    ```bash
@@ -116,16 +116,16 @@ jobs:
       
       - name: Build iOS
         run: |
-          cd src/BarberX.MatterDocket.MAUI
+          cd src/Evident.MatterDocket.MAUI
           dotnet build -f net10.0-ios -c Release
       
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
-          name: BarberX-iOS
+          name: Evident-iOS
           path: |
-            src/BarberX.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.app
-            src/BarberX.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.ipa
+            src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.app
+            src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.ipa
 ```
 
 ### Trigger Build
@@ -180,8 +180,8 @@ jobs:
 
 1. **Certificates, Identifiers & Profiles**
 2. **Identifiers** → **+** → App IDs
-   - Description: BarberX Matter Docket
-   - Bundle ID: `com.barberx.matterdocket`
+   - Description: Evident Matter Docket
+   - Bundle ID: `com.Evident.matterdocket`
    - Capabilities: (none needed for basic app)
 3. **Certificates** → **+** → iOS App Development
    - Upload certificate request (generate on Mac via Keychain Access)
@@ -194,13 +194,13 @@ jobs:
 
 ```bash
 # Clone repo
-git clone https://github.com/YOUR-USERNAME/BarberX.info.git
-cd BarberX.info/src/BarberX.MatterDocket.MAUI
+git clone https://github.com/YOUR-USERNAME/Evident.info.git
+cd Evident.info/src/Evident.MatterDocket.MAUI
 
 # Build release
 dotnet publish -f net10.0-ios -c Release
 
-# Output: bin/Release/net10.0-ios/ios-arm64/publish/BarberX.MatterDocket.MAUI.ipa
+# Output: bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa
 ```
 
 **Upload to TestFlight:**
@@ -216,7 +216,7 @@ dotnet publish -f net10.0-ios -c Release
 
 1. **Download TestFlight** app (App Store on iPhone)
 2. **Accept invite** (sent to your email)
-3. **Install** BarberX from TestFlight
+3. **Install** Evident from TestFlight
 4. **Done!** ✅
 
 **Benefits:**

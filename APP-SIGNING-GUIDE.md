@@ -1,4 +1,4 @@
-# BarberX Mobile App Signing Guide
+# Evident Mobile App Signing Guide
 
 Complete guide for configuring code signing for iOS and Android deployments.
 
@@ -10,7 +10,7 @@ Complete guide for configuring code signing for iOS and Android deployments.
 
 ```powershell
 # Generate a new keystore (do this once)
-keytool -genkey -v -keystore barberx-release.keystore -alias barberx -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore Evident-release.keystore -alias Evident -keyalg RSA -keysize 2048 -validity 10000
 
 # You'll be prompted for:
 # - Keystore password (save securely!)
@@ -22,12 +22,12 @@ keytool -genkey -v -keystore barberx-release.keystore -alias barberx -keyalg RSA
 
 ### 2. Configure Android Signing
 
-Create `src/BarberX.Mobile/Platforms/Android/signing.properties`:
+Create `src/Evident.Mobile/Platforms/Android/signing.properties`:
 
 ```properties
-keystore.file=barberx-release.keystore
+keystore.file=Evident-release.keystore
 keystore.password=YOUR_KEYSTORE_PASSWORD
-key.alias=barberx
+key.alias=Evident
 key.password=YOUR_KEY_PASSWORD
 ```
 
@@ -41,13 +41,13 @@ key.password=YOUR_KEY_PASSWORD
 
 ### 3. Update Android Project File
 
-Edit `src/BarberX.Mobile/BarberX.Mobile.csproj`:
+Edit `src/Evident.Mobile/Evident.Mobile.csproj`:
 
 ```xml
 <PropertyGroup Condition="'$(Configuration)' == 'Release' AND '$(TargetFramework)' == 'net10.0-android'">
   <AndroidKeyStore>True</AndroidKeyStore>
-  <AndroidSigningKeyStore>barberx-release.keystore</AndroidSigningKeyStore>
-  <AndroidSigningKeyAlias>barberx</AndroidSigningKeyAlias>
+  <AndroidSigningKeyStore>Evident-release.keystore</AndroidSigningKeyStore>
+  <AndroidSigningKeyAlias>Evident</AndroidSigningKeyAlias>
   <AndroidSigningKeyPass>$(AndroidSigningKeyPassword)</AndroidSigningKeyPass>
   <AndroidSigningStorePass>$(AndroidSigningStorePassword)</AndroidSigningStorePass>
 </PropertyGroup>
@@ -61,13 +61,13 @@ $env:AndroidSigningKeyPassword = "YOUR_KEY_PASSWORD"
 $env:AndroidSigningStorePassword = "YOUR_KEYSTORE_PASSWORD"
 
 # Build signed APK
-dotnet publish src/BarberX.Mobile/BarberX.Mobile.csproj `
+dotnet publish src/Evident.Mobile/Evident.Mobile.csproj `
   -f net10.0-android `
   -c Release `
   -p:AndroidPackageFormat=apk
 
 # Build signed AAB (for Google Play)
-dotnet publish src/BarberX.Mobile/BarberX.Mobile.csproj `
+dotnet publish src/Evident.Mobile/Evident.Mobile.csproj `
   -f net10.0-android `
   -c Release `
   -p:AndroidPackageFormat=aab
@@ -90,7 +90,7 @@ dotnet publish src/BarberX.Mobile/BarberX.Mobile.csproj `
 
 1. Enroll in [Apple Developer Program](https://developer.apple.com/programs/) ($99/year)
 2. Create App ID in [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/)
-   - Bundle ID: `com.barberx.mobile` (must match your app)
+   - Bundle ID: `com.Evident.mobile` (must match your app)
    - Enable capabilities: Push Notifications, In-App Purchase, etc.
 
 ### 2. Create Certificates
@@ -118,23 +118,23 @@ dotnet publish src/BarberX.Mobile/BarberX.Mobile.csproj `
 1. Go to Apple Developer Portal > Profiles
 2. Create **Development Profile**:
    - Type: iOS App Development
-   - App ID: Select your BarberX app ID
+   - App ID: Select your Evident app ID
    - Certificates: Select your development certificate
    - Devices: Select test devices
 3. Create **Distribution Profile**:
    - Type: App Store
-   - App ID: Select your BarberX app ID
+   - App ID: Select your Evident app ID
    - Certificates: Select your distribution certificate
 
 ### 4. Configure Xcode Signing
 
-Open `src/BarberX.Mobile/Platforms/iOS/Info.plist` and verify:
+Open `src/Evident.Mobile/Platforms/iOS/Info.plist` and verify:
 
 ```xml
 <key>CFBundleIdentifier</key>
-<string>com.barberx.mobile</string>
+<string>com.Evident.mobile</string>
 <key>CFBundleName</key>
-<string>BarberX</string>
+<string>Evident</string>
 <key>CFBundleVersion</key>
 <string>1.0</string>
 ```
@@ -143,7 +143,7 @@ Open `src/BarberX.Mobile/Platforms/iOS/Info.plist` and verify:
 
 ```bash
 # On macOS
-cd src/BarberX.Mobile
+cd src/Evident.Mobile
 
 # Build for iOS
 dotnet build -f net10.0-ios -c Release
@@ -159,7 +159,7 @@ dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true -p:RuntimeIdenti
 ```bash
 # Install Transporter app from Mac App Store
 # Or use command line:
-xcrun altool --upload-app -f BarberX.ipa -u YOUR_APPLE_ID -p YOUR_APP_SPECIFIC_PASSWORD
+xcrun altool --upload-app -f Evident.ipa -u YOUR_APPLE_ID -p YOUR_APP_SPECIFIC_PASSWORD
 
 # Or use Xcode:
 # Open Xcode > Window > Organizer > Archives
@@ -171,10 +171,10 @@ xcrun altool --upload-app -f BarberX.ipa -u YOUR_APPLE_ID -p YOUR_APP_SPECIFIC_P
 1. Go to [App Store Connect](https://appstoreconnect.apple.com/)
 2. Create new app or select existing
 3. Fill in app information:
-   - Name: BarberX Legal Tech
+   - Name: Evident Legal Tech
    - Subtitle: Professional Legal Analysis
    - Category: Business / Productivity
-   - Privacy Policy URL: https://barberx.info/privacy
+   - Privacy Policy URL: https://Evident.info/privacy
 4. Add screenshots (required sizes):
    - 6.7" iPhone: 1290 x 2796
    - 6.5" iPhone: 1242 x 2688
@@ -190,7 +190,7 @@ xcrun altool --upload-app -f BarberX.ipa -u YOUR_APPLE_ID -p YOUR_APP_SPECIFIC_P
 
 ```powershell
 # For testing (self-signed)
-New-SelfSignedCertificate -Type Custom -Subject "CN=BarberX" -KeyUsage DigitalSignature -FriendlyName "BarberX Certificate" -CertStoreLocation "Cert:\CurrentUser\My"
+New-SelfSignedCertificate -Type Custom -Subject "CN=Evident" -KeyUsage DigitalSignature -FriendlyName "Evident Certificate" -CertStoreLocation "Cert:\CurrentUser\My"
 
 # For production, purchase a code signing certificate from:
 # - DigiCert
@@ -200,10 +200,10 @@ New-SelfSignedCertificate -Type Custom -Subject "CN=BarberX" -KeyUsage DigitalSi
 
 ### 2. Create MSIX Package
 
-Edit `src/BarberX.Mobile/Platforms/Windows/Package.appxmanifest`:
+Edit `src/Evident.Mobile/Platforms/Windows/Package.appxmanifest`:
 
 ```xml
-<Identity Name="BarberX.Mobile" 
+<Identity Name="Evident.Mobile" 
           Publisher="CN=Your Company Name" 
           Version="1.0.0.0" />
 ```
@@ -212,14 +212,14 @@ Edit `src/BarberX.Mobile/Platforms/Windows/Package.appxmanifest`:
 
 ```powershell
 # Build MSIX
-dotnet publish src/BarberX.Mobile/BarberX.Mobile.csproj `
+dotnet publish src/Evident.Mobile/Evident.Mobile.csproj `
   -f net10.0-windows10.0.19041.0 `
   -c Release `
   -p:GenerateAppxPackageOnBuild=true `
   -p:AppxPackageSigningEnabled=true
 
 # Sign manually if needed
-signtool sign /f YourCertificate.pfx /p PASSWORD /fd SHA256 BarberX.msix
+signtool sign /f YourCertificate.pfx /p PASSWORD /fd SHA256 Evident.msix
 ```
 
 ### 4. Microsoft Store Submission
@@ -255,7 +255,7 @@ Add these secrets to your GitHub repository:
 
 ```powershell
 # Windows PowerShell
-$bytes = [System.IO.File]::ReadAllBytes("barberx-release.keystore")
+$bytes = [System.IO.File]::ReadAllBytes("Evident-release.keystore")
 $base64 = [System.Convert]::ToBase64String($bytes)
 $base64 | Out-File keystore-base64.txt
 
@@ -289,7 +289,7 @@ base64 -i certificate.p12 -o certificate-base64.txt
 ### Android: "Keystore was tampered with"
 ```powershell
 # Verify keystore integrity
-keytool -list -v -keystore barberx-release.keystore
+keytool -list -v -keystore Evident-release.keystore
 ```
 
 ### iOS: "No valid signing identity"
@@ -318,5 +318,5 @@ security import certificate.p12 -k ~/Library/Keychains/login.keychain
 ## Support
 
 For signing issues:
-- Email: dev@barberx.info
-- GitHub Issues: https://github.com/DTB396/BarberX.info/issues
+- Email: dev@Evident.info
+- GitHub Issues: https://github.com/DTB396/Evident.info/issues

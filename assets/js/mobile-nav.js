@@ -1,11 +1,11 @@
 /**
- * BarberX Mobile Bottom Navigation
+ * Evident Mobile Bottom Navigation
  * =================================
  * Touch-friendly navigation for mobile PWA experience
  * Includes haptic feedback, gesture support, and install prompts
  */
 
-class BarberXMobileNav {
+class EvidentMobileNav {
   constructor(options = {}) {
     this.options = {
       container: options.container || document.body,
@@ -33,7 +33,7 @@ class BarberXMobileNav {
     if (window.innerWidth > 768) return;
     
     const nav = document.createElement('nav');
-    nav.className = 'barberx-mobile-nav';
+    nav.className = 'Evident-mobile-nav';
     nav.innerHTML = `
       <div class="mobile-nav-items">
         <a href="/workspace" class="mobile-nav-item" data-nav="workspace">
@@ -135,12 +135,12 @@ class BarberXMobileNav {
   }
   
   injectStyles() {
-    if (document.getElementById('barberx-mobile-nav-styles')) return;
+    if (document.getElementById('Evident-mobile-nav-styles')) return;
     
     const styles = document.createElement('style');
-    styles.id = 'barberx-mobile-nav-styles';
+    styles.id = 'Evident-mobile-nav-styles';
     styles.textContent = `
-      .barberx-mobile-nav {
+      .Evident-mobile-nav {
         display: none;
         position: fixed;
         bottom: 0;
@@ -150,7 +150,7 @@ class BarberXMobileNav {
       }
       
       @media (max-width: 768px) {
-        .barberx-mobile-nav {
+        .Evident-mobile-nav {
           display: block;
         }
         
@@ -508,7 +508,7 @@ class BarberXMobileNav {
     const { outcome } = await this.deferredPrompt.userChoice;
     
     if (outcome === 'accepted') {
-      console.log('[BarberX] PWA installed');
+      console.log('[Evident] PWA installed');
     }
     
     this.deferredPrompt = null;
@@ -564,10 +564,10 @@ class BarberXMobileNav {
 
 // Auto-initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-  window.barberxMobileNav = new BarberXMobileNav();
+  window.EvidentMobileNav = new EvidentMobileNav();
 });
 
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = BarberXMobileNav;
+  module.exports = EvidentMobileNav;
 }

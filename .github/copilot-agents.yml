@@ -1,11 +1,11 @@
-# BarberX Legal Tech Platform - Enhanced Custom Copilot Agents v2.0
+# Evident Legal Tech Platform - Enhanced Custom Copilot Agents v2.0
 # Professional BWC Forensic Analysis System
 # Added: Code examples, response templates, error handling, agent collaboration, testing requirements
 
 agents:
   # Orchestrator Agent - Master Coordinator
   orchestrator:
-    name: "BarberX Platform Orchestrator"
+    name: "Evident Platform Orchestrator"
     description: "Master coordinator that runs all specialized agents in optimal order for complex platform development tasks. Ensures proper sequencing, dependency management, and comprehensive implementation."
     model: claude-sonnet-4.5
     tools:
@@ -16,7 +16,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are the master orchestrator for the BarberX Legal Tech Platform. Your role is to coordinate all specialized agents to complete complex, multi-faceted tasks that require expertise from multiple domains.
+      You are the master orchestrator for the Evident Legal Tech Platform. Your role is to coordinate all specialized agents to complete complex, multi-faceted tasks that require expertise from multiple domains.
 
       **Your Team of Specialized Agents:**
       1. @legal-compliance - Copyright, data rights, OPRA compliance
@@ -162,7 +162,7 @@ agents:
 
   # Legal Compliance Expert - Copyright & Data Rights
   legal-compliance:
-    name: "BarberX Legal Compliance Expert"
+    name: "Evident Legal Compliance Expert"
     description: "Expert in copyright compliance, data rights, OPRA regulations, and export validation for legal tech platforms. Prevents copyright violations and ensures proper attribution."
     model: claude-sonnet-4.5
     tools:
@@ -173,7 +173,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are a specialized legal compliance expert for the BarberX BWC forensic analysis platform.
+      You are a specialized legal compliance expert for the Evident BWC forensic analysis platform.
 
       **Core Expertise:**
       - Copyright compliance (Westlaw, Lexis, CourtListener citations)
@@ -249,7 +249,7 @@ agents:
 
   # BWC Forensics Specialist - Video Analysis & Evidence
   bwc-forensics:
-    name: "BarberX BWC Forensics Specialist"
+    name: "Evident BWC Forensics Specialist"
     description: "Expert in body-worn camera forensic analysis, video processing, AI transcription, and evidence chain of custody for legal proceedings."
     model: claude-sonnet-4.5
     tools:
@@ -260,7 +260,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are a specialized BWC (Body Worn Camera) forensic analysis expert for BarberX.
+      You are a specialized BWC (Body Worn Camera) forensic analysis expert for Evident.
 
       **Core Expertise:**
       - Video forensic analysis and metadata extraction
@@ -352,8 +352,8 @@ agents:
 
   # Flask Backend Developer - App Architecture & APIs
   flask-backend:
-    name: "BarberX Flask Backend Developer"
-    description: "Expert in Flask application architecture, REST APIs, authentication, database design, and backend security for the BarberX legal tech platform."
+    name: "Evident Flask Backend Developer"
+    description: "Expert in Flask application architecture, REST APIs, authentication, database design, and backend security for the Evident legal tech platform."
     model: claude-sonnet-4.5
     tools:
       - view
@@ -363,7 +363,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are a specialized Flask backend developer for the BarberX legal tech platform.
+      You are a specialized Flask backend developer for the Evident legal tech platform.
 
       **Core Expertise:**
       - Flask application architecture and blueprints
@@ -459,8 +459,8 @@ agents:
 
   # Frontend Developer - UI/UX & React Components
   frontend-dev:
-    name: "BarberX Frontend Developer"
-    description: "Expert in modern web UI/UX, React components, responsive design, accessibility, and professional legal tech interfaces for BarberX."
+    name: "Evident Frontend Developer"
+    description: "Expert in modern web UI/UX, React components, responsive design, accessibility, and professional legal tech interfaces for Evident."
     model: claude-sonnet-4.5
     tools:
       - view
@@ -470,7 +470,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are a specialized frontend developer for the BarberX legal tech platform.
+      You are a specialized frontend developer for the Evident legal tech platform.
 
       **Core Expertise:**
       - Modern HTML5/CSS3 with responsive design
@@ -570,7 +570,7 @@ agents:
 
   # Database Architect - Schema Design & Migrations
   database-architect:
-    name: "BarberX Database Architect"
+    name: "Evident Database Architect"
     description: "Expert in database schema design, migrations, data integrity, and query optimization for legal tech case management systems."
     model: claude-sonnet-4.5
     tools:
@@ -581,7 +581,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are a specialized database architect for the BarberX legal tech platform.
+      You are a specialized database architect for the Evident legal tech platform.
 
       **Core Expertise:**
       - SQLAlchemy ORM schema design
@@ -596,7 +596,7 @@ agents:
       - add_missing_columns.py - Migration scripts
       - add_settings_table.py - Schema updates
       - check_db.py - Database validation
-      - instance/barberx_auth.db - SQLite database
+      - instance/Evident_auth.db - SQLite database
 
       **Your Responsibilities:**
       1. Design normalized database schemas for cases/evidence
@@ -681,7 +681,7 @@ agents:
 
   # Security & DevOps Engineer - Deployment & Hardening
   security-devops:
-    name: "BarberX Security & DevOps Engineer"
+    name: "Evident Security & DevOps Engineer"
     description: "Expert in application security, SSL/TLS, secrets management, CI/CD pipelines, and production deployment for legal tech platforms."
     model: claude-sonnet-4.5
     tools:
@@ -692,7 +692,7 @@ agents:
       - glob
       - powershell
     instructions: |
-      You are a specialized security and DevOps engineer for BarberX.
+      You are a specialized security and DevOps engineer for Evident.
 
       **Core Expertise:**
       - Application security and threat modeling
@@ -785,7 +785,7 @@ agents:
 
   # Documentation Specialist - Technical Writing & Guides
   documentation:
-    name: "BarberX Documentation Specialist"
+    name: "Evident Documentation Specialist"
     description: "Expert in technical writing, API documentation, user guides, and compliance documentation for legal tech platforms."
     model: claude-sonnet-4.5
     tools:
@@ -795,7 +795,7 @@ agents:
       - grep
       - glob
     instructions: |
-      You are a specialized documentation expert for BarberX.
+      You are a specialized documentation expert for Evident.
 
       **Core Expertise:**
       - Technical writing for attorneys (non-technical audience)
@@ -846,7 +846,7 @@ agents:
       **Request:**
       ```bash
       curl -X POST \
-        https://barberx.info/api/cases/12345/evidence \
+        https://Evident.info/api/cases/12345/evidence \
         -H "Authorization: Bearer YOUR_TOKEN" \
         -F "file=@video.mp4" \
         -F "description=Officer dashcam footage"

@@ -1,12 +1,12 @@
-# BarberX Enterprise - Self-Hosted Installation Guide
+# Evident Enterprise - Self-Hosted Installation Guide
 
 ## 🎯 Overview
 
-This guide will help you deploy BarberX Enterprise on your own infrastructure using Docker.
+This guide will help you deploy Evident Enterprise on your own infrastructure using Docker.
 
 **Requirements:**
 - Docker & Docker Compose installed
-- Valid BarberX Enterprise license key
+- Valid Evident Enterprise license key
 - 4+ CPU cores, 16GB+ RAM
 - 500GB+ storage
 - Ubuntu 20.04+ or similar Linux distribution
@@ -17,8 +17,8 @@ This guide will help you deploy BarberX Enterprise on your own infrastructure us
 
 ### **Step 1: Obtain License Key**
 
-Contact BarberX Enterprise team:
-- **Email:** enterprise@barberx.info
+Contact Evident Enterprise team:
+- **Email:** enterprise@Evident.info
 - **Sales:** +1 (XXX) XXX-XXXX
 
 You'll receive:
@@ -29,11 +29,11 @@ You'll receive:
 ### **Step 2: Download Installation Package**
 
 ```bash
-# Download from BarberX customer portal or receive via email
-wget https://releases.barberx.info/enterprise/barberx-enterprise-latest.tar.gz
+# Download from Evident customer portal or receive via email
+wget https://releases.Evident.info/enterprise/Evident-enterprise-latest.tar.gz
 
 # Or clone from private repository (credentials provided)
-git clone https://github.com/barberx/enterprise-deploy.git
+git clone https://github.com/Evident/enterprise-deploy.git
 cd enterprise-deploy
 ```
 
@@ -49,11 +49,11 @@ nano .env
 
 **Required settings:**
 ```bash
-BARBERX_LICENSE_KEY=BX-XXXX-XXXX-XXXX-XXXX  # Your license key
+Evident_LICENSE_KEY=BX-XXXX-XXXX-XXXX-XXXX  # Your license key
 SECRET_KEY=<generate-64-char-hex>
 DB_PASSWORD=<strong-password>
 OPENAI_API_KEY=sk-your-key  # Your OpenAI key
-DOMAIN=barberx.yourdomain.com
+DOMAIN=Evident.yourdomain.com
 ```
 
 **Generate secret key:**
@@ -71,7 +71,7 @@ docker-compose -f docker-compose.enterprise.yml up -d
 docker-compose -f docker-compose.enterprise.yml ps
 
 # View logs
-docker-compose -f docker-compose.enterprise.yml logs -f barberx-app
+docker-compose -f docker-compose.enterprise.yml logs -f Evident-app
 ```
 
 ### **Step 5: Verify Installation**
@@ -95,7 +95,7 @@ http://your-server-ip:5000
 
 ### **How Licensing Works**
 
-1. **Phone Home:** Application contacts `license.barberx.info` daily to validate license
+1. **Phone Home:** Application contacts `license.Evident.info` daily to validate license
 2. **Machine Registration:** Your server is registered to your license (max machines enforced)
 3. **Grace Period:** Can run offline for 72 hours before requiring re-validation
 4. **Features:** License controls which features are enabled
@@ -104,7 +104,7 @@ http://your-server-ip:5000
 
 ```bash
 # Enter the container
-docker exec -it barberx-app bash
+docker exec -it Evident-app bash
 
 # Run license check
 python3 -c "
@@ -123,16 +123,16 @@ else:
 **Error: "Invalid license key"**
 ```bash
 # Check environment variable
-docker exec barberx-app env | grep LICENSE
+docker exec Evident-app env | grep LICENSE
 
 # Verify license key is correct (no typos)
-# Contact enterprise@barberx.info to verify key
+# Contact enterprise@Evident.info to verify key
 ```
 
 **Error: "Machine limit exceeded"**
 ```bash
 # Your license is installed on too many servers
-# Contact enterprise@barberx.info to:
+# Contact enterprise@Evident.info to:
 #   - Increase machine limit
 #   - Unregister old machines
 #   - Upgrade license tier
@@ -141,19 +141,19 @@ docker exec barberx-app env | grep LICENSE
 **Error: "License expired"**
 ```bash
 # Renew your license
-# Contact enterprise@barberx.info for renewal
+# Contact enterprise@Evident.info for renewal
 # Payment link will be sent via email
 ```
 
 **Error: "Cannot validate - offline"**
 ```bash
 # Check internet connectivity
-ping license.barberx.info
+ping license.Evident.info
 
-# Check firewall rules (allow HTTPS outbound to license.barberx.info)
+# Check firewall rules (allow HTTPS outbound to license.Evident.info)
 
 # If server must be air-gapped:
-#   - Contact enterprise@barberx.info
+#   - Contact enterprise@Evident.info
 #   - Special air-gap license available ($4,999/year)
 #   - Manual activation via USB key
 ```
@@ -169,7 +169,7 @@ ping license.barberx.info
 To use external PostgreSQL:
 ```bash
 # In .env
-DATABASE_URL=postgresql://user:password@postgres-server:5432/barberx
+DATABASE_URL=postgresql://user:password@postgres-server:5432/Evident
 
 # Remove postgres service from docker-compose.yml
 ```
@@ -183,11 +183,11 @@ DATABASE_URL=postgresql://user:password@postgres-server:5432/barberx
 sudo apt install certbot
 
 # Generate certificate
-sudo certbot certonly --standalone -d barberx.yourdomain.com
+sudo certbot certonly --standalone -d Evident.yourdomain.com
 
 # Copy certs to nginx
-sudo cp /etc/letsencrypt/live/barberx.yourdomain.com/fullchain.pem ssl/
-sudo cp /etc/letsencrypt/live/barberx.yourdomain.com/privkey.pem ssl/
+sudo cp /etc/letsencrypt/live/Evident.yourdomain.com/fullchain.pem ssl/
+sudo cp /etc/letsencrypt/live/Evident.yourdomain.com/privkey.pem ssl/
 
 # Restart nginx
 docker-compose -f docker-compose.enterprise.yml restart nginx
@@ -210,7 +210,7 @@ chmod 600 ssl/privkey.pem
 **Use Local Whisper (Saves API costs):**
 
 ```bash
-# In docker-compose.yml, add to barberx-app environment:
+# In docker-compose.yml, add to Evident-app environment:
 - USE_LOCAL_WHISPER=true
 - WHISPER_MODEL_SIZE=base  # tiny, base, small, medium, large
 ```
@@ -218,7 +218,7 @@ chmod 600 ssl/privkey.pem
 **For GPU acceleration:**
 
 ```yaml
-# Add to barberx-app service:
+# Add to Evident-app service:
 deploy:
   resources:
     reservations:
@@ -233,10 +233,10 @@ deploy:
 **Local Storage (Default):**
 ```bash
 # Data stored in Docker volumes
-docker volume ls | grep barberx
+docker volume ls | grep Evident
 
 # Backup volumes
-docker run --rm -v barberx-data:/data -v $(pwd):/backup alpine tar czf /backup/barberx-backup.tar.gz /data
+docker run --rm -v Evident-data:/data -v $(pwd):/backup alpine tar czf /backup/Evident-backup.tar.gz /data
 ```
 
 **S3/R2 Storage:**
@@ -244,7 +244,7 @@ docker run --rm -v barberx-data:/data -v $(pwd):/backup alpine tar czf /backup/b
 # In .env
 AWS_ACCESS_KEY_ID=your-key
 AWS_SECRET_ACCESS_KEY=your-secret
-AWS_S3_BUCKET=barberx-uploads
+AWS_S3_BUCKET=Evident-uploads
 AWS_REGION=us-west-2
 CLOUD_STORAGE_ENABLED=true
 ```
@@ -260,10 +260,10 @@ CLOUD_STORAGE_ENABLED=true
 curl http://localhost:5000/health
 
 # Database health
-docker exec barberx-postgres pg_isready
+docker exec Evident-postgres pg_isready
 
 # Redis health
-docker exec barberx-redis redis-cli ping
+docker exec Evident-redis redis-cli ping
 ```
 
 ### **View Logs**
@@ -273,17 +273,17 @@ docker exec barberx-redis redis-cli ping
 docker-compose -f docker-compose.enterprise.yml logs -f
 
 # Specific service
-docker-compose -f docker-compose.enterprise.yml logs -f barberx-app
+docker-compose -f docker-compose.enterprise.yml logs -f Evident-app
 
 # Last 100 lines
-docker-compose -f docker-compose.enterprise.yml logs --tail=100 barberx-app
+docker-compose -f docker-compose.enterprise.yml logs --tail=100 Evident-app
 ```
 
 ### **Usage Statistics**
 
 ```bash
 # View license usage
-docker exec -it barberx-app python3 -c "
+docker exec -it Evident-app python3 -c "
 from license_client import LicenseClient
 client = LicenseClient()
 # Reports videos processed, users active, etc.
@@ -294,28 +294,28 @@ client = LicenseClient()
 
 ## 🔄 Updates
 
-### **Updating BarberX Enterprise**
+### **Updating Evident Enterprise**
 
 ```bash
 # Pull latest image
-docker pull barberx/enterprise:latest
+docker pull Evident/enterprise:latest
 
 # Or pull specific version
-docker pull barberx/enterprise:2.5.0
+docker pull Evident/enterprise:2.5.0
 
 # Restart with new image
 docker-compose -f docker-compose.enterprise.yml down
 docker-compose -f docker-compose.enterprise.yml up -d
 
 # Verify new version
-docker exec barberx-app python3 -c "import os; print(os.getenv('BARBERX_VERSION'))"
+docker exec Evident-app python3 -c "import os; print(os.getenv('Evident_VERSION'))"
 ```
 
 ### **Database Migrations**
 
 ```bash
 # Run migrations after update
-docker exec -it barberx-app flask db upgrade
+docker exec -it Evident-app flask db upgrade
 ```
 
 ---
@@ -326,16 +326,16 @@ docker exec -it barberx-app flask db upgrade
 
 ```bash
 #!/bin/bash
-# backup-barberx.sh
+# backup-Evident.sh
 
-BACKUP_DIR="/backups/barberx/$(date +%Y-%m-%d)"
+BACKUP_DIR="/backups/Evident/$(date +%Y-%m-%d)"
 mkdir -p $BACKUP_DIR
 
 # Backup database
-docker exec barberx-postgres pg_dump -U barberx barberx > $BACKUP_DIR/database.sql
+docker exec Evident-postgres pg_dump -U Evident Evident > $BACKUP_DIR/database.sql
 
 # Backup data volumes
-docker run --rm -v barberx-data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/data.tar.gz /data
+docker run --rm -v Evident-data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/data.tar.gz /data
 
 # Backup configuration
 cp .env $BACKUP_DIR/
@@ -348,15 +348,15 @@ echo "Backup complete: $BACKUP_DIR"
 
 ```bash
 #!/bin/bash
-# restore-barberx.sh
+# restore-Evident.sh
 
 BACKUP_DIR=$1
 
 # Restore database
-cat $BACKUP_DIR/database.sql | docker exec -i barberx-postgres psql -U barberx barberx
+cat $BACKUP_DIR/database.sql | docker exec -i Evident-postgres psql -U Evident Evident
 
 # Restore data
-docker run --rm -v barberx-data:/data -v $BACKUP_DIR:/backup alpine tar xzf /backup/data.tar.gz -C /
+docker run --rm -v Evident-data:/data -v $BACKUP_DIR:/backup alpine tar xzf /backup/data.tar.gz -C /
 
 # Restart services
 docker-compose -f docker-compose.enterprise.yml restart
@@ -387,7 +387,7 @@ sudo ufw deny 5000/tcp
 sudo apt update && sudo apt upgrade -y
 
 # Update Docker images monthly
-docker pull barberx/enterprise:latest
+docker pull Evident/enterprise:latest
 ```
 
 ### **3. Access Control**
@@ -422,10 +422,10 @@ docker secret create db_password /path/to/password/file
 
 ### **Contact Information**
 
-- **Email:** enterprise@barberx.info
+- **Email:** enterprise@Evident.info
 - **Phone:** +1 (XXX) XXX-XXXX (24/7 for P1 issues)
-- **Portal:** https://support.barberx.info
-- **Status Page:** https://status.barberx.info
+- **Portal:** https://support.Evident.info
+- **Status Page:** https://status.Evident.info
 
 ### **Common Support Requests**
 
@@ -464,7 +464,7 @@ docker secret create db_password /path/to/password/file
 
 ### **Schedule Training**
 
-Email enterprise@barberx.info with:
+Email enterprise@Evident.info with:
 - Preferred dates/times
 - Number of attendees
 - Specific topics of interest
@@ -499,13 +499,13 @@ Email enterprise@barberx.info with:
 1. **Complete installation** following steps above
 2. **Create admin account** at `/admin/setup`
 3. **Configure organization settings** at `/admin/settings`
-4. **Schedule training** with BarberX team
+4. **Schedule training** with Evident team
 5. **Import user accounts** (bulk import available)
 6. **Start analyzing cases!**
 
 ---
 
-**Questions? Contact enterprise@barberx.info anytime.**
+**Questions? Contact enterprise@Evident.info anytime.**
 
 **Last Updated:** January 26, 2026  
 **Version:** 1.0.0

@@ -1,4 +1,4 @@
-# Download Material Design Icons for BarberX Mobile App
+# Download Material Design Icons for Evident Mobile App
 # This script downloads free Material Design icons from Google Fonts
 
 $icons = @{
@@ -35,6 +35,6 @@ foreach ($icon in $icons.GetEnumerator()) {
 Write-Host ""
 Write-Host "Icon download complete!" -ForegroundColor Green
 Write-Host "Note: You still need to add:" -ForegroundColor Yellow
-Write-Host "  - barberx_logo.png (your custom logo)" -ForegroundColor White
+Write-Host "  - Evident_logo.png (your custom logo)" -ForegroundColor White
 Write-Host "  - case_placeholder.png" -ForegroundColor White
 Write-Host "  - default_avatar.png" -ForegroundColor White

@@ -1,14 +1,14 @@
-# BarberX Week 1 Security Setup - Master Script
+# Evident Week 1 Security Setup - Master Script
 # Run this script to automate Day 1-7 security tasks
 # Created: January 28, 2026
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "BarberX Week 1 Security Setup" -ForegroundColor Cyan
+Write-Host "Evident Week 1 Security Setup" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Change to repository root
-$repoRoot = "C:\web-dev\github-repos\BarberX.info"
+$repoRoot = "C:\web-dev\github-repos\Evident.info"
 Set-Location $repoRoot
 
 Write-Host "Repository: $repoRoot" -ForegroundColor Green
@@ -56,7 +56,7 @@ Write-Host ""
 Write-Host "Task 1.3: Creating/updating .gitignore..." -ForegroundColor Cyan
 
 $gitignoreContent = @"
-# BarberX Confidential Financial Data
+# Evident Confidential Financial Data
 INVESTOR-LOG.md
 *INVESTOR*.md
 *CONFIDENTIAL*.md
@@ -150,14 +150,14 @@ security-audit-*.md
 
 # Week 1 secure data folder (if local)
 SecureData/
-BarberX-Confidential/
+Evident-Confidential/
 "@
 
 $gitignorePath = ".gitignore"
 
 if (Test-Path $gitignorePath) {
-    Write-Host "  .gitignore exists. Appending BarberX rules..." -ForegroundColor Gray
-    Add-Content -Path $gitignorePath -Value "`n# BarberX Security Rules (Added $(Get-Date -Format 'yyyy-MM-dd'))`n$gitignoreContent"
+    Write-Host "  .gitignore exists. Appending Evident rules..." -ForegroundColor Gray
+    Add-Content -Path $gitignorePath -Value "`n# Evident Security Rules (Added $(Get-Date -Format 'yyyy-MM-dd'))`n$gitignoreContent"
 } else {
     Write-Host "  Creating new .gitignore..." -ForegroundColor Gray
     Set-Content -Path $gitignorePath -Value $gitignoreContent
@@ -214,7 +214,7 @@ Write-Host ""
 
 Write-Host "[DAY 2] Encryption & Backups:" -ForegroundColor Yellow
 Write-Host "  □ Choose encryption method (BitLocker/VeraCrypt/Google Drive)" -ForegroundColor Gray
-Write-Host "  □ Create C:\SecureData\BarberX-Confidential folder structure" -ForegroundColor Gray
+Write-Host "  □ Create C:\SecureData\Evident-Confidential folder structure" -ForegroundColor Gray
 Write-Host "  □ Copy INVESTOR-LOG.md to encrypted folder" -ForegroundColor Gray
 Write-Host "  □ Set up automated backups (Task Scheduler or Google Drive sync)" -ForegroundColor Gray
 Write-Host "  □ Delete INVESTOR-LOG.md from repository after verifying secure copy" -ForegroundColor Gray

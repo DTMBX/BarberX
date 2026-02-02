@@ -7,7 +7,7 @@ https://www.namecheap.com/myaccount/login/
 
 ### 2. Navigate to Domain List
 - Click "Domain List" in left sidebar
-- Find `barberx.info`
+- Find `Evident.info`
 - Click "Manage"
 
 ### 3. Go to Advanced DNS
@@ -21,7 +21,7 @@ Click "Add New Record" and enter:
 ```
 Type: CNAME Record
 Host: app
-Value: barberx-legal-tech.onrender.com
+Value: Evident-legal-tech.onrender.com
 TTL: Automatic
 ```
 
@@ -38,13 +38,13 @@ Click "Save All Changes" (green checkmark)
 Render automatically provisions free SSL certificate (5-15 min)
 
 Your app will be live at:
-**https://app.barberx.info** ??
+**https://app.Evident.info** ??
 
 ---
 
 ## Alternative: Root Domain Setup
 
-For `barberx.info` (no subdomain):
+For `Evident.info` (no subdomain):
 
 ### Option 1: URL Redirect (Easiest)
 In Namecheap Advanced DNS:
@@ -52,7 +52,7 @@ In Namecheap Advanced DNS:
 ```
 Type: URL Redirect Record
 Host: @
-Value: https://app.barberx.info
+Value: https://app.Evident.info
 Unmasked
 ```
 

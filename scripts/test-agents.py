@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BarberX Agent Integration Tests
+Evident Agent Integration Tests
 
 Comprehensive test suite for all 7 custom Copilot agents.
 Tests real-world scenarios and validates agent capabilities.
@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 class AgentTestSuite:
-    """Integration tests for BarberX custom agents."""
+    """Integration tests for Evident custom agents."""
 
     def __init__(self):
         self.repo_root = Path(__file__).parent.parent
@@ -532,7 +532,7 @@ class AgentTestSuite:
         """Execute all agent tests."""
 
         print("\n" + "=" * 80)
-        print("  BarberX Agent Integration Test Suite")
+        print("  Evident Agent Integration Test Suite")
         print("  Validating all 7 custom Copilot agents")
         print("=" * 80)
 

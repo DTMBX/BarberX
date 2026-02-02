@@ -1,4 +1,4 @@
-# ChatGPT 5.2 Integration Plan - BarberX MAUI
+# ChatGPT 5.2 Integration Plan - Evident MAUI
 
 **Integration Goal:** Enterprise-grade ChatGPT integration with custom project workspaces, user-provided API keys, and multi-platform support.
 
@@ -17,7 +17,7 @@
    - Users bring their own OpenAI API key (GPT membership)
    - Secure storage using device SecureStorage
    - Key validation and quota tracking
-   - Fallback to BarberX AI credits for users without keys
+   - Fallback to Evident AI credits for users without keys
 
 3. **Advanced Prompt Engineering**
    - Custom instructions per project

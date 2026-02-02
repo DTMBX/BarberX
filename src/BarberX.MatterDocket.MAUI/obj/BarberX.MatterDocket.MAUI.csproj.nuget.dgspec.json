@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\web-dev\\github-repos\\BarberX.info\\src\\BarberX.MatterDocket.MAUI\\BarberX.MatterDocket.MAUI.csproj": {}
+    "C:\\web-dev\\github-repos\\Evident.info\\src\\Evident.MatterDocket.MAUI\\Evident.MatterDocket.MAUI.csproj": {}
   },
   "projects": {
-    "C:\\web-dev\\github-repos\\BarberX.info\\src\\BarberX.MatterDocket.MAUI\\BarberX.MatterDocket.MAUI.csproj": {
+    "C:\\web-dev\\github-repos\\Evident.info\\src\\Evident.MatterDocket.MAUI\\Evident.MatterDocket.MAUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\web-dev\\github-repos\\BarberX.info\\src\\BarberX.MatterDocket.MAUI\\BarberX.MatterDocket.MAUI.csproj",
-        "projectName": "BarberX.MatterDocket.MAUI",
-        "projectPath": "C:\\web-dev\\github-repos\\BarberX.info\\src\\BarberX.MatterDocket.MAUI\\BarberX.MatterDocket.MAUI.csproj",
+        "projectUniqueName": "C:\\web-dev\\github-repos\\Evident.info\\src\\Evident.MatterDocket.MAUI\\Evident.MatterDocket.MAUI.csproj",
+        "projectName": "Evident.MatterDocket.MAUI",
+        "projectPath": "C:\\web-dev\\github-repos\\Evident.info\\src\\Evident.MatterDocket.MAUI\\Evident.MatterDocket.MAUI.csproj",
         "packagesPath": "C:\\Users\\Devon Tyler\\.nuget\\packages\\",
-        "outputPath": "C:\\web-dev\\github-repos\\BarberX.info\\src\\BarberX.MatterDocket.MAUI\\obj\\",
+        "outputPath": "C:\\web-dev\\github-repos\\Evident.info\\src\\Evident.MatterDocket.MAUI\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

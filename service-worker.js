@@ -1,11 +1,11 @@
-// Service Worker for BarberX Progressive Web App (PWA)
+// Service Worker for Evident Progressive Web App (PWA)
 // Enables offline mode, caching, and push notifications
 
 const CACHE_VERSION = '2.0.0';
-const CACHE_NAME = `barberx-v${CACHE_VERSION}`;
-const RUNTIME_CACHE = 'barberx-runtime';
-const DOCUMENT_CACHE = 'barberx-documents';
-const AI_CACHE = 'barberx-ai-responses';
+const CACHE_NAME = `Evident-v${CACHE_VERSION}`;
+const RUNTIME_CACHE = 'Evident-runtime';
+const DOCUMENT_CACHE = 'Evident-documents';
+const AI_CACHE = 'Evident-ai-responses';
 
 // Files to cache immediately on install
 const PRECACHE_URLS = [
@@ -298,7 +298,7 @@ async function handleFileOpen(request) {
 // Store shared data in IndexedDB
 async function storeSharedData(metadata, files) {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('barberx-shared', 1);
+    const request = indexedDB.open('Evident-shared', 1);
     
     request.onupgradeneeded = (event) => {
       const db = event.target.result;
@@ -337,11 +337,11 @@ self.addEventListener('push', event => {
   console.log('[ServiceWorker] Push received:', event);
   
   let data = {
-    title: 'BarberX Notification',
+    title: 'Evident Notification',
     body: 'You have a new update',
     icon: '/assets/icons/icon-192x192.png',
     badge: '/assets/icons/badge-72x72.png',
-    tag: 'barberx-notification',
+    tag: 'Evident-notification',
     requireInteraction: false
   };
   

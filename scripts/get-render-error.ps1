@@ -9,7 +9,7 @@ Write-Host "`n?? TO GET THE EXACT ERROR:" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "1. Go to: https://dashboard.render.com" -ForegroundColor White
 Write-Host "2. Login with your Render account" -ForegroundColor White
-Write-Host "3. Click on your service: 'barberx-legal-tech'" -ForegroundColor White
+Write-Host "3. Click on your service: 'Evident-legal-tech'" -ForegroundColor White
 Write-Host "4. Click 'Logs' in the left sidebar" -ForegroundColor White
 Write-Host "5. Scroll to the VERY BOTTOM" -ForegroundColor White
 Write-Host "6. Look for RED ERROR MESSAGES" -ForegroundColor Red
@@ -42,7 +42,7 @@ Write-Host ""
 Write-Host "=" * 70
 Write-Host "`n??  QUICK CHECK:" -ForegroundColor Cyan
 Write-Host "Open this URL and see what happens:" -ForegroundColor White
-Write-Host "https://barberx-legal-tech.onrender.com" -ForegroundColor Blue
+Write-Host "https://Evident-legal-tech.onrender.com" -ForegroundColor Blue
 Write-Host ""
 Write-Host "What do you see?" -ForegroundColor Yellow
 Write-Host "  A) 'Internal Server Error' - App is running but crashing" -ForegroundColor Gray

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BarberX Agent Workflow Demo
+Evident Agent Workflow Demo
 
 Demonstrates how to use the 7 custom Copilot agents in a real development workflow.
 This script simulates a typical feature development cycle using all agents.
@@ -11,17 +11,17 @@ from datetime import datetime
 
 
 class AgentWorkflowDemo:
-    """Demonstrates agent usage in BarberX development workflows."""
+    """Demonstrates agent usage in Evident development workflows."""
 
     def __init__(self):
         self.agents = {
-            "legal-compliance": "BarberX Legal Compliance Expert",
-            "bwc-forensics": "BarberX BWC Forensics Specialist",
-            "flask-backend": "BarberX Flask Backend Developer",
-            "frontend-dev": "BarberX Frontend Developer",
-            "database-architect": "BarberX Database Architect",
-            "security-devops": "BarberX Security & DevOps Engineer",
-            "documentation": "BarberX Documentation Specialist",
+            "legal-compliance": "Evident Legal Compliance Expert",
+            "bwc-forensics": "Evident BWC Forensics Specialist",
+            "flask-backend": "Evident Flask Backend Developer",
+            "frontend-dev": "Evident Frontend Developer",
+            "database-architect": "Evident Database Architect",
+            "security-devops": "Evident Security & DevOps Engineer",
+            "documentation": "Evident Documentation Specialist",
         }
 
     def print_header(self, title):
@@ -130,7 +130,7 @@ class AgentWorkflowDemo:
 
         self.print_header("WORKFLOW 3: Pre-Production Compliance Audit")
 
-        print("Task: Prepare BarberX for production launch\n")
+        print("Task: Prepare Evident for production launch\n")
 
         # Legal compliance audit
         self.print_agent_action(
@@ -255,7 +255,7 @@ class AgentWorkflowDemo:
 
         self.print_header("Agent Collaboration Summary")
 
-        print("The 7 BarberX agents work together to ensure:\n")
+        print("The 7 Evident agents work together to ensure:\n")
 
         benefits = {
             "⚖️ Legal Compliance": [
@@ -300,7 +300,7 @@ class AgentWorkflowDemo:
         """Run all workflow demonstrations."""
 
         print("\n" + "█" * 80)
-        print("█  BarberX Custom Copilot Agents - Workflow Demonstrations")
+        print("█  Evident Custom Copilot Agents - Workflow Demonstrations")
         print("█  Showing how 7 specialized agents accelerate development")
         print("█" * 80)
 
@@ -338,7 +338,7 @@ class AgentWorkflowDemo:
         print("  @security-devops Configure SSL for production")
         print("  @documentation Write attorney quick start guide\n")
 
-        print("✨ Start using agents today to accelerate BarberX development!\n")
+        print("✨ Start using agents today to accelerate Evident development!\n")
 
 
 def main():

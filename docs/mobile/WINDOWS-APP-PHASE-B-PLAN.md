@@ -1,4 +1,4 @@
-# BarberX Matter Docket (DTMB) - Phase B: MAUI Native Client Development
+# Evident Matter Docket (DTMB) - Phase B: MAUI Native Client Development
 
 **Date:** January 27, 2026  
 **Status:** Starting Phase B - .NET MAUI Windows 11 Native Application
@@ -80,8 +80,8 @@
 ## 📁 Project Structure
 
 ```
-BarberX.MatterDocket.MAUI/
-├── BarberX.MatterDocket.csproj          # Main project file
+Evident.MatterDocket.MAUI/
+├── Evident.MatterDocket.csproj          # Main project file
 ├── MauiProgram.cs                       # App initialization
 ├── App.xaml / App.xaml.cs               # Application entry
 │
@@ -263,7 +263,7 @@ BarberX.MatterDocket.MAUI/
 public class ApiService
 {
     private readonly HttpClient _httpClient;
-    private readonly string _baseUrl = "https://barberx.info/api";
+    private readonly string _baseUrl = "https://Evident.info/api";
     
     public ApiService()
     {
@@ -312,7 +312,7 @@ public class ApiService
 - Responsive layouts
 
 ### Color Scheme
-- **Primary:** #d4a574 (BarberX gold)
+- **Primary:** #d4a574 (Evident gold)
 - **Background:** #0f0f0f (dark)
 - **Surface:** #1a1a1a
 - **Text:** #ffffff (primary), #b0b0b0 (secondary)

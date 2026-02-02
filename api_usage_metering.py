@@ -86,7 +86,7 @@ class SecureKeyManager:
         """Derive a fallback key from system entropy (NOT for production)"""
         # Use multiple sources of entropy
         entropy_sources = [
-            os.getenv("SECRET_KEY", "barberx-default"),
+            os.getenv("SECRET_KEY", "Evident-default"),
             os.getenv("FLASK_SECRET_KEY", ""),
             str(os.getpid()),
         ]
@@ -95,7 +95,7 @@ class SecureKeyManager:
 
     def _derive_key(self, master_key: str) -> bytes:
         """Derive a Fernet-compatible key using PBKDF2"""
-        salt = b"barberx-api-key-salt-v1"  # Static salt for consistency
+        salt = b"Evident-api-key-salt-v1"  # Static salt for consistency
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,

@@ -128,7 +128,7 @@ This project maintains transparency through:
 
 For inquiries about Barber Cam development status:
 
-- **Email:** [support@barberx.info](mailto:support@barberx.info)
+- **Email:** [support@Evident.info](mailto:support@Evident.info)
 - **GitHub:** Open an issue with "Status Inquiry" in the title
 
 ---

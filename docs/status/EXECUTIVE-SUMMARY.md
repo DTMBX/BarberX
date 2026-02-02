@@ -89,7 +89,7 @@ exports/exp_c85f0b29c230/
 
 ```bash
 # Step 1: Create database tables
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python models_data_rights.py
 ```
 
@@ -224,13 +224,13 @@ def export_pdf(analysis_id):
 ## 📧 GET HELP
 
 **Legal Compliance Questions:**  
-legal@barberx.info | contact@barberx.info
+legal@Evident.info | contact@Evident.info
 
 **Technical Integration Support:**  
-support@barberx.info
+support@Evident.info
 
 **Urgent Copyright Issues:**  
-compliance@barberx.info (24-hour response)
+compliance@Evident.info (24-hour response)
 
 ---
 

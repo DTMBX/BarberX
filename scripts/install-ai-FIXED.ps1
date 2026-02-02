@@ -1,11 +1,11 @@
 #!/usr/bin/env pwsh
-# BarberX.info - FIXED AI Dependencies Installation
+# Evident.info - FIXED AI Dependencies Installation
 # Resolves all version conflicts for Windows Python 3.9
 
-Write-Host "`n?? BarberX AI - FIXED Installation (Windows Compatible)" -ForegroundColor Cyan
+Write-Host "`n?? Evident AI - FIXED Installation (Windows Compatible)" -ForegroundColor Cyan
 Write-Host "=========================================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Step 1: Uninstall conflicting packages
 Write-Host "`n[1/6] Removing conflicting packages..." -ForegroundColor Yellow
@@ -128,19 +128,19 @@ Write-Host "  ? Vector Database (ChromaDB)" -ForegroundColor Green
 Write-Host "  ? Multi-speaker Audio" -ForegroundColor Green
 
 Write-Host "`n?? WHAT YOU CAN DO NOW:" -ForegroundColor Yellow
-Write-Host "  • Upload .mp4 BWC videos" -ForegroundColor White
-Write-Host "  • Automatic audio transcription" -ForegroundColor White
-Write-Host "  • Speaker diarization (Officer vs Civilian)" -ForegroundColor White
-Write-Host "  • Video frame analysis" -ForegroundColor White
-Write-Host "  • Audio noise reduction & enhancement" -ForegroundColor White
-Write-Host "  • PDF text extraction & OCR" -ForegroundColor White
-Write-Host "  • Constitutional violation detection (with OpenAI/Anthropic API)" -ForegroundColor White
+Write-Host "  ï¿½ Upload .mp4 BWC videos" -ForegroundColor White
+Write-Host "  ï¿½ Automatic audio transcription" -ForegroundColor White
+Write-Host "  ï¿½ Speaker diarization (Officer vs Civilian)" -ForegroundColor White
+Write-Host "  ï¿½ Video frame analysis" -ForegroundColor White
+Write-Host "  ï¿½ Audio noise reduction & enhancement" -ForegroundColor White
+Write-Host "  ï¿½ PDF text extraction & OCR" -ForegroundColor White
+Write-Host "  ï¿½ Constitutional violation detection (with OpenAI/Anthropic API)" -ForegroundColor White
 
 Write-Host "`n?? NEXT STEPS:" -ForegroundColor Yellow
 Write-Host "  1. Get API keys (optional but recommended):" -ForegroundColor White
-Write-Host "     • OpenAI: https://platform.openai.com/api-keys" -ForegroundColor Gray
-Write-Host "     • Anthropic Claude: https://console.anthropic.com/" -ForegroundColor Gray
-Write-Host "     • HuggingFace: https://huggingface.co/settings/tokens" -ForegroundColor Gray
+Write-Host "     ï¿½ OpenAI: https://platform.openai.com/api-keys" -ForegroundColor Gray
+Write-Host "     ï¿½ Anthropic Claude: https://console.anthropic.com/" -ForegroundColor Gray
+Write-Host "     ï¿½ HuggingFace: https://huggingface.co/settings/tokens" -ForegroundColor Gray
 Write-Host "  2. Add to .env file:" -ForegroundColor White
 Write-Host "     OPENAI_API_KEY=sk-..." -ForegroundColor Gray
 Write-Host "     ANTHROPIC_API_KEY=sk-ant-..." -ForegroundColor Gray

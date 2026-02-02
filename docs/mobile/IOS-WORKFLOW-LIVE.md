@@ -28,7 +28,7 @@ Your iOS build automation is now **ACTIVE ON GITHUB**!
 
 **View Live Build:**
 ```
-https://github.com/DTB396/BarberX.info/actions
+https://github.com/DTB396/Evident.info/actions
 ```
 
 ### Build Timeline (8-12 minutes total)
@@ -52,7 +52,7 @@ https://github.com/DTB396/BarberX.info/actions
 
 ### Step 1: Go to GitHub Actions
 
-Visit: https://github.com/DTB396/BarberX.info/actions
+Visit: https://github.com/DTB396/Evident.info/actions
 
 ### Step 2: Click Latest Workflow Run
 
@@ -62,17 +62,17 @@ Status: ✅ **Success** (green checkmark)
 ### Step 3: Download Artifact
 
 1. Scroll to **"Artifacts"** section at bottom
-2. Click **"BarberX-iOS-Development"** 
-3. Downloads: `BarberX-iOS-Development.zip`
+2. Click **"Evident-iOS-Development"** 
+3. Downloads: `Evident-iOS-Development.zip`
 
 ### Step 4: Extract IPA
 
 ```powershell
 # Extract ZIP to get .ipa file
-Expand-Archive BarberX-iOS-Development.zip -DestinationPath .\iOS-Build
+Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 ```
 
-**Result:** `BarberX.MatterDocket.MAUI.ipa` (~40-50 MB)
+**Result:** `Evident.MatterDocket.MAUI.ipa` (~40-50 MB)
 
 ---
 
@@ -89,7 +89,7 @@ Expand-Archive BarberX-iOS-Development.zip -DestinationPath .\iOS-Build
 1. Open Xcode
 2. Window → Devices and Simulators
 3. Select your iPhone
-4. Drag `BarberX.MatterDocket.MAUI.ipa` to device
+4. Drag `Evident.MatterDocket.MAUI.ipa` to device
 5. App installs immediately
 6. Trust certificate: Settings → General → VPN & Device Management
 
@@ -140,7 +140,7 @@ The workflow runs automatically on:
 
 Don't want to push code? Run manually:
 
-1. Go to: https://github.com/DTB396/BarberX.info/actions
+1. Go to: https://github.com/DTB396/Evident.info/actions
 2. Click "iOS Build" workflow
 3. Click "Run workflow" button
 4. Select branch (main)
@@ -254,7 +254,7 @@ Your GitHub Actions runner is building:
 
 1. **Watch build progress:**
    ```
-   https://github.com/DTB396/BarberX.info/actions
+   https://github.com/DTB396/Evident.info/actions
    ```
 
 2. **Install Android APK** while iOS builds:
@@ -306,14 +306,14 @@ GitHub will send you emails:
 
 Add to your README:
 ```markdown
-![iOS Build](https://github.com/DTB396/BarberX.info/workflows/iOS%20Build/badge.svg)
+![iOS Build](https://github.com/DTB396/Evident.info/workflows/iOS%20Build/badge.svg)
 ```
 
 ---
 
 ## 🚀 You Did It!
 
-Your BarberX app is now set up for:
+Your Evident app is now set up for:
 
 1. ✅ **Instant Android testing** - APK ready to install
 2. ✅ **Automated iOS builds** - Push code → Get .ipa
@@ -322,7 +322,7 @@ Your BarberX app is now set up for:
 5. ✅ **Multi-platform** - iOS, Android, Windows, Web
 
 **Monitor your first build at:**  
-https://github.com/DTB396/BarberX.info/actions
+https://github.com/DTB396/Evident.info/actions
 
 **Should complete in 8-12 minutes!**
 

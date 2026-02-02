@@ -1,7 +1,7 @@
 #!/bin/bash
-# Quick Netlify Deployment Script for BarberX.info
+# Quick Netlify Deployment Script for Evident.info
 
-echo "🚀 BarberX.info - Netlify Deployment"
+echo "🚀 Evident.info - Netlify Deployment"
 echo "===================================="
 echo ""
 

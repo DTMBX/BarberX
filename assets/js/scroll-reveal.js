@@ -1,5 +1,5 @@
 /**
- * BarberX Scroll Reveal Animation System
+ * Evident Scroll Reveal Animation System
  * Smooth, performance-optimized scroll-triggered animations
  */
 

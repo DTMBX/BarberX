@@ -1,5 +1,5 @@
 """
-BarberX UX Enhancement Utilities
+Evident UX Enhancement Utilities
 Helper functions and filters for improved user experience
 """
 
@@ -158,7 +158,7 @@ def contextual_help(page_name, tier_name):
             "FREE": "Track your usage and upgrade when you need more capacity.",
             "PROFESSIONAL": "You have access to professional-grade tools and analytics.",
             "PREMIUM": "Full forensic analysis suite at your fingertips.",
-            "ENTERPRISE": "Unlimited access to all BarberX features.",
+            "ENTERPRISE": "Unlimited access to all Evident features.",
         },
         "upload": {
             "FREE": "Upload BWC videos up to 100 MB. Upgrade for larger files.",
@@ -225,7 +225,7 @@ def get_welcome_message(tier_name, is_new_user=False):
     """Get personalized welcome message"""
     if is_new_user:
         messages = {
-            "FREE": "🎉 Welcome to BarberX! Start with 2 free BWC analyses.",
+            "FREE": "🎉 Welcome to Evident! Start with 2 free BWC analyses.",
             "PROFESSIONAL": "🚀 Welcome to Professional! You have 25 analyses ready.",
             "PREMIUM": "⭐ Welcome to Premium! Unlimited power at your fingertips.",
             "ENTERPRISE": "👑 Welcome to Enterprise! Your custom solution awaits.",
@@ -238,7 +238,7 @@ def get_welcome_message(tier_name, is_new_user=False):
             "ENTERPRISE": "Welcome back! Your Enterprise account is ready.",
         }
 
-    return messages.get(tier_name.upper(), "Welcome to BarberX!")
+    return messages.get(tier_name.upper(), "Welcome to Evident!")
 
 
 def register_ux_filters(app):

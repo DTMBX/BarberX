@@ -185,11 +185,11 @@ python models_data_rights.py
 ## 📧 GET HELP
 
 **Legal Compliance Questions:**  
-legal@barberx.info  
-legal@barberx.info
+legal@Evident.info  
+legal@Evident.info
 
 **Copyright Concerns:**  
-Report immediately: compliance@barberx.info
+Report immediately: compliance@Evident.info
 
 **Full Documentation:**  
 See [DATA-RIGHTS-COMPLIANCE.md](DATA-RIGHTS-COMPLIANCE.md) for complete framework

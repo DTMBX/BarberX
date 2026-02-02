@@ -1,12 +1,12 @@
-# BarberX REST API Reference
+# Evident REST API Reference
 
 **Version:** v1  
-**Base URL:** `https://barberx.info/api/v1`  
+**Base URL:** `https://Evident.info/api/v1`  
 **Authentication:** JWT Bearer Token
 
 ## Overview
 
-The BarberX REST API provides programmatic access to all platform features for cross-platform clients (Web, Windows, iOS, Android). All endpoints return JSON responses and use standard HTTP status codes.
+The Evident REST API provides programmatic access to all platform features for cross-platform clients (Web, Windows, iOS, Android). All endpoints return JSON responses and use standard HTTP status codes.
 
 ## Authentication
 
@@ -924,7 +924,7 @@ X-RateLimit-Reset: 1643276400
 import requests
 
 # Login
-response = requests.post("https://barberx.info/api/v1/auth/login", json={
+response = requests.post("https://Evident.info/api/v1/auth/login", json={
     "email": "user@example.com",
     "password": "password123"
 })
@@ -933,12 +933,12 @@ token = response.json()["token"]
 # Upload PDF
 headers = {"Authorization": f"Bearer {token}"}
 files = {"file": open("document.pdf", "rb")}
-response = requests.post("https://barberx.info/api/v1/upload/pdf", 
+response = requests.post("https://Evident.info/api/v1/upload/pdf", 
                         headers=headers, files=files)
 file_id = response.json()["file_id"]
 
 # Start analysis
-response = requests.post("https://barberx.info/api/v1/analysis/start",
+response = requests.post("https://Evident.info/api/v1/analysis/start",
                         headers=headers, json={"file_id": file_id})
 analysis_id = response.json()["analysis_id"]
 ```
@@ -946,7 +946,7 @@ analysis_id = response.json()["analysis_id"]
 ### JavaScript
 ```javascript
 // Login
-const response = await fetch('https://barberx.info/api/v1/auth/login', {
+const response = await fetch('https://Evident.info/api/v1/auth/login', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({email: 'user@example.com', password: 'password123'})
@@ -956,7 +956,7 @@ const {token} = await response.json();
 // Upload PDF
 const formData = new FormData();
 formData.append('file', pdfFile);
-const uploadResponse = await fetch('https://barberx.info/api/v1/upload/pdf', {
+const uploadResponse = await fetch('https://Evident.info/api/v1/upload/pdf', {
   method: 'POST',
   headers: {'Authorization': `Bearer ${token}`},
   body: formData
@@ -969,7 +969,7 @@ const {file_id} = await uploadResponse.json();
 // Login
 var client = new HttpClient();
 var loginData = new {email = "user@example.com", password = "password123"};
-var response = await client.PostAsJsonAsync("https://barberx.info/api/v1/auth/login", loginData);
+var response = await client.PostAsJsonAsync("https://Evident.info/api/v1/auth/login", loginData);
 var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
 var token = result.Token;
 
@@ -977,7 +977,7 @@ var token = result.Token;
 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 var content = new MultipartFormDataContent();
 content.Add(new StreamContent(fileStream), "file", "document.pdf");
-var uploadResponse = await client.PostAsync("https://barberx.info/api/v1/upload/pdf", content);
+var uploadResponse = await client.PostAsync("https://Evident.info/api/v1/upload/pdf", content);
 ```
 
 ---
@@ -998,8 +998,8 @@ var uploadResponse = await client.PostAsync("https://barberx.info/api/v1/upload/
 
 ## Support
 
-**Documentation:** https://barberx.info/docs/api  
-**Email:** api-support@barberx.info  
-**Discord:** https://discord.gg/barberx  
+**Documentation:** https://Evident.info/docs/api  
+**Email:** api-support@Evident.info  
+**Discord:** https://discord.gg/Evident  
 
-**Status Page:** https://status.barberx.info
+**Status Page:** https://status.Evident.info

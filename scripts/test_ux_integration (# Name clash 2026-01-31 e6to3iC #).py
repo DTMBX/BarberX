@@ -1,5 +1,5 @@
 """
-BarberX UX Integration Test
+Evident UX Integration Test
 Verify all UX improvements are working correctly
 """
 
@@ -169,7 +169,7 @@ def test_accessibility_features():
 def main():
     """Run all tests"""
     print("=" * 60)
-    print("BarberX UX Integration Test Suite")
+    print("Evident UX Integration Test Suite")
     print("=" * 60)
 
     tests = [

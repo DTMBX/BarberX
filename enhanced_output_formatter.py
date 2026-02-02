@@ -69,7 +69,7 @@ class OutputFormatter:
         """Create professional header"""
         return """
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║                    BARBERX AI EVIDENCE ANALYSIS REPORT                        ║
+║                    Evident AI EVIDENCE ANALYSIS REPORT                        ║
 ║                        Powered by Legal AI Technology                         ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
         """.strip()
@@ -395,8 +395,8 @@ class OutputFormatter:
 
 ╔═══════════════════════════════════════════════════════════════════════════════╗
 ║ Report Generated: {datetime.now().strftime('%B %d, %Y at %I:%M %p'):<60} ║
-║ Powered by BarberX Legal AI Technology                                       ║
-║ © 2026 BarberX Legal Technologies - All Rights Reserved                      ║
+║ Powered by Evident Legal AI Technology                                       ║
+║ © 2026 Evident Legal Technologies - All Rights Reserved                      ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
         """.strip()
 

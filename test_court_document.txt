@@ -6,4 +6,4 @@ Date: January 23, 2026
 
 This PDF will be uploaded to verify the court document processing system is operational.
 
-BarberX Legal Tech Platform - Production Readiness Test
+Evident Legal Tech Platform - Production Readiness Test

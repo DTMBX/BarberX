@@ -12,7 +12,7 @@ Sensitive credentials were committed to the public GitHub repository:
 - **Email:** dTb33@pm.me (ProtonMail)
 - **Password:** LoveAll33!
 - **Name:** Devon Tyler Barber
-- **Repository:** DTB396/BarberX.info (public)
+- **Repository:** DTB396/Evident.info (public)
 
 ## Timeline
 
@@ -54,7 +54,7 @@ Sensitive credentials were committed to the public GitHub repository:
 ### Potentially Compromised
 
 - ProtonMail account (dTb33@pm.me)
-- BarberX platform admin account
+- Evident platform admin account
 - Any systems using the exposed password
 
 ## Required Credential Rotation
@@ -66,7 +66,7 @@ Sensitive credentials were committed to the public GitHub repository:
   - Enable 2FA
   - Review access logs
   - Check for unauthorized emails/forwards
-- [ ] **BarberX Admin Password**
+- [ ] **Evident Admin Password**
   - Update ADMIN_PASSWORD in production .env
   - Force logout all sessions
   - Review admin activity logs
@@ -121,7 +121,7 @@ cp .env.template .env
 notepad .env
 
 # Set new values:
-ADMIN_EMAIL=admin@barberx.info
+ADMIN_EMAIL=admin@Evident.info
 ADMIN_PASSWORD=<GENERATE_NEW_PASSWORD_HERE>
 SECRET_KEY=<GENERATE_NEW_SECRET_HERE>
 ```
@@ -153,7 +153,7 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 ### Immediate Checks
 
 - [ ] Check ProtonMail login history
-- [ ] Check BarberX admin access logs
+- [ ] Check Evident admin access logs
 - [ ] Review GitHub webhook deliveries
 - [ ] Check Render.com deployment logs
 - [ ] Review Stripe dashboard for unusual activity

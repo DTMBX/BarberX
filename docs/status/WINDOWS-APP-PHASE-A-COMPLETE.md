@@ -1,8 +1,8 @@
-# BarberX Matter Docket (DTMB) - Windows 11 Desktop Application - Phase A Complete ✅
+# Evident Matter Docket (DTMB) - Windows 11 Desktop Application - Phase A Complete ✅
 
 **Date:** January 27, 2026  
 **Status:** PWA Packaging Complete - MSIX Ready for Testing  
-**Package:** `windows-package\BarberX.msix` (370 KB)
+**Package:** `windows-package\Evident.msix` (370 KB)
 
 ---
 
@@ -37,11 +37,11 @@
 ## 📦 Package Details
 
 ### Package Information
-- **Name:** BarberX Matter Docket (DTMB)
-- **Package ID:** com.barberx.matterdocket
+- **Name:** Evident Matter Docket (DTMB)
+- **Package ID:** com.Evident.matterdocket
 - **Version:** 1.0.0.0
-- **Publisher:** BarberX
-- **File:** `windows-package\BarberX.msix`
+- **Publisher:** Evident
+- **File:** `windows-package\Evident.msix`
 - **Size:** 370 KB
 
 ### Windows 11 Features
@@ -76,12 +76,12 @@
 1. Open Windows Settings
 2. Go to **System → For developers**
 3. Enable **Developer Mode**
-4. Double-click `windows-package\BarberX.msix`
+4. Double-click `windows-package\Evident.msix`
 5. Click **Install**
 
 **Method 3: PWA Builder Web Interface (Recommended for Testing)**
 1. Visit https://www.pwabuilder.com/
-2. Enter URL: `https://barberx.info`
+2. Enter URL: `https://Evident.info`
 3. Click **"Start"** to analyze
 4. Click **"Package For Stores"**
 5. Select **"Windows"** platform
@@ -100,8 +100,8 @@
 ### Package Structure
 ```
 windows-package/
-├── BarberX.msix (370 KB) - Installable package
-└── BarberX-Package/
+├── Evident.msix (370 KB) - Installable package
+└── Evident-Package/
     ├── AppxManifest.xml - App configuration
     └── Assets/
         ├── Square44x44Logo.png
@@ -136,19 +136,19 @@ assets/icons/
 ```powershell
 # Create self-signed certificate
 $cert = New-SelfSignedCertificate -Type CodeSigningCert `
-    -Subject "CN=BarberX Legal Development" `
+    -Subject "CN=Evident Legal Development" `
     -CertStoreLocation "Cert:\CurrentUser\My"
 
 # Export certificate
-Export-Certificate -Cert $cert -FilePath "BarberX-Dev-Cert.cer"
+Export-Certificate -Cert $cert -FilePath "Evident-Dev-Cert.cer"
 
 # Import to Trusted Root
-Import-Certificate -FilePath "BarberX-Dev-Cert.cer" `
+Import-Certificate -FilePath "Evident-Dev-Cert.cer" `
     -CertStoreLocation "Cert:\LocalMachine\Root"
 
 # Sign package
-SignTool sign /fd SHA256 /a /f "BarberX-Dev-Cert.pfx" `
-    /p "password" windows-package\BarberX.msix
+SignTool sign /fd SHA256 /a /f "Evident-Dev-Cert.pfx" `
+    /p "password" windows-package\Evident.msix
 ```
 
 ### Option 2: Commercial Certificate (Production)
@@ -179,10 +179,10 @@ Cost: ~$400-$800/year
 1. **Create App Listing**
    - Go to https://partner.microsoft.com/dashboard
    - Click "New product" → "MSIX or PWA app"
-   - Reserve app name: "BarberX Legal"
+   - Reserve app name: "Evident Legal"
 
 2. **Upload Package**
-   - Upload `BarberX.msix`
+   - Upload `Evident.msix`
    - Microsoft will sign it automatically
 
 3. **Provide Metadata**
@@ -210,7 +210,7 @@ Cost: ~$400-$800/year
 - [ ] MSIX installs without errors
 - [ ] App appears in Start Menu
 - [ ] App icon displays correctly
-- [ ] App launches to https://barberx.info
+- [ ] App launches to https://Evident.info
 - [ ] Window has proper title and icon
 
 ### Functionality Tests
@@ -347,7 +347,7 @@ Cost: ~$400-$800/year
 4. ✅ Documented installation & testing
 5. ✅ Prepared for Microsoft Store submission
 
-**The BarberX Windows 11 app is ready for testing!**
+**The Evident Windows 11 app is ready for testing!**
 
 Next: **Phase B - MAUI Native Client Development**
 

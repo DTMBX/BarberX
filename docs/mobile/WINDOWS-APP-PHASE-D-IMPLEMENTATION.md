@@ -1,4 +1,4 @@
-# BarberX Matter Docket (DTMB) - Phase D: Detailed Implementation Plan
+# Evident Matter Docket (DTMB) - Phase D: Detailed Implementation Plan
 
 **Date:** January 27, 2026  
 **Status:** Comprehensive Development Roadmap  
@@ -8,7 +8,7 @@
 
 ## 🎯 Executive Summary
 
-**Project:** BarberX Matter Docket Windows 11 Native Application  
+**Project:** Evident Matter Docket Windows 11 Native Application  
 **Technology:** .NET MAUI + WinUI 3 + Flask Backend  
 **Delivery:** Production-ready Windows desktop app  
 **Timeline:** 8 weeks from environment setup to deployment
@@ -35,7 +35,7 @@
 ### Week 1: Foundation (Jan 27 - Feb 2, 2026)
 
 #### Day 1-2: Environment & Project Setup
-- [x] Rebranding to BarberX Matter Docket (DTMB) ✅
+- [x] Rebranding to Evident Matter Docket (DTMB) ✅
 - [x] PWA package created ✅
 - [ ] Install Visual Studio 2022
 - [ ] Install .NET 8 SDK
@@ -46,7 +46,7 @@
 
 **Deliverables:**
 - ✅ Rebranded manifest.json, AppxManifest.xml
-- ✅ New MSIX package (BarberX-MatterDocket-DTMB.msix)
+- ✅ New MSIX package (Evident-MatterDocket-DTMB.msix)
 - Development environment ready
 - Empty MAUI project structure
 

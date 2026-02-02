@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Check Live App Status - Diagnose BarberX deployment
+Check Live App Status - Diagnose Evident deployment
 """
 
 import json
@@ -56,8 +56,8 @@ def test_registration():
     print(f"{'='*60}")
 
     urls = [
-        "https://barberx.info/auth/register",
-        "https://barberx-backend.onrender.com/auth/register",
+        "https://Evident.info/auth/register",
+        "https://Evident-backend.onrender.com/auth/register",
     ]
 
     test_data = {
@@ -96,25 +96,25 @@ def test_registration():
 def main():
     """Run all diagnostics"""
     print("\n" + "=" * 60)
-    print("🔍 BARBERX LIVE APP DIAGNOSTICS")
+    print("🔍 Evident LIVE APP DIAGNOSTICS")
     print("=" * 60)
 
     results = []
 
     # Test main URLs
     print("\n\n📍 TESTING MAIN URLS...")
-    results.append(("Main Site", test_url("https://barberx.info/", "Main Homepage")))
+    results.append(("Main Site", test_url("https://Evident.info/", "Main Homepage")))
     results.append(
-        ("Render URL", test_url("https://barberx-backend.onrender.com/", "Render Deployment"))
+        ("Render URL", test_url("https://Evident-backend.onrender.com/", "Render Deployment"))
     )
 
     print("\n\n📍 TESTING AUTH PAGES...")
-    results.append(("Login Page", test_url("https://barberx.info/login", "Login Page")))
-    results.append(("Register Page", test_url("https://barberx.info/register", "Register Page")))
+    results.append(("Login Page", test_url("https://Evident.info/login", "Login Page")))
+    results.append(("Register Page", test_url("https://Evident.info/register", "Register Page")))
 
     print("\n\n📍 TESTING PAYMENT PAGES...")
     results.append(
-        ("Pricing Page", test_url("https://barberx.info/payments/pricing", "Pricing Page"))
+        ("Pricing Page", test_url("https://Evident.info/payments/pricing", "Pricing Page"))
     )
 
     print("\n\n📍 TESTING API ENDPOINTS...")
@@ -164,8 +164,8 @@ def main():
     else:
         print("✅ APP IS FULLY OPERATIONAL!")
         print("\nNEXT STEPS:")
-        print("1. Register at: https://barberx.info/register")
-        print("2. Use your real email (not test@barberx.test)")
+        print("1. Register at: https://Evident.info/register")
+        print("2. Use your real email (not test@Evident.test)")
         print("3. Login and test the app")
 
     print("\n" + "=" * 60 + "\n")

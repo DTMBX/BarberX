@@ -21,19 +21,19 @@ Both login and signup pages now have an eye icon to show/hide passwords.
 
 **ADMIN LOGIN:**
 ```
-Email: admin@barberx.info
+Email: admin@Evident.info
 Password: Admin123!  (capital A, not Password123!)
 ```
 
 **TEST USER LOGIN:**
 ```
-Email: test@barberx.info
+Email: test@Evident.info
 Password: Password123!
 ```
 
 **User Tiers in Database:**
-- admin@barberx.info → ENTERPRISE tier (full admin access)
-- test@barberx.info → FREE tier (limited access)
+- admin@Evident.info → ENTERPRISE tier (full admin access)
+- test@Evident.info → FREE tier (limited access)
 
 ## How Password Reveal Works
 
@@ -100,7 +100,7 @@ Each toggle independently controls its target field via `data-target` attribute.
 
 ### To Test Admin Login:
 1. Go to http://localhost:5000/auth/login
-2. Email: `admin@barberx.info`
+2. Email: `admin@Evident.info`
 3. Password: `Admin123!` (use password reveal to verify)
 4. Click Login
 5. Should redirect to dashboard with ENTERPRISE tier badge
@@ -159,7 +159,7 @@ The password is still:
 
 | Account | Email | Password | Tier |
 |---------|-------|----------|------|
-| **Admin** | admin@barberx.info | **Admin123!** | ENTERPRISE |
-| **Test** | test@barberx.info | Password123! | FREE |
+| **Admin** | admin@Evident.info | **Admin123!** | ENTERPRISE |
+| **Test** | test@Evident.info | Password123! | FREE |
 
 **Note:** Admin password has capital 'A' not 'P'! Use password reveal to double-check.

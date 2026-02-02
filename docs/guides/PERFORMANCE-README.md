@@ -2,7 +2,7 @@
 
 ## 🚀 What Was Optimized
 
-BarberX.info has been fully optimized for production performance. All changes are **production-ready** and **backwards compatible**.
+Evident.info has been fully optimized for production performance. All changes are **production-ready** and **backwards compatible**.
 
 ## ✅ Key Improvements
 

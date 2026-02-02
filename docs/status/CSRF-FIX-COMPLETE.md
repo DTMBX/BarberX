@@ -49,11 +49,11 @@ Added CSRF token hidden fields + proper fetch configuration:
 **URL:** http://localhost:5000/auth/login
 
 **Test Credentials:**
-- Email: `test@barberx.info`
+- Email: `test@Evident.info`
 - Password: `Password123!`
 
 **Admin Credentials:**
-- Email: `admin@barberx.info`
+- Email: `admin@Evident.info`
 - Password: `Admin123!`
 
 ## What Was Wrong

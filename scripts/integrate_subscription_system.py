@@ -183,31 +183,31 @@ def create_test_accounts():
     with app.app_context():
         test_accounts = [
             {
-                "email": "free@barberx.test",
+                "email": "free@Evident.test",
                 "password": "test123",
                 "full_name": "Free Tier User",
                 "tier": TierLevel.FREE
             },
             {
-                "email": "pro@barberx.test",
+                "email": "pro@Evident.test",
                 "password": "test123",
                 "full_name": "Professional Tier User",
                 "tier": TierLevel.PROFESSIONAL
             },
             {
-                "email": "premium@barberx.test",
+                "email": "premium@Evident.test",
                 "password": "test123",
                 "full_name": "Premium Tier User",
                 "tier": TierLevel.PREMIUM
             },
             {
-                "email": "enterprise@barberx.test",
+                "email": "enterprise@Evident.test",
                 "password": "test123",
                 "full_name": "Enterprise Tier User",
                 "tier": TierLevel.ENTERPRISE
             },
             {
-                "email": "admin@barberx.test",
+                "email": "admin@Evident.test",
                 "password": "admin123",
                 "full_name": "Admin User",
                 "tier": TierLevel.ADMIN,
@@ -239,11 +239,11 @@ def create_test_accounts():
         db.session.commit()
         print("\\n✅ Test accounts created successfully!")
         print("\\nLogin credentials:")
-        print("  free@barberx.test / test123")
-        print("  pro@barberx.test / test123")
-        print("  premium@barberx.test / test123")
-        print("  enterprise@barberx.test / test123")
-        print("  admin@barberx.test / admin123")
+        print("  free@Evident.test / test123")
+        print("  pro@Evident.test / test123")
+        print("  premium@Evident.test / test123")
+        print("  enterprise@Evident.test / test123")
+        print("  admin@Evident.test / admin123")
 
 if __name__ == "__main__":
     create_test_accounts()
@@ -287,12 +287,12 @@ def main():
         print("      - STRIPE_SECRET_KEY=sk_...")
         print("      - STRIPE_PUBLISHABLE_KEY=pk_...")
         print("\n4. Set up webhook:")
-        print("   URL: https://barberx.info/api/stripe/webhook")
+        print("   URL: https://Evident.info/api/stripe/webhook")
         print("   Events: checkout.session.completed,")
         print("          customer.subscription.updated,")
         print("          customer.subscription.deleted")
         print("\n5. Test subscription flow:")
-        print("   a. Login as free@barberx.test")
+        print("   a. Login as free@Evident.test")
         print("   b. Go to /pricing")
         print("   c. Click upgrade button")
         print("   d. Complete checkout")

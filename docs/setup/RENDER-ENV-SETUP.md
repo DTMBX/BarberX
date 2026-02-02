@@ -12,7 +12,7 @@ After the recent security fixes, the following environment variables **must be s
 ### 1. Navigate to Render Dashboard
 
 1. Go to https://dashboard.render.com
-2. Select your **BarberX.info** web service
+2. Select your **Evident.info** web service
 3. Click **Environment** tab in the left sidebar
 
 ### 2. Add/Update These Variables
@@ -23,7 +23,7 @@ Click **Add Environment Variable** for each:
 
 ```bash
 SECRET_KEY=<generate-64-char-random-string>
-ADMIN_EMAIL=admin@barberx.info
+ADMIN_EMAIL=admin@Evident.info
 ADMIN_PASSWORD=<your-secure-admin-password>
 ```
 
@@ -76,7 +76,7 @@ MAIL_PASSWORD=your-app-password
 # AWS S3 (for large file storage)
 AWS_ACCESS_KEY_ID=<your-key>
 AWS_SECRET_ACCESS_KEY=<your-secret>
-AWS_BUCKET_NAME=barberx-uploads
+AWS_BUCKET_NAME=Evident-uploads
 AWS_REGION=us-east-1
 ```
 
@@ -100,11 +100,11 @@ echo $STRIPE_PUBLISHABLE_KEY  # Should show pk_live_...
 
 ### Test App Functionality
 
-1. **Visit your app**: https://barberx-info.onrender.com
-2. **Check pricing page**: https://barberx-info.onrender.com/pricing
+1. **Visit your app**: https://Evident-info.onrender.com
+2. **Check pricing page**: https://Evident-info.onrender.com/pricing
    - Should show Stripe pricing table
    - No console errors about missing publishable key
-3. **Test admin login**: https://barberx-info.onrender.com/auth/login
+3. **Test admin login**: https://Evident-info.onrender.com/auth/login
    - Use ADMIN_EMAIL and ADMIN_PASSWORD
    - Should login successfully
 
@@ -115,7 +115,7 @@ After setup, your Environment tab should show:
 ```
 ✓ SECRET_KEY               ••••••••••••••••••••••••
 ✓ DATABASE_URL             postgres://user:pass@host/db
-✓ ADMIN_EMAIL              admin@barberx.info
+✓ ADMIN_EMAIL              admin@Evident.info
 ✓ ADMIN_PASSWORD           ••••••••••••••••
 ✓ STRIPE_PRICING_TABLE_ID  prctbl_1Su2jmHGgvJKMFG1wn1Lum5i
 ✓ STRIPE_PUBLISHABLE_KEY   pk_live_51RjUMa...
@@ -155,7 +155,7 @@ After setup, your Environment tab should show:
 
 - **Render Docs**: https://render.com/docs/environment-variables
 - **Stripe Docs**: https://stripe.com/docs/keys
-- **BarberX Issues**: https://github.com/DTB396/BarberX.info/issues
+- **Evident Issues**: https://github.com/DTB396/Evident.info/issues
 
 ---
 

@@ -150,7 +150,7 @@ class DataRetentionManager:
 
         # Email content would be:
         email_content = f"""
-        Subject: Your BarberX Data Expires in {days_remaining} Days
+        Subject: Your Evident Data Expires in {days_remaining} Days
         
         Hi {user.full_name or 'there'},
         
@@ -163,11 +163,11 @@ class DataRetentionManager:
         - Access AI-powered insights
         - Remove watermarks
         
-        [Upgrade Now] → https://barberx.info/pricing
+        [Upgrade Now] → https://Evident.info/pricing
         
         Questions? Reply to this email.
         
-        - The BarberX Team
+        - The Evident Team
         """
 
         # In production, use SendGrid, AWS SES, etc.

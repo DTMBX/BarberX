@@ -44,7 +44,7 @@ from src.ai.pipeline import get_orchestrator
 # Configure pipeline
 
 pipeline_config = {
-"db_path": "instance/barberx_legal.db",
+"db_path": "instance/Evident_legal.db",
 "storage_root": "./uploads",
 "manifest_root": "./manifest",
 "enable_vector_index": False, # Enable when ChromaDB is set up
@@ -200,7 +200,7 @@ Frontend HTML template example:
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BarberX Chat Assistant</title>
+    <title>Evident Chat Assistant</title>
   </head>
   <body>
     <div class="chat-container">
@@ -265,7 +265,7 @@ Frontend HTML template example:
 
           messagesDiv.innerHTML += `
                 <div class="message assistant-message">
-                    <strong>BarberX:</strong> ${data.answer}
+                    <strong>Evident:</strong> ${data.answer}
                     ${citationsHtml}
                 </div>
             `;

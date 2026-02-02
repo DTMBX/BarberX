@@ -1,4 +1,4 @@
-# BarberX Brand Quick Reference
+# Evident Brand Quick Reference
 
 **EST. 2024 | A CUT ABOVE**  
 _Like a fresh NYC fade — clean, rounded, crisp_

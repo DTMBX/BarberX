@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace BarberX.Mobile;
+namespace Evident.Mobile;
 
 public partial class App : Application
 {

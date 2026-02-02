@@ -1,11 +1,11 @@
-# BarberX Legal Tech Platform - Render Ignore File
+# Evident Legal Tech Platform - Render Ignore File
 # Files/folders listed here will not trigger a new build on Render
 # Last Updated: 2026-01-30
 
 # ===========================================
 # MAUI Desktop/Mobile App (separate project)
 # ===========================================
-src/BarberX.MatterDocket.MAUI/
+src/Evident.MatterDocket.MAUI/
 
 # ===========================================
 # Local Development Scripts
@@ -17,7 +17,7 @@ deploy-*.ps1
 cleanup-*.ps1
 build-*.ps1
 Configure-*.ps1
-BarberX-Profile.ps1
+Evident-Profile.ps1
 emergency-*.ps1
 
 # ===========================================

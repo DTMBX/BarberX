@@ -1,11 +1,11 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="src/BarberX.Infrastructure/BarberX.Infrastructure.csproj" />
-    <Project Path="src/BarberX.Mobile/BarberX.Mobile.csproj" />
-    <Project Path="src/BarberX.Shared/BarberX.Shared.csproj" />
-    <Project Path="src/BarberX.Web/BarberX.Web.csproj" />
+    <Project Path="src/Evident.Infrastructure/Evident.Infrastructure.csproj" />
+    <Project Path="src/Evident.Mobile/Evident.Mobile.csproj" />
+    <Project Path="src/Evident.Shared/Evident.Shared.csproj" />
+    <Project Path="src/Evident.Web/Evident.Web.csproj" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests/BarberX.Tests.Unit/BarberX.Tests.Unit.csproj" />
+    <Project Path="tests/Evident.Tests.Unit/Evident.Tests.Unit.csproj" />
   </Folder>
 </Solution>

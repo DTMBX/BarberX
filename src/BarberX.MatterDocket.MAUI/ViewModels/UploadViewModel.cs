@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using BarberX.MatterDocket.MAUI.Services;
-using BarberX.MatterDocket.MAUI.Models;
+using Evident.MatterDocket.MAUI.Services;
+using Evident.MatterDocket.MAUI.Models;
 
-namespace BarberX.MatterDocket.MAUI.ViewModels;
+namespace Evident.MatterDocket.MAUI.ViewModels;
 
 public partial class UploadViewModel : BaseViewModel
 {

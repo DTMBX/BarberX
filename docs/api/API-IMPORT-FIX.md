@@ -33,7 +33,7 @@ Updated `templates/components/footer.html` with:
 ```bash
 # Windows PowerShell
 $env:COURTLISTENER_API_KEY = "YOUR_API_KEY_HERE"
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py --practice-area all
 ```
 
@@ -97,7 +97,7 @@ If you want to test locally first:
 $env:COURTLISTENER_API_KEY = "YOUR_KEY"
 
 # Test single case
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll.ingest_from_courtlistener('410 U.S. 113'))"
 ```
 

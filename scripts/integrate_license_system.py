@@ -51,7 +51,7 @@ def integrate_license_system():
 import os
 
 # Detect deployment mode
-IS_SELF_HOSTED = bool(os.getenv('BARBERX_LICENSE_KEY'))
+IS_SELF_HOSTED = bool(os.getenv('Evident_LICENSE_KEY'))
 
 if IS_SELF_HOSTED:
     print("🔒 Running in SELF-HOSTED mode - License validation enabled")
@@ -61,7 +61,7 @@ if IS_SELF_HOSTED:
     license_client = get_license_client()
     if not license_client.is_valid():
         print("❌ LICENSE VALIDATION FAILED - Application cannot start")
-        print("   Contact: enterprise@barberx.info")
+        print("   Contact: enterprise@Evident.info")
         sys.exit(1)
     else:
         license_info = license_client.get_license_info()
@@ -109,8 +109,8 @@ if IS_SELF_HOSTED:
         if not license_client.is_valid():
             return jsonify({
                 'error': 'License validation failed',
-                'message': 'Please contact enterprise@barberx.info',
-                'contact': 'enterprise@barberx.info'
+                'message': 'Please contact enterprise@Evident.info',
+                'contact': 'enterprise@Evident.info'
             }), 403
 
 """
@@ -162,7 +162,7 @@ if IS_SELF_HOSTED or os.getenv('ENABLE_LICENSE_API'):
     print("   python app.py")
     print()
     print("   # Self-hosted mode:")
-    print("   export BARBERX_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX'")
+    print("   export Evident_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX'")
     print("   python app.py")
     print()
 
@@ -259,7 +259,7 @@ def create_test_license():
         print(f"   Max Machines: {license.max_machines}")
         print()
         print("🔧 To use this license:")
-        print(f"   export BARBERX_LICENSE_KEY='{license.license_key}'")
+        print(f"   export Evident_LICENSE_KEY='{license.license_key}'")
         print("   python app.py")
         print()
 
@@ -280,7 +280,7 @@ if __name__ == '__main__':
 def main():
     """Main integration process"""
     print("=" * 70)
-    print(" BarberX License System - Quick Integration")
+    print(" Evident License System - Quick Integration")
     print("=" * 70)
     print()
 
@@ -310,11 +310,11 @@ def main():
     print("   python app.py")
     print()
     print("4. Test self-hosted mode:")
-    print("   export BARBERX_LICENSE_KEY='<key-from-step-2>'")
+    print("   export Evident_LICENSE_KEY='<key-from-step-2>'")
     print("   python app.py")
     print()
     print("5. Build Docker image:")
-    print("   docker build -f Dockerfile.enterprise -t barberx/enterprise .")
+    print("   docker build -f Dockerfile.enterprise -t Evident/enterprise .")
     print()
     print("6. Deploy with Docker Compose:")
     print("   docker-compose -f docker-compose.enterprise.yml up -d")

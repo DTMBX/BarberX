@@ -67,7 +67,7 @@ Render will now:
 ## ?? **Your App Will Be Live At:**
 
 ```
-https://barberx-legal-tech.onrender.com
+https://Evident-legal-tech.onrender.com
 ```
 
 ---

@@ -9,7 +9,7 @@
 ### **Step 1: Import Foundation Cases** (10 min)
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Import 27 landmark cases
 python overnight_library_builder.py --practice-area all
@@ -49,7 +49,7 @@ Find `templates/components/footer.html` (or equivalent) and add:
       <a href="https://free.law" target="_blank">Free Law Project</a>
     </p>
     <p class="value-add">
-      BarberX adds AI analysis, mobile apps, and professional tools. 
+      Evident adds AI analysis, mobile apps, and professional tools. 
       The law itself is always free at CourtListener.com
     </p>
   </div>
@@ -218,13 +218,13 @@ for citation in top_1000:
 
 ### **Email Free Law Project**
 **To:** info@free.law  
-**Subject:** Partnership Proposal - BarberX Legal Research
+**Subject:** Partnership Proposal - Evident Legal Research
 
 **Template:**
 ```
 Hi Free Law Project team,
 
-I just integrated the CourtListener API into BarberX, a legal research 
+I just integrated the CourtListener API into Evident, a legal research 
 platform democratizing professional tools at 1/10th Westlaw's cost.
 
 Our mission alignment:
@@ -252,8 +252,8 @@ Can we schedule a 30-minute call?
 
 Best,
 [Your Name]
-BarberX Legal Technologies
-https://barberx.info
+Evident Legal Technologies
+https://Evident.info
 ```
 
 ---
@@ -449,7 +449,7 @@ GET {audio_file_url}
 **Positioning:**
 ```
 Free tier: CourtListener.com (basic research)
-Professional tier: BarberX ($50/month) (AI, mobile, support)
+Professional tier: Evident ($50/month) (AI, mobile, support)
 Enterprise tier: Custom pricing (teams, integrations)
 ```
 
@@ -481,7 +481,7 @@ Enterprise tier: Custom pricing (teams, integrations)
 
 ```bash
 # Import foundation cases
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py --practice-area all
 
 # Verify success

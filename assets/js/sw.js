@@ -1,7 +1,7 @@
 // Service Worker for PWA - Offline Support & Caching
-const CACHE_NAME = "barberx-premium-v1.0.0";
-const STATIC_CACHE = "barberx-static-v1";
-const DYNAMIC_CACHE = "barberx-dynamic-v1";
+const CACHE_NAME = "evident-premium-v1.0.0";
+const STATIC_CACHE = "evident-static-v1";
+const DYNAMIC_CACHE = "evident-dynamic-v1";
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
@@ -114,7 +114,7 @@ self.addEventListener("push", (event) => {
   console.log("[SW] Push notification received");
 
   const data = event.data ? event.data.json() : {};
-  const title = data.title || "BarberX Notification";
+  const title = data.title || "Evident Notification";
   const options = {
     body: data.body || "You have a new notification",
     icon: "/assets/images/logo-192.png",

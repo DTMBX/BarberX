@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BarberX AI Tools - Quick Test Script
+Evident AI Tools - Quick Test Script
 Tests all AI tool endpoints and dependencies
 """
 
@@ -8,7 +8,7 @@ import os
 import sys
 
 print("=" * 60)
-print("BarberX AI Tools - Dependency & Functionality Test")
+print("Evident AI Tools - Dependency & Functionality Test")
 print("=" * 60)
 
 # Test 1: Core Python packages

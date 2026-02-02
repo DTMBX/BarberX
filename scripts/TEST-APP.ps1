@@ -1,15 +1,15 @@
 #!/usr/bin/env pwsh
-# Test BarberX.info Capabilities
+# Test Evident.info Capabilities
 
-Write-Host "`n?? Testing BarberX.info Application" -ForegroundColor Cyan
+Write-Host "`n?? Testing Evident.info Application" -ForegroundColor Cyan
 Write-Host "=====================================" -ForegroundColor Cyan
 
 # Test 1: Login
 Write-Host "`n[1/4] Testing Login..." -ForegroundColor Yellow
 try {
     $body = @{
-        email = $env:BARBERX_ADMIN_EMAIL ?? "admin@barberx.info"
-        password = $env:BARBERX_ADMIN_PASSWORD ?? (Read-Host "Enter admin password" -AsSecureString | ConvertFrom-SecureString -AsPlainText)
+        email = $env:Evident_ADMIN_EMAIL ?? "admin@Evident.info"
+        password = $env:Evident_ADMIN_PASSWORD ?? (Read-Host "Enter admin password" -AsSecureString | ConvertFrom-SecureString -AsPlainText)
     } | ConvertTo-Json
 
     $response = Invoke-WebRequest `
@@ -74,7 +74,7 @@ Write-Host "=====================================" -ForegroundColor Cyan
 Write-Host "`n?? MANUAL TESTS:" -ForegroundColor Yellow
 Write-Host "  1. Open: http://localhost:5000" -ForegroundColor White
 Write-Host "  2. Click Login" -ForegroundColor White
-Write-Host "  3. Use: admin@barberx.info / [BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor White
+Write-Host "  3. Use: admin@Evident.info / [Evident_ADMIN_PASSWORD env var]" -ForegroundColor White
 Write-Host "  4. Go to Dashboard" -ForegroundColor White
 Write-Host "  5. Try uploading a PDF or BWC video" -ForegroundColor White
 Write-Host ""

@@ -379,7 +379,7 @@ class CitationNetworkAnalyzer:
             return "ℹ️ LIMITED AUTHORITY - Consider alternatives"
 
 
-# API Integration for BarberX
+# API Integration for Evident
 def shepardize(citation: str) -> Dict:
     """
     Main function to Shepardize a case

@@ -10,7 +10,7 @@
 ```python
 if database_url:
     database_url = database_url.replace('postgres://', 'postgresql://', 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"  # ? WRONG!
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Evident_FRESH.db"  # ? WRONG!
 ```
 
 **Even when DATABASE_URL is set (on Render), it was using SQLite!**
@@ -44,7 +44,7 @@ if database_url:
 envVars:
   - key: DATABASE_URL
     fromDatabase:
-      name: barberx-db
+      name: Evident-db
       property: connectionString
 ```
 
@@ -61,7 +61,7 @@ envVars:
 **Fixed:**
 ```yaml
 - key: CORS_ORIGINS
-  value: "https://barberx.info,https://www.barberx.info,https://barberx-legal-tech.onrender.com"
+  value: "https://Evident.info,https://www.Evident.info,https://Evident-legal-tech.onrender.com"
 ```
 
 ---
@@ -109,7 +109,7 @@ git push origin main
 ### **On Render:**
 
 1. **Detects new commit**
-2. **Creates PostgreSQL database** (barberx-db)
+2. **Creates PostgreSQL database** (Evident-db)
 3. **Builds app** with correct config
 4. **Sets DATABASE_URL** automatically
 5. **App starts** and connects to PostgreSQL
@@ -123,7 +123,7 @@ git push origin main
 ### **Once Live (7 minutes):**
 
 ```
-https://barberx-legal-tech.onrender.com
+https://Evident-legal-tech.onrender.com
 ```
 
 **Should show:**
@@ -138,12 +138,12 @@ https://barberx-legal-tech.onrender.com
 ## ?? **How to Verify:**
 
 ### **Check Database:**
-1. Render dashboard ? barberx-db
+1. Render dashboard ? Evident-db
 2. Should show "Available"
 3. Connection string present
 
 ### **Check App Logs:**
-1. Render dashboard ? barberx-legal-tech ? Logs
+1. Render dashboard ? Evident-legal-tech ? Logs
 2. Should see:
    ```
    [OK] Using PostgreSQL database for production
@@ -239,7 +239,7 @@ With them:
 
 1. **Push this commit** (deploying now)
 2. **Wait 7 minutes**
-3. **Test:** https://barberx-legal-tech.onrender.com
+3. **Test:** https://Evident-legal-tech.onrender.com
 4. **Should work!** ??
 
 ---

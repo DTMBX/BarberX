@@ -5,7 +5,7 @@ Database migration: Add role column to users table
 import os
 import sqlite3
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "barberx.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "Evident.db")
 
 
 def migrate_add_role_column():
@@ -50,7 +50,7 @@ def migrate_add_role_column():
             """
             UPDATE user 
             SET role = 'admin' 
-            WHERE email = 'admin@barberx.info'
+            WHERE email = 'admin@Evident.info'
         """
         )
 

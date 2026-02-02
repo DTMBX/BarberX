@@ -1,4 +1,4 @@
-# BarberX Enterprise - Self-Hosted Docker Deployment
+# Evident Enterprise - Self-Hosted Docker Deployment
 # Use this Dockerfile to build the self-hosted version
 
 FROM python:3.11-slim

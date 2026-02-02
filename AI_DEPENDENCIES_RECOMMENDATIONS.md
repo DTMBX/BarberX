@@ -1,6 +1,6 @@
 # AI Dependencies for Login Security & User Retention
 
-## Free/Open-Source Tools for BarberX Platform
+## Free/Open-Source Tools for Evident Platform
 
 ---
 

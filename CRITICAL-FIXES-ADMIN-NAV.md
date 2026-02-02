@@ -4,11 +4,11 @@
 
 ### 1. Admin Login Not Working ❌
 
-**Problem**: `BARBERX_ADMIN_PASSWORD` environment variable is NOT SET
+**Problem**: `Evident_ADMIN_PASSWORD` environment variable is NOT SET
 
 - The admin account creation script requires this environment variable
 - Without it, no admin account can be created
-- Login will always fail for admin@barberx.info
+- Login will always fail for admin@Evident.info
 
 **Impact**: CRITICAL - Cannot access admin panel
 
@@ -38,33 +38,33 @@ pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 #### Option A: Set for Current Session Only (Temporary)
 
 ```powershell
-$env:BARBERX_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
+$env:Evident_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 ```
 
 #### Option B: Set Permanently for User (Recommended)
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('BARBERX_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'User')
+[System.Environment]::SetEnvironmentVariable('Evident_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'User')
 ```
 
 #### Option C: Set System-Wide (Requires Admin Rights)
 
 ```powershell
 # Run PowerShell as Administrator
-[System.Environment]::SetEnvironmentVariable('BARBERX_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'Machine')
+[System.Environment]::SetEnvironmentVariable('Evident_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'Machine')
 ```
 
 ### Step 3: Verify Environment Variable
 
 ```powershell
-echo $env:BARBERX_ADMIN_PASSWORD
+echo $env:Evident_ADMIN_PASSWORD
 # Should output: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 ```
 
 ### Step 4: Create Admin Account
 
 ```powershell
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python scripts\create_admin.py
 ```
 
@@ -72,7 +72,7 @@ python scripts\create_admin.py
 
 ```
 ================================================================================
-BarberX Admin Account Setup
+Evident Admin Account Setup
 ================================================================================
 
 ✅ Admin Account Created Successfully!
@@ -80,9 +80,9 @@ BarberX Admin Account Setup
 ================================================================================
 ADMIN CREDENTIALS (SAVE THESE SECURELY)
 ================================================================================
-Email:    admin@barberx.info
+Email:    admin@Evident.info
 Password: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
-Name:     BarberX System Administrator
+Name:     Evident System Administrator
 Role:     admin
 Tier:     enterprise
 Status:   Active
@@ -96,7 +96,7 @@ Status:   Active
 1. Start Flask app: `python app.py`
 2. Open browser: `http://localhost:5000/auth/login`
 3. Login with:
-   - **Email**: `admin@barberx.info`
+   - **Email**: `admin@Evident.info`
    - **Password**: `pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s`
 4. Should redirect to admin dashboard
 
@@ -139,9 +139,9 @@ But the actual file is named **`premium-header.js`**, not `premium-nav.js`!
 
 ### Admin Login ✅
 
-- [ ] Environment variable `BARBERX_ADMIN_PASSWORD` is set
+- [ ] Environment variable `Evident_ADMIN_PASSWORD` is set
 - [ ] Admin account created successfully with `scripts/create_admin.py`
-- [ ] Can login at `/auth/login` with admin@barberx.info
+- [ ] Can login at `/auth/login` with admin@Evident.info
 - [ ] Redirected to admin dashboard after login
 - [ ] Admin has full access to all features
 
@@ -172,7 +172,7 @@ But the actual file is named **`premium-header.js`**, not `premium-nav.js`!
 ### Admin Account
 
 - Only ONE admin account should exist
-- Email: admin@barberx.info
+- Email: admin@Evident.info
 - Role: admin
 - Tier: enterprise (unlimited access)
 - Status: Active
@@ -183,10 +183,10 @@ But the actual file is named **`premium-header.js`**, not `premium-nav.js`!
 
 ```powershell
 # 1. Set admin password (pick ONE - Option B recommended)
-$env:BARBERX_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
+$env:Evident_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 
 # 2. Create admin account
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python scripts\create_admin.py
 
 # 3. Fix mobile nav JavaScript (manual edit or run this)
@@ -202,19 +202,19 @@ python app.py
 ## Files Modified
 
 1. **Environment Variables** (System)
-   - `BARBERX_ADMIN_PASSWORD` = `pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s`
+   - `Evident_ADMIN_PASSWORD` = `pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s`
 
 2. **\_layouts/default.html** (Line ~193)
    - Fixed JavaScript file reference from `premium-nav.js` → `premium-header.js`
 
-3. **Database** (instance/barberx.db)
+3. **Database** (instance/Evident.db)
    - Admin account created with secure credentials
 
 ---
 
 ## Next Steps
 
-1. ✅ Set `BARBERX_ADMIN_PASSWORD` environment variable
+1. ✅ Set `Evident_ADMIN_PASSWORD` environment variable
 2. ✅ Run `python scripts/create_admin.py`
 3. ✅ Fix JavaScript reference in `_layouts/default.html`
 4. ✅ Commit and push changes

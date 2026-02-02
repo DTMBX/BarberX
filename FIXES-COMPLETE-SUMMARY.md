@@ -5,11 +5,11 @@
 ### 1. ✅ Admin Login Now Working
 
 **Problem**: Environment variable not set, admin account didn't exist  
-**Solution**: Set `BARBERX_ADMIN_PASSWORD` and created admin account
+**Solution**: Set `Evident_ADMIN_PASSWORD` and created admin account
 
 **Admin Credentials:**
 
-- **Email**: `admin@barberx.info`
+- **Email**: `admin@Evident.info`
 - **Password**: `pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s`
 - **Role**: admin
 - **Tier**: enterprise (unlimited access)
@@ -67,14 +67,14 @@
 
 ```powershell
 # 1. Start Flask app
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python app.py
 
 # 2. Open browser to:
 http://localhost:5000/auth/login
 
 # 3. Login with:
-Email: admin@barberx.info
+Email: admin@Evident.info
 Password: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 
 # 4. Should redirect to admin dashboard ✅
@@ -108,7 +108,7 @@ http://localhost:5000/
 
 - ✅ `CRITICAL-FIXES-ADMIN-NAV.md` (new)
 - ✅ `_layouts/default.html` (modified)
-- ✅ Database: `instance/barberx.db` (admin account created)
+- ✅ Database: `instance/Evident.db` (admin account created)
 
 **Status**: COMMITTED AND PUSHED ✅
 
@@ -146,7 +146,7 @@ http://localhost:5000/
 ### Current Session (Temporary)
 
 ```powershell
-$env:BARBERX_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
+$env:Evident_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 ```
 
 **Status**: ✅ SET (current terminal only)
@@ -156,20 +156,20 @@ $env:BARBERX_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 #### For User Account:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('BARBERX_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'User')
+[System.Environment]::SetEnvironmentVariable('Evident_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'User')
 ```
 
 #### For System-Wide (Requires Admin):
 
 ```powershell
 # Run PowerShell as Administrator
-[System.Environment]::SetEnvironmentVariable('BARBERX_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'Machine')
+[System.Environment]::SetEnvironmentVariable('Evident_ADMIN_PASSWORD', 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s', 'Machine')
 ```
 
 #### Verification:
 
 ```powershell
-echo $env:BARBERX_ADMIN_PASSWORD
+echo $env:Evident_ADMIN_PASSWORD
 # Should output: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 ```
 
@@ -179,7 +179,7 @@ echo $env:BARBERX_ADMIN_PASSWORD
 
 ### Immediate (Required)
 
-1. ✅ Set `BARBERX_ADMIN_PASSWORD` environment variable
+1. ✅ Set `Evident_ADMIN_PASSWORD` environment variable
 2. ✅ Create admin account with `scripts/create_admin.py`
 3. ✅ Fix JavaScript reference in `_layouts/default.html`
 4. ✅ Commit and push changes
@@ -214,7 +214,7 @@ echo $env:BARBERX_ADMIN_PASSWORD
 2. **\_layouts/default.html** (Line 193)
    - Fixed JavaScript file reference
 
-3. **instance/barberx.db**
+3. **instance/Evident.db**
    - Admin account created
    - Password hashed with bcrypt
    - Tier set to enterprise
@@ -270,7 +270,7 @@ echo $env:BARBERX_ADMIN_PASSWORD
 
 1. Verify environment variable is set:
    ```powershell
-   echo $env:BARBERX_ADMIN_PASSWORD
+   echo $env:Evident_ADMIN_PASSWORD
    ```
 2. Check admin account exists:
    ```powershell

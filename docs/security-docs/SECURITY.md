@@ -4,7 +4,7 @@
 
 Please report security issues by email:
 
-**security@barberx.info**
+**security@Evident.info**
 
 Include:
 

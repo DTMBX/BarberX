@@ -1,4 +1,4 @@
-# BarberX Logo System - Official Brand Assets
+# Evident Logo System - Official Brand Assets
 
 **Version:** 2.0 (January 2026)  
 **Status:** Production Ready  
@@ -14,9 +14,9 @@
 
 | File | Dimensions | Use Case | Background |
 |------|------------|----------|------------|
-| `logo-barberx-horizontal.svg` | 360×80 | Navigation headers, light pages | White, light gray |
-| `logo-barberx-full.svg` | Full size | Hero sections, large displays | Light backgrounds |
-| `logo-barberx-icon.svg` | Square | Favicon, app icons, avatars | Light backgrounds |
+| `logo-Evident-horizontal.svg` | 360×80 | Navigation headers, light pages | White, light gray |
+| `logo-Evident-full.svg` | Full size | Hero sections, large displays | Light backgrounds |
+| `logo-Evident-icon.svg` | Square | Favicon, app icons, avatars | Light backgrounds |
 
 **Color Scheme (Light Variant):**
 - Primary Navy: `#0a1f44`
@@ -29,8 +29,8 @@
 
 | File | Dimensions | Use Case | Background |
 |------|------------|----------|------------|
-| `logo-barberx-horizontal-dark.svg` | 360×80 | Dark hero sections, modals | Dark navy, charcoal |
-| `logo-barberx-footer.svg` | 300×60 | **Footer sections** (optimized) | Navy `#0a1f44`, dark blue |
+| `logo-Evident-horizontal-dark.svg` | 360×80 | Dark hero sections, modals | Dark navy, charcoal |
+| `logo-Evident-footer.svg` | 300×60 | **Footer sections** (optimized) | Navy `#0a1f44`, dark blue |
 
 **Color Scheme (Dark Variant):**
 - Primary Light: `#f8fafc` / `#e2e8f0` (white/off-white)
@@ -56,8 +56,8 @@
 <!-- Use the footer-optimized logo -->
 <footer style="background: #0a1f44; padding: 2rem;">
   <img 
-    src="/assets/img/logo-barberx-footer.svg" 
-    alt="BarberX Legal Technologies"
+    src="/assets/img/logo-Evident-footer.svg" 
+    alt="Evident Legal Technologies"
     style="height: 50px; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));"
   />
 </footer>
@@ -69,8 +69,8 @@
 <!-- Use the standard horizontal logo -->
 <nav style="background: white;">
   <img 
-    src="/assets/img/logo-barberx-horizontal.svg" 
-    alt="BarberX Legal Technologies"
+    src="/assets/img/logo-Evident-horizontal.svg" 
+    alt="Evident Legal Technologies"
     style="height: 60px;"
   />
 </nav>
@@ -81,12 +81,12 @@
 ```html
 <!-- WRONG: Using light logo on dark background -->
 <footer style="background: #0a1f44;">
-  <img src="/assets/img/logo-barberx-horizontal.svg" /> <!-- Navy text invisible on navy -->
+  <img src="/assets/img/logo-Evident-horizontal.svg" /> <!-- Navy text invisible on navy -->
 </footer>
 
 <!-- WRONG: Using dark logo on light background -->
 <nav style="background: white;">
-  <img src="/assets/img/logo-barberx-footer.svg" /> <!-- White text invisible on white -->
+  <img src="/assets/img/logo-Evident-footer.svg" /> <!-- White text invisible on white -->
 </nav>
 ```
 
@@ -96,11 +96,11 @@
 
 | Background Color | Logo File | Height | Additional Styling |
 |-----------------|-----------|--------|-------------------|
-| White / Light Gray | `logo-barberx-horizontal.svg` | 50-60px | None needed |
-| Navy `#0a1f44` | `logo-barberx-footer.svg` | 45-50px | `filter: drop-shadow(...)` |
-| Dark Charcoal | `logo-barberx-horizontal-dark.svg` | 50-70px | Optional glow |
-| Hero Sections (Light) | `logo-barberx-full.svg` | 80-120px | None |
-| Hero Sections (Dark) | `logo-barberx-horizontal-dark.svg` | 70-100px | `filter: drop-shadow(...)` |
+| White / Light Gray | `logo-Evident-horizontal.svg` | 50-60px | None needed |
+| Navy `#0a1f44` | `logo-Evident-footer.svg` | 45-50px | `filter: drop-shadow(...)` |
+| Dark Charcoal | `logo-Evident-horizontal-dark.svg` | 50-70px | Optional glow |
+| Hero Sections (Light) | `logo-Evident-full.svg` | 80-120px | None |
+| Hero Sections (Dark) | `logo-Evident-horizontal-dark.svg` | 70-100px | `filter: drop-shadow(...)` |
 
 ---
 
@@ -145,7 +145,7 @@ All logos use:
 
 **"Constitutional Precision in Every Pixel"**
 
-The BarberX logo system reflects our core values:
+The Evident logo system reflects our core values:
 
 1. **Precision:** Clean geometric shapes, precise alignment
 2. **Integrity:** High contrast, accessible, honest design
@@ -180,12 +180,12 @@ The BarberX logo system reflects our core values:
 ## Contact
 
 **Questions about logo usage?**  
-Contact: devon@barberx.info  
+Contact: devon@Evident.info  
 Brand Guidelines: `/docs/brand-guidelines.md`  
 Design System: `/docs/design-system.md`
 
 ---
 
-**License:** Proprietary - BarberX Legal Technologies (DTMB)  
+**License:** Proprietary - Evident Legal Technologies (DTMB)  
 **Copyright:** © 2026 All Rights Reserved  
 **Usage:** Internal company use only - External usage requires written permission

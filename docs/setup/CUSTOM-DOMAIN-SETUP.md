@@ -1,7 +1,7 @@
-# ?? Deploy BarberX.info to Custom Domain - Complete Guide
+# ?? Deploy Evident.info to Custom Domain - Complete Guide
 
 ## ?? Goal: 
-Get your Render app live at **app.barberx.info** (or **barberx.info**)
+Get your Render app live at **app.Evident.info** (or **Evident.info**)
 
 ---
 
@@ -10,11 +10,11 @@ Get your Render app live at **app.barberx.info** (or **barberx.info**)
 ### **Step 1: Add Domain in Render**
 
 1. Go to **https://dashboard.render.com**
-2. Click your service: **barberx-legal-tech**
+2. Click your service: **Evident-legal-tech**
 3. Click **"Settings"** (left sidebar)
 4. Scroll to **"Custom Domains"**
 5. Click **"Add Custom Domain"**
-6. Enter: `app.barberx.info`
+6. Enter: `app.Evident.info`
 7. Click **"Add"**
 
 Render will show you DNS instructions.
@@ -23,7 +23,7 @@ Render will show you DNS instructions.
 
 ### **Step 2: Update DNS (Choose Your Registrar)**
 
-**Where did you buy barberx.info?**
+**Where did you buy Evident.info?**
 
 - [**GoDaddy**](#godaddy) ? See CUSTOM-DOMAIN-GODADDY.md
 - [**Namecheap**](#namecheap) ? See CUSTOM-DOMAIN-NAMECHEAP.md
@@ -40,7 +40,7 @@ In Render dashboard:
 2. Find `CORS_ORIGINS` variable
 3. Update value to:
    ```
-   https://app.barberx.info,https://barberx.info,https://www.barberx.info
+   https://app.Evident.info,https://Evident.info,https://www.Evident.info
    ```
 4. Click **"Save Changes"**
 5. Render will auto-redeploy
@@ -67,7 +67,7 @@ When status shows **"Verified"** ? with ??, you're live!
    ```
    Type: CNAME
    Name: app
-   Value: barberx-legal-tech.onrender.com
+   Value: Evident-legal-tech.onrender.com
    TTL: 1 Hour
    ```
 4. Save
@@ -84,7 +84,7 @@ When status shows **"Verified"** ? with ??, you're live!
    ```
    Type: CNAME Record
    Host: app
-   Value: barberx-legal-tech.onrender.com
+   Value: Evident-legal-tech.onrender.com
    TTL: Automatic
    ```
 4. Save All Changes
@@ -101,7 +101,7 @@ When status shows **"Verified"** ? with ??, you're live!
    ```
    Type: CNAME
    Name: app
-   Target: barberx-legal-tech.onrender.com
+   Target: Evident-legal-tech.onrender.com
    Proxy: DNS only (gray cloud) ? IMPORTANT!
    TTL: Auto
    ```
@@ -121,7 +121,7 @@ Add a CNAME record with these values:
 ```
 Type: CNAME
 Name/Host: app
-Value/Target: barberx-legal-tech.onrender.com
+Value/Target: Evident-legal-tech.onrender.com
 TTL: 3600 (or Auto)
 ```
 
@@ -131,8 +131,8 @@ TTL: 3600 (or Auto)
 
 ### **1. DNS Records Added?**
 Check with: https://dnschecker.org
-- Enter: `app.barberx.info`
-- Should show: `barberx-legal-tech.onrender.com`
+- Enter: `app.Evident.info`
+- Should show: `Evident-legal-tech.onrender.com`
 
 ### **2. Render Domain Verified?**
 In Render dashboard ? Custom Domains:
@@ -147,19 +147,19 @@ Environment variables should include your custom domain
 
 ### **5. Test the Site:**
 ```
-https://app.barberx.info
+https://app.Evident.info
 ```
-Should load your BarberX app!
+Should load your Evident app!
 
 ---
 
 ## ?? **Recommended Domain Structure:**
 
 ```
-barberx.info                    ? Main marketing site (GitHub Pages)
-app.barberx.info                ? Flask application (Render) ? YOU ARE HERE
-api.barberx.info                ? API endpoints (future)
-docs.barberx.info               ? Documentation (future)
+Evident.info                    ? Main marketing site (GitHub Pages)
+app.Evident.info                ? Flask application (Render) ? YOU ARE HERE
+api.Evident.info                ? API endpoints (future)
+docs.Evident.info               ? Documentation (future)
 ```
 
 ---
@@ -230,22 +230,22 @@ Once DNS is verified:
 
 ## ? **Once Live:**
 
-Your BarberX app will be accessible at:
+Your Evident app will be accessible at:
 
-**Main App:** https://app.barberx.info
-**Login:** https://app.barberx.info/auth/login
-**Dashboard:** https://app.barberx.info/auth/dashboard
+**Main App:** https://app.Evident.info
+**Login:** https://app.Evident.info/auth/login
+**Dashboard:** https://app.Evident.info/auth/dashboard
 
 **Credentials:**
-- Email: admin@barberx.info
-- Password: BarberX2026!
+- Email: admin@Evident.info
+- Password: Evident2026!
 
 ---
 
 ## ?? **Next Steps After Domain is Live:**
 
-1. ? Update GitHub Pages to link to app.barberx.info
-2. ? Add app.barberx.info to your marketing site
+1. ? Update GitHub Pages to link to app.Evident.info
+2. ? Add app.Evident.info to your marketing site
 3. ? Set up monitoring (UptimeRobot, Pingdom)
 4. ? Configure email notifications for downtime
 5. ? Consider upgrading Render plan for:

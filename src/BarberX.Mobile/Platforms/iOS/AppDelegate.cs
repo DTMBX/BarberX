@@ -1,6 +1,6 @@
-﻿using Foundation;
+using Foundation;
 
-namespace BarberX.Mobile;
+namespace Evident.Mobile;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

@@ -72,13 +72,13 @@ You'll see:
 ## ? Once Live:
 
 Your app will be at:
-**https://barberx-legal-tech.onrender.com**
+**https://Evident-legal-tech.onrender.com**
 
 **Test:**
 1. Open URL
 2. Click Login
-3. Email: `admin@barberx.info`
-4. Password: `BarberX2026!`
+3. Email: `admin@Evident.info`
+4. Password: `Evident2026!`
 
 ---
 

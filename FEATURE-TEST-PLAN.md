@@ -1,4 +1,4 @@
-# BarberX Feature & Access Level Testing Plan
+# Evident Feature & Access Level Testing Plan
 
 ## Subscription Tiers Overview
 

@@ -17,7 +17,7 @@ instance_path = os.path.join(os.path.dirname(__file__), "instance")
 if not os.path.exists(instance_path):
     os.makedirs(instance_path)
 
-db_path = os.path.join(instance_path, "barberx.db")
+db_path = os.path.join(instance_path, "Evident.db")
 database_url = f"sqlite:///{db_path}"
 
 print(f"Connecting to database: {db_path}")

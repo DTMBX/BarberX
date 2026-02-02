@@ -3,11 +3,11 @@
 
 ## ?? **Overview: Two-Part Architecture**
 
-Your BarberX.info needs BOTH services working together:
+Your Evident.info needs BOTH services working together:
 
 ```
 ???????????????????????????????????????????????????????????
-?                    barberx.info                         ?
+?                    Evident.info                         ?
 ?                  (Custom Domain)                        ?
 ???????????????????????????????????????????????????????????
                ?                      ?
@@ -39,14 +39,14 @@ Your BarberX.info needs BOTH services working together:
 #### **1. Enable GitHub Pages:**
 
 ```
-1. Go to: https://github.com/DTB396/BarberX.info/settings/pages
+1. Go to: https://github.com/DTB396/Evident.info/settings/pages
 2. Under "Build and deployment":
    - Source: Deploy from a branch
    - Branch: main
    - Folder: / (root)
 3. Click "Save"
 4. Wait 2-3 minutes
-5. Access at: https://dtb396.github.io/BarberX.info
+5. Access at: https://dtb396.github.io/Evident.info
 ```
 
 #### **2. Configure for GitHub Pages:**
@@ -54,10 +54,10 @@ Your BarberX.info needs BOTH services working together:
 Your repo needs a `_config.yml`:
 
 ```yaml
-title: BarberX Legal Technologies
+title: Evident Legal Technologies
 description: Professional AI-powered eDiscovery platform
 url: "https://dtb396.github.io"
-baseurl: "/BarberX.info"
+baseurl: "/Evident.info"
 markdown: kramdown
 
 exclude:
@@ -74,10 +74,10 @@ exclude:
 #### **3. What Gets Deployed:**
 
 GitHub Pages will serve:
-- ? `index.html` ? https://dtb396.github.io/BarberX.info/
-- ? `docs.html` ? https://dtb396.github.io/BarberX.info/docs.html
-- ? `pricing.html` ? https://dtb396.github.io/BarberX.info/pricing.html
-- ? `contact.html` ? https://dtb396.github.io/BarberX.info/contact.html
+- ? `index.html` ? https://dtb396.github.io/Evident.info/
+- ? `docs.html` ? https://dtb396.github.io/Evident.info/docs.html
+- ? `pricing.html` ? https://dtb396.github.io/Evident.info/pricing.html
+- ? `contact.html` ? https://dtb396.github.io/Evident.info/contact.html
 - ? `assets/` ? All CSS, JS, images
 - ? `app.py` ? Excluded (Python files ignored)
 - ? `templates/` ? Excluded (Flask templates ignored)
@@ -100,18 +100,18 @@ Your `render.yaml` is already set up correctly:
 ```yaml
 services:
   - type: web
-    name: barberx-legal-tech
+    name: Evident-legal-tech
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: barberx-db
+          name: Evident-db
           property: connectionString
 
 databases:
-  - name: barberx-db
-    databaseName: barberx_production
+  - name: Evident-db
+    databaseName: Evident_production
 ```
 
 #### **2. Auto-Deploy:**
@@ -133,22 +133,22 @@ Render deploys:
 
 ## ?? **Part 3: DNS Configuration (Custom Domain)**
 
-### **Goal: Use barberx.info for BOTH services**
+### **Goal: Use Evident.info for BOTH services**
 
 #### **Recommended DNS Setup:**
 
 ```
-barberx.info                    ? GitHub Pages (marketing site)
-www.barberx.info                ? GitHub Pages (marketing site)
-app.barberx.info                ? Render (Flask application)
-api.barberx.info                ? Render API (optional)
+Evident.info                    ? GitHub Pages (marketing site)
+www.Evident.info                ? GitHub Pages (marketing site)
+app.Evident.info                ? Render (Flask application)
+api.Evident.info                ? Render API (optional)
 ```
 
 ---
 
 ### **DNS Records You Need:**
 
-#### **For GitHub Pages (barberx.info):**
+#### **For GitHub Pages (Evident.info):**
 
 **At your domain registrar (GoDaddy, Namecheap, Cloudflare):**
 
@@ -183,12 +183,12 @@ TTL: 3600
 
 ---
 
-#### **For Render (app.barberx.info):**
+#### **For Render (app.Evident.info):**
 
 ```
 Type: CNAME
 Name: app
-Value: barberx-legal-tech.onrender.com
+Value: Evident-legal-tech.onrender.com
 TTL: 3600
 ```
 
@@ -203,7 +203,7 @@ TTL: 3600
 | A | @ | 185.199.110.153 | 1 Hour |
 | A | @ | 185.199.111.153 | 1 Hour |
 | CNAME | www | dtb396.github.io | 1 Hour |
-| CNAME | app | barberx-legal-tech.onrender.com | 1 Hour |
+| CNAME | app | Evident-legal-tech.onrender.com | 1 Hour |
 
 ---
 
@@ -212,9 +212,9 @@ TTL: 3600
 #### **1. Configure GitHub Pages for Custom Domain:**
 
 ```
-1. Go to: https://github.com/DTB396/BarberX.info/settings/pages
+1. Go to: https://github.com/DTB396/Evident.info/settings/pages
 2. Under "Custom domain"
-3. Enter: barberx.info
+3. Enter: Evident.info
 4. Click "Save"
 5. Wait for DNS check (green checkmark)
 6. Enable "Enforce HTTPS"
@@ -224,11 +224,11 @@ TTL: 3600
 
 ```
 1. Go to: https://dashboard.render.com
-2. Click "barberx-legal-tech" service
+2. Click "Evident-legal-tech" service
 3. Go to "Settings"
 4. Scroll to "Custom Domains"
 5. Click "Add Custom Domain"
-6. Enter: app.barberx.info
+6. Enter: app.Evident.info
 7. Click "Save"
 8. Wait for verification
 9. SSL auto-provisions
@@ -238,10 +238,10 @@ TTL: 3600
 
 ## ?? **How It All Works Together:**
 
-### **User visits barberx.info:**
+### **User visits Evident.info:**
 
 ```
-User ? barberx.info
+User ? Evident.info
         ?
     DNS lookup
         ?
@@ -257,11 +257,11 @@ User ? barberx.info
 ```
 User clicks "Login"
         ?
-    Redirects to app.barberx.info/auth/login
+    Redirects to app.Evident.info/auth/login
         ?
-    DNS lookup for app.barberx.info
+    DNS lookup for app.Evident.info
         ?
-    CNAME points to barberx-legal-tech.onrender.com
+    CNAME points to Evident-legal-tech.onrender.com
         ?
     Render serves Flask app
         ?
@@ -276,7 +276,7 @@ User clicks "Login"
 
 **Step 1: Discovery** (GitHub Pages)
 ```
-https://barberx.info
+https://Evident.info
 ?
 User reads about features
 User clicks "Get Started"
@@ -284,21 +284,21 @@ User clicks "Get Started"
 
 **Step 2: Registration** (Render)
 ```
-Redirects to: https://app.barberx.info/auth/register
+Redirects to: https://app.Evident.info/auth/register
 ?
 User creates account (saved in PostgreSQL on Render)
 ```
 
 **Step 3: Login** (Render)
 ```
-https://app.barberx.info/auth/login
+https://app.Evident.info/auth/login
 ?
 User logs in (Flask session on Render)
 ```
 
 **Step 4: Dashboard** (Render)
 ```
-https://app.barberx.info/auth/dashboard
+https://app.Evident.info/auth/dashboard
 ?
 User uploads BWC videos
 Flask processes uploads
@@ -307,14 +307,14 @@ PostgreSQL stores metadata
 
 **Step 5: Analysis** (Render)
 ```
-https://app.barberx.info/analysis/123
+https://app.Evident.info/analysis/123
 ?
 User views AI analysis results
 ```
 
 **Step 6: Documentation** (GitHub Pages)
 ```
-User clicks "Help" ? https://barberx.info/docs.html
+User clicks "Help" ? https://Evident.info/docs.html
 ?
 Redirects back to GitHub Pages
 User reads documentation
@@ -345,7 +345,7 @@ User reads documentation
 | **GitHub Pages** | FREE | Unlimited bandwidth, free SSL |
 | **Render Free Tier** | FREE | 750 hours/month, sleeps after 15 min |
 | **Render Starter** | $7/month | Always-on, no sleep |
-| **Custom Domain** | $10-15/year | Your own barberx.info domain |
+| **Custom Domain** | $10-15/year | Your own Evident.info domain |
 | **PostgreSQL Free** | FREE | 256MB storage |
 
 **Total minimum cost: ~$10-15/year (just domain)**
@@ -368,7 +368,7 @@ git push origin main
 1. GitHub ? Settings ? Pages
 2. Source: Deploy from branch main
 3. Wait 2 minutes
-4. Check: https://dtb396.github.io/BarberX.info
+4. Check: https://dtb396.github.io/Evident.info
 ```
 
 ### **Phase 3: Wait for Render Deployment**
@@ -376,23 +376,23 @@ git push origin main
 ```
 1. Render auto-detects push
 2. Builds in 5-7 minutes
-3. Check: https://barberx-legal-tech.onrender.com
+3. Check: https://Evident-legal-tech.onrender.com
 ```
 
 ### **Phase 4: Configure Custom Domain (Optional)**
 
-**If you own barberx.info:**
+**If you own Evident.info:**
 
 **4a. DNS Records:**
 - Add GitHub Pages A records
 - Add Render CNAME record
 
 **4b. GitHub Pages:**
-- Add custom domain: barberx.info
+- Add custom domain: Evident.info
 - Enable HTTPS
 
 **4c. Render:**
-- Add custom domain: app.barberx.info
+- Add custom domain: app.Evident.info
 - Wait for SSL
 
 ---
@@ -415,12 +415,12 @@ git push origin main
 3. ? PostgreSQL database created
 
 **You'll have:**
-- ? https://dtb396.github.io/BarberX.info (marketing)
-- ? https://barberx-legal-tech.onrender.com (app)
+- ? https://dtb396.github.io/Evident.info (marketing)
+- ? https://Evident-legal-tech.onrender.com (app)
 
 **Later (optional):**
-- ? Custom domain: barberx.info
-- ? Custom app domain: app.barberx.info
+- ? Custom domain: Evident.info
+- ? Custom app domain: app.Evident.info
 
 ---
 
@@ -462,7 +462,7 @@ git push origin main
 - [ ] Test both URLs
 
 **Later (Optional):**
-- [ ] Buy custom domain (barberx.info)
+- [ ] Buy custom domain (Evident.info)
 - [ ] Configure DNS records
 - [ ] Add custom domain to GitHub Pages
 - [ ] Add custom domain to Render

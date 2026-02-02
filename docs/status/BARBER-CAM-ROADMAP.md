@@ -1,6 +1,6 @@
 # Barber Cam / BWC Platform Integration Roadmap
 
-**BarberX Legal Technologies → Barber Cam Evidence Platform**
+**Evident Legal Technologies → Barber Cam Evidence Platform**
 
 **Date:** January 28, 2026  
 **Mission:** Build trust, promote accountability, expand transparency through citizen-led evidence documentation
@@ -86,7 +86,7 @@
 
 ### Phase 1: Core Evidence Integrity (1-2 weeks)
 
-**Goal:** Make BarberX backend truly evidence-grade
+**Goal:** Make Evident backend truly evidence-grade
 
 #### 1.1 Immutable Storage Layer
 
@@ -157,7 +157,7 @@ pip install celery redis
 
 # Create worker/tasks.py
 from celery import Celery
-app = Celery('barberx', broker='redis://localhost:6379/0')
+app = Celery('Evident', broker='redis://localhost:6379/0')
 
 @app.task
 def analyze_bwc_video(evidence_id):
@@ -206,7 +206,7 @@ class EvidenceExportPackage:
 - Offline capture with queue sync
 - Client-side encryption before upload (libsodium)
 - Location metadata (optional, user-controlled)
-- Evidence mode: auto-hash, auto-timestamp, auto-upload to BarberX backend
+- Evidence mode: auto-hash, auto-timestamp, auto-upload to Evident backend
 
 #### 2.2 NJ Legal Compliance UI
 
@@ -337,7 +337,7 @@ class ShareLink:
     def create(self, case_id, expires_hours=72):
         token = secrets.token_urlsafe(32)
         # Store: share_links table with case_id, token, expires_at
-        # Return: https://barberx.info/share/{token}
+        # Return: https://Evident.info/share/{token}
 
     def verify(self, token):
         # Check expiration
@@ -426,7 +426,7 @@ class EvidenceReportGenerator:
 **Recommended Directory Layout:**
 
 ```
-BarberX.info/
+Evident.info/
 ├── backend/
 │   ├── app/
 │   │   ├── api/              # API routes
@@ -500,7 +500,7 @@ Content:
 
 **File:** `templates/index.html`
 
-Replace "BarberX Legal Technologies" messaging with:
+Replace "Evident Legal Technologies" messaging with:
 
 > **"Record clean. Store safe. Share fair."**
 >

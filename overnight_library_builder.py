@@ -300,5 +300,5 @@ python overnight_library_builder.py --practice-area civil_rights criminal_defens
 
 # Schedule for overnight (Unix cron)
 # Add to crontab:
-# 0 2 * * * cd /path/to/BarberX.info && python overnight_library_builder.py --practice-area all
+# 0 2 * * * cd /path/to/Evident.info && python overnight_library_builder.py --practice-area all
 """

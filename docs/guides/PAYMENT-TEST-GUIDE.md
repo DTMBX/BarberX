@@ -1,4 +1,4 @@
-# BarberX Payment System - Test Guide
+# Evident Payment System - Test Guide
 
 **Date:** January 26, 2026  
 **Status:** ✅ Payment routes deployed and live  
@@ -11,7 +11,7 @@
 - ✅ Payment code merged to main
 - ✅ Pushed to GitHub successfully
 - ✅ Render deployment complete
-- ✅ Pricing page live: https://barberx.info/payments/pricing
+- ✅ Pricing page live: https://Evident.info/payments/pricing
 - ✅ Webhook configured in Stripe
 - ✅ Webhook secret added to Render
 - ⚠️ Database migration needed (run via Render Shell)
@@ -22,7 +22,7 @@
 
 ### Step 1: Visit Pricing Page
 ```
-URL: https://barberx.info/payments/pricing
+URL: https://Evident.info/payments/pricing
 Expected: See pricing table with Professional ($199) and Premium ($499) plans
 ```
 
@@ -136,7 +136,7 @@ Subscription active: True
 ### Webhook Not Firing
 **Cause:** Webhook URL incorrect or secret missing  
 **Solution:** 
-1. Verify webhook endpoint: `https://barberx.info/payments/webhook`
+1. Verify webhook endpoint: `https://Evident.info/payments/webhook`
 2. Check Render env var: `STRIPE_WEBHOOK_SECRET` is set
 3. Check webhook events are selected in Stripe dashboard
 
@@ -160,7 +160,7 @@ Subscription active: True
 1. **Create Live Webhook in Stripe:**
    - Go to: https://dashboard.stripe.com/webhooks
    - Click "Add endpoint"
-   - URL: `https://barberx.info/payments/webhook`
+   - URL: `https://Evident.info/payments/webhook`
    - Events: Same 5 events as test mode
    - Copy new webhook secret (starts with `whsec_`)
 

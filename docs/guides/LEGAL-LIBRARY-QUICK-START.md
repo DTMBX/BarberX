@@ -2,7 +2,7 @@
 
 ## ✅ Installation Complete!
 
-The Legal Reference Library is now fully integrated into BarberX!
+The Legal Reference Library is now fully integrated into Evident!
 
 ---
 

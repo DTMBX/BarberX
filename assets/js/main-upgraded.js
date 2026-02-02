@@ -1,6 +1,6 @@
 /**
  * MAIN.JS v2.0 - Modern ES6+ Rewrite
- * BarberX Legal Technologies Platform
+ * Evident Technologies Platform
  *
  * Features:
  * - ES6+ syntax (const/let, arrow functions, classes)
@@ -9,13 +9,13 @@
  * - Performance optimizations
  */
 
-class BarberXApp {
+class EvidentApp {
   constructor() {
     this.config = {
       headerCompactThreshold: 12,
       verseAPI: {
         timeout: 4500,
-        cacheKey: "barberx-daily-verse",
+        cacheKey: "evident-daily-verse",
         timezone: "America/New_York",
       },
     };
@@ -45,7 +45,7 @@ class BarberXApp {
     this.initFormValidation();
 
     // Dispatch custom event for other modules
-    document.dispatchEvent(new CustomEvent("barberx:ready"));
+    document.dispatchEvent(new CustomEvent("evident:ready"));
   }
 
   /**
@@ -461,9 +461,9 @@ class BarberXApp {
 }
 
 // Initialize app
-const app = new BarberXApp();
+const app = new EvidentApp();
 
 // Export for use in other modules
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = BarberXApp;
+  module.exports = EvidentApp;
 }

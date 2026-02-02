@@ -1,4 +1,4 @@
-# BarberX Custom Agents - Quick Reference Card
+# Evident Custom Agents - Quick Reference Card
 
 ## 🚀 Quick Setup
 

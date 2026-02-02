@@ -1,9 +1,9 @@
-namespace BarberX.Web.Controllers;
+namespace Evident.Web.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using BarberX.Shared.Models;
-using BarberX.Web.Services;
+using Evident.Shared.Models;
+using Evident.Web.Services;
 
 [ApiController]
 [Route("api/[controller]")]

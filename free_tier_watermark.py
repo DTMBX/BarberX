@@ -32,10 +32,10 @@ class WatermarkService:
 
     # Watermark text for different export types
     WATERMARK_TEXTS = {
-        "pdf": "BarberX FREE Trial - Upgrade at barberx.info/pricing",
-        "video": "BarberX FREE Trial",
-        "image": "BarberX FREE Trial",
-        "report": "Generated with BarberX FREE Tier - Upgrade for watermark-free exports",
+        "pdf": "Evident FREE Trial - Upgrade at Evident.info/pricing",
+        "video": "Evident FREE Trial",
+        "image": "Evident FREE Trial",
+        "report": "Generated with Evident FREE Tier - Upgrade for watermark-free exports",
     }
 
     @staticmethod
@@ -224,7 +224,7 @@ class WatermarkService:
             <span style="margin-right: 15px;">
                 🎯 {WatermarkService.WATERMARK_TEXTS['report']}
             </span>
-            <a href="https://barberx.info/pricing" style="
+            <a href="https://Evident.info/pricing" style="
                 background: white;
                 color: #ff6f00;
                 padding: 6px 16px;

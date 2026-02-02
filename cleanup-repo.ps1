@@ -1,7 +1,7 @@
-# BarberX Repository Cleanup Script
+# Evident Repository Cleanup Script
 # Organizes untracked files and identifies what to commit vs archive
 
-Write-Host "📦 BarberX Repository Cleanup" -ForegroundColor Cyan
+Write-Host "📦 Evident Repository Cleanup" -ForegroundColor Cyan
 Write-Host "=" * 60
 
 # Create archive directory for old documentation

@@ -1,4 +1,4 @@
-# BarberX Marketing & Messaging Guide
+# Evident Marketing & Messaging Guide
 
 **Date:** January 27, 2026  
 **Purpose:** Unified messaging across all platforms
@@ -11,7 +11,7 @@
 **"Legal Research for Everyone"**
 
 ### Mission Statement
-BarberX provides research-grade legal tools—10M+ opinions, Shepard's-equivalent citation analysis, judge intelligence, AI search—at 1/10th the cost of Westlaw and LexisNexis. We're democratizing legal research to close the justice gap.
+Evident provides research-grade legal tools—10M+ opinions, Shepard's-equivalent citation analysis, judge intelligence, AI search—at 1/10th the cost of Westlaw and LexisNexis. We're democratizing legal research to close the justice gap.
 
 ---
 
@@ -60,7 +60,7 @@ For decades, Westlaw and LexisNexis have charged prices that:
 ### The Solution
 **Professional research at human prices.**
 
-BarberX provides the same primary sources, citation analysis, and research tools used by BigLaw—for **$50/month** instead of $2,000.
+Evident provides the same primary sources, citation analysis, and research tools used by BigLaw—for **$50/month** instead of $2,000.
 
 ### The Impact
 **When legal research becomes affordable:**
@@ -74,7 +74,7 @@ BarberX provides the same primary sources, citation analysis, and research tools
 ## How We Plan to Win
 
 ### Strategy 1: Research-Grade Quality
-We don't compromise. BarberX provides **10 million+ federal opinions** spanning **270 years**—the same primary sources BigLaw uses.
+We don't compromise. Evident provides **10 million+ federal opinions** spanning **270 years**—the same primary sources BigLaw uses.
 
 **Result:** Research quality that rivals the incumbents, at a fraction of the cost.
 
@@ -89,9 +89,9 @@ While legacy platforms rely on 1990s infrastructure, we're building with cutting
 
 ### Strategy 3: Radical Cost Disruption
 We're not "a little cheaper"—we're **20x cheaper**:
-- Westlaw: $500-2,000/month → BarberX: $50-200/month
-- PACER: $0.10/page → BarberX: FREE
-- Annual cost: $6,000-24,000 → BarberX: $600-2,400
+- Westlaw: $500-2,000/month → Evident: $50-200/month
+- PACER: $0.10/page → Evident: FREE
+- Annual cost: $6,000-24,000 → Evident: $600-2,400
 
 **Result:** Professional research accessible to solo practitioners, legal aid, and students.
 
@@ -185,7 +185,7 @@ at 1/10th the cost of Westlaw and LexisNexis
 
 ### About Page
 ```
-Why BarberX Exists
+Why Evident Exists
 
 Legal research shouldn't cost $2,000 per month.
 
@@ -194,7 +194,7 @@ practitioners, bankrupt legal aid organizations, and widen the justice gap.
 
 We're changing that.
 
-BarberX provides research-grade tools—10M+ opinions, Shepard's-equivalent 
+Evident provides research-grade tools—10M+ opinions, Shepard's-equivalent 
 citations, judge intelligence, AI search—for $50/month.
 
 Our mission: Make professional legal research accessible to everyone 
@@ -245,7 +245,7 @@ Annual savings: $5,400-23,400
 
 ### Twitter/X Launch Tweet
 ```
-Introducing BarberX: Legal research for humans, not just corporations.
+Introducing Evident: Legal research for humans, not just corporations.
 
 ✅ 10M+ federal opinions
 ✅ Shepard's-equivalent citations
@@ -259,7 +259,7 @@ Stop paying enterprise prices. Start practicing affordable justice.
 
 ### LinkedIn Company Description
 ```
-BarberX is democratizing legal research by providing professional-grade tools 
+Evident is democratizing legal research by providing professional-grade tools 
 at human-grade prices.
 
 Our platform offers:
@@ -345,7 +345,7 @@ Free accounts for all students. Faculty research access. Legal clinic support. A
 
 ## The Ultimate Positioning
 
-**BarberX gives solo practitioners, public defenders, and law students the same tools used by BigLaw—at 1/10th the cost.**
+**Evident gives solo practitioners, public defenders, and law students the same tools used by BigLaw—at 1/10th the cost.**
 
 We're not just cheaper—we're better:
 - Modern AI (vs. their 1990s tech)

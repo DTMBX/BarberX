@@ -1,5 +1,5 @@
 /**
- * BarberX Dark Mode System
+ * Evident Dark Mode System
  * Persistent dark mode with smooth transitions
  */
 
@@ -80,7 +80,7 @@ class DarkMode {
 
   save(isDark) {
     try {
-      localStorage.setItem("barberx-dark-mode", isDark ? "true" : "false");
+      localStorage.setItem("Evident-dark-mode", isDark ? "true" : "false");
     } catch (e) {
       console.warn("Could not save dark mode preference:", e);
     }
@@ -88,7 +88,7 @@ class DarkMode {
 
   getSavedMode() {
     try {
-      const saved = localStorage.getItem("barberx-dark-mode");
+      const saved = localStorage.getItem("Evident-dark-mode");
 
       // If user has a saved preference, use it
       if (saved !== null) {
@@ -113,7 +113,7 @@ class DarkMode {
     mediaQuery.addEventListener("change", (e) => {
       // Only auto-switch if user hasn't manually set a preference
       const hasManualPreference =
-        localStorage.getItem("barberx-dark-mode") !== null;
+        localStorage.getItem("Evident-dark-mode") !== null;
 
       if (!hasManualPreference) {
         this.darkMode = e.matches;

@@ -39,7 +39,7 @@
 🛡️ Truth Protects Good Officers, Too
 
 **Core Message:**  
-"We're not anti-police. **We're pro-truth.** BarberX helps dig up the facts that bad actors bury—protecting innocent defendants *and* the good officers who serve with honor."
+"We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants *and* the good officers who serve with honor."
 
 **Three-Part Framework:**
 
@@ -56,14 +56,14 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 
 ### **"We Sell Confidence, Not Conflict"**
 
-> "BarberX gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. **That's how the system is supposed to work.**"
+> "Evident gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. **That's how the system is supposed to work.**"
 
 ---
 
 ### **Mission Statement (New):**
 
 > "The truth doesn't take sides. It just is. Our job is to find it—no matter where it leads."  
-> — BarberX Mission Statement
+> — Evident Mission Statement
 
 ---
 
@@ -117,7 +117,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ### **Option 1: Run the script (Recommended)**
 
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 .\deploy-day1-final.ps1
 ```
 
@@ -132,7 +132,7 @@ This will:
 ### **Option 2: Manual commands**
 
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 git add templates/landing-public.html
 git add app.py
@@ -175,7 +175,7 @@ Render.com will auto-deploy in ~2 minutes.
 ## 🎬 Next Steps (After Deploy)
 
 ### **Today (After Deploy):**
-1. Visit `https://barberx.info` (or your production URL)
+1. Visit `https://Evident.info` (or your production URL)
 2. Verify landing page loads correctly
 3. Test email capture form (submit your own email)
 4. Check database to confirm signup was stored
@@ -301,14 +301,14 @@ And now we add:
 > **"The truth doesn't take sides. It just is."**  
 > **"When we honor truth, we honor everyone who serves with integrity."**  
 > **"Good officers are protected. Bad actors are exposed."**  
-> **"Both oaths demand justice. BarberX helps you honor yours."**
+> **"Both oaths demand justice. Evident helps you honor yours."**
 
 ---
 
 **By the Grace of Almighty God, DAY 1 IS COMPLETE.** 🇺🇸
 
-**BarberX is no longer just a product.**  
-**BarberX is a mission.**  
+**Evident is no longer just a product.**  
+**Evident is a mission.**  
 **And that mission starts TODAY.**
 
 ---

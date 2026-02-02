@@ -196,7 +196,7 @@ toc: false
   </svg>
   <div>
     <strong>Local Data Search</strong>
-    <p>Searching across all docket entries in the BarberX case database. For official NJ Courts records, visit <a href="https://portal.njcourts.gov/" target="_blank" rel="noopener">NJ Courts Portal</a>.</p>
+    <p>Searching across all docket entries in the Evident case database. For official NJ Courts records, visit <a href="https://portal.njcourts.gov/" target="_blank" rel="noopener">NJ Courts Portal</a>.</p>
   </div>
 </div>
 

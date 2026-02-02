@@ -13,10 +13,10 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 
 # Set admin password
-os.environ["BARBERX_ADMIN_PASSWORD"] = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
+os.environ["Evident_ADMIN_PASSWORD"] = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 
 print("\n" + "=" * 70)
-print("BarberX Quick Start - Admin Login Fixed")
+print("Evident Quick Start - Admin Login Fixed")
 print("=" * 70 + "\n")
 
 from app import app
@@ -33,21 +33,21 @@ with app.app_context():
     print("[OK] Database tables created/verified")
 
     # Check if admin exists
-    admin = User.query.filter_by(email="admin@barberx.info").first()
+    admin = User.query.filter_by(email="admin@Evident.info").first()
 
     if not admin:
         print("\n[!] Admin not found, creating...")
 
         admin = User(
-            email="admin@barberx.info",
-            full_name="BarberX System Administrator",
+            email="admin@Evident.info",
+            full_name="Evident System Administrator",
             tier=TierLevel.ADMIN,
             is_admin=True,
             is_active=True,
             is_verified=True,
         )
 
-        admin.set_password(os.environ["BARBERX_ADMIN_PASSWORD"])
+        admin.set_password(os.environ["Evident_ADMIN_PASSWORD"])
 
         db.session.add(admin)
         db.session.commit()
@@ -59,7 +59,7 @@ with app.app_context():
         print(f"    Active: {admin.is_active}")
 
         # Update password to be sure
-        admin.set_password(os.environ["BARBERX_ADMIN_PASSWORD"])
+        admin.set_password(os.environ["Evident_ADMIN_PASSWORD"])
         admin.tier = TierLevel.ADMIN
         admin.is_admin = True
         admin.is_active = True
@@ -68,8 +68,8 @@ with app.app_context():
         print("[OK] Admin password updated")
 
     # Verify password
-    admin = User.query.filter_by(email="admin@barberx.info").first()
-    if admin.check_password(os.environ["BARBERX_ADMIN_PASSWORD"]):
+    admin = User.query.filter_by(email="admin@Evident.info").first()
+    if admin.check_password(os.environ["Evident_ADMIN_PASSWORD"]):
         print("[OK] Password verification: SUCCESS")
     else:
         print("[ERROR] Password verification: FAILED")
@@ -78,8 +78,8 @@ with app.app_context():
 print("\n" + "=" * 70)
 print("READY TO START")
 print("=" * 70)
-print("\nAdmin Email: admin@barberx.info")
-print(f"Password: {os.environ['BARBERX_ADMIN_PASSWORD']}")
+print("\nAdmin Email: admin@Evident.info")
+print(f"Password: {os.environ['Evident_ADMIN_PASSWORD']}")
 print("\nLogin URL: http://localhost:5000/auth/login")
 print("\nStarting Flask server...")
 print("=" * 70 + "\n")

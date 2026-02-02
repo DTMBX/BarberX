@@ -1,5 +1,5 @@
 """
-BarberX Flask App Integration Script
+Evident Flask App Integration Script
 Merges enhanced auth system with existing app.py
 """
 
@@ -78,7 +78,7 @@ def show_integration_steps():
     """Display manual integration steps"""
 
     print("\n" + "=" * 70)
-    print("  BarberX Flask Integration Guide")
+    print("  Evident Flask Integration Guide")
     print("=" * 70 + "\n")
 
     print("📝 MANUAL INTEGRATION STEPS:\n")
@@ -157,7 +157,7 @@ def register():
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
     'DATABASE_URL',
-    f'sqlite:///{os.path.join(basedir, "instance", "barberx_auth.db")}'
+    f'sqlite:///{os.path.join(basedir, "instance", "Evident_auth.db")}'
 )
 """
     )
@@ -187,7 +187,7 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Update database path
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "instance", "barberx_auth.db")}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "instance", "Evident_auth.db")}'
 
 # Import and register
 from models_auth import UsageTracking, ApiKey
@@ -265,7 +265,7 @@ def main():
         """
     ╔════════════════════════════════════════════════════════╗
     ║                                                        ║
-    ║    BarberX Enhanced Authentication Integration        ║
+    ║    Evident Enhanced Authentication Integration        ║
     ║                                                        ║
     ╚════════════════════════════════════════════════════════╝
     """

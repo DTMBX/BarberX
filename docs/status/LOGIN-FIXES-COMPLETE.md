@@ -25,8 +25,8 @@
 
 ### 3. Database and Users ✓ VERIFIED
 **Status:** Database is working correctly
-- 1 admin user exists: `admin@barberx.info`
-- Created test user: `test@barberx.info`
+- 1 admin user exists: `admin@Evident.info`
+- Created test user: `test@Evident.info`
 - Password authentication working correctly
 
 ### 4. Backend Routes ✓ VERIFIED
@@ -40,13 +40,13 @@
 
 ### Test User (Free Tier)
 ```
-Email:    test@barberx.info
+Email:    test@Evident.info
 Password: Password123!
 ```
 
 ### Admin User (Enterprise Tier)
 ```
-Email:    admin@barberx.info
+Email:    admin@Evident.info
 Password: Admin123!
 ```
 
@@ -61,7 +61,7 @@ Password: Admin123!
 
 1. **Start the application:**
    ```bash
-   cd C:\web-dev\github-repos\BarberX.info
+   cd C:\web-dev\github-repos\Evident.info
    python app.py
    ```
 

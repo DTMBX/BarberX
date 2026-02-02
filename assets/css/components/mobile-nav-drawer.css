@@ -34,12 +34,12 @@
 
 .mobile-nav-hamburger:hover {
   background: rgba(196, 30, 58, 0.1);
-  border-color: var(--barberx-red-primary, #c41e3a);
+  border-color: var(--Evident-red-primary, #c41e3a);
 }
 
 .mobile-nav-hamburger:focus {
   outline: none;
-  border-color: var(--barberx-red-primary, #c41e3a);
+  border-color: var(--Evident-red-primary, #c41e3a);
   box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.2);
 }
 
@@ -176,14 +176,14 @@
   gap: 12px;
   font-size: 20px;
   font-weight: 700;
-  color: var(--barberx-red-primary, #c41e3a);
+  color: var(--Evident-red-primary, #c41e3a);
   text-decoration: none;
 }
 
 .mobile-nav-drawer__logo-icon {
   width: 32px;
   height: 32px;
-  color: var(--barberx-red-primary, #c41e3a);
+  color: var(--Evident-red-primary, #c41e3a);
 }
 
 /* Close Button */
@@ -203,12 +203,12 @@
 
 .mobile-nav-close:hover {
   background: rgba(196, 30, 58, 0.1);
-  border-color: var(--barberx-red-primary, #c41e3a);
+  border-color: var(--Evident-red-primary, #c41e3a);
 }
 
 .mobile-nav-close:focus {
   outline: none;
-  border-color: var(--barberx-red-primary, #c41e3a);
+  border-color: var(--Evident-red-primary, #c41e3a);
   box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.2);
 }
 
@@ -252,18 +252,18 @@
 
 .mobile-nav-link:hover {
   background: var(--color-gray-50, #f9fafb);
-  color: var(--barberx-red-primary, #c41e3a);
+  color: var(--Evident-red-primary, #c41e3a);
 }
 
 .mobile-nav-link:focus {
   outline: none;
   background: var(--color-gray-50, #f9fafb);
-  box-shadow: 0 0 0 2px var(--barberx-red-primary, #c41e3a);
+  box-shadow: 0 0 0 2px var(--Evident-red-primary, #c41e3a);
 }
 
 .mobile-nav-link.is-active {
   background: rgba(196, 30, 58, 0.1);
-  color: var(--barberx-red-primary, #c41e3a);
+  color: var(--Evident-red-primary, #c41e3a);
   font-weight: 600;
 }
 
@@ -370,9 +370,9 @@
 
 .mobile-nav-cta__button--secondary {
   margin-top: 12px;
-  color: var(--barberx-red-primary, #c41e3a);
+  color: var(--Evident-red-primary, #c41e3a);
   background: transparent;
-  border: 2px solid var(--barberx-red-primary, #c41e3a);
+  border: 2px solid var(--Evident-red-primary, #c41e3a);
   box-shadow: none;
 }
 

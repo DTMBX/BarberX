@@ -1,8 +1,8 @@
-namespace BarberX.Web.Services;
+namespace Evident.Web.Services;
 
 using System.Net.Http.Headers;
 using System.Text.Json;
-using BarberX.Shared.Models;
+using Evident.Shared.Models;
 
 /// <summary>
 /// Analysis service that proxies requests to Flask backend

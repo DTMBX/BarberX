@@ -1,4 +1,4 @@
-# BarberX Matter Docket (DTMB) - Project Context for New Workspace
+# Evident Matter Docket (DTMB) - Project Context for New Workspace
 
 **Copy and paste this entire prompt into your new VS Code workspace chat to continue development:**
 
@@ -6,10 +6,10 @@
 
 ## 🎯 PROJECT OVERVIEW
 
-I'm building **BarberX Matter Docket (DTMB)**, a professional legal evidence platform across multiple platforms:
+I'm building **Evident Matter Docket (DTMB)**, a professional legal evidence platform across multiple platforms:
 
-- ✅ **Web Application** - LIVE at https://barberx.info (Flask + PostgreSQL + Stripe + OpenAI)
-- ✅ **REST API** - LIVE at https://barberx.info/api (20+ endpoints, JWT auth)
+- ✅ **Web Application** - LIVE at https://Evident.info (Flask + PostgreSQL + Stripe + OpenAI)
+- ✅ **REST API** - LIVE at https://Evident.info/api (20+ endpoints, JWT auth)
 - ✅ **Windows 11 Desktop App** - Just completed login screen (.NET MAUI 10.0)
 - 🔜 **Android/iOS Apps** - Planned (same MAUI codebase, 80% code sharing)
 
@@ -18,15 +18,15 @@ I'm building **BarberX Matter Docket (DTMB)**, a professional legal evidence pla
 I just set up a **VS Code Multi-Root Workspace** with TWO separate Git repositories:
 
 ```
-BarberX-MultiPlatform.code-workspace
-├── 📁 🌐 BarberX.info - Web App & API
-│   ├── Location: C:\web-dev\github-repos\BarberX.info\
+Evident-MultiPlatform.code-workspace
+├── 📁 🌐 Evident.info - Web App & API
+│   ├── Location: C:\web-dev\github-repos\Evident.info\
 │   ├── Git: Separate repository (main branch)
 │   ├── Stack: Flask, PostgreSQL, Stripe, OpenAI
 │   └── Status: LIVE in production
 │
-└── 📁 💻 BarberX MAUI - Windows/Mobile App
-    ├── Location: C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\
+└── 📁 💻 Evident MAUI - Windows/Mobile App
+    ├── Location: C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\
     ├── Git: Separate .git (can be independent repo or subfolder)
     ├── Stack: .NET MAUI 10.0, WinUI 3, C#
     └── Status: Login screen complete, ready to run
@@ -37,8 +37,8 @@ BarberX-MultiPlatform.code-workspace
 ## ✅ WHAT WE JUST COMPLETED (Last Session)
 
 ### Phase A: PWA Packaging ✅
-- Created Windows 11 MSIX package (BarberX-MatterDocket-DTMB.msix)
-- Rebranded entire app to "BarberX Matter Docket (DTMB)"
+- Created Windows 11 MSIX package (Evident-MatterDocket-DTMB.msix)
+- Rebranded entire app to "Evident Matter Docket (DTMB)"
 
 ### Phase B: MAUI Architecture ✅
 - Designed complete .NET MAUI + WinUI 3 architecture
@@ -55,14 +55,14 @@ BarberX-MultiPlatform.code-workspace
 
 **Services:**
 - `AuthService.cs` - Authentication with secure token storage (SecureStorage)
-- `ApiService.cs` - HTTP client for Flask REST API at barberx.info/api
+- `ApiService.cs` - HTTP client for Flask REST API at Evident.info/api
 
 **ViewModels:**
 - `BaseViewModel.cs` - MVVM base class with IsBusy, Title, ErrorMessage
 - `LoginViewModel.cs` - Login logic, email/password validation, error handling
 
 **Views:**
-- `LoginPage.xaml` - Professional login UI with BarberX gold theme (#d4a574)
+- `LoginPage.xaml` - Professional login UI with Evident gold theme (#d4a574)
 - `LoginPage.xaml.cs` - Code-behind
 - `DashboardPage.xaml` - Post-login dashboard UI
 - `DashboardPage.xaml.cs` - Code-behind
@@ -84,7 +84,7 @@ BarberX-MultiPlatform.code-workspace
 ## 🎨 BRANDING (Consistent Across All Platforms)
 
 ```css
-Primary Gold:     #d4a574  /* BarberX brand color */
+Primary Gold:     #d4a574  /* Evident brand color */
 Background Dark:  #0f0f0f  /* Main background */
 Surface Dark:     #1a1a1a  /* Cards, inputs */
 Text Primary:     #ffffff  /* Headings */
@@ -95,7 +95,7 @@ Success Green:    #00ff00  /* Success states */
 
 ## 🔌 API INTEGRATION (Flask Backend → MAUI App)
 
-The Windows app connects to the **LIVE Flask API** at https://barberx.info/api:
+The Windows app connects to the **LIVE Flask API** at https://Evident.info/api:
 
 ### Authentication Flow
 ```csharp
@@ -104,7 +104,7 @@ The Windows app connects to the **LIVE Flask API** at https://barberx.info/api:
 var result = await _authService.LoginAsync(email, password);
 
 // AuthService calls Flask API
-POST https://barberx.info/api/auth/login
+POST https://Evident.info/api/auth/login
 Body: { "email": "user@example.com", "password": "..." }
 
 // On success, stores JWT token in SecureStorage
@@ -130,7 +130,7 @@ POST   /api/documents/generate      🔜 Next to implement
 ### 1. Test Windows App (RIGHT NOW)
 ```
 In Visual Studio 2022:
-1. Open: C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\BarberX.MatterDocket.MAUI.csproj
+1. Open: C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Evident.MatterDocket.MAUI.csproj
 2. Set as Startup Project (right-click → Set as Startup Project)
 3. Select "Windows Machine" as target
 4. Press F5 to run
@@ -179,7 +179,7 @@ Expected: Professional login screen with gold branding appears
 3️⃣  BUILD WEB FRONTEND
    → Create/update Flask template
    → Add JavaScript
-   → Test on https://barberx.info
+   → Test on https://Evident.info
 
 4️⃣  BUILD WINDOWS/MOBILE
    → Create XAML views
@@ -218,7 +218,7 @@ Platforms: Windows 11, Android, iOS, macOS
 
 ### Shared API (REST)
 ```
-Base URL: https://barberx.info/api
+Base URL: https://Evident.info/api
 Auth: JWT Bearer tokens
 Format: JSON
 CORS: Enabled for all platforms
@@ -228,7 +228,7 @@ CORS: Enabled for all platforms
 
 ### Web App Root
 ```
-C:\web-dev\github-repos\BarberX.info\
+C:\web-dev\github-repos\Evident.info\
 ├── app.py                    # Main Flask app
 ├── auth_routes.py           # Authentication logic
 ├── stripe_payments.py       # Payment processing
@@ -239,7 +239,7 @@ C:\web-dev\github-repos\BarberX.info\
 
 ### Windows App Root
 ```
-C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\
+C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\
 ├── ViewModels/              # Business logic
 ├── Views/                   # XAML UI pages
 ├── Services/                # API, Auth, Cache services
@@ -250,7 +250,7 @@ C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\
 
 ### Documentation
 ```
-C:\web-dev\github-repos\BarberX.info\
+C:\web-dev\github-repos\Evident.info\
 ├── MULTI-PLATFORM-ARCHITECTURE.md     # Overview (11 KB)
 ├── MAUI-ARCHITECTURE-PLAN.md          # Detailed MAUI design
 ├── WINDOWS-APP-PHASE-*.md             # Implementation phases
@@ -261,11 +261,11 @@ C:\web-dev\github-repos\BarberX.info\
 
 What's already implemented and working:
 
-✅ Professional UI with BarberX gold theme (#d4a574)  
+✅ Professional UI with Evident gold theme (#d4a574)  
 ✅ Email input with validation (checks valid email format)  
 ✅ Password input (masked)  
 ✅ "Remember Me" checkbox (state tracked)  
-✅ "Forgot Password" link (opens browser to barberx.info)  
+✅ "Forgot Password" link (opens browser to Evident.info)  
 ✅ "Sign Up" link (opens browser to registration)  
 ✅ Login button with loading indicator  
 ✅ Error message display (red text, appears on login failure)  
@@ -345,8 +345,8 @@ System.Text.Json 10.0.1             # JSON serialization
 The Windows app needs to connect to the Flask API. These are already configured in `Constants.cs`:
 
 ```csharp
-public const string ApiBaseUrl = "https://barberx.info/api";
-public const string WebsiteUrl = "https://barberx.info";
+public const string ApiBaseUrl = "https://Evident.info/api";
+public const string WebsiteUrl = "https://Evident.info";
 ```
 
 For local testing against localhost Flask:
@@ -381,8 +381,8 @@ public const string ApiBaseUrl = "http://localhost:5000/api";
 ## ⚡ READY TO CONTINUE!
 
 I have the workspace open with both folders:
-- 🌐 BarberX.info (web/API)
-- 💻 BarberX MAUI (desktop/mobile)
+- 🌐 Evident.info (web/API)
+- 💻 Evident MAUI (desktop/mobile)
 
 **Tell me what you want to build next!**
 
@@ -399,5 +399,5 @@ Common commands:
 
 **Last Session Date:** January 27, 2026  
 **Time:** 3:49 AM UTC  
-**Workspace File:** `C:\web-dev\github-repos\BarberX-MultiPlatform.code-workspace`  
+**Workspace File:** `C:\web-dev\github-repos\Evident-MultiPlatform.code-workspace`  
 **Ready to code!** 🚀

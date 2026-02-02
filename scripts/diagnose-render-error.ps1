@@ -9,7 +9,7 @@ Write-Host "`n?? To diagnose your Render error, follow these steps:" -Foreground
 
 Write-Host "`n[STEP 1] Check Render Logs" -ForegroundColor Cyan
 Write-Host "1. Go to: https://dashboard.render.com" -ForegroundColor White
-Write-Host "2. Click on 'barberx-legal-tech' service" -ForegroundColor White
+Write-Host "2. Click on 'Evident-legal-tech' service" -ForegroundColor White
 Write-Host "3. Click 'Logs' tab (left sidebar)" -ForegroundColor White
 Write-Host "4. Scroll to the bottom" -ForegroundColor White
 Write-Host "5. Look for RED error messages" -ForegroundColor White

@@ -1,4 +1,4 @@
-# BarberX Phase 2 Deployment Guide
+# Evident Phase 2 Deployment Guide
 
 ## 🎯 Current Status
 
@@ -13,7 +13,7 @@
 ### Step 1: Verify API Works Locally
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Quick import test (already verified ✅)
 python -c "from api import auth_api; print('OK')"
@@ -52,7 +52,7 @@ python app.py
 ### Step 3: Commit and Push
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Add all changes
 git add .
@@ -102,7 +102,7 @@ git push origin main
 
 **Manual Trigger (if needed):**
 1. Go to [Render.com Dashboard](https://dashboard.render.com)
-2. Select "BarberX" service
+2. Select "Evident" service
 3. Click "Manual Deploy" → "Deploy latest commit"
 
 **Monitor Deployment:**
@@ -114,13 +114,13 @@ git push origin main
 
 ```bash
 # Test production API
-curl https://barberx.info/api/v1/auth/login
+curl https://Evident.info/api/v1/auth/login
 
 # Should return method not allowed (needs POST)
 # Indicates endpoint is live
 
 # Test with registration
-curl -X POST https://barberx.info/api/v1/auth/register \
+curl -X POST https://Evident.info/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","password":"Test123!","name":"Test User"}'
 
@@ -131,7 +131,7 @@ curl -X POST https://barberx.info/api/v1/auth/register \
 
 1. Duplicate environment
 2. Create "Production" environment
-3. Set base URL: `https://barberx.info`
+3. Set base URL: `https://Evident.info`
 4. Run test suite against production
 
 ---
@@ -143,7 +143,7 @@ curl -X POST https://barberx.info/api/v1/auth/register \
 #### 1. EvidenceService.cs
 
 ```csharp
-// Location: src/BarberX.MatterDocket.MAUI/Services/EvidenceService.cs
+// Location: src/Evident.MatterDocket.MAUI/Services/EvidenceService.cs
 
 public interface IEvidenceService
 {
@@ -158,7 +158,7 @@ public interface IEvidenceService
 #### 2. TierService.cs
 
 ```csharp
-// Location: src/BarberX.MatterDocket.MAUI/Services/TierService.cs
+// Location: src/Evident.MatterDocket.MAUI/Services/TierService.cs
 
 public interface ITierService
 {
@@ -173,7 +173,7 @@ public interface ITierService
 #### 3. CaseService.cs
 
 ```csharp
-// Location: src/BarberX.MatterDocket.MAUI/Services/CaseService.cs
+// Location: src/Evident.MatterDocket.MAUI/Services/CaseService.cs
 
 public interface ICaseService
 {
@@ -188,7 +188,7 @@ public interface ICaseService
 ### Register Services in MauiProgram.cs
 
 ```csharp
-// Location: src/BarberX.MatterDocket.MAUI/MauiProgram.cs
+// Location: src/Evident.MatterDocket.MAUI/MauiProgram.cs
 
 public static MauiApp CreateMauiApp()
 {
@@ -224,7 +224,7 @@ public static MauiApp CreateMauiApp()
 ### Base ViewModel
 
 ```csharp
-// Location: src/BarberX.MatterDocket.MAUI/ViewModels/BaseViewModel.cs
+// Location: src/Evident.MatterDocket.MAUI/ViewModels/BaseViewModel.cs
 
 public class BaseViewModel : INotifyPropertyChanged
 {
@@ -248,7 +248,7 @@ public class BaseViewModel : INotifyPropertyChanged
 ### LoginViewModel
 
 ```csharp
-// Location: src/BarberX.MatterDocket.MAUI/ViewModels/LoginViewModel.cs
+// Location: src/Evident.MatterDocket.MAUI/ViewModels/LoginViewModel.cs
 
 public class LoginViewModel : BaseViewModel
 {
@@ -298,21 +298,21 @@ public class LoginViewModel : BaseViewModel
 ### LoginPage.xaml
 
 ```xml
-<!-- Location: src/BarberX.MatterDocket.MAUI/Views/LoginPage.xaml -->
+<!-- Location: src/Evident.MatterDocket.MAUI/Views/LoginPage.xaml -->
 
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
-             x:Class="BarberX.MatterDocket.MAUI.Views.LoginPage"
-             Title="BarberX Login">
+             xmlns:vm="clr-namespace:Evident.MatterDocket.MAUI.ViewModels"
+             x:Class="Evident.MatterDocket.MAUI.Views.LoginPage"
+             Title="Evident Login">
     
     <ContentPage.BindingContext>
         <vm:LoginViewModel />
     </ContentPage.BindingContext>
     
     <StackLayout Padding="20" VerticalOptions="Center">
-        <Label Text="BarberX Matter Docket"
+        <Label Text="Evident Matter Docket"
                FontSize="32"
                HorizontalOptions="Center"
                Margin="0,0,0,40" />
@@ -401,7 +401,7 @@ public class LoginViewModel : BaseViewModel
 ### API Import Errors
 ```bash
 # If "ModuleNotFoundError: No module named 'api'"
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python -c "import sys; print(sys.path); from api import auth_api"
 
 # Ensure api/ folder has __init__.py
@@ -420,7 +420,7 @@ python -c "import secrets; print(secrets.token_hex(32))"
 ### CORS Errors from MAUI App
 ```python
 # Update CORS_ORIGINS in Render.com
-CORS_ORIGINS=https://barberx.info,https://www.barberx.info,http://localhost:5000
+CORS_ORIGINS=https://Evident.info,https://www.Evident.info,http://localhost:5000
 ```
 
 ### Database Connection Errors

@@ -1,6 +1,6 @@
-namespace BarberX.Mobile.Services;
+namespace Evident.Mobile.Services;
 
-using BarberX.Shared.Services;
+using Evident.Shared.Services;
 
 /// <summary>
 /// Authentication service for mobile app

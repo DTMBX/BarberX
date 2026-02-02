@@ -1,8 +1,8 @@
-# 🤖 BarberX Custom Copilot Agents
+# 🤖 Evident Custom Copilot Agents
 
 ## Overview
 
-This repository includes **7 specialized AI agents** built with GitHub Copilot SDK to accelerate development of the BarberX legal tech platform for BWC (Body Worn Camera) forensic analysis.
+This repository includes **7 specialized AI agents** built with GitHub Copilot SDK to accelerate development of the Evident legal tech platform for BWC (Body Worn Camera) forensic analysis.
 
 ## 🚀 Quick Start
 
@@ -243,7 +243,7 @@ Agents are configured in `.github/copilot-agents.yml`:
 ```yaml
 agents:
   legal-compliance:
-    name: "BarberX Legal Compliance Expert"
+    name: "Evident Legal Compliance Expert"
     model: claude-sonnet-4.5
     tools: [view, edit, create, grep, glob, powershell]
     instructions: |
@@ -317,8 +317,8 @@ With custom agents, you should achieve:
 
 **Technical Support:**
 
-- support@barberx.info
-- support@barberx.info
+- support@Evident.info
+- support@Evident.info
 
 ---
 

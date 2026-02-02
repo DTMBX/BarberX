@@ -1,4 +1,4 @@
-# 🚀 BarberX - Everything You Need to Know
+# 🚀 Evident - Everything You Need to Know
 
 **Status:** ✅ Chat UI Complete | ✅ iOS Guide Ready | ✅ Dev Tools Installed  
 **Last Updated:** January 27, 2026  
@@ -12,7 +12,7 @@
 
 ```powershell
 # Run the setup script
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 .\Quick-Setup.ps1
 ```
 
@@ -30,7 +30,7 @@ This will:
 ```powershell
 # 1. Install PowerShell profile
 notepad $PROFILE
-# Copy contents of BarberX-Profile.ps1, save, then:
+# Copy contents of Evident-Profile.ps1, save, then:
 . $PROFILE
 
 # 2. Install dependencies
@@ -44,7 +44,7 @@ python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().d
 python migrate_add_chatgpt.py
 
 # 5. Build Android APK
-cd src\BarberX.MatterDocket.MAUI
+cd src\Evident.MatterDocket.MAUI
 dotnet build -f net10.0-android34.0 -c Release
 ```
 
@@ -62,7 +62,7 @@ Build-MAUI -Configuration Release     # Build
 
 **APK Location:**
 ```
-bin\Release\net10.0-android34.0\com.barberx.matterdocket-Signed.apk
+bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 ```
 
 **Install:**
@@ -91,7 +91,7 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 
 ### 1. Complete Chat Interface
 
-**Location:** `src\BarberX.MatterDocket.MAUI\Views\ChatPage.xaml`
+**Location:** `src\Evident.MatterDocket.MAUI\Views\ChatPage.xaml`
 
 **Features:**
 - ✅ Modern dark theme chat UI
@@ -119,7 +119,7 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 
 | Command | What It Does |
 |---------|-------------|
-| `br` | Go to BarberX root |
+| `br` | Go to Evident root |
 | `bm` | Go to MAUI project |
 | `ba` | Go to API directory |
 | `b-` | Go back to previous location |
@@ -134,7 +134,7 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 **Installation:**
 ```powershell
 notepad $PROFILE
-# Copy BarberX-Profile.ps1 contents
+# Copy Evident-Profile.ps1 contents
 . $PROFILE
 bmenu
 ```

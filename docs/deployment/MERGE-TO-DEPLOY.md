@@ -2,12 +2,12 @@
 
 ## ✅ GOOD NEWS:
 Your app IS running at:
-- https://barberx.info/ ✅
-- https://barberx.info/login ✅
+- https://Evident.info/ ✅
+- https://Evident.info/login ✅
 
 ## ❌ PROBLEM:
 The payment code is **NOT deployed yet!**
-- https://barberx.info/payments/pricing ❌ 404 Not Found
+- https://Evident.info/payments/pricing ❌ 404 Not Found
 
 **Why?** The Stripe payment code is still in branch `payments-clean` - not merged to `main` yet!
 
@@ -19,7 +19,7 @@ The payment code is **NOT deployed yet!**
 
 **Step 1:** Go to GitHub
 ```
-https://github.com/DTB396/BarberX.info/compare/main...payments-clean
+https://github.com/DTB396/Evident.info/compare/main...payments-clean
 ```
 
 **Step 2:** Click **"Create pull request"**
@@ -35,7 +35,7 @@ https://github.com/DTB396/BarberX.info/compare/main...payments-clean
 Run these commands:
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 git checkout main
 git merge payments-clean
 git push origin main
@@ -49,7 +49,7 @@ Then wait 5-10 minutes for Render deployment.
 
 **While we wait for the merge, you can:**
 
-1. **Go to:** https://barberx.info/register
+1. **Go to:** https://Evident.info/register
 
 2. **Register with YOUR real email:**
    ```
@@ -58,11 +58,11 @@ Then wait 5-10 minutes for Render deployment.
    Name: Devon Barber
    ```
 
-3. **Login at:** https://barberx.info/login
+3. **Login at:** https://Evident.info/login
 
 4. **Explore the app!**
 
-**The test accounts (free@barberx.test) won't work because:**
+**The test accounts (free@Evident.test) won't work because:**
 - They might not exist in the live database
 - Test emails often filtered out
 - Use your REAL email instead
@@ -85,7 +85,7 @@ Once payments-clean is merged to main:
 **Pick one:**
 
 **A. Merge via GitHub (recommended):**
-- Click: https://github.com/DTB396/BarberX.info/compare/main...payments-clean
+- Click: https://github.com/DTB396/Evident.info/compare/main...payments-clean
 - Create PR → Merge
 - Wait 10 min
 
@@ -97,7 +97,7 @@ git push origin main
 ```
 
 **C. Register and test now:**
-- Go to https://barberx.info/register
+- Go to https://Evident.info/register
 - Use real email
 - Explore current features
 - Payment features will work after merge

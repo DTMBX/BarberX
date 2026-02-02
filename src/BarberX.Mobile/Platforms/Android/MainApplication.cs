@@ -1,7 +1,7 @@
-﻿using Android.App;
+using Android.App;
 using Android.Runtime;
 
-namespace BarberX.Mobile;
+namespace Evident.Mobile;
 
 [Application]
 public class MainApplication : MauiApplication

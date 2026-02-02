@@ -20,7 +20,7 @@ Successfully upgraded all repository JavaScript to modern ES6+ and implemented a
    - Ripple click effects
 
 2. **`assets/js/main-upgraded.js`** (8.2 KB)
-   - BarberXApp class (replaces old IIFE pattern)
+   - EvidentApp class (replaces old IIFE pattern)
    - Async/await API calls
    - Modern form validation
    - Lazy loading
@@ -178,7 +178,7 @@ document.addEventListener("theme:change", (e) => {
 });
 
 // App ready
-document.addEventListener("barberx:ready", () => {
+document.addEventListener("Evident:ready", () => {
   console.log("App initialized");
 });
 ```

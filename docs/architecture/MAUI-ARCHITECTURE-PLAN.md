@@ -1,4 +1,4 @@
-# BarberX Matter Docket (DTMB) - MAUI Architecture Plan
+# Evident Matter Docket (DTMB) - MAUI Architecture Plan
 
 **Date:** January 27, 2026  
 **Project:** Windows 11 Native Desktop Application  
@@ -70,9 +70,9 @@
 ## 📁 Project Structure (Detailed)
 
 ```
-BarberX.MatterDocket.MAUI/
+Evident.MatterDocket.MAUI/
 │
-├── 📄 BarberX.MatterDocket.MAUI.csproj    # Project file
+├── 📄 Evident.MatterDocket.MAUI.csproj    # Project file
 ├── 📄 MauiProgram.cs                      # App entry point
 ├── 📄 App.xaml / App.xaml.cs              # Application class
 ├── 📄 AppShell.xaml / AppShell.xaml.cs    # Navigation shell
@@ -156,7 +156,7 @@ BarberX.MatterDocket.MAUI/
 
 ```csharp
 // Base URL
-private const string API_BASE = "https://barberx.info/api";
+private const string API_BASE = "https://Evident.info/api";
 
 // Authentication
 POST   /api/auth/login              → LoginAsync(email, password)
@@ -366,7 +366,7 @@ public class SecureHttpClientHandler : HttpClientHandler
     protected override async Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request, CancellationToken ct)
     {
-        // Validate certificate for barberx.info
+        // Validate certificate for Evident.info
         // Prevent man-in-the-middle attacks
         return await base.SendAsync(request, ct);
     }
@@ -466,7 +466,7 @@ LoginPage
 
 ## 🎨 Windows 11 Design System
 
-### Colors (From BarberX Branding)
+### Colors (From Evident Branding)
 ```xml
 <Color x:Key="PrimaryGold">#d4a574</Color>
 <Color x:Key="BackgroundDark">#0f0f0f</Color>

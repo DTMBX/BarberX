@@ -1,8 +1,8 @@
-# BarberX Multi-Platform Deployment Guide
+# Evident Multi-Platform Deployment Guide
 
 ## Overview
 
-This guide covers deployment strategies for all BarberX platforms:
+This guide covers deployment strategies for all Evident platforms:
 - **Windows Desktop** - .NET MAUI app via Microsoft Store or direct download
 - **Android** - .NET MAUI app via Google Play Store
 - **iOS** - .NET MAUI app via Apple App Store
@@ -31,7 +31,7 @@ This guide covers deployment strategies for all BarberX platforms:
 
 ### Build for Production
 ```powershell
-cd src/BarberX.Mobile
+cd src/Evident.Mobile
 dotnet publish -f net10.0-windows -c Release -p:RuntimeIdentifierOverride=win10-x64
 ```
 
@@ -53,7 +53,7 @@ dotnet publish -f net10.0-windows -c Release /p:GenerateAppxPackageOnBuild=true
 ```powershell
 # Create installer with Inno Setup or WiX
 # Sign with code signing certificate
-signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com BarberX.exe
+signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com Evident.exe
 ```
 
 ---
@@ -62,20 +62,20 @@ signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com Ba
 
 ### Build Release APK/AAB
 ```bash
-cd src/BarberX.Mobile
+cd src/Evident.Mobile
 dotnet publish -f net10.0-android -c Release
 ```
 
 ### Sign APK
 ```bash
 # Generate keystore (first time only)
-keytool -genkey -v -keystore barberx.keystore -alias barberx -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore Evident.keystore -alias Evident -keyalg RSA -keysize 2048 -validity 10000
 
 # Sign APK
-jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore barberx.keystore app-release-unsigned.apk barberx
+jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore Evident.keystore app-release-unsigned.apk Evident
 
 # Align APK
-zipalign -v 4 app-release-unsigned.apk BarberX.apk
+zipalign -v 4 app-release-unsigned.apk Evident.apk
 ```
 
 ### Google Play Console
@@ -91,7 +91,7 @@ zipalign -v 4 app-release-unsigned.apk BarberX.apk
 <manifest>
     <application android:usesCleartextTraffic="false">
         <!-- Production API endpoint -->
-        <meta-data android:name="API_BASE_URL" android:value="https://api.barberx.info"/>
+        <meta-data android:name="API_BASE_URL" android:value="https://api.Evident.info"/>
     </application>
 </manifest>
 ```
@@ -102,7 +102,7 @@ zipalign -v 4 app-release-unsigned.apk BarberX.apk
 
 ### Build for iOS
 ```bash
-cd src/BarberX.Mobile
+cd src/Evident.Mobile
 dotnet build -f net10.0-ios -c Release
 ```
 
@@ -139,7 +139,7 @@ dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 # render.yaml
 services:
   - type: web
-    name: barberx-api
+    name: Evident-api
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn -w 4 -b 0.0.0.0:$PORT app:app
@@ -157,13 +157,13 @@ services:
 #### Option B: Azure App Service
 ```bash
 # Create App Service
-az webapp create --resource-group BarberX --plan BarberXPlan --name barberx-api --runtime "PYTHON:3.9"
+az webapp create --resource-group Evident --plan EvidentPlan --name Evident-api --runtime "PYTHON:3.9"
 
 # Deploy
-az webapp deployment source config-zip --resource-group BarberX --name barberx-api --src deploy.zip
+az webapp deployment source config-zip --resource-group Evident --name Evident-api --src deploy.zip
 
 # Configure environment variables
-az webapp config appsettings set --resource-group BarberX --name barberx-api --settings \
+az webapp config appsettings set --resource-group Evident --name Evident-api --settings \
     FLASK_ENV=production \
     DATABASE_URL=$DATABASE_URL \
     OPENAI_API_KEY=$OPENAI_API_KEY
@@ -186,8 +186,8 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 
 ```bash
 # Build and deploy
-docker build -t barberx-api .
-docker run -p 5000:5000 --env-file .env barberx-api
+docker build -t Evident-api .
+docker run -p 5000:5000 --env-file .env Evident-api
 ```
 
 ### Database Migration
@@ -204,7 +204,7 @@ alembic upgrade head
 # .env.production
 FLASK_ENV=production
 SECRET_KEY=<strong-random-key>
-DATABASE_URL=postgresql://user:pass@host:5432/barberx
+DATABASE_URL=postgresql://user:pass@host:5432/Evident
 OPENAI_API_KEY=sk-...
 STRIPE_SECRET_KEY=sk_live_...
 REDIS_URL=redis://host:6379
@@ -217,22 +217,22 @@ SENTRY_DSN=https://...
 
 ### Build for Production
 ```bash
-cd src/BarberX.Web
+cd src/Evident.Web
 dotnet publish -c Release -o ./publish
 ```
 
 ### Azure App Service
 ```bash
 # Create App Service
-az webapp create --resource-group BarberX --plan BarberXPlan --name barberx-webapi --runtime "DOTNET:9.0"
+az webapp create --resource-group Evident --plan EvidentPlan --name Evident-webapi --runtime "DOTNET:9.0"
 
 # Deploy
-az webapp deployment source config-zip --resource-group BarberX --name barberx-webapi --src publish.zip
+az webapp deployment source config-zip --resource-group Evident --name Evident-webapi --src publish.zip
 
 # Configure app settings
-az webapp config appsettings set --resource-group BarberX --name barberx-webapi --settings \
+az webapp config appsettings set --resource-group Evident --name Evident-webapi --settings \
     ASPNETCORE_ENVIRONMENT=Production \
-    FlaskBackend__Url=https://api.barberx.info \
+    FlaskBackend__Url=https://api.Evident.info \
     Jwt__Key=$JWT_SECRET
 ```
 
@@ -246,19 +246,19 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
-COPY ["src/BarberX.Web/BarberX.Web.csproj", "BarberX.Web/"]
-RUN dotnet restore "BarberX.Web/BarberX.Web.csproj"
+COPY ["src/Evident.Web/Evident.Web.csproj", "Evident.Web/"]
+RUN dotnet restore "Evident.Web/Evident.Web.csproj"
 COPY . .
-WORKDIR "/src/BarberX.Web"
-RUN dotnet build "BarberX.Web.csproj" -c Release -o /app/build
+WORKDIR "/src/Evident.Web"
+RUN dotnet build "Evident.Web.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BarberX.Web.csproj" -c Release -o /app/publish
+RUN dotnet publish "Evident.Web.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BarberX.Web.dll"]
+ENTRYPOINT ["dotnet", "Evident.Web.dll"]
 ```
 
 ### Configuration
@@ -271,12 +271,12 @@ ENTRYPOINT ["dotnet", "BarberX.Web.dll"]
     }
   },
   "FlaskBackend": {
-    "Url": "https://api.barberx.info"
+    "Url": "https://api.Evident.info"
   },
   "Jwt": {
     "Key": "env:JWT_SECRET",
-    "Issuer": "BarberX",
-    "Audience": "BarberX"
+    "Issuer": "Evident",
+    "Audience": "Evident"
   }
 }
 ```
@@ -309,20 +309,20 @@ jobs:
           dotnet-version: '10.0.x'
       
       - name: Restore dependencies
-        run: dotnet restore src/BarberX.Mobile/BarberX.Mobile.csproj
+        run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
       
       - name: Build Android
-        run: dotnet build src/BarberX.Mobile/BarberX.Mobile.csproj -f net10.0-android -c Release
+        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-android -c Release
       
       - name: Sign APK
         if: github.ref == 'refs/heads/main'
         run: |
           # Sign with keystore from secrets
-          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > barberx.keystore
+          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > Evident.keystore
           jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
-            -keystore barberx.keystore \
+            -keystore Evident.keystore \
             -storepass ${{ secrets.KEYSTORE_PASSWORD }} \
-            bin/Release/net10.0-android/com.barberx.mobile.apk barberx
+            bin/Release/net10.0-android/com.Evident.mobile.apk Evident
       
       - name: Upload APK
         uses: actions/upload-artifact@v3
@@ -344,14 +344,14 @@ jobs:
         run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "${{ secrets.IOS_PROVISIONING_PROFILE }}" | base64 -d > \
-            ~/Library/MobileDevice/Provisioning\ Profiles/barberx.mobileprovision
+            ~/Library/MobileDevice/Provisioning\ Profiles/Evident.mobileprovision
       
       - name: Build iOS
-        run: dotnet build src/BarberX.Mobile/BarberX.Mobile.csproj -f net10.0-ios -c Release
+        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release
       
       - name: Archive
         if: github.ref == 'refs/heads/main'
-        run: dotnet publish src/BarberX.Mobile/BarberX.Mobile.csproj -f net10.0-ios -c Release -p:ArchiveOnBuild=true
+        run: dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release -p:ArchiveOnBuild=true
       
       - name: Upload IPA
         uses: actions/upload-artifact@v3
@@ -417,21 +417,21 @@ jobs:
           dotnet-version: '9.0.x'
       
       - name: Restore dependencies
-        run: dotnet restore src/BarberX.Web/BarberX.Web.csproj
+        run: dotnet restore src/Evident.Web/Evident.Web.csproj
       
       - name: Build
-        run: dotnet build src/BarberX.Web/BarberX.Web.csproj -c Release
+        run: dotnet build src/Evident.Web/Evident.Web.csproj -c Release
       
       - name: Test
         run: dotnet test
       
       - name: Publish
-        run: dotnet publish src/BarberX.Web/BarberX.Web.csproj -c Release -o ./publish
+        run: dotnet publish src/Evident.Web/Evident.Web.csproj -c Release -o ./publish
       
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2
         with:
-          app-name: barberx-webapi
+          app-name: Evident-webapi
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish
 ```
@@ -463,10 +463,10 @@ Required secrets for CI/CD:
 API_BASE_URL=http://localhost:5000
 
 # Staging
-API_BASE_URL=https://staging-api.barberx.info
+API_BASE_URL=https://staging-api.Evident.info
 
 # Production
-API_BASE_URL=https://api.barberx.info
+API_BASE_URL=https://api.Evident.info
 ```
 
 ---

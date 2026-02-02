@@ -1,9 +1,9 @@
-# BarberX Automated Backup Script
+# Evident Automated Backup Script
 # Scheduled to run daily at 2 AM via Task Scheduler
 
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
-$sourcePath = "C:\SecureData\BarberX-Confidential"
-$backupPath = "C:\SecureData\BarberX-Confidential\Backups\backup-$timestamp"
+$sourcePath = "C:\SecureData\Evident-Confidential"
+$backupPath = "C:\SecureData\Evident-Confidential\Backups\backup-$timestamp"
 
 # Create backup
 Write-Host "Starting backup at $(Get-Date)" -ForegroundColor Cyan

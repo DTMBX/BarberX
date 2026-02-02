@@ -1,4 +1,4 @@
-# 📱 Deploy BarberX MAUI to iPhone (TestFlight)
+# 📱 Deploy Evident MAUI to iPhone (TestFlight)
 
 **Goal:** Get the app on your iPhone for testing in ~30 minutes
 
@@ -64,10 +64,10 @@ If you just want to test on YOUR iPhone quickly:
 2. **Click:** My Apps → + → New App
 3. **Fill in:**
    - Platform: iOS
-   - Name: BarberX Matter Docket
+   - Name: Evident Matter Docket
    - Primary Language: English
-   - Bundle ID: com.barberx.matterdocket (create new)
-   - SKU: BARBERX-MAUI-001
+   - Bundle ID: com.Evident.matterdocket (create new)
+   - SKU: Evident-MAUI-001
 
 4. **Save**
 
@@ -82,23 +82,23 @@ xcode-select --install
 # Generate certificate signing request
 # Keychain Access → Certificate Assistant → Request Certificate from CA
 # Email: your-email@example.com
-# Common Name: BarberX iOS Distribution
-# Save to disk: BarberX.certSigningRequest
+# Common Name: Evident iOS Distribution
+# Save to disk: Evident.certSigningRequest
 ```
 
 **On Apple Developer Portal:**
 
 1. **Go to:** https://developer.apple.com/account/resources/certificates
 2. **Click:** + → iOS Distribution (App Store and Ad Hoc)
-3. **Upload:** BarberX.certSigningRequest
+3. **Upload:** Evident.certSigningRequest
 4. **Download** certificate, double-click to install in Keychain
 
 **Create App ID:**
 
 1. **Go to:** Identifiers → + 
 2. **Select:** App IDs → App
-3. **Description:** BarberX Matter Docket
-4. **Bundle ID:** com.barberx.matterdocket (Explicit)
+3. **Description:** Evident Matter Docket
+4. **Bundle ID:** com.Evident.matterdocket (Explicit)
 5. **Capabilities:** Enable Push Notifications, Sign in with Apple (if needed)
 6. **Register**
 
@@ -106,27 +106,27 @@ xcode-select --install
 
 1. **Go to:** Profiles → +
 2. **Select:** App Store Connect
-3. **App ID:** com.barberx.matterdocket
+3. **App ID:** com.Evident.matterdocket
 4. **Certificate:** Select your distribution certificate
 5. **Download** and double-click to install
 
 ### Step 4: Configure MAUI Project (5 min)
 
-Edit `src/BarberX.MatterDocket.MAUI/BarberX.MatterDocket.MAUI.csproj`:
+Edit `src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj`:
 
 ```xml
 <PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
     <!-- App Bundle ID -->
-    <ApplicationId>com.barberx.matterdocket</ApplicationId>
+    <ApplicationId>com.Evident.matterdocket</ApplicationId>
     
     <!-- Display Name -->
-    <ApplicationTitle>BarberX</ApplicationTitle>
+    <ApplicationTitle>Evident</ApplicationTitle>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
     
     <!-- Provisioning -->
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <CodesignProvision>BarberX Matter Docket Distribution</CodesignProvision>
+    <CodesignProvision>Evident Matter Docket Distribution</CodesignProvision>
     <CodesignEntitlements>Platforms/iOS/Entitlements.plist</CodesignEntitlements>
     
     <!-- Architecture -->
@@ -137,7 +137,7 @@ Edit `src/BarberX.MatterDocket.MAUI/BarberX.MatterDocket.MAUI.csproj`:
 </PropertyGroup>
 ```
 
-Create `src/BarberX.MatterDocket.MAUI/Platforms/iOS/Entitlements.plist`:
+Create `src/Evident.MatterDocket.MAUI/Platforms/iOS/Entitlements.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -153,7 +153,7 @@ Create `src/BarberX.MatterDocket.MAUI/Platforms/iOS/Entitlements.plist`:
 ### Step 5: Build iOS App (On Mac)
 
 ```bash
-cd /path/to/BarberX.info/src/BarberX.MatterDocket.MAUI
+cd /path/to/Evident.info/src/Evident.MatterDocket.MAUI
 
 # Restore packages
 dotnet restore
@@ -165,7 +165,7 @@ dotnet build -f net10.0-ios -c Release
 dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 ```
 
-**Output:** `bin/Release/net10.0-ios/ios-arm64/publish/BarberX.MatterDocket.MAUI.ipa`
+**Output:** `bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa`
 
 ### Step 6: Upload to TestFlight (5 min)
 
@@ -173,7 +173,7 @@ dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 
 ```bash
 # Open in Xcode
-open bin/Release/net10.0-ios/BarberX.MatterDocket.MAUI.xcarchive
+open bin/Release/net10.0-ios/Evident.MatterDocket.MAUI.xcarchive
 
 # Window → Organizer → Archives
 # Select archive → Distribute App → App Store Connect
@@ -189,7 +189,7 @@ xcode-select --install
 # Upload to App Store Connect
 xcrun altool --upload-app \
   --type ios \
-  --file bin/Release/net10.0-ios/ios-arm64/publish/BarberX.MatterDocket.MAUI.ipa \
+  --file bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa \
   --username your-apple-id@example.com \
   --password your-app-specific-password
 ```
@@ -216,7 +216,7 @@ xcrun altool --upload-app \
 1. **Check email** on iPhone (TestFlight invite)
 2. **Install TestFlight app** from App Store (if not already)
 3. **Open invite link**
-4. **Install BarberX**
+4. **Install Evident**
 5. **Launch!** 🎉
 
 ---
@@ -251,16 +251,16 @@ jobs:
       run: dotnet workload install maui
     
     - name: Restore dependencies
-      run: dotnet restore src/BarberX.MatterDocket.MAUI
+      run: dotnet restore src/Evident.MatterDocket.MAUI
     
     - name: Build iOS
       run: |
-        cd src/BarberX.MatterDocket.MAUI
+        cd src/Evident.MatterDocket.MAUI
         dotnet build -f net10.0-ios -c Release
     
     - name: Publish iOS
       run: |
-        cd src/BarberX.MatterDocket.MAUI
+        cd src/Evident.MatterDocket.MAUI
         dotnet publish -f net10.0-ios -c Release \
           -p:ArchiveOnBuild=true \
           -p:CodesignKey="${{ secrets.IOS_SIGNING_KEY }}" \
@@ -269,8 +269,8 @@ jobs:
     - name: Upload IPA
       uses: actions/upload-artifact@v3
       with:
-        name: BarberX-iOS
-        path: src/BarberX.MatterDocket.MAUI/bin/Release/net10.0-ios/ios-arm64/publish/*.ipa
+        name: Evident-iOS
+        path: src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/ios-arm64/publish/*.ipa
 ```
 
 **Add secrets to GitHub:**
@@ -289,7 +289,7 @@ git push origin main
 **Download .ipa:**
 1. Go to Actions tab
 2. Select latest workflow run
-3. Download `BarberX-iOS` artifact
+3. Download `Evident-iOS` artifact
 4. Upload to TestFlight manually
 
 ---
@@ -304,7 +304,7 @@ git push origin main
 # On Mac, connect iPhone via USB
 
 # Build and run
-cd src/BarberX.MatterDocket.MAUI
+cd src/Evident.MatterDocket.MAUI
 dotnet build -f net10.0-ios -c Debug --target=ios
 
 # Deploy to connected iPhone
@@ -361,14 +361,14 @@ On iPhone: Settings → General → Device Management → Trust "Your Name"
 
 ```bash
 # Build Android APK (works on Windows)
-cd src\BarberX.MatterDocket.MAUI
+cd src\Evident.MatterDocket.MAUI
 dotnet build -f net10.0-android -c Debug
 
-# Output: bin\Debug\net10.0-android\com.barberx.matterdocket-Signed.apk
+# Output: bin\Debug\net10.0-android\com.Evident.matterdocket-Signed.apk
 
 # Transfer to phone and install
 # Or use USB debugging:
-adb install bin\Debug\net10.0-android\com.barberx.matterdocket-Signed.apk
+adb install bin\Debug\net10.0-android\com.Evident.matterdocket-Signed.apk
 ```
 
 ---
@@ -408,7 +408,7 @@ adb install bin\Debug\net10.0-android\com.barberx.matterdocket-Signed.apk
 
 Once installed on iPhone:
 
-1. **Launch** BarberX app
+1. **Launch** Evident app
 2. **Login** with test account
 3. **Go to Settings** → Add OpenAI API Key
 4. **Create** first project

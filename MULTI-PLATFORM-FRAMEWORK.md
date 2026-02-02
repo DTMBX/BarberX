@@ -1,8 +1,8 @@
-# BarberX Multi-Platform Framework Architecture
+# Evident Multi-Platform Framework Architecture
 
 ## Overview
 
-BarberX is built as a comprehensive multi-platform application supporting:
+Evident is built as a comprehensive multi-platform application supporting:
 - **Windows** - .NET MAUI native app
 - **Android** - .NET MAUI native app
 - **iOS** - .NET MAUI native app
@@ -14,7 +14,7 @@ BarberX is built as a comprehensive multi-platform application supporting:
 
 ## Architecture Layers
 
-### 1. **Shared Layer** (`BarberX.Shared`)
+### 1. **Shared Layer** (`Evident.Shared`)
 Cross-platform data models and service interfaces used by all platforms.
 
 **Components**:
@@ -24,7 +24,7 @@ Cross-platform data models and service interfaces used by all platforms.
 
 **Purpose**: Ensure consistent data structures and API contracts across all platforms.
 
-### 2. **Mobile Layer** (`BarberX.Mobile`)
+### 2. **Mobile Layer** (`Evident.Mobile`)
 .NET MAUI application targeting Windows, Android, iOS, and macOS.
 
 **Architecture**: MVVM (Model-View-ViewModel)
@@ -43,7 +43,7 @@ Cross-platform data models and service interfaces used by all platforms.
 - Platform-specific optimizations
 - Native UI controls
 
-### 3. **Web API Layer** (`BarberX.Web`)
+### 3. **Web API Layer** (`Evident.Web`)
 ASP.NET Core Web API serving as an API gateway to Flask backend.
 
 **Architecture**: RESTful API with controller-based routing
@@ -182,7 +182,7 @@ Templates (Jinja2)
 
 ### Mobile App Setup
 ```bash
-cd src/BarberX.Mobile
+cd src/Evident.Mobile
 dotnet restore
 dotnet build
 
@@ -200,7 +200,7 @@ dotnet run -f net10.0-ios
 
 ### Web API Setup
 ```bash
-cd src/BarberX.Web
+cd src/Evident.Web
 dotnet restore
 dotnet run
 # Runs on https://localhost:5001
@@ -208,7 +208,7 @@ dotnet run
 
 ### Flask Backend Setup
 ```bash
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -307,7 +307,7 @@ dotnet publish -f net10.0-ios -c Release
 
 ### Web API
 ```bash
-cd src/BarberX.Web
+cd src/Evident.Web
 dotnet publish -c Release -o ./publish
 # Deploy to Azure App Service, AWS, or Docker
 ```
@@ -318,8 +318,8 @@ dotnet publish -c Release -o ./publish
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
 
 # Or with Docker
-docker build -t barberx-api .
-docker run -p 5000:5000 barberx-api
+docker build -t Evident-api .
+docker run -p 5000:5000 Evident-api
 ```
 
 ---
@@ -449,16 +449,16 @@ jobs:
 ## File Structure
 
 ```
-BarberX.info/
+Evident.info/
 ├── src/
-│   ├── BarberX.Shared/          # Shared models & services
+│   ├── Evident.Shared/          # Shared models & services
 │   │   ├── Models/
 │   │   │   └── AnalysisRequest.cs
 │   │   └── Services/
 │   │       ├── IApiClient.cs
 │   │       └── ApiClient.cs
 │   │
-│   ├── BarberX.Mobile/          # .NET MAUI app
+│   ├── Evident.Mobile/          # .NET MAUI app
 │   │   ├── Services/
 │   │   │   └── AuthService.cs
 │   │   ├── ViewModels/
@@ -469,7 +469,7 @@ BarberX.info/
 │   │   ├── Platforms/           # Platform-specific code
 │   │   └── MauiProgram.cs
 │   │
-│   ├── BarberX.Web/             # ASP.NET Core API
+│   ├── Evident.Web/             # ASP.NET Core API
 │   │   ├── Controllers/
 │   │   │   └── AnalysisController.cs
 │   │   ├── Services/
@@ -477,7 +477,7 @@ BarberX.info/
 │   │   │   └── FlaskProxyAnalysisService.cs
 │   │   └── Program.cs
 │   │
-│   └── BarberX.Infrastructure/  # Shared infrastructure
+│   └── Evident.Infrastructure/  # Shared infrastructure
 │
 ├── app.py                       # Flask backend
 ├── templates/                   # Flask templates
@@ -490,6 +490,6 @@ BarberX.info/
 ## Support
 
 For issues or questions:
-- Mobile: Check `BarberX.Mobile/README.md`
-- Web API: Check `BarberX.Web/README.md`
+- Mobile: Check `Evident.Mobile/README.md`
+- Web API: Check `Evident.Web/README.md`
 - Flask: Check `DEPENDENCIES-SETUP.md`

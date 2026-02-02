@@ -29,7 +29,7 @@
 
 - **File:** `404.html` (root)
 - **Size:** 4.4 KB
-- **Features:** Custom 404 with popular page links, BarberX branding
+- **Features:** Custom 404 with popular page links, Evident branding
 - **Status:** Complete
 
 ---
@@ -38,8 +38,8 @@
 
 ### About & Contact
 
-- **`_pages/about.md`** — EXISTS (Faith Frontier content, may need BarberX version)
-- **`_pages/contact.md`** — EXISTS (Faith Frontier content, may need BarberX version)
+- **`_pages/about.md`** — EXISTS (Faith Frontier content, may need Evident version)
+- **`_pages/contact.md`** — EXISTS (Faith Frontier content, may need Evident version)
 - **`faq.md`** — EXISTS (Basic FAQ content, could be enhanced)
 
 ### Authentication Templates (Exist, Need Flask Integration)
@@ -69,7 +69,7 @@ from auth_routes import auth_bp, init_auth
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here'  # Change in production
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.abspath("instance/barberx_auth.db")}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.abspath("instance/Evident_auth.db")}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize authentication
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 
 ### Design System Applied:
 
-- ✅ BarberX color palette (red #c41e3a, blue #1e40af)
+- ✅ Evident color palette (red #c41e3a, blue #1e40af)
 - ✅ Gradient hero sections
 - ✅ Rounded corners (4px-16px) like a "clean NYC fade"
 - ✅ Smooth 300ms transitions
@@ -231,8 +231,8 @@ if __name__ == '__main__':
 
 5. **Create user guide** — `/docs/user-guide/` with screenshots
 6. **Create API docs** — `/docs/api-reference/` for Premium/Enterprise
-7. **Enhance FAQ** — Update existing faq.md with BarberX content
-8. **BarberX about page** — Consider separate from Faith Frontier
+7. **Enhance FAQ** — Update existing faq.md with Evident content
+8. **Evident about page** — Consider separate from Faith Frontier
 
 ### Medium-Term (Next Week):
 
@@ -247,17 +247,17 @@ if __name__ == '__main__':
 
 ### Branding Consistency:
 
-The site currently mixes **BarberX** legal tech branding with **Faith Frontier** content. Consider:
+The site currently mixes **Evident** legal tech branding with **Faith Frontier** content. Consider:
 
 **Option A:** Separate sites
 
-- `barberx.info` — Legal tech platform
+- `Evident.info` — Legal tech platform
 - `faithfrontier.org` — Faith-based trust content
 
 **Option B:** Clear sections
 
 - Keep combined but use distinct branding per section
-- `/about/` and `/contact/` could have two tabs: "BarberX" and "Faith Frontier"
+- `/about/` and `/contact/` could have two tabs: "Evident" and "Faith Frontier"
 
 ### Performance:
 
@@ -270,7 +270,7 @@ The site currently mixes **BarberX** legal tech branding with **Faith Frontier**
 
 All new pages include:
 
-- ✅ Title tags with "| BarberX"
+- ✅ Title tags with "| Evident"
 - ✅ Meta descriptions
 - ✅ Semantic HTML (h1, h2 hierarchy)
 - ✅ Descriptive permalinks

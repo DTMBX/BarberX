@@ -57,7 +57,7 @@ resources:
     description: "Learn Markdown syntax"
 
 # Footer Metadata
-source: "BarberX.info Layout System"
+source: "Evident.info Layout System"
 license: "CC BY-SA 4.0"
 version: "2.0.0"
 changelog_url: /changelog/

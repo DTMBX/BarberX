@@ -1,4 +1,4 @@
-# BarberX Platform - Complete Technical Documentation
+# Evident Platform - Complete Technical Documentation
 
 ## 📚 Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Platform Overview
 
-**BarberX Legal Technologies** is an enterprise-grade evidence processing and legal analysis platform designed for attorneys, legal professionals, and law firms.
+**Evident Legal Technologies** is an enterprise-grade evidence processing and legal analysis platform designed for attorneys, legal professionals, and law firms.
 
 ### Key Features
 
@@ -567,7 +567,7 @@ DEBUG=false
 SECRET_KEY=your-secret-key-here
 
 # Database
-DATABASE_URL=postgresql://user:pass@host:5432/barberx
+DATABASE_URL=postgresql://user:pass@host:5432/Evident
 
 # External Services
 STRIPE_SECRET_KEY=sk_live_...
@@ -582,7 +582,7 @@ CACHE_HOST=localhost
 CACHE_PORT=6379
 
 # Uploads
-UPLOAD_FOLDER=/var/barberx/uploads
+UPLOAD_FOLDER=/var/Evident/uploads
 MAX_UPLOAD_SIZE=104857600  # 100MB
 ```
 
@@ -734,6 +734,6 @@ http://localhost:5000/admin/system/performance
 
 ---
 
-*BarberX Platform Technical Documentation*  
+*Evident Platform Technical Documentation*  
 *Version 1.0*  
 *Last Updated: January 26, 2026*

@@ -1,8 +1,8 @@
-# 🎯 BarberX Project Index - Complete Guide
+# 🎯 Evident Project Index - Complete Guide
 
 ## 🚀 START HERE
 
-**New to BarberX?** Start with these documents in order:
+**New to Evident?** Start with these documents in order:
 
 1. **[START-HERE.md](START-HERE.md)** - Development quick start + new AI agents
 2. **[README-NEW.md](README-NEW.md)** - Complete project overview
@@ -99,7 +99,7 @@ npm run setup:agents
 
 - **[ANIMATION-INTEGRATION-COMPLETE.md](ANIMATION-INTEGRATION-COMPLETE.md)** - Animation integration
 - **[ANIMATION-UPGRADE-COMPLETE.md](ANIMATION-UPGRADE-COMPLETE.md)** - Animation upgrades
-- **[BARBERX-GOLDEN-AGE-REBRAND.md](BARBERX-GOLDEN-AGE-REBRAND.md)** - Branding guide
+- **[Evident-GOLDEN-AGE-REBRAND.md](Evident-GOLDEN-AGE-REBRAND.md)** - Branding guide
 
 ### Layout & Optimization
 
@@ -293,15 +293,15 @@ _opra/                          - OPRA requests
 
 **Technical Support:**
 
-- support@barberx.info
+- support@Evident.info
 
 **Legal/Compliance:**
 
-- legal@barberx.info
+- legal@Evident.info
 
 **Sales/Licensing:**
 
-- sales@barberx.info
+- sales@Evident.info
 
 ---
 

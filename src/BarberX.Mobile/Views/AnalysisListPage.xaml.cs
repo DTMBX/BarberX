@@ -1,6 +1,6 @@
-namespace BarberX.Mobile.Views;
+namespace Evident.Mobile.Views;
 
-using BarberX.Mobile.ViewModels;
+using Evident.Mobile.ViewModels;
 
 public partial class AnalysisListPage : ContentPage
 {

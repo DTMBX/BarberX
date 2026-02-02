@@ -1,5 +1,5 @@
 /**
- * BarberX Legal - Premium Features
+ * Evident Technologies - Premium Features
  * Mobile app experience with PWA support
  */
 
@@ -10,7 +10,7 @@
   // App Configuration
   // ============================================
   const CONFIG = {
-    APP_NAME: "BarberX Legal",
+    APP_NAME: "Evident",
     VERSION: "1.0.0",
     DEBUG: false,
   };
@@ -270,7 +270,7 @@
       <div class="install-banner__content">
         <div class="install-banner__icon">⚖️</div>
         <div class="install-banner__text">
-          <div class="install-banner__title">Install BarberX Legal</div>
+          <div class="install-banner__title">Install Evident</div>
           <div class="install-banner__desc">Add to home screen for quick access</div>
         </div>
       </div>
@@ -762,7 +762,7 @@
   }
 
   // Expose API for external use
-  window.BarberXApp = {
+  window.EvidentApp = {
     showToast,
     installApp,
     showShortcutsModal,

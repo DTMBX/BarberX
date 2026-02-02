@@ -2,7 +2,7 @@
 
 **Status**: 97 open vulnerabilities (3 critical, 19 high, 57 moderate, 18 low)  
 **Created**: 2026-01-27  
-**GitHub Alerts**: https://github.com/DTB396/BarberX.info/security/dependabot
+**GitHub Alerts**: https://github.com/DTB396/Evident.info/security/dependabot
 
 ---
 
@@ -69,7 +69,7 @@
 
 1. **Visit GitHub Security Tab**:
    ```
-   https://github.com/DTB396/BarberX.info/security/dependabot
+   https://github.com/DTB396/Evident.info/security/dependabot
    ```
 
 2. **For each HIGH severity alert**:
@@ -341,8 +341,8 @@ npm audit fix
 ## 📚 RESOURCES
 
 **GitHub Security**:
-- https://github.com/DTB396/BarberX.info/security/dependabot
-- https://github.com/DTB396/BarberX.info/security/advisories
+- https://github.com/DTB396/Evident.info/security/dependabot
+- https://github.com/DTB396/Evident.info/security/advisories
 
 **Python Package Security**:
 - https://pypi.org/project/safety/ (CLI security scanner)
@@ -364,7 +364,7 @@ npm audit fix
 **RIGHT NOW: Fix the 3 critical vulnerabilities**
 
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Create fix branch
 git checkout -b security/critical-fixes

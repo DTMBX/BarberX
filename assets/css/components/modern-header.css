@@ -1,5 +1,5 @@
 /* =====================================================
-   Modern Accessible BarberX Header Styles
+   Modern Accessible Evident Header Styles
    WCAG 2.1 AA Compliant, Mobile-First Design
    ===================================================== */
 
@@ -70,7 +70,7 @@
    HEADER CONTAINER
    ===================================================== */
 
-.barberx-header {
+.Evident-header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
@@ -645,7 +645,7 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .barberx-header {
+  .Evident-header {
     border-bottom-width: 2px;
   }
 
@@ -673,7 +673,7 @@
     --color-hover: #1e293b;
   }
 
-  .barberx-header {
+  .Evident-header {
     background: rgba(15, 23, 42, 0.95);
   }
 }

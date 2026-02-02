@@ -2,7 +2,7 @@
 
 ## 🎯 Endpoint URL
 ```
-https://barberx.info/api/stripe/webhook
+https://Evident.info/api/stripe/webhook
 ```
 
 ## ✅ Events to Enable (Copy This List)

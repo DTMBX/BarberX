@@ -10,7 +10,7 @@
 
 ### Why Amplitude?
 
-**For BarberX specifically:**
+**For Evident specifically:**
 
 1. **More Generous Free Tier**
    - Amplitude: 10M events/month FREE
@@ -93,7 +93,7 @@
 1. Go to: https://amplitude.com/signup
 2. Enter:
    - Email: your@email.com
-   - Company: BarberX Legal Technologies
+   - Company: Evident Legal Technologies
    - Role: Founder
    - Industry: Legal Tech
    - Team Size: 1-10
@@ -101,7 +101,7 @@
 
 ### Step 2: Create Project (2 min)
 
-1. Project Name: "BarberX Production"
+1. Project Name: "Evident Production"
 2. Copy your API Key (starts with a long string)
 3. **Save it** - you'll need it next
 
@@ -135,7 +135,7 @@ identify_user('test_user_123', {
 
 # Test event tracking
 track_event('test_user_123', 'test_event', {
-    'test_property': 'Hello from BarberX!'
+    'test_property': 'Hello from Evident!'
 })
 
 print("✅ Analytics test complete! Check Amplitude dashboard in 1-2 minutes.")

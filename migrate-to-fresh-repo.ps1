@@ -1,20 +1,20 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    Migrate BarberX to a fresh GitHub repository with proper git-crypt encryption
+    Migrate Evident to a fresh GitHub repository with proper git-crypt encryption
     
 .DESCRIPTION
     This script creates a clean repository with git-crypt initialized BEFORE
     any commits, ensuring sensitive files are encrypted from the start.
     
 .PARAMETER NewRepoUrl
-    The URL of the new GitHub repository (e.g., https://github.com/DTMBX/BarberX-Clean)
+    The URL of the new GitHub repository (e.g., https://github.com/DTMBX/Evident-Clean)
     
 .PARAMETER BackupPath
     Path where backup of current repo will be saved (default: parent directory)
     
 .EXAMPLE
-    .\migrate-to-fresh-repo.ps1 -NewRepoUrl "https://github.com/DTMBX/BarberX-Clean"
+    .\migrate-to-fresh-repo.ps1 -NewRepoUrl "https://github.com/DTMBX/Evident-Clean"
 #>
 
 param(
@@ -22,15 +22,15 @@ param(
     [string]$NewRepoUrl,
     
     [Parameter(Mandatory=$false)]
-    [string]$BackupPath = "C:\web-dev\github-repos\BarberX.info-backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+    [string]$BackupPath = "C:\web-dev\github-repos\Evident.info-backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
 )
 
 $ErrorActionPreference = "Stop"
-$CurrentRepo = "C:\web-dev\github-repos\BarberX.info"
-$NewRepo = "C:\web-dev\github-repos\BarberX-Fresh"
+$CurrentRepo = "C:\web-dev\github-repos\Evident.info"
+$NewRepo = "C:\web-dev\github-repos\Evident-Fresh"
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "BarberX Fresh Repository Migration" -ForegroundColor Cyan
+Write-Host "Evident Fresh Repository Migration" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -79,8 +79,8 @@ Write-Host "✅ git-crypt initialized" -ForegroundColor Green
 # Step 5: Export encryption key
 Write-Host "`n[5/10] Exporting git-crypt key..." -ForegroundColor Yellow
 New-Item -ItemType Directory -Path "secure" -Force | Out-Null
-git-crypt export-key "secure/barberx-git-crypt-FRESH.key"
-Write-Host "✅ Encryption key exported to: secure/barberx-git-crypt-FRESH.key" -ForegroundColor Green
+git-crypt export-key "secure/Evident-git-crypt-FRESH.key"
+Write-Host "✅ Encryption key exported to: secure/Evident-git-crypt-FRESH.key" -ForegroundColor Green
 Write-Host "⚠️  IMPORTANT: Save this key file securely - you'll need it to decrypt files!" -ForegroundColor Magenta
 
 # Step 6: Configure .gitattributes for encryption
@@ -151,11 +151,11 @@ $newSecretKey = python -c "import secrets; print(secrets.token_urlsafe(32))"
 $newAdminPassword = python -c "import secrets, string; chars = string.ascii_letters + string.digits + '!@#$%^&*()_+-='; print(''.join(secrets.choice(chars) for _ in range(32)))"
 
 $newSecrets = @"
-# Encrypted Secrets for BarberX
+# Encrypted Secrets for Evident
 # This file is encrypted by git-crypt
 SECRET_KEY=$newSecretKey
 FLASK_ENV=production
-ADMIN_EMAIL=admin@barberx.info
+ADMIN_EMAIL=admin@Evident.info
 ADMIN_PASSWORD=$newAdminPassword
 "@
 
@@ -188,7 +188,7 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "📁 New repository: $NewRepo" -ForegroundColor White
 Write-Host "💾 Backup location: $BackupPath" -ForegroundColor White
-Write-Host "🔑 Encryption key: $NewRepo\secure\barberx-git-crypt-FRESH.key" -ForegroundColor White
+Write-Host "🔑 Encryption key: $NewRepo\secure\Evident-git-crypt-FRESH.key" -ForegroundColor White
 Write-Host ""
 Write-Host "Next Steps:" -ForegroundColor Yellow
 Write-Host "1. Review the new repository files:" -ForegroundColor White
@@ -201,11 +201,11 @@ Write-Host "3. Push to GitHub:" -ForegroundColor White
 Write-Host "   git push -u origin main" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "4. IMPORTANT: Securely store the encryption key!" -ForegroundColor Magenta
-Write-Host "   $NewRepo\secure\barberx-git-crypt-FRESH.key" -ForegroundColor Cyan
+Write-Host "   $NewRepo\secure\Evident-git-crypt-FRESH.key" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "5. Team members can unlock with:" -ForegroundColor White
-Write-Host "   git-crypt unlock /path/to/barberx-git-crypt-FRESH.key" -ForegroundColor Cyan
+Write-Host "   git-crypt unlock /path/to/Evident-git-crypt-FRESH.key" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "⚠️  WARNING: The old repo at DTMBX/BarberX still has exposed secrets!" -ForegroundColor Red
+Write-Host "⚠️  WARNING: The old repo at DTMBX/Evident still has exposed secrets!" -ForegroundColor Red
 Write-Host "   Consider making it private or deleting it after pushing the fresh repo." -ForegroundColor Yellow
 Write-Host ""

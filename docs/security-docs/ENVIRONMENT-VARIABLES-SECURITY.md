@@ -33,7 +33,7 @@
 ### ❌ **CRITICAL: Weak SECRET_KEY**
 ```bash
 # Current .env (line 2)
-SECRET_KEY=barberx-legal-tech-2026-super-secure-change-me
+SECRET_KEY=Evident-legal-tech-2026-super-secure-change-me
 ```
 
 **Problem:** This is a predictable, weak key that's likely committed to version control.

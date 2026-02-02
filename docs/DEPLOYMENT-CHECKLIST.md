@@ -125,12 +125,12 @@
   - Mixed content warnings resolved
 
 - [ ] **Service worker accessible at root**
-  - [ ] `https://barberx.info/sw.js` returns 200
+  - [ ] `https://Evident.info/sw.js` returns 200
   - [ ] `Cache-Control` header allows caching
   - [ ] MIME type: `application/javascript`
 
 - [ ] **PWA manifest accessible**
-  - [ ] `https://barberx.info/manifest.json` returns 200
+  - [ ] `https://Evident.info/manifest.json` returns 200
   - [ ] All icon files exist (72px - 512px)
   - [ ] `start_url` is valid
 
@@ -278,7 +278,7 @@
   - [ ] Alerts: Email + SMS
 
 - [ ] **Status page** (optional)
-  - Status page URL: https://status.barberx.info
+  - Status page URL: https://status.Evident.info
   - Linked from footer
 
 ---
@@ -346,7 +346,7 @@
 ### 3. Deploy to Staging (if available)
 
 - [ ] **Deploy to staging environment**
-  - URL: https://staging.barberx.info
+  - URL: https://staging.Evident.info
 
 - [ ] **Run smoke tests**
   - [ ] Homepage loads
@@ -372,16 +372,16 @@
   - Verify all services start
 
 - [ ] **Verify deployment**
-  - [ ] Homepage: https://barberx.info
-  - [ ] Service worker: https://barberx.info/sw.js
-  - [ ] Manifest: https://barberx.info/manifest.json
+  - [ ] Homepage: https://Evident.info
+  - [ ] Service worker: https://Evident.info/sw.js
+  - [ ] Manifest: https://Evident.info/manifest.json
 
 ### 5. Post-Deployment Verification
 
 - [ ] **Health check endpoint**
 
   ```powershell
-  curl https://barberx.info/health
+  curl https://Evident.info/health
   # Expected: {"status": "ok"}
   ```
 
@@ -402,7 +402,7 @@
 - [ ] **Security headers present**
 
   ```powershell
-  curl -I https://barberx.info
+  curl -I https://Evident.info
   # Check for: CSP, HSTS, X-Frame-Options, etc.
   ```
 
@@ -447,7 +447,7 @@
 
 - [ ] **Run Lighthouse on production**
   - Tool: https://pagespeed.web.dev/
-  - URL: https://barberx.info
+  - URL: https://Evident.info
 
 - [ ] **Target Scores (Mobile)**
   - [ ] Performance: 90+ (target: 95)
@@ -514,7 +514,7 @@
   - Key works in API call
 
 - [ ] **Admin features**
-  - Login as admin (admin@barberx.info)
+  - Login as admin (admin@Evident.info)
   - Navigate to /admin
   - View all users
   - View usage statistics
@@ -606,7 +606,7 @@
 ### Support Preparation
 
 - [ ] **Support email configured**
-  - support@barberx.info
+  - support@Evident.info
   - Forwarding to team
 
 - [ ] **Documentation published**

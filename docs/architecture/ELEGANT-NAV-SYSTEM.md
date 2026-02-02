@@ -1,6 +1,6 @@
 # Elegant Navigation System
 
-A beautiful, modern, and fully accessible navigation system designed for BarberX Legal Technologies.
+A beautiful, modern, and fully accessible navigation system designed for Evident Legal Technologies.
 
 ## 🎨 Design Highlights
 
@@ -46,7 +46,7 @@ A beautiful, modern, and fully accessible navigation system designed for BarberX
 ## 📁 File Structure
 
 ```
-BarberX.info/
+Evident.info/
 ├── _includes/
 │   └── components/
 │       └── navigation/
@@ -246,7 +246,7 @@ The navigation automatically switches between desktop and mobile modes at 1024px
 
 ## 📝 License
 
-Part of BarberX Legal Technologies. See main project license.
+Part of Evident Legal Technologies. See main project license.
 
 ## 🎉 Demo
 
@@ -261,4 +261,4 @@ Try it out:
 
 ---
 
-**Created with ❤️ for BarberX Legal Technologies**
+**Created with ❤️ for Evident Legal Technologies**

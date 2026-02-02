@@ -1,10 +1,10 @@
-# BarberX Legal Technologies
+# Evident Legal Technologies
 # ROADMAP TO MARKET DOMINANCE
 # The Definitive Strategy for Legal Tech Leadership
 
 **Version:** 1.0  
 **Date:** January 26, 2026  
-**Objective:** Transform BarberX from startup to market-dominant legal tech platform  
+**Objective:** Transform Evident from startup to market-dominant legal tech platform  
 **Timeline:** 24 months to market leadership  
 **Vision:** The operating system for modern legal practice
 
@@ -252,7 +252,7 @@
 - [ ] **Government** - FOIA request analysis
 
 #### Thought Leadership
-- [ ] **Annual Conference** - BarberX Summit
+- [ ] **Annual Conference** - Evident Summit
 - [ ] **Industry Report** - State of Legal Tech
 - [ ] **Research Lab** - Publish AI research papers
 - [ ] **Open Source** - Release non-core components
@@ -431,7 +431,7 @@
 3. **International expansion** - Canada, UK launches
 4. **Enterprise sales blitz** - Top 100 law firms
 5. **Analyst relations** - Gartner, Forrester recognition
-6. **Certification program** - "BarberX Certified Expert"
+6. **Certification program** - "Evident Certified Expert"
 
 **Budget:** $500K/quarter
 - Sales team (10 people): $200K/month
@@ -763,7 +763,7 @@
 **Tactics:**
 - Coin term: "Evidence Intelligence Platform"
 - Publish: "State of BWC Evidence Report"
-- Host: Annual BarberX Summit
+- Host: Annual Evident Summit
 - Launch: Industry certification program
 - Partner: Law schools for curriculum
 
@@ -1103,12 +1103,12 @@
 ## 🎯 THE VISION
 
 **In 5 Years:**
-BarberX Legal Technologies is the **operating system for modern legal practice.**
+Evident Legal Technologies is the **operating system for modern legal practice.**
 
-Every criminal defense attorney uses BarberX to analyze evidence.
-Every prosecutor uses BarberX to review cases.
-Every law school teaches BarberX in evidence courses.
-Courts accept BarberX reports as standard.
+Every criminal defense attorney uses Evident to analyze evidence.
+Every prosecutor uses Evident to review cases.
+Every law school teaches Evident in evidence courses.
+Courts accept Evident reports as standard.
 
 We've analyzed **10 million+ cases**.
 We've helped **100,000+ attorneys** win better outcomes.

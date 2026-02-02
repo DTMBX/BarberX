@@ -119,7 +119,7 @@ gunicorn app:app --workers 4 --timeout 120
 
 ### Check Slow Queries
 ```bash
-grep "Slow query" logs/barberx.log
+grep "Slow query" logs/Evident.log
 ```
 
 ### Monitor Performance
@@ -185,5 +185,5 @@ However, all changes have been tested and are backwards compatible.
 See `PERFORMANCE-OPTIMIZATION-COMPLETE.md` for detailed documentation.
 
 Questions? Check the logs:
-- `logs/barberx.log` - Application logs
+- `logs/Evident.log` - Application logs
 - Performance issues should show with timing data

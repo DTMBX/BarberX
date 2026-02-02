@@ -1,4 +1,4 @@
-# 🚀 START HERE - BarberX Development Guide
+# 🚀 START HERE - Evident Development Guide
 
 ## ✅ NEW: Custom AI Agents Installed!
 
@@ -58,7 +58,7 @@ npm run setup:agents    # Verify installation
 Open PowerShell and run:
 
 ```powershell
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 
 # Backup old templates
 Move-Item templates/login.html templates/login-old.html -Force
@@ -81,12 +81,12 @@ You should see:
 
 ```
 ╔════════════════════════════════════════════════════════════════╗
-║        BarberX Legal Technologies                              ║
+║        Evident Legal Technologies                              ║
 ║        Professional BWC Forensic Analysis Platform             ║
 ╚════════════════════════════════════════════════════════════════╝
 
 🌐 Web Application: http://localhost:5000
-📊 Database: SQLite (barberx_legal.db)
+📊 Database: SQLite (Evident_legal.db)
 ```
 
 ### STEP 3: Test the New Features (2 minutes)
@@ -104,7 +104,7 @@ http://localhost:5000/login
 **B. Login as Admin:**
 
 ```
-Email: admin@barberx.info
+Email: admin@Evident.info
 Password: admin123
 ```
 
@@ -252,7 +252,7 @@ http://localhost:5000/admin
 **Administrator:**
 
 ```
-Email: admin@barberx.info
+Email: admin@Evident.info
 Password: admin123
 ```
 
@@ -424,7 +424,7 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```nginx
 server {
     listen 80;
-    server_name app.barberx.info;
+    server_name app.Evident.info;
 
     location / {
         proxy_pass http://127.0.0.1:5000;
@@ -437,7 +437,7 @@ server {
 ### 6. Enable HTTPS:
 
 ```bash
-sudo certbot --nginx -d app.barberx.info
+sudo certbot --nginx -d app.Evident.info
 ```
 
 ---

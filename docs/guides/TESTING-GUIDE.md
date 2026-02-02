@@ -6,7 +6,7 @@
 
 ```powershell
 # Navigate to project directory
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Start Flask server
 python app.py

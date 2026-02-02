@@ -7,7 +7,7 @@
 python scripts/db/init_db.py
 ```
 
-This creates `instance/barberx_legal.db` with tables for documents, pages, FTS index, citations, and municipal codes.
+This creates `instance/Evident_legal.db` with tables for documents, pages, FTS index, citations, and municipal codes.
 
 ## 2. Ingest Documents
 

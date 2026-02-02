@@ -1,11 +1,11 @@
 #!/usr/bin/env pwsh
-# BarberX.info - COMPLETE WORKING SETUP SCRIPT
+# Evident.info - COMPLETE WORKING SETUP SCRIPT
 # This will get EVERYTHING working
 
-Write-Host "`n?? BarberX.info - Complete Setup & Start" -ForegroundColor Cyan
+Write-Host "`n?? Evident.info - Complete Setup & Start" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Step 1: Clean all databases
 Write-Host "`n[1/5] Cleaning old databases..." -ForegroundColor Yellow
@@ -53,19 +53,19 @@ from models_auth import User, TierLevel
 
 with app.app_context():
     try:
-        admin = User.query.filter_by(email="admin@barberx.info").first()
+        admin = User.query.filter_by(email="admin@Evident.info").first()
         
         if not admin:
             admin = User(
-                email="admin@barberx.info",
+                email="admin@Evident.info",
                 full_name="Devon Tyler",
-                organization="BarberX Legal Technologies",
+                organization="Evident Legal Technologies",
                 tier=TierLevel.ADMIN,
                 is_admin=True,
                 is_active=True,
                 is_verified=True
             )
-            admin.set_password(os.environ.get('BARBERX_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
+            admin.set_password(os.environ.get('Evident_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
             db.session.add(admin)
             db.session.commit()
             print("\n? Admin user created!")
@@ -76,7 +76,7 @@ with app.app_context():
 '@
 
 Write-Host "`n========================================" -ForegroundColor Cyan
-Write-Host "? BarberX.info is RUNNING!" -ForegroundColor Green -BackgroundColor DarkGreen
+Write-Host "? Evident.info is RUNNING!" -ForegroundColor Green -BackgroundColor DarkGreen
 Write-Host "========================================" -ForegroundColor Cyan
 
 Write-Host "`n?? APPLICATION URLs:" -ForegroundColor Cyan
@@ -87,8 +87,8 @@ Write-Host "  BWC Upload:       http://localhost:5000/upload" -ForegroundColor W
 Write-Host "  PDF Upload:       http://localhost:5000/batch-pdf-upload.html" -ForegroundColor White
 
 Write-Host "`n?? ADMIN CREDENTIALS:" -ForegroundColor Cyan
-Write-Host "  Email:    admin@barberx.info" -ForegroundColor White
-Write-Host "  Password: [Set via BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor Yellow
+Write-Host "  Email:    admin@Evident.info" -ForegroundColor White
+Write-Host "  Password: [Set via Evident_ADMIN_PASSWORD env var]" -ForegroundColor Yellow
 
 Write-Host "`n?? YOUR FEATURES (All Working):" -ForegroundColor Cyan
 Write-Host "  ? BWC Forensic Analyzer (bwc_forensic_analyzer.py)" -ForegroundColor Green

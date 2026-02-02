@@ -1,4 +1,4 @@
-# BarberX Mobile App Icons
+# Evident Mobile App Icons
 
 ## Required Icons
 
@@ -23,7 +23,7 @@ Place the following icon files in this directory. Icons should be SVG format for
 - `chevron_right.png` or `chevron_right.svg` - Navigation arrows
 
 ### App Branding
-- `barberx_logo.png` - Main app logo (200x200 minimum)
+- `Evident_logo.png` - Main app logo (200x200 minimum)
 - `case_placeholder.png` - Placeholder for cases without thumbnails
 - `default_avatar.png` - Default user profile image
 
@@ -47,12 +47,12 @@ You can obtain icons from:
 - [Material Icons](https://fonts.google.com/icons)
 - [Ionicons](https://ionic.io/ionicons)
 - [Feather Icons](https://feathericons.com/)
-- Custom design matching BarberX brand
+- Custom design matching Evident brand
 
 ## Adding Icons to Project
 
 1. Place icon files in this directory
-2. Icons are automatically included via `BarberX.Mobile.csproj`:
+2. Icons are automatically included via `Evident.Mobile.csproj`:
    ```xml
    <MauiImage Include="Resources\Images\*" />
    ```

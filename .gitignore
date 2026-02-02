@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 *.class
@@ -28,7 +28,7 @@ logs/
 # Encrypted outputs
 secure/
 # Allow encrypted git-crypt key backup
-!secure/barberx-git-crypt.key
+!secure/Evident-git-crypt.key
 
 # Environment
 .env
@@ -130,8 +130,8 @@ test_*.html
 [0-9]*
 [0-9]*.[0-9]*.[0-9]*
 
-# BarberX Security Rules (Added 2026-01-28)
-# BarberX Confidential Financial Data
+# Evident Security Rules (Added 2026-01-28)
+# Evident Confidential Financial Data
 INVESTOR-LOG.md
 *INVESTOR*.md
 *CONFIDENTIAL*.md
@@ -228,7 +228,7 @@ security-audit-*.md
 
 # Week 1 secure data folder (if local)
 SecureData/
-BarberX-Confidential/
+Evident-Confidential/
 
 htmlcov/
 backups/*/htmlcov/

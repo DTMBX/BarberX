@@ -128,7 +128,7 @@ current_user.role              # ❌ doesn't exist
 ## Testing
 
 1. **Login:** http://localhost:5000/auth/login
-2. **Credentials:** admin@barberx.info / Admin123!
+2. **Credentials:** admin@Evident.info / Admin123!
 3. **Dashboard loads** with 4 quick access cards
 4. **Click BWC Analysis** → Should load BWC dashboard
 5. **Click AI Legal Assistant** → Should load chat interface

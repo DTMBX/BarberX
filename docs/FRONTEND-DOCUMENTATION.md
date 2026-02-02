@@ -1,8 +1,8 @@
-# BarberX.info - Frontend Documentation
+# Evident.info - Frontend Documentation
 
 ## ?? **Frontend Architecture Overview**
 
-BarberX.info uses a **hybrid frontend architecture**:
+Evident.info uses a **hybrid frontend architecture**:
 
 ### **Technology Stack:**
 - **Jekyll** (Static Site Generator) - For marketing pages
@@ -16,7 +16,7 @@ BarberX.info uses a **hybrid frontend architecture**:
 ## ?? **Frontend File Structure**
 
 ```
-BarberX.info/
+Evident.info/
 ??? index.html                      # Main landing page (Jekyll)
 ??? templates/                      # Flask/Jinja2 templates
 ?   ??? index-standalone.html      # Standalone landing page
@@ -110,7 +110,7 @@ BarberX.info/
 ```html
 ---
 layout: default
-title: "BarberX Legal Technologies"
+title: "Evident Legal Technologies"
 description: "Professional AI-powered eDiscovery"
 ---
 
@@ -433,14 +433,14 @@ def new_feature():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Title | BarberX Legal Tech</title>
+  <title>Page Title | Evident Legal Tech</title>
   <meta name="description" content="150-160 character description">
   
   <!-- Open Graph (Social Media) -->
   <meta property="og:title" content="Page Title">
   <meta property="og:description" content="Description">
   <meta property="og:image" content="/assets/img/og-image.png">
-  <meta property="og:url" content="https://barberx.info/page">
+  <meta property="og:url" content="https://Evident.info/page">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -486,14 +486,14 @@ def new_feature():
 
 ### **GitHub Pages (Marketing Site):**
 - Automatic deployment on push to `main`
-- URL: `https://dtb396.github.io/BarberX.info`
+- URL: `https://dtb396.github.io/Evident.info`
 
 ### **Render (Web App):**
 - Automatic deployment on push to `main`
-- URL: `https://barberx-legal-tech.onrender.com`
+- URL: `https://Evident-legal-tech.onrender.com`
 
 ### **Custom Domain:**
-- URL: `https://app.barberx.info` (after DNS setup)
+- URL: `https://app.Evident.info` (after DNS setup)
 
 ---
 

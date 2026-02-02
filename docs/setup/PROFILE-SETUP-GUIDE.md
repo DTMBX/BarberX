@@ -15,15 +15,15 @@ New-Item -Path $PROFILE -ItemType File -Force
 notepad $PROFILE
 ```
 
-### Step 2: Add BarberX Profile
+### Step 2: Add Evident Profile
 
-**Copy and paste** the entire contents of `BarberX-Profile.ps1` into your profile file.
+**Copy and paste** the entire contents of `Evident-Profile.ps1` into your profile file.
 
 Or use this one-liner:
 
 ```powershell
-# Append BarberX profile to your existing profile
-Get-Content "C:\web-dev\github-repos\BarberX.info\BarberX-Profile.ps1" | Add-Content $PROFILE
+# Append Evident profile to your existing profile
+Get-Content "C:\web-dev\github-repos\Evident.info\Evident-Profile.ps1" | Add-Content $PROFILE
 ```
 
 ### Step 3: Reload Profile
@@ -33,7 +33,7 @@ Get-Content "C:\web-dev\github-repos\BarberX.info\BarberX-Profile.ps1" | Add-Con
 . $PROFILE
 
 # You should see:
-# 🚀 BarberX Development Environment Loaded!
+# 🚀 Evident Development Environment Loaded!
 ```
 
 ---
@@ -44,7 +44,7 @@ Get-Content "C:\web-dev\github-repos\BarberX.info\BarberX-Profile.ps1" | Add-Con
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `br` | Go to BarberX root | `br` |
+| `br` | Go to Evident root | `br` |
 | `bm` | Go to MAUI project | `bm` |
 | `ba` | Go to API directory | `ba` |
 | `bd` | Go to Docs directory | `bd` |
@@ -74,7 +74,7 @@ brecent
 | `Build-MAUI -Configuration Release` | Release build | `Build-MAUI -Configuration Release` |
 | `Run-MAUI` | Launch MAUI app | `Run-MAUI` |
 | `Start-FlaskAPI` | Start Flask backend | `Start-FlaskAPI` |
-| `Test-BarberX` | Run all tests | `Test-BarberX` |
+| `Test-Evident` | Run all tests | `Test-Evident` |
 
 **Usage:**
 ```powershell
@@ -131,7 +131,7 @@ Reset-DB
 | Command | Description |
 |---------|-------------|
 | `bmenu` | Show command menu |
-| `Show-BarberXMenu` | Show command menu (full name) |
+| `Show-EvidentMenu` | Show command menu (full name) |
 
 ---
 
@@ -208,17 +208,17 @@ python -c "from api.chatgpt import Project; print('✅ ChatGPT tables loaded')"
 
 ## Customization
 
-### Change BarberX Paths
+### Change Evident Paths
 
-Edit the `$Script:BarberXPaths` section:
+Edit the `$Script:EvidentPaths` section:
 
 ```powershell
-$Script:BarberXPaths = @{
-    Root = "D:\Projects\BarberX"  # Your path here
-    MAUI = "D:\Projects\BarberX\src\BarberX.MatterDocket.MAUI"
-    API = "D:\Projects\BarberX\api"
-    Tests = "D:\Projects\BarberX\tests"
-    Docs = "D:\Projects\BarberX"
+$Script:EvidentPaths = @{
+    Root = "D:\Projects\Evident"  # Your path here
+    MAUI = "D:\Projects\Evident\src\Evident.MatterDocket.MAUI"
+    API = "D:\Projects\Evident\api"
+    Tests = "D:\Projects\Evident\tests"
+    Docs = "D:\Projects\Evident"
 }
 ```
 
@@ -239,10 +239,10 @@ function Deploy-Production {
 
 ### Auto-Navigate on Start
 
-Uncomment the last line to auto-cd to BarberX on PowerShell start:
+Uncomment the last line to auto-cd to Evident on PowerShell start:
 
 ```powershell
-# Auto-navigate to BarberX on load
+# Auto-navigate to Evident on load
 br  # Uncomment this line
 ```
 
@@ -306,9 +306,9 @@ brecent
 
 # Output:
 # 📍 Recent Locations:
-#   [0] C:\web-dev\github-repos\BarberX.info
-#   [1] C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI
-#   [2] C:\web-dev\github-repos\BarberX.info\api
+#   [0] C:\web-dev\github-repos\Evident.info
+#   [1] C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI
+#   [2] C:\web-dev\github-repos\Evident.info\api
 ```
 
 ### Color Customization

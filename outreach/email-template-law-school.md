@@ -12,11 +12,11 @@
 
 Dear Professor [Last Name],
 
-I'm reaching out from BarberX Legal Technologies with a partnership proposal for [Law School]'s Criminal Defense Clinic.
+I'm reaching out from Evident Legal Technologies with a partnership proposal for [Law School]'s Criminal Defense Clinic.
 
 **Who We Are:**
 
-BarberX is an AI-powered platform that automates body-worn camera (BWC) analysis for criminal defense cases. We reduce analysis time by 85% (from 20 hours to 2 hours per case) through automated transcription, timeline reconstruction, and discrepancy detection.
+Evident is an AI-powered platform that automates body-worn camera (BWC) analysis for criminal defense cases. We reduce analysis time by 85% (from 20 hours to 2 hours per case) through automated transcription, timeline reconstruction, and discrepancy detection.
 
 **Why This Matters for Your Clinic:**
 
@@ -25,7 +25,7 @@ Your students likely handle cases with 8-12 hours of BWC footage. Manual analysi
 • Error-prone (easy to miss critical 3-second discrepancies)
 • Overwhelming (students juggling cases + coursework + exams)
 
-BarberX automates the tedious work so students can focus on legal reasoning and advocacy.
+Evident automates the tedious work so students can focus on legal reasoning and advocacy.
 
 **Partnership Proposal (100% Free):**
 
@@ -37,29 +37,29 @@ We'd like to offer [Law School]'s Criminal Defense Clinic:
 2. **Training workshop** (1-2 hours):
    - How to analyze BWC evidence effectively
    - Legal standards for BWC admissibility (authentication, Brady, spoliation)
-   - Hands-on BarberX demo with real clinic cases
+   - Hands-on Evident demo with real clinic cases
    - Q&A with students
 
 3. **Academic collaboration** (optional):
    - Co-author case study: "Using AI to Analyze BWC Evidence in [Clinic Case]"
-   - Student testimonials for BarberX website (with permission)
+   - Student testimonials for Evident website (with permission)
    - Citation in academic publications or blog posts
 
 **What We're Asking in Return:**
 
-1. **Feedback:** Share your experience using BarberX (what works, what could improve)
+1. **Feedback:** Share your experience using Evident (what works, what could improve)
 2. **Case study:** One anonymized success story we can share with other law schools
 3. **Testimonial:** Quote from you or a student for our website
-4. **Logo use:** Permission to list [Law School] as a partner on barberx.info/partners
+4. **Logo use:** Permission to list [Law School] as a partner on Evident.info/partners
 
 **No Financial Commitment. No Catch.**
 
-This is a free educational partnership. We believe legal education should prepare students for real-world technology they'll use in practice. BarberX is that technology.
+This is a free educational partnership. We believe legal education should prepare students for real-world technology they'll use in practice. Evident is that technology.
 
 **Why We're Doing This:**
 
 1. **Social Impact:** Clinical students represent underserved clients who need the best defense possible
-2. **Future Users:** Students who use BarberX in clinic often subscribe when they graduate
+2. **Future Users:** Students who use Evident in clinic often subscribe when they graduate
 3. **Research:** We learn from clinic feedback and improve our platform
 
 **Next Steps:**
@@ -81,14 +81,14 @@ Best regards,
 
 **Devon Tyler Barber**  
 Founder & CEO  
-BarberX Legal Technologies
+Evident Legal Technologies
 
-📧 partnerships@barberx.info  
-🌐 https://barberx.info  
+📧 partnerships@Evident.info  
+🌐 https://Evident.info  
 📞 [Your phone number]
 
 **Attachments:**
-- BarberX-Law-School-Partnership-Deck.pdf
+- Evident-Law-School-Partnership-Deck.pdf
 
 ---
 
@@ -156,8 +156,8 @@ If you ever want to revisit the partnership, I'm here.
 Best,
 
 **Devon Tyler Barber**  
-BarberX Legal Technologies  
-partnerships@barberx.info
+Evident Legal Technologies  
+partnerships@Evident.info
 
 ---
 
@@ -175,10 +175,10 @@ I wanted to share a success story from another law school clinic that might inte
 
 **The Challenge:** 12 hours of BWC footage, prosecution claiming client "struck officer"
 
-**The Outcome:** Student used BarberX to find 3-second discrepancy proving officer's injury was self-inflicted. Charges dismissed.
+**The Outcome:** Student used Evident to find 3-second discrepancy proving officer's injury was self-inflicted. Charges dismissed.
 
 **Student's comment:**
-> "Without BarberX, I would have spent 200+ hours reviewing footage and still missed this. Now I have time to focus on oral arguments and client counseling."
+> "Without Evident, I would have spent 200+ hours reviewing footage and still missed this. Now I have time to focus on oral arguments and client counseling."
 
 Full case study (anonymized): [Link]
 
@@ -214,7 +214,7 @@ Would you be interested in co-authoring a paper or article on:
 - What are the ethical considerations of teaching students to use AI tools?
 
 **What I'd contribute:**
-- Free BarberX access for your clinic (for research purposes)
+- Free Evident access for your clinic (for research purposes)
 - Data on student usage patterns
 - Co-authorship credit
 - Conference presentation support (AALS, SEALS, regional conferences)
@@ -233,8 +233,8 @@ Interested? Let's set up a call to brainstorm.
 Best,
 
 **Devon Tyler Barber**  
-BarberX Legal Technologies  
-partnerships@barberx.info
+Evident Legal Technologies  
+partnerships@Evident.info
 
 ---
 
@@ -262,8 +262,8 @@ Thanks for your time, and keep up the amazing work training future public defend
 Best,
 
 **Devon Tyler Barber**  
-BarberX Legal Technologies  
-partnerships@barberx.info
+Evident Legal Technologies  
+partnerships@Evident.info
 
 ---
 
@@ -277,11 +277,11 @@ partnerships@barberx.info
 
 Dear [Name],
 
-I'm reaching out from BarberX Legal Technologies with a partnership proposal for [Legal Aid Organization].
+I'm reaching out from Evident Legal Technologies with a partnership proposal for [Legal Aid Organization].
 
 **Who We Are:**
 
-BarberX is an AI-powered platform that helps defense attorneys analyze body-worn camera footage 85% faster (from 20 hours to 2 hours per case).
+Evident is an AI-powered platform that helps defense attorneys analyze body-worn camera footage 85% faster (from 20 hours to 2 hours per case).
 
 **Why Legal Aid Organizations Need This:**
 
@@ -328,10 +328,10 @@ Best regards,
 
 **Devon Tyler Barber**  
 Founder & CEO  
-BarberX Legal Technologies
+Evident Legal Technologies
 
-📧 partnerships@barberx.info  
-🌐 https://barberx.info
+📧 partnerships@Evident.info  
+🌐 https://Evident.info
 
 ---
 

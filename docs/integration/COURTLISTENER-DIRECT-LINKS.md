@@ -35,7 +35,7 @@ Example: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 🔗 **https://dashboard.render.com**
 
 **Steps:**
-1. Click on your **BarberX** service
+1. Click on your **Evident** service
 2. Click **"Environment"** in left sidebar
 3. Click **"Add Environment Variable"** button
 4. Enter:
@@ -112,12 +112,12 @@ curl "https://www.courtlistener.com/api/rest/v4/clusters/111881/" \
   -H "Authorization: Token YOUR_API_KEY_HERE"
 ```
 
-### **Test in BarberX:**
+### **Test in Evident:**
 
 Once API key is in Render:
 ```bash
 # SSH into Render or test locally
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll.ingest_from_courtlistener('410 U.S. 113'))"
 ```
 
@@ -283,19 +283,19 @@ def search_caselaw_access_project(query):
 
 ## 🎯 COMPETITIVE POSITIONING WITH THESE TOOLS
 
-### **BarberX with CourtListener:**
+### **Evident with CourtListener:**
 - **Federal opinions:** 10M+ ✅ (equal to Westlaw)
 - **Citations:** 400M+ ✅ (equal to KeyCite)
 - **Judges:** 1M+ profiles ✅ (better than Westlaw)
 - **Dockets:** 50M+ RECAP ✅ (free vs Westlaw's paid)
 - **Oral arguments:** 100K+ audio ✅ (unique feature)
 
-### **BarberX + Harvard CAP:**
+### **Evident + Harvard CAP:**
 - **State cases:** +6.7M ✅ (now 16.7M total)
 - **Historical:** 1600s-2026 ✅ (426 years vs Westlaw's 236)
 - **Credibility:** Harvard Law partnership ✅
 
-### **BarberX + Oyez + CRS:**
+### **Evident + Oyez + CRS:**
 - **Supreme Court audio:** Searchable transcripts ✅
 - **Legislative history:** Bill analysis ✅
 - **Comprehensive:** Cases + statutes + audio + history ✅
@@ -355,7 +355,7 @@ def search_caselaw_access_project(query):
 
 **2. Add to Render:**
 - Go to: https://dashboard.render.com
-- Click BarberX service
+- Click Evident service
 - Environment → Add Environment Variable
 - Key: `COURTLISTENER_API_KEY`
 - Value: `<your token>`

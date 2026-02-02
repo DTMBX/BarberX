@@ -1,11 +1,11 @@
 """
-BarberX AI Reasoning Pipeline REST API
+Evident AI Reasoning Pipeline REST API
 
 Exposes the 8-engine mathematical reasoning system via REST endpoints.
 Each endpoint provides access to a specific formal reasoning capability.
 
 CONFIDENTIAL - TRADE SECRET PROTECTED
-Copyright (c) 2026 BarberX. All rights reserved.
+Copyright (c) 2026 Evident. All rights reserved.
 """
 
 import traceback
@@ -15,7 +15,7 @@ from flask import Blueprint, jsonify, request
 
 # Import reasoning engines
 try:
-    from barberx_reasoning_core import (BurdenAwareBayesianInference,
+    from Evident_reasoning_core import (BurdenAwareBayesianInference,
                                         EvidencePipeline, LegalStateLattice,
                                         NarrativeDriftDetector,
                                         OptimalTransportMatcher,

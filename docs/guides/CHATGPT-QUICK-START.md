@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-✅ BarberX MAUI app built successfully (0 errors)  
+✅ Evident MAUI app built successfully (0 errors)  
 ✅ Flask backend running (`python app.py`)  
 ✅ OpenAI API key (from https://platform.openai.com/api-keys)
 
@@ -15,7 +15,7 @@
 ## Step 1: Install Dependencies (2 minutes)
 
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Install Python packages
 pip install openai cryptography
@@ -210,7 +210,7 @@ Content-Type: application/json
 
 ## Step 8: Register MAUI Services (2 minutes)
 
-Edit `src/BarberX.MatterDocket.MAUI/MauiProgram.cs`:
+Edit `src/Evident.MatterDocket.MAUI/MauiProgram.cs`:
 
 ```csharp
 // Add with other services (around line 25-36)
@@ -239,7 +239,7 @@ builder.Services.AddSingleton<IProjectService, ProjectService>();  // ← NEW
 ## Step 9: Build MAUI App (1 minute)
 
 ```powershell
-cd src\BarberX.MatterDocket.MAUI
+cd src\Evident.MatterDocket.MAUI
 dotnet build -f net10.0-windows10.0.19041.0
 ```
 

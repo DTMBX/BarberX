@@ -1,4 +1,4 @@
-# BarberX Dashboard & Backend Management - Quick Reference
+# Evident Dashboard & Backend Management - Quick Reference
 
 ## 🚀 What Was Optimized
 
@@ -67,7 +67,7 @@ Added 12 new endpoints:
 ### Step 1: Replace Old Templates
 
 ```bash
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 
 # Backup old files
 mv templates/login.html templates/login-old.html
@@ -99,7 +99,7 @@ python app.py
 
 **Admin:**
 
-- Email: admin@barberx.info
+- Email: admin@Evident.info
 - Password: admin123 ⚠️ **CHANGE THIS IN PRODUCTION**
 
 ---
@@ -345,7 +345,7 @@ Before deploying to production:
 
 For issues or questions:
 
-- **Email**: support@barberx.info
+- **Email**: support@Evident.info
 - **Documentation**: See DASHBOARD-OPTIMIZATION.md
 - **GitHub**: Create issue on repository
 
@@ -382,4 +382,4 @@ For issues or questions:
 
 **Status: ✅ COMPLETE - Dashboard & Backend Management Fully Optimized**
 
-All systems operational and ready for production deployment at **https://app.barberx.info**!
+All systems operational and ready for production deployment at **https://app.Evident.info**!

@@ -1,4 +1,4 @@
-﻿namespace BarberX.Shared;
+namespace Evident.Shared;
 
 public class Class1
 {

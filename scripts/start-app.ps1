@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# BarberX.info - Quick Start Script
+# Evident.info - Quick Start Script
 # Starts both Flask and .NET backends with one command
 
 param(
@@ -8,10 +8,10 @@ param(
     [switch]$OpenBrowser = $true
 )
 
-$repoRoot = "C:\web-dev\github-repos\BarberX.info"
+$repoRoot = "C:\web-dev\github-repos\Evident.info"
 Set-Location $repoRoot
 
-Write-Host "?? Starting BarberX.info Application" -ForegroundColor Cyan
+Write-Host "?? Starting Evident.info Application" -ForegroundColor Cyan
 Write-Host "=====================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -36,7 +36,7 @@ if (-not $DotNetOnly) {
     Write-Host "Starting Flask Backend (Port 5000)..." -ForegroundColor Green
     
     $flaskJob = Start-Job -Name "Flask-Backend" -ScriptBlock {
-        Set-Location "C:\web-dev\github-repos\BarberX.info"
+        Set-Location "C:\web-dev\github-repos\Evident.info"
         if (Test-Path "venv\Scripts\Activate.ps1") {
             .\venv\Scripts\Activate.ps1
         }
@@ -51,9 +51,9 @@ if (-not $DotNetOnly) {
 if (-not $FlaskOnly) {
     Write-Host "Starting .NET Web API (Port 5001)..." -ForegroundColor Green
     
-    if (Test-Path "src\BarberX.Web") {
+    if (Test-Path "src\Evident.Web") {
         $dotnetJob = Start-Job -Name "DotNet-API" -ScriptBlock {
-            Set-Location "C:\web-dev\github-repos\BarberX.info\src\BarberX.Web"
+            Set-Location "C:\web-dev\github-repos\Evident.info\src\Evident.Web"
             dotnet run
         }
         

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BarberX Agent Simulator - Test Agent Responses
+Evident Agent Simulator - Test Agent Responses
 
 Simulates agent interactions to test their capabilities and identify improvements.
 This script mimics real-world usage patterns to validate agent effectiveness.

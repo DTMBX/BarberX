@@ -39,19 +39,19 @@ Your local repository has been successfully prepared with:
 ### Option 1: Create New Repository on GitHub
 
 1. **Go to GitHub**: https://github.com/new
-2. **Repository Name**: `BarberX.info` (or your preferred name)
+2. **Repository Name**: `Evident.info` (or your preferred name)
 3. **Visibility**: Choose Private or Public
 4. **DO NOT** initialize with README, .gitignore, or license (we already have these)
 5. **Click "Create repository"**
 
 6. **Copy the repository URL** (will look like):
-   - HTTPS: `https://github.com/YOUR-USERNAME/BarberX.info.git`
-   - SSH: `git@github.com:YOUR-USERNAME/BarberX.info.git`
+   - HTTPS: `https://github.com/YOUR-USERNAME/Evident.info.git`
+   - SSH: `git@github.com:YOUR-USERNAME/Evident.info.git`
 
 7. **Add remote and push**:
    ```powershell
    # Add remote (replace YOUR-USERNAME with your GitHub username)
-   git remote add origin https://github.com/YOUR-USERNAME/BarberX.info.git
+   git remote add origin https://github.com/YOUR-USERNAME/Evident.info.git
    
    # Push to GitHub
    git push -u origin main
@@ -73,7 +73,7 @@ git push -u origin main
 
 ```powershell
 # Add remote with SSH
-git remote add origin git@github.com:YOUR-USERNAME/BarberX.info.git
+git remote add origin git@github.com:YOUR-USERNAME/Evident.info.git
 
 # Push to GitHub
 git push -u origin main
@@ -113,7 +113,7 @@ Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard
 # 1. Create repository on GitHub (via web interface)
 
 # 2. Add remote (replace with your actual URL)
-git remote add origin https://github.com/YOUR-USERNAME/BarberX.info.git
+git remote add origin https://github.com/YOUR-USERNAME/Evident.info.git
 
 # 3. Verify remote
 git remote -v
@@ -122,7 +122,7 @@ git remote -v
 git push -u origin main
 
 # 5. Verify on GitHub
-# Visit: https://github.com/YOUR-USERNAME/BarberX.info
+# Visit: https://github.com/YOUR-USERNAME/Evident.info
 ```
 
 ---
@@ -189,7 +189,7 @@ git ls-files
 ## 🎯 Repository Structure After Push
 
 ```
-BarberX.info/
+Evident.info/
 ├── .gitignore                          # Comprehensive exclusions
 ├── .env.template                       # Safe configuration template
 ├── SECURITY.md                         # Security guidelines
@@ -200,9 +200,9 @@ BarberX.info/
 ├── build-all-platforms.ps1             # Build script
 ├── app.py                              # Flask backend
 ├── src/
-│   ├── BarberX.Shared/                 # Cross-platform models
-│   ├── BarberX.Mobile/                 # .NET MAUI app
-│   └── BarberX.Web/                    # ASP.NET Core API
+│   ├── Evident.Shared/                 # Cross-platform models
+│   ├── Evident.Mobile/                 # .NET MAUI app
+│   └── Evident.Web/                    # ASP.NET Core API
 ├── templates/                          # Flask templates
 └── test_*.py                           # Test scripts
 ```

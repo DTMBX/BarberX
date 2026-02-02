@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Pricing | BarberX"
+title: "Pricing | Evident"
 permalink: /pricing/
-description: "Simple, transparent pricing for BarberX. Start free, upgrade as you grow. No hidden fees."
+description: "Simple, transparent pricing for Evident. Start free, upgrade as you grow. No hidden fees."
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/brand-tokens.css' | relative_url }}">

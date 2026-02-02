@@ -1,5 +1,5 @@
 """
-BarberX License Management System
+Evident License Management System
 Handles license generation, validation, and enforcement for self-hosted deployments
 """
 
@@ -77,7 +77,7 @@ class License(db.Model):
     @staticmethod
     def generate_license_key():
         """Generate a secure license key"""
-        # Format: BX-XXXX-XXXX-XXXX-XXXX (BX = BarberX)
+        # Format: BX-XXXX-XXXX-XXXX-XXXX (BX = Evident)
         random_bytes = secrets.token_bytes(16)
         key_hash = hashlib.sha256(random_bytes).hexdigest()[:16].upper()
 

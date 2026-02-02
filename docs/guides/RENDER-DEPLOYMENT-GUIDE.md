@@ -1,7 +1,7 @@
-# ?? Deploy BarberX.info to Render - COMPLETE GUIDE
+# ?? Deploy Evident.info to Render - COMPLETE GUIDE
 
 ## ? Prerequisites
-- ? GitHub account with BarberX.info repo
+- ? GitHub account with Evident.info repo
 - ? All code pushed to GitHub (DONE!)
 
 ---
@@ -28,12 +28,12 @@
 
 3. **Connect Repository:**
    - You'll see a list of your GitHub repos
-   - Find: `DTB396/BarberX.info`
+   - Find: `DTB396/Evident.info`
    - Click: `Connect`
 
 4. **Configure Service:**
 
-   **Name:** `barberx-legal-tech`
+   **Name:** `Evident-legal-tech`
    
    **Region:** `Oregon (US West)` (or closest to you)
    
@@ -65,7 +65,7 @@ While the service is deploying, click **"Environment"** in left sidebar:
 
 1. **SECRET_KEY**
    ```
-   barberx-legal-tech-2026-production-secure-key-change-me-to-random-string
+   Evident-legal-tech-2026-production-secure-key-change-me-to-random-string
    ```
 
 2. **FLASK_ENV**
@@ -80,12 +80,12 @@ While the service is deploying, click **"Environment"** in left sidebar:
 
 4. **CORS_ORIGINS**
    ```
-   https://barberx-legal-tech.onrender.com
+   https://Evident-legal-tech.onrender.com
    ```
 
 5. **DATABASE_URL** (Render will auto-create this when you add a database)
    - Click "New +" ? "PostgreSQL"
-   - Name: `barberx-db`
+   - Name: `Evident-db`
    - Plan: Free
    - Create
    - It will auto-add `DATABASE_URL`
@@ -132,16 +132,16 @@ Once you see **"Live"** in green, your URL is ready:
 
 **Your live URL:**
 ```
-https://barberx-legal-tech.onrender.com
+https://Evident-legal-tech.onrender.com
 ```
 
 **Test it:**
 1. Open that URL in your browser
-2. You should see the BarberX.info homepage
+2. You should see the Evident.info homepage
 3. Click "Login"
 4. Use:
-   - Email: `admin@barberx.info`
-   - Password: `BarberX2026!`
+   - Email: `admin@Evident.info`
+   - Password: `Evident2026!`
 
 ---
 
@@ -196,24 +196,24 @@ After first login, change the default password!
 
 ## ?? Custom Domain (Optional)
 
-If you own `barberx.info`:
+If you own `Evident.info`:
 
 1. **In Render Dashboard:**
    - Go to Settings ? Custom Domains
    - Click "Add Custom Domain"
-   - Enter: `app.barberx.info`
+   - Enter: `app.Evident.info`
 
 2. **In Your Domain Registrar (GoDaddy, Namecheap, etc):**
    - Add CNAME record:
      - Name: `app`
-     - Value: `barberx-legal-tech.onrender.com`
+     - Value: `Evident-legal-tech.onrender.com`
      - TTL: 3600
 
 3. **Wait 10-60 minutes for DNS to propagate**
 
 4. **Update CORS_ORIGINS:**
    ```
-   https://app.barberx.info,https://barberx.info
+   https://app.Evident.info,https://Evident.info
    ```
 
 ---

@@ -177,13 +177,13 @@ python app.py
 ## 🎯 NEXT ACTIONS FOR DEVON
 
 ### **Immediate** (Today):
-1. ✅ Visit barberx.info - verify landing page loads
+1. ✅ Visit Evident.info - verify landing page loads
 2. ✅ Test Founding Member signup form
 3. ✅ Check Render logs - confirm no errors
 4. ✅ Upload test PDF - verify processing works
 
 ### **This Week** (Phase C):
-1. Visit GitHub Dependabot: https://github.com/DTB396/BarberX.info/security/dependabot
+1. Visit GitHub Dependabot: https://github.com/DTB396/Evident.info/security/dependabot
 2. Review remaining high-severity alerts
 3. Update cryptography, Pillow, openai, SQLAlchemy, stripe
 4. Deploy and test

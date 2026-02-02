@@ -1,11 +1,11 @@
 #!/usr/bin/env pwsh
-# BarberX.info - Complete Dependency Installation Script
+# Evident.info - Complete Dependency Installation Script
 # Installs ALL required packages for Flask backend
 
-Write-Host "`n?? BarberX.info - Installing All Dependencies" -ForegroundColor Cyan
+Write-Host "`n?? Evident.info - Installing All Dependencies" -ForegroundColor Cyan
 Write-Host "=============================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Step 1: Verify Python
 Write-Host "`n[1/5] Checking Python..." -ForegroundColor Yellow
@@ -109,7 +109,7 @@ Write-Host "`n=============================================" -ForegroundColor Cy
 Write-Host "?? Ready to Start Flask!" -ForegroundColor Green
 Write-Host "=============================================" -ForegroundColor Cyan
 Write-Host "`nRun these commands:" -ForegroundColor Yellow
-Write-Host "  1. Remove old database: Remove-Item barberx.db -Force -ErrorAction SilentlyContinue" -ForegroundColor White
+Write-Host "  1. Remove old database: Remove-Item Evident.db -Force -ErrorAction SilentlyContinue" -ForegroundColor White
 Write-Host "  2. Start Flask: python app.py" -ForegroundColor White
 Write-Host "`nFlask will run on: http://localhost:5000" -ForegroundColor Cyan
 Write-Host ""

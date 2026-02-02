@@ -1,4 +1,4 @@
-# ⚡ BarberX Subscription System - Quick Start
+# ⚡ Evident Subscription System - Quick Start
 
 ## 🎯 What You Have
 
@@ -16,7 +16,7 @@
 ### **1. Run Database Migration** (2 min)
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python migrate_add_stripe_subscriptions.py
 ```
 
@@ -29,17 +29,17 @@ python create_test_subscription_accounts.py
 ```
 
 Test credentials:
-- `free@barberx.test` / test123
-- `pro@barberx.test` / test123
-- `premium@barberx.test` / test123
+- `free@Evident.test` / test123
+- `pro@Evident.test` / test123
+- `premium@Evident.test` / test123
 
 ### **3. Configure Stripe** (2 min)
 
 **Option A: Test Mode (Development)**
 1. Go to https://dashboard.stripe.com/test/products
 2. Create products:
-   - **BarberX PRO:** $49/month, 3-day trial
-   - **BarberX Premium:** $249/month
+   - **Evident PRO:** $49/month, 3-day trial
+   - **Evident Premium:** $249/month
 3. Copy price IDs to `.env`:
    ```bash
    STRIPE_PRICE_PRO=price_1ABC...
@@ -67,7 +67,7 @@ Test credentials:
 
 2. **Login:**
    - Go to http://localhost:5000/login
-   - Email: `free@barberx.test`
+   - Email: `free@Evident.test`
    - Password: `test123`
 
 3. **View Dashboard:**

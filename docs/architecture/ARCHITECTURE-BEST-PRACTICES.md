@@ -1,4 +1,4 @@
-# BarberX Legal Suite - Production Architecture & Deployment Strategy
+# Evident Legal Suite - Production Architecture & Deployment Strategy
 
 **Industry Best Practices for High-Volume Legal Tech Platform**  
 **Date:** January 26, 2026
@@ -150,7 +150,7 @@ Cost: FREE (Cloudflare) or $1-20/month
 
 ---
 
-## 🏗️ BARBERX OPTIMAL ARCHITECTURE
+## 🏗️ Evident OPTIMAL ARCHITECTURE
 
 ### Current Setup (NOT OPTIMAL)
 ```
@@ -251,7 +251,7 @@ Best For: 10,000+ users, high traffic
 │  STEP 1: LOCAL DEVELOPMENT                               │
 ├──────────────────────────────────────────────────────────┤
 │  Your Computer:                                          │
-│  $ git clone https://github.com/user/BarberX.info      │
+│  $ git clone https://github.com/user/Evident.info      │
 │  $ python app.py                                         │
 │  $ # Make changes, test locally                          │
 └──────────────────────────────────────────────────────────┘
@@ -281,7 +281,7 @@ Best For: 10,000+ users, high traffic
 │  STEP 4: PRODUCTION RUNNING                              │
 ├──────────────────────────────────────────────────────────┤
 │  Live App:                                               │
-│  https://barberx-legal-tech.onrender.com                │
+│  https://Evident-legal-tech.onrender.com                │
 │  - Serves user requests                                  │
 │  - Processes files                                       │
 │  - Stores data in PostgreSQL                             │
@@ -293,11 +293,11 @@ Best For: 10,000+ users, high traffic
 
 ---
 
-## 📊 WHAT GOES WHERE - BarberX Specific
+## 📊 WHAT GOES WHERE - Evident Specific
 
 ### GitHub Repository
 ```
-BarberX.info/
+Evident.info/
 ├── app.py                    ✓ YES - Application code
 ├── requirements.txt          ✓ YES - Dependencies list
 ├── render.yaml              ✓ YES - Deployment config
@@ -316,7 +316,7 @@ DO NOT PUT IN GITHUB:
 ├── bwc_videos/             ✗ NO - Large video files
 ├── reports/                 ✗ NO - Generated reports
 ├── .env                     ✗ NO - Environment secrets
-└── instance/barberx.db     ✗ NO - Database file
+└── instance/Evident.db     ✗ NO - Database file
 ```
 
 ### Render (Application Server)
@@ -340,7 +340,7 @@ PERMANENT (Persists):
 
 ### AWS S3 (File Storage)
 ```
-barberx-files/ (S3 Bucket)
+Evident-files/ (S3 Bucket)
 ├── uploads/
 │   ├── pdfs/
 │   │   └── user123/
@@ -410,7 +410,7 @@ reports (
 aws configure
 
 # 2. Create S3 bucket
-aws s3 mb s3://barberx-legal-files
+aws s3 mb s3://Evident-legal-files
 
 # 3. Install boto3 (AWS SDK)
 pip install boto3
@@ -418,21 +418,21 @@ pip install boto3
 # 4. Update app.py to upload to S3
 import boto3
 s3 = boto3.client('s3')
-s3.upload_file('local_file.pdf', 'barberx-legal-files', 'uploads/file.pdf')
+s3.upload_file('local_file.pdf', 'Evident-legal-files', 'uploads/file.pdf')
 
 # 5. Store S3 path in database (not actual file)
-analysis.file_path = 's3://barberx-legal-files/uploads/file.pdf'
+analysis.file_path = 's3://Evident-legal-files/uploads/file.pdf'
 
 # 6. Generate pre-signed URLs for downloads
 url = s3.generate_presigned_url('get_object', 
-    Params={'Bucket': 'barberx-legal-files', 'Key': 'uploads/file.pdf'},
+    Params={'Bucket': 'Evident-legal-files', 'Key': 'uploads/file.pdf'},
     ExpiresIn=3600)  # URL valid for 1 hour
 ```
 
 ### Phase 3: Add CDN (Optional but Recommended)
 ```bash
 # 1. Sign up for Cloudflare (FREE)
-# 2. Add your domain (barberx.info)
+# 2. Add your domain (Evident.info)
 # 3. Enable CDN for static assets
 # 4. Update app.py to use CDN URLs
 
@@ -440,7 +440,7 @@ url = s3.generate_presigned_url('get_object',
 <link rel="stylesheet" href="/static/css/style.css">
 
 # After:
-<link rel="stylesheet" href="https://cdn.barberx.info/css/style.css">
+<link rel="stylesheet" href="https://cdn.Evident.info/css/style.css">
 ```
 
 ---
@@ -551,7 +551,7 @@ Perfect for: Major legal tech platform
    # Create cloud_storage.py:
    class S3Storage:
        def upload(file, key):
-           s3.upload_fileobj(file, 'barberx-files', key)
+           s3.upload_fileobj(file, 'Evident-files', key)
        
        def download_url(key):
            return s3.generate_presigned_url('get_object', ...)
@@ -595,11 +595,11 @@ Perfect for: Major legal tech platform
 
 ---
 
-## 🎯 RECOMMENDED ARCHITECTURE FOR BARBERX
+## 🎯 RECOMMENDED ARCHITECTURE FOR Evident
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  PRODUCTION ARCHITECTURE - BarberX Legal Suite          │
+│  PRODUCTION ARCHITECTURE - Evident Legal Suite          │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
 │  ┌──────────┐      ┌──────────┐      ┌──────────┐     │

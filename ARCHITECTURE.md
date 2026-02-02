@@ -1,4 +1,4 @@
-# BarberX Cross-Platform Architecture
+# Evident Technologies Cross-Platform Architecture
 
 ## N-Tier Architecture with Strict Boundaries
 
@@ -6,7 +6,7 @@
 ┌─────────────────────────────────────────────────────────────┐
 │                    PRESENTATION LAYER                        │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │ BarberX.Web  │  │ BarberX.Mobile│  │ MatterDocket │     │
+│  │ Evident.Web  │  │ Evident.Mobile│  │ MatterDocket │     │
 │  │   (ASP.NET)  │  │    (MAUI)     │  │    (MAUI)    │     │
 │  └──────┬───────┘  └──────┬────────┘  └──────┬───────┘     │
 │         │                  │                   │             │
@@ -17,7 +17,7 @@
 ┌─────────▼──────────────────────────▼─────────────────────────┐
 │               INFRASTRUCTURE LAYER (Optional)                 │
 │  ┌────────────────────────────────────────────────────────┐  │
-│  │          BarberX.Infrastructure                        │  │
+│  │          Evident.Infrastructure                        │  │
 │  │  • Data Access (EF Core, SQLite)                       │  │
 │  │  • Repository Implementations                          │  │
 │  │  • External Service Integrations                       │  │
@@ -27,7 +27,7 @@
 ┌───────────────────────▼──────────────────────────────────────┐
 │                   DOMAIN/SHARED LAYER                         │
 │  ┌────────────────────────────────────────────────────────┐  │
-│  │              BarberX.Shared (Core)                     │  │
+│  │              Evident.Shared (Core)                     │  │
 │  │  • Domain Models (Case, User, AnalysisRequest)        │  │
 │  │  • DTOs (Data Transfer Objects)                        │  │
 │  │  • Service Interfaces (IApiClient)                     │  │
@@ -60,7 +60,7 @@ Infrastructure ✗→ Mobile
 
 ## Layer Responsibilities
 
-### 1. **BarberX.Shared** (Core Domain)
+### 1. **Evident.Shared** (Core Domain)
 
 **Target:** `.NET 9` (Standard library)
 **Purpose:** Platform-agnostic domain logic
@@ -80,7 +80,7 @@ Infrastructure ✗→ Mobile
 - ❌ Platform-specific code
 - ❌ External service implementations
 
-### 2. **BarberX.Infrastructure** (Data Access)
+### 2. **Evident.Infrastructure** (Data Access)
 
 **Target:** `.NET 9`
 **Purpose:** Data persistence and external integrations
@@ -95,11 +95,11 @@ Infrastructure ✗→ Mobile
 
 **Dependencies:**
 
-- ✅ References `BarberX.Shared`
+- ✅ References `Evident.Shared`
 - ✅ EF Core packages
 - ✅ Database drivers (SQLite, SQL Server)
 
-### 3. **BarberX.Web** (Web API)
+### 3. **Evident.Web** (Web API)
 
 **Target:** `.NET 9`
 **Purpose:** RESTful API and web services
@@ -114,11 +114,11 @@ Infrastructure ✗→ Mobile
 
 **Dependencies:**
 
-- ✅ References `BarberX.Infrastructure`
-- ✅ References `BarberX.Shared`
+- ✅ References `Evident.Infrastructure`
+- ✅ References `Evident.Shared`
 - ✅ ASP.NET Core packages
 
-### 4. **BarberX.Mobile** (MAUI App)
+### 4. **Evident.Mobile** (MAUI App)
 
 **Target:** `.NET 10` (MAUI multi-targeting)
 **Purpose:** Cross-platform mobile app
@@ -133,7 +133,7 @@ Infrastructure ✗→ Mobile
 
 **Dependencies:**
 
-- ✅ References `BarberX.Shared` ONLY
+- ✅ References `Evident.Shared` ONLY
 - ✅ MAUI packages
 - ✅ CommunityToolkit.Mvvm
 - ✅ sqlite-net-pcl (local storage)
@@ -144,7 +144,7 @@ Infrastructure ✗→ Mobile
 - Direct API calls via `IApiClient` in Shared
 - Local storage using sqlite-net-pcl (not EF Core)
 
-### 5. **BarberX.MatterDocket.MAUI** (Legal Docket App)
+### 5. **Evident.MatterDocket.MAUI** (Legal Docket App)
 
 **Target:** `.NET 10` (MAUI multi-targeting)
 **Purpose:** Specialized legal matter management
@@ -158,7 +158,7 @@ Infrastructure ✗→ Mobile
 
 **Dependencies:**
 
-- ✅ References `BarberX.Shared` ONLY
+- ✅ References `Evident.Shared` ONLY
 - ✅ Same pattern as Mobile
 
 ## Design Principles
@@ -190,10 +190,10 @@ Infrastructure ✗→ Mobile
 ## Testing Strategy
 
 ```
-BarberX.Shared.Tests          → Unit tests for domain logic
-BarberX.Infrastructure.Tests  → Integration tests with real DB
-BarberX.Web.Tests             → API integration tests
-BarberX.Mobile.Tests          → UI and ViewModel tests
+Evident.Shared.Tests          → Unit tests for domain logic
+Evident.Infrastructure.Tests  → Integration tests with real DB
+Evident.Web.Tests             → API integration tests
+Evident.Mobile.Tests          → UI and ViewModel tests
 ```
 
 ## Data Flow Examples
@@ -264,24 +264,24 @@ Run these commands to verify architecture:
 
 ```bash
 # Verify Shared has no dependencies
-cd src/BarberX.Shared
+cd src/Evident.Shared
 dotnet list reference
 # Expected: (empty)
 
 # Verify Infrastructure depends only on Shared
-cd ../BarberX.Infrastructure
+cd ../Evident.Infrastructure
 dotnet list reference
-# Expected: BarberX.Shared
+# Expected: Evident.Shared
 
 # Verify Web depends on Infrastructure and Shared
-cd ../BarberX.Web
+cd ../Evident.Web
 dotnet list reference
-# Expected: BarberX.Infrastructure, BarberX.Shared
+# Expected: Evident.Infrastructure, Evident.Shared
 
 # Verify Mobile depends only on Shared
-cd ../BarberX.Mobile
+cd ../Evident.Mobile
 dotnet list reference
-# Expected: BarberX.Shared
+# Expected: Evident.Shared
 ```
 
 ## Common Anti-Patterns to Avoid

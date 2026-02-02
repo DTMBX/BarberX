@@ -1,4 +1,4 @@
-# 🎉 BarberX Tier System - READY TO LAUNCH
+# 🎉 Evident Tier System - READY TO LAUNCH
 
 ## ✅ STATUS: IMPLEMENTATION COMPLETE
 
@@ -120,7 +120,7 @@ Steps:
    - Secret key: sk_test_...
 
 3. Create webhook (5 min)
-   - URL: https://barberx.info/api/stripe/webhook
+   - URL: https://Evident.info/api/stripe/webhook
    - Events: checkout.*, customer.subscription.*
 
 4. Update .env (2 min)
@@ -167,11 +167,11 @@ Steps:
 ```bash
 # 1. Final commit
 git add .
-git commit -m "🚀 Launch: BarberX 5-tier subscription system"
+git commit -m "🚀 Launch: Evident 5-tier subscription system"
 git push origin main
 
 # 2. Verify deployment
-# Visit: https://barberx.info/pricing
+# Visit: https://Evident.info/pricing
 
 # 3. Monitor Stripe Dashboard
 # Watch for first subscriber!
@@ -270,11 +270,11 @@ Margin:                82% ✅
 ### Test Accounts:
 ```python
 # Create with: python create_test_subscription_accounts.py
-free@barberx.test / test123
-starter@barberx.test / test123
-professional@barberx.test / test123
-premium@barberx.test / test123
-enterprise@barberx.test / test123
+free@Evident.test / test123
+starter@Evident.test / test123
+professional@Evident.test / test123
+premium@Evident.test / test123
+enterprise@Evident.test / test123
 ```
 
 ### Key Routes:

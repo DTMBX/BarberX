@@ -1,6 +1,6 @@
 """
 Backend Services Integration Layer
-Unified service orchestration for BarberX Legal Platform
+Unified service orchestration for Evident Legal Platform
 
 This module provides:
 - Service registry and dependency injection

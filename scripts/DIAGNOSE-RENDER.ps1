@@ -1,10 +1,10 @@
 #!/usr/bin/env pwsh
 # Render Deployment Diagnostic Tool
 
-Write-Host "`n?? BarberX Render Deployment Diagnostics" -ForegroundColor Cyan
+Write-Host "`n?? Evident Render Deployment Diagnostics" -ForegroundColor Cyan
 Write-Host "=========================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 Write-Host "`n[1/6] Checking Configuration Files..." -ForegroundColor Yellow
 

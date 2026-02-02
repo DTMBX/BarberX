@@ -1,14 +1,14 @@
 {
   "info": {
-    "name": "BarberX API v1",
-    "description": "Complete API collection for BarberX cross-platform clients",
+    "name": "Evident API v1",
+    "description": "Complete API collection for Evident cross-platform clients",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "version": "1.0.0"
   },
   "variable": [
     {
       "key": "base_url",
-      "value": "https://barberx.info/api/v1",
+      "value": "https://Evident.info/api/v1",
       "type": "string"
     },
     {

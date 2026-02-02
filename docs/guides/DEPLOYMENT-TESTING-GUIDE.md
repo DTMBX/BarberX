@@ -13,16 +13,16 @@
 ### **Production App (Render):**
 
 ```
-https://barberx-legal-tech.onrender.com
+https://Evident-legal-tech.onrender.com
 ```
 
 ### **Key Pages:**
 
-- **Login:** https://barberx-legal-tech.onrender.com/auth/login
-- **Dashboard:** https://barberx-legal-tech.onrender.com/auth/dashboard
-- **Unified Batch Upload:** https://barberx-legal-tech.onrender.com/batch-upload
-- **Docs:** https://barberx-legal-tech.onrender.com/docs
-- **Pricing:** https://barberx-legal-tech.onrender.com/pricing
+- **Login:** https://Evident-legal-tech.onrender.com/auth/login
+- **Dashboard:** https://Evident-legal-tech.onrender.com/auth/dashboard
+- **Unified Batch Upload:** https://Evident-legal-tech.onrender.com/batch-upload
+- **Docs:** https://Evident-legal-tech.onrender.com/docs
+- **Pricing:** https://Evident-legal-tech.onrender.com/pricing
 
 ---
 
@@ -30,13 +30,13 @@ https://barberx-legal-tech.onrender.com
 
 **Admin Account:**
 
-- Email: `admin@barberx.info`
-- Password: `BarberX2026!`
+- Email: `admin@Evident.info`
+- Password: `Evident2026!`
 
 **Test Accounts:**
 
-- Free User: `free@barberx.test` / `test123`
-- Enterprise User: `enterprise@barberx.test` / `test123`
+- Free User: `free@Evident.test` / `test123`
+- Enterprise User: `enterprise@Evident.test` / `test123`
 
 ---
 
@@ -56,7 +56,7 @@ https://dashboard.render.com
 
 **Check:**
 
-1. Click your service: **barberx-legal-tech**
+1. Click your service: **Evident-legal-tech**
 2. Watch **"Events"** tab for real-time logs
 3. Look for **"Live"** status (green)
 
@@ -70,12 +70,12 @@ https://dashboard.render.com
 
 **Steps:**
 
-1. Login: https://barberx-legal-tech.onrender.com/auth/login
-   - Email: `admin@barberx.info`
-   - Password: `BarberX2026!`
+1. Login: https://Evident-legal-tech.onrender.com/auth/login
+   - Email: `admin@Evident.info`
+   - Password: `Evident2026!`
 
 2. Go to batch upload:
-   - https://barberx-legal-tech.onrender.com/batch-upload
+   - https://Evident-legal-tech.onrender.com/batch-upload
 
 3. Upload test files:
    - **Option A:** Upload 2-3 sample files (1 PDF + 1 video)
@@ -117,19 +117,19 @@ https://dashboard.render.com
 
 **Test all new pages:**
 
-? **Documentation:** https://barberx-legal-tech.onrender.com/docs
+? **Documentation:** https://Evident-legal-tech.onrender.com/docs
 
 - Should show 6 documentation categories
 - Quick start guide
 - Links to existing docs
 
-? **Pricing:** https://barberx-legal-tech.onrender.com/pricing
+? **Pricing:** https://Evident-legal-tech.onrender.com/pricing
 
 - 4 pricing tiers (Free, Pro, Premium, Enterprise)
 - Feature comparison table
 - FAQ section
 
-? **Contact:** https://barberx-legal-tech.onrender.com/contact
+? **Contact:** https://Evident-legal-tech.onrender.com/contact
 
 - Contact form
 - Email addresses
@@ -193,7 +193,7 @@ Set these in Render ? Environment variables
 
 **Test on mobile:**
 
-1. Open on phone: https://barberx-legal-tech.onrender.com
+1. Open on phone: https://Evident-legal-tech.onrender.com
 2. Check responsive design
 3. Test batch upload from phone camera/files
 
@@ -294,7 +294,7 @@ After deployment:
 
 ? **Deployment successful if:**
 
-1. App loads at https://barberx-legal-tech.onrender.com
+1. App loads at https://Evident-legal-tech.onrender.com
 2. Login works
 3. Can access `/batch-upload` page
 4. Can upload 1 PDF + 1 video in same batch
@@ -308,7 +308,7 @@ After deployment:
 
 1. **Custom Domain:**
    - Follow: `CUSTOM-DOMAIN-SETUP.md`
-   - Point `app.barberx.info` to Render
+   - Point `app.Evident.info` to Render
 
 2. **API Keys (Optional):**
    - Add in Render ? Environment:
@@ -333,7 +333,7 @@ After deployment:
 
 1. Check Render logs (dashboard ? Events)
 2. Copy last 30 lines of error
-3. Send to: security@barberx.info
+3. Send to: security@Evident.info
 4. Or open GitHub issue
 
 **If testing finds bugs:**
@@ -358,7 +358,7 @@ https://dashboard.render.com
 **Test when live (5-7 min):**
 
 ```
-https://barberx-legal-tech.onrender.com/batch-upload
+https://Evident-legal-tech.onrender.com/batch-upload
 ```
 
 **Upload your 26 discovery files and watch the magic! ??**

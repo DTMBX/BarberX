@@ -1,4 +1,4 @@
-# BarberX.info - Complete Setup Summary
+# Evident.info - Complete Setup Summary
 
 ## ? INSTALLATION COMPLETE!
 
@@ -75,8 +75,8 @@ python app.py
 
 ### ?? Admin Credentials:
 
-- **Email:** admin@barberx.info
-- **Password:** BarberX2026!
+- **Email:** admin@Evident.info
+- **Password:** Evident2026!
 
 ---
 
@@ -153,7 +153,7 @@ HUGGINGFACE_TOKEN=hf_...
 ## ?? PROJECT STRUCTURE:
 
 ```
-BarberX.info/
+Evident.info/
 ??? app.py                          # Main Flask application
 ??? bwc_forensic_analyzer.py        # BWC AI analysis engine
 ??? models_auth.py                  # User & authentication models
@@ -163,7 +163,7 @@ BarberX.info/
 ??? requirements-ai.txt             # AI-specific dependencies
 ??? .env                           # Environment configuration
 ??? instance/                      # SQLite database
-?   ??? barberx_FRESH.db
+?   ??? Evident_FRESH.db
 ??? uploads/                       # Uploaded files
 ?   ??? bwc_videos/               # BWC video uploads
 ?   ??? pdfs/                     # PDF document uploads
@@ -252,15 +252,15 @@ Before deploying to production:
 
 ## ?? SUPPORT:
 
-- **GitHub Issues:** https://github.com/DTB396/BarberX.info/issues
-- **Email:** support@barberx.info
+- **GitHub Issues:** https://github.com/DTB396/Evident.info/issues
+- **Email:** support@Evident.info
 - **Documentation:** Check the docs/ folder
 
 ---
 
 ## ?? LICENSE:
 
-BarberX Legal Technologies� Proprietary License
+Evident Legal Technologies� Proprietary License
 Copyright � 2024-2026 Faith Frontier Ecclesiastical Trust
 All Rights Reserved
 
@@ -278,7 +278,7 @@ All Rights Reserved
 
 **Login with:**
 
-- Email: admin@barberx.info
-- Password: BarberX2026!
+- Email: admin@Evident.info
+- Password: Evident2026!
 
 **Enjoy your professional BWC forensic analysis platform!** ??

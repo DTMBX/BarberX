@@ -18,13 +18,13 @@ analytics_anonymize_ip: true
 enable_performance_monitoring: true
 
 # SEO & Social Media
-title: "BarberX.info - Faith-Driven Legal Advocacy"
+title: "Evident.info - Faith-Driven Legal Advocacy"
 description: "Legal advocacy rooted in constitutional principles and faith"
 keywords:
   - legal advocacy
   - constitutional rights
   - faith freedom
-author: "BarberX"
+author: "Evident"
 og_image: "/assets/images/og-default.jpg"
 logo: "/assets/images/logo.png"
 theme_color: "#dc2626"

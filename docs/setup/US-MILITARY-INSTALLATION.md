@@ -1,15 +1,15 @@
-# 🇺🇸 US MILITARY HONOR INSTALLATION - BarberX
+# 🇺🇸 US MILITARY HONOR INSTALLATION - Evident
 
 **Created:** January 27, 2026  
 **Purpose:** Honor all service members who defended the Constitution we now protect through legal advocacy  
 **Compliance:** US Title 4 Flag Code (USC Title 4 §§ 1-10)  
-**Location:** `/honor` route on BarberX.info
+**Location:** `/honor` route on Evident.info
 
 ---
 
 ## 🎖️ Installation Overview
 
-BarberX Legal Technologies has established a **permanent military honor installation** to recognize:
+Evident Legal Technologies has established a **permanent military honor installation** to recognize:
 
 1. **1.3 million American service members** who gave their lives defending the Constitution
 2. **41 million Americans** who served in times of war and peace
@@ -110,7 +110,7 @@ This installation connects our legal mission to the sacrifices that made constit
 
 ## 🎯 Installation Purpose & Mission Alignment
 
-### Why This Matters for BarberX
+### Why This Matters for Evident
 
 **Constitutional Foundation:**
 - The rights we defend were won through sacrifice
@@ -118,7 +118,7 @@ This installation connects our legal mission to the sacrifices that made constit
 - Our legal work honors their legacy by making justice accessible
 
 **Service to Veterans:**
-- Many BarberX clients are veterans fighting for justice
+- Many Evident clients are veterans fighting for justice
 - BWC cases often involve veteran defendants
 - Military families deserve affordable legal representation
 
@@ -176,7 +176,7 @@ Source: US Department of Defense, Congressional Research Service
 
 ### File Location
 ```
-C:\web-dev\github-repos\BarberX.info\templates\honor.html
+C:\web-dev\github-repos\Evident.info\templates\honor.html
 ```
 
 ### Route Added to app.py
@@ -228,8 +228,8 @@ Added to footer navigation:
 ### Constitutional Preamble (Full Text)
 "We the People of the United States, in Order to form a more perfect Union, establish Justice..."
 
-### BarberX Dedication
-"We the creators of BarberX Legal Technologies dedicate this platform to the 1.3 million American service members who gave their lives defending the Constitution..."
+### Evident Dedication
+"We the creators of Evident Legal Technologies dedicate this platform to the 1.3 million American service members who gave their lives defending the Constitution..."
 
 ### Mission Statement
 "Their sacrifice enables our work. Their Constitution guides our mission. Their memory inspires our service. By the Grace of Almighty God, we honor their legacy through accessible justice."
@@ -252,14 +252,14 @@ In Honor of Those Who Defended the Constitution"
 
 **Email Signatures:**
 ```
-BarberX Legal Technologies
+Evident Legal Technologies
 Affordable Justice • Honoring Service • Defending Rights
-View our Military Honor Installation: barberx.info/honor
+View our Military Honor Installation: Evident.info/honor
 ```
 
 **Social Media Bio:**
 ```
-BarberX: Affordable legal research for solo practitioners
+Evident: Affordable legal research for solo practitioners
 Honoring the service & sacrifice that made justice possible
 🇺🇸 In Honor of Service 🇺🇸
 ```
@@ -336,15 +336,15 @@ Every legal right we defend was built brick by brick:
 
 ## 🙏 Dedication Statement
 
-**From the BarberX Team:**
+**From the Evident Team:**
 
-> "We build BarberX upon the foundation laid by millions who served. Every line of code, every legal brief, every case we help win - all made possible by those who defended the Constitution with their lives. This honor installation is permanent. Their memory is eternal. By the Grace of Almighty God, we dedicate this platform to accessible justice in their honor."
+> "We build Evident upon the foundation laid by millions who served. Every line of code, every legal brief, every case we help win - all made possible by those who defended the Constitution with their lives. This honor installation is permanent. Their memory is eternal. By the Grace of Almighty God, we dedicate this platform to accessible justice in their honor."
 
 ---
 
 ## 🔗 Quick Links
 
-- **Live Page:** https://barberx.info/honor (after deployment)
+- **Live Page:** https://Evident.info/honor (after deployment)
 - **Source Code:** `templates/honor.html`
 - **Route Handler:** `app.py` line ~XXX
 - **Navigation Link:** `templates/components/footer.html`

@@ -90,7 +90,7 @@ track_analytics: false
 layout: article
 title: "Constitutional Biography"
 description: "A narrative of faith-driven advocacy"
-author: "BarberX"
+author: "Evident"
 date: 2024-01-15
 last_updated: 2024-01-20
 category: Biography
@@ -123,7 +123,7 @@ show_newsletter: true
 layout: essay
 title: "On Religious Freedom"
 description: "An exploration of constitutional rights"
-author: "BarberX"
+author: "Evident"
 date: 2024-01-15
 category: Philosophy
 tags: [freedom, religion, first-amendment]
@@ -159,7 +159,7 @@ related_essays:
 layout: post
 title: "Legal Update: Case Victory"
 description: "Major constitutional win for religious freedom"
-author: "BarberX"
+author: "Evident"
 date: 2024-01-15
 categories: [Legal Updates, News]
 tags: [victory, constitutional-law, religious-freedom]
@@ -383,7 +383,7 @@ documents:
 layout: record-notes
 title: "Notes on Request #2024-001"
 related_request: "/opra/2024-001/"
-author: "BarberX"
+author: "Evident"
 date: 2024-01-15
 related_links:
   - title: "OPRA Law Reference"

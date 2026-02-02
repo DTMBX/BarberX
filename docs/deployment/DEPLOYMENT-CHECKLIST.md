@@ -58,7 +58,7 @@ pip install -r requirements.txt
 python performance_check.py optimize
 
 # 4. Restart application
-sudo systemctl restart barberx  # or your process manager
+sudo systemctl restart Evident  # or your process manager
 ```
 
 ### ✅ Post-Deployment Verification
@@ -66,12 +66,12 @@ sudo systemctl restart barberx  # or your process manager
 - [ ] **Check Application Starts**
   ```bash
   # Check logs for errors
-  tail -f logs/barberx.log
+  tail -f logs/Evident.log
   ```
 
 - [ ] **Verify Compression Works**
   ```bash
-  curl -H "Accept-Encoding: gzip" https://barberx.info/api/evidence/list -I
+  curl -H "Accept-Encoding: gzip" https://Evident.info/api/evidence/list -I
   # Should see: Content-Encoding: gzip
   ```
 
@@ -98,12 +98,12 @@ sudo systemctl restart barberx  # or your process manager
 - [ ] **Monitor Response Times**
   ```bash
   # Check X-Response-Time headers
-  curl -I https://barberx.info/admin/stats
+  curl -I https://Evident.info/admin/stats
   ```
 
 - [ ] **Check Slow Queries**
   ```bash
-  grep "Slow query" logs/barberx.log
+  grep "Slow query" logs/Evident.log
   # Should be minimal or none
   ```
 
@@ -145,7 +145,7 @@ python -m py_compile app.py
 python -c "import app; print('OK')"
 
 # Check logs
-tail -50 logs/barberx.log
+tail -50 logs/Evident.log
 ```
 
 #### High Memory Usage on Upload
@@ -186,7 +186,7 @@ rm performance_check.py
 rm verify_optimizations.py
 
 # 3. Restart application
-sudo systemctl restart barberx
+sudo systemctl restart Evident
 ```
 
 ### ✅ Sign-Off

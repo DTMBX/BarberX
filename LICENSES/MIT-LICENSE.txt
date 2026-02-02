@@ -22,7 +22,7 @@ SOFTWARE.
 
 ---
 
-Projects using MIT License in BarberX Legal Technologies:
+Projects using MIT License in Evident Legal Technologies:
 
 • OpenAI Whisper - Copyright (c) 2022 OpenAI
 • pyannote.audio - Copyright (c) 2020-2024 CNRS

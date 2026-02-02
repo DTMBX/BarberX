@@ -86,12 +86,12 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 
 ---
 
-### Step 2: Upload to BarberX
+### Step 2: Upload to Evident
 
 #### Via Web App:
 
 ```
-1. Login to BarberX
+1. Login to Evident
 2. Navigate to "Document Optimizer" (new tool)
 3. Click "New Filing Set"
 4. Upload documents:
@@ -105,7 +105,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 #### Via Mobile App (MAUI):
 
 ```
-1. Open BarberX app
+1. Open Evident app
 2. Tap "AI Assistant"
 3. Tap "Document Optimizer" tool
 4. Tap "+" to add documents
@@ -416,7 +416,7 @@ Settings → Document Optimizer → Use My Own API Key
 Benefits:
 • Full control over data (goes directly to your OpenAI account)
 • Your usage, your costs
-• Not limited by BarberX rate limits
+• Not limited by Evident rate limits
 • Recommended for highly sensitive cases
 ```
 
@@ -538,12 +538,12 @@ Each template includes:
 ### Questions?
 
 - 📖 Read: `LEGAL-AI-TOOLS.md` (15 AI tools documented)
-- 📧 Email: support@barberx.info
+- 📧 Email: support@Evident.info
 - 💬 Chat: In-app support
 
 ### Report Issues:
 
-- GitHub: https://github.com/DTB396/BarberX.info/issues
+- GitHub: https://github.com/DTB396/Evident.info/issues
 - Tag: `document-optimizer`
 
 ---

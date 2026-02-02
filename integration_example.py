@@ -1,6 +1,6 @@
 # integration_example.py
 """
-Example integration of data rights compliance into BarberX Legal Tech.
+Example integration of data rights compliance into Evident Legal Tech.
 This shows how to protect your law firm from copyright lawsuits.
 """
 
@@ -43,7 +43,7 @@ def example_compliant_discovery_production():
         filename="BWC_transcript_2025-01-15.pdf",
         category="transcripts",
         rights=RIGHTS_PROFILES["our_transcript"],
-        acquired_by="BarberX Legal Tech Platform",
+        acquired_by="Evident Legal Tech Platform",
         acquired_date=datetime(2025, 1, 20),
         file_path=Path("./evidence/transcripts/BWC_transcript_2025-01-15.pdf"),
     )

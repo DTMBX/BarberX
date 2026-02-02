@@ -5,7 +5,7 @@ Add missing columns to users table
 import os
 import sqlite3
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "barberx.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "Evident.db")
 
 
 def add_missing_columns():

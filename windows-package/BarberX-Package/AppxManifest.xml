@@ -3,13 +3,13 @@
          xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
          xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
          xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities">
-  <Identity Name="com.barberx.matterdocket"
+  <Identity Name="com.Evident.matterdocket"
             Version="1.0.0.0"
-            Publisher="CN=BarberX" />
+            Publisher="CN=Evident" />
   
   <Properties>
-    <DisplayName>BarberX Matter Docket (DTMB)</DisplayName>
-    <PublisherDisplayName>BarberX Matter Docket</PublisherDisplayName>
+    <DisplayName>Evident Matter Docket (DTMB)</DisplayName>
+    <PublisherDisplayName>Evident Matter Docket</PublisherDisplayName>
     <Logo>Assets\Square150x150Logo.png</Logo>
   </Properties>
   
@@ -22,8 +22,8 @@
   </Resources>
   
   <Applications>
-    <Application Id="BarberXLegal" StartPage="https://barberx.info">
-      <uap:VisualElements DisplayName="BarberX Matter Docket (DTMB)"
+    <Application Id="EvidentLegal" StartPage="https://Evident.info">
+      <uap:VisualElements DisplayName="Evident Matter Docket (DTMB)"
                           Description="Professional matter docket management and legal case tracking platform"
                           BackgroundColor="#0f0f0f"
                           Square150x150Logo="Assets\Square150x150Logo.png"
@@ -40,7 +40,7 @@
       </uap:VisualElements>
       
       <uap:ApplicationContentUriRules>
-        <uap:Rule Type="include" Match="https://barberx.info" WindowsRuntimeAccess="all"/>
+        <uap:Rule Type="include" Match="https://Evident.info" WindowsRuntimeAccess="all"/>
       </uap:ApplicationContentUriRules>
     </Application>
   </Applications>

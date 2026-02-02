@@ -67,13 +67,13 @@
    ```json
    {
      "@type": "Organization",
-     "name": "BarberX",
+     "name": "Evident",
      "logo": "{{ url_for('static', filename='images/logo.png') }}",
-     "email": "contact@barberx.info",
+     "email": "contact@Evident.info",
      "foundingDate": "2025",
      "sameAs": [
-       "https://twitter.com/barberx",
-       "https://linkedin.com/company/barberx"
+       "https://twitter.com/Evident",
+       "https://linkedin.com/company/Evident"
      ]
    }
    ```
@@ -116,7 +116,7 @@
 **Open Graph (Facebook, LinkedIn)**
 
 ```html
-<meta property="og:title" content="BarberX - Legal Video Analysis" />
+<meta property="og:title" content="Evident - Legal Video Analysis" />
 <meta property="og:description" content="..." />
 <meta property="og:image" content="/assets/images/og-image.jpg" />
 <meta property="og:url" content="{{ request.url }}" />
@@ -127,7 +127,7 @@
 
 ```html
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="BarberX" />
+<meta name="twitter:title" content="Evident" />
 <meta name="twitter:description" content="..." />
 <meta name="twitter:image" content="/assets/images/twitter-card.jpg" />
 ```
@@ -260,7 +260,7 @@ Vulnerabilities: 0 high, 0 medium
 
 ```javascript
 // CSS, JS, fonts - cache immediately, fallback to network
-const STATIC_CACHE = "barberx-static-v1";
+const STATIC_CACHE = "Evident-static-v1";
 const STATIC_ASSETS = [
   "/",
   "/assets/css/main.css",
@@ -367,8 +367,8 @@ self.addEventListener("message", (event) => {
 
 ```json
 {
-  "name": "BarberX Legal Technologies",
-  "short_name": "BarberX",
+  "name": "Evident Legal Technologies",
+  "short_name": "Evident",
   "description": "Professional legal video analysis and forensic tools",
   "start_url": "/",
   "display": "standalone",
@@ -441,7 +441,7 @@ self.addEventListener("message", (event) => {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Offline - BarberX</title>
+    <title>Offline - Evident</title>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -594,19 +594,19 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 ```powershell
 # Critical CSS
-Test-Path "c:\web-dev\github-repos\BarberX.info\assets\css\critical.css"
+Test-Path "c:\web-dev\github-repos\Evident.info\assets\css\critical.css"
 
 # SEO component
-Test-Path "c:\web-dev\github-repos\BarberX.info\templates\components\structured-data.html"
+Test-Path "c:\web-dev\github-repos\Evident.info\templates\components\structured-data.html"
 
 # Service worker
-Test-Path "c:\web-dev\github-repos\BarberX.info\sw.js"
+Test-Path "c:\web-dev\github-repos\Evident.info\sw.js"
 
 # PWA manifest
-Test-Path "c:\web-dev\github-repos\BarberX.info\manifest.json"
+Test-Path "c:\web-dev\github-repos\Evident.info\manifest.json"
 
 # Offline page
-Test-Path "c:\web-dev\github-repos\BarberX.info\offline.html"
+Test-Path "c:\web-dev\github-repos\Evident.info\offline.html"
 ```
 
 ### 2. Test Locally

@@ -18,7 +18,7 @@ Devon requested messaging that shows:
 ## ✅ New Section Added: "Truth Protects Good Officers, Too"
 
 ### **Core Message:**
-> "We're not anti-police. **We're pro-truth.** BarberX helps dig up the facts that bad actors bury—protecting innocent defendants *and* the good officers who serve with honor."
+> "We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants *and* the good officers who serve with honor."
 
 ### **Three-Part Framework:**
 
@@ -65,14 +65,14 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 
 ### **"We Sell Confidence, Not Conflict" Callout:**
 
-> "BarberX gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. *That's how the system is supposed to work.*"
+> "Evident gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. *That's how the system is supposed to work.*"
 
 ---
 
 ### **Mission Statement Quote Added:**
 
 > "The truth doesn't take sides. It just is. Our job is to find it—no matter where it leads."  
-> — BarberX Mission Statement
+> — Evident Mission Statement
 
 ---
 
@@ -110,7 +110,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 - Both sides benefit from accurate BWC analysis
 
 ### **For The Public:**
-- BarberX isn't divisive
+- Evident isn't divisive
 - We're about accountability, not sides
 - The system works when truth is accessible
 
@@ -139,7 +139,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 "Both peace officers and defense attorneys swear oaths to uphold justice. When we honor truth, we honor both oaths."
 
 ### **Net Result:**
-BarberX is about **the Constitution**, not prosecution vs defense.  
+Evident is about **the Constitution**, not prosecution vs defense.  
 The Constitution protects **everyone**—including good officers.
 
 ---
@@ -213,7 +213,7 @@ Join Founding Defenders — $19/month for first 100.
 
 ## 🇺🇸 Final Quote
 
-> "BarberX doesn't take sides.  
+> "Evident doesn't take sides.  
 > We take truth seriously.  
 > And when we do that,  
 > **everyone who honors their oath is protected.**"
@@ -222,5 +222,5 @@ Join Founding Defenders — $19/month for first 100.
 
 **By the Grace of Almighty God, truth protects the innocent—and the honorable.**
 
-🛡️ **BarberX Matter Docket (DTMB)**  
+🛡️ **Evident Matter Docket (DTMB)**  
 *Pro-Truth. Pro-Constitution. Pro-Accountability.*

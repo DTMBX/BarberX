@@ -390,7 +390,7 @@ def initialize_backend():
     """Initialize backend services on startup"""
     with app.app_context():
         logger.info("=" * 80)
-        logger.info("BarberX Backend Initialization")
+        logger.info("Evident Backend Initialization")
         logger.info("=" * 80)
 
         # 1. Create indexes

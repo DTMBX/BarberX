@@ -2,7 +2,7 @@
 
 ## Overview
 
-Complete user experience improvements for BarberX platform including sticky navigation, toast notifications, enhanced forms, and accessibility features.
+Complete user experience improvements for Evident platform including sticky navigation, toast notifications, enhanced forms, and accessibility features.
 
 ---
 

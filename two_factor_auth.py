@@ -23,7 +23,7 @@ class TwoFactorAuthService:
     - Support for Google Authenticator, Authy, Microsoft Authenticator
     """
 
-    def __init__(self, issuer_name: str = "BarberX Legal"):
+    def __init__(self, issuer_name: str = "Evident Legal"):
         """
         Initialize 2FA service
 
@@ -234,7 +234,7 @@ class User2FALog(db.Model):
 # Example usage
 if __name__ == "__main__":
     # Initialize 2FA service
-    tfa = TwoFactorAuthService(issuer_name="BarberX Legal Platform")
+    tfa = TwoFactorAuthService(issuer_name="Evident Legal Platform")
 
     print("=" * 80)
     print("TWO-FACTOR AUTHENTICATION SETUP")

@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {},
     ".NETCoreApp,Version=v10.0/win-x64": {
-      "BarberX.MatterDocket.MAUI/1.0": {
+      "Evident.MatterDocket.MAUI/1.0": {
         "dependencies": {
           "CommunityToolkit.Mvvm": "8.3.2",
           "Microsoft.Extensions.Http": "10.0.0",
@@ -18,7 +18,7 @@
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
         },
         "runtime": {
-          "BarberX.MatterDocket.MAUI.dll": {}
+          "Evident.MatterDocket.MAUI.dll": {}
         }
       },
       "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.57": {
@@ -636,7 +636,7 @@
     }
   },
   "libraries": {
-    "BarberX.MatterDocket.MAUI/1.0": {
+    "Evident.MatterDocket.MAUI/1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

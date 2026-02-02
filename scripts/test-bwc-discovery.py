@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BarberX BWC Analysis - Discovery Files Test
+Evident BWC Analysis - Discovery Files Test
 Tests real BWC footage analysis with Devon T. Barber case files
 """
 
@@ -13,7 +13,7 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-print("?? BarberX BWC Analysis - Discovery Files Test")
+print("?? Evident BWC Analysis - Discovery Files Test")
 print("=" * 60)
 
 # Discovery folder

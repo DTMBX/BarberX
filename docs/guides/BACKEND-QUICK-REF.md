@@ -1,4 +1,4 @@
-# BarberX Backend - Quick Reference Card
+# Evident Backend - Quick Reference Card
 
 ## 🚀 Quick Start (3 Steps)
 
@@ -198,7 +198,7 @@ DEBUG=true
 FLASK_ENV=production
 DEBUG=false
 SECRET_KEY=your-secret-key
-DATABASE_URL=postgresql://user:pass@host:5432/barberx
+DATABASE_URL=postgresql://user:pass@host:5432/Evident
 STRIPE_SECRET_KEY=sk_live_...
 OPENAI_API_KEY=sk-...
 ```
@@ -322,5 +322,5 @@ event_bus.subscribe('evidence.processed', on_processed)
 
 ---
 
-**BarberX Backend - Production Ready ✅**  
+**Evident Backend - Production Ready ✅**  
 *Version 1.0 | January 26, 2026*

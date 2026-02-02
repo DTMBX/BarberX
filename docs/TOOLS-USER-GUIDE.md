@@ -1,6 +1,6 @@
-# BarberX Legal Tools - User Guide
+# Evident Legal Tools - User Guide
 
-Welcome to the BarberX Legal Case Management Pro Suite tools! This guide will help you use all the available tools effectively.
+Welcome to the Evident Legal Case Management Pro Suite tools! This guide will help you use all the available tools effectively.
 
 ## 🔧 Available Tools
 
@@ -8,7 +8,7 @@ Welcome to the BarberX Legal Case Management Pro Suite tools! This guide will he
 
 **URL:** `/tools/docket-search/`
 
-Search and track court dockets, case filings, and party information across all BarberX cases.
+Search and track court dockets, case filings, and party information across all Evident cases.
 
 **Features:**
 
@@ -342,4 +342,4 @@ Docket data loaded from:
 
 **Last Updated:** January 22, 2026
 **Version:** 1.0.0
-**BarberX Legal Case Management Pro Suite**
+**Evident Legal Case Management Pro Suite**

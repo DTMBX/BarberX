@@ -1,5 +1,5 @@
 """
-BarberX Authentication & Tier System
+Evident Authentication & Tier System
 Database models for users, tiers, and usage tracking
 """
 

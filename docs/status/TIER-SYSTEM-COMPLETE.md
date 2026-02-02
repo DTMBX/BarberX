@@ -1,4 +1,4 @@
-# BarberX 5-Tier System - Complete Breakdown
+# Evident 5-Tier System - Complete Breakdown
 
 ## 🎯 Overview
 

@@ -243,7 +243,7 @@ buildCommand: "pip install -r requirements-production.txt"
 - Build image with all dependencies once
 - Deploy just code changes (30 seconds!)
 
-**Recommendation for BarberX:**
+**Recommendation for Evident:**
 Start with current setup (works), optimize later when deploy speed becomes a bottleneck.
 
 ---
@@ -272,7 +272,7 @@ A deployment is successful when:
 - [x] Health check endpoint responds (/)
 - [x] No Python syntax/import errors
 - [x] Database connection works
-- [x] Application is accessible via https://barberx.info
+- [x] Application is accessible via https://Evident.info
 
 ---
 
@@ -281,7 +281,7 @@ A deployment is successful when:
 ### After This Deploy Succeeds:
 
 1. **Verify Live Site:**
-   - Visit https://barberx.info
+   - Visit https://Evident.info
    - Should see homepage
    - Try registration/login
    - Test file upload

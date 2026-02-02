@@ -1,4 +1,4 @@
-# ✅ BarberX MAUI Build - COMPLETE!
+# ✅ Evident MAUI Build - COMPLETE!
 
 **Build Status:** ✅ **SUCCESS - 0 Errors**  
 **Date:** January 27, 2026  
@@ -134,7 +134,7 @@ Task<ApiResponse<UploadResponse>> UploadVideoAsync(...);
 
 ### Project Structure
 ```
-BarberX.MatterDocket.MAUI/
+Evident.MatterDocket.MAUI/
 ├── Models/
 │   └── ApiModels.cs                 ✅ 594 lines, all models defined
 ├── Services/
@@ -194,7 +194,7 @@ builder.Services.AddTransient<UploadPage>();
 
 ### 1. **Test the App**
 ```powershell
-cd "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI"
+cd "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI"
 dotnet run -f net10.0-windows10.0.19041.0
 ```
 

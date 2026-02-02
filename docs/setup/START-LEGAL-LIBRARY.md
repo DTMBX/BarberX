@@ -17,7 +17,7 @@
 👉 https://dashboard.render.com
 
 ```
-Dashboard → BarberX Service → Environment →
+Dashboard → Evident Service → Environment →
 + Add Environment Variable
 
 Key:   COURTLISTENER_API_KEY
@@ -94,7 +94,7 @@ POST /api/legal-library/annotate
 ### Quick Links
 - CourtListener API: https://www.courtlistener.com/api/
 - Render Dashboard: https://dashboard.render.com
-- GitHub Repo: https://github.com/yourusername/BarberX.info
+- GitHub Repo: https://github.com/yourusername/Evident.info
 
 ### Test Commands
 ```powershell
@@ -146,7 +146,7 @@ python -c "from legal_library import LegalDocument; print(LegalDocument.query.co
 
 **You're 95% done!**
 
-Just add the CourtListener API key to Render and you'll have a professional legal research library powering your BarberX platform.
+Just add the CourtListener API key to Render and you'll have a professional legal research library powering your Evident platform.
 
 **Time remaining:** 10 minutes  
 **Cost:** $0 (free tier)  

@@ -268,7 +268,7 @@ upload_dir = Path('./uploads/pdfs')
 
 For issues or questions:
 
-1. Check server logs: `logs/barberx.log`
+1. Check server logs: `logs/Evident.log`
 2. Review browser console
 3. Verify database schema
 4. Check file permissions on upload directory
@@ -277,4 +277,4 @@ For issues or questions:
 
 **Created**: January 23, 2026
 **Version**: 1.0
-**Author**: BarberX Legal Technologies
+**Author**: Evident Legal Technologies

@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using BarberX.Mobile.Services;
-using BarberX.Mobile.ViewModels;
-using BarberX.Mobile.Views;
-using BarberX.Shared.Services;
+using Evident.Mobile.Services;
+using Evident.Mobile.ViewModels;
+using Evident.Mobile.Views;
+using Evident.Shared.Services;
 using System.Reflection;
 
-namespace BarberX.Mobile;
+namespace Evident.Mobile;
 
 public static class MauiProgram
 {
@@ -23,7 +23,7 @@ public static class MauiProgram
 
 		// Load configuration from appsettings.json
 		var assembly = Assembly.GetExecutingAssembly();
-		using var stream = assembly.GetManifestResourceStream("BarberX.Mobile.appsettings.json");
+		using var stream = assembly.GetManifestResourceStream("Evident.Mobile.appsettings.json");
 		if (stream != null)
 		{
 			var config = new ConfigurationBuilder()
@@ -48,7 +48,7 @@ public static class MauiProgram
 		{
 			client.BaseAddress = new Uri(apiEndpoint);
 			client.Timeout = TimeSpan.FromMinutes(apiTimeout);
-			client.DefaultRequestHeaders.Add("User-Agent", "BarberX-Mobile/1.0");
+			client.DefaultRequestHeaders.Add("User-Agent", "Evident-Mobile/1.0");
 			client.DefaultRequestHeaders.Add("X-App-Platform", DeviceInfo.Platform.ToString());
 			client.DefaultRequestHeaders.Add("X-App-Version", AppInfo.VersionString);
 		});
@@ -89,7 +89,7 @@ public static class MauiProgram
 	private static string GetApiEndpoint(IConfiguration configuration)
 	{
 		// Check for environment variable override
-		var envEndpoint = Environment.GetEnvironmentVariable("BARBERX_API_ENDPOINT");
+		var envEndpoint = Environment.GetEnvironmentVariable("Evident_API_ENDPOINT");
 		if (!string.IsNullOrEmpty(envEndpoint))
 		{
 			return envEndpoint;
@@ -101,9 +101,9 @@ public static class MauiProgram
 		return environment switch
 		{
 			"Development" => configuration["ApiEndpoints:Development"] ?? "http://localhost:5000",
-			"Staging" => configuration["ApiEndpoints:Staging"] ?? "https://staging-api.barberx.info",
-			"Production" => configuration["ApiEndpoints:Production"] ?? "https://api.barberx.info",
-			_ => configuration["ApiEndpoints:Production"] ?? "https://api.barberx.info"
+			"Staging" => configuration["ApiEndpoints:Staging"] ?? "https://staging-api.Evident.info",
+			"Production" => configuration["ApiEndpoints:Production"] ?? "https://api.Evident.info",
+			_ => configuration["ApiEndpoints:Production"] ?? "https://api.Evident.info"
 		};
 	}
 

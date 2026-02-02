@@ -169,7 +169,7 @@ Each card features:
 
 ## 🎨 **Brand Consistency**
 
-All pages use BarberX branding:
+All pages use Evident branding:
 
 - **Colors:** Red (#c41e3a), Blue (#1e40af), Gold (#d4a574)
 - **Fonts:** Inter (system fallback)
@@ -271,7 +271,7 @@ def dashboard():
 
 **Status:** ✅ **Production-Ready**
 
-Login, signup, and dashboard are fully optimized with modern UI/UX, smooth animations, and BarberX branding throughout. Clean, professional, scalable — like a fresh NYC fade. 💈✂️
+Login, signup, and dashboard are fully optimized with modern UI/UX, smooth animations, and Evident branding throughout. Clean, professional, scalable — like a fresh NYC fade. 💈✂️
 
 See pages at:
 

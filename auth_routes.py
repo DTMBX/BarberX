@@ -1,5 +1,5 @@
 """
-BarberX Authentication Routes
+Evident Authentication Routes
 Login, logout, signup, and user management with enhanced security
 """
 
@@ -691,28 +691,28 @@ def _send_password_reset_email(email, token):
     smtp_port = int(os.environ.get("SMTP_PORT", "587"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_pass = os.environ.get("SMTP_PASSWORD", "")
-    from_email = os.environ.get("FROM_EMAIL", "noreply@barberx.info")
+    from_email = os.environ.get("FROM_EMAIL", "noreply@Evident.info")
 
     # Build reset URL using the current request's host
     reset_url = url_for("auth.reset_password", token=token, _external=True)
 
     # Create email
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = "BarberX - Password Reset Request"
+    msg["Subject"] = "Evident - Password Reset Request"
     msg["From"] = from_email
     msg["To"] = email
 
     text_body = f"""
-BarberX Password Reset
+Evident Password Reset
 
-You requested a password reset for your BarberX account.
+You requested a password reset for your Evident account.
 
 Click the link below to reset your password (valid for 1 hour):
 {reset_url}
 
 If you did not request this reset, please ignore this email.
 
-- BarberX Legal Technologies Team
+- Evident Legal Technologies Team
 """
 
     html_body = f"""
@@ -733,11 +733,11 @@ If you did not request this reset, please ignore this email.
 <body>
     <div class="container">
         <div class="header">
-            <h1>⚖️ BarberX</h1>
+            <h1>⚖️ Evident</h1>
         </div>
         <div class="content">
             <h2>Password Reset Request</h2>
-            <p>You requested a password reset for your BarberX account.</p>
+            <p>You requested a password reset for your Evident account.</p>
             <p>Click the button below to reset your password:</p>
             <p style="text-align: center;">
                 <a href="{reset_url}" class="button">Reset Password</a>
@@ -746,7 +746,7 @@ If you did not request this reset, please ignore this email.
             <p>If you did not request this reset, please ignore this email.</p>
         </div>
         <div class="footer">
-            <p>BarberX Legal Technologies<br>Democratizing Legal Defense</p>
+            <p>Evident Legal Technologies<br>Democratizing Legal Defense</p>
         </div>
     </div>
 </body>
@@ -835,28 +835,28 @@ def _send_verification_email(email, token):
     smtp_port = int(os.environ.get("SMTP_PORT", "587"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_pass = os.environ.get("SMTP_PASSWORD", "")
-    from_email = os.environ.get("FROM_EMAIL", "noreply@barberx.info")
+    from_email = os.environ.get("FROM_EMAIL", "noreply@Evident.info")
 
     # Build verification URL
     verify_url = url_for("auth.verify_email", token=token, _external=True)
 
     # Create email
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = "BarberX - Verify Your Email"
+    msg["Subject"] = "Evident - Verify Your Email"
     msg["From"] = from_email
     msg["To"] = email
 
     text_body = f"""
-BarberX Email Verification
+Evident Email Verification
 
-Please verify your email address to complete your BarberX registration.
+Please verify your email address to complete your Evident registration.
 
 Click the link below to verify (valid for 24 hours):
 {verify_url}
 
 If you did not create an account, please ignore this email.
 
-- BarberX Legal Technologies Team
+- Evident Legal Technologies Team
 """
 
     html_body = f"""
@@ -877,11 +877,11 @@ If you did not create an account, please ignore this email.
 <body>
     <div class="container">
         <div class="header">
-            <h1>⚖️ BarberX</h1>
+            <h1>⚖️ Evident</h1>
         </div>
         <div class="content">
             <h2>Verify Your Email</h2>
-            <p>Thank you for registering with BarberX!</p>
+            <p>Thank you for registering with Evident!</p>
             <p>Please click the button below to verify your email address:</p>
             <p style="text-align: center;">
                 <a href="{verify_url}" class="button">Verify Email</a>
@@ -890,7 +890,7 @@ If you did not create an account, please ignore this email.
             <p>If you did not create an account, please ignore this email.</p>
         </div>
         <div class="footer">
-            <p>BarberX Legal Technologies<br>Democratizing Legal Defense</p>
+            <p>Evident Legal Technologies<br>Democratizing Legal Defense</p>
         </div>
     </div>
 </body>
@@ -925,19 +925,19 @@ def _send_login_verification_email(email, token):
     smtp_port = int(os.environ.get("SMTP_PORT", "587"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_pass = os.environ.get("SMTP_PASSWORD", "")
-    from_email = os.environ.get("FROM_EMAIL", "noreply@barberx.info")
+    from_email = os.environ.get("FROM_EMAIL", "noreply@Evident.info")
 
     # Generate 6-digit verification code from token (last 6 chars)
     verification_code = token[-6:].upper()
 
     # Create email
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = "BarberX - Verify Your Login"
+    msg["Subject"] = "Evident - Verify Your Login"
     msg["From"] = from_email
     msg["To"] = email
 
     text_body = f"""
-BarberX Security Alert
+Evident Security Alert
 
 We detected an unusual login attempt to your account.
 
@@ -945,7 +945,7 @@ Your verification code is: {verification_code}
 
 If you did not attempt to login, please change your password immediately.
 
-- BarberX Security Team
+- Evident Security Team
 """
 
     html_body = f"""
@@ -966,7 +966,7 @@ If you did not attempt to login, please change your password immediately.
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔒 BarberX Security</h1>
+            <h1>🔒 Evident Security</h1>
         </div>
         <div class="content">
             <h2>Unusual Login Detected</h2>
@@ -980,7 +980,7 @@ If you did not attempt to login, please change your password immediately.
             </ul>
         </div>
         <div class="footer">
-            <p>BarberX Security Team<br>Protecting Your Legal Data</p>
+            <p>Evident Security Team<br>Protecting Your Legal Data</p>
         </div>
     </div>
 </body>

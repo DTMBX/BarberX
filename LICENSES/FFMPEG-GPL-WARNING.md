@@ -204,13 +204,13 @@ After replacing FFmpeg:
 ## 📧 NEED HELP?
 
 **License Questions:**  
-legal@barberx.info
+legal@Evident.info
 
 **Technical FFmpeg Issues:**  
-support@barberx.info
+support@Evident.info
 
 **Urgent GPL Compliance:**  
-compliance@barberx.info
+compliance@Evident.info
 
 ---
 

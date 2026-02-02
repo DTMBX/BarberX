@@ -13,7 +13,7 @@ Your `_config.yml` is set up perfectly for GitHub Pages.
 Open this URL in the Simple Browser:
 
 ```
-https://github.com/DTB396/BarberX.info/settings/pages
+https://github.com/DTB396/Evident.info/settings/pages
 ```
 
 Then:
@@ -26,18 +26,18 @@ Then:
 **Your site will be live in 30 seconds at:**
 
 ```
-https://dtb396.github.io/BarberX.info
+https://dtb396.github.io/Evident.info
 ```
 
 ---
 
-## 🌐 Custom Domain (barberx.info)
+## 🌐 Custom Domain (Evident.info)
 
 After GitHub Pages is enabled:
 
-1. Go to: https://github.com/DTB396/BarberX.info/settings/pages
+1. Go to: https://github.com/DTB396/Evident.info/settings/pages
 2. Scroll to "Custom domain"
-3. Enter: `barberx.info`
+3. Enter: `Evident.info`
 4. Click **Save**
 
 Then update your DNS:
@@ -74,7 +74,7 @@ No configuration needed - GitHub detects Jekyll automatically.
 **Check build status:**
 
 ```
-https://github.com/DTB396/BarberX.info/actions
+https://github.com/DTB396/Evident.info/actions
 ```
 
 ---
@@ -110,7 +110,7 @@ Use your Flask backend for form submissions (what we already set up!)
 ```
 ┌─────────────────────────────────┐
 │  GitHub Pages (Frontend)         │
-│  https://barberx.info           │
+│  https://Evident.info           │
 │  ✅ FREE Forever               │
 │  ✅ Unlimited builds           │
 │  ✅ 100GB bandwidth/month      │
@@ -120,7 +120,7 @@ Use your Flask backend for form submissions (what we already set up!)
              ↓
 ┌─────────────────────────────────┐
 │  Railway (Backend API)          │
-│  https://api.barberx.info       │
+│  https://api.Evident.info       │
 │  ✅ $5 free credit/month       │
 │  ✅ Auto-scaling               │
 │  ✅ PostgreSQL included        │
@@ -145,7 +145,7 @@ railway init
 railway up
 
 # Your API will be at:
-# https://barberx-api-production.up.railway.app
+# https://Evident-api-production.up.railway.app
 ```
 
 Then update forms to use Railway API instead of Netlify Forms.
@@ -159,19 +159,19 @@ After enabling GitHub Pages, your site will be at:
 **Temporary URL:**
 
 ```
-https://dtb396.github.io/BarberX.info
+https://dtb396.github.io/Evident.info
 ```
 
 **Custom Domain (after DNS setup):**
 
 ```
-https://barberx.info
+https://Evident.info
 ```
 
 **Build logs:**
 
 ```
-https://github.com/DTB396/BarberX.info/actions
+https://github.com/DTB396/Evident.info/actions
 ```
 
 ---
@@ -180,7 +180,7 @@ https://github.com/DTB396/BarberX.info/actions
 
 1. ✅ Enable GitHub Pages (link above)
 2. ✅ Wait 30 seconds for first deploy
-3. ✅ Visit https://dtb396.github.io/BarberX.info
+3. ✅ Visit https://dtb396.github.io/Evident.info
 4. ✅ Deploy backend: `railway up`
 5. ✅ Configure custom domain (optional)
 

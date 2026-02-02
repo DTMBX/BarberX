@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BarberX Overnight Improvement Suite
+Evident Overnight Improvement Suite
 Automated background tasks for repository improvements
 """
 
@@ -51,7 +51,7 @@ def run_command(cmd, shell=True, capture=True):
 
 # Setup
 start_time = datetime.now()
-repo_path = Path("C:/web-dev/github-repos/BarberX.info")
+repo_path = Path("C:/web-dev/github-repos/Evident.info")
 os.chdir(repo_path)
 
 # Create output directory
@@ -62,7 +62,7 @@ output_dir.mkdir(exist_ok=True)
 log_file = output_dir / f"improvement-log-{datetime.now().strftime('%Y%m%d-%H%M%S')}.txt"
 
 print(f"\n{Colors.CYAN}{'=' * 80}")
-print("?? BarberX Overnight Improvement Suite")
+print("?? Evident Overnight Improvement Suite")
 print(f"Started: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
 print(f"{'=' * 80}{Colors.RESET}\n")
 
@@ -363,7 +363,7 @@ duration = end_time - start_time
 
 # Create summary report
 report = f"""
-# BarberX Overnight Improvement Report
+# Evident Overnight Improvement Report
 Generated: {end_time.strftime('%Y-%m-%d %H:%M:%S')}
 Duration: {duration}
 
@@ -435,13 +435,13 @@ print(f"{'=' * 80}{Colors.RESET}\n")
 print(f"{Colors.CYAN}??  Duration: {duration}{Colors.RESET}\n")
 
 print(f"{Colors.YELLOW}?? Generated Reports:{Colors.RESET}")
-print(f"{Colors.GRAY}  • overnight-improvements/IMPROVEMENT-REPORT.md{Colors.RESET}")
-print(f"{Colors.GRAY}  • overnight-improvements/vulnerabilities.json{Colors.RESET}")
-print(f"{Colors.GRAY}  • overnight-improvements/pylint-results.json{Colors.RESET}")
-print(f"{Colors.GRAY}  • overnight-improvements/flake8-results.txt{Colors.RESET}")
-print(f"{Colors.GRAY}  • overnight-improvements/mypy-results.txt{Colors.RESET}")
-print(f"{Colors.GRAY}  • overnight-improvements/test-coverage.txt{Colors.RESET}")
-print(f"{Colors.GRAY}  • docs/api/ (API documentation){Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ overnight-improvements/IMPROVEMENT-REPORT.md{Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ overnight-improvements/vulnerabilities.json{Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ overnight-improvements/pylint-results.json{Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ overnight-improvements/flake8-results.txt{Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ overnight-improvements/mypy-results.txt{Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ overnight-improvements/test-coverage.txt{Colors.RESET}")
+print(f"{Colors.GRAY}  ï¿½ docs/api/ (API documentation){Colors.RESET}")
 
 print(f"\n{Colors.CYAN}?? Next Steps:{Colors.RESET}")
 print(f"{Colors.RESET}  1. Review overnight-improvements/IMPROVEMENT-REPORT.md{Colors.RESET}")

@@ -4,15 +4,15 @@
 
 ### 1. Database Path Mismatch ❌
 
-**Problem**: App configuration says to use `barberx_FRESH.db` but something is changing it to `barberx_test.db`
+**Problem**: App configuration says to use `Evident_FRESH.db` but something is changing it to `Evident_test.db`
 
 **File**: `app.py` Line 224
 
 ```python
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Evident_FRESH.db"
 ```
 
-**But diagnostic shows**: `sqlite:///barberx_test.db`
+**But diagnostic shows**: `sqlite:///Evident_test.db`
 
 **Solution**: Force the correct database path
 
@@ -29,10 +29,10 @@ Run this in PowerShell:
 
 ```powershell
 # 1. Set admin password
-$env:BARBERX_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
+$env:Evident_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 
 # 2. Create admin in the CORRECT database
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python create_admin_fixed.py
 
 # 3. Start Flask app
@@ -50,7 +50,7 @@ Then test login at: **http://localhost:5000/auth/login**
 
 ## Next Steps
 
-1. **Fix database path** - ensure app uses `barberx_FRESH.db`
+1. **Fix database path** - ensure app uses `Evident_FRESH.db`
 2. **Fix CSRF token** - check if login form includes CSRF token
 3. **Check form fields** - ensure form has correct field names (email, password)
 
@@ -62,7 +62,7 @@ Then test login at: **http://localhost:5000/auth/login**
 
 ## Admin Credentials
 
-**Email**: admin@barberx.info  
+**Email**: admin@Evident.info  
 **Password**: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s  
 **Tier**: ADMIN ($9999/mo)  
 **Status**: Active ✅  

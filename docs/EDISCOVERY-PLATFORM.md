@@ -2,7 +2,7 @@
 
 ## 📋 Overview
 
-The BarberX eDiscovery Platform is a **complete court-defensible evidence management system** designed specifically for civil rights litigation against law enforcement agencies.
+The Evident eDiscovery Platform is a **complete court-defensible evidence management system** designed specifically for civil rights litigation against law enforcement agencies.
 
 **Built to withstand Daubert challenges and meet Federal Rule of Civil Procedure 26(a)(1) compliance.**
 
@@ -927,4 +927,4 @@ All core components complete:
 
 **Last Updated:** January 22, 2026  
 **Version:** 1.0.0  
-**BarberX Legal Case Management Pro Suite**
+**Evident Legal Case Management Pro Suite**

@@ -70,7 +70,7 @@ You mentioned Stripe API keys are already in Render. Verify these are set:
    - **What:** Price ID for Pro Plan ($199/month)
    - **How to get:**
      1. Go to [Stripe Dashboard → Products](https://dashboard.stripe.com/products)
-     2. Create product: "BarberX Pro Plan"
+     2. Create product: "Evident Pro Plan"
      3. Add recurring price: $199/month
      4. Copy the Price ID (starts with `price_`)
    - **Status:** ❌ MISSING - Need to create in Stripe
@@ -78,7 +78,7 @@ You mentioned Stripe API keys are already in Render. Verify these are set:
 5. ❌ **STRIPE_PRICE_PREMIUM** - `price_xxxxx`
    - **What:** Price ID for Premium Plan ($499/month)
    - **How to get:**
-     1. Create product: "BarberX Premium Plan"
+     1. Create product: "Evident Premium Plan"
      2. Add recurring price: $499/month
      3. Copy the Price ID
    - **Status:** ❌ MISSING - Need to create in Stripe
@@ -94,7 +94,7 @@ You mentioned Stripe API keys are already in Render. Verify these are set:
 
 #### Pro Plan Product:
 
-- **Name:** BarberX Pro Plan
+- **Name:** Evident Pro Plan
 - **Description:** Advanced AI analysis with unlimited uploads
 - **Pricing:**
   - Type: Recurring
@@ -106,7 +106,7 @@ You mentioned Stripe API keys are already in Render. Verify these are set:
 
 #### Premium Plan Product:
 
-- **Name:** BarberX Premium Plan
+- **Name:** Evident Premium Plan
 - **Description:** Everything in Pro plus team access and API
 - **Pricing:**
   - Type: Recurring
@@ -120,7 +120,7 @@ You mentioned Stripe API keys are already in Render. Verify these are set:
 
 1. **Go to:** https://dashboard.stripe.com/webhooks
 2. **Click:** "Add endpoint"
-3. **Endpoint URL:** `https://barberx.info/payments/webhook`
+3. **Endpoint URL:** `https://Evident.info/payments/webhook`
 4. **Select events to listen to:**
    - `checkout.session.completed`
    - `customer.subscription.updated`

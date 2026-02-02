@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace BarberX.MatterDocket.MAUI.Helpers;
+namespace Evident.MatterDocket.MAUI.Helpers;
 
 public class StringNotNullOrEmptyConverter : IValueConverter
 {

@@ -1,7 +1,7 @@
 """
-BarberX Custom Copilot Agents - Testing & Validation
+Evident Custom Copilot Agents - Testing & Validation
 
-This file demonstrates and validates the 7 custom agents created for BarberX.
+This file demonstrates and validates the 7 custom agents created for Evident.
 Run validation checks to ensure agents are properly configured.
 """
 
@@ -15,7 +15,7 @@ import yaml
 def validate_agents_config():
     """Validate that copilot-agents.yml is properly configured."""
 
-    print("🔍 Validating BarberX Custom Copilot Agents Configuration\n")
+    print("🔍 Validating Evident Custom Copilot Agents Configuration\n")
 
     # Check if agents file exists
     agents_path = Path(__file__).parent.parent / ".github" / "copilot-agents.yml"
@@ -187,7 +187,7 @@ def main():
     """Run all validation checks."""
 
     print("=" * 80)
-    print("BarberX Custom Copilot Agents - Validation Suite")
+    print("Evident Custom Copilot Agents - Validation Suite")
     print("=" * 80)
     print()
 

@@ -1,7 +1,7 @@
 {
   "agent_examples": {
     "legal-compliance": {
-      "agent_name": "BarberX Legal Compliance Expert",
+      "agent_name": "Evident Legal Compliance Expert",
       "agent_id": "@legal-compliance",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -68,7 +68,7 @@
       ]
     },
     "bwc-forensics": {
-      "agent_name": "BarberX BWC Forensics Specialist",
+      "agent_name": "Evident BWC Forensics Specialist",
       "agent_id": "@bwc-forensics",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -142,7 +142,7 @@
       ]
     },
     "flask-backend": {
-      "agent_name": "BarberX Flask Backend Developer",
+      "agent_name": "Evident Flask Backend Developer",
       "agent_id": "@flask-backend",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -208,7 +208,7 @@
       ]
     },
     "frontend-dev": {
-      "agent_name": "BarberX Frontend Developer",
+      "agent_name": "Evident Frontend Developer",
       "agent_id": "@frontend-dev",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -287,7 +287,7 @@
       ]
     },
     "database-architect": {
-      "agent_name": "BarberX Database Architect",
+      "agent_name": "Evident Database Architect",
       "agent_id": "@database-architect",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -357,7 +357,7 @@
       ]
     },
     "security-devops": {
-      "agent_name": "BarberX Security & DevOps Engineer",
+      "agent_name": "Evident Security & DevOps Engineer",
       "agent_id": "@security-devops",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -423,7 +423,7 @@
       ]
     },
     "documentation": {
-      "agent_name": "BarberX Documentation Specialist",
+      "agent_name": "Evident Documentation Specialist",
       "agent_id": "@documentation",
       "model": "claude-sonnet-4.5",
       "primary_expertise": [
@@ -498,6 +498,6 @@
     "total_workflows": 14,
     "created": "2026-01-23",
     "version": "1.0.0",
-    "maintainer": "BarberX Development Team"
+    "maintainer": "Evident Development Team"
   }
 }

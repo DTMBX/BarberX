@@ -23,11 +23,11 @@ jobs:
       run: dotnet workload install maui
     
     - name: Restore dependencies
-      run: dotnet restore src/BarberX.MatterDocket.MAUI/BarberX.MatterDocket.MAUI.csproj
+      run: dotnet restore src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj
     
     - name: Build iOS app (Development)
       run: |
-        dotnet build src/BarberX.MatterDocket.MAUI/BarberX.MatterDocket.MAUI.csproj \
+        dotnet build src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj \
           -f net10.0-ios \
           -c Debug \
           /p:RuntimeIdentifier=ios-arm64 \
@@ -36,10 +36,10 @@ jobs:
     - name: Upload IPA artifact
       uses: actions/upload-artifact@v4
       with:
-        name: BarberX-iOS-Development
+        name: Evident-iOS-Development
         path: |
-          src/BarberX.MatterDocket.MAUI/bin/Debug/net10.0-ios/ios-arm64/**/*.ipa
-          src/BarberX.MatterDocket.MAUI/bin/Debug/net10.0-ios/ios-arm64/**/*.app
+          src/Evident.MatterDocket.MAUI/bin/Debug/net10.0-ios/ios-arm64/**/*.ipa
+          src/Evident.MatterDocket.MAUI/bin/Debug/net10.0-ios/ios-arm64/**/*.app
         retention-days: 30
     
     - name: Build summary
