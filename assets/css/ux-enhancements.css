@@ -13,24 +13,25 @@
   --transition-slow: 350ms;
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
   --shadow-focus: 0 0 0 3px rgb(196 30 58 / 20%);
-  
+
   /* Touch Target Minimum */
   --touch-target: 44px;
-  
+
   /* Safe Area Insets for notched devices */
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
 }
-
 
 /* ===========================
    Smooth Scrolling
@@ -43,7 +44,7 @@ html {
   html {
     scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -52,7 +53,6 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
-
 
 /* ===========================
    Better Focus States
@@ -84,25 +84,23 @@ html {
   top: 0;
 }
 
-
 /* ===========================
    Loading States
    =========================== */
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    #f0f0f0 25%,
-    #e0e0e0 50%,
-    #f0f0f0 75%
-  );
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s infinite;
   border-radius: 4px;
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .skeleton-text {
@@ -133,7 +131,7 @@ html {
 }
 
 .btn-loading::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -147,9 +145,10 @@ html {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 /* ===========================
    Better Buttons
@@ -164,7 +163,7 @@ button,
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  transition: 
+  transition:
     transform var(--transition-fast) var(--ease-out),
     box-shadow var(--transition-fast) var(--ease-out),
     background-color var(--transition-fast) var(--ease-out);
@@ -189,7 +188,7 @@ button:disabled {
 }
 
 .btn-ripple::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -198,14 +197,15 @@ button:disabled {
   background: rgb(255 255 255 / 30%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition:
+    width 0.6s,
+    height 0.6s;
 }
 
 .btn-ripple:active::before {
   width: 300%;
   height: 300%;
 }
-
 
 /* ===========================
    Better Form Inputs
@@ -215,7 +215,7 @@ textarea,
 select {
   font-size: 16px; /* Prevents iOS zoom */
   min-height: var(--touch-target);
-  transition: 
+  transition:
     border-color var(--transition-fast) var(--ease-out),
     box-shadow var(--transition-fast) var(--ease-out);
 }
@@ -268,7 +268,7 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 .checkbox-custom input:checked + .checkmark::after {
-  content: '✓';
+  content: "✓";
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -278,7 +278,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   box-shadow: var(--shadow-focus);
 }
 
-
 /* ===========================
    Better Cards
    =========================== */
@@ -286,7 +285,7 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   background: white;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
-  transition: 
+  transition:
     transform var(--transition-normal) var(--ease-out),
     box-shadow var(--transition-normal) var(--ease-out);
 }
@@ -300,7 +299,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
-
 
 /* ===========================
    Toast Notifications Enhancement
@@ -329,22 +327,22 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   border-left: 4px solid currentColor;
 }
 
-.toast-success { 
+.toast-success {
   color: #10b981;
   border-left-color: #10b981;
 }
 
-.toast-error { 
+.toast-error {
   color: #ef4444;
   border-left-color: #ef4444;
 }
 
-.toast-warning { 
+.toast-warning {
   color: #f59e0b;
   border-left-color: #f59e0b;
 }
 
-.toast-info { 
+.toast-info {
   color: #3b82f6;
   border-left-color: #3b82f6;
 }
@@ -370,7 +368,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
     opacity: 0;
   }
 }
-
 
 /* ===========================
    Empty States
@@ -401,7 +398,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   margin: 0 auto 1.5rem;
   line-height: 1.6;
 }
-
 
 /* ===========================
    Tooltips
@@ -435,7 +431,7 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 [data-tooltip]::after {
-  content: '';
+  content: "";
   bottom: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%);
@@ -450,7 +446,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   opacity: 1;
   visibility: visible;
 }
-
 
 /* ===========================
    Progress Indicators
@@ -486,10 +481,13 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes progress-stripes {
-  from { background-position: 1rem 0; }
-  to { background-position: 0 0; }
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
 }
-
 
 /* ===========================
    Page Transitions
@@ -509,7 +507,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   }
 }
 
-
 /* ===========================
    Mobile-Specific Improvements
    =========================== */
@@ -521,14 +518,14 @@ input:invalid:not(:placeholder-shown):not(:focus) {
     min-height: var(--touch-target);
     padding: 0.75rem 1rem;
   }
-  
+
   /* Better tap feedback */
   .nav-link:active,
   .dropdown-item:active,
   .card-interactive:active {
     background-color: rgb(0 0 0 / 5%);
   }
-  
+
   /* Prevent double-tap zoom */
   button,
   a,
@@ -537,12 +534,12 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   textarea {
     touch-action: manipulation;
   }
-  
+
   /* Fixed bottom bar safe area */
   .bottom-bar {
     padding-bottom: calc(1rem + var(--safe-bottom));
   }
-  
+
   /* Full-width buttons on mobile */
   .btn-mobile-full {
     width: 100%;
@@ -568,18 +565,19 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   transform: translateX(-50%) translateY(0);
 }
 
-
 /* ===========================
    Dark Mode Enhancements
    =========================== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 30%), 0 2px 4px -1px rgb(0 0 0 / 20%);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 30%), 0 4px 6px -2px rgb(0 0 0 / 20%);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 40%), 0 10px 10px -5px rgb(0 0 0 / 20%);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 30%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 30%), 0 4px 6px -2px rgb(0 0 0 / 20%);
+    --shadow-xl:
+      0 20px 25px -5px rgb(0 0 0 / 40%), 0 10px 10px -5px rgb(0 0 0 / 20%);
   }
 }
-
 
 /* ===========================
    Toast Notifications
@@ -603,7 +601,9 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   padding: 1rem 1.25rem;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgb(0 0 0 / 15%), 0 2px 10px rgb(0 0 0 / 10%);
+  box-shadow:
+    0 10px 40px rgb(0 0 0 / 15%),
+    0 2px 10px rgb(0 0 0 / 10%);
   pointer-events: auto;
   animation: toast-in 0.3s var(--ease-out);
   border-left: 4px solid #64748b;
@@ -730,10 +730,13 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes toast-progress {
-  from { width: 100%; }
-  to { width: 0%; }
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
 }
-
 
 /* ===========================
    Skeleton Loading States
@@ -808,10 +811,13 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes skeleton-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
-
 
 /* ===========================
    Form Validation Feedback
@@ -830,7 +836,7 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 .form-label.required::after {
-  content: '*';
+  content: "*";
   color: #ef4444;
   margin-left: 0.25rem;
 }
@@ -927,11 +933,13 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   background: #ef4444;
 }
 
-.password-strength[data-strength="2"] .password-strength-segment:nth-child(-n+2) {
+.password-strength[data-strength="2"]
+  .password-strength-segment:nth-child(-n + 2) {
   background: #f59e0b;
 }
 
-.password-strength[data-strength="3"] .password-strength-segment:nth-child(-n+3) {
+.password-strength[data-strength="3"]
+  .password-strength-segment:nth-child(-n + 3) {
   background: #3b82f6;
 }
 
@@ -943,7 +951,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   font-size: 0.75rem;
   color: #6b7280;
 }
-
 
 /* ===========================
    Processing Time Estimates
@@ -976,8 +983,12 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .processing-title {
@@ -1053,8 +1064,15 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.8; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
 }
 
 .processing-step-text {
@@ -1070,7 +1088,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   color: #1e293b;
   font-weight: 500;
 }
-
 
 /* ===========================
    Empty States
@@ -1129,7 +1146,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   box-shadow: 0 4px 12px rgb(196 30 58 / 30%);
 }
 
-
 /* ===========================
    Status Badges
    =========================== */
@@ -1182,10 +1198,14 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
-
 
 /* ===========================
    Interactive Cards
@@ -1215,7 +1235,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   box-shadow: 0 0 0 3px rgb(59 130 246 / 10%);
 }
 
-
 /* ===========================
    Inline Loaders
    =========================== */
@@ -1238,12 +1257,22 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   animation: loader-bounce 1.4s infinite ease-in-out both;
 }
 
-.loader-dot:nth-child(1) { animation-delay: -0.32s; }
-.loader-dot:nth-child(2) { animation-delay: -0.16s; }
+.loader-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.loader-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
 
 @keyframes loader-bounce {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1); }
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 .loader-spinner {
@@ -1254,7 +1283,6 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   border-radius: 50%;
   animation: spin 0.75s linear infinite;
 }
-
 
 /* ===========================
    Keyboard Shortcuts Hint
@@ -1286,12 +1314,7 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 
 /* Dark Mode Overrides */
 body[data-theme="dark"] .skeleton {
-  background: linear-gradient(
-    90deg,
-    #2d3748 25%,
-    #4a5568 50%,
-    #2d3748 75%
-  );
+  background: linear-gradient(90deg, #2d3748 25%, #4a5568 50%, #2d3748 75%);
   background-size: 200% 100%;
 }
 
@@ -1302,7 +1325,6 @@ body[data-theme="dark"] .card {
 body[data-theme="dark"] .toast {
   background: #1f2937;
 }
-
 
 /* ===========================
    Print Styles
@@ -1316,19 +1338,18 @@ body[data-theme="dark"] .toast {
   button {
     display: none !important;
   }
-  
+
   .card {
     box-shadow: none;
     border: 1px solid #e5e7eb;
   }
-  
+
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
     color: #6b7280;
   }
 }
-
 
 /* ===========================
    Accessibility Utilities

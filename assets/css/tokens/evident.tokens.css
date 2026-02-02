@@ -1,0 +1,57 @@
+:root {
+  /* Evident Technologies brand tokens */
+
+  /* Core values: Clarity | Trust | Precision */
+  --ff-ink: #0f172a;
+  --ff-navy: #1e293b;
+  --ff-emerald: #2563eb;
+  --ff-gold: #f59e0b;
+  --ff-parchment: #f8fafc;
+  --ff-stone: #e2e8f0;
+  --ff-danger: #dc2626;
+  --ff-success: #16a34a;
+  --ff-info: #0284c7;
+  --ff-radius: 16px;
+  --ff-maxw: 1120px;
+  --ff-shadow: 0 14px 40px rgb(15 23 42 / 16%);
+  --ff-font-sans:
+    ui-sans-serif, system-ui, -apple-system, segoe ui, roboto, arial, sans-serif;
+  --ff-font-serif: ui-serif, georgia, "times new roman", serif;
+  --ff-motion-style: gentle-purposeful;
+  --ff-motion-speed: medium;
+  --ff-easing: ease-out;
+  --ff-bg: #f8fafc;
+  --ff-surface: #e2e8f0;
+  --ff-text: #0f172a;
+  --ff-muted: #475569;
+  --ff-brand: #2563eb;
+  --ff-accent: #f59e0b;
+  --ff-border: rgb(15 23 42 / 18%);
+  --ff-focus: #3b82f6;
+
+  /* Evident-specific tokens */
+  --evident-primary: #2563eb;
+  --evident-primary-light: #3b82f6;
+  --evident-primary-dark: #1d4ed8;
+  --evident-secondary: #f59e0b;
+  --evident-secondary-light: #fbbf24;
+  --evident-secondary-dark: #d97706;
+  --evident-surface: #f8fafc;
+  --evident-surface-alt: #f1f5f9;
+  --evident-text: #0f172a;
+  --evident-text-muted: #64748b;
+
+  /* Motion (durations) */
+  --ff-dur-1: 120ms;
+  --ff-dur-2: 180ms;
+  --ff-dur-3: 260ms;
+  --ff-dur-4: 420ms;
+
+  /* Motion (easing) */
+  --ff-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ff-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ff-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Default motion */
+  --ff-ease: var(--ff-ease-out);
+}

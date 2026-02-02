@@ -1,7 +1,7 @@
 /* ============================================================================
    Featured Essays Section
    Premium card-based layout for showcasing important essays
-   Inline with Faith Frontier brand governance
+   Inline with Evident Technologies brand governance
    ============================================================================ */
 
 .featured-essays {
@@ -10,13 +10,14 @@
   padding: var(--space-3xl) var(--space-lg);
   background: linear-gradient(
     135deg,
-    rgb(245 240 230 / 40%) 0%,
-    rgb(230 226 218 / 60%) 100%
+    rgb(248 250 252 / 40%) 0%,
+    rgb(241 245 249 / 60%) 100%
   );
 }
 
 /* Light Mode Overrides */
-.ff-home .featured-essays {
+.ff-home .featured-essays,
+.evident-home .featured-essays {
   background: linear-gradient(
     135deg,
     rgb(245 240 230 / 40%) 0%,

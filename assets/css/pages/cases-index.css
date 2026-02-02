@@ -2,7 +2,7 @@
  * CASES INDEX PAGE STYLES
  * 
  * Comprehensive styling for /cases/ - the legal archive landing page.
- * Uses Faith Frontier brand tokens and ensures WCAG AA compliance.
+ * Uses Evident Technologies brand tokens and ensures WCAG AA compliance.
  * 
  * Sections:
  * - Hero banner with gradient and stats
@@ -11,8 +11,8 @@
  * - Empty states
  * 
  * Brand Tokens Used:
- * - --emerald-600, --emerald-500: Primary brand
- * - --brass-500, --brass-700: Secondary brand
+ * - --emerald-600, --emerald-500: Primary brand (Azure blue)
+ * - --brass-500, --brass-700: Secondary brand (Amber)
  * - --navy-950, --navy-900: Dark backgrounds
  * - --cream-50: Light text on dark
  * - --muted-300, --muted-400: Muted text

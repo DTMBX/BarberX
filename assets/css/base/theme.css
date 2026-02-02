@@ -1,5 +1,5 @@
 /* ============================================================================
-   Faith Frontier Master Theme
+   Evident Technologies Master Theme
    Unified design system for consistent styling across all pages
    
    NOTE: All CSS imports are now centralized in main.css to prevent duplication.
@@ -17,7 +17,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgb(5 13 28 / 95%);
+  background: rgb(2 6 23 / 95%);
   color: var(--color-text);
   border-bottom: 2px solid var(--accent-brass);
   backdrop-filter: blur(8px);
@@ -91,31 +91,36 @@
   margin-right: 0.5rem;
 }
 
-/* Faith Frontier brand components */
-.ff-brand {
+/* Evident Technologies brand components */
+.ff-brand,
+.evident-brand {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
 }
 
-.ff-brand--desktop {
+.ff-brand--desktop,
+.evident-brand--desktop {
   flex-shrink: 0;
 }
 
-.ff-logo {
+.ff-logo,
+.evident-logo {
   display: block;
   height: auto;
 }
 
 /* Header logo – desktop */
-.ff-logo--header {
+.ff-logo--header,
+.evident-logo--header {
   max-height: 36px;
   width: auto;
 }
 
 /* Header icon – mobile / nav */
-.ff-logo--icon {
+.ff-logo--icon,
+.evident-logo--icon {
   max-height: 32px;
 }
 

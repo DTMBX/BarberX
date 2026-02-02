@@ -1,31 +1,31 @@
 /* ============================================================================
-   Faith Frontier Global Theme Variables
-   Unified design tokens extracted from the best of home + cases styling
+   Evident Technologies Global Theme Variables
+   Unified design tokens for legal-grade evidence processing platform
    ============================================================================ */
 
 :root {
   /* ===== COLOR PALETTE ===== */
 
-  /* Stone (Light mode / Home page) */
-  --stone-50: rgb(220 217 210 / 100%);
-  --stone-100: rgb(200 197 190 / 100%);
-  --stone-200: rgb(189 182 170 / 100%);
+  /* Slate (Light mode / Home page) */
+  --stone-50: rgb(248 250 252 / 100%);
+  --stone-100: rgb(241 245 249 / 100%);
+  --stone-200: rgb(226 232 240 / 100%);
 
   /* Navy/Ink (Dark mode / Cases) */
-  --navy-950: rgb(5 13 28 / 100%);
-  --navy-900: rgb(10 27 50 / 100%);
-  --navy-800: rgb(15 23 42 / 100%);
-  --ink-900: rgb(28 27 25 / 100%);
-  --ink-700: rgb(58 56 52 / 100%);
+  --navy-950: rgb(2 6 23 / 100%);
+  --navy-900: rgb(15 23 42 / 100%);
+  --navy-800: rgb(30 41 59 / 100%);
+  --ink-900: rgb(15 23 42 / 100%);
+  --ink-700: rgb(51 65 85 / 100%);
 
-  /* Emerald (Primary brand) */
-  --emerald-600: rgb(16 92 74 / 100%);
-  --emerald-500: rgb(1 138 106 / 100%);
-  --emerald-400: rgb(36 181 138 / 100%);
+  /* Azure (Primary brand - trust/authority) */
+  --emerald-600: rgb(37 99 235 / 100%);
+  --emerald-500: rgb(59 130 246 / 100%);
+  --emerald-400: rgb(96 165 250 / 100%);
 
-  /* Brass/Gold (Secondary brand) */
-  --brass-700: rgb(130 90 30 / 100%);
-  --brass-500: rgb(212 165 116 / 100%);
+  /* Amber (Secondary brand - evidence/clarity) */
+  --brass-700: rgb(180 83 9 / 100%);
+  --brass-500: rgb(245 158 11 / 100%);
 
   /* Brass opacity variants */
   --brass-alpha-35: rgb(130 90 30 / 35%);
@@ -65,13 +65,13 @@
   --border-gray: var(--border-gray);
   --border-gray-light: var(--border-gray-light);
 
-  /* Emerald variants */
-  --emerald-700: rgb(16 92 74 / 100%);
-  --emerald-300: rgb(110 231 183 / 100%);
+  /* Azure variants */
+  --emerald-700: rgb(29 78 216 / 100%);
+  --emerald-300: rgb(147 197 253 / 100%);
 
-  /* Cream/Highlight */
-  --cream-100: rgb(254 243 199 / 100%);
-  --cream-50: rgb(249 250 251 / 100%);
+  /* Slate/Highlight */
+  --cream-100: rgb(241 245 249 / 100%);
+  --cream-50: rgb(248 250 252 / 100%);
   --cream-text: var(--cream-text);
 
   /* Muted text */
@@ -138,7 +138,16 @@
   --ff-muted: var(--muted-300);
   --ff-cream: var(--cream-100);
   --ff-vintage-gold: var(--brass-500);
-  --ff-sage: rgb(90 122 111 / 100%);
+  --ff-sage: rgb(100 116 139 / 100%);
+
+  /* Evident brand tokens */
+  --evident-blue: var(--emerald-500);
+  --evident-blue-dark: var(--emerald-700);
+  --evident-blue-light: var(--emerald-400);
+  --evident-amber: var(--brass-500);
+  --evident-amber-dark: var(--brass-700);
+  --evident-slate: var(--ink-700);
+  --evident-slate-dark: var(--ink-900);
 
   /* ===== TYPOGRAPHY ===== */
 
@@ -227,8 +236,8 @@
   --shadow-2xl: 0 25px 60px var(--shadow-strong);
 
   /* Colored shadows */
-  --shadow-emerald: 0 8px 24px rgb(16 92 74 / 25%);
-  --shadow-brass: 0 8px 24px rgb(212 165 116 / 25%);
+  --shadow-emerald: 0 8px 24px rgb(37 99 235 / 25%);
+  --shadow-brass: 0 8px 24px rgb(245 158 11 / 25%);
 
   /* ===== TRANSITIONS ===== */
 

@@ -1,5 +1,5 @@
 /* ============================================================================
-   Faith Frontier Main Stylesheet
+   Evident Technologies Main Stylesheet
    Legacy file - imports the new modular theme system
    ============================================================================ */
 
@@ -10,7 +10,7 @@
 @import url("base/tokens.css");
 @import url("base/theme.css");
 @import url("base/base.css");
-@import url("tokens/faithfrontier.tokens.css");
+@import url("tokens/evident.tokens.css");
 
 /* Layout styles */
 @import url("layouts/layout.css");

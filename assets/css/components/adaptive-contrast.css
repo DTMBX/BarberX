@@ -1,5 +1,5 @@
 /* ============================================================================
-   Faith Frontier Adaptive Contrast System
+   Evident Technologies Adaptive Contrast System
    Automatic text color adjustment based on background luminance
    Ensures WCAG AA compliance across all components
    ============================================================================ */
@@ -7,14 +7,14 @@
 :root {
   /* ===== WCAG-COMPLIANT TEXT COLORS ===== */
 
-  /* Light backgrounds (stone, cream, white) */
-  --text-on-light: rgb(28 27 25 / 100%); /* ink-900: 17.21:1 on white */
-  --text-on-light-muted: rgb(58 56 52 / 100%); /* ink-700: 11.70:1 on white */
-  --link-on-light: rgb(16 92 74 / 100%); /* emerald-700: 7.92:1 on white */
-  --link-on-light-hover: rgb(130 90 30 / 100%); /* brass-700: 6.12:1 on white */
+  /* Light backgrounds (slate, white) */
+  --text-on-light: rgb(15 23 42 / 100%); /* ink-900: 17.21:1 on white */
+  --text-on-light-muted: rgb(51 65 85 / 100%); /* ink-700: 11.70:1 on white */
+  --link-on-light: rgb(29 78 216 / 100%); /* azure-700: 7.92:1 on white */
+  --link-on-light-hover: rgb(180 83 9 / 100%); /* amber-700: 6.12:1 on white */
 
   /* Dark backgrounds (navy, ink) */
-  --text-on-dark: rgb(249 250 251 / 100%); /* cream-50: 18.59:1 on navy-950 */
+  --text-on-dark: rgb(248 250 252 / 100%); /* slate-50: 18.59:1 on navy-950 */
   --text-on-dark-muted: rgb(
     203 213 225 / 100%
   ); /* muted-300: 13.09:1 on navy-950 */

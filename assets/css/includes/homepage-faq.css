@@ -1,10 +1,12 @@
-/* Faith Frontier Homepage Include */
+/* Evident Technologies Homepage Include */
 
-.ff-home .premium-hero {
+.ff-home .premium-hero,
+.evident-home .premium-hero {
   display: none;
 }
 
-.ff-home {
+.ff-home,
+.evident-home {
   color: #d7e5ff;
 }
 

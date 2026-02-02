@@ -486,7 +486,7 @@
 }
 
 .footer-brand-name {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
@@ -734,7 +734,7 @@
 }
 
 .footer-brand-name {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -825,7 +825,7 @@
 
 /* Brand Text Logo */
 .brand-text {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -852,7 +852,7 @@
   .premium-nav--desktop {
     display: flex;
   }
-  
+
   .premium-nav-toggle {
     display: none !important;
   }
@@ -961,7 +961,7 @@
 }
 
 .premium-nav__mobile-brand {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
@@ -1070,15 +1070,18 @@
   transition: all 0.3s ease;
 }
 
-.premium-nav-toggle[aria-expanded="true"] .premium-nav-toggle__bar:nth-child(1) {
+.premium-nav-toggle[aria-expanded="true"]
+  .premium-nav-toggle__bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-.premium-nav-toggle[aria-expanded="true"] .premium-nav-toggle__bar:nth-child(2) {
+.premium-nav-toggle[aria-expanded="true"]
+  .premium-nav-toggle__bar:nth-child(2) {
   opacity: 0;
 }
 
-.premium-nav-toggle[aria-expanded="true"] .premium-nav-toggle__bar:nth-child(3) {
+.premium-nav-toggle[aria-expanded="true"]
+  .premium-nav-toggle__bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 

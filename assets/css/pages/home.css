@@ -1,5 +1,5 @@
 /* ============================================================================
-   Faith Frontier Home Page Styles
+   Evident Technologies Home Page Styles
    Light mode variant of the global theme for the home page
    ============================================================================ */
 
@@ -8,12 +8,14 @@
 
 /* ===== HOME PAGE LIGHT MODE OVERRIDES ===== */
 
-.ff-home {
+.ff-home,
+.evident-home {
   background: var(--stone-100);
   color: var(--ink-900);
 }
 
-.ff-home a {
+.ff-home a,
+.evident-home a {
   color: var(--emerald-600);
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -21,11 +23,14 @@
 }
 
 .ff-home a:hover,
-.ff-home a:focus {
+.ff-home a:focus,
+.evident-home a:hover,
+.evident-home a:focus {
   text-decoration-thickness: 2px;
 }
 
-.ff-home .section {
+.ff-home .section,
+.evident-home .section {
   padding-block: var(--section-pad-y);
 }
 
@@ -99,11 +104,12 @@
 }
 
 /* Side panel (home specific) */
-.ff-home .hero-side-panel {
+.ff-home .hero-side-panel,
+.evident-home .hero-side-panel {
   background: linear-gradient(
     135deg,
-    rgb(220 217 210 / 95%),
-    rgb(200 197 190 / 92%)
+    rgb(241 245 249 / 95%),
+    rgb(226 232 240 / 92%)
   );
   color: var(--ink-900);
   display: flex;
