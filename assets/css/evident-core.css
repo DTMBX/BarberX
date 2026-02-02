@@ -43,9 +43,10 @@
   --accent-hover: var(--evident-blue-dark);
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
   /* Font Sizes */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -85,9 +86,12 @@
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -113,7 +117,9 @@
 }
 
 /* ===== RESET & BASE ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -135,12 +141,19 @@ body {
   min-height: 100vh;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -391,22 +404,43 @@ a:hover {
 }
 
 /* ===== TYPOGRAPHY ===== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
 }
 
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-3xl); }
-h3 { font-size: var(--text-2xl); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
-h6 { font-size: var(--text-base); }
+h1 {
+  font-size: var(--text-4xl);
+}
+h2 {
+  font-size: var(--text-3xl);
+}
+h3 {
+  font-size: var(--text-2xl);
+}
+h4 {
+  font-size: var(--text-xl);
+}
+h5 {
+  font-size: var(--text-lg);
+}
+h6 {
+  font-size: var(--text-base);
+}
 
 @media (min-width: 768px) {
-  h1 { font-size: var(--text-5xl); }
-  h2 { font-size: var(--text-4xl); }
+  h1 {
+    font-size: var(--text-5xl);
+  }
+  h2 {
+    font-size: var(--text-4xl);
+  }
 }
 
 p {
@@ -655,7 +689,11 @@ p {
 
 /* ===== CTA SECTION ===== */
 .cta-section {
-  background: linear-gradient(135deg, var(--evident-blue) 0%, var(--evident-blue-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--evident-blue) 0%,
+    var(--evident-blue-dark) 100%
+  );
   padding: var(--space-16) 0;
   text-align: center;
   color: white;
@@ -736,7 +774,11 @@ p {
 }
 
 .section-dark {
-  background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--slate-900) 0%,
+    var(--slate-800) 100%
+  );
   color: white;
 }
 
@@ -811,7 +853,9 @@ p {
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .pricing-card:hover {
@@ -830,7 +874,11 @@ p {
 }
 
 .pricing-card.enterprise {
-  background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--slate-900) 0%,
+    var(--slate-800) 100%
+  );
   border-color: rgba(212, 175, 55, 0.3);
   color: white;
 }
@@ -903,7 +951,9 @@ p {
 
 /* ===== PRICING TIER CARDS ===== */
 .pricing-tier-card {
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .pricing-tier-card:hover {
@@ -915,25 +965,49 @@ p {
 }
 
 /* ===== UTILITIES ===== */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 
-.mt-4 { margin-top: var(--space-4); }
-.mt-8 { margin-top: var(--space-8); }
-.mt-12 { margin-top: var(--space-12); }
-.mb-4 { margin-bottom: var(--space-4); }
-.mb-8 { margin-bottom: var(--space-8); }
-.mb-12 { margin-bottom: var(--space-12); }
+.mt-4 {
+  margin-top: var(--space-4);
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+.mt-12 {
+  margin-top: var(--space-12);
+}
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.mb-12 {
+  margin-bottom: var(--space-12);
+}
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 @media (max-width: 767px) {
-  .hide-mobile { display: none; }
+  .hide-mobile {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
-  .hide-desktop { display: none; }
+  .hide-desktop {
+    display: none;
+  }
 }
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
@@ -956,7 +1030,7 @@ p {
   .cta-section {
     display: none;
   }
-  
+
   body {
     background: white;
     color: black;

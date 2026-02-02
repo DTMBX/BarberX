@@ -11,15 +11,21 @@
     </h1>
 
     <p class="hero-subtitle">
-      AI-powered transcription, document intelligence, and chain-of-custody verification. 
-      100% local processing — your data never leaves your machine.
+      AI-powered transcription, document intelligence, and chain-of-custody
+      verification. 100% local processing — your data never leaves your machine.
     </p>
 
     <div class="hero-actions">
-      <a href="{{ page.cta_primary_url | default: '/register' }}" class="btn btn-primary btn-lg">
+      <a
+        href="{{ page.cta_primary_url | default: '/register' }}"
+        class="btn btn-primary btn-lg"
+      >
         {{ page.cta_primary | default: "Get Started Free" }}
       </a>
-      <a href="{{ page.cta_secondary_url | default: '#how-it-works' }}" class="btn btn-secondary btn-lg">
+      <a
+        href="{{ page.cta_secondary_url | default: '#how-it-works' }}"
+        class="btn btn-secondary btn-lg"
+      >
         {{ page.cta_secondary | default: "See How It Works" }}
       </a>
     </div>
@@ -27,7 +33,7 @@
 </section>
 
 {% if page.hero_features %}
-<section class="section-sm" style="background: var(--bg-tertiary);">
+<section class="section-sm" style="background: var(--bg-tertiary)">
   <div class="container">
     <div class="features-grid">
       {% for feature in page.hero_features %}

@@ -5,186 +5,118 @@ description: "Complete documentation for Evident evidence processing platform. L
 permalink: /docs/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/legal-tech-platform.css' | relative_url }}">
+<!-- Hero Section -->
+<section class="section section-dark">
+  <div class="container text-center">
+    <h1>Documentation</h1>
+    <p class="lead">Everything you need to know about using Evident Technologies for professional evidence processing and verification.</p>
+  </div>
+</section>
 
-<main id="main-content" style="padding-top: 80px;">
-  
-  <!-- Hero Section -->
-  <section class="section" style="background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%); color: white; padding: var(--space-16) 0;">
-    <div class="container-narrow" style="text-align: center;">
-      <h1 style="font-size: 3rem; margin-bottom: var(--space-4); color: white;">Documentation</h1>
-      <p style="font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">
-        Everything you need to know about using Evident Technologies for professional evidence processing and verification.
-      </p>
+<!-- Quick Start -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2>Quick Start Guide</h2>
     </div>
-  </section>
-
-  <!-- Quick Start -->
-  <section class="section">
-    <div class="container-narrow">
-      <h2 style="text-align: center; margin-bottom: var(--space-8);">Quick Start Guide</h2>
-      
-      <div style="display: grid; gap: var(--space-6);">
-        
-        <!-- Step 1 -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
-            <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">1</div>
-            <h3>Create Your Account</h3>
-          </div>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Sign up for a free account to get started. Choose from Free, Professional, Premium, or Enterprise tiers based on your needs.
-          </p>
-          <a href="/auth/register" class="btn btn-primary">Create Account ?</a>
+    
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Create Your Account</h3>
+          <p>Sign up for a free account to get started. Choose from Free, Professional, or Enterprise tiers based on your needs.</p>
         </div>
+      </div>
 
-        <!-- Step 2 -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
-            <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">2</div>
-            <h3>Upload Evidence</h3>
-          </div>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Upload BWC videos (.mp4, .mov, .avi) or PDF documents. Our system automatically generates SHA-256 checksums for chain of custody.
-          </p>
-          <a href="/docs/uploading" class="btn btn-secondary">Learn More ?</a>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Upload Evidence</h3>
+          <p>Upload BWC videos (.mp4, .mov, .avi) or PDF documents. Our system automatically generates SHA-256 checksums for chain of custody.</p>
         </div>
+      </div>
 
-        <!-- Step 3 -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
-            <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">3</div>
-            <h3>AI Analysis</h3>
-          </div>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Our AI automatically transcribes audio, identifies speakers, detects constitutional violations, and cross-references with police reports.
-          </p>
-          <a href="/docs/ai-features" class="btn btn-secondary">Explore AI Features ?</a>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>AI Analysis</h3>
+          <p>Our AI automatically transcribes audio, identifies speakers, and cross-references with police reports. Everything runs locally.</p>
         </div>
+      </div>
 
-        <!-- Step 4 -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
-            <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">4</div>
-            <h3>Export Reports</h3>
-          </div>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Generate court-ready reports with constitutional violation analysis, timeline synchronization, and damage estimates.
-          </p>
-          <a href="/docs/reports" class="btn btn-secondary">Report Features ?</a>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Export Reports</h3>
+          <p>Generate court-ready reports with transcripts, timeline synchronization, and complete chain of custody documentation.</p>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Documentation Categories -->
-  <section class="section" style="background: var(--bg-secondary);">
-    <div class="container-narrow">
-      <h2 style="text-align: center; margin-bottom: var(--space-12);">Documentation Categories</h2>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
-        
-        <!-- Getting Started -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-4);">??</div>
-          <h3 style="margin-bottom: var(--space-2);">Getting Started</h3>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            New to Evident? Start here to learn the basics.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="{{ '/SETUP-COMPLETE.md' | relative_url }}" style="color: var(--accent-blue);">? Installation Guide</a></li>
-            <li><a href="{{ '/DASHBOARD-GUIDE.md' | relative_url }}" style="color: var(--accent-blue);">? Dashboard Overview</a></li>
-            <li><a href="{{ '/TIER-CAPABILITIES-GUIDE.md' | relative_url }}" style="color: var(--accent-blue);">? Tier Capabilities</a></li>
-          </ul>
-        </div>
+<!-- Documentation Categories -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2>Documentation Categories</h2>
+    </div>
+    
+    <div class="features-grid">
+      <!-- Getting Started -->
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3 class="card-title">Getting Started</h3>
+        <p class="card-text">New to Evident? Start here to learn the basics of evidence processing and platform navigation.</p>
+      </div>
 
-        <!-- User Guide -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-4);">??</div>
-          <h3 style="margin-bottom: var(--space-2);">User Guide</h3>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Detailed guides for all features and workflows.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="/docs/bwc-analysis" style="color: var(--accent-blue);">? BWC Video Analysis</a></li>
-            <li><a href="/docs/pdf-processing" style="color: var(--accent-blue);">? PDF Processing</a></li>
-            <li><a href="/docs/constitutional-ai" style="color: var(--accent-blue);">? Constitutional AI</a></li>
-          </ul>
-        </div>
+      <!-- User Guide -->
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3 class="card-title">User Guide</h3>
+        <p class="card-text">Detailed guides for BWC video analysis, PDF processing, and AI-powered features.</p>
+      </div>
 
-        <!-- API Reference -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-4);">?</div>
-          <h3 style="margin-bottom: var(--space-2);">API Reference</h3>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Complete API documentation for developers.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="/docs/api/authentication" style="color: var(--accent-blue);">? Authentication</a></li>
-            <li><a href="/docs/api/upload" style="color: var(--accent-blue);">? Upload API</a></li>
-            <li><a href="/docs/api/analysis" style="color: var(--accent-blue);">? Analysis API</a></li>
-          </ul>
-        </div>
+      <!-- API Reference -->
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3 class="card-title">API Reference</h3>
+        <p class="card-text">Complete API documentation for developers integrating with the Evident platform.</p>
+      </div>
 
-        <!-- Deployment -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-4);">??</div>
-          <h3 style="margin-bottom: var(--space-2);">Deployment</h3>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Deploy Evident to production environments.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="{{ '/RENDER-DEPLOYMENT-GUIDE.md' | relative_url }}" style="color: var(--accent-blue);">? Render Deployment</a></li>
-            <li><a href="{{ '/CUSTOM-DOMAIN-SETUP.md' | relative_url }}" style="color: var(--accent-blue);">? Custom Domain Setup</a></li>
-            <li><a href="{{ '/NETLIFY-RENDER-DEPLOYMENT.md' | relative_url }}" style="color: var(--accent-blue);">? Netlify + Render</a></li>
-          </ul>
-        </div>
+      <!-- AI Features -->
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3 class="card-title">AI Features</h3>
+        <p class="card-text">Learn about Whisper transcription, speaker diarization, and semantic search capabilities.</p>
+      </div>
 
-        <!-- AI Features -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-4);">??</div>
-          <h3 style="margin-bottom: var(--space-2);">AI Features</h3>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Learn about our AI-powered analysis capabilities.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="/docs/whisper-transcription" style="color: var(--accent-blue);">? Audio Transcription</a></li>
-            <li><a href="/docs/speaker-diarization" style="color: var(--accent-blue);">? Speaker Identification</a></li>
-            <li><a href="/docs/constitutional-violations" style="color: var(--accent-blue);">? Violation Detection</a></li>
-          </ul>
-        </div>
+      <!-- Deployment -->
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3 class="card-title">Deployment</h3>
+        <p class="card-text">Deploy Evident to your own infrastructure with our self-hosting guides.</p>
+      </div>
 
-        <!-- Troubleshooting -->
-        <div style="padding: var(--space-6); background: var(--surface-color); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="font-size: 2rem; margin-bottom: var(--space-4);">??</div>
-          <h3 style="margin-bottom: var(--space-2);">Troubleshooting</h3>
-          <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
-            Solutions to common issues and errors.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="/docs/faq" style="color: var(--accent-blue);">? FAQ</a></li>
-            <li><a href="/docs/common-errors" style="color: var(--accent-blue);">? Common Errors</a></li>
-            <li><a href="/docs/support" style="color: var(--accent-blue);">? Get Support</a></li>
-          </ul>
-        </div>
-
+      <!-- Troubleshooting -->
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3 class="card-title">Troubleshooting</h3>
+        <p class="card-text">Solutions to common issues, FAQs, and how to get support.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Need Help? -->
-  <section class="section">
-    <div class="container-narrow" style="text-align: center;">
-      <h2 style="margin-bottom: var(--space-4);">Need Help?</h2>
-      <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: var(--space-8);">
-        Can't find what you're looking for? Our support team is here to help.
-      </p>
-      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-        <a href="/contact" class="btn btn-primary">Contact Support</a>
-        <a href="https://github.com/DTB396/Evident.info/issues" class="btn btn-secondary" target="_blank">Report an Issue</a>
-      </div>
+<!-- Need Help? -->
+<section class="cta-section">
+  <div class="container text-center">
+    <h2>Need Help?</h2>
+    <p>Can't find what you're looking for? Our support team is here to help.</p>
+    <div class="cta-buttons">
+      <a href="/contact" class="btn btn-primary btn-lg" style="background: white; color: var(--evident-blue);">Contact Support</a>
+      <a href="https://github.com/DTMBX/Evident/issues" class="btn btn-ghost btn-lg" target="_blank">Report an Issue</a>
     </div>
-  </section>
-
-</main>
+  </div>
+</section>
