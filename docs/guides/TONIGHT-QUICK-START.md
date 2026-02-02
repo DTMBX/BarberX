@@ -2,7 +2,7 @@
 
 **Status:** ✅ READY  
 **Flask App:** Running on http://localhost:5000  
-**Admin Login:** admin@barberx.info  
+**Admin Login:** admin@Evident.info  
 **Password:** BxAdm!n#2026$Secur3\*P@ssw0rd%33^
 
 ---
@@ -90,14 +90,14 @@ Invoke-RestMethod -Uri "http://localhost:5000/api/analysis/$uploadId/status"
 
 ```powershell
 # View all PDFs uploaded today
-sqlite3 instance/barberx_auth.db "
+sqlite3 instance/Evident_auth.db "
   SELECT id, original_filename, case_number, document_type, created_at
   FROM pdf_uploads
   WHERE date(created_at) = date('now')
 "
 
 # View BWC analyses
-sqlite3 instance/barberx_auth.db "
+sqlite3 instance/Evident_auth.db "
   SELECT id, filename, status, created_at
   FROM analyses
   ORDER BY created_at DESC
@@ -111,7 +111,7 @@ sqlite3 instance/barberx_auth.db "
 
 **Login:** http://localhost:5000/auth/login
 
-- Email: admin@barberx.info
+- Email: admin@Evident.info
 - Password: BxAdm!n#2026$Secur3\*P@ssw0rd%33^
 
 **Admin Panel:** http://localhost:5000/admin
@@ -144,8 +144,8 @@ Ready for production deployment!
 **Uploaded PDFs:** `./uploads/pdfs/`  
 **Uploaded Videos:** `./uploads/bwc_videos/`  
 **Analysis Reports:** `./bwc_analysis/`  
-**Database:** `./instance/barberx_auth.db`  
-**Logs:** `./logs/barberx.log`
+**Database:** `./instance/Evident_auth.db`  
+**Logs:** `./logs/Evident.log`
 
 ---
 
@@ -182,7 +182,7 @@ Before processing documents:
 - [ ] Can login as admin
 - [ ] `./uploads/pdfs/` directory exists
 - [ ] Sufficient disk space (check for video files)
-- [ ] Database file exists (`./instance/barberx_auth.db`)
+- [ ] Database file exists (`./instance/Evident_auth.db`)
 
 ---
 

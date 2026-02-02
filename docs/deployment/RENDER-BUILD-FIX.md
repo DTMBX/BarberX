@@ -172,9 +172,9 @@ Render will automatically:
 
 ### 3. Verify Deployment
 Check these endpoints:
-- `https://barberx-legal-tech.onrender.com/` - Homepage
-- `https://barberx-legal-tech.onrender.com/health` - Health check
-- `https://barberx-legal-tech.onrender.com/login` - Login page
+- `https://Evident-legal-tech.onrender.com/` - Homepage
+- `https://Evident-legal-tech.onrender.com/health` - Health check
+- `https://Evident-legal-tech.onrender.com/login` - Login page
 
 ### 4. Configure OpenAI API (Optional)
 If you want transcription:

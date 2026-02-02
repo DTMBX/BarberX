@@ -1,267 +1,267 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>BarberX.MatterDocket.MAUI</name>
+        <name>Evident.MatterDocket.MAUI</name>
     </assembly>
     <members>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.BoolToVisibilityConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.BoolToVisibilityConverter">
             <summary>
             Converts boolean to visibility (true = visible, false = collapsed)
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.InverseBoolConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.InverseBoolConverter">
             <summary>
             Inverts a boolean value
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.StringNotNullOrEmptyConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.StringNotNullOrEmptyConverter">
             <summary>
             Returns true if string is not null or empty
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.BytesToMegabytesConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.BytesToMegabytesConverter">
             <summary>
             Converts bytes to megabytes
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.PercentageConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.PercentageConverter">
             <summary>
             Formats a percentage value
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.TierNameConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.TierNameConverter">
             <summary>
             Converts tier name to display text
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.TierColorConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.TierColorConverter">
             <summary>
             Converts tier name to color
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToPdfBorderConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.FileTypeToPdfBorderConverter">
             <summary>
             Converts file type to PDF border color
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToVideoBorderConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.FileTypeToVideoBorderConverter">
             <summary>
             Converts file type to Video border color
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToPdfColorConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.FileTypeToPdfColorConverter">
             <summary>
             Converts file type to PDF text color
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Converters.FileTypeToVideoColorConverter">
+        <member name="T:Evident.MatterDocket.MAUI.Converters.FileTypeToVideoColorConverter">
             <summary>
             Converts file type to Video text color
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.GetCasesAsync(System.Int32,System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.CaseService.GetCasesAsync(System.Int32,System.Int32)">
             <summary>
             Get a paginated list of cases
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.GetCaseAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.CaseService.GetCaseAsync(System.Int32)">
             <summary>
             Get detailed information about a specific case
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.CreateCaseAsync(BarberX.MatterDocket.MAUI.Services.CreateCaseRequest)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.CaseService.CreateCaseAsync(Evident.MatterDocket.MAUI.Services.CreateCaseRequest)">
             <summary>
             Create a new case
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.UpdateCaseAsync(System.Int32,BarberX.MatterDocket.MAUI.Services.UpdateCaseRequest)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.CaseService.UpdateCaseAsync(System.Int32,Evident.MatterDocket.MAUI.Services.UpdateCaseRequest)">
             <summary>
             Update an existing case
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.DeleteCaseAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.CaseService.DeleteCaseAsync(System.Int32)">
             <summary>
             Delete a case
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.CaseService.SearchCasesAsync(System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.CaseService.SearchCasesAsync(System.String)">
             <summary>
             Search cases by query string
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Services.CreateCaseRequest">
+        <member name="T:Evident.MatterDocket.MAUI.Services.CreateCaseRequest">
             <summary>
             Request model for creating a new case
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Services.UpdateCaseRequest">
+        <member name="T:Evident.MatterDocket.MAUI.Services.UpdateCaseRequest">
             <summary>
             Request model for updating a case
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Services.CaseListItem">
+        <member name="T:Evident.MatterDocket.MAUI.Services.CaseListItem">
             <summary>
             List item model for cases (summary view)
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Services.CaseDetails">
+        <member name="T:Evident.MatterDocket.MAUI.Services.CaseDetails">
             <summary>
             Detailed case model
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.SendMessageAsync(BarberX.MatterDocket.MAUI.Models.ChatRequest)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ChatGptService.SendMessageAsync(Evident.MatterDocket.MAUI.Models.ChatRequest)">
             <summary>
             Send a message and get GPT response
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.GetConversationMessagesAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ChatGptService.GetConversationMessagesAsync(System.Int32)">
             <summary>
             Get all messages in a conversation
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.ValidateApiKeyAsync(System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ChatGptService.ValidateApiKeyAsync(System.String)">
             <summary>
             Validate an OpenAI API key
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.StoreApiKeyAsync(System.String,System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ChatGptService.StoreApiKeyAsync(System.String,System.String)">
             <summary>
             Store encrypted API key on server
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ChatGptService.GetStoredApiKeyAsync">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ChatGptService.GetStoredApiKeyAsync">
             <summary>
             Get stored API key from SecureStorage
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.GetEvidenceListAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.EvidenceService.GetEvidenceListAsync(System.Int32)">
             <summary>
             Get list of evidence items for a specific case
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.GetEvidenceAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.EvidenceService.GetEvidenceAsync(System.Int32)">
             <summary>
             Get detailed information about a specific evidence item
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.TranscribeVideoAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.EvidenceService.TranscribeVideoAsync(System.Int32)">
             <summary>
             Transcribe video evidence using AI (Whisper)
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.ExtractTextFromPdfAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.EvidenceService.ExtractTextFromPdfAsync(System.Int32)">
             <summary>
             Extract text from PDF evidence using OCR
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.EvidenceService.DeleteEvidenceAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.EvidenceService.DeleteEvidenceAsync(System.Int32)">
             <summary>
             Delete an evidence item
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.GetProjectsAsync">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ProjectService.GetProjectsAsync">
             <summary>
             Get all projects for current user
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.CreateProjectAsync(BarberX.MatterDocket.MAUI.Models.CreateProjectRequest)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ProjectService.CreateProjectAsync(Evident.MatterDocket.MAUI.Models.CreateProjectRequest)">
             <summary>
             Create a new project
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.UpdateProjectAsync(System.Int32,BarberX.MatterDocket.MAUI.Models.CreateProjectRequest)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ProjectService.UpdateProjectAsync(System.Int32,Evident.MatterDocket.MAUI.Models.CreateProjectRequest)">
             <summary>
             Update project settings
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.DeleteProjectAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ProjectService.DeleteProjectAsync(System.Int32)">
             <summary>
             Delete a project
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.ProjectService.GetConversationsAsync(System.Int32)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.ProjectService.GetConversationsAsync(System.Int32)">
             <summary>
             Get conversations for a project
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetCurrentTierAsync">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.GetCurrentTierAsync">
             <summary>
             Get the current user's tier information
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.CanUploadPdfAsync(System.Int64)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.CanUploadPdfAsync(System.Int64)">
             <summary>
             Check if user can upload a PDF of given size
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.CanUploadVideoAsync(System.Int64)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.CanUploadVideoAsync(System.Int64)">
             <summary>
             Check if user can upload a video of given size
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.CanUseAiAnalysisAsync">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.CanUseAiAnalysisAsync">
             <summary>
             Check if user can use AI analysis features
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetMaxPdfSize(System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.GetMaxPdfSize(System.String)">
             <summary>
             Get the maximum PDF file size for a tier (in bytes)
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetMaxVideoSize(System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.GetMaxVideoSize(System.String)">
             <summary>
             Get the maximum video file size for a tier (in bytes)
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.IsFeatureAvailable(System.String,System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.IsFeatureAvailable(System.String,System.String)">
             <summary>
             Check if a feature is available for a specific tier
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.Services.TierService.GetUpgradeMessage(System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.Services.TierService.GetUpgradeMessage(System.String)">
             <summary>
             Get an upgrade message for a feature
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Services.UserTier">
+        <member name="T:Evident.MatterDocket.MAUI.Services.UserTier">
             <summary>
             Represents user tier information
             </summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel">
+        <member name="T:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel">
             <inheritdoc/>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ClearError">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.ClearError">
             <summary>
             Clears the current error message
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.SetError(System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.SetError(System.String)">
             <summary>
             Sets an error message
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ExecuteAsync(System.Func{System.Threading.Tasks.Task},System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.ExecuteAsync(System.Func{System.Threading.Tasks.Task},System.String)">
             <summary>
             Executes an async task with IsBusy management and error handling
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.String)">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.String)">
             <summary>
             Executes an async task with return value, IsBusy management and error handling
             </summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.IsBusy">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel._isBusy"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel._isBusy"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.Title">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel._title"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel._title"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel.ErrorMessage">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.BaseViewModel._errorMessage"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel.ErrorMessage">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.BaseViewModel._errorMessage"/>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel">
+        <member name="T:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel">
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -272,81 +272,81 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.CurrentProject">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.currentProject"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.CurrentProject">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.currentProject"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.CurrentConversation">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.currentConversation"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.CurrentConversation">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.currentConversation"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.messageText"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.messageText"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.IsAssistantTyping">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.isAssistantTyping"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.IsAssistantTyping">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.isAssistantTyping"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ShowLegalTools">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.showLegalTools"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.ShowLegalTools">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.showLegalTools"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.Messages">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.messages"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.Messages">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.messages"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachedEvidence">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.attachedEvidence"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachedEvidence">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.attachedEvidence"/>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OnMessageTextChanged(System.String)">
-            <summary>Executes the logic for when <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText"/> just changed.</summary>
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.OnMessageTextChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText"/> just changed.</summary>
             <param name="value">The new property value that was set.</param>
-            <remarks>This method is invoked right after the value of <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText"/> is changed.</remarks>
+            <remarks>This method is invoked right after the value of <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.MessageText"/> is changed.</remarks>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.loadConversationCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.loadConversationCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.LoadConversationAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.sendMessageCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.sendMessageCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.SendMessageAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.attachEvidenceCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.attachEvidenceCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.AttachEvidenceAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.removeEvidenceCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidenceCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.removeEvidenceCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidenceCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidenceCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidence(BarberX.MatterDocket.MAUI.Models.EvidenceItem)"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidenceCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.RemoveEvidence(Evident.MatterDocket.MAUI.Models.EvidenceItem)"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.toggleLegalToolsCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalToolsCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.toggleLegalToolsCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalToolsCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalToolsCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalTools"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalToolsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.ToggleLegalTools"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.runLegalToolCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.runLegalToolCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolAsync(System.String)"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.RunLegalToolAsync(System.String)"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.selectProjectCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.selectProjectCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.SelectProjectAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.openProjectSettingsCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.openProjectSettingsCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.ChatViewModel.OpenProjectSettingsAsync"/>.</summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel">
+        <member name="T:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel">
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -357,169 +357,169 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardAsync">
             <summary>
             Loads dashboard data
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadAsync">
             <summary>
             Navigate to upload page
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesAsync">
             <summary>
             Navigate to cases page
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsAsync">
             <summary>
             Navigate to settings page
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutAsync">
             <summary>
             Logout user
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseAsync(BarberX.MatterDocket.MAUI.Services.CaseListItem)">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseAsync(Evident.MatterDocket.MAUI.Services.CaseListItem)">
             <summary>
             Navigate to case details
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierAsync">
             <summary>
             Upgrade tier
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshAsync">
             <summary>
             Refresh dashboard data
             </summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StoragePercentage">
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.StoragePercentage">
             <summary>
             Calculate storage percentage
             </summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageColor">
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageColor">
             <summary>
             Get storage color based on usage
             </summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.CurrentUser">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._currentUser"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.CurrentUser">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._currentUser"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UserTier">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._userTier"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.UserTier">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._userTier"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.TotalCases">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._totalCases"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.TotalCases">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._totalCases"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ActiveCases">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._activeCases"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.ActiveCases">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._activeCases"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageUsedMB">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._storageUsedMB"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageUsedMB">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._storageUsedMB"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageAvailableMB">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._storageAvailableMB"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.StorageAvailableMB">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._storageAvailableMB"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RecentCases">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._recentCases"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.RecentCases">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._recentCases"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RecentAnalyses">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel._recentAnalyses"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.RecentAnalyses">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel._recentAnalyses"/>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.loadDashboardCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.loadDashboardCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LoadDashboardAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToUploadCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToUploadCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToUploadAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToCasesCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToCasesCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToCasesAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToSettingsCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.navigateToSettingsCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.NavigateToSettingsAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.logoutCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.logoutCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.LogoutAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.viewCaseCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.viewCaseCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseAsync(BarberX.MatterDocket.MAUI.Services.CaseListItem)"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.ViewCaseAsync(Evident.MatterDocket.MAUI.Services.CaseListItem)"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.upgradeTierCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.upgradeTierCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.UpgradeTierAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.refreshCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.DashboardViewModel.RefreshAsync"/>.</summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel">
+        <member name="T:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel">
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.Email">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel._email"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.Email">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel._email"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.Password">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel._password"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.Password">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel._password"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RememberMe">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel._rememberMe"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.RememberMe">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel._rememberMe"/>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.loginCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.loginCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.LoginAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.navigateToRegisterCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.navigateToRegisterCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.NavigateToRegisterAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.registerCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.registerCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.RegisterAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.forgotPasswordCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.forgotPasswordCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.LoginViewModel.ForgotPasswordAsync"/>.</summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel">
+        <member name="T:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel">
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -528,111 +528,111 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileAsync">
             <summary>
             Select a file to upload
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileAsync">
             <summary>
             Upload the selected file
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisAsync">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisAsync">
             <summary>
             Start AI analysis on uploaded file
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUpload">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUpload">
             <summary>
             Reset upload form
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfType">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfType">
             <summary>
             Select PDF file type
             </summary>
         </member>
-        <member name="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoType">
+        <member name="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoType">
             <summary>
             Select Video file type
             </summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.FormattedFileSize">
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.FormattedFileSize">
             <summary>
             Get formatted file size
             </summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFilePath">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFilePath"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFilePath">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFilePath"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFileName">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFileName"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFileName">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFileName"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFileSize">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFileSize"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectedFileSize">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._selectedFileSize"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.FileType">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._fileType"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.FileType">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._fileType"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadProgress">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadProgress"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadProgress">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadProgress"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.IsUploading">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._isUploading"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.IsUploading">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._isUploading"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadComplete">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadComplete"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadComplete">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadComplete"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadedFileId">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadedFileId"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadedFileId">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._uploadedFileId"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.RunAnalysisAfterUpload">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._runAnalysisAfterUpload"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.RunAnalysisAfterUpload">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._runAnalysisAfterUpload"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.AnalysisType">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._analysisType"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.AnalysisType">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._analysisType"/>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.AnalysisTypes">
-            <inheritdoc cref="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel._analysisTypes"/>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.AnalysisTypes">
+            <inheritdoc cref="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel._analysisTypes"/>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.selectFileCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.selectFileCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectFileAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.uploadFileCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.uploadFileCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.UploadFileAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.startAnalysisCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.startAnalysisCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisAsync"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.StartAnalysisAsync"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.resetUploadCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUploadCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.resetUploadCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUploadCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUploadCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUpload"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUploadCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.ResetUpload"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.selectPdfTypeCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfTypeCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.selectPdfTypeCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfTypeCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfTypeCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfType"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfTypeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectPdfType"/>.</summary>
         </member>
-        <member name="F:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.selectVideoTypeCommand">
-            <summary>The backing field for <see cref="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoTypeCommand"/>.</summary>
+        <member name="F:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.selectVideoTypeCommand">
+            <summary>The backing field for <see cref="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoTypeCommand"/>.</summary>
         </member>
-        <member name="P:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoTypeCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BarberX.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoType"/>.</summary>
+        <member name="P:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoTypeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:Evident.MatterDocket.MAUI.ViewModels.UploadViewModel.SelectVideoType"/>.</summary>
         </member>
-        <member name="T:BarberX.MatterDocket.MAUI.Resource">
+        <member name="T:Evident.MatterDocket.MAUI.Resource">
             <summary>
             Android Resource Designer class.
             Exposes the Android Resource designer assembly into the project Namespace.

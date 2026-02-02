@@ -9,7 +9,7 @@
 ### ☐ Step 1: Create Database Tables (5 minutes)
 
 ```bash
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python models_data_rights.py
 ```
 
@@ -155,7 +155,7 @@ def generate_transcript(self, bwc_video_path):
 
 ```bash
 SECRET_KEY=generate-256-bit-random-key-here
-DATABASE_URL=postgresql://user:pass@localhost/barberx_legal
+DATABASE_URL=postgresql://user:pass@localhost/Evident_legal
 STRIPE_API_KEY=sk_live_...
 ```
 
@@ -201,15 +201,15 @@ choco install postgresql
 
 ```bash
 psql -U postgres
-CREATE DATABASE barberx_legal;
-CREATE USER barberx WITH PASSWORD 'secure-password';
-GRANT ALL PRIVILEGES ON DATABASE barberx_legal TO barberx;
+CREATE DATABASE Evident_legal;
+CREATE USER Evident WITH PASSWORD 'secure-password';
+GRANT ALL PRIVILEGES ON DATABASE Evident_legal TO Evident;
 ```
 
 **Update DATABASE_URL in `.env`:**
 
 ```
-DATABASE_URL=postgresql://barberx:secure-password@localhost/barberx_legal
+DATABASE_URL=postgresql://Evident:secure-password@localhost/Evident_legal
 ```
 
 **Migrate data:**
@@ -239,7 +239,7 @@ python migrate_to_postgres.py  # You'll need to create this script
 sudo apt-get install certbot python3-certbot-nginx
 
 # Generate certificate
-sudo certbot --nginx -d barberx.info -d www.barberx.info
+sudo certbot --nginx -d Evident.info -d www.Evident.info
 ```
 
 **For local development:**
@@ -344,13 +344,13 @@ bwc_test = Material(
 grep -r "SECRET_KEY\|API_KEY\|PASSWORD" *.py
 
 # Verify HTTPS enforced
-curl -I http://barberx.info  # Should redirect to HTTPS
+curl -I http://Evident.info  # Should redirect to HTTPS
 
 # Check file permissions
 ls -la uploads/  # Should be 700 or 750
 
 # Verify database encryption
-psql -U barberx -c "SHOW ssl;"
+psql -U Evident -c "SHOW ssl;"
 ```
 
 **Checklist:**
@@ -429,17 +429,17 @@ psql -U barberx -c "SHOW ssl;"
 ## 📞 EMERGENCY CONTACTS
 
 **Copyright Violation Detected:**  
-compliance@barberx.info (24-hour response)
+compliance@Evident.info (24-hour response)
 
 **Security Incident:**  
-security@barberx.info (immediate escalation)
+security@Evident.info (immediate escalation)
 
 **Technical Issues:**  
-support@barberx.info (24-hour support)
+support@Evident.info (24-hour support)
 
 **Legal Questions:**  
-legal@barberx.info  
-support@barberx.info
+legal@Evident.info  
+support@Evident.info
 
 ---
 

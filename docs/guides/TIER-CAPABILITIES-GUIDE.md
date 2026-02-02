@@ -1,4 +1,4 @@
-# BarberX.info - User Tier Capabilities Reference
+# Evident.info - User Tier Capabilities Reference
 
 ## ?? Quick Answer: YES, Both Can Process!
 
@@ -165,9 +165,9 @@ Then login and test unlimited uploads!
 - PDF Upload: http://localhost:5000/batch-pdf-upload.html
 
 ### **Render (Production):**
-- Register: https://barberx-legal-tech.onrender.com/auth/register
-- Login: https://barberx-legal-tech.onrender.com/auth/login
-- Dashboard: https://barberx-legal-tech.onrender.com/auth/dashboard
+- Register: https://Evident-legal-tech.onrender.com/auth/register
+- Login: https://Evident-legal-tech.onrender.com/auth/login
+- Dashboard: https://Evident-legal-tech.onrender.com/auth/dashboard
 
 ---
 

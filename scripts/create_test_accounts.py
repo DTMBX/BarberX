@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Create Test Accounts for BarberX UX Testing
+Create Test Accounts for Evident UX Testing
 ===========================================
 Creates one test account for each tier level:
 - FREE
@@ -29,7 +29,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "test-secret-key"
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = (
-    f'sqlite:///{os.path.join(basedir, "instance", "barberx_auth.db")}'
+    f'sqlite:///{os.path.join(basedir, "instance", "Evident_auth.db")}'
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -45,12 +45,12 @@ def create_test_accounts():
         # Ensure tables exist
         db.create_all()
 
-        print("🚀 Creating BarberX Test Accounts...\n")
+        print("🚀 Creating Evident Test Accounts...\n")
 
         # Test account configurations
         test_accounts = [
             {
-                "email": "free@barberx.test",
+                "email": "free@Evident.test",
                 "password": "test123",
                 "full_name": "Free Tier User",
                 "tier": TierLevel.FREE,
@@ -63,7 +63,7 @@ def create_test_accounts():
                 },
             },
             {
-                "email": "pro@barberx.test",
+                "email": "pro@Evident.test",
                 "password": "test123",
                 "full_name": "Professional User",
                 "tier": TierLevel.PROFESSIONAL,
@@ -76,7 +76,7 @@ def create_test_accounts():
                 },
             },
             {
-                "email": "premium@barberx.test",
+                "email": "premium@Evident.test",
                 "password": "test123",
                 "full_name": "Premium User",
                 "tier": TierLevel.PREMIUM,
@@ -89,7 +89,7 @@ def create_test_accounts():
                 },
             },
             {
-                "email": "enterprise@barberx.test",
+                "email": "enterprise@Evident.test",
                 "password": "test123",
                 "full_name": "Enterprise User",
                 "tier": TierLevel.ENTERPRISE,
@@ -102,7 +102,7 @@ def create_test_accounts():
                 },
             },
             {
-                "email": "admin@barberx.test",
+                "email": "admin@Evident.test",
                 "password": "test123",
                 "full_name": "System Administrator",
                 "tier": TierLevel.ADMIN,
@@ -188,7 +188,7 @@ def create_test_accounts():
         print("   • Onboarding tour (shows on first login)")
         print("   • Usage meters (color-coded progress bars)")
         print("   • Tier upgrade cards (context-aware suggestions)")
-        print("   • Admin dashboard (admin@barberx.test only)")
+        print("   • Admin dashboard (admin@Evident.test only)")
         print("   • Accessibility features (keyboard navigation, screen reader support)")
         print(
             "\n💡 Tip: Open multiple private/incognito windows to test different accounts simultaneously!"

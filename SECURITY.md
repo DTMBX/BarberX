@@ -1,4 +1,4 @@
-# BarberX Security Guidelines
+# Evident Technologies Security Guidelines
 
 ## 🔒 Security Best Practices
 
@@ -188,7 +188,7 @@ nano .env
 **Option 1: Cloud Provider Secrets**
 ```bash
 # Azure
-az keyvault secret set --vault-name BarberXVault --name OpenAIKey --value "sk-..."
+az keyvault secret set --vault-name EvidentVault --name OpenAIKey --value "sk-..."
 
 # AWS
 aws secretsmanager create-secret --name OpenAIKey --secret-string "sk-..."

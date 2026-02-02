@@ -5,13 +5,13 @@
 Based on your Render deployment:
 
 ```
-https://barberx-backend.onrender.com/payments/webhook
+https://Evident-backend.onrender.com/payments/webhook
 ```
 
 **OR if using custom domain:**
 
 ```
-https://barberx.info/payments/webhook
+https://Evident.info/payments/webhook
 ```
 
 ---
@@ -26,12 +26,12 @@ https://barberx.info/payments/webhook
 
 **Endpoint URL:**
 ```
-https://barberx-backend.onrender.com/payments/webhook
+https://Evident-backend.onrender.com/payments/webhook
 ```
 
 **Description:**
 ```
-BarberX Payments
+Evident Payments
 ```
 
 **Events to send - paste this into search and check each:**
@@ -81,15 +81,15 @@ Value: [paste your whsec_... secret here]
 
 After 5 minutes, test with:
 ```
-https://barberx-backend.onrender.com/payments/pricing
+https://Evident-backend.onrender.com/payments/pricing
 ```
 
 ---
 
 ## 🧪 INSTANT TEST (1 MINUTE)
 
-1. **Login:** https://barberx-backend.onrender.com/login
-2. **Go to:** https://barberx-backend.onrender.com/payments/pricing
+1. **Login:** https://Evident-backend.onrender.com/login
+2. **Go to:** https://Evident-backend.onrender.com/payments/pricing
 3. **Click:** "Start Pro Trial"
 4. **Use card:** 4242 4242 4242 4242
 5. **Done!** Should redirect to success page

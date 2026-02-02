@@ -1,6 +1,6 @@
-# BARBERX FOUNDING DOCUMENTS ARCHIVE
+# Evident FOUNDING DOCUMENTS ARCHIVE
 
-**Purpose:** Preserve the exact text of United States founding documents on BarberX servers to maintain truth in case official .gov sources are altered, deleted, or become inaccessible.
+**Purpose:** Preserve the exact text of United States founding documents on Evident servers to maintain truth in case official .gov sources are altered, deleted, or become inaccessible.
 
 **Philosophy:** "Truth is the only subject" - These documents establish the supreme law of the land and must be preserved in their original form.
 
@@ -83,7 +83,7 @@ Every document includes:
 - Server failures can cause data loss
 - Censorship can restrict access
 
-**BarberX Solution:**
+**Evident Solution:**
 - **Independent backup** - Not dependent on .gov availability
 - **Cryptographic verification** - Checksums prove authenticity
 - **Version control** - Git tracks any changes
@@ -187,17 +187,17 @@ These documents are in the **public domain** as works of the United States Gover
 **Citation Format:**
 ```
 U.S. Const. art. I, § 8
-(archived at BarberX Legal Technologies, retrieved Jan. 27, 2026)
+(archived at Evident Legal Technologies, retrieved Jan. 27, 2026)
 ```
 
 **Disclaimer:**
-While every effort is made to ensure accuracy, users should verify against multiple sources for court filings. BarberX provides this archive as a public service for truth preservation.
+While every effort is made to ensure accuracy, users should verify against multiple sources for court filings. Evident provides this archive as a public service for truth preservation.
 
 ---
 
 ## CONTACT
 
-**Archive Maintained By:** BarberX Legal Technologies  
+**Archive Maintained By:** Evident Legal Technologies  
 **Purpose:** Truth preservation and legal reference  
 **Philosophy:** "Truth is the only subject"  
 **Dedication:** For Devon Tyler (28, New Jersey, USA) and all who seek unaltered founding documents
@@ -219,7 +219,7 @@ While every effort is made to ensure accuracy, users should verify against multi
 
 **Built By:**
 - Devon Tyler - Truth seeker and New Jersey native
-- BarberX Development Team - Defenders of constitutional rights
+- Evident Development Team - Defenders of constitutional rights
 
 ---
 

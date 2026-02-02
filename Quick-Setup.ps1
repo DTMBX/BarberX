@@ -1,7 +1,7 @@
 # ⚡ Quick Setup Script - Get Started in 5 Minutes
 # Run this to activate everything built today!
 
-Write-Host "🚀 BarberX Quick Setup - Starting..." -ForegroundColor Cyan
+Write-Host "🚀 Evident Quick Setup - Starting..." -ForegroundColor Cyan
 Write-Host ""
 
 # ============================================================================
@@ -10,10 +10,10 @@ Write-Host ""
 Write-Host "📁 Step 1: Installing PowerShell Profile..." -ForegroundColor Yellow
 
 $profilePath = $PROFILE
-$barberxProfilePath = "C:\web-dev\github-repos\BarberX.info\BarberX-Profile.ps1"
+$EvidentProfilePath = "C:\web-dev\github-repos\Evident.info\Evident-Profile.ps1"
 
-if (Test-Path $barberxProfilePath) {
-    Write-Host "  ✓ Found BarberX profile" -ForegroundColor Green
+if (Test-Path $EvidentProfilePath) {
+    Write-Host "  ✓ Found Evident profile" -ForegroundColor Green
     
     # Backup existing profile
     if (Test-Path $profilePath) {
@@ -22,13 +22,13 @@ if (Test-Path $barberxProfilePath) {
         Write-Host "  ✓ Backed up existing profile to: $backup" -ForegroundColor Green
     }
     
-    # Append BarberX profile
-    Get-Content $barberxProfilePath | Add-Content $profilePath
-    Write-Host "  ✓ BarberX profile installed!" -ForegroundColor Green
+    # Append Evident profile
+    Get-Content $EvidentProfilePath | Add-Content $profilePath
+    Write-Host "  ✓ Evident profile installed!" -ForegroundColor Green
     Write-Host "  → Reload with: . `$PROFILE" -ForegroundColor Cyan
 } else {
-    Write-Host "  ✗ BarberX-Profile.ps1 not found!" -ForegroundColor Red
-    Write-Host "  → Make sure you're in the BarberX.info directory" -ForegroundColor Yellow
+    Write-Host "  ✗ Evident-Profile.ps1 not found!" -ForegroundColor Red
+    Write-Host "  → Make sure you're in the Evident.info directory" -ForegroundColor Yellow
 }
 
 Write-Host ""
@@ -38,7 +38,7 @@ Write-Host ""
 # ============================================================================
 Write-Host "🐍 Step 2: Installing Python Dependencies..." -ForegroundColor Yellow
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 try {
     Write-Host "  Installing openai..." -ForegroundColor Cyan
@@ -113,7 +113,7 @@ Write-Host "📱 Step 5: Building Android APK..." -ForegroundColor Yellow
 $confirm = Read-Host "Build Android APK now? This takes ~5 minutes (y/n)"
 
 if ($confirm -eq 'y' -or $confirm -eq 'Y') {
-    Set-Location "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI"
+    Set-Location "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI"
     
     try {
         Write-Host "  Building Android Release APK..." -ForegroundColor Cyan
@@ -123,7 +123,7 @@ if ($confirm -eq 'y' -or $confirm -eq 'Y') {
         Write-Host "  ✓ Android APK built successfully!" -ForegroundColor Green
         Write-Host ""
         Write-Host "  📦 APK Location:" -ForegroundColor Yellow
-        Write-Host "  bin\Release\net10.0-android34.0\com.barberx.matterdocket-Signed.apk" -ForegroundColor Cyan
+        Write-Host "  bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk" -ForegroundColor Cyan
         Write-Host ""
         Write-Host "  📧 Email yourself the APK or copy to your Android phone via USB" -ForegroundColor Yellow
         
@@ -163,7 +163,7 @@ Write-Host "     . `$PROFILE" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  2. Test new commands:" -ForegroundColor White
 Write-Host "     bmenu                 # Show all commands" -ForegroundColor Cyan
-Write-Host "     br                    # Go to BarberX root" -ForegroundColor Cyan
+Write-Host "     br                    # Go to Evident root" -ForegroundColor Cyan
 Write-Host "     bm                    # Go to MAUI project" -ForegroundColor Cyan
 Write-Host "     Build-MAUI -Clean     # Build MAUI app" -ForegroundColor Cyan
 Write-Host ""

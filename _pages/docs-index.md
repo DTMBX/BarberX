@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Documentation | BarberX"
+title: "Documentation | Evident"
 permalink: /docs/
-description: "Complete documentation for BarberX — guides, tutorials, and API references."
+description: "Complete documentation for Evident — guides, tutorials, and API references."
 ---
 
 <style>
@@ -131,7 +131,7 @@ description: "Complete documentation for BarberX — guides, tutorials, and API 
 
 <div class="docs-hero">
   <h1>📚 Documentation</h1>
-  <p>Everything you need to master BarberX</p>
+  <p>Everything you need to master Evident</p>
 </div>
 
 <div class="docs-container">
@@ -142,31 +142,31 @@ description: "Complete documentation for BarberX — guides, tutorials, and API 
       <span class="doc-badge badge-new">Updated</span>
       <div class="doc-icon">🚀</div>
       <h2>Installation Guide</h2>
-      <p>Get BarberX running in 15 minutes. Step-by-step setup for Windows, macOS, and Linux with GPU support.</p>
+      <p>Get Evident running in 15 minutes. Step-by-step setup for Windows, macOS, and Linux with GPU support.</p>
     </a>
     
     <a href="#" class="doc-card">
       <div class="doc-icon">📖</div>
       <h2>User Guide</h2>
-      <p>Complete walkthrough of BarberX features. Learn to process videos, extract transcripts, and analyze evidence.</p>
+      <p>Complete walkthrough of Evident features. Learn to process videos, extract transcripts, and analyze evidence.</p>
     </a>
     
     <a href="#" class="doc-card">
       <div class="doc-icon">⚙️</div>
       <h2>Configuration</h2>
-      <p>Customize BarberX for your workflow. Settings, preferences, and optimization tips.</p>
+      <p>Customize Evident for your workflow. Settings, preferences, and optimization tips.</p>
     </a>
     
     <a href="#" class="doc-card">
       <div class="doc-icon">🤖</div>
       <h2>AI Models</h2>
-      <p>Deep dive into the AI models powering BarberX. Whisper, pyannote, YOLO, spaCy, and more.</p>
+      <p>Deep dive into the AI models powering Evident. Whisper, pyannote, YOLO, spaCy, and more.</p>
     </a>
     
     <a href="#" class="doc-card">
       <div class="doc-icon">🔌</div>
       <h2>API Reference</h2>
-      <p>Premium/Enterprise API documentation. Integrate BarberX into your existing tools and workflows.</p>
+      <p>Premium/Enterprise API documentation. Integrate Evident into your existing tools and workflows.</p>
     </a>
     
     <a href="#" class="doc-card">
@@ -178,19 +178,19 @@ description: "Complete documentation for BarberX — guides, tutorials, and API 
     <a href="/cases/" class="doc-card">
       <div class="doc-icon">⚖️</div>
       <h2>Real Cases</h2>
-      <p>Learn from actual case studies. See how BarberX is used in real legal investigations.</p>
+      <p>Learn from actual case studies. See how Evident is used in real legal investigations.</p>
     </a>
     
     <a href="#" class="doc-card">
       <div class="doc-icon">🎓</div>
       <h2>Video Tutorials</h2>
-      <p>Watch and learn. Screen recordings showing BarberX workflows from start to finish.</p>
+      <p>Watch and learn. Screen recordings showing Evident workflows from start to finish.</p>
     </a>
     
     <a href="#" class="doc-card">
       <div class="doc-icon">🔐</div>
       <h2>Security & Privacy</h2>
-      <p>How BarberX protects your data. Chain of custody, encryption, and compliance documentation.</p>
+      <p>How Evident protects your data. Chain of custody, encryption, and compliance documentation.</p>
     </a>
     
   </div>
@@ -203,7 +203,7 @@ description: "Complete documentation for BarberX — guides, tutorials, and API 
       <li><a href="/auth/signup">Create Free Account</a></li>
       <li><a href="/faq/">Frequently Asked Questions</a></li>
       <li><a href="/contact/">Contact Support</a></li>
-      <li><a href="https://github.com/yourusername/BarberX.info" target="_blank">GitHub Repository</a></li>
+      <li><a href="https://github.com/yourusername/Evident.info" target="_blank">GitHub Repository</a></li>
     </ul>
   </div>
   
@@ -214,8 +214,8 @@ description: "Complete documentation for BarberX — guides, tutorials, and API 
     </p>
     <ul style="color: #374151;">
       <li>Check the <a href="/faq/" style="color: #c41e3a; font-weight: 600;">FAQ page</a></li>
-      <li>Email us at <a href="mailto:support@barberx.info" style="color: #c41e3a; font-weight: 600;">support@barberx.info</a></li>
-      <li>File an issue on <a href="https://github.com/yourusername/BarberX.info/issues" style="color: #c41e3a; font-weight: 600;">GitHub</a></li>
+      <li>Email us at <a href="mailto:support@Evident.info" style="color: #c41e3a; font-weight: 600;">support@Evident.info</a></li>
+      <li>File an issue on <a href="https://github.com/yourusername/Evident.info/issues" style="color: #c41e3a; font-weight: 600;">GitHub</a></li>
     </ul>
   </div>
   

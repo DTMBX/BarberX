@@ -5,7 +5,7 @@
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  NETLIFY (Frontend - LIVE)                              │
-│  https://barberx.info                                   │
+│  https://Evident.info                                   │
 │  • Static Jekyll site                                   │
 │  • Forms collection                                     │
 │  • Global CDN                                           │
@@ -16,7 +16,7 @@
                  ↓
 ┌─────────────────────────────────────────────────────────┐
 │  RENDER/RAILWAY (Backend API)                           │
-│  https://api.barberx.info                               │
+│  https://api.Evident.info                               │
 │  • Flask REST API                                       │
 │  • PostgreSQL database                                  │
 │  • File processing                                      │
@@ -60,7 +60,7 @@ git push origin main
 1. **Go to:** https://render.com
 2. **Sign up** with GitHub account
 3. **New** → **Blueprint**
-4. **Connect repository:** `DTB396/BarberX.info`
+4. **Connect repository:** `DTB396/Evident.info`
 5. **Render will auto-detect** `render.yaml`
 6. **Click:** "Apply"
 
@@ -79,21 +79,21 @@ In Render dashboard, add:
 ```bash
 SECRET_KEY=<generate-strong-key>
 FLASK_ENV=production
-CORS_ORIGINS=https://barberx.info,https://www.barberx.info
-ADMIN_EMAIL=admin@barberx.info
+CORS_ORIGINS=https://Evident.info,https://www.Evident.info
+ADMIN_EMAIL=admin@Evident.info
 ADMIN_PASSWORD=<secure-password>
 ```
 
 ### Step 4: Get Your API URL
 
 ```
-https://barberx-api.onrender.com
+https://Evident-api.onrender.com
 ```
 
 Custom domain:
 
 ```
-https://api.barberx.info
+https://api.Evident.info
 ```
 
 ---
@@ -311,7 +311,7 @@ def get_case(case_id):
 # For long-running BWC analysis
 from celery import Celery
 
-celery = Celery('barberx', broker=os.getenv('REDIS_URL'))
+celery = Celery('Evident', broker=os.getenv('REDIS_URL'))
 
 @celery.task
 def analyze_bwc_video(video_path):

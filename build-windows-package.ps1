@@ -1,20 +1,20 @@
-# BarberX PWA to Windows 11 MSIX Package Builder
-# This script packages the BarberX PWA as a Windows 11 application
+# Evident PWA to Windows 11 MSIX Package Builder
+# This script packages the Evident PWA as a Windows 11 application
 
 param(
-    [string]$Url = "https://barberx.info",
+    [string]$Url = "https://Evident.info",
     [string]$OutputDir = "windows-package"
 )
 
-Write-Output "📦 BARBERX WINDOWS 11 MSIX PACKAGE BUILDER`n"
+Write-Output "📦 Evident WINDOWS 11 MSIX PACKAGE BUILDER`n"
 Write-Output "═══════════════════════════════════════════════════`n"
 
 # Configuration
-$packageName = "BarberX Matter Docket (DTMB)"
-$packageIdentifier = "com.barberx.matterdocket"
+$packageName = "Evident Matter Docket (DTMB)"
+$packageIdentifier = "com.Evident.matterdocket"
 $packageVersion = "1.0.0.0"
-$publisherName = "BarberX"
-$publisherDisplayName = "BarberX Matter Docket"
+$publisherName = "Evident"
+$publisherDisplayName = "Evident Matter Docket"
 
 Write-Output "Configuration:"
 Write-Output "  App Name: $packageName"
@@ -52,7 +52,7 @@ if ($makeappx) {
     Write-Output "✅ Windows SDK found (makeappx available)`n"
     
     # Create package structure
-    $packageRoot = Join-Path $OutputDir "BarberX-Package"
+    $packageRoot = Join-Path $OutputDir "Evident-Package"
     $assetsDir = Join-Path $packageRoot "Assets"
     
     New-Item -ItemType Directory -Path $packageRoot -Force | Out-Null
@@ -103,7 +103,7 @@ if ($makeappx) {
   </Resources>
   
   <Applications>
-    <Application Id="BarberXLegal" StartPage="$Url">
+    <Application Id="EvidentLegal" StartPage="$Url">
       <uap:VisualElements DisplayName="$packageName"
                           Description="Professional matter docket management and legal case tracking platform"
                           BackgroundColor="#0f0f0f"
@@ -142,7 +142,7 @@ if ($makeappx) {
     
     Write-Output "Package structure ready!`n"
     Write-Output "To build MSIX package, run:`n"
-    Write-Output "  makeappx pack /d $packageRoot /p $OutputDir\BarberX.msix`n"
+    Write-Output "  makeappx pack /d $packageRoot /p $OutputDir\Evident.msix`n"
     
 } else {
     Write-Output "⚠️  Windows SDK not found.`n"

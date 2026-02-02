@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\web-dev\\github-repos\\BarberX.info\\playwright.config.cjs",
-    "rootDir": "C:/web-dev/github-repos/BarberX.info/tests/e2e",
+    "configFile": "C:\\web-dev\\github-repos\\Evident.info\\playwright.config.cjs",
+    "rootDir": "C:/web-dev/github-repos/Evident.info/tests/e2e",
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
@@ -14,13 +14,13 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/web-dev/github-repos/BarberX.info/test-results",
+        "outputDir": "C:/web-dev/github-repos/Evident.info/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {},
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/web-dev/github-repos/BarberX.info/tests/e2e",
+        "testDir": "C:/web-dev/github-repos/Evident.info/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.spec.cjs"
@@ -931,7 +931,7 @@
                       "type": "skip",
                       "description": "Skipping - TEST_USER_PASSWORD not set",
                       "location": {
-                        "file": "C:\\web-dev\\github-repos\\BarberX.info\\tests\\e2e\\dashboard.spec.cjs",
+                        "file": "C:\\web-dev\\github-repos\\Evident.info\\tests\\e2e\\dashboard.spec.cjs",
                         "line": 59,
                         "column": 8
                       }
@@ -2265,7 +2265,7 @@
           "column": 6,
           "specs": [
             {
-              "title": "BarberX branding is present",
+              "title": "Evident branding is present",
               "ok": true,
               "tags": [],
               "tests": [

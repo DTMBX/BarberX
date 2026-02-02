@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: barberx-legal-tech
+    name: Evident-legal-tech
     runtime: python
     env: python
     region: oregon
@@ -18,7 +18,7 @@ services:
     autoDeploy: true
 
 databases:
-  - name: barberx-db
-    databaseName: barberx_production
+  - name: Evident-db
+    databaseName: Evident_production
     plan: free
     region: oregon

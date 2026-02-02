@@ -5,9 +5,9 @@ from pathlib import Path
 
 from cryptography.fernet import Fernet
 
-KEY_ENV = "BARBERX_ENCRYPTION_KEY"
+KEY_ENV = "Evident_ENCRYPTION_KEY"
 MANIFEST_PATH = Path("secure/manifest.json")
-KEY_PATH = Path(".secrets/barberx.key")
+KEY_PATH = Path(".secrets/Evident.key")
 
 
 def load_key() -> bytes:
@@ -16,7 +16,7 @@ def load_key() -> bytes:
     if KEY_PATH.exists():
         return KEY_PATH.read_bytes()
     raise SystemExit(
-        "Encryption key not found. Run scripts/security/generate_key.py or set BARBERX_ENCRYPTION_KEY."
+        "Encryption key not found. Run scripts/security/generate_key.py or set Evident_ENCRYPTION_KEY."
     )
 
 

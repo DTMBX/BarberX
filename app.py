@@ -1,6 +1,6 @@
-# BarberX Legal Tech Platform
+# Evident Legal Tech Platform
 # Professional BWC Forensic Analysis System
-# Copyright (c) 2026 BarberX Legal Technologies
+# Copyright (c) 2026 Evident Legal Technologies
 
 import hashlib
 import json
@@ -247,7 +247,7 @@ else:
         print("[OK] Using PostgreSQL database for production")
     else:
         # Local development with SQLite
-        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
+        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Evident_FRESH.db"
         print("[OK] Using SQLite database for development")
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -273,7 +273,7 @@ try:
     pipeline_config = {
         "storage_root": "./uploads/pdfs/originals",
         "manifest_root": "./manifest",
-        "db_path": "instance/barberx_legal.db",
+        "db_path": "instance/Evident_legal.db",
         "ocr_threshold": 50,
         "enable_citation_tracking": True,
         "max_passage_length": 1500,
@@ -295,7 +295,7 @@ app.config["STRIPE_WEBHOOK_SECRET"] = os.getenv("STRIPE_WEBHOOK_SECRET")
 # CORS configuration for production (includes mobile/desktop clients)
 cors_origins = os.getenv(
     "CORS_ORIGINS",
-    "https://barberx.info,https://www.barberx.info,http://localhost:5000,http://127.0.0.1:5000,tauri://localhost,capacitor://localhost",
+    "https://Evident.info,https://www.Evident.info,http://localhost:5000,http://127.0.0.1:5000,tauri://localhost,capacitor://localhost",
 )
 CORS_ORIGINS_LIST = [origin.strip() for origin in cors_origins.split(",")]
 
@@ -563,14 +563,14 @@ if UX_HELPERS_AVAILABLE:
 if not app.debug:
     if not os.path.exists("logs"):
         os.mkdir("logs")
-    file_handler = RotatingFileHandler("logs/barberx.log", maxBytes=10240000, backupCount=10)
+    file_handler = RotatingFileHandler("logs/Evident.log", maxBytes=10240000, backupCount=10)
     file_handler.setFormatter(
         logging.Formatter("%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]")
     )
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
-    app.logger.info("BarberX Legal Tech startup")
+    app.logger.info("Evident Legal Tech startup")
 
 # Initialize backend services (after database init)
 evidence_processor = None
@@ -1069,9 +1069,9 @@ def index():
         return (
             f"""
         <html>
-        <head><title>BarberX Legal Technologies</title></head>
+        <head><title>Evident Legal Technologies</title></head>
         <body style="font-family: Arial; max-width: 800px; margin: 50px auto; padding: 20px;">
-            <h1>BarberX Legal Technologies</h1>
+            <h1>Evident Legal Technologies</h1>
             <p>Professional BWC Forensic Analysis Platform</p>
             <p><a href="/login">Login</a> | <a href="/auth/signup">Sign Up</a> | <a href="/health">Health Check</a></p>
             <p style="color: red;">Error: {e}</p>
@@ -1104,7 +1104,7 @@ def chat_interface():
 @app.route("/workspace")
 @login_required
 def unified_workspace():
-    """Unified BarberX Workspace - All-in-one professional interface"""
+    """Unified Evident Workspace - All-in-one professional interface"""
     return render_template("unified-workspace.html", user=current_user)
 
 
@@ -3075,7 +3075,7 @@ def setup_two_factor():
         return jsonify({"error": "2FA service not available"}), 503
 
     try:
-        tfa_service = TwoFactorAuthService(issuer_name="BarberX Legal")
+        tfa_service = TwoFactorAuthService(issuer_name="Evident Legal")
 
         # Generate 2FA setup data
         setup_data = tfa_service.setup_2fa_for_user(current_user.email)
@@ -3273,7 +3273,7 @@ def stripe_webhook():
 @login_required
 def billing_success():
     """Billing success page"""
-    flash("Subscription activated successfully! Welcome to BarberX Premium.", "success")
+    flash("Subscription activated successfully! Welcome to Evident Premium.", "success")
     return redirect(url_for("evidence_dashboard"))
 
 
@@ -3957,7 +3957,7 @@ def founding_member_signup():
             jsonify(
                 {
                     "success": False,
-                    "message": "An error occurred. Please try again or contact founders@barberx.info",
+                    "message": "An error occurred. Please try again or contact founders@Evident.info",
                 }
             ),
             500,
@@ -4768,7 +4768,7 @@ def export_analysis_report(analysis, format):
             doc.add_paragraph("This analysis was generated using:")
             doc.add_paragraph("• OpenAI Whisper (Apache 2.0 License) - Audio transcription")
             doc.add_paragraph("• pyannote.audio (MIT License) - Speaker diarization")
-            doc.add_paragraph("• BarberX Legal Technologies - Forensic analysis platform")
+            doc.add_paragraph("• Evident Legal Technologies - Forensic analysis platform")
 
             doc.save(str(docx_path))
 
@@ -4816,7 +4816,7 @@ def export_analysis_report(analysis, format):
                 },
                 "metadata": analysis.metadata or {},
                 "export_timestamp": utc_now().isoformat(),
-                "platform": "BarberX Legal Tech Platform",
+                "platform": "Evident Legal Tech Platform",
                 "version": "2.0",
             }
 
@@ -4893,11 +4893,11 @@ verified evidence. The SHA-256 cryptographic hash ensures file integrity and
 admissibility. Any unauthorized modification, reproduction, or distribution
 is prohibited.
 
-This analysis was conducted using BarberX Legal Tech Platform certified
+This analysis was conducted using Evident Legal Tech Platform certified
 forensic analysis tools in compliance with digital evidence standards.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BarberX Legal Tech Platform
+Evident Legal Tech Platform
 BWC Forensic Analysis System | Copyright © 2024-2026
 For official use only - Confidential
 """
@@ -5001,12 +5001,12 @@ The **SHA-256 cryptographic hash** ensures file integrity and admissibility.
 
 ⚠️ Any unauthorized modification, reproduction, or distribution is prohibited.
 
-This analysis was conducted using BarberX Legal Tech Platform certified forensic analysis tools
+This analysis was conducted using Evident Legal Tech Platform certified forensic analysis tools
 in compliance with digital evidence standards.
 
 ---
 
-**BarberX Legal Tech Platform**
+**Evident Legal Tech Platform**
 BWC Forensic Analysis System | Copyright © 2024-2026
 *For official use only - Confidential*
 """
@@ -5663,8 +5663,8 @@ def admin_operations_summary():
     # Storage sizes
     instance_path = app.instance_path
     db_paths = [
-        os.path.join(instance_path, "barberx_FRESH.db"),
-        os.path.join(instance_path, "barberx_legal.db"),
+        os.path.join(instance_path, "Evident_FRESH.db"),
+        os.path.join(instance_path, "Evident_legal.db"),
     ]
 
     db_size_mb = sum(
@@ -5912,7 +5912,7 @@ def admin_system_info():
     import psutil
 
     # Database size
-    db_path = os.path.join(app.instance_path, "barberx_legal.db")
+    db_path = os.path.join(app.instance_path, "Evident_legal.db")
     db_size_mb = os.path.getsize(db_path) / (1024 * 1024) if os.path.exists(db_path) else 0
 
     # Upload folder size
@@ -5959,7 +5959,7 @@ try:
         initialize_backend_services()
 
         # Admin user already created via create_admin.py
-        # Use admin@barberx.info with the 33-char password from that script
+        # Use admin@Evident.info with the 33-char password from that script
 
     # Apply CSRF exemptions to upload routes
     for view_name in CSRF_EXEMPT_VIEWS:
@@ -6143,7 +6143,7 @@ def admin_initialize_settings():
         # General Settings
         {
             "key": "app_name",
-            "value": "BarberX Legal Tech",
+            "value": "Evident Legal Tech",
             "value_type": "string",
             "category": "general",
             "description": "Application name displayed throughout the platform",
@@ -6171,7 +6171,7 @@ def admin_initialize_settings():
         },
         {
             "key": "contact_email",
-            "value": "support@barberx.info",
+            "value": "support@Evident.info",
             "value_type": "string",
             "category": "general",
             "description": "Contact email for support",
@@ -6308,7 +6308,7 @@ def admin_initialize_settings():
         },
         {
             "key": "from_email",
-            "value": "noreply@barberx.info",
+            "value": "noreply@Evident.info",
             "value_type": "string",
             "category": "email",
             "description": "From email address",
@@ -6884,15 +6884,15 @@ if __name__ == "__main__":
         f"""
     ================================================================
 
-           BarberX Legal Technologies
+           Evident Legal Technologies
            Professional BWC Forensic Analysis Platform
 
     ================================================================
 
     Web Application: http://localhost:{port}
-    Admin Login: admin@barberx.info
+    Admin Login: admin@Evident.info
     Database: SQLite (Development)
-    Logs: ./logs/barberx.log
+    Logs: ./logs/Evident.log
 
     BACKEND OPTIMIZATION:
     [+] Database connection pooling (30 concurrent users)

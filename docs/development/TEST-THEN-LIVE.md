@@ -8,7 +8,7 @@
 
 ### Step 1: Create Test Webhook
 ```
-URL: https://barberx.info/payments/webhook
+URL: https://Evident.info/payments/webhook
 Mode: TEST mode
 Events: 5 events (checkout, subscription, invoice)
 Get signing secret → Add to Render as STRIPE_WEBHOOK_SECRET
@@ -49,7 +49,7 @@ Update Render environment:
 
 ### Step 5: Create Live Webhook
 ```
-URL: https://barberx.info/payments/webhook
+URL: https://Evident.info/payments/webhook
 Mode: LIVE mode
 Events: Same 5 events
 Get NEW signing secret → Update STRIPE_WEBHOOK_SECRET in Render

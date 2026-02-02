@@ -1,6 +1,6 @@
-﻿using Foundation;
+using Foundation;
 
-namespace BarberX.MatterDocket.MAUI;
+namespace Evident.MatterDocket.MAUI;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

@@ -1,6 +1,6 @@
-namespace BarberX.Shared.Services;
+namespace Evident.Shared.Services;
 
-using BarberX.Shared.Models;
+using Evident.Shared.Models;
 
 /// <summary>
 /// Shared API client interface for all platforms

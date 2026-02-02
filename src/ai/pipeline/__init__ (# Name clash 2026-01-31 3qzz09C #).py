@@ -1,5 +1,5 @@
 """
-BarberX Unified AI Pipeline
+Evident Unified AI Pipeline
 
 Stable contracts for:
   Ingest → Extract → Index → Retrieve → Analyze

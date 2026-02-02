@@ -1,4 +1,4 @@
-# BarberX Multi-Platform Build Script
+# Evident Multi-Platform Build Script
 # Builds all platform targets: Windows, Android, iOS, Web API, and Flask
 
 param(
@@ -23,7 +23,7 @@ $ErrorActionPreference = "Stop"
 $ProgressPreference = 'SilentlyContinue'
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "BarberX Multi-Platform Build" -ForegroundColor Cyan
+Write-Host "Evident Multi-Platform Build" -ForegroundColor Cyan
 Write-Host "Configuration: $Configuration" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 
@@ -56,20 +56,20 @@ if ($Clean) {
 }
 
 # Build Shared Library
-Write-Step "Building BarberX.Shared..."
+Write-Step "Building Evident.Shared..."
 try {
-    dotnet build "$RepoRoot\src\BarberX.Shared\BarberX.Shared.csproj" -c $Configuration
-    Write-Success "BarberX.Shared built successfully"
+    dotnet build "$RepoRoot\src\Evident.Shared\Evident.Shared.csproj" -c $Configuration
+    Write-Success "Evident.Shared built successfully"
 } catch {
-    Write-Error "Failed to build BarberX.Shared: $_"
+    Write-Error "Failed to build Evident.Shared: $_"
     exit 1
 }
 
 # Build Mobile App
 if (-not $SkipMobile) {
-    Write-Step "Building BarberX.Mobile..."
+    Write-Step "Building Evident.Mobile..."
     
-    $MobileProject = "$RepoRoot\src\BarberX.Mobile\BarberX.Mobile.csproj"
+    $MobileProject = "$RepoRoot\src\Evident.Mobile\Evident.Mobile.csproj"
     
     # Build for Windows
     if ($IsWindows -or $env:OS -eq "Windows_NT") {
@@ -107,9 +107,9 @@ if (-not $SkipMobile) {
 
 # Build Web API
 if (-not $SkipWebAPI) {
-    Write-Step "Building BarberX.Web API..."
+    Write-Step "Building Evident.Web API..."
     try {
-        dotnet build "$RepoRoot\src\BarberX.Web\BarberX.Web.csproj" -c $Configuration
+        dotnet build "$RepoRoot\src\Evident.Web\Evident.Web.csproj" -c $Configuration
         Write-Success "Web API built successfully"
     } catch {
         Write-Error "Failed to build Web API: $_"
@@ -152,10 +152,10 @@ Write-Host "Build Summary" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 
 Write-Host "`nBuilt Components:" -ForegroundColor White
-Write-Host "  ✓ BarberX.Shared (.NET library)" -ForegroundColor Green
+Write-Host "  ✓ Evident.Shared (.NET library)" -ForegroundColor Green
 
 if (-not $SkipMobile) {
-    Write-Host "  ✓ BarberX.Mobile (MAUI app)" -ForegroundColor Green
+    Write-Host "  ✓ Evident.Mobile (MAUI app)" -ForegroundColor Green
     if ($IsWindows -or $env:OS -eq "Windows_NT") {
         Write-Host "    - Windows" -ForegroundColor Gray
     }
@@ -166,7 +166,7 @@ if (-not $SkipMobile) {
 }
 
 if (-not $SkipWebAPI) {
-    Write-Host "  ✓ BarberX.Web (ASP.NET Core API)" -ForegroundColor Green
+    Write-Host "  ✓ Evident.Web (ASP.NET Core API)" -ForegroundColor Green
 }
 
 if (-not $SkipFlask) {
@@ -174,8 +174,8 @@ if (-not $SkipFlask) {
 }
 
 Write-Host "`nNext Steps:" -ForegroundColor White
-Write-Host "  • Run mobile app: dotnet run --project src\BarberX.Mobile -f net10.0-windows" -ForegroundColor Gray
-Write-Host "  • Run Web API: dotnet run --project src\BarberX.Web" -ForegroundColor Gray
+Write-Host "  • Run mobile app: dotnet run --project src\Evident.Mobile -f net10.0-windows" -ForegroundColor Gray
+Write-Host "  • Run Web API: dotnet run --project src\Evident.Web" -ForegroundColor Gray
 Write-Host "  • Run Flask: python app.py" -ForegroundColor Gray
 
 Write-Host "`n========================================" -ForegroundColor Cyan

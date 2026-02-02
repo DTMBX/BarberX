@@ -6,7 +6,7 @@ Write-Host "EMERGENCY FIX: Founding Member Signup" -ForegroundColor Red
 Write-Host "========================================" -ForegroundColor Red
 Write-Host ""
 
-Set-Location C:\web-dev\github-repos\BarberX.info
+Set-Location C:\web-dev\github-repos\Evident.info
 
 Write-Host "Staging fix..." -ForegroundColor Yellow
 git add app.py

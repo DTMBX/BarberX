@@ -1,10 +1,10 @@
 #!/usr/bin/env pwsh
 # Automatic Render Build Fixer
 
-Write-Host "`n?? BarberX Render Build - Automatic Fix" -ForegroundColor Cyan
+Write-Host "`n?? Evident Render Build - Automatic Fix" -ForegroundColor Cyan
 Write-Host "=======================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 Write-Host "`n[1/5] Fixing runtime.txt..." -ForegroundColor Yellow
 "3.11.9" | Out-File -FilePath "runtime.txt" -Encoding UTF8 -NoNewline
@@ -53,7 +53,7 @@ $buildScript = @"
 #!/usr/bin/env bash
 set -o errexit
 
-echo "Building BarberX Legal Tech..."
+echo "Building Evident Legal Tech..."
 echo "Python version: `$(python --version)"
 
 # Upgrade pip
@@ -73,7 +73,7 @@ Write-Host "`n[5/5] Updating render.yaml..." -ForegroundColor Yellow
 $renderConfig = @"
 services:
   - type: web
-    name: barberx-legal-tech
+    name: Evident-legal-tech
     runtime: python
     env: python
     region: oregon

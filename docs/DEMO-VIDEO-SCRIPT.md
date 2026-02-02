@@ -1,4 +1,4 @@
-# BarberX Demo Video Script
+# Evident Demo Video Script
 
 **Duration:** 2 minutes  
 **Target Audience:** Criminal defense attorneys  
@@ -13,7 +13,7 @@
 **Screen:** Landing page → Dashboard  
 **Voiceover:**
 
-> "Meet BarberX - the AI-powered evidence analysis platform that saves criminal defense attorneys 10+ hours per case. Let me show you how it works in just 2 minutes."
+> "Meet Evident - the AI-powered evidence analysis platform that saves criminal defense attorneys 10+ hours per case. Let me show you how it works in just 2 minutes."
 
 **Actions:**
 
@@ -28,7 +28,7 @@
 **Screen:** Dashboard → Upload interface  
 **Voiceover:**
 
-> "First, upload your evidence. Body-worn camera footage, police reports, witness statements - BarberX handles it all. Watch how fast this 45-minute BWC video uploads and starts processing."
+> "First, upload your evidence. Body-worn camera footage, police reports, witness statements - Evident handles it all. Watch how fast this 45-minute BWC video uploads and starts processing."
 
 **Actions:**
 
@@ -51,7 +51,7 @@
 **Screen:** Analysis dashboard  
 **Voiceover:**
 
-> "Within minutes, BarberX's AI analyzes the footage and identifies critical issues. Here, it detected a Fourth Amendment violation at timestamp 3:47, potential Brady material at 12:15, and inconsistencies with the police report."
+> "Within minutes, Evident's AI analyzes the footage and identifies critical issues. Here, it detected a Fourth Amendment violation at timestamp 3:47, potential Brady material at 12:15, and inconsistencies with the police report."
 
 **Actions:**
 
@@ -75,7 +75,7 @@
 **Screen:** Document generation  
 **Voiceover:**
 
-> "Now for the magic. With one click, generate a motion to suppress based on the evidence. BarberX automatically cites relevant case law, includes timestamps, and formats everything court-ready."
+> "Now for the magic. With one click, generate a motion to suppress based on the evidence. Evident automatically cites relevant case law, includes timestamps, and formats everything court-ready."
 
 **Actions:**
 
@@ -103,7 +103,7 @@
 **Screen:** Pricing page → Call to action  
 **Voiceover:**
 
-> "What used to take 10 hours now takes 10 minutes. Start your free trial today at BarberX.info - no credit card required."
+> "What used to take 10 hours now takes 10 minutes. Start your free trial today at Evident.info - no credit card required."
 
 **Actions:**
 
@@ -116,7 +116,7 @@
 
 **Text Overlay:**
 
-- **"BarberX.info"**
+- **"Evident.info"**
 - **"Start Free Trial"**
 - **"No Credit Card Required"**
 
@@ -161,7 +161,7 @@ Use animated callouts to highlight:
 **Style:**
 
 - Professional, clean design
-- BarberX brand colors
+- Evident brand colors
 - Smooth fade-in/fade-out
 - Not too distracting
 
@@ -200,7 +200,7 @@ Use animated callouts to highlight:
 
 ### Pre-Analysis Required
 
-Run the files through BarberX beforehand to ensure:
+Run the files through Evident beforehand to ensure:
 
 - Analysis completes successfully
 - Violations are detected
@@ -250,8 +250,8 @@ Run the files through BarberX beforehand to ensure:
 ### YouTube
 
 - [ ] Upload video
-- [ ] Title: "BarberX Demo - AI Evidence Analysis for Criminal Defense"
-- [ ] Description with link to BarberX.info
+- [ ] Title: "Evident Demo - AI Evidence Analysis for Criminal Defense"
+- [ ] Description with link to Evident.info
 - [ ] Tags: legal tech, criminal defense, AI, evidence analysis
 - [ ] Thumbnail: Professional screenshot with text overlay
 - [ ] Add to website playlist
@@ -347,7 +347,7 @@ For social media ads:
 
 **Script:**
 
-> "Criminal defense attorneys: Stop spending 10 hours reviewing body camera footage. BarberX's AI analyzes evidence in minutes, detects violations automatically, and generates court-ready motions. Start your free trial at BarberX.info."
+> "Criminal defense attorneys: Stop spending 10 hours reviewing body camera footage. Evident's AI analyzes evidence in minutes, detects violations automatically, and generates court-ready motions. Start your free trial at Evident.info."
 
 **Duration:** 30 seconds  
 **Style:** Fast-paced, direct  

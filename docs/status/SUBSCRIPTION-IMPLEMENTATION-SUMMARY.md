@@ -1,4 +1,4 @@
-# BarberX Subscription System - Implementation Summary
+# Evident Subscription System - Implementation Summary
 
 ## ✅ COMPLETED: Web App Subscription Features
 
@@ -85,18 +85,18 @@ python create_test_subscription_accounts.py
 ```
 
 Creates test accounts for each tier:
-- free@barberx.test
-- pro@barberx.test
-- premium@barberx.test
-- enterprise@barberx.test
-- admin@barberx.test
+- free@Evident.test
+- pro@Evident.test
+- premium@Evident.test
+- enterprise@Evident.test
+- admin@Evident.test
 
 ### **Step 3: Configure Stripe**
 
 1. **Create Products:**
    - Go to https://dashboard.stripe.com/products
-   - Create "BarberX Professional" - $49/month with 3-day trial
-   - Create "BarberX Premium" - $249/month
+   - Create "Evident Professional" - $49/month with 3-day trial
+   - Create "Evident Premium" - $249/month
    - Copy price IDs
 
 2. **Get API Keys:**
@@ -113,7 +113,7 @@ Creates test accounts for each tier:
 
 4. **Set Up Webhook:**
    - Go to https://dashboard.stripe.com/webhooks
-   - Add endpoint: `https://barberx.info/api/stripe/webhook`
+   - Add endpoint: `https://Evident.info/api/stripe/webhook`
    - Select events: `checkout.session.completed`, `customer.subscription.*`
    - Copy webhook secret to .env
 
@@ -146,7 +146,7 @@ async function subscribeToPlan(tier) {
 
 ### **Step 5: Test**
 
-1. Login as `free@barberx.test`
+1. Login as `free@Evident.test`
 2. Go to `/pricing`
 3. Click "Start 3-Day Free Trial"
 4. Use test card: `4242 4242 4242 4242`

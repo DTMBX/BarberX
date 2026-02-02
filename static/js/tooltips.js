@@ -1,5 +1,5 @@
 /**
- * Interactive Tutorial Tooltips for BarberX
+ * Interactive Tutorial Tooltips for Evident
  * Provides contextual help throughout the platform
  */
 

@@ -1,4 +1,4 @@
-# BarberX Platform - Getting Started Today
+# Evident Platform - Getting Started Today
 
 ## Quick Start (5 minutes)
 
@@ -6,7 +6,7 @@
 
 ```powershell
 # In PowerShell, navigate to the project directory
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Run the startup script
 .\START.ps1
@@ -15,7 +15,7 @@ cd C:\web-dev\github-repos\BarberX.info
 **OR use this one-liner:**
 
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info; python app.py
+cd C:\web-dev\github-repos\Evident.info; python app.py
 ```
 
 The app will start at: **http://localhost:5000**
@@ -24,12 +24,12 @@ The app will start at: **http://localhost:5000**
 
 **Admin Account (Full Access):**
 
-- Email: `admin@barberx.info`
+- Email: `admin@Evident.info`
 - Password: `Admin123!`
 
 **Test User Account (Free Tier):**
 
-- Email: `test@barberx.info`
+- Email: `test@Evident.info`
 - Password: `Password123!`
 
 ### 3. Access the Platform
@@ -120,7 +120,7 @@ python -m pipeline.cli retrieve "search warrant" --top 3
 ### Test Login Flow
 
 1. Go to http://localhost:5000/auth/login
-2. Login with `test@barberx.info` / `Password123!`
+2. Login with `test@Evident.info` / `Password123!`
 3. You should be redirected to the dashboard
 4. Check browser console (F12) - should be no JavaScript errors
 
@@ -212,10 +212,10 @@ from app import app
 from models_auth import db, User
 
 with app.app_context():
-    admin = User.query.filter_by(email='admin@barberx.info').first()
+    admin = User.query.filter_by(email='admin@Evident.info').first()
     admin.set_password('Admin123!')
 
-    test = User.query.filter_by(email='test@barberx.info').first()
+    test = User.query.filter_by(email='test@Evident.info').first()
     test.set_password('Password123!')
 
     db.session.commit()
@@ -248,13 +248,13 @@ python scripts/security/generate_key.py
 
 ```powershell
 # Check database exists
-Test-Path instance\barberx_FRESH.db
+Test-Path instance\Evident_FRESH.db
 
 # Recreate if needed
 python -c "from app import app, db; app.app_context().push(); db.create_all()"
 
 # Check legal retrieval DB
-Test-Path instance\barberx_legal.db
+Test-Path instance\Evident_legal.db
 
 # Initialize if missing
 python scripts\db\init_db.py
@@ -330,7 +330,7 @@ python scripts\db\init_db.py
 
 ---
 
-**You're ready to use BarberX today!** 🚀
+**You're ready to use Evident today!** 🚀
 
 Start with: `.\START.ps1` or `python app.py`
 Then login at: http://localhost:5000/auth/login

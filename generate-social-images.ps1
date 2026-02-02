@@ -1,4 +1,4 @@
-# Social Media Image Generator for BarberX
+# Social Media Image Generator for Evident
 # Requires: ImageMagick installed
 # Generates Open Graph and Twitter Card images
 
@@ -9,7 +9,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "`n=== BarberX Social Media Image Generator ===" -ForegroundColor Cyan
+Write-Host "`n=== Evident Social Media Image Generator ===" -ForegroundColor Cyan
 
 # Create output directory if it doesn't exist
 if (!(Test-Path $OutputDir)) {
@@ -51,7 +51,7 @@ $ogSVG = @"
   <rect x="200" y="100" width="950" height="430" rx="20" fill="#ffffff" opacity="0.95"/>
   
   <!-- Title -->
-  <text x="600" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#1e40af" text-anchor="middle">BarberX</text>
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#1e40af" text-anchor="middle">Evident</text>
   
   <!-- Subtitle -->
   <text x="600" y="300" font-family="Arial, sans-serif" font-size="36" fill="#c41e3a" text-anchor="middle">Legal Video Analysis</text>
@@ -65,7 +65,7 @@ $ogSVG = @"
   <text x="900" y="460" font-family="Arial, sans-serif" font-size="22" fill="#1e40af" font-weight="600">✓ Secure Platform</text>
   
   <!-- URL -->
-  <text x="600" y="510" font-family="Arial, sans-serif" font-size="24" fill="#6b7280" text-anchor="middle">barberx.info</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="24" fill="#6b7280" text-anchor="middle">Evident.info</text>
 </svg>
 "@
 
@@ -117,7 +117,7 @@ $twitterSVG = @"
   <text x="250" y="340" font-family="Arial, sans-serif" font-size="100" font-weight="bold" fill="#FFD700" text-anchor="middle">B</text>
   
   <!-- Title -->
-  <text x="650" y="220" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#1e40af" text-anchor="middle">BarberX</text>
+  <text x="650" y="220" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#1e40af" text-anchor="middle">Evident</text>
   
   <!-- Subtitle -->
   <text x="650" y="300" font-family="Arial, sans-serif" font-size="32" fill="#c41e3a" text-anchor="middle">Legal Video Analysis Platform</text>

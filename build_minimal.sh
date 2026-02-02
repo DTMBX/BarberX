@@ -3,7 +3,7 @@
 
 set -o errexit
 
-echo "🔧 BarberX - Minimal Diagnostic Build"
+echo "🔧 Evident - Minimal Diagnostic Build"
 echo "Python version: $(python --version)"
 
 echo "📦 Installing minimal dependencies..."

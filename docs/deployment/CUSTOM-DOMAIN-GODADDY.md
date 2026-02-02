@@ -6,7 +6,7 @@
 https://dcc.godaddy.com/manage/
 
 ### 2. Find Your Domain
-- Click on your domain `barberx.info`
+- Click on your domain `Evident.info`
 - Click "DNS" or "Manage DNS"
 
 ### 3. Add CNAME Record for App Subdomain
@@ -16,7 +16,7 @@ Click "Add" and enter:
 ```
 Type: CNAME
 Name: app
-Value: barberx-legal-tech.onrender.com
+Value: Evident-legal-tech.onrender.com
 TTL: 1 Hour
 ```
 
@@ -33,18 +33,18 @@ Go back to Render dashboard:
 Render auto-provisions SSL (5-15 minutes after verification)
 
 Your app will be live at:
-**https://app.barberx.info** ??
+**https://app.Evident.info** ??
 
 ---
 
 ## Alternative: Root Domain
 
-If you want `barberx.info` (no subdomain):
+If you want `Evident.info` (no subdomain):
 
 ### Option A: Domain Forwarding (Easy)
 In GoDaddy:
 1. Go to Domain Settings
-2. Set up forwarding: `barberx.info` ? `https://app.barberx.info`
+2. Set up forwarding: `Evident.info` ? `https://app.Evident.info`
 
 ### Option B: A Records (Advanced)
 Add these A records:

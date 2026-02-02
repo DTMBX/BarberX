@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Production Readiness Test - Verify all systems operational
-Run this to confirm BarberX.info is ready for court document processing
+Run this to confirm Evident.info is ready for court document processing
 """
 
 import os
@@ -35,7 +35,7 @@ def test_flask_app():
 def test_database():
     """Test database exists and has required tables"""
     print("\n🧪 Testing database...")
-    db_path = Path("./instance/barberx_auth.db")
+    db_path = Path("./instance/Evident_auth.db")
 
     if not db_path.exists():
         print("   ❌ Database file not found")
@@ -168,7 +168,7 @@ def test_api_endpoints():
 
 def main():
     print("=" * 70)
-    print("  BarberX.info Production Readiness Test")
+    print("  Evident.info Production Readiness Test")
     print("  Testing all systems for court document processing")
     print("=" * 70)
 
@@ -205,8 +205,8 @@ def main():
         print("\n  📋 Next Steps:")
         print("     1. Flask app is running on http://localhost:5000")
         print("     2. Upload PDFs via http://localhost:5000/batch-pdf-upload.html")
-        print("     3. Login as admin: admin@barberx.info")
-        print("     4. Check logs: ./logs/barberx.log")
+        print("     3. Login as admin: admin@Evident.info")
+        print("     4. Check logs: ./logs/Evident.log")
         print("\n  📄 See TONIGHT-QUICK-START.md for detailed instructions")
         return 0
     else:

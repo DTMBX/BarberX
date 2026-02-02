@@ -90,7 +90,7 @@
 
 ### MAUI & Testing
 ```
-✅ src/BarberX.MatterDocket.MAUI/Views/LegalLibraryPage.cs (6,752 chars)
+✅ src/Evident.MatterDocket.MAUI/Views/LegalLibraryPage.cs (6,752 chars)
    - Search interface structure
    - Document viewer placeholder
    - Annotation system outline
@@ -376,7 +376,7 @@ End-to-End Testing:        ░░░░░░░░░░░░░░░░░�
 
 ### Cost Savings
 - **Westlaw subscription:** $300/month
-- **With BarberX library:** Free (after setup)
+- **With Evident library:** Free (after setup)
 - **Annual savings:** $3,600/user
 
 ### Competitive Advantage

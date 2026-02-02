@@ -8,7 +8,7 @@
 
 ## 🇺🇸 Executive Summary
 
-BarberX Legal Technologies now features a **world-class constitutional research platform** integrated with our BWC analysis tools, designed to make top law firms ecstatic about using our platform constantly. The system honors the 1.3 million Americans who died defending the Constitution while providing cutting-edge legal research capabilities.
+Evident Legal Technologies now features a **world-class constitutional research platform** integrated with our BWC analysis tools, designed to make top law firms ecstatic about using our platform constantly. The system honors the 1.3 million Americans who died defending the Constitution while providing cutting-edge legal research capabilities.
 
 ---
 
@@ -51,7 +51,7 @@ Let the header stand as witness.
 
 ### 2. Elite Legal Research Library (Law Firm Grade)
 
-**Objective:** Make BarberX the **go-to platform** for constitutional law firms handling BWC cases.
+**Objective:** Make Evident the **go-to platform** for constitutional law firms handling BWC cases.
 
 #### Professional Legal Research Tools Section
 
@@ -79,54 +79,54 @@ Let the header stand as witness.
 
 #### BWC Constitutional Law Integration
 
-**Why This Matters:** Every body-worn camera recording is a Fourth Amendment event. BarberX now provides instant access to the constitutional framework needed to analyze BWC footage for rights violations.
+**Why This Matters:** Every body-worn camera recording is a Fourth Amendment event. Evident now provides instant access to the constitutional framework needed to analyze BWC footage for rights violations.
 
 **4th Amendment - Search & Seizure**
 - Full constitutional text displayed
 - **BWC Analysis Context:** "Was there probable cause? Was the search reasonable? Did officers violate rights?"
-- **BarberX AI Integration:** "BarberX analyzes BWC footage specifically for Fourth Amendment violations using AI-powered transcript analysis and legal research."
+- **Evident AI Integration:** "Evident analyzes BWC footage specifically for Fourth Amendment violations using AI-powered transcript analysis and legal research."
 - **Case Law Links:**
   - Cornell Wex: Fourth Amendment overview
   - CourtListener: Pre-built search for "fourth amendment police body camera"
-  - BarberX Archive: Direct link to full Bill of Rights text
+  - Evident Archive: Direct link to full Bill of Rights text
 
 **5th Amendment - Due Process & Self-Incrimination**
 - Full constitutional text displayed
 - **BWC Analysis Context:** "Were Miranda rights given? Did police coerce statements? Did the defendant invoke their right to remain silent?"
-- **BarberX AI Integration:** "BWC footage often contains the most critical evidence of Fifth Amendment violations. BarberX's AI transcription identifies Miranda warnings, identifies coercion patterns, and flags self-incrimination issues."
+- **Evident AI Integration:** "BWC footage often contains the most critical evidence of Fifth Amendment violations. Evident's AI transcription identifies Miranda warnings, identifies coercion patterns, and flags self-incrimination issues."
 - **Case Law Links:**
   - Cornell Wex: Fifth Amendment overview
   - Miranda v. Arizona (1966) full opinion
   - CourtListener: "fifth amendment miranda police interrogation" search
-  - BarberX Archive: Bill of Rights Amendment 5
+  - Evident Archive: Bill of Rights Amendment 5
 
 **14th Amendment - Equal Protection & Due Process**
 - Full constitutional text displayed
 - **BWC Analysis Context:** "The 14th Amendment incorporated most of the Bill of Rights to apply against state and local police. It also prohibits discriminatory policing."
-- **BarberX AI Integration:** "BWC analysis can reveal patterns of unequal treatment based on race, ethnicity, or other protected characteristics. BarberX's pattern analysis tools help identify systemic constitutional violations."
+- **Evident AI Integration:** "BWC analysis can reveal patterns of unequal treatment based on race, ethnicity, or other protected characteristics. Evident's pattern analysis tools help identify systemic constitutional violations."
 - **Case Law Links:**
   - Cornell Wex: Fourteenth Amendment overview
   - CourtListener: "fourteenth amendment equal protection police" search
-  - BarberX Archive: Amendments section
+  - Evident Archive: Amendments section
 
 #### Landmark Supreme Court Cases for BWC Defense
 
 **Terry v. Ohio (1968) - Stop and Frisk**
 - **Citation:** 392 U.S. 1 (1968)
 - **Standard:** "Reasonable suspicion" for stops and pat-downs
-- **BWC Critical:** "Did officers have reasonable, articulable suspicion before the stop? BarberX analyzes officer statements in BWC footage to determine if Terry requirements were met."
+- **BWC Critical:** "Did officers have reasonable, articulable suspicion before the stop? Evident analyzes officer statements in BWC footage to determine if Terry requirements were met."
 - **Links:** Full Justia opinion + CourtListener analysis
 
 **Miranda v. Arizona (1966) - Custodial Interrogation**
 - **Citation:** 384 U.S. 436 (1966)
 - **Requirement:** Police must inform suspects of rights before custodial interrogation
-- **BWC Critical:** "Was Miranda warning given? Was defendant in custody? BarberX's AI automatically detects Miranda warnings and flags interrogations without proper advisement."
+- **BWC Critical:** "Was Miranda warning given? Was defendant in custody? Evident's AI automatically detects Miranda warnings and flags interrogations without proper advisement."
 - **Links:** Full Justia opinion + CourtListener analysis
 
 **Graham v. Connor (1989) - Use of Force**
 - **Citation:** 490 U.S. 386 (1989)
 - **Standard:** "Objective reasonableness" for police use of force under 4th Amendment
-- **BWC Critical:** "Was force objectively reasonable from officer's perspective? BarberX analyzes force incidents frame-by-frame with constitutional standards."
+- **BWC Critical:** "Was force objectively reasonable from officer's perspective? Evident analyzes force incidents frame-by-frame with constitutional standards."
 - **Links:** Full Justia opinion + CourtListener analysis
 
 ---
@@ -146,21 +146,21 @@ Let the header stand as witness.
 **Design Philosophy:**
 - Military service and constitutional law are inseparable
 - Those who died defending the Constitution deserve to be honored
-- Legal professionals using BarberX defend the same Constitution in court
+- Legal professionals using Evident defend the same Constitution in court
 - Truth preservation: original documents + modern case law in one archive
 
 ---
 
 ## 🎯 For Law Firms: Why They'll Love This
 
-### Before BarberX Integration:
+### Before Evident Integration:
 ❌ BWC footage analysis separate from constitutional research  
 ❌ Manual lookup of 4th/5th Amendment case law  
 ❌ No direct links from evidence to legal standards  
 ❌ Time-consuming research for each case  
 ❌ No AI-powered constitutional violation detection
 
-### After BarberX Integration:
+### After Evident Integration:
 ✅ **One-Click Constitutional Research** - From BWC analysis directly to Supreme Court precedent  
 ✅ **AI-Powered Violation Detection** - Automatically flags 4th/5th Amendment issues  
 ✅ **Pre-Built Case Law Searches** - CourtListener queries optimized for BWC cases  
@@ -169,7 +169,7 @@ Let the header stand as witness.
 ✅ **Professional Credibility** - Honor wall shows respect for constitutional foundation
 
 ### Value Proposition:
-**"BarberX doesn't just analyze BWC footage. We defend the Constitution those 1.3 million Americans died protecting."**
+**"Evident doesn't just analyze BWC footage. We defend the Constitution those 1.3 million Americans died protecting."**
 
 ---
 
@@ -268,7 +268,7 @@ Header: Constitutional witness component (dynamic load)
 **Render Auto-Deployment:**
 - Status: Triggered automatically on push to main
 - Expected completion: ~5 minutes
-- Verification: Visit https://barberx.info/founding-documents
+- Verification: Visit https://Evident.info/founding-documents
 
 ---
 
@@ -347,7 +347,7 @@ Header: Constitutional witness component (dynamic load)
 - Homepage: `/`
 - Dashboard: `/dashboard`
 
-**Support Contact:** admin@barberx.info
+**Support Contact:** admin@Evident.info
 
 ---
 

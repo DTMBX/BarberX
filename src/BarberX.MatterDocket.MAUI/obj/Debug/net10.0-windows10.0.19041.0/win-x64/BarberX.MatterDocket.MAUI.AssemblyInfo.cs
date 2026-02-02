@@ -10,16 +10,16 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.PackageName", "com.companyname.barberx.matterdocket.maui")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.PackageName", "com.companyname.Evident.matterdocket.maui")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.PublisherName", "User Name")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.Name", "BarberX.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.Name", "Evident.MatterDocket.MAUI")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("Microsoft.Maui.ApplicationModel.AppInfo.Version", "1.0.0.1")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("BarberX.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Evident.MatterDocket.MAUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+280b1563049eb4272ce30314e296d0c0dadc042d")]
-[assembly: System.Reflection.AssemblyProductAttribute("BarberX.MatterDocket.MAUI")]
-[assembly: System.Reflection.AssemblyTitleAttribute("BarberX.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyProductAttribute("Evident.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Evident.MatterDocket.MAUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.19041.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.17763.0")]

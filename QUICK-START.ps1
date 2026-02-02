@@ -1,5 +1,5 @@
-# BarberX Quick Start Script
-# Automatically sets up and runs the BarberX development environment
+# Evident Quick Start Script
+# Automatically sets up and runs the Evident development environment
 
 param(
     [Parameter(Mandatory=$false)]
@@ -10,7 +10,7 @@ param(
     [switch]$SkipDependencies
 )
 
-Write-Host "🚀 BarberX Quick Start" -ForegroundColor Cyan
+Write-Host "🚀 Evident Quick Start" -ForegroundColor Cyan
 Write-Host "Platform: $Platform" -ForegroundColor Yellow
 Write-Host ""
 
@@ -56,7 +56,7 @@ function Install-Dependencies {
     
     # .NET dependencies
     Write-Host "Restoring .NET packages..." -ForegroundColor Yellow
-    Push-Location "src\BarberX.Mobile"
+    Push-Location "src\Evident.Mobile"
     dotnet restore
     Pop-Location
     
@@ -86,7 +86,7 @@ function Start-Platform {
     switch ($TargetPlatform) {
         'windows' {
             Write-Host "Building Windows app..." -ForegroundColor Yellow
-            Push-Location "src\BarberX.Mobile"
+            Push-Location "src\Evident.Mobile"
             dotnet build -f net10.0-windows10.0.19041.0 -c Debug
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "✅ Build successful. Launching app..." -ForegroundColor Green
@@ -97,7 +97,7 @@ function Start-Platform {
         
         'android' {
             Write-Host "Building Android app..." -ForegroundColor Yellow
-            Push-Location "src\BarberX.Mobile"
+            Push-Location "src\Evident.Mobile"
             dotnet build -f net10.0-android -c Debug
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "✅ Build successful. Deploying to device..." -ForegroundColor Green
@@ -109,7 +109,7 @@ function Start-Platform {
         'ios' {
             if ($IsMacOS) {
                 Write-Host "Building iOS app..." -ForegroundColor Yellow
-                Push-Location "src\BarberX.Mobile"
+                Push-Location "src\Evident.Mobile"
                 dotnet build -f net10.0-ios -c Debug
                 if ($LASTEXITCODE -eq 0) {
                     Write-Host "✅ Build successful. Launching simulator..." -ForegroundColor Green
@@ -144,7 +144,7 @@ try {
     Start-Platform -TargetPlatform $Platform
     
     Write-Host ""
-    Write-Host "🎉 BarberX is running!" -ForegroundColor Green
+    Write-Host "🎉 Evident is running!" -ForegroundColor Green
     Write-Host ""
     Write-Host "Next steps:" -ForegroundColor Cyan
     Write-Host "  - Open http://localhost:5000 for web interface" -ForegroundColor White

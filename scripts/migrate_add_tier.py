@@ -5,7 +5,7 @@ Database migration: Add tier column to user table
 import os
 import sqlite3
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "barberx.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "Evident.db")
 
 
 def migrate_add_tier_column():
@@ -50,7 +50,7 @@ def migrate_add_tier_column():
             """
             UPDATE user 
             SET tier = 9999
-            WHERE email = 'admin@barberx.info' OR role = 'admin'
+            WHERE email = 'admin@Evident.info' OR role = 'admin'
         """
         )
 

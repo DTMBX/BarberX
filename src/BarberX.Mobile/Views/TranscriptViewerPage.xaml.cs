@@ -1,4 +1,4 @@
-namespace BarberX.Mobile.Views;
+namespace Evident.Mobile.Views;
 
 public partial class TranscriptViewerPage : ContentPage
 {

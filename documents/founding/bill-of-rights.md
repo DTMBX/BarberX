@@ -101,7 +101,7 @@ The right of the people to be secure in their persons, houses, papers, and effec
 - Warrants require probable cause
 - Warrants must particularly describe place and items
 
-**Critical for BarberX BWC Cases:** Police body camera footage often involves 4th Amendment search and seizure issues. This amendment is foundational to criminal defense work.
+**Critical for Evident BWC Cases:** Police body camera footage often involves 4th Amendment search and seizure issues. This amendment is foundational to criminal defense work.
 
 ---
 
@@ -273,7 +273,7 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 - Preserves state sovereignty
 - Recognizes natural rights
 
-**BarberX Mission:**
+**Evident Mission:**
 These rights are what we defend in every case:
 - 1st Amendment - Religious freedom, speech
 - 4th Amendment - Search and seizure (BWC cases)
@@ -313,12 +313,12 @@ Originally, Bill of Rights only limited federal government. Through "incorporati
 - **Originalists:** Interpret based on 1791 meaning
 - **Living Constitution:** Interpret based on evolving standards
 
-**BarberX Position:** We preserve the original text and let courts interpret. Our role is to defend rights as currently understood while maintaining historical accuracy.
+**Evident Position:** We preserve the original text and let courts interpret. Our role is to defend rights as currently understood while maintaining historical accuracy.
 
 ---
 
 **For the Real Land of North America**  
-**Preserved on BarberX Legal Technologies**  
+**Preserved on Evident Legal Technologies**  
 **January 27, 2026**
 
 **"The enumeration of certain rights shall not be construed to deny or disparage others retained by the people."**

@@ -1,5 +1,5 @@
 """
-BarberX REST API
+Evident REST API
 Modular API structure for cross-platform client support
 """
 

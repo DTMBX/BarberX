@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-db_path = "instance/barberx.db"
+db_path = "instance/Evident.db"
 
 if os.path.exists(db_path):
     conn = sqlite3.connect(db_path)

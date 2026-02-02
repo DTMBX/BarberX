@@ -1,4 +1,4 @@
-﻿# Visual Studio 2026 Optimization Configuration
+# Visual Studio 2026 Optimization Configuration
 # Run this AFTER Visual Studio has been installed
 # Run as Administrator
 
@@ -36,15 +36,15 @@ Set-ItemProperty -Path "$vsRegBase\TextEditor\CSharp" -Name "AutoFormatOnSave" -
 Set-ItemProperty -Path "$vsRegBase\ProjectsAndSolutions" -Name "TrackActiveItem" -Value 1 -Type DWord -Force -ErrorAction SilentlyContinue
 
 # Configure Git settings for your repo
-Write-Host "`n[Git] Configuring Git for BarberX.info..." -ForegroundColor Yellow
+Write-Host "`n[Git] Configuring Git for Evident.info..." -ForegroundColor Yellow
 git config --global user.name "DTB396"
 git config --global core.autocrlf true
 git config --global init.defaultBranch main
 git config --global pull.rebase false
 
-# Create VS settings file for BarberX.info workspace
-Write-Host "`n[Workspace] Creating .vscode settings for BarberX.info..." -ForegroundColor Yellow
-$repoPath = "C:\web-dev\github-repos\BarberX.info"
+# Create VS settings file for Evident.info workspace
+Write-Host "`n[Workspace] Creating .vscode settings for Evident.info..." -ForegroundColor Yellow
+$repoPath = "C:\web-dev\github-repos\Evident.info"
 
 if (Test-Path $repoPath) {
     $vscodePath = Join-Path $repoPath ".vscode"
@@ -76,7 +76,7 @@ if (Test-Path $repoPath) {
   },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
-  "dotnet.defaultSolution": "BarberX.sln"
+  "dotnet.defaultSolution": "Evident.sln"
 }
 '@
     $settingsJson | Out-File -FilePath (Join-Path $vscodePath "settings.json") -Encoding UTF8
@@ -95,5 +95,5 @@ Write-Host "4. Install Extensions: Tools > Extensions > Manage Extensions" -Fore
 Write-Host "   - GitHub Copilot" -ForegroundColor Gray
 Write-Host "   - Web Essentials" -ForegroundColor Gray
 Write-Host "   - Productivity Power Tools" -ForegroundColor Gray
-Write-Host "5. Open your BarberX.info solution: File > Open > Project/Solution" -ForegroundColor White
-Write-Host "   Location: C:\web-dev\github-repos\BarberX.info" -ForegroundColor Gray
+Write-Host "5. Open your Evident.info solution: File > Open > Project/Solution" -ForegroundColor White
+Write-Host "   Location: C:\web-dev\github-repos\Evident.info" -ForegroundColor Gray

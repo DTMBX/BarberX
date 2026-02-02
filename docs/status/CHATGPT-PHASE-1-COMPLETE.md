@@ -157,7 +157,7 @@ Built-in legal assistant prompt includes:
 
 ### Step 1: Run Database Migration
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python migrate_add_chatgpt.py
 ```
 
@@ -266,7 +266,7 @@ Level 5: SecureStorage (platform keychain)
 ### 1. Why User-Provided API Keys?
 **Decision:** Users bring their own OpenAI API keys  
 **Rationale:**
-- No BarberX infrastructure cost for GPT
+- No Evident infrastructure cost for GPT
 - Users control their own quota/spending
 - Users get full GPT-5.2 capability
 - PRO/PREMIUM users already have GPT memberships

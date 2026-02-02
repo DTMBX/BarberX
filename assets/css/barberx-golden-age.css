@@ -1,55 +1,54 @@
 /**
- * BarberX Legal Technologies
- * 1920's Golden America Aesthetic
- * Art Deco | Precision | Excellence | Honor
+ * Evident Technologies
+ * Professional Legal Aesthetic
+ * Precision | Excellence | Trust | Integrity
  */
 
 :root {
-  /* Golden Age Color Palette */
-  --barberx-gold: #d4af37;
-  --barberx-dark-gold: #b8941c;
-  --barberx-brass: #b5a642;
-  --barberx-copper: #b87333;
-  --barberx-crimson: #8b0000;
-  --barberx-deep-red: #c41e3a;
-  --barberx-navy: #1a1a2e;
-  --barberx-charcoal: #2d2d3a;
-  --barberx-cream: #fff8dc;
-  --barberx-ivory: #fffff0;
-  --barberx-silver: #c0c0c0;
+  /* Professional Color Palette */
+  --evident-gold: #d4af37;
+  --evident-dark-gold: #b8941c;
+  --evident-brass: #b5a642;
+  --evident-copper: #b87333;
+  --evident-navy: #0a2540;
+  --evident-blue: #3b82f6;
+  --evident-charcoal: #1f2937;
+  --evident-cream: #fff8dc;
+  --evident-ivory: #fffff0;
+  --evident-silver: #c0c0c0;
 
-  /* Art Deco Gradients */
-  --barberx-gold-gradient: linear-gradient(135deg, #d4af37 0%, #b8941c 100%);
-  --barberx-deco-gradient: linear-gradient(
+  /* Professional Gradients */
+  --evident-gold-gradient: linear-gradient(135deg, #d4af37 0%, #b8941c 100%);
+  --evident-deco-gradient: linear-gradient(
     135deg,
-    #1a1a2e 0%,
-    #2d2d3a 50%,
-    #1a1a2e 100%
+    #0a2540 0%,
+    #1f2937 50%,
+    #0a2540 100%
   );
-  --barberx-hero-gradient: radial-gradient(ellipse at top, #2d2d3a, #1a1a2e);
+  --evident-hero-gradient: radial-gradient(ellipse at top, #1f2937, #0a2540);
 
   /* Typography - Golden Age Fonts */
-  --barberx-font-display: "Playfair Display", georgia, serif;
-  --barberx-font-sans: "Montserrat", "Helvetica Neue", arial, sans-serif;
-  --barberx-font-mono: "Courier Prime", "Courier New", monospace;
+  --Evident-font-display: "Playfair Display", georgia, serif;
+  --Evident-font-sans: "Montserrat", "Helvetica Neue", arial, sans-serif;
+  --Evident-font-mono: "Courier Prime", "Courier New", monospace;
 }
 
 /* ============================================
-   BARBERX GOLDEN HEADER
+   Evident GOLDEN HEADER
    ============================================ */
 
-.barberx-golden-header {
+.Evident-golden-header {
   background: linear-gradient(
     to bottom,
     rgb(26 26 46 / 98%),
     rgb(26 26 46 / 95%)
   );
-  border-bottom: 3px solid var(--barberx-gold);
+  border-bottom: 3px solid var(--Evident-gold);
   box-shadow: 0 2px 12px rgb(212 175 55 / 15%);
   position: relative;
 }
 
-.barberx-golden-header::before {
+.Evident-golden-header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -59,33 +58,33 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--barberx-gold) 50%,
+    var(--Evident-gold) 50%,
     transparent 100%
   );
 }
 
-.barberx-brand {
+.Evident-brand {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.barberx-brand:hover .barberx-logo__text {
-  color: var(--barberx-brass) !important;
+.Evident-brand:hover .Evident-logo__text {
+  color: var(--Evident-brass) !important;
   text-shadow: 0 0 20px rgb(212 175 55 / 40%);
 }
 
-.barberx-logo {
+.Evident-logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.barberx-logo__text {
+.Evident-logo__text {
   position: relative;
   display: inline-block;
   transition: all 0.3s ease;
 }
 
-.barberx-logo__text::after {
+.Evident-logo__text::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -94,14 +93,14 @@
   height: 1px;
   background: linear-gradient(
     90deg,
-    var(--barberx-gold) 0%,
-    var(--barberx-crimson) 50%,
-    var(--barberx-gold) 100%
+    var(--Evident-gold) 0%,
+    var(--Evident-crimson) 50%,
+    var(--Evident-gold) 100%
   );
   opacity: 0.6;
 }
 
-.barberx-logo__tagline {
+.Evident-logo__tagline {
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -111,7 +110,7 @@
    ============================================ */
 
 .premium-nav__link {
-  font-family: var(--barberx-font-sans);
+  font-family: var(--Evident-font-sans);
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -127,7 +126,7 @@
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: var(--barberx-gold-gradient);
+  background: var(--Evident-gold-gradient);
   transition: width 0.3s ease;
 }
 
@@ -158,8 +157,8 @@
 }
 
 .premium-nav__link--highlight {
-  background: var(--barberx-gold-gradient);
-  color: var(--barberx-navy) !important;
+  background: var(--Evident-gold-gradient);
+  color: var(--Evident-navy) !important;
   padding: 0.5rem 1.25rem;
   border-radius: 4px;
   font-weight: 600;
@@ -172,20 +171,20 @@
 }
 
 .premium-nav__dropdown {
-  border: 1px solid var(--barberx-gold);
+  border: 1px solid var(--Evident-gold);
   background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 100%);
   box-shadow: 0 8px 32px rgb(212 175 55 / 20%);
 }
 
 .premium-nav__dropdown-link {
-  font-family: var(--barberx-font-sans);
+  font-family: var(--Evident-font-sans);
   transition: all 0.2s ease;
   border-left: 2px solid transparent;
 }
 
 .premium-nav__dropdown-link:hover {
   background: rgb(212 175 55 / 10%);
-  border-left-color: var(--barberx-gold);
+  border-left-color: var(--Evident-gold);
   padding-left: 1.25rem;
 }
 
@@ -193,19 +192,19 @@
    FOOTER - GOLDEN AGE STYLING
    ============================================ */
 
-.barberx-footer-logo {
+.Evident-footer-logo {
   position: relative;
   padding-bottom: var(--space-4);
 }
 
-.barberx-footer-logo::after {
+.Evident-footer-logo::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 60px;
   height: 2px;
-  background: var(--barberx-gold-gradient);
+  background: var(--Evident-gold-gradient);
 }
 
 .footer-tagline {
@@ -220,8 +219,8 @@
 }
 
 .footer-contact .contact-link {
-  color: var(--barberx-gold);
-  font-family: var(--barberx-font-mono);
+  color: var(--Evident-gold);
+  font-family: var(--Evident-font-mono);
   font-size: 0.95rem;
   transition: all 0.3s ease;
   display: inline-block;
@@ -229,7 +228,7 @@
 }
 
 .footer-contact .contact-link:hover {
-  color: var(--barberx-brass);
+  color: var(--Evident-brass);
   text-shadow: 0 0 12px rgb(212 175 55 / 30%);
   transform: translateX(4px);
 }
@@ -244,9 +243,9 @@
    ============================================ */
 
 .btn-primary {
-  background: var(--barberx-gold-gradient);
-  color: var(--barberx-navy);
-  font-family: var(--barberx-font-sans);
+  background: var(--Evident-gold-gradient);
+  color: var(--Evident-navy);
+  font-family: var(--Evident-font-sans);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -262,10 +261,10 @@
 }
 
 .btn-ghost {
-  border: 2px solid var(--barberx-gold);
-  color: var(--barberx-gold);
+  border: 2px solid var(--Evident-gold);
+  color: var(--Evident-gold);
   background: transparent;
-  font-family: var(--barberx-font-sans);
+  font-family: var(--Evident-font-sans);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -273,8 +272,8 @@
 }
 
 .btn-ghost:hover {
-  background: var(--barberx-gold);
-  color: var(--barberx-navy);
+  background: var(--Evident-gold);
+  color: var(--Evident-navy);
   box-shadow: 0 4px 16px rgb(212 175 55 / 40%);
   transform: translateY(-2px);
 }
@@ -296,7 +295,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--barberx-gold-gradient);
+  background: var(--Evident-gold-gradient);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -318,7 +317,7 @@
 h1,
 h2,
 h3 {
-  font-family: var(--barberx-font-display);
+  font-family: var(--Evident-font-display);
 }
 
 h2 {
@@ -334,7 +333,7 @@ h2::after {
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background: var(--barberx-gold-gradient);
+  background: var(--Evident-gold-gradient);
 }
 
 /* ============================================
@@ -344,7 +343,7 @@ h2::after {
 .hero,
 .cta-section {
   position: relative;
-  background: var(--barberx-deco-gradient);
+  background: var(--Evident-deco-gradient);
 }
 
 .hero::before,
@@ -375,11 +374,11 @@ h2::after {
    ============================================ */
 
 @media (width <= 768px) {
-  .barberx-logo__text {
+  .Evident-logo__text {
     font-size: 1.5rem !important;
   }
 
-  .barberx-logo__tagline {
+  .Evident-logo__tagline {
     font-size: 0.55rem !important;
   }
 
@@ -392,17 +391,17 @@ h2::after {
    ACCESSIBILITY ENHANCEMENTS
    ============================================ */
 
-.barberx-brand:focus,
+.Evident-brand:focus,
 .premium-nav__link:focus,
 .btn-primary:focus,
 .btn-ghost:focus {
-  outline: 2px solid var(--barberx-gold);
+  outline: 2px solid var(--Evident-gold);
   outline-offset: 4px;
 }
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .barberx-brand,
+  .Evident-brand,
   .premium-nav__link,
   .card,
   .btn-primary,

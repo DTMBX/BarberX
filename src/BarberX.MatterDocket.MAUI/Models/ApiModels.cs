@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace BarberX.MatterDocket.MAUI.Models;
+namespace Evident.MatterDocket.MAUI.Models;
 
 // Chat UI Helper Properties
 public partial class ChatMessage

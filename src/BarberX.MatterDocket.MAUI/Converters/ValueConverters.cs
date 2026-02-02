@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace BarberX.MatterDocket.MAUI.Converters
+namespace Evident.MatterDocket.MAUI.Converters
 {
     /// <summary>
     /// Converts boolean to visibility (true = visible, false = collapsed)

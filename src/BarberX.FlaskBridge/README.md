@@ -1,9 +1,9 @@
-# BarberX Flask Bridge
+# Evident Flask Bridge
 
 This directory contains the integration layer between the existing Python Flask app and the new .NET infrastructure.
 
 ## Current Flask App
-- Location: `C:\web-dev\github-repos\BarberX.info\app.py`
+- Location: `C:\web-dev\github-repos\Evident.info\app.py`
 - Run with: `python app.py` or `flask run`
 
 ## Integration Strategy

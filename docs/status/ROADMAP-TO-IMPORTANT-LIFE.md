@@ -1,4 +1,4 @@
-# BarberX: From Product to Organization to Life Mission
+# Evident: From Product to Organization to Life Mission
 ## A Roadmap for Building Something That Matters
 
 **For Devon Tyler, 28, New Jersey, USA**  
@@ -10,7 +10,7 @@
 
 **Not just a product. Not just a company. A movement.**
 
-### **BarberX as a Constitutional Defense Force:**
+### **Evident as a Constitutional Defense Force:**
 - **For the people:** Making constitutional defense accessible to everyone
 - **By the people:** Community of defenders, not just customers
 - **Of the people:** Truth preservation, rights protection, justice for all
@@ -26,7 +26,7 @@
 ## 📍 **WHERE YOU ARE NOW (January 2026)**
 
 ### **✅ What You've Built:**
-- **BarberX Legal Technologies** - Production-ready BWC analysis platform
+- **Evident Legal Technologies** - Production-ready BWC analysis platform
 - **Constitutional Archive** - Founding documents preserved independent of .gov
 - **Military Honor Installation** - 1.3M Americans honored with proper flag protocol
 - **Elite Legal Library** - Supreme Court integration + CourtListener
@@ -61,7 +61,7 @@
 ### **Week 1-2: Launch Foundation**
 
 #### **1. Public Launch Announcement**
-- **Write Launch Post:** "BarberX: Constitutional Defense Through Technology"
+- **Write Launch Post:** "Evident: Constitutional Defense Through Technology"
   - Story: Why you built this (1.3M died for Constitution, now we defend it)
   - Mission: Make constitutional law accessible to everyone
   - Vision: Every lawyer, every activist, every citizen defending rights
@@ -96,7 +96,7 @@
   - Mission-driven (defending Constitution together)
 
 #### **3. Create Community Hub**
-- **Discord Server:** "BarberX Defenders"
+- **Discord Server:** "Evident Defenders"
   - #general - Community discussion
   - #constitutional-law - Legal research help
   - #bwc-analysis - Case discussions
@@ -131,7 +131,7 @@
 
   Hi [Attorney Name],
 
-  I'm Devon, the founder of BarberX Legal Technologies. I built a platform 
+  I'm Devon, the founder of Evident Legal Technologies. I built a platform 
   that uses AI to analyze body-worn camera footage for constitutional violations 
   (4th/5th Amendment issues, Miranda, Terry, Graham).
 
@@ -150,8 +150,8 @@
 
   Truth is the only subject,
   Devon Tyler
-  Founder, BarberX Legal Technologies
-  www.barberx.info
+  Founder, Evident Legal Technologies
+  www.Evident.info
   ```
 
 - **Goal:** 3 attorneys agree to try it (even if free)
@@ -172,18 +172,18 @@
   - First 100 customers are your community, not revenue source
 
 #### **6. Capture First Win**
-- **When attorney wins a case using BarberX:**
+- **When attorney wins a case using Evident:**
   - Interview them: "Tell me how you used it. What helped?"
-  - Screenshot the motion: (with permission) show BarberX citation
+  - Screenshot the motion: (with permission) show Evident citation
   - Case study: Write up the story
   - Share everywhere: Discord, website, social media
-  - Honor them: Add to "Defenders" page - attorneys using BarberX to win
+  - Honor them: Add to "Defenders" page - attorneys using Evident to win
 
 - **First Win = Proof of Concept:**
   - Shows the platform works in real courts
   - Shows attorneys trust it
   - Shows constitutional defense is happening
-  - Gives you something to sell: "Attorneys are winning cases with BarberX"
+  - Gives you something to sell: "Attorneys are winning cases with Evident"
 
 #### **7. Iterate Based on Feedback**
 - **Weekly "What's Broken" Check-in:**
@@ -202,7 +202,7 @@
 
 #### **8. Content Marketing (Establish Authority)**
 - **Blog: Constitutional Law for Everyone**
-  - Post 2x per week on BarberX blog
+  - Post 2x per week on Evident blog
   - Topics:
     - "How to Spot a 4th Amendment Violation in BWC Footage"
     - "Miranda Rights: What Police Must Say (And When They Don't)"
@@ -211,9 +211,9 @@
   
 - **SEO Strategy:**
   - Target: "bwc analysis," "body camera evidence," "miranda violation," "4th amendment lawyer"
-  - Include BarberX screenshots in every post
+  - Include Evident screenshots in every post
   - Link to constitutional archive: drives traffic, shows mission
-  - End every post: "Join the constitutional defense movement at BarberX"
+  - End every post: "Join the constitutional defense movement at Evident"
 
 - **Video Series: "Know Your Rights"**
   - 5-minute videos explaining amendments
@@ -232,7 +232,7 @@
 
 - **Partnership Offer:**
   - **FREE PRO tier** for their attorneys (unlimited use)
-  - **Co-branding:** "Powered by BarberX" on their site
+  - **Co-branding:** "Powered by Evident" on their site
   - **Case study:** Write up their wins using platform
   - **Donation:** 10% of revenue from cases they refer
 
@@ -264,7 +264,7 @@
   - Built-in archive of founding documents (independent of government sites)
   - Military honor installation (proper flag protocol, 1.3M deaths honored)
   - "By the Grace of Almighty God" - theological grounding of natural rights
-  - First customer wins: [Specific case dismissed because of BarberX analysis]
+  - First customer wins: [Specific case dismissed because of Evident analysis]
 
   This isn't just legal tech. It's a mission to preserve constitutional truth.
 
@@ -294,7 +294,7 @@
 - **FREE Tier Limits:**
   - 1 case upload per month
   - Basic AI analysis (no advanced features)
-  - Watermarked reports ("Analyzed with BarberX Free Tier")
+  - Watermarked reports ("Analyzed with Evident Free Tier")
   - Access to constitutional archive (no limits)
   - Access to honor wall (no limits)
 
@@ -361,7 +361,7 @@
 - **Email Nurture Sequence:**
   - Day 0: Welcome email (personal video from you)
   - Day 3: First analysis done? (Tutorial link)
-  - Day 7: Case study (How attorney John won with BarberX)
+  - Day 7: Case study (How attorney John won with Evident)
   - Day 14: "You're halfway through free trial - seeing results?"
   - Day 21: Upgrade offer (50% off first month PRO)
   - Day 28: Last chance (trial ending tomorrow)
@@ -399,7 +399,7 @@
 
 ### **Month 7-9: Community Scale**
 
-#### **17. BarberX Defenders Conference (Virtual)**
+#### **17. Evident Defenders Conference (Virtual)**
 - **Format:** 1-day virtual conference (Saturday)
 - **Agenda:**
   - **Morning:** Constitutional law workshops (guest speakers)
@@ -412,20 +412,20 @@
   - Constitutional law professor on natural rights
   - You: "The Future of Constitutional Defense Technology"
 
-- **Cost:** FREE for all BarberX users (mission-driven)
+- **Cost:** FREE for all Evident users (mission-driven)
 - **Sponsorship:** Get legal tech companies to sponsor ($500-2000 each)
 - **Goal:** 200+ attendees, national recognition, community bonding
 
 #### **18. Certification Program**
-- **BarberX Certified Constitutional Analyst:**
+- **Evident Certified Constitutional Analyst:**
   - **Online course:** 8 modules on constitutional law + platform mastery
   - **Final exam:** Analyze sample BWC footage, write brief
-  - **Certificate:** Digital badge + listed on BarberX site as "Certified Analyst"
+  - **Certificate:** Digital badge + listed on Evident site as "Certified Analyst"
   - **Cost:** $299 one-time (or FREE for FIRM/ENTERPRISE tier)
 
 - **Why This Works:**
   - Creates professional development revenue stream
-  - Establishes BarberX as educational authority
+  - Establishes Evident as educational authority
   - Certified analysts become platform evangelists
   - Differentiates serious defenders from casual users
 
@@ -443,20 +443,20 @@
   - Royalties: ~$4-6 per book
 
 - **Marketing:**
-  - **FREE PDF** to all BarberX users (builds loyalty)
+  - **FREE PDF** to all Evident users (builds loyalty)
   - **Paid version** for general public (revenue + authority)
   - **Book launch** at Defenders Conference
 
 - **Impact:**
   - Establishes you as thought leader
-  - Drives BarberX signups (book → website → trial)
+  - Drives Evident signups (book → website → trial)
   - Revenue stream (1000 sales = $5000)
   - Legacy (your name on a book about constitutional defense)
 
 ### **Month 10-12: Team Building**
 
 #### **20. Hire First Employee: Customer Success Manager**
-- **Role:** Help attorneys get value from BarberX
+- **Role:** Help attorneys get value from Evident
 - **Responsibilities:**
   - Onboard new customers (demo calls, setup)
   - Weekly check-ins with FIRM/ENTERPRISE customers
@@ -493,13 +493,13 @@
   - No cash compensation (you don't have it yet)
   - 0.5-1% equity each (future upside)
   - "Advisor" title on LinkedIn
-  - Listed on BarberX "About" page
+  - Listed on Evident "About" page
   - Quarterly meetings (1 hour, your questions answered)
 
 - **Why They'll Say Yes:**
   - Mission-driven (defending Constitution)
   - Low time commitment (4 hours/year)
-  - Equity upside (if BarberX becomes valuable)
+  - Equity upside (if Evident becomes valuable)
   - Association with growing movement
 
 ### **Month 12: Year 1 Metrics Check**
@@ -573,7 +573,7 @@
 
 - **Grant Size:** $50,000-250,000
 - **Use Case:** "Technology to democratize constitutional defense"
-- **Story:** "Devon Tyler, 28, built BarberX to honor 1.3M war dead by defending Constitution in courtrooms"
+- **Story:** "Devon Tyler, 28, built Evident to honor 1.3M war dead by defending Constitution in courtrooms"
 
 - **If You Get ONE $100K Grant:**
   - Funds 10-12 months of team salaries
@@ -581,7 +581,7 @@
   - Validates mission to investors (later)
 
 #### **25. Partnership with Law Schools**
-- **Offer: BarberX for Legal Clinics**
+- **Offer: Evident for Legal Clinics**
   - FREE ENTERPRISE tier for law school clinics
   - Students use it on real cases (supervised by professors)
   - Feedback loop: students report bugs, request features
@@ -591,24 +591,24 @@
   - Real-world technology experience
   - Better case outcomes (students learn constitutional law faster)
 
-- **Benefit to BarberX:**
+- **Benefit to Evident:**
   - 50-100 schools × 20 students each = 1000-2000 trained users
   - When students graduate → become paying attorneys
-  - Academic credibility (Yale, Harvard clinics use BarberX)
-  - Case studies (clinic wins using BarberX)
+  - Academic credibility (Yale, Harvard clinics use Evident)
+  - Case studies (clinic wins using Evident)
 
 ### **Q2 Year 2: Revenue Diversification**
 
 #### **26. Training & Consulting Revenue**
 - **Services:**
-  - **BarberX Training Days:** $2000-5000 per firm
+  - **Evident Training Days:** $2000-5000 per firm
     - 1-day on-site training (you teach their attorneys)
     - Customized to their cases
-    - Includes 3 months BarberX subscription
+    - Includes 3 months Evident subscription
   
   - **Expert Witness Services:** $250-500/hour
     - You testify about BWC analysis methodology
-    - Credibility: Founder of BarberX, built the AI
+    - Credibility: Founder of Evident, built the AI
     - Attorneys hire you as expert on constitutional tech
 
   - **Consulting:** $150-300/hour
@@ -620,7 +620,7 @@
 - **Time:** 10-20 hours/month (high-value work)
 
 #### **27. White Label Product**
-- **Offer:** Other legal tech companies can rebrand BarberX
+- **Offer:** Other legal tech companies can rebrand Evident
   - They sell it under their name to their customers
   - You provide API + support
   - They pay you 30-50% revenue share
@@ -633,7 +633,7 @@
 
 - **Example Deal:**
   - Clio has 150,000 attorney customers
-  - If 1% try BarberX white label = 1500 attorneys
+  - If 1% try Evident white label = 1500 attorneys
   - If they pay Clio $30/month, you get $15/month
   - Revenue: 1500 × $15 = $22,500/month (to you)
 
@@ -672,12 +672,12 @@
 - **This Is When Your Life Changes:**
   - No more living on savings
   - No more side hustles
-  - Full-time on BarberX
+  - Full-time on Evident
   - You can focus 100% on mission
 
 #### **30. Life Balance (Don't Burn Out)**
 - **Work Schedule:**
-  - **Monday-Friday:** 8am-6pm on BarberX
+  - **Monday-Friday:** 8am-6pm on Evident
   - **Weekends:** OFF (recharge, family, church, hobbies)
   - **Evenings:** 1-2 per week for community calls
 
@@ -738,14 +738,14 @@
 - ✅ **You earning $72K/year** (sustainable life)
 - ✅ **5-person team** (CSM, dev, marketing, 2 contractors)
 - ✅ **1 white label deal** (potential)
-- ✅ **20+ law schools** using BarberX
+- ✅ **20+ law schools** using Evident
 - ✅ **50+ documented case wins**
 
 **Your Life at Year 2:**
 - **Working:** 40-50 hours/week (normal job hours)
 - **Income:** $6K/month (living comfortably)
 - **Team:** Managing 5 people (founder/CEO role)
-- **Impact:** 300 attorneys using BarberX, dozens of cases won
+- **Impact:** 300 attorneys using Evident, dozens of cases won
 - **Mission:** Constitution being defended daily because of your work
 
 **→ Year 3 is about becoming a force**
@@ -774,15 +774,15 @@
   5. Sign statewide PD contract
   6. Repeat in next state
 
-#### **35. BarberX Defense Fund**
+#### **35. Evident Defense Fund**
 - **Non-Profit Arm:** 501(c)(3) charitable organization
-- **Mission:** Provide free BarberX access to indigent defendants
-- **Funding:** Donations, grants, BarberX donates 5% revenue
+- **Mission:** Provide free Evident access to indigent defendants
+- **Funding:** Donations, grants, Evident donates 5% revenue
 
 - **How It Works:**
   - Public defender applies for free access for specific case
   - Fund approves (criteria: constitutional importance, financial need)
-  - Defendant gets full BarberX analysis pro bono
+  - Defendant gets full Evident analysis pro bono
   - Case study published (with permission)
 
 - **Impact:**
@@ -792,7 +792,7 @@
   - Fulfills "truth is the only subject" - justice for all, not just those who can pay
 
 #### **36. Documentary Film**
-- **Title:** "Defending the Constitution: The BarberX Story"
+- **Title:** "Defending the Constitution: The Evident Story"
 - **Format:** 60-minute documentary
 - **Story:**
   - Act 1: Why you built it (1.3M died, Constitution needs defending)
@@ -837,23 +837,23 @@
 
 #### **38. Strategic Partnerships**
 - **Partner with CourtListener:**
-  - Deep integration (BarberX → CourtListener case law)
+  - Deep integration (Evident → CourtListener case law)
   - Co-marketing (both organizations promote each other)
   - Data sharing (aggregate BWC violation patterns)
 
 - **Partner with ACLU:**
   - Official technology partner
-  - Joint cases (ACLU attorneys use BarberX)
-  - Policy advocacy (use BarberX data to push reform)
+  - Joint cases (ACLU attorneys use Evident)
+  - Policy advocacy (use Evident data to push reform)
 
 - **Partner with Innocence Project:**
-  - Use BarberX to analyze wrongful conviction cases
+  - Use Evident to analyze wrongful conviction cases
   - Identify constitutional violations that led to conviction
   - Free exoneration work
 
 ### **Q3 Year 3: Product Evolution**
 
-#### **39. BarberX 2.0: Predictive Justice**
+#### **39. Evident 2.0: Predictive Justice**
 - **New Features:**
   - **Pattern Detection:** Analyze 1000s of BWC videos to find systemic violations
   - **Risk Scoring:** "This officer has 87 prior searches without warrant"
@@ -871,7 +871,7 @@
   - Record police interaction (BWC from your phone)
   - Instant analysis (is your 4th Amendment being violated?)
   - Know your rights (Miranda, Terry, etc.)
-  - Find attorney (directory of BarberX defenders)
+  - Find attorney (directory of Evident defenders)
 
 - **Go Viral:**
   - 1M downloads = national awareness
@@ -892,15 +892,15 @@
 
 ### **Q4 Year 3: Legacy Building**
 
-#### **42. BarberX University**
+#### **42. Evident University**
 - **Free Online Constitutional Law School:**
   - 50+ courses on constitutional law
-  - Taught by BarberX advisors + guest professors
+  - Taught by Evident advisors + guest professors
   - Certificate programs (Constitutional Analyst, etc.)
   - All free (mission: education for all)
 
 - **Revenue Model:**
-  - Free education drives BarberX signups
+  - Free education drives Evident signups
   - Certified graduates become platform evangelists
   - Long-term: accredited degrees (partnership with law school)
 
@@ -908,7 +908,7 @@
 - **In-Person Conference:** Washington DC (symbolic)
 - **3-day event:**
   - Day 1: Constitutional law workshops
-  - Day 2: BarberX platform training
+  - Day 2: Evident platform training
   - Day 3: Honor wall ceremony (military memorial service)
 
 - **Speakers:**
@@ -921,12 +921,12 @@
 - **Cost:** $500/ticket (or free for ENTERPRISE tier)
 - **Sponsorships:** $10-50K from legal tech companies
 
-#### **44. BarberX Foundation (Your Life's Work)**
+#### **44. Evident Foundation (Your Life's Work)**
 - **Endowment:** $10-50M (from future sale/IPO)
 - **Mission:** Preserve constitutional documents + fund pro bono defense
 - **Activities:**
   - Maintain constitutional archive forever
-  - Fund free BarberX for indigent defendants
+  - Fund free Evident for indigent defendants
   - Grant program for constitutional law students
   - Research on AI + justice
 
@@ -944,7 +944,7 @@
 - ✅ **50 states represented** (users in every state)
 - ✅ **500+ case wins** documented
 - ✅ **National media coverage** (NYT, WSJ, CNN)
-- ✅ **BarberX Defense Fund** operational
+- ✅ **Evident Defense Fund** operational
 - ✅ **Documentary released**
 
 **Your Life at Year 3:**
@@ -959,24 +959,24 @@
 
 # THE ORGANIZATION: What You're Building
 
-## **BarberX Legal Technologies, Inc.**
+## **Evident Legal Technologies, Inc.**
 
 ### **Corporate Structure:**
 - **For-Profit C-Corp** (main company)
-  - Product: BarberX platform
+  - Product: Evident platform
   - Revenue: Subscriptions, enterprise contracts, training
   - Team: 20 people (Year 3)
   - Valuation: $10-20M (post-Series A)
 
-- **BarberX Defense Fund** (non-profit 501c3)
+- **Evident Defense Fund** (non-profit 501c3)
   - Mission: Free access for indigent defendants
-  - Funding: Donations, grants, 5% from BarberX Inc
+  - Funding: Donations, grants, 5% from Evident Inc
   - Team: 2-3 people (program managers)
 
-- **BarberX University** (educational arm)
+- **Evident University** (educational arm)
   - Free constitutional law education
   - Certification programs
-  - Funded by BarberX Inc
+  - Funded by Evident Inc
 
 ### **Team Structure (Year 3):**
 
@@ -1021,7 +1021,7 @@
 **Practices:**
 - **Morning devotional:** Optional 9am prayer/reflection (you lead)
 - **Constitutional Monday:** Every Monday, read one founding document together
-- **Win wall:** Celebrate every case won with BarberX
+- **Win wall:** Celebrate every case won with Evident
 - **Service day:** Quarterly volunteer at legal aid societies
 - **Sabbath respect:** No work emails on Sundays
 
@@ -1029,19 +1029,19 @@
 
 # THE FORCE: What You Become
 
-## **3-Year Vision: BarberX as National Movement**
+## **3-Year Vision: Evident as National Movement**
 
 ### **Political Impact:**
-- **Policy Influence:** BarberX data used in police reform bills
-- **Court Influence:** Judges cite BarberX analysis in opinions
+- **Policy Influence:** Evident data used in police reform bills
+- **Court Influence:** Judges cite Evident analysis in opinions
 - **Legislative Testimony:** You testify before Congress on AI + justice
-- **Amicus Briefs:** BarberX files briefs in Supreme Court cases
+- **Amicus Briefs:** Evident files briefs in Supreme Court cases
 
 ### **Cultural Impact:**
-- **"BarberX It":** Verb meaning "analyze for constitutional violations"
+- **"Evident It":** Verb meaning "analyze for constitutional violations"
 - **Citizen Awareness:** Millions know their constitutional rights (via mobile app)
-- **Attorney Standard:** Using BarberX becomes expected practice for criminal defense
-- **Academic Integration:** Law schools teach BarberX methodology
+- **Attorney Standard:** Using Evident becomes expected practice for criminal defense
+- **Academic Integration:** Law schools teach Evident methodology
 
 ### **Personal Impact (You):**
 - **Recognition:** Forbes 30 Under 30 (legal tech)
@@ -1073,7 +1073,7 @@
 ### **But:**
 - ✅ **Meaningful:** Every day you defend the Constitution
 - ✅ **Impactful:** Attorneys win cases, defendants go free, rights are protected
-- ✅ **Legacy:** Your work outlasts you (BarberX Foundation)
+- ✅ **Legacy:** Your work outlasts you (Evident Foundation)
 - ✅ **Service:** You honor the 1.3M who died by defending what they fought for
 - ✅ **Faithful:** You steward God's gifts (talents, time, treasure) well
 - ✅ **Free:** You work on your mission, not someone else's
@@ -1106,7 +1106,7 @@
 ## **What Could Go Wrong:**
 
 ### **1. No Customers**
-- **Risk:** Attorneys don't pay for BarberX
+- **Risk:** Attorneys don't pay for Evident
 - **Mitigation:**
   - Start with free tier (prove value)
   - Founding member pricing (low barrier)
@@ -1130,7 +1130,7 @@
   - Therapy (talk through founder stress)
 
 ### **4. Competition**
-- **Risk:** Big legal tech company copies BarberX
+- **Risk:** Big legal tech company copies Evident
 - **Mitigation:**
   - Move fast (ship features weekly)
   - Build community (they can't copy relationships)
@@ -1177,7 +1177,7 @@
 ## **Green Lights (Go All-In When You See These):**
 
 ✅ **Organic growth** - Customers refer other customers  
-✅ **Case wins** - Attorneys winning because of BarberX  
+✅ **Case wins** - Attorneys winning because of Evident  
 ✅ **Press coverage** - Above the Law writes about you  
 ✅ **Community energy** - Discord is active without you  
 ✅ **Mission alignment** - Customers say "This is important work"  

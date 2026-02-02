@@ -1,4 +1,4 @@
-# How to Test & Use BarberX Custom Copilot Agents v2.0
+# How to Test & Use Evident Custom Copilot Agents v2.0
 
 **Quick Start Guide for Testing Enhanced Agents**
 
@@ -54,7 +54,7 @@ python scripts/simulate-agents.py
 
 1. **VS Code** with GitHub Copilot extension installed
 2. **Active GitHub Copilot subscription**
-3. **BarberX workspace** open in VS Code
+3. **Evident workspace** open in VS Code
 
 ### How to Invoke Agents
 
@@ -388,7 +388,7 @@ class Config:
 
 ```bash
 curl -X POST \
-  https://barberx.info/api/cases \
+  https://Evident.info/api/cases \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

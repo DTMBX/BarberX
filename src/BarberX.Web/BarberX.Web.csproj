@@ -21,8 +21,8 @@
 
   <ItemGroup>
     <!-- Web depends on Infrastructure and Shared -->
-    <ProjectReference Include="..\BarberX.Infrastructure\BarberX.Infrastructure.csproj" />
-    <ProjectReference Include="..\BarberX.Shared\BarberX.Shared.csproj" />
+    <ProjectReference Include="..\Evident.Infrastructure\Evident.Infrastructure.csproj" />
+    <ProjectReference Include="..\Evident.Shared\Evident.Shared.csproj" />
   </ItemGroup>
 
 </Project>

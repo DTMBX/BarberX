@@ -335,9 +335,9 @@ Happy deploying! 🚀
 
 ---
 
-# BarberX.info
+# Evident.info
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_SITE_ID/deploy-status)](https://app.netlify.com/sites/barberx-info/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_SITE_ID/deploy-status)](https://app.netlify.com/sites/Evident-info/deploys)
 
 ## Quick Start
 

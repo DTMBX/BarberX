@@ -1,12 +1,12 @@
-# BarberX - Ready to Use Today! 🚀
+# Evident - Ready to Use Today! 🚀
 
 ## Login NOW
 
 **URL:** http://localhost:5000/auth/login
 
 **Credentials:**
-- Test User: `test@barberx.info` / `Password123!`
-- Admin: `admin@barberx.info` / `Admin123!`
+- Test User: `test@Evident.info` / `Password123!`
+- Admin: `admin@Evident.info` / `Admin123!`
 
 ## App is Running
 

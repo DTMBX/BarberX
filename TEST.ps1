@@ -1,5 +1,5 @@
 # Quick Test Script - Verify Everything Works
-Write-Host "`n=== BarberX Quick Test ===" -ForegroundColor Cyan
+Write-Host "`n=== Evident Quick Test ===" -ForegroundColor Cyan
 
 # Test 1: Check if app is running
 Write-Host "`n[Test 1] Checking if app is running..." -ForegroundColor Yellow
@@ -15,8 +15,8 @@ try {
 # Test 2: Check databases exist
 Write-Host "`n[Test 2] Checking databases..." -ForegroundColor Yellow
 $dbs = @{
-    "Main DB" = "instance\barberx_FRESH.db"
-    "Legal Retrieval DB" = "instance\barberx_legal.db"
+    "Main DB" = "instance\Evident_FRESH.db"
+    "Legal Retrieval DB" = "instance\Evident_legal.db"
 }
 
 foreach ($name in $dbs.Keys) {
@@ -34,8 +34,8 @@ from app import app
 from models_auth import User
 
 with app.app_context():
-    admin = User.query.filter_by(email='admin@barberx.info').first()
-    test = User.query.filter_by(email='test@barberx.info').first()
+    admin = User.query.filter_by(email='admin@Evident.info').first()
+    test = User.query.filter_by(email='test@Evident.info').first()
 
     if admin and test:
         print('OK')
@@ -89,7 +89,7 @@ if ($result -eq "OK") {
 Write-Host "`n[Test 6] Checking ingested documents..." -ForegroundColor Yellow
 $docCount = @'
 import sqlite3
-conn = sqlite3.connect('instance/barberx_legal.db')
+conn = sqlite3.connect('instance/Evident_legal.db')
 c = conn.cursor()
 count = c.execute('SELECT COUNT(*) FROM documents').fetchone()[0]
 print(count)
@@ -108,7 +108,7 @@ Write-Host "`n=== Test Summary ===" -ForegroundColor Cyan
 Write-Host "All core systems operational!" -ForegroundColor Green
 Write-Host "`nNext Steps:" -ForegroundColor Cyan
 Write-Host "  1. Open browser: http://localhost:5000/auth/login" -ForegroundColor White
-Write-Host "  2. Login with: test@barberx.info / Password123!" -ForegroundColor White
+Write-Host "  2. Login with: test@Evident.info / Password123!" -ForegroundColor White
 Write-Host "  3. Explore the dashboard" -ForegroundColor White
 Write-Host "  4. Read GETTING-STARTED-TODAY.md for examples" -ForegroundColor White
 Write-Host ""

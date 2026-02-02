@@ -111,7 +111,7 @@ You already know this - add `COURTLISTENER_API_KEY` to Render as **SECRET**
 
 ### Step 2: Test Citation Analyzer (5 min)
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Test Shepardizing a famous case
 python -c "
@@ -230,7 +230,7 @@ def get_judge_profile(name):
 ## 💰 Competitive Positioning
 
 ### Westlaw ($500-2,000/month)
-**BarberX Equivalent:**
+**Evident Equivalent:**
 - ✅ Citation analysis (Shepard's)
 - ✅ Judge research (KeyCite)
 - ✅ Case search
@@ -238,7 +238,7 @@ def get_judge_profile(name):
 - **Price:** $50-200/month (10x cheaper!)
 
 ### LexisNexis ($500-1,500/month)
-**BarberX Equivalent:**
+**Evident Equivalent:**
 - ✅ Shepard's Citations
 - ✅ Judge profiles
 - ✅ Case law database
@@ -246,7 +246,7 @@ def get_judge_profile(name):
 - **Price:** $50-200/month (10x cheaper!)
 
 ### Bloomberg Law ($1,000+/month)
-**BarberX Equivalent:**
+**Evident Equivalent:**
 - ✅ Citation analysis
 - ✅ Judge analytics
 - ✅ Litigation intelligence
@@ -254,7 +254,7 @@ def get_judge_profile(name):
 - **Price:** $50-200/month (20x cheaper!)
 
 ### PACER ($0.10/page = $$$)
-**BarberX Equivalent:**
+**Evident Equivalent:**
 - ✅ Free docket access via RECAP
 - ✅ No per-page fees
 - ✅ Full document access

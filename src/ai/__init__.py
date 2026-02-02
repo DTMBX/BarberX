@@ -1,1 +1,1 @@
-"""BarberX AI subsystem"""
+"""Evident AI subsystem"""

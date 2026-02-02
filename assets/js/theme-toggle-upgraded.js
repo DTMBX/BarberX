@@ -14,7 +14,7 @@
 class ThemeManager {
   constructor() {
     this.config = {
-      storageKey: "barberx-theme",
+      storageKey: "Evident-theme",
       themes: {
         light: "light",
         dark: "dark",

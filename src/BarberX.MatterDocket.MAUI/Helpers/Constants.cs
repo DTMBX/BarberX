@@ -1,4 +1,4 @@
-namespace BarberX.MatterDocket.MAUI.Helpers;
+namespace Evident.MatterDocket.MAUI.Helpers;
 
 public static class Constants
 {
@@ -6,14 +6,14 @@ public static class Constants
     #if DEBUG
     public const string ApiBaseUrl = "http://localhost:5000/api/v1";
     #else
-    public const string ApiBaseUrl = "https://barberx.info/api/v1";
+    public const string ApiBaseUrl = "https://Evident.info/api/v1";
     #endif
     
-    public const string WebsiteUrl = "https://barberx.info";
+    public const string WebsiteUrl = "https://Evident.info";
     public const int ApiTimeoutSeconds = 30;
     
     // Application Info
-    public const string AppName = "BarberX Matter Docket (DTMB)";
+    public const string AppName = "Evident Matter Docket (DTMB)";
     public const string AppVersion = "1.0.0";
     public const string ShortName = "DTMB";
     
@@ -26,7 +26,7 @@ public static class Constants
     public const string TokenExpiryKey = "token_expiry";
     
     // Database
-    public const string DatabaseFilename = "barberx_matterdocket.db";
+    public const string DatabaseFilename = "Evident_matterdocket.db";
     public const SQLite.SQLiteOpenFlags DatabaseFlags =
         SQLite.SQLiteOpenFlags.ReadWrite |
         SQLite.SQLiteOpenFlags.Create |

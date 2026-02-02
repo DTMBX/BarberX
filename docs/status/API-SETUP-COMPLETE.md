@@ -51,7 +51,7 @@ if api_key:
 **For Production (Render.com):**
 
 1. Go to **https://dashboard.render.com**
-2. Select your **BarberX web service**
+2. Select your **Evident web service**
 3. Click **"Environment"** (left sidebar)
 4. Click **"Add Environment Variable"**
 5. Enter:
@@ -89,7 +89,7 @@ python overnight_library_builder.py --practice-area all
 
 **Test locally:**
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py --practice-area civil_rights --max-cases 3
 ```
 
@@ -186,7 +186,7 @@ for case in cases:
 
 ### Check via API:
 ```bash
-curl https://barberx.onrender.com/api/legal-library/search?q=Miranda
+curl https://Evident.onrender.com/api/legal-library/search?q=Miranda
 ```
 
 ### Check in logs:
@@ -240,7 +240,7 @@ from chatgpt_legal_library_integration import ChatGPTLegalLibraryIntegration
 
 ### 2. Test ChatGPT Integration
 ```bash
-curl -X POST https://barberx.onrender.com/api/chatgpt/assist \
+curl -X POST https://Evident.onrender.com/api/chatgpt/assist \
   -d '{"question": "What is qualified immunity?"}'
 ```
 
@@ -277,7 +277,7 @@ Once you add the API key:
 - ✅ ChatGPT can reference real case law
 - ✅ Document Optimizer can auto-cite precedents
 - ✅ Violation Finder can link to actual court opinions
-- ✅ Full legal research library for BarberX users
+- ✅ Full legal research library for Evident users
 
 **Time to complete:** 10 minutes  
 **Cost:** $0 (free tier)  

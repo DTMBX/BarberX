@@ -51,14 +51,14 @@ at 1/10th the cost of Westlaw and LexisNexis
 ### **New Pages Added:**
 
 **1. Mission Page (`/mission`)**
-- Why BarberX exists (justice gap problem)
+- Why Evident exists (justice gap problem)
 - Our solution (10M+ opinions, $50/month)
 - How we'll win (4 strategies)
 - Path to greatness (Today → 3 years)
 - Leverage for impact (100K free accounts, research, partnerships)
 
 **2. Pricing Comparison (`/pricing-comparison`)**
-- Feature-by-feature: BarberX vs Westlaw vs LexisNexis
+- Feature-by-feature: Evident vs Westlaw vs LexisNexis
 - 25+ comparisons showing parity
 - Visual: Green (advantages) vs Red (competitor costs)
 - Savings calculator: $23,400/year
@@ -74,7 +74,7 @@ at 1/10th the cost of Westlaw and LexisNexis
 ## 📊 KEY DIFFERENTIATORS NOW VISIBLE
 
 ### **1. Equal Quality**
-| Feature | BarberX | Westlaw | LexisNexis |
+| Feature | Evident | Westlaw | LexisNexis |
 |---------|---------|---------|------------|
 | Federal Opinions | ✓ 10M+ | ✓ 10M+ | ✓ 10M+ |
 | Citation Analysis | ✓ Shepard's | ✓ KeyCite | ✓ Shepard's |
@@ -82,13 +82,13 @@ at 1/10th the cost of Westlaw and LexisNexis
 | AI Assistant | ✓ ChatGPT | ✓ AI Research | ✓ Lexis+ AI |
 
 ### **2. 20x Price Advantage**
-| Item | BarberX | Westlaw | Savings |
+| Item | Evident | Westlaw | Savings |
 |------|---------|---------|---------|
 | Monthly | $50 | $2,000 | $1,950 |
 | Annual | $600 | $24,000 | $23,400 |
 
 ### **3. Mission Advantages**
-| Feature | BarberX | Competitors |
+| Feature | Evident | Competitors |
 |---------|---------|-------------|
 | Free Tier | ✓ Yes | ✗ No |
 | Student Pricing | ✓ $20/month | Law school only |
@@ -239,7 +239,7 @@ at 1/10th the cost of Westlaw and LexisNexis
 
 2. **`templates/pricing-comparison.html`** (17KB)
    - Full feature comparison table
-   - BarberX vs Westlaw vs LexisNexis
+   - Evident vs Westlaw vs LexisNexis
    - 25+ features compared
    - $23,400 savings calculator
 

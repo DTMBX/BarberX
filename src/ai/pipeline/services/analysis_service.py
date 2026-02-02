@@ -151,7 +151,7 @@ class AnalysisService:
 
                     # Add helpful footer
                     response += "\n\n---\n"
-                    response += "*This answer was generated using BarberX's smart tools (web search, knowledge base, and calculations). "
+                    response += "*This answer was generated using Evident's smart tools (web search, knowledge base, and calculations). "
                     response += "For document-grounded analysis, upload relevant legal documents to your library.*"
 
                     return response

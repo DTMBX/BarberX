@@ -1,12 +1,12 @@
 #!/usr/bin/env pwsh
-# BarberX.info - Comprehensive Fix Script
+# Evident.info - Comprehensive Fix Script
 # Fixes all detected issues automatically
 
 $ErrorActionPreference = "Stop"
-$repoRoot = "C:\web-dev\github-repos\BarberX.info"
+$repoRoot = "C:\web-dev\github-repos\Evident.info"
 Set-Location $repoRoot
 
-Write-Host "`n?? BarberX.info - Comprehensive Fix Script" -ForegroundColor Cyan
+Write-Host "`n?? Evident.info - Comprehensive Fix Script" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -81,20 +81,20 @@ if ($LASTEXITCODE -eq 0) {
 # ============================================================================
 Write-Host "`n[3/4] Fixing .NET Solution..." -ForegroundColor Yellow
 
-if (-not (Test-Path "BarberX.sln")) {
-    Write-Host "   Creating BarberX.sln..." -ForegroundColor Gray
-    dotnet new sln -n BarberX -o .
+if (-not (Test-Path "Evident.sln")) {
+    Write-Host "   Creating Evident.sln..." -ForegroundColor Gray
+    dotnet new sln -n Evident -o .
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "   ? Solution file created" -ForegroundColor Green
         
         # Add projects to solution
         $projects = @(
-            "src\BarberX.Web\BarberX.Web.csproj",
-            "src\BarberX.Mobile\BarberX.Mobile.csproj",
-            "src\BarberX.Shared\BarberX.Shared.csproj",
-            "src\BarberX.Infrastructure\BarberX.Infrastructure.csproj",
-            "tests\BarberX.Tests.Unit\BarberX.Tests.Unit.csproj"
+            "src\Evident.Web\Evident.Web.csproj",
+            "src\Evident.Mobile\Evident.Mobile.csproj",
+            "src\Evident.Shared\Evident.Shared.csproj",
+            "src\Evident.Infrastructure\Evident.Infrastructure.csproj",
+            "tests\Evident.Tests.Unit\Evident.Tests.Unit.csproj"
         )
         
         foreach ($project in $projects) {
@@ -110,10 +110,10 @@ if (-not (Test-Path "BarberX.sln")) {
 
 # Restore and build
 Write-Host "   Restoring .NET packages..." -ForegroundColor Gray
-dotnet restore BarberX.sln --verbosity quiet
+dotnet restore Evident.sln --verbosity quiet
 
 Write-Host "   Building solution..." -ForegroundColor Gray
-$buildResult = dotnet build BarberX.sln --verbosity quiet --no-restore 2>&1
+$buildResult = dotnet build Evident.sln --verbosity quiet --no-restore 2>&1
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "   ? .NET solution built successfully" -ForegroundColor Green
@@ -126,7 +126,7 @@ if ($LASTEXITCODE -eq 0) {
 # ============================================================================
 Write-Host "`n[4/4] Checking Database..." -ForegroundColor Yellow
 
-if (-not (Test-Path "instance\barberx.db")) {
+if (-not (Test-Path "instance\Evident.db")) {
     Write-Host "   Database will be created on first Flask run" -ForegroundColor Gray
     New-Item -ItemType Directory -Path "instance" -Force | Out-Null
     Write-Host "   ? Instance directory created" -ForegroundColor Green
@@ -160,7 +160,7 @@ if ($LASTEXITCODE -eq 0) {
 
 # Test .NET build
 Write-Host "`nTesting .NET solution..." -ForegroundColor Gray
-if (Test-Path "BarberX.sln") {
+if (Test-Path "Evident.sln") {
     Write-Host "  ? Solution file found" -ForegroundColor Green
     Write-Host "  ? Build successful" -ForegroundColor Green
 }

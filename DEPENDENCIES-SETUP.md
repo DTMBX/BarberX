@@ -1,4 +1,4 @@
-# BarberX AI Tools - Dependencies Setup Guide
+# Evident AI Tools - Dependencies Setup Guide
 
 ## ✅ Test Results Summary
 
@@ -179,7 +179,7 @@ The app automatically creates SQLite database and tables on first run.
 ```bash
 # Required
 FLASK_SECRET_KEY=your-secret-key-here
-DATABASE_URL=postgresql://user:pass@host/db  # or sqlite:///barberx.db
+DATABASE_URL=postgresql://user:pass@host/db  # or sqlite:///Evident.db
 
 # Optional but recommended
 OPENAI_API_KEY=sk-...
@@ -255,5 +255,5 @@ If you encounter issues:
 **Common Issues**:
 - Missing Tesseract binary → Install from link above
 - OpenAI API errors → Set `OPENAI_API_KEY` environment variable
-- Database errors → Delete `barberx.db` and restart (dev only)
+- Database errors → Delete `Evident.db` and restart (dev only)
 - Port 5000 in use → Change port in `app.py` or kill existing process

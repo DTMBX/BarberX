@@ -1,10 +1,10 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
-using BarberX.MatterDocket.MAUI.Helpers;
-using BarberX.MatterDocket.MAUI.Models;
+using Evident.MatterDocket.MAUI.Helpers;
+using Evident.MatterDocket.MAUI.Models;
 
-namespace BarberX.MatterDocket.MAUI.Services;
+namespace Evident.MatterDocket.MAUI.Services;
 
 public interface IApiService
 {

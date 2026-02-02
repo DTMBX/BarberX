@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://barberx.info/schemas/docket-entry.schema.json",
+  "$id": "https://Evident.info/schemas/docket-entry.schema.json",
   "title": "Docket Entry",
-  "description": "Schema for validating docket entries in BarberX.info legal documentation system",
+  "description": "Schema for validating docket entries in Evident.info legal documentation system",
   "type": "object",
   "required": ["id", "date", "type", "title", "file"],
   "properties": {

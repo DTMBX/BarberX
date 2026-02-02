@@ -37,7 +37,7 @@ description: "SEO description (160 chars max)"
 
 ```yaml
 # Metadata
-author: "BarberX"
+author: "Evident"
 date: 2024-01-15
 last_updated: 2024-01-20
 tags: [tag1, tag2, tag3]
@@ -216,7 +216,7 @@ Your content here...
 layout: article
 title: "My Constitutional Journey"
 description: "A story of faith and advocacy"
-author: "BarberX"
+author: "Evident"
 date: 2024-01-15
 last_updated: 2024-01-20
 category: Biography

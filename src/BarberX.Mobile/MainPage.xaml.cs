@@ -1,4 +1,4 @@
-﻿namespace BarberX.Mobile;
+namespace Evident.Mobile;
 
 public partial class MainPage : ContentPage
 {

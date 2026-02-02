@@ -72,7 +72,7 @@ Located in: `free_tier_demo_cases.py`
 
 ### 3. **Integration with Real Cases** ✅
 
-**Your Case Directory:** `C:\web-dev\github-repos\BarberX.info\cases\`
+**Your Case Directory:** `C:\web-dev\github-repos\Evident.info\cases\`
 
 **Existing Cases:**
 - `barber-nj-pcr-2022/` - PCR filings
@@ -128,7 +128,7 @@ if user.tier == TierLevel.FREE:  # ✅ Works!
 | **Multi-Case** | ❌ 1 case only | Requires STARTER+ |
 | **API Access** | ❌ | Requires PREMIUM ($199/mo) |
 
-**Cost to BarberX:** $0.55/user/month  
+**Cost to Evident:** $0.55/user/month  
 **Upgrade Path:** 5-10% convert to STARTER ($29/mo)
 
 ---
@@ -141,7 +141,7 @@ if user.tier == TierLevel.FREE:  # ✅ Works!
 http://localhost:5000/signup
 
 # Or use test account
-Email: free@barberx.test
+Email: free@Evident.test
 Password: demo123
 ```
 
@@ -152,7 +152,7 @@ http://localhost:5000/free-dashboard
 ```
 
 **You should see:**
-- ✅ Welcome banner: "Welcome to BarberX FREE Tier"
+- ✅ Welcome banner: "Welcome to Evident FREE Tier"
 - ✅ 3 demo case cards:
   - Traffic Stop - Use of Force Review
   - Wellness Check - Mental Health Crisis

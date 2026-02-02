@@ -1,4 +1,4 @@
-# 🎉 BarberX Platform - Ready for You TODAY!
+# 🎉 Evident Platform - Ready for You TODAY!
 
 ## ✅ What We Built Today
 
@@ -40,8 +40,8 @@ Navigate to: **http://localhost:5000/auth/login**
 
 Use either:
 
-- **Test User:** test@barberx.info / Password123!
-- **Admin:** admin@barberx.info / Admin123!
+- **Test User:** test@Evident.info / Password123!
+- **Admin:** admin@Evident.info / Admin123!
 
 ### Step 3: Explore
 
@@ -137,7 +137,7 @@ print(f"✓ Ingested: {doc_id}")
 .\START.ps1
 
 # Or manually
-C:\web-dev\github-repos\BarberX.info\.venv\Scripts\python.exe app.py
+C:\web-dev\github-repos\Evident.info\.venv\Scripts\python.exe app.py
 ```
 
 ## ⚡ Frontend Interface Actions (All-in-One)
@@ -237,7 +237,7 @@ After you're comfortable:
 ## 🎯 YOUR ACTION ITEMS NOW:
 
 1. ✅ App is running → http://localhost:5000
-2. 🔑 Login credentials ready → test@barberx.info / Password123!
+2. 🔑 Login credentials ready → test@Evident.info / Password123!
 3. 📚 Documentation available → Read GETTING-STARTED-TODAY.md
 4. 🧪 Test system → Run .\TEST.ps1
 5. 🚀 **GO BUILD!** → Open browser and login now!

@@ -51,7 +51,7 @@ Stats: 10M+ (via CourtListener) | $50/mo (vs $500+ elsewhere) | AI+Mobile (comin
 
 **BEFORE:**
 ```
-Why BarberX Exists
+Why Evident Exists
 Legal research shouldn't cost $2,000 per month.
 We're democratizing access to justice.
 ```
@@ -92,13 +92,13 @@ Entry-level to Enterprise pricing keeps solo practitioners locked out
 **BEFORE:**
 ```
 We're Changing That
-BarberX provides research-grade tools at 1/10th the cost
+Evident provides research-grade tools at 1/10th the cost
 ```
 
 **AFTER:**
 ```
 Our Solution
-BarberX integrates CourtListener's free data with AI, mobile apps, and support
+Evident integrates CourtListener's free data with AI, mobile apps, and support
 
 🚀 Currently in Early Beta with 27+ foundation cases
 ```
@@ -237,10 +237,10 @@ Goal: 100 beta users in 90 days
 ```
 Pricing Comparison
 Same tools. Same data. 20x cheaper.
-Save $23,400/year with BarberX
+Save $23,400/year with Evident
 
 Monthly Cost:
-- BarberX: $50
+- Evident: $50
 - Westlaw: $2,000  
 - LexisNexis: $2,000
 ```
@@ -248,24 +248,24 @@ Monthly Cost:
 **AFTER:**
 ```
 Honest Pricing Comparison
-BarberX vs. Westlaw vs. LexisNexis
-Save $5,400-$29,400/year with BarberX
+Evident vs. Westlaw vs. LexisNexis
+Save $5,400-$29,400/year with Evident
 Comparing entry-level features. Enterprise features coming 2026-2027.
 
 Monthly Cost (Entry-Level):
-- BarberX: $50
+- Evident: $50
 - Westlaw: $500-800
 - LexisNexis: $500-800
 
 Monthly Cost (Enterprise):
-- BarberX: $200 (Planned)
+- Evident: $200 (Planned)
 - Westlaw: $1,500-2,500
 - LexisNexis: $1,500-2,500
 ```
 
 **FEATURE STATUS ADDED:**
 
-All BarberX features now show launch timeline:
+All Evident features now show launch timeline:
 - ✅ 10M+ Opinions - Live (via CourtListener)
 - ✓ Citation Analysis - (Q1 2026)
 - ✓ Judge Intelligence - (Q1 2026)  
@@ -323,7 +323,7 @@ All BarberX features now show launch timeline:
 - ⏳ Donate 2-5% of revenue to Free Law Project (coming)
 
 ### Our Positioning Statement:
-> "BarberX brings CourtListener's exceptional legal data to mobile devices with AI-powered research tools and professional support. **The data is always free at CourtListener.com—we charge for our added value.**"
+> "Evident brings CourtListener's exceptional legal data to mobile devices with AI-powered research tools and professional support. **The data is always free at CourtListener.com—we charge for our added value.**"
 
 ---
 

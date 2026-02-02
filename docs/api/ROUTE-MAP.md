@@ -1,4 +1,4 @@
-# BarberX Legal Tech - Complete Route Map
+# Evident Legal Tech - Complete Route Map
 
 **Last Updated:** January 22, 2026
 
@@ -94,7 +94,7 @@ All tools accessible via dropdown menu in navigation:
 
 ## Company Pages
 
-- **/about** - About BarberX Legal Tech
+- **/about** - About Evident Legal Tech
   - Mission and story
   - Core values
   - Technology stack
@@ -144,7 +144,7 @@ All tools accessible via dropdown menu in navigation:
 ### Main Navigation (Landing Page)
 
 ```
-⚖️ BarberX Legal Tech
+⚖️ Evident Legal Tech
 ├── Features (anchor link)
 ├── Tools ▼
 │   ├── 🎥 BWC Analyzer

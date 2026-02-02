@@ -153,7 +153,7 @@ A **complete admin management system** with full CRUD operations, inline editing
 
 ✅ Secure admin account creation script:
 
-- Email: `admin@barberx.info`
+- Email: `admin@Evident.info`
 - Password: 33 characters with special characters
 - Ensures only ONE admin exists
 - Direct SQLite database access (no Flask dependencies)
@@ -295,7 +295,7 @@ def admin_panel():
 ### 1. Access Admin Panel
 
 ```
-URL: https://app.barberx.info/admin
+URL: https://app.Evident.info/admin
 ```
 
 ### 2. Navigate Tabs

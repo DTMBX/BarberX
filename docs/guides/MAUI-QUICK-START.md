@@ -1,10 +1,10 @@
-# BarberX MAUI - Quick Start Guide
+# Evident MAUI - Quick Start Guide
 
 ## 🚀 Running the App (Development)
 
 ### Windows Desktop
 ```powershell
-cd "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI"
+cd "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI"
 dotnet run -f net10.0-windows10.0.19041.0
 ```
 
@@ -28,7 +28,7 @@ The MAUI app needs the backend API running:
 
 ```powershell
 # In separate terminal
-cd "C:\web-dev\github-repos\BarberX.info"
+cd "C:\web-dev\github-repos\Evident.info"
 python app.py
 ```
 
@@ -36,7 +36,7 @@ API will run at: `http://localhost:5000`
 
 ### 2. Run MAUI App
 ```powershell
-cd "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI"
+cd "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI"
 dotnet run -f net10.0-windows10.0.19041.0
 ```
 
@@ -178,10 +178,10 @@ API_BASE_URL = http://localhost:5000/api/v1
 
 ### Production (RELEASE mode)
 ```
-API_BASE_URL = https://barberx.info/api/v1
+API_BASE_URL = https://Evident.info/api/v1
 ```
 
-Configured in: `src/BarberX.MatterDocket.MAUI/Helpers/Constants.cs`
+Configured in: `src/Evident.MatterDocket.MAUI/Helpers/Constants.cs`
 
 ---
 
@@ -237,8 +237,8 @@ dotnet format
 - `PHASE-3-UI-PROGRESS.md` - UI implementation details
 
 ### Support
-- GitHub Issues: [Create an issue](https://github.com/YOUR_ORG/BarberX.info/issues)
-- Email: support@barberx.info
+- GitHub Issues: [Create an issue](https://github.com/YOUR_ORG/Evident.info/issues)
+- Email: support@Evident.info
 
 ---
 

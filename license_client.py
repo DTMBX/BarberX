@@ -32,15 +32,15 @@ class LicenseClient:
         Initialize license client
 
         Args:
-            license_key: License key (or use BARBERX_LICENSE_KEY env var)
+            license_key: License key (or use Evident_LICENSE_KEY env var)
             validation_url: License validation server URL
         """
-        self.license_key = license_key or os.getenv("BARBERX_LICENSE_KEY")
+        self.license_key = license_key or os.getenv("Evident_LICENSE_KEY")
         self.validation_url = validation_url or os.getenv(
-            "BARBERX_LICENSE_SERVER", "https://license.barberx.info/api/v1/license/validate"
+            "Evident_LICENSE_SERVER", "https://license.Evident.info/api/v1/license/validate"
         )
 
-        self.cache_dir = Path.home() / ".barberx" / "license"
+        self.cache_dir = Path.home() / ".Evident" / "license"
         self.cache_file = self.cache_dir / "license_cache.json"
         self.grace_period_hours = 72  # Can run offline for 3 days
 
@@ -82,7 +82,7 @@ class LicenseClient:
         return {
             "hostname": platform.node(),
             "os": f"{platform.system()} {platform.release()}",
-            "version": os.getenv("BARBERX_VERSION", "unknown"),
+            "version": os.getenv("Evident_VERSION", "unknown"),
             "python": platform.python_version(),
         }
 
@@ -112,7 +112,7 @@ class LicenseClient:
                     "usage_stats": usage_stats or {},
                 },
                 timeout=10,
-                headers={"User-Agent": "BarberX-SelfHosted/1.0"},
+                headers={"User-Agent": "Evident-SelfHosted/1.0"},
             )
 
             result = response.json()
@@ -218,17 +218,17 @@ class LicenseClient:
 
         if code == "NO_LICENSE":
             print(f"\nPlease set your license key:")
-            print(f"  export BARBERX_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX'")
+            print(f"  export Evident_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX'")
         elif code in ["LICENSE_INACTIVE", "LICENSE_EXPIRED"]:
             print(f"\nYour license has expired or been suspended.")
-            print(f"Please contact enterprise@barberx.info to renew.")
+            print(f"Please contact enterprise@Evident.info to renew.")
         elif code == "MACHINE_LIMIT":
             print(f"\nLicense is installed on maximum allowed machines.")
-            print(f"Please contact enterprise@barberx.info to add more servers.")
+            print(f"Please contact enterprise@Evident.info to add more servers.")
         elif code == "GRACE_PERIOD_EXPIRED":
             print(f"\nPlease connect to internet to validate license.")
 
-        print(f"\nFor support: enterprise@barberx.info")
+        print(f"\nFor support: enterprise@Evident.info")
         print(f"{'='*60}\n")
 
         return False
@@ -315,8 +315,8 @@ def license_check_middleware(app):
                 jsonify(
                     {
                         "error": "License validation failed",
-                        "message": "Please contact enterprise@barberx.info",
-                        "contact": "enterprise@barberx.info",
+                        "message": "Please contact enterprise@Evident.info",
+                        "contact": "enterprise@Evident.info",
                     }
                 ),
                 403,

@@ -1,4 +1,4 @@
-# BarberX Secure Tier Implementation - COMPLETE
+# Evident Secure Tier Implementation - COMPLETE
 
 ## ✅ What Has Been Built
 
@@ -54,7 +54,7 @@ Add license checking to your main Flask app:
 import os
 
 # Check if running as self-hosted (has license key)
-IS_SELF_HOSTED = bool(os.getenv('BARBERX_LICENSE_KEY'))
+IS_SELF_HOSTED = bool(os.getenv('Evident_LICENSE_KEY'))
 
 if IS_SELF_HOSTED:
     from license_client import license_check_middleware, get_license_client
@@ -70,7 +70,7 @@ if IS_SELF_HOSTED:
         if not license_client.is_valid():
             return jsonify({
                 'error': 'License validation failed',
-                'contact': 'enterprise@barberx.info'
+                'contact': 'enterprise@Evident.info'
             }), 403
 ```
 
@@ -117,7 +117,7 @@ with app.app_context():
     print(f"✅ License created: {license.license_key}")
     print(f"   Expires: {license.expires_at}")
     print(f"\n   Set in environment:")
-    print(f"   export BARBERX_LICENSE_KEY='{license.license_key}'")
+    print(f"   export Evident_LICENSE_KEY='{license.license_key}'")
 ```
 
 ---
@@ -128,14 +128,14 @@ with app.app_context():
 
 ```bash
 # Build enterprise image
-docker build -f Dockerfile.enterprise -t barberx/enterprise:latest .
+docker build -f Dockerfile.enterprise -t Evident/enterprise:latest .
 
 # Test it locally
 docker run -p 5000:5000 \
-  -e BARBERX_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX' \
+  -e Evident_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX' \
   -e SECRET_KEY='test-secret-key' \
-  -e DATABASE_URL='sqlite:///instance/barberx.db' \
-  barberx/enterprise:latest
+  -e DATABASE_URL='sqlite:///instance/Evident.db' \
+  Evident/enterprise:latest
 ```
 
 **Step 2: Test license validation**
@@ -150,11 +150,11 @@ docker run -p 5000:5000 \
 
 ```bash
 # Tag with version
-docker tag barberx/enterprise:latest barberx/enterprise:1.0.0
+docker tag Evident/enterprise:latest Evident/enterprise:1.0.0
 
 # Push to Docker Hub or private registry
-docker push barberx/enterprise:1.0.0
-docker push barberx/enterprise:latest
+docker push Evident/enterprise:1.0.0
+docker push Evident/enterprise:latest
 ```
 
 ---
@@ -217,7 +217,7 @@ curl -X POST http://localhost:5000/api/upload \
 - AWS / GCP / Azure
 - Your current infrastructure
 
-**Customers access:** `https://barberx.info`
+**Customers access:** `https://Evident.info`
 
 ---
 
@@ -233,7 +233,7 @@ docker-compose -f docker-compose.enterprise.yml up -d
 ```
 
 **License validates daily:**
-- Calls `https://license.barberx.info/api/v1/license/validate`
+- Calls `https://license.Evident.info/api/v1/license/validate`
 - If offline: 72-hour grace period
 - If expired/suspended: Application stops
 
@@ -304,7 +304,7 @@ docker-compose -f docker-compose.enterprise.yml up -d
 1. **License Key Required**
    ```python
    # Self-hosted version won't start without valid license
-   if not os.getenv('BARBERX_LICENSE_KEY'):
+   if not os.getenv('Evident_LICENSE_KEY'):
        raise EnvironmentError("License key required")
    ```
 
@@ -478,7 +478,7 @@ if image_hash != expected_hash:
 - [ ] Expiration enforcement test
 
 **Business:**
-- [ ] Set up license.barberx.info subdomain
+- [ ] Set up license.Evident.info subdomain
 - [ ] Deploy license validation server
 - [ ] Create customer contracts
 - [ ] Set up billing for renewals

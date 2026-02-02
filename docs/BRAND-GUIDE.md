@@ -1,4 +1,4 @@
-# BarberX Brand Guide
+# Evident Brand Guide
 
 ## Like a Fresh NYC Fade — Clean, Rounded, Crisp
 

@@ -1,6 +1,6 @@
-using BarberX.MatterDocket.MAUI.Models;
+using Evident.MatterDocket.MAUI.Models;
 
-namespace BarberX.MatterDocket.MAUI.Services;
+namespace Evident.MatterDocket.MAUI.Services;
 
 public interface IAnalysisService
 {

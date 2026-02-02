@@ -1,6 +1,6 @@
-namespace BarberX.Web.Services;
+namespace Evident.Web.Services;
 
-using BarberX.Shared.Models;
+using Evident.Shared.Models;
 
 /// <summary>
 /// Service interface for BWC analysis operations

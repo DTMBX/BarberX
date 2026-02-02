@@ -1,6 +1,6 @@
-using BarberX.Shared.Models;
+using Evident.Shared.Models;
 
-namespace BarberX.Mobile.Services;
+namespace Evident.Mobile.Services;
 
 public interface ITierService
 {

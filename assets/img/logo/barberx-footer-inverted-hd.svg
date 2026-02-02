@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="2000" height="300" viewBox="0 0 2000 300" role="img" aria-labelledby="footerLogoInvertedHD">
-  <title id="footerLogoInvertedHD">BarberX Legal Technologies - Inverted Footer Logo (High Contrast)</title>
+  <title id="footerLogoInvertedHD">Evident Legal Technologies - Inverted Footer Logo (High Contrast)</title>
 
   <defs>
     <linearGradient id="inv_gBody" x1="0" y1="0" x2="0" y2="1">
@@ -41,7 +41,7 @@
   </g>
 
   <!-- Main Wordmark - White for dark backgrounds -->
-  <text x="310" y="135" font-family="'Montserrat', 'Inter', system-ui, sans-serif" font-weight="800" font-size="72" letter-spacing="4" fill="#ffffff">BarberX</text>
+  <text x="310" y="135" font-family="'Montserrat', 'Inter', system-ui, sans-serif" font-weight="800" font-size="72" letter-spacing="4" fill="#ffffff">Evident</text>
   
   <!-- Tagline - Light gray for readability on dark -->
   <text x="310" y="195" font-family="'Inter', system-ui, sans-serif" font-weight="600" font-size="32" letter-spacing="3" fill="#e0e0e8" opacity="0.9">LEGAL TECHNOLOGIES</text>

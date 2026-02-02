@@ -4,7 +4,7 @@
 Write-Host "`n?? Flask Direct Test" -ForegroundColor Cyan
 Write-Host "===================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Step 1: Install Flask dependencies
 Write-Host "`n[1/3] Installing Flask dependencies..." -ForegroundColor Yellow

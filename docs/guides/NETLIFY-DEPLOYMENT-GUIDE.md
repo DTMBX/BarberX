@@ -1,9 +1,9 @@
-# 🚀 Netlify Deployment Guide for BarberX.info
+# 🚀 Netlify Deployment Guide for Evident.info
 
 **Status:** Ready for Production Deployment  
 **Platform:** Netlify  
 **Site Type:** Jekyll Static Site + Serverless Functions  
-**Custom Domain:** barberx.info
+**Custom Domain:** Evident.info
 
 ---
 
@@ -38,14 +38,14 @@ netlify deploy --prod
 2. **Connect to Netlify:**
    - Go to [app.netlify.com](https://app.netlify.com)
    - Click "Add new site" → "Import an existing project"
-   - Choose "GitHub" and select your `BarberX.info` repository
+   - Choose "GitHub" and select your `Evident.info` repository
    - Netlify will auto-detect settings from `netlify.toml`
    - Click "Deploy site"
 
 3. **Configure Custom Domain:**
    - In Netlify dashboard → Site Settings → Domain Management
    - Click "Add custom domain"
-   - Enter: `barberx.info`
+   - Enter: `Evident.info`
    - Follow DNS configuration instructions
 
 ---
@@ -80,7 +80,7 @@ netlify deploy --prod
 
 ## 🌐 Custom Domain Setup
 
-### DNS Configuration for barberx.info
+### DNS Configuration for Evident.info
 
 **Option A: Use Netlify DNS (Recommended)**
 
@@ -102,7 +102,7 @@ Add these DNS records at your domain registrar:
 | Type  | Name | Value                 | TTL  |
 | ----- | ---- | --------------------- | ---- |
 | A     | @    | `75.2.60.5`           | 3600 |
-| CNAME | www  | `barberx.netlify.app` | 3600 |
+| CNAME | www  | `Evident.netlify.app` | 3600 |
 
 **HTTPS/SSL Certificate:**
 
@@ -184,7 +184,7 @@ Deploy `app.py` to a separate platform:
 
 1. Deploy Flask to Heroku/Railway/Render
 2. Update API endpoints in frontend to point to backend URL
-3. Configure CORS in Flask to allow requests from `barberx.info`
+3. Configure CORS in Flask to allow requests from `Evident.info`
 
 **Pros:** Full Flask capabilities, longer execution time  
 **Cons:** Separate deployment, additional hosting cost
@@ -207,8 +207,8 @@ Go to: Site Settings → Environment Variables → Add Variable
 
 ```bash
 JEKYLL_ENV=production
-SITE_URL=https://barberx.info
-CONTACT_EMAIL=contact@barberx.info
+SITE_URL=https://Evident.info
+CONTACT_EMAIL=contact@Evident.info
 
 # If using backend
 FLASK_SECRET_KEY=your-secret-key-here
@@ -232,7 +232,7 @@ API_KEY=your-api-key
 - [x] `Gemfile` with Jekyll dependencies
 - [x] `runtime.txt` specifies Ruby version
 - [x] `.nvmrc` specifies Node version
-- [ ] **Update `_config.yml`:** Verify `url: "https://barberx.info"`
+- [ ] **Update `_config.yml`:** Verify `url: "https://Evident.info"`
 - [ ] **Test local build:** Run `bundle exec jekyll build`
 - [ ] **Check `_site/` output:** Ensure all pages generated
 - [ ] **Commit all changes:** `git add . && git commit -m "Netlify config"`
@@ -338,7 +338,7 @@ baseurl: "" # Must be empty for root domain
 
 ## 💰 Netlify Pricing
 
-### Free Starter Plan (Perfect for BarberX.info)
+### Free Starter Plan (Perfect for Evident.info)
 
 ✅ 100 GB bandwidth/month  
 ✅ 300 build minutes/month  
@@ -372,7 +372,7 @@ Once connected to GitHub, every push triggers:
 
 **Deploy Previews:**
 
-- Each PR gets unique URL: `https://deploy-preview-123--barberx.netlify.app`
+- Each PR gets unique URL: `https://deploy-preview-123--Evident.netlify.app`
 - Test changes before merging
 - Share with team for review
 
@@ -444,10 +444,10 @@ netlify status
 - [Netlify Community Forums](https://answers.netlify.com)
 - [Netlify Discord](https://discord.com/invite/netlify)
 
-### BarberX Specific
+### Evident Specific
 
-- Site URL: `https://barberx.info`
-- Git Repo: `github.com/your-username/BarberX.info`
+- Site URL: `https://Evident.info`
+- Git Repo: `github.com/your-username/Evident.info`
 - Netlify Dashboard: `app.netlify.com/sites/your-site-name`
 
 ---
@@ -478,7 +478,7 @@ netlify status
    - Option B: Run `netlify init` and `netlify deploy --prod`
 
 4. **Configure custom domain:**
-   - Add `barberx.info` in Netlify dashboard
+   - Add `Evident.info` in Netlify dashboard
    - Update DNS settings at your registrar
 
 **Expected Timeline:**

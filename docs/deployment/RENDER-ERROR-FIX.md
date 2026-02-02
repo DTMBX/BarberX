@@ -56,7 +56,7 @@ git push origin main
 
 ### **Check Deployment:**
 1. Go to: https://dashboard.render.com
-2. Click "barberx-legal-tech"
+2. Click "Evident-legal-tech"
 3. Watch "Events" tab
 
 ### **Look For:**
@@ -74,20 +74,20 @@ git push origin main
 
 ### **1. Test Home Page:**
 ```
-https://barberx-legal-tech.onrender.com
+https://Evident-legal-tech.onrender.com
 ```
 Should show homepage (no error!)
 
 ### **2. Test Login:**
 ```
-https://barberx-legal-tech.onrender.com/auth/login
+https://Evident-legal-tech.onrender.com/auth/login
 ```
-- Email: admin@barberx.info
-- Password: BarberX2026!
+- Email: admin@Evident.info
+- Password: Evident2026!
 
 ### **3. Test Batch Upload:**
 ```
-https://barberx-legal-tech.onrender.com/batch-upload
+https://Evident-legal-tech.onrender.com/batch-upload
 ```
 Should show upload interface
 
@@ -96,7 +96,7 @@ Should show upload interface
 ## ?? **GitHub Pages vs Render:**
 
 ### **GitHub Pages (Static Site):**
-- **URL:** https://dtb396.github.io/BarberX.info
+- **URL:** https://dtb396.github.io/Evident.info
 - **Purpose:** Marketing website
 - **Content:** HTML/CSS/JS only
 - **Setup:** 
@@ -105,10 +105,10 @@ Should show upload interface
   3. Folder: `/ (root)`
   4. Save
   5. Wait 2 minutes
-  6. Access at: https://dtb396.github.io/BarberX.info
+  6. Access at: https://dtb396.github.io/Evident.info
 
 ### **Render (Flask App):**
-- **URL:** https://barberx-legal-tech.onrender.com
+- **URL:** https://Evident-legal-tech.onrender.com
 - **Purpose:** Web application (Python/Flask)
 - **Content:** app.py, database, uploads
 - **Setup:** Already done! Just needed bug fix
@@ -134,7 +134,7 @@ Should show upload interface
 ## ?? **If Still Error After Deploy:**
 
 ### **Check Render Logs:**
-1. Dashboard ? barberx-legal-tech ? Logs
+1. Dashboard ? Evident-legal-tech ? Logs
 2. Look for:
    - ? "Unified batch upload registered" ? Good!
    - ? Any red errors ? Copy & paste here
@@ -147,7 +147,7 @@ sqlalchemy.exc.OperationalError: could not connect to database
 ```
 **Fix:** Create PostgreSQL database in Render:
 1. Dashboard ? New ? PostgreSQL
-2. Name: barberx-db
+2. Name: Evident-db
 3. Link to web service
 
 **Issue 2: Missing Environment Variables**
@@ -165,7 +165,7 @@ KeyError: 'SECRET_KEY'
 **Problem:** Circular import crashed Render  
 **Fix:** Moved imports inside functions  
 **Status:** Deploying now (5-7 min)  
-**Test:** https://barberx-legal-tech.onrender.com  
+**Test:** https://Evident-legal-tech.onrender.com  
 
 **Your app should be live in 5-7 minutes!** ??
 

@@ -1,10 +1,10 @@
-# BarberX API Quick Start Guide
+# Evident API Quick Start Guide
 
-Get started with the BarberX REST API in 5 minutes.
+Get started with the Evident REST API in 5 minutes.
 
 ## Base URL
 
-**Production:** `https://barberx.info/api/v1`  
+**Production:** `https://Evident.info/api/v1`  
 **Local Dev:** `http://localhost:5000/api/v1`
 
 ## Authentication Flow
@@ -12,7 +12,7 @@ Get started with the BarberX REST API in 5 minutes.
 ### 1. Register (New User)
 
 ```bash
-curl -X POST https://barberx.info/api/v1/auth/register \
+curl -X POST https://Evident.info/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "your@email.com",
@@ -38,7 +38,7 @@ curl -X POST https://barberx.info/api/v1/auth/register \
 ### 2. Login (Existing User)
 
 ```bash
-curl -X POST https://barberx.info/api/v1/auth/login \
+curl -X POST https://Evident.info/api/v1/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "your@email.com",
@@ -53,7 +53,7 @@ curl -X POST https://barberx.info/api/v1/auth/login \
 Include the token in the `Authorization` header:
 
 ```bash
-curl -X GET https://barberx.info/api/v1/auth/me \
+curl -X GET https://Evident.info/api/v1/auth/me \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
@@ -62,7 +62,7 @@ curl -X GET https://barberx.info/api/v1/auth/me \
 ### Upload a PDF
 
 ```bash
-curl -X POST https://barberx.info/api/v1/upload/pdf \
+curl -X POST https://Evident.info/api/v1/upload/pdf \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -F "file=@/path/to/document.pdf"
 ```
@@ -70,7 +70,7 @@ curl -X POST https://barberx.info/api/v1/upload/pdf \
 ### Upload a Video
 
 ```bash
-curl -X POST https://barberx.info/api/v1/upload/video \
+curl -X POST https://Evident.info/api/v1/upload/video \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -F "file=@/path/to/bodycam.mp4"
 ```
@@ -78,7 +78,7 @@ curl -X POST https://barberx.info/api/v1/upload/video \
 ### Start AI Analysis
 
 ```bash
-curl -X POST https://barberx.info/api/v1/analysis/start \
+curl -X POST https://Evident.info/api/v1/analysis/start \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -90,14 +90,14 @@ curl -X POST https://barberx.info/api/v1/analysis/start \
 ### Check Analysis Status
 
 ```bash
-curl -X GET https://barberx.info/api/v1/analysis/ANALYSIS_ID/status \
+curl -X GET https://Evident.info/api/v1/analysis/ANALYSIS_ID/status \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
 ### Get Analysis Results
 
 ```bash
-curl -X GET https://barberx.info/api/v1/analysis/ANALYSIS_ID \
+curl -X GET https://Evident.info/api/v1/analysis/ANALYSIS_ID \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
@@ -108,7 +108,7 @@ import requests
 
 # Login
 response = requests.post(
-    "https://barberx.info/api/v1/auth/login",
+    "https://Evident.info/api/v1/auth/login",
     json={"email": "your@email.com", "password": "YourPassword123!"}
 )
 token = response.json()["token"]
@@ -118,7 +118,7 @@ headers = {"Authorization": f"Bearer {token}"}
 with open("document.pdf", "rb") as f:
     files = {"file": f}
     upload_response = requests.post(
-        "https://barberx.info/api/v1/upload/pdf",
+        "https://Evident.info/api/v1/upload/pdf",
         headers=headers,
         files=files
     )
@@ -126,7 +126,7 @@ file_id = upload_response.json()["file_id"]
 
 # Start analysis
 analysis_response = requests.post(
-    "https://barberx.info/api/v1/analysis/start",
+    "https://Evident.info/api/v1/analysis/start",
     headers=headers,
     json={"file_id": file_id, "analysis_type": "full"}
 )
@@ -134,7 +134,7 @@ analysis_id = analysis_response.json()["analysis_id"]
 
 # Check status
 status_response = requests.get(
-    f"https://barberx.info/api/v1/analysis/{analysis_id}/status",
+    f"https://Evident.info/api/v1/analysis/{analysis_id}/status",
     headers=headers
 )
 print(status_response.json())
@@ -144,7 +144,7 @@ print(status_response.json())
 
 ```javascript
 // Login
-const loginResponse = await fetch('https://barberx.info/api/v1/auth/login', {
+const loginResponse = await fetch('https://Evident.info/api/v1/auth/login', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({
@@ -157,7 +157,7 @@ const {token} = await loginResponse.json();
 // Upload PDF
 const formData = new FormData();
 formData.append('file', pdfFile);
-const uploadResponse = await fetch('https://barberx.info/api/v1/upload/pdf', {
+const uploadResponse = await fetch('https://Evident.info/api/v1/upload/pdf', {
   method: 'POST',
   headers: {'Authorization': `Bearer ${token}`},
   body: formData
@@ -165,7 +165,7 @@ const uploadResponse = await fetch('https://barberx.info/api/v1/upload/pdf', {
 const {file_id} = await uploadResponse.json();
 
 // Start analysis
-const analysisResponse = await fetch('https://barberx.info/api/v1/analysis/start', {
+const analysisResponse = await fetch('https://Evident.info/api/v1/analysis/start', {
   method: 'POST',
   headers: {
     'Authorization': `Bearer ${token}`,
@@ -189,7 +189,7 @@ var loginData = new {
     password = "YourPassword123!"
 };
 var loginResponse = await client.PostAsJsonAsync(
-    "https://barberx.info/api/v1/auth/login",
+    "https://Evident.info/api/v1/auth/login",
     loginData
 );
 var loginResult = await loginResponse.Content.ReadFromJsonAsync<LoginResponse>();
@@ -203,7 +203,7 @@ client.DefaultRequestHeaders.Authorization =
 var content = new MultipartFormDataContent();
 content.Add(new StreamContent(pdfStream), "file", "document.pdf");
 var uploadResponse = await client.PostAsync(
-    "https://barberx.info/api/v1/upload/pdf",
+    "https://Evident.info/api/v1/upload/pdf",
     content
 );
 var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResponse>();
@@ -214,7 +214,7 @@ var analysisData = new {
     analysis_type = "full"
 };
 var analysisResponse = await client.PostAsJsonAsync(
-    "https://barberx.info/api/v1/analysis/start",
+    "https://Evident.info/api/v1/analysis/start",
     analysisData
 );
 ```
@@ -242,7 +242,7 @@ All errors return JSON with `error` field:
 Tokens expire after 24 hours. Refresh before expiration:
 
 ```bash
-curl -X POST https://barberx.info/api/v1/auth/refresh \
+curl -X POST https://Evident.info/api/v1/auth/refresh \
   -H "Authorization: Bearer YOUR_CURRENT_TOKEN"
 ```
 
@@ -293,7 +293,7 @@ X-RateLimit-Reset: 1643276400
 ### Postman Collection
 Import this URL:
 ```
-https://barberx.info/api/postman-collection.json
+https://Evident.info/api/postman-collection.json
 ```
 
 ### cURL Examples
@@ -302,14 +302,14 @@ All examples above use cURL and can be run from terminal.
 ### API Playground
 Interactive testing:
 ```
-https://barberx.info/docs/api-playground
+https://Evident.info/docs/api-playground
 ```
 
 ## Support
 
-**Documentation:** https://barberx.info/API-REFERENCE.md  
+**Documentation:** https://Evident.info/API-REFERENCE.md  
 **Issues:** GitHub Issues  
-**Email:** api-support@barberx.info  
+**Email:** api-support@Evident.info  
 
 ## Next Steps
 

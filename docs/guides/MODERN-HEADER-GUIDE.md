@@ -8,7 +8,7 @@
 
 ## 🎯 Overview
 
-Modern, accessible, clean header and navigation system for BarberX Legal Technologies platform.
+Modern, accessible, clean header and navigation system for Evident Legal Technologies platform.
 
 ### Key Features
 ✅ **Accessible** - WCAG 2.1 AA compliant  

@@ -1,16 +1,16 @@
-# BarberX Enterprise - Docker Compose Setup
+# Evident Enterprise - Docker Compose Setup
 # Quick deployment for self-hosted installations
 
 version: '3.8'
 
 services:
-  # Main BarberX application
-  barberx-app:
+  # Main Evident application
+  Evident-app:
     build:
       context: .
       dockerfile: Dockerfile.enterprise
-    image: barberx/enterprise:latest
-    container_name: barberx-app
+    image: Evident/enterprise:latest
+    container_name: Evident-app
     restart: unless-stopped
     
     ports:
@@ -18,15 +18,15 @@ services:
     
     environment:
       # License Configuration (REQUIRED)
-      - BARBERX_LICENSE_KEY=${BARBERX_LICENSE_KEY}
-      - BARBERX_LICENSE_SERVER=https://license.barberx.info/api/v1/license/validate
+      - Evident_LICENSE_KEY=${Evident_LICENSE_KEY}
+      - Evident_LICENSE_SERVER=https://license.Evident.info/api/v1/license/validate
       
       # Flask Configuration
       - FLASK_ENV=production
       - SECRET_KEY=${SECRET_KEY}
       
       # Database
-      - DATABASE_URL=postgresql://barberx:${DB_PASSWORD}@postgres:5432/barberx
+      - DATABASE_URL=postgresql://Evident:${DB_PASSWORD}@postgres:5432/Evident
       
       # Storage
       - UPLOAD_FOLDER=/app/data/uploads
@@ -40,16 +40,16 @@ services:
       - MAX_CONTENT_LENGTH=21474836480  # 20GB for enterprise
     
     volumes:
-      - barberx-data:/app/data
-      - barberx-logs:/app/logs
-      - barberx-db:/app/instance
+      - Evident-data:/app/data
+      - Evident-logs:/app/logs
+      - Evident-db:/app/instance
     
     depends_on:
       - postgres
       - redis
     
     networks:
-      - barberx-network
+      - Evident-network
     
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
@@ -61,22 +61,22 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
-    container_name: barberx-postgres
+    container_name: Evident-postgres
     restart: unless-stopped
     
     environment:
-      - POSTGRES_DB=barberx
-      - POSTGRES_USER=barberx
+      - POSTGRES_DB=Evident
+      - POSTGRES_USER=Evident
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     
     volumes:
       - postgres-data:/var/lib/postgresql/data
     
     networks:
-      - barberx-network
+      - Evident-network
     
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U barberx"]
+      test: ["CMD-SHELL", "pg_isready -U Evident"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -84,7 +84,7 @@ services:
   # Redis (for caching and job queue)
   redis:
     image: redis:7-alpine
-    container_name: barberx-redis
+    container_name: Evident-redis
     restart: unless-stopped
     
     command: redis-server --appendonly yes
@@ -93,7 +93,7 @@ services:
       - redis-data:/data
     
     networks:
-      - barberx-network
+      - Evident-network
     
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
@@ -104,7 +104,7 @@ services:
   # Nginx Reverse Proxy (SSL termination)
   nginx:
     image: nginx:alpine
-    container_name: barberx-nginx
+    container_name: Evident-nginx
     restart: unless-stopped
     
     ports:
@@ -116,10 +116,10 @@ services:
       - ./ssl:/etc/nginx/ssl:ro
     
     depends_on:
-      - barberx-app
+      - Evident-app
     
     networks:
-      - barberx-network
+      - Evident-network
     
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
@@ -128,11 +128,11 @@ services:
       retries: 3
 
 volumes:
-  barberx-data:
+  Evident-data:
     driver: local
-  barberx-logs:
+  Evident-logs:
     driver: local
-  barberx-db:
+  Evident-db:
     driver: local
   postgres-data:
     driver: local
@@ -140,5 +140,5 @@ volumes:
     driver: local
 
 networks:
-  barberx-network:
+  Evident-network:
     driver: bridge

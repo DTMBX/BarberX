@@ -1,14 +1,14 @@
-﻿# BarberX Legal Technologies - GitHub Pages Configuration
+﻿# Evident Technologies - GitHub Pages Configuration
 
-title: BarberX Legal Technologies
-description: Professional AI-powered eDiscovery platform for civil rights litigation
-url: "https://dtb396.github.io"
-baseurl: "/BarberX.info"
+title: Evident Technologies
+description: Legal-grade evidence processing and verification platform for video, documents, and records
+url: "https://www.evident.icu"
+baseurl: ""
 
 # Contact Information
-email: contact@barberx.info
-support_email: support@barberx.info
-sales_email: sales@barberx.info
+email: contact@evident.icu
+support_email: support@evident.icu
+sales_email: sales@evident.icu
 
 # Build settings
 markdown: kramdown

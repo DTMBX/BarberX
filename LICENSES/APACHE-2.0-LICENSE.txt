@@ -177,7 +177,7 @@ END OF TERMS AND CONDITIONS
 
 ---
 
-Projects using Apache 2.0 License in BarberX Legal Technologies:
+Projects using Apache 2.0 License in Evident Legal Technologies:
 
 • Hugging Face Transformers - Copyright (c) 2018 The HuggingFace Team
 • SentenceTransformers - Copyright (c) 2019 Nils Reimers

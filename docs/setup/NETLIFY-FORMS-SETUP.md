@@ -1,4 +1,4 @@
-# Netlify Forms Setup - BarberX Early Access
+# Netlify Forms Setup - Evident Early Access
 
 ## ✅ Form Configuration Complete
 
@@ -51,7 +51,7 @@ The early access form at `_includes/connect.html` is properly configured for Net
 ## Accessing Submissions
 
 1. Go to Netlify dashboard
-2. Select your BarberX site
+2. Select your Evident site
 3. Click **Forms** in sidebar
 4. View all submissions for **early-access** form
 5. Export as CSV or integrate with Zapier, Slack, etc.

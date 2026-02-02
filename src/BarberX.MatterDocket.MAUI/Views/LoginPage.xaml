@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
-             x:Class="BarberX.MatterDocket.MAUI.Views.LoginPage"
+             xmlns:viewmodel="clr-namespace:Evident.MatterDocket.MAUI.ViewModels"
+             x:Class="Evident.MatterDocket.MAUI.Views.LoginPage"
              x:DataType="viewmodel:LoginViewModel"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#0f0f0f">
@@ -17,7 +17,7 @@
                        HeightRequest="120"
                        HorizontalOptions="Center"/>
                 
-                <Label Text="BarberX Matter Docket"
+                <Label Text="Evident Matter Docket"
                        FontSize="28"
                        FontAttributes="Bold"
                        TextColor="#d4a574"
@@ -144,7 +144,7 @@
             </VerticalStackLayout>
 
             <!-- Footer -->
-            <Label Text="© 2026 BarberX Matter Docket. All rights reserved."
+            <Label Text="© 2026 Evident Matter Docket. All rights reserved."
                    TextColor="#666666"
                    FontSize="11"
                    HorizontalTextAlignment="Center"

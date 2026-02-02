@@ -1,6 +1,6 @@
-using BarberX.MatterDocket.MAUI.ViewModels;
+using Evident.MatterDocket.MAUI.ViewModels;
 
-namespace BarberX.MatterDocket.MAUI.Views;
+namespace Evident.MatterDocket.MAUI.Views;
 
 public partial class DashboardPage : ContentPage
 {

@@ -8,10 +8,10 @@
 ## 📦 APK Location
 
 ```
-src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.barberx.matterdocket.maui-Signed.apk
+src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.Evident.matterdocket.maui-Signed.apk
 ```
 
-**File Name:** `com.companyname.barberx.matterdocket.maui-Signed.apk`  
+**File Name:** `com.companyname.Evident.matterdocket.maui-Signed.apk`  
 **Size:** ~50-60 MB (typical for .NET MAUI apps)
 
 ---
@@ -23,7 +23,7 @@ src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.barber
 1. **Email the APK:**
    ```powershell
    # Open file location
-   explorer "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android"
+   explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
    ```
 
 2. **On your Android phone:**
@@ -65,7 +65,7 @@ src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.barber
 
 ## ✅ What Works in This Build
 
-### ✨ Full BarberX Features
+### ✨ Full Evident Features
 - ✅ **Login & Authentication** - JWT token auth
 - ✅ **Case Dashboard** - View all your cases
 - ✅ **File Upload** - PDF, Video, Images
@@ -180,7 +180,7 @@ After installing, test these features:
 
 ### App crashes on startup
 - **Cause:** Missing permissions
-- **Fix:** Settings → Apps → BarberX → Permissions
+- **Fix:** Settings → Apps → Evident → Permissions
   - Enable Storage, Camera, Network
 
 ---

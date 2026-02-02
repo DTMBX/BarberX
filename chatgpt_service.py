@@ -1,5 +1,5 @@
 """
-ChatGPT Integration Service for BarberX
+ChatGPT Integration Service for Evident
 Handles OpenAI API interactions with user-provided API keys
 """
 

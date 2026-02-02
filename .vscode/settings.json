@@ -6,7 +6,7 @@
   },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
-  "dotnet.defaultSolution": "BarberX.sln",
+  "dotnet.defaultSolution": "Evident.sln",
 
   // Documentation Output Paths - USE THESE FOR NEW .md FILES
   // =========================================================

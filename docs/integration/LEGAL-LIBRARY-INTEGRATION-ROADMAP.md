@@ -100,7 +100,7 @@ class ViolationFinderLibraryIntegration:
 ## 📱 Phase 3: MAUI Mobile/Desktop UI
 
 ### Legal Library Page
-**File:** `src/BarberX.MatterDocket.MAUI/Views/LegalLibraryPage.cs`
+**File:** `src/Evident.MatterDocket.MAUI/Views/LegalLibraryPage.cs`
 
 - [x] Placeholder created
 - [ ] Implement search UI
@@ -122,7 +122,7 @@ class ViolationFinderLibraryIntegration:
 ```
 
 ### ChatViewModel Integration
-**File:** `src/BarberX.MatterDocket.MAUI/ViewModels/ChatViewModel.cs`
+**File:** `src/Evident.MatterDocket.MAUI/ViewModels/ChatViewModel.cs`
 
 - [ ] Add "Legal Library" tool button
 - [ ] Show relevant cases during chat

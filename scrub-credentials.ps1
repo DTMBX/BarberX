@@ -1,4 +1,4 @@
-# BarberX - Emergency Credential Scrubber
+# Evident - Emergency Credential Scrubber
 # Removes sensitive credentials from Git history
 
 Write-Host "`n⚠️  CREDENTIAL SCRUBBER - EMERGENCY SECURITY FIX ⚠️" -ForegroundColor Red

@@ -1,12 +1,12 @@
 """
-Municipal Code API endpoints for BarberX
+Municipal Code API endpoints for Evident
 Provides REST API access to Code360 municipal ordinance retrieval
 
-Copyright (C) 2026 BarberX.info - All Rights Reserved
+Copyright (C) 2026 Evident.info - All Rights Reserved
 CONFIDENTIAL AND PROPRIETARY
 """
 
-from barberx_reasoning_core import MunicipalCodeIntegration
+from Evident_reasoning_core import MunicipalCodeIntegration
 from flask import Blueprint, jsonify, request
 
 from tier_gating import check_tier_access, require_auth

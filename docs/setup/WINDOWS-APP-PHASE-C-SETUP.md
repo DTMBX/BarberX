@@ -1,4 +1,4 @@
-# BarberX Matter Docket (DTMB) - Phase C: Development Environment Setup
+# Evident Matter Docket (DTMB) - Phase C: Development Environment Setup
 
 **Date:** January 27, 2026  
 **Status:** Starting Phase C - Installing Development Tools
@@ -189,7 +189,7 @@ wsl --install
 3. **Configure Git**
    ```powershell
    git config --global user.name "Developer"
-   git config --global user.email "dev@barberx.info"
+   git config --global user.email "dev@Evident.info"
    ```
 
 ---
@@ -213,7 +213,7 @@ wsl --install
 
 1. **Theme**
    - Tools → Options → Environment → General → Color theme
-   - Recommended: Dark (matches BarberX branding)
+   - Recommended: Dark (matches Evident branding)
 
 2. **Editor Settings**
    - Tools → Options → Text Editor → All Languages
@@ -238,11 +238,11 @@ wsl --install
 # Create self-signed certificate
 $cert = New-SelfSignedCertificate `
     -Type CodeSigningCert `
-    -Subject "CN=BarberX Matter Docket Development" `
+    -Subject "CN=Evident Matter Docket Development" `
     -CertStoreLocation "Cert:\CurrentUser\My"
 
 # Export certificate
-$certPath = "C:\Dev\BarberX-Dev-Cert.cer"
+$certPath = "C:\Dev\Evident-Dev-Cert.cer"
 Export-Certificate -Cert $cert -FilePath $certPath
 
 # Import to Trusted Root (requires admin)
@@ -267,18 +267,18 @@ Import-Certificate -FilePath $certPath `
 cd C:\Dev\Projects
 
 # Create new MAUI app
-dotnet new maui -n BarberX.MatterDocket.MAUI -f net8.0
+dotnet new maui -n Evident.MatterDocket.MAUI -f net8.0
 
 # Open in Visual Studio
-cd BarberX.MatterDocket.MAUI
-start BarberX.MatterDocket.MAUI.csproj
+cd Evident.MatterDocket.MAUI
+start Evident.MatterDocket.MAUI.csproj
 ```
 
 ### Project Structure Setup
 
 ```powershell
 # Create directory structure
-cd BarberX.MatterDocket.MAUI
+cd Evident.MatterDocket.MAUI
 
 New-Item -ItemType Directory -Path "Views"
 New-Item -ItemType Directory -Path "ViewModels"
@@ -415,9 +415,9 @@ dotnet workload update
    - Build and run
    - Test XAML designer
 
-2. **Clone BarberX Repository**
+2. **Clone Evident Repository**
    ```powershell
-   git clone https://github.com/DTB396/BarberX.info.git
+   git clone https://github.com/DTB396/Evident.info.git
    ```
 
 3. **Start Phase B Development**
@@ -432,10 +432,10 @@ dotnet workload update
 ### Automated Setup Script
 
 ```powershell
-# BarberX-DevEnv-Setup.ps1
+# Evident-DevEnv-Setup.ps1
 # Automated development environment setup
 
-Write-Host "BarberX Matter Docket - Dev Environment Setup" -ForegroundColor Cyan
+Write-Host "Evident Matter Docket - Dev Environment Setup" -ForegroundColor Cyan
 
 # Check if running as administrator
 if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {

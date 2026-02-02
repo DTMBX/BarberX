@@ -376,7 +376,7 @@ RESPONSE:
 "This optimization report is provided as a drafting 
 and organizational assistant. It does NOT constitute 
 legal advice. All documents must be reviewed by a 
-licensed attorney before filing. BarberX makes no 
+licensed attorney before filing. Evident makes no 
 guarantees about outcomes."
 ```
 
@@ -406,7 +406,7 @@ guarantees about outcomes."
 
 ### For Users:
 ```
-1. Login to BarberX
+1. Login to Evident
 2. Navigate to "Document Optimizer"
 3. Upload legal documents
 4. Link to case evidence

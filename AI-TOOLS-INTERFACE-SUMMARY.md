@@ -2,7 +2,7 @@
 
 ## Summary
 
-Successfully built a comprehensive public-facing interface for BarberX AI analysis pipelines, making BWC analysis, PDF processing, legal analysis, OCR, and transcription tools accessible to users with proper tier gating and security.
+Successfully built a comprehensive public-facing interface for Evident AI analysis pipelines, making BWC analysis, PDF processing, legal analysis, OCR, and transcription tools accessible to users with proper tier gating and security.
 
 ---
 

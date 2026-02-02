@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 [QueryProperty(nameof(VideoId), "id")]
 public partial class VideoAnalysisViewModel : BaseViewModel

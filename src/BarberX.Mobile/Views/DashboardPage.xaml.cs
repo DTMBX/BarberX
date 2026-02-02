@@ -1,6 +1,6 @@
-using BarberX.Mobile.ViewModels;
+using Evident.Mobile.ViewModels;
 
-namespace BarberX.Mobile.Views;
+namespace Evident.Mobile.Views;
 
 public partial class DashboardPage : ContentPage
 {

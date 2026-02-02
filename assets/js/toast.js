@@ -1,5 +1,5 @@
 /**
- * BarberX Toast Notification System
+ * Evident Toast Notification System
  * Usage: toast.success('Message'), toast.error('Message'), etc.
  */
 

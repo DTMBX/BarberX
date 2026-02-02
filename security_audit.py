@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Security Audit Script for BarberX
+Security Audit Script for Evident
 Checks all endpoints for proper error handling, input validation, and security
 """
 
@@ -164,10 +164,10 @@ def main():
 
     if not app_file.exists():
         print("❌ app.py not found in current directory")
-        print("Please run this script from the BarberX.info root directory")
+        print("Please run this script from the Evident.info root directory")
         return 1
 
-    print("🔒 BARBERX SECURITY AUDIT")
+    print("🔒 Evident SECURITY AUDIT")
     print("=" * 60)
     print()
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="BarberX.Mobile.AppShell"
+    x:Class="Evident.Mobile.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BarberX.Mobile.Views"
+    xmlns:local="clr-namespace:Evident.Mobile.Views"
     FlyoutBackgroundColor="{StaticResource Primary}"
     Shell.FlyoutBehavior="Flyout"
-    Title="BarberX Legal Tech">
+    Title="Evident Legal Tech">
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -17,14 +17,14 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
-                <Image Source="barberx_logo.png" 
+                <Image Source="Evident_logo.png" 
                        HeightRequest="60" 
                        WidthRequest="60"
                        HorizontalOptions="Start"
                        Margin="0,20,0,10"/>
                 
                 <Label Grid.Row="1" 
-                       Text="BarberX Legal Tech"
+                       Text="Evident Legal Tech"
                        FontSize="20"
                        FontAttributes="Bold"
                        TextColor="White"

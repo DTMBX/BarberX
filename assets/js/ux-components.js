@@ -1,5 +1,5 @@
 /**
- * BarberX UX Components
+ * Evident UX Components
  * Toast notifications, form validation, loading states
  */
 

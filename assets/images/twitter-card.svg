@@ -26,7 +26,7 @@
   <text x="250" y="340" font-family="Arial, sans-serif" font-size="100" font-weight="bold" fill="#FFD700" text-anchor="middle">B</text>
   
   <!-- Title -->
-  <text x="650" y="220" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#1e40af" text-anchor="middle">BarberX</text>
+  <text x="650" y="220" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#1e40af" text-anchor="middle">Evident</text>
   
   <!-- Subtitle -->
   <text x="650" y="300" font-family="Arial, sans-serif" font-size="32" fill="#c41e3a" text-anchor="middle">Legal Video Analysis Platform</text>

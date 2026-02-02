@@ -1,6 +1,6 @@
 # Barber Cam - GPT Project Instructions
 
-**BarberX Legal Tech → Barber Cam Citizen Evidence Platform**
+**Evident Legal Tech → Barber Cam Citizen Evidence Platform**
 
 ## Mission
 

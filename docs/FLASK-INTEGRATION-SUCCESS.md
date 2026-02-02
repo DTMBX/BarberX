@@ -10,7 +10,7 @@ Successfully integrated enhanced authentication system with Flask! Server is run
 
 **URL:** http://localhost:5000  
 **Status:** ✅ Running  
-**Database:** SQLite (instance/barberx_auth.db)  
+**Database:** SQLite (instance/Evident_auth.db)  
 **Auth System:** Enhanced (models_auth.py + auth_routes.py)
 
 ---
@@ -20,7 +20,7 @@ Successfully integrated enhanced authentication system with Flask! Server is run
 ### Admin Account:
 
 ```
-Email: admin@barberx.info
+Email: admin@Evident.info
 Password: (set via ADMIN_PASSWORD env var)
 Tier: Admin ($9999/mo)
 Access: Full backend + admin dashboard
@@ -146,7 +146,7 @@ Premium:
 ```
 ID | Email              | Tier          | Created
 ---|--------------------|---------------|--------------------
-1  | admin@barberx.info       | Admin         | 2026-01-23 03:58
+1  | admin@Evident.info       | Admin         | 2026-01-23 03:58
 2  | free@example.com  | Free          | 2026-01-23 03:58
 3  | pro@example.com   | Professional  | 2026-01-23 03:58
 4  | premium@example.com| Premium      | 2026-01-23 03:58
@@ -311,7 +311,7 @@ CREATE TABLE usage_tracking (
 ### Start Server:
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python app_test_auth.py
 ```
 
@@ -324,14 +324,14 @@ python init_auth.py
 ### Check Database:
 
 ```bash
-sqlite3 instance/barberx_auth.db
+sqlite3 instance/Evident_auth.db
 SELECT email, tier FROM users;
 ```
 
 ### View Logs:
 
 ```bash
-tail -f logs/barberx.log
+tail -f logs/Evident.log
 ```
 
 ---

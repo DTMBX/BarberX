@@ -1,6 +1,6 @@
-# BarberX Legal Technologies (BXLT)
+# Evident Technologies
 
-**BarberX Legal Technologies** is a local-first legal-tech platform for processing, analyzing, and organizing digital evidence in civil-rights and constitutional litigation.
+**Evident Technologies** is a professional-grade evidence processing platform for video, documents, and records—built for verification, chain of custody, and court-ready analysis.
 
 The system is designed to help litigants, advocates, and legal teams work with **body-worn camera footage, discovery documents, and public-records data** in a way that preserves **evidentiary integrity, transparency, and chain of custody**—without reliance on cloud processing.
 
@@ -10,7 +10,7 @@ The system is designed to help litigants, advocates, and legal teams work with *
 
 ## Purpose & Design Principles
 
-BarberX is built around several non-negotiable principles:
+Evident is built around several non-negotiable principles:
 
 - **Local-first processing**  
   Evidence remains on the user’s system unless explicitly shared.
@@ -32,18 +32,21 @@ BarberX is built around several non-negotiable principles:
 ## Core Capabilities
 
 ### Evidence Processing
+
 - Body-worn camera (BWC) and dash-cam video ingestion
 - Audio transcription using local speech-to-text models
 - Document OCR for PDFs and scanned records
 - Metadata extraction and normalization
 
 ### Analysis & Organization
+
 - Searchable transcripts and documents
 - Timeline construction across multiple evidence sources
 - Cross-referencing between video, reports, and records
 - Structured notes and annotations
 
 ### Integrity & Reporting
+
 - Hash-based file verification
 - Immutable original evidence handling
 - Audit-friendly processing records
@@ -53,7 +56,8 @@ BarberX is built around several non-negotiable principles:
 
 ## Intended Use
 
-BarberX is intended for:
+Evident is intended for:
+
 - Civil-rights and constitutional litigation
 - Public-records analysis (e.g., OPRA / FOIA)
 - Discovery review and evidence organization
@@ -66,11 +70,14 @@ It is **not** designed to provide legal advice or automated legal conclusions.
 ## Quick Start (Local Development)
 
 ### Requirements
+
 - Python 3.9+
 - FFmpeg (for media handling)
 - Tesseract OCR (for document processing)
 
 ### Setup
+
 ```bash
 pip install -r requirements.txt
 python app.py
+```

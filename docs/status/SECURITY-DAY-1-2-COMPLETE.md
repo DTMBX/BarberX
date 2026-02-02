@@ -1,4 +1,4 @@
-# BarberX Security Setup - Days 1-2 Complete ✅
+# Evident Security Setup - Days 1-2 Complete ✅
 
 **Completion Date:** January 28, 2026  
 **Status:** All critical security tasks completed
@@ -40,14 +40,14 @@ instance/*.db
 
 ### Secure Folder Structure Created:
 ```
-C:\SecureData\BarberX-Confidential\
+C:\SecureData\Evident-Confidential\
 ├── Financial-Data/
 │   ├── INVESTOR-LOG.md ✓
-│   └── BarberX_Worst_Case_Cost_Model.xlsx ✓
+│   └── Evident_Worst_Case_Cost_Model.xlsx ✓
 ├── Customer-Data-Exports/
 │   └── founding_member_signups.csv ✓
 ├── Backups/
-│   └── barberx_FRESH-20260128.db ✓
+│   └── Evident_FRESH-20260128.db ✓
 ├── Investor-Decks/ (ready for Week 3)
 ├── NDA-Signed/ (ready for Week 3)
 └── Legal-Documents/ (ready for Week 2)
@@ -84,7 +84,7 @@ C:\SecureData\BarberX-Confidential\
 ```powershell
 # 1. Download: https://www.veracrypt.fr/
 # 2. Create encrypted container (500 MB minimum)
-# 3. Move C:\SecureData\BarberX-Confidential into container
+# 3. Move C:\SecureData\Evident-Confidential into container
 # 4. Mount container only when needed
 ```
 
@@ -92,7 +92,7 @@ C:\SecureData\BarberX-Confidential\
 ```powershell
 # 1. Install Google Drive for Desktop
 # 2. Enable 2FA on Google Account
-# 3. Move BarberX-Confidential to Google Drive folder
+# 3. Move Evident-Confidential to Google Drive folder
 # 4. Enable "Make available offline"
 # Files encrypted in transit and at rest by Google
 ```
@@ -109,7 +109,7 @@ C:\SecureData\BarberX-Confidential\
   - Unit economics: LTV $2,201, CAC $75
   - Strategic disclosure framework
   
-- **BarberX_Worst_Case_Cost_Model.xlsx**
+- **Evident_Worst_Case_Cost_Model.xlsx**
   - Processing fee scenarios
   - Break-even analysis
   - Margin calculations
@@ -117,7 +117,7 @@ C:\SecureData\BarberX-Confidential\
 
 ### Customer Data:
 - **founding_member_signups.csv** (2 members, $198 revenue)
-- **barberx_FRESH.db** (all user data, subscriptions, analyses)
+- **Evident_FRESH.db** (all user data, subscriptions, analyses)
 
 ### Critical Exclusions:
 - ✅ API keys (.env files)
@@ -148,12 +148,12 @@ C:\SecureData\BarberX-Confidential\
 
 ### Immediate (Before End of Day 2):
 1. **Choose encryption method** (BitLocker, VeraCrypt, or Google Drive)
-2. **Encrypt C:\SecureData\BarberX-Confidential\**
+2. **Encrypt C:\SecureData\Evident-Confidential\**
 3. **Test accessing encrypted files**
 4. **Delete unencrypted copies from repository:**
    ```powershell
    Remove-Item "INVESTOR-LOG.md" -Confirm
-   Remove-Item "excel-sheets\BarberX_Worst_Case_Cost_Model.xlsx" -Confirm
+   Remove-Item "excel-sheets\Evident_Worst_Case_Cost_Model.xlsx" -Confirm
    ```
 
 ### Day 3 (Monitoring & Alerts):
@@ -173,16 +173,16 @@ C:\SecureData\BarberX-Confidential\
 
 From repository root:
 - `INVESTOR-LOG.md` → Already backed up to SecureData/Financial-Data/
-- `excel-sheets/BarberX_Worst_Case_Cost_Model.xlsx` → Already backed up
+- `excel-sheets/Evident_Worst_Case_Cost_Model.xlsx` → Already backed up
 
 **Verification steps before deletion:**
 ```powershell
 # 1. Confirm files exist in secure location
-Test-Path "C:\SecureData\BarberX-Confidential\Financial-Data\INVESTOR-LOG.md"
+Test-Path "C:\SecureData\Evident-Confidential\Financial-Data\INVESTOR-LOG.md"
 # Should return: True
 
 # 2. Open file to verify contents
-notepad "C:\SecureData\BarberX-Confidential\Financial-Data\INVESTOR-LOG.md"
+notepad "C:\SecureData\Evident-Confidential\Financial-Data\INVESTOR-LOG.md"
 
 # 3. ONLY THEN delete from repository
 Remove-Item "INVESTOR-LOG.md" -Confirm

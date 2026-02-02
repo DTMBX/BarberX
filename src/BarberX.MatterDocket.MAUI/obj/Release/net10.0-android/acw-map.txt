@@ -634,12 +634,12 @@ androidx.viewpager2.adapter.FragmentStateAdapter$FragmentTransactionCallback$OnP
 AndroidX.ViewPager2.Widget.ViewPager2+IPageTransformer, Xamarin.AndroidX.ViewPager2;androidx.viewpager2.widget.ViewPager2$PageTransformer
 AndroidX.ViewPager2.Widget.ViewPager2.IPageTransformer;androidx.viewpager2.widget.ViewPager2$PageTransformer
 androidx.viewpager2.widget.ViewPager2$PageTransformer;androidx.viewpager2.widget.ViewPager2$PageTransformer
-BarberX.MatterDocket.MAUI.MainActivity, BarberX.MatterDocket.MAUI;crc64a8af5c7b7e3ca4ad.MainActivity
-BarberX.MatterDocket.MAUI.MainActivity;crc64a8af5c7b7e3ca4ad.MainActivity
-barberx.matterdocket.maui.MainActivity;crc64a8af5c7b7e3ca4ad.MainActivity
-BarberX.MatterDocket.MAUI.MainApplication, BarberX.MatterDocket.MAUI;crc64a8af5c7b7e3ca4ad.MainApplication
-BarberX.MatterDocket.MAUI.MainApplication;crc64a8af5c7b7e3ca4ad.MainApplication
-barberx.matterdocket.maui.MainApplication;crc64a8af5c7b7e3ca4ad.MainApplication
+Evident.MatterDocket.MAUI.MainActivity, Evident.MatterDocket.MAUI;crc64a8af5c7b7e3ca4ad.MainActivity
+Evident.MatterDocket.MAUI.MainActivity;crc64a8af5c7b7e3ca4ad.MainActivity
+Evident.matterdocket.maui.MainActivity;crc64a8af5c7b7e3ca4ad.MainActivity
+Evident.MatterDocket.MAUI.MainApplication, Evident.MatterDocket.MAUI;crc64a8af5c7b7e3ca4ad.MainApplication
+Evident.MatterDocket.MAUI.MainApplication;crc64a8af5c7b7e3ca4ad.MainApplication
+Evident.matterdocket.maui.MainApplication;crc64a8af5c7b7e3ca4ad.MainApplication
 Google.Android.Material.AppBar.AppBarLayout+ILiftOnScrollListener, Xamarin.Google.Android.Material;com.google.android.material.appbar.AppBarLayout$LiftOnScrollListener
 Google.Android.Material.AppBar.AppBarLayout.ILiftOnScrollListener;com.google.android.material.appbar.AppBarLayout$LiftOnScrollListener
 com.google.android.material.appbar.AppBarLayout$LiftOnScrollListener;com.google.android.material.appbar.AppBarLayout$LiftOnScrollListener

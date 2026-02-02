@@ -1,6 +1,6 @@
 /**
  * Connect, Compliance, and Footer Sections
- * BarberX Golden Age Styling
+ * Evident Golden Age Styling
  */
 
 /* ===========================================
@@ -23,7 +23,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--barberx-gold) 50%,
+    var(--Evident-gold) 50%,
     transparent 100%
   );
 }
@@ -53,10 +53,10 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--barberx-gold);
+  border: 1px solid var(--Evident-gold);
   border-radius: 4px;
   background: rgb(212 175 55 / 10%);
 }
@@ -65,7 +65,7 @@
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -115,14 +115,14 @@
 .way-icon svg {
   width: 28px;
   height: 28px;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
 }
 
 .way-content h4 {
   font-family: Montserrat, sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 0.5rem;
 }
 
@@ -162,7 +162,7 @@
   font-family: "Playfair Display", serif;
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 0.5rem;
 }
 
@@ -207,7 +207,7 @@
 .form-group select:focus {
   outline: none;
   background: rgb(255 255 255 / 12%);
-  border-color: var(--barberx-gold);
+  border-color: var(--Evident-gold);
   box-shadow: 0 0 0 3px rgb(212 175 55 / 15%);
 }
 
@@ -243,7 +243,7 @@
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
 }
 
 .form-notice span {
@@ -257,7 +257,7 @@
 .compliance-section {
   padding: 6rem 0;
   background: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%);
-  border-top: 3px solid var(--barberx-gold);
+  border-top: 3px solid var(--Evident-gold);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -314,7 +314,7 @@
   font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid rgb(212 175 55 / 30%);
@@ -358,25 +358,25 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   font-weight: 700;
   font-size: 1.125rem;
 }
 
 .compliance-card ul li strong {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   font-weight: 600;
 }
 
 .compliance-card a {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
 .compliance-card a:hover {
-  border-bottom-color: var(--barberx-gold);
+  border-bottom-color: var(--Evident-gold);
 }
 
 .compliance-contact {
@@ -384,11 +384,11 @@
   padding: 1rem;
   background: rgb(212 175 55 / 8%);
   border-radius: 8px;
-  border-left: 3px solid var(--barberx-gold);
+  border-left: 3px solid var(--Evident-gold);
 }
 
 .compliance-contact a {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   font-weight: 600;
 }
 
@@ -425,14 +425,14 @@
 }
 
 .compliance-footer a {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
 .compliance-footer a:hover {
-  border-bottom-color: var(--barberx-gold);
+  border-bottom-color: var(--Evident-gold);
 }
 
 /* ===========================================
@@ -443,7 +443,7 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 100%);
   color: rgb(255 255 255 / 80%);
   padding: 4rem 0 2rem;
-  border-top: 3px solid var(--barberx-gold);
+  border-top: 3px solid var(--Evident-gold);
   position: relative;
 }
 
@@ -457,7 +457,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--barberx-gold) 50%,
+    var(--Evident-gold) 50%,
     transparent 100%
   );
 }
@@ -494,7 +494,7 @@
 }
 
 .footer-brand-x {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
 }
 
 .footer-logo {
@@ -513,7 +513,7 @@
 
 .footer-tagline {
   font-size: 1.125rem;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 0.5rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -542,14 +542,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .contact-link:hover {
-  color: var(--barberx-brass);
+  color: var(--Evident-brass);
 }
 
 .footer-notice {
@@ -563,7 +563,7 @@
   font-family: Montserrat, sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -611,7 +611,7 @@
 
 .footer-legal {
   font-size: 0.8125rem !important;
-  color: var(--barberx-gold) !important;
+  color: var(--Evident-gold) !important;
 }
 
 .footer-legal-links {
@@ -628,7 +628,7 @@
 }
 
 .footer-legal-links a:hover {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
 }
 
 .footer-legal-links span {
@@ -643,7 +643,7 @@
 .footer-links h4 {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -667,7 +667,7 @@
 }
 
 .footer-nav-list a:hover {
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
 }
 
 /* Footer Copyright (cleanup) */
@@ -743,7 +743,7 @@
 }
 
 .footer-brand-x {
-  color: var(--barberx-gold, #d4af37);
+  color: var(--Evident-gold, #d4af37);
 }
 
 .footer-tagline {
@@ -797,7 +797,7 @@
 }
 
 .footer-nav-col a:hover {
-  color: var(--barberx-gold, #d4af37);
+  color: var(--Evident-gold, #d4af37);
 }
 
 /* Footer Bottom */
@@ -833,7 +833,7 @@
 }
 
 .brand-x {
-  color: var(--barberx-gold, #d4af37);
+  color: var(--Evident-gold, #d4af37);
 }
 
 /* Desktop Nav Layout */
@@ -914,7 +914,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--primary-navy, #0a1628);
-  background: linear-gradient(135deg, var(--barberx-gold, #d4af37), #f0d78c);
+  background: linear-gradient(135deg, var(--Evident-gold, #d4af37), #f0d78c);
   border-radius: 6px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1036,7 +1036,7 @@
 }
 
 .premium-nav__mobile-actions .btn-primary {
-  background: linear-gradient(135deg, var(--barberx-gold, #d4af37), #f0d78c);
+  background: linear-gradient(135deg, var(--Evident-gold, #d4af37), #f0d78c);
   color: var(--primary-navy, #0a1628);
   border: none;
 }
@@ -1065,7 +1065,7 @@
 .premium-nav-toggle__bar {
   width: 24px;
   height: 2px;
-  background: var(--barberx-gold, #d4af37);
+  background: var(--Evident-gold, #d4af37);
   border-radius: 2px;
   transition: all 0.3s ease;
 }

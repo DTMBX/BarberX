@@ -1,5 +1,5 @@
 """
-BarberX Admin Account Setup
+Evident Admin Account Setup
 Creates the one and only admin account with secure credentials
 """
 
@@ -10,15 +10,15 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash
 
 # SECURE ADMIN CREDENTIALS - LOADED FROM ENVIRONMENT
-ADMIN_EMAIL = os.environ.get("BARBERX_ADMIN_EMAIL", "admin@barberx.info")
-ADMIN_PASSWORD = os.environ.get("BARBERX_ADMIN_PASSWORD")  # MUST be set in environment
-ADMIN_NAME = "BarberX System Administrator"
+ADMIN_EMAIL = os.environ.get("Evident_ADMIN_EMAIL", "admin@Evident.info")
+ADMIN_PASSWORD = os.environ.get("Evident_ADMIN_PASSWORD")  # MUST be set in environment
+ADMIN_NAME = "Evident System Administrator"
 
 if not ADMIN_PASSWORD:
-    raise ValueError("BARBERX_ADMIN_PASSWORD environment variable must be set")
+    raise ValueError("Evident_ADMIN_PASSWORD environment variable must be set")
 
 # Database path
-DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "barberx.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "Evident.db")
 
 
 def create_admin_account():
@@ -27,7 +27,7 @@ def create_admin_account():
     Ensures only ONE admin exists in the system
     """
     print("\n" + "=" * 80)
-    print("BarberX Admin Account Setup")
+    print("Evident Admin Account Setup")
     print("=" * 80 + "\n")
 
     # Ensure instance directory exists
@@ -209,5 +209,5 @@ if __name__ == "__main__":
     verify_admin_login()
 
     print("✅ Setup complete!\n")
-    print(f"🌐 Access admin panel at: https://app.barberx.info/admin")
+    print(f"🌐 Access admin panel at: https://app.Evident.info/admin")
     print(f"📧 Login with: {ADMIN_EMAIL}\n")

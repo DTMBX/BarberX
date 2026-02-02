@@ -10,7 +10,7 @@
 
 ## Admin Credentials
 
-**Email**: `admin@barberx.info`  
+**Email**: `admin@Evident.info`  
 **Password**: `pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s`  
 **Tier**: ADMIN ($9999/mo)  
 **Status**: Active ✅  
@@ -25,7 +25,7 @@
 **Problem**: Admin was created in wrong database format (old SQLite schema with `role` column)  
 **Solution**: Created `create_admin_fixed.py` that uses correct SQLAlchemy models with `tier` enum
 
-**Result**: Admin now exists in `barberx_test.db` with correct schema ✅
+**Result**: Admin now exists in `Evident_test.db` with correct schema ✅
 
 ### Issue #2: Password Hash Mismatch ❌ → ✅
 
@@ -48,7 +48,7 @@
 ### Method 1: Quick Start Script (Recommended)
 
 ```powershell
-cd c:\web-dev\github-repos\BarberX.info
+cd c:\web-dev\github-repos\Evident.info
 python start_with_admin.py
 ```
 
@@ -63,7 +63,7 @@ This script automatically:
 
 ```powershell
 # 1. Set admin password
-$env:BARBERX_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
+$env:Evident_ADMIN_PASSWORD = "pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s"
 
 # 2. Create/update admin
 python create_admin_fixed.py
@@ -78,16 +78,16 @@ python app.py
 
 ```
 [OK] Flask app loaded
-[OK] Database: sqlite:///barberx_test.db
+[OK] Database: sqlite:///Evident_test.db
 [OK] Database tables created/verified
-[OK] Admin exists: admin@barberx.info
+[OK] Admin exists: admin@Evident.info
     Tier: ADMIN
     Active: True
 [OK] Admin password updated
 [OK] Password verification: SUCCESS
 
 READY TO START
-Admin Email: admin@barberx.info
+Admin Email: admin@Evident.info
 Password: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 
 Login URL: http://localhost:5000/auth/login
@@ -102,7 +102,7 @@ Flask server: RUNNING ✅
 ## How to Login
 
 1. **Open browser**: http://localhost:5000/auth/login
-2. **Enter email**: `admin@barberx.info`
+2. **Enter email**: `admin@Evident.info`
 3. **Enter password**: `pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s`
 4. **Click "Login"**
 5. **Should redirect to dashboard** ✅
@@ -177,7 +177,7 @@ Flask server: RUNNING ✅
 
 ```
 URL: http://localhost:5000/auth/login
-Email: admin@barberx.info
+Email: admin@Evident.info
 Password: pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 ```
 
@@ -266,6 +266,6 @@ Check for errors after clicking "Login"
 **Status**: ✅ WORKING - Flask running, admin login configured  
 **Server**: http://localhost:5000  
 **Login**: http://localhost:5000/auth/login  
-**Credentials**: admin@barberx.info / pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
+**Credentials**: admin@Evident.info / pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s
 
 🎉 **ALL SYSTEMS GO!**

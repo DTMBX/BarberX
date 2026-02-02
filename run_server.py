@@ -3,9 +3,9 @@
 import os
 import sys
 
-# Change to the BarberX directory
-os.chdir(r"c:\web-dev\github-repos\BarberX.info")
-sys.path.insert(0, r"c:\web-dev\github-repos\BarberX.info")
+# Change to the Evident directory
+os.chdir(r"c:\web-dev\github-repos\Evident.info")
+sys.path.insert(0, r"c:\web-dev\github-repos\Evident.info")
 
 from app import app
 

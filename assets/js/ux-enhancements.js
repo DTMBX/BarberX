@@ -1,5 +1,5 @@
 /**
- * BarberX UX Enhancements
+ * Evident UX Enhancements
  * Interactive features for improved user experience
  */
 
@@ -431,7 +431,7 @@
     initSmoothScroll();
     initLazyLoading();
 
-    console.log("✨ BarberX UX enhancements loaded");
+    console.log("✨ Evident UX enhancements loaded");
   }
 
   init();

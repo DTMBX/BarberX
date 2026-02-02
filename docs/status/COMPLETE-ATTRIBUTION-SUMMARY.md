@@ -1,6 +1,6 @@
 # ✅ COMPLETE ATTRIBUTION & LICENSE COMPLIANCE
 
-**BarberX Legal Technologies - Full Third-Party Acknowledgment**
+**Evident Legal Technologies - Full Third-Party Acknowledgment**
 
 ---
 
@@ -145,7 +145,7 @@ This export was generated using the following open-source tools:
 [... 5 more tools ...]
 
 Full license texts available at:
-https://barberx.info/licenses
+https://Evident.info/licenses
 ```
 
 ---
@@ -396,16 +396,16 @@ cat exports\exp_27cb7bf416c1\ATTRIBUTION.txt
 ## 📧 CONTACTS
 
 **Legal Compliance:**  
-legal@barberx.info
+legal@Evident.info
 
 **Open-Source Questions:**  
-opensource@barberx.info
+opensource@Evident.info
 
 **License Violations:**  
-compliance@barberx.info
+compliance@Evident.info
 
 **General Contact:**  
-legal@barberx.info
+legal@Evident.info
 
 ---
 

@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
-DB_PATH = Path(__file__).parent / "instance" / "barberx_legal.db"
+DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 
 
 @dataclass

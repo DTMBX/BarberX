@@ -26,7 +26,7 @@ def create_smart_meter_tables():
     """Create smart meter tables"""
     # Create Flask app with minimal config
     app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "sqlite:///barberx.db")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "sqlite:///Evident.db")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     # Initialize db

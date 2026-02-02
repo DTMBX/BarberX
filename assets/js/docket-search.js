@@ -1,5 +1,5 @@
 /**
- * BarberX Legal Case Management Pro Suite
+ * Evident Technologies Evidence Processing Platform
  * Docket Search Tool - Production Implementation
  */
 

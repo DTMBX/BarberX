@@ -1,4 +1,4 @@
-# BarberX Legal Tech Platform - Production Process Configuration
+# Evident Legal Tech Platform - Production Process Configuration
 # Last Updated: 2026-01-30
 
 # Web Process - Gunicorn WSGI Server

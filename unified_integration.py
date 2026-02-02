@@ -1,5 +1,5 @@
 # Unified Integration Layer
-# Connects all BarberX features: evidence analysis, AI agents, chat, scanning, and processing
+# Connects all Evident features: evidence analysis, AI agents, chat, scanning, and processing
 
 import json
 from datetime import datetime

@@ -443,8 +443,8 @@ if __name__ == "__main__":
     # checkout = stripe_service.create_checkout_session(
     #     customer_id=customer['customer_id'],
     #     price_id='price_pro_monthly',
-    #     success_url='https://barberx.info/success',
-    #     cancel_url='https://barberx.info/cancel',
+    #     success_url='https://Evident.info/success',
+    #     cancel_url='https://Evident.info/cancel',
     #     trial_days=14
     # )
     # print(f"✓ Checkout URL: {checkout['url']}")

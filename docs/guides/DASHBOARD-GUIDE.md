@@ -1,4 +1,4 @@
-# BarberX.info - Evidence Processing Platform
+# Evident.info - Evidence Processing Platform
 ## Complete Feature Inventory & User Guide
 
 ### ? WORKING FEATURES (Ready to Use)
@@ -65,8 +65,8 @@ This will:
 4. Open browser to login page
 
 #### Default Admin Credentials:
-- **Email**: admin@barberx.info
-- **Password**: BarberX2026!
+- **Email**: admin@Evident.info
+- **Password**: Evident2026!
 
 ### ?? DASHBOARD FEATURES
 
@@ -138,7 +138,7 @@ Your dashboard at `/auth/dashboard` shows:
 ### ?? FILE STRUCTURE
 
 ```
-BarberX.info/
+Evident.info/
 ??? app.py                          # Main Flask application
 ??? bwc_forensic_analyzer.py        # BWC analysis engine
 ??? models_auth.py                  # User & tier models
@@ -154,7 +154,7 @@ BarberX.info/
 ?   ??? css/                       # Stylesheets
 ?   ??? js/                        # JavaScript
 ??? instance/
-?   ??? barberx.db                 # SQLite database
+?   ??? Evident.db                 # SQLite database
 ??? uploads/
 ?   ??? bwc_videos/                # Uploaded videos
 ??? bwc_analysis/                  # Analysis results
@@ -220,8 +220,8 @@ Before going live:
 
 ### ?? SUPPORT
 
-- **GitHub Issues**: https://github.com/DTB396/BarberX.info/issues
-- **Email**: support@barberx.info
+- **GitHub Issues**: https://github.com/DTB396/Evident.info/issues
+- **Email**: support@Evident.info
 - **Docs**: Check TONIGHT-QUICK-START.md
 
 ### ?? NEXT STEPS TO ENHANCE DASHBOARD

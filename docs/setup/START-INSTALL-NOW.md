@@ -1,4 +1,4 @@
-# 📱 START HERE: Get BarberX on Your Phone
+# 📱 START HERE: Get Evident on Your Phone
 
 **⏱️ Time to Install:** 2 minutes  
 **📱 Works On:** Android phones (iOS coming soon)
@@ -9,13 +9,13 @@
 
 ### Step 1: Open APK Location
 ```powershell
-explorer "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android"
+explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
 ```
 
 ### Step 2: Email File to Yourself
 Look for this file:
 ```
-com.companyname.barberx.matterdocket.maui-Signed.apk
+com.companyname.Evident.matterdocket.maui-Signed.apk
 (30.57 MB)
 ```
 
@@ -27,7 +27,7 @@ Email to yourself
 2. Download APK attachment
 3. Allow "Install from Unknown Sources"
 4. Tap APK to install
-5. Launch BarberX!
+5. Launch Evident!
 
 ---
 

@@ -1,4 +1,4 @@
-# BarberX 5-Tier System: Complete Description Guide
+# Evident 5-Tier System: Complete Description Guide
 
 ## 🎯 Target Personas & Use Cases
 
@@ -13,7 +13,7 @@
 - 7-day data retention creates urgency to upgrade
 
 **Marketing Copy:**
-> "See BarberX in action with real cases. Explore 3 complete demo cases with full AI analysis, then upload 1 file to test with your own data. Try risk-free before you buy."
+> "See Evident in action with real cases. Explore 3 complete demo cases with full AI analysis, then upload 1 file to test with your own data. Try risk-free before you buy."
 
 **Perfect For:**
 - Attorneys evaluating BWC analysis tools
@@ -246,7 +246,7 @@
 ## 🎨 Marketing Messaging
 
 ### FREE Tier Messaging
-**Headline:** Try BarberX Risk-Free  
+**Headline:** Try Evident Risk-Free  
 **Subheading:** See real results with demo cases + upload 1 file of your own
 
 **Benefits:**

@@ -16,7 +16,7 @@ MIGRATION TO FRESH REPOSITORY - SECURITY CLEANUP
 OPTION 1: CONTINUE WITH CURRENT REPO (Quick Fix)
 ====================================================================
 
-If you want to keep using https://github.com/DTMBX/BarberX:
+If you want to keep using https://github.com/DTMBX/Evident:
 
 1. Push the security updates:
    git push origin main
@@ -41,12 +41,12 @@ For maximum security with NO exposed secrets:
 
 1. Create a new GitHub repository:
    - Go to https://github.com/new
-   - Name it: BarberX-Clean (or delete/recreate BarberX)
+   - Name it: Evident-Clean (or delete/recreate Evident)
    - Keep it PRIVATE
    - Don't initialize with README
 
 2. Run the migration script:
-   .\migrate-to-fresh-repo.ps1 -NewRepoUrl "https://github.com/DTMBX/BarberX-Clean"
+   .\migrate-to-fresh-repo.ps1 -NewRepoUrl "https://github.com/DTMBX/Evident-Clean"
 
 3. The script will automatically:
    ✓ Backup your current repo
@@ -57,11 +57,11 @@ For maximum security with NO exposed secrets:
    ✓ Configure remote for push
 
 4. Review and push:
-   cd C:\web-dev\github-repos\BarberX-Fresh
+   cd C:\web-dev\github-repos\Evident-Fresh
    git-crypt status  # Verify encryption
    git push -u origin main
 
-5. Archive or delete the old DTMBX/BarberX repo
+5. Archive or delete the old DTMBX/Evident repo
 
 PROS: Clean history, no exposed secrets, proper security from start
 CONS: Loses commit history (but you have backup)
@@ -86,10 +86,10 @@ ENCRYPTION KEY LOCATION
 ====================================================================
 
 Current repo key:
-  C:\web-dev\github-repos\BarberX.info\secure\barberx-git-crypt.key
+  C:\web-dev\github-repos\Evident.info\secure\Evident-git-crypt.key
 
 Fresh repo key (after migration):
-  C:\web-dev\github-repos\BarberX-Fresh\secure\barberx-git-crypt-FRESH.key
+  C:\web-dev\github-repos\Evident-Fresh\secure\Evident-git-crypt-FRESH.key
 
 ⚠️  KEEP THESE KEYS SECURE - They decrypt your sensitive files!
 

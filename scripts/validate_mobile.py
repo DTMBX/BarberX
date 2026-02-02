@@ -11,7 +11,7 @@ def validate_mobile_implementation():
     """Validate that all mobile files are present and configured correctly."""
 
     print("=" * 60)
-    print("BarberX Mobile Experience - Implementation Validation")
+    print("Evident Mobile Experience - Implementation Validation")
     print("=" * 60)
     print()
 

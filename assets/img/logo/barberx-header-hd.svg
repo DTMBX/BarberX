@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="2400" height="480" viewBox="0 0 2400 480" role="img" aria-labelledby="headerLogoTitleHD">
-  <title id="headerLogoTitleHD">BarberX Legal Technologies - High Definition Header Logo</title>
+  <title id="headerLogoTitleHD">Evident Legal Technologies - High Definition Header Logo</title>
 
   <defs>
     <linearGradient id="hd_gBody" x1="0" y1="0" x2="0" y2="1">
@@ -45,7 +45,7 @@
   </g>
 
   <!-- Main Wordmark -->
-  <text x="480" y="200" font-family="'Montserrat', 'Inter', system-ui, sans-serif" font-weight="900" font-size="120" letter-spacing="6" fill="#1a1a2e">BarberX</text>
+  <text x="480" y="200" font-family="'Montserrat', 'Inter', system-ui, sans-serif" font-weight="900" font-size="120" letter-spacing="6" fill="#1a1a2e">Evident</text>
   
   <!-- Tagline -->
   <text x="480" y="300" font-family="'Inter', system-ui, sans-serif" font-weight="700" font-size="42" letter-spacing="4" fill="#4a4a6a" opacity="0.9">LEGAL TECHNOLOGIES</text>

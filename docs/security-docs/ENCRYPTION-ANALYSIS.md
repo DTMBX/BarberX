@@ -1,4 +1,4 @@
-# 🔐 Encryption Analysis for BarberX Jekyll/GitHub Pages Site
+# 🔐 Encryption Analysis for Evident Jekyll/GitHub Pages Site
 
 **Date:** January 30, 2026  
 **Status:** Analysis Complete
@@ -109,7 +109,7 @@ secure/**
 # Mac: brew install git-crypt
 
 # Unlock repository (requires key file)
-git-crypt unlock /path/to/barberx-git-crypt.key
+git-crypt unlock /path/to/Evident-git-crypt.key
 ```
 
 ### For CI/CD:

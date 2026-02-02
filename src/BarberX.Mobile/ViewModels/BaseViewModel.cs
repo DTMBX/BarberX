@@ -1,4 +1,4 @@
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 using System.ComponentModel;
 using System.Runtime.CompilerServices;

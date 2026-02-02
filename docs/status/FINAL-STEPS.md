@@ -32,7 +32,7 @@
 
 2. **Paste this URL:**
    ```
-   https://barberx-backend.onrender.com/payments/webhook
+   https://Evident-backend.onrender.com/payments/webhook
    ```
 
 3. **Select these 5 events** (copy each one):
@@ -62,7 +62,7 @@
 
 **After Render redeploys (5 min):**
 
-1. **Go to:** https://barberx-backend.onrender.com/payments/pricing
+1. **Go to:** https://Evident-backend.onrender.com/payments/pricing
 
 2. **Click:** "Start Pro Trial"
 
@@ -85,7 +85,7 @@
 **I created a verification script for you:**
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python verify_integration.py
 ```
 
@@ -115,7 +115,7 @@ Live:         ⏳ 5 minutes away!
 
 **Right now (3 min):**
 1. Open: https://dashboard.stripe.com/test/webhooks/create
-2. Paste URL: `https://barberx-backend.onrender.com/payments/webhook`
+2. Paste URL: `https://Evident-backend.onrender.com/payments/webhook`
 3. Select 5 events (listed above)
 4. Click "Add endpoint"
 5. Copy signing secret
@@ -164,7 +164,7 @@ SUCCESS! Accept real money! 💰
 
 **Stripe Webhooks:** https://dashboard.stripe.com/test/webhooks
 **Render Dashboard:** https://dashboard.render.com/
-**Pricing Page:** https://barberx-backend.onrender.com/payments/pricing
+**Pricing Page:** https://Evident-backend.onrender.com/payments/pricing
 
 ---
 

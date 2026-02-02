@@ -336,7 +336,7 @@ def validate_use_case_alignment():
 
 if __name__ == "__main__":
     print("\n" + "=" * 80)
-    print("BARBERX 5-TIER SYSTEM VALIDATION")
+    print("Evident 5-TIER SYSTEM VALIDATION")
     print("=" * 80)
 
     calculate_scaling_ratios()

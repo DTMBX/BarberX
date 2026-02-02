@@ -2,9 +2,9 @@
 
 ## Overview
 
-The BarberX admin panel now provides complete CRUD (Create, Read, Update, Delete) operations for managing users, analyses, and monitoring system health via an online admin portal.
+The Evident admin panel now provides complete CRUD (Create, Read, Update, Delete) operations for managing users, analyses, and monitoring system health via an online admin portal.
 
-**Access:** `https://app.barberx.info/admin` (requires admin role)
+**Access:** `https://app.Evident.info/admin` (requires admin role)
 
 ---
 
@@ -590,7 +590,7 @@ python create_admin.py
 
 This creates the **one and only** admin account:
 
-**Email:** `admin@barberx.info`  
+**Email:** `admin@Evident.info`  
 **Password:** `BxAdm!n#2026$Secur3*P@ssw0rd%33^` (33 characters)
 
 The script will:
@@ -614,7 +614,7 @@ from app import db, User, bcrypt
 
 # In Python shell or init script:
 admin = User(
-    email='admin@barberx.info',
+    email='admin@Evident.info',
     password_hash=bcrypt.generate_password_hash('SecurePassword123!').decode('utf-8'),
     full_name='Admin User',
     role='admin',
@@ -628,7 +628,7 @@ db.session.commit()
 ### 4. Access Admin Panel
 
 1. Log in as admin user
-2. Navigate to: `https://app.barberx.info/admin`
+2. Navigate to: `https://app.Evident.info/admin`
 3. Start managing users and analyses
 
 ---
@@ -759,12 +759,12 @@ db.session.commit()
 
 ## 📞 Support
 
-**Issues:** https://github.com/barberx/platform/issues  
-**Email:** support@barberx.info  
-**Documentation:** https://docs.barberx.info
+**Issues:** https://github.com/Evident/platform/issues  
+**Email:** support@Evident.info  
+**Documentation:** https://docs.Evident.info
 
 ---
 
 **Last Updated:** January 2025  
 **Version:** 2.0.0  
-**Author:** BarberX Legal Tech Team
+**Author:** Evident Legal Tech Team

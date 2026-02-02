@@ -149,7 +149,7 @@ def check_webhook_endpoint():
     print("🔍 Checking Webhook Endpoint...\n")
 
     # Try common URLs
-    urls = ["https://barberx-backend.onrender.com", "https://barberx.info", "http://localhost:5000"]
+    urls = ["https://Evident-backend.onrender.com", "https://Evident.info", "http://localhost:5000"]
 
     for base_url in urls:
         try:

@@ -16,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-def create_chat_tables(db_path: str = "instance/barberx_legal.db"):
+def create_chat_tables(db_path: str = "instance/Evident_legal.db"):
     """Create enhanced chat tables in database"""
 
     # Ensure instance directory exists
@@ -292,7 +292,7 @@ def create_chat_tables(db_path: str = "instance/barberx_legal.db"):
 if __name__ == "__main__":
     import sys
 
-    db_path = sys.argv[1] if len(sys.argv) > 1 else "instance/barberx_legal.db"
+    db_path = sys.argv[1] if len(sys.argv) > 1 else "instance/Evident_legal.db"
 
     print("=" * 70)
     print("Enhanced Chat Database Migration")

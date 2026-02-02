@@ -1,7 +1,7 @@
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 using System.Windows.Input;
-using BarberX.Mobile.Services;
+using Evident.Mobile.Services;
 
 /// <summary>
 /// ViewModel for login page

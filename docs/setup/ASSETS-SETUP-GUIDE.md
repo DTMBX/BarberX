@@ -99,7 +99,7 @@ EXECUTIVE SUMMARY:
 [Summary of incident]
 
 TIMELINE OF EVENTS:
-[Insert timeline from BarberX analysis]
+[Insert timeline from Evident analysis]
 
 CONSTITUTIONAL ANALYSIS:
 Graham v. Connor Analysis:
@@ -114,7 +114,7 @@ RECOMMENDATIONS:
 [Expert recommendations]
 
 CASE LAW CITATIONS:
-[Relevant precedents from BarberX search]
+[Relevant precedents from Evident search]
 ```
 
 #### 3. discovery_request.docx

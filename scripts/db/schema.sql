@@ -1,5 +1,5 @@
 -- Legal Library Unified Retrieval Schema
--- barberx_legal.db
+-- Evident_legal.db
 
 -- Documents table: all ingested legal documents
 CREATE TABLE IF NOT EXISTS documents (

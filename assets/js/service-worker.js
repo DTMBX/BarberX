@@ -1,9 +1,9 @@
 /**
- * BarberX Legal - Service Worker
+ * Evident Technologies - Service Worker
  * Premium PWA experience with offline support
  */
 
-const CACHE_NAME = "barberx-legal-v1.0.0";
+const CACHE_NAME = "evident-v1.0.0";
 const OFFLINE_URL = "/offline.html";
 
 // Assets to cache immediately on install
@@ -139,7 +139,7 @@ self.addEventListener("push", (event) => {
   };
 
   event.waitUntil(
-    self.registration.showNotification(data.title || "BarberX Legal", options),
+    self.registration.showNotification(data.title || "Evident", options),
   );
 });
 

@@ -1,7 +1,7 @@
 # ✅ Git Encryption Setup Complete
 
 **Date**: January 31, 2026  
-**Repository**: https://github.com/DTMBX/BarberX  
+**Repository**: https://github.com/DTMBX/Evident  
 **Status**: Successfully Configured
 
 ## 🎯 What Was Completed
@@ -10,7 +10,7 @@
 
 - Successfully initialized git-crypt for the repository
 - Encryption layer is active and ready to protect sensitive files
-- Key has been generated and exported to `secure/barberx-git-crypt.key`
+- Key has been generated and exported to `secure/Evident-git-crypt.key`
 
 ### 2. Encryption Configuration ✅
 
@@ -36,7 +36,7 @@
   - Database files (`*.db`, `*.sqlite`)
   - Log files (`logs/`, `*.log`)
   - Upload directories and temporary files
-- Allowed encrypted key backup (`secure/barberx-git-crypt.key`) for team access
+- Allowed encrypted key backup (`secure/Evident-git-crypt.key`) for team access
 
 ### 5. Build Configuration ✅
 
@@ -50,7 +50,7 @@
 - Commit hash: `ab621c5f`
 - Files committed:
   - `GIT-ENCRYPTION-GUIDE.md` (new)
-  - `secure/barberx-git-crypt.key` (new, encrypted)
+  - `secure/Evident-git-crypt.key` (new, encrypted)
   - `.gitignore` (updated)
   - `.gitattributes` (updated)
 
@@ -64,7 +64,7 @@
 
 ### Encrypted Key Backup
 
-- The git-crypt key is stored encrypted in the repository at `secure/barberx-git-crypt.key`
+- The git-crypt key is stored encrypted in the repository at `secure/Evident-git-crypt.key`
 - This file appears as encrypted gibberish to anyone without access
 - Team members need this key to unlock the repository
 
@@ -83,7 +83,7 @@ scripts/security/*.key - Security-sensitive scripts
 1. **Backup the Key Securely**
 
    ```powershell
-   # The key is at: secure/barberx-git-crypt.key
+   # The key is at: secure/Evident-git-crypt.key
    # Store it in a password manager (1Password, Bitwarden, etc.)
    ```
 
@@ -110,14 +110,14 @@ scripts/security/*.key - Security-sensitive scripts
 2. **Clone Repository**
 
    ```powershell
-   git clone https://github.com/DTMBX/BarberX.git
-   cd BarberX
+   git clone https://github.com/DTMBX/Evident.git
+   cd Evident
    ```
 
 3. **Unlock with Key**
 
    ```powershell
-   git-crypt unlock /path/to/barberx-git-crypt.key
+   git-crypt unlock /path/to/Evident-git-crypt.key
    ```
 
 4. **Verify Unlock**
@@ -174,15 +174,15 @@ git-crypt unlock
 - `GIT-ENCRYPTION-GUIDE.md` - Complete setup and usage guide
 - `.gitattributes` - Encryption patterns configuration
 - `.gitignore` - Local file exclusions
-- `secure/barberx-git-crypt.key` - Encrypted key backup (safe to commit)
+- `secure/Evident-git-crypt.key` - Encrypted key backup (safe to commit)
 
 ## 🌐 Repository Status
 
-- **Remote**: https://github.com/DTMBX/BarberX
+- **Remote**: https://github.com/DTMBX/Evident
 - **Branch**: main
 - **Encryption**: Active
-- **Key Location**: `secure/barberx-git-crypt.key`
-- **Jekyll Site**: https://dtb396.github.io/BarberX.info
+- **Key Location**: `secure/Evident-git-crypt.key`
+- **Jekyll Site**: https://dtb396.github.io/Evident.info
 
 ## 🔄 Build Process
 
@@ -202,7 +202,7 @@ exclude:
 
 ## ✨ Summary
 
-Git encryption has been successfully configured for the BarberX repository. All sensitive files matching the patterns in `.gitattributes` will be automatically encrypted when committed. The git-crypt key has been securely stored in the repository (encrypted) for team access.
+Git encryption has been successfully configured for the Evident repository. All sensitive files matching the patterns in `.gitattributes` will be automatically encrypted when committed. The git-crypt key has been securely stored in the repository (encrypted) for team access.
 
 Team members should follow the instructions in `GIT-ENCRYPTION-GUIDE.md` to set up their local environment.
 
@@ -210,4 +210,4 @@ Team members should follow the instructions in `GIT-ENCRYPTION-GUIDE.md` to set 
 
 **Setup Completed By**: GitHub Copilot  
 **Date**: January 31, 2026  
-**Repository**: https://github.com/DTMBX/BarberX
+**Repository**: https://github.com/DTMBX/Evident

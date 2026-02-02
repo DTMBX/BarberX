@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("BarberX.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Evident.MatterDocket.MAUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+280b1563049eb4272ce30314e296d0c0dadc042d")]
-[assembly: System.Reflection.AssemblyProductAttribute("BarberX.MatterDocket.MAUI")]
-[assembly: System.Reflection.AssemblyTitleAttribute("BarberX.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyProductAttribute("Evident.MatterDocket.MAUI")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Evident.MatterDocket.MAUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Android36.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Android21.0")]

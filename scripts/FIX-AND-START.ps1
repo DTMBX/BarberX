@@ -1,11 +1,11 @@
 #!/usr/bin/env pwsh
-# BarberX.info - Complete App Fix Script
+# Evident.info - Complete App Fix Script
 # Fixes: Login, PDF Upload, BWC Analysis
 
-Write-Host "`n?? BarberX.info - Complete App Fix" -ForegroundColor Cyan
+Write-Host "`n?? Evident.info - Complete App Fix" -ForegroundColor Cyan
 Write-Host "====================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Step 1: Stop any running Flask
 Write-Host "`n[1/7] Stopping existing Flask processes..." -ForegroundColor Yellow
@@ -69,13 +69,13 @@ Write-Host "  ? All dependencies ready" -ForegroundColor Green
 # Step 5: Create .env file with API keys
 Write-Host "`n[5/7] Setting up environment..." -ForegroundColor Yellow
 $envContent = @"
-# BarberX.info Environment Configuration
-SECRET_KEY=barberx-legal-tech-2026-super-secure-change-me
+# Evident.info Environment Configuration
+SECRET_KEY=Evident-legal-tech-2026-super-secure-change-me
 FLASK_ENV=development
 FLASK_APP=app.py
 
 # Database
-DATABASE_URL=sqlite:///instance/barberx_FRESH.db
+DATABASE_URL=sqlite:///instance/Evident_FRESH.db
 
 # API Keys (Optional - for AI features)
 # OPENAI_API_KEY=your-openai-key-here
@@ -113,18 +113,18 @@ try:
         db.create_all()
         
         # Create admin user
-        admin = User.query.filter_by(email="admin@barberx.info").first()
+        admin = User.query.filter_by(email="admin@Evident.info").first()
         if not admin:
             admin = User(
-                email="admin@barberx.info",
+                email="admin@Evident.info",
                 full_name="Devon Tyler",
-                organization="BarberX Legal Technologies",
+                organization="Evident Legal Technologies",
                 tier=TierLevel.ADMIN,
                 is_admin=True,
                 is_active=True,
                 is_verified=True
             )
-            admin.set_password(os.environ.get('BARBERX_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
+            admin.set_password(os.environ.get('Evident_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
             db.session.add(admin)
             db.session.commit()
             print("? Admin user created")
@@ -161,8 +161,8 @@ Write-Host "  Login:    http://localhost:5000/auth/login" -ForegroundColor White
 Write-Host "  Dashboard: http://localhost:5000/auth/dashboard" -ForegroundColor White
 
 Write-Host "`n?? CREDENTIALS:" -ForegroundColor Cyan
-Write-Host "  Email:    admin@barberx.info" -ForegroundColor White
-Write-Host "  Password: [Set BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor White
+Write-Host "  Email:    admin@Evident.info" -ForegroundColor White
+Write-Host "  Password: [Set Evident_ADMIN_PASSWORD env var]" -ForegroundColor White
 
 Write-Host "`n?? CAPABILITIES:" -ForegroundColor Cyan
 Write-Host "  ? User Login & Authentication" -ForegroundColor Green

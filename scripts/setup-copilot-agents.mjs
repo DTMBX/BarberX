@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * BarberX Custom Copilot Agents - Setup Script
+ * Evident Custom Copilot Agents - Setup Script
  * Validates and registers custom agents for the legal tech platform
  */
 

@@ -1,15 +1,15 @@
 #!/usr/bin/env pwsh
-# BarberX Overnight Improvement Suite
+# Evident Overnight Improvement Suite
 # Run intensive background tasks to improve the entire repository
 
 $ErrorActionPreference = "Continue"
 $StartTime = Get-Date
 
-Write-Host "`n?? BarberX Overnight Improvement Suite" -ForegroundColor Cyan
+Write-Host "`n?? Evident Overnight Improvement Suite" -ForegroundColor Cyan
 Write-Host "Started: $StartTime" -ForegroundColor Gray
 Write-Host "=" * 80 -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Create logs directory
 New-Item -ItemType Directory -Path "overnight-improvements" -Force | Out-Null
@@ -277,14 +277,14 @@ Write-Host "=" * 80 -ForegroundColor Cyan
 Write-Host "`n??  Duration: $($Duration.ToString('hh\:mm\:ss'))" -ForegroundColor Cyan
 
 Write-Host "`n?? Generated Reports:" -ForegroundColor Yellow
-Write-Host "  • overnight-improvements\improvement-log-*.txt" -ForegroundColor Gray
-Write-Host "  • overnight-improvements\pylint-results.json" -ForegroundColor Gray
-Write-Host "  • overnight-improvements\flake8-results.txt" -ForegroundColor Gray
-Write-Host "  • overnight-improvements\bandit-results.json" -ForegroundColor Gray
-Write-Host "  • overnight-improvements\mypy-results.txt" -ForegroundColor Gray
-Write-Host "  • overnight-improvements\test-coverage.txt" -ForegroundColor Gray
-Write-Host "  • overnight-improvements\outdated-packages.txt" -ForegroundColor Gray
-Write-Host "  • docs\api\ (API documentation)" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\improvement-log-*.txt" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\pylint-results.json" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\flake8-results.txt" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\bandit-results.json" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\mypy-results.txt" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\test-coverage.txt" -ForegroundColor Gray
+Write-Host "  ï¿½ overnight-improvements\outdated-packages.txt" -ForegroundColor Gray
+Write-Host "  ï¿½ docs\api\ (API documentation)" -ForegroundColor Gray
 
 Write-Host "`n?? Next Steps:" -ForegroundColor Cyan
 Write-Host "  1. Review generated reports in overnight-improvements/" -ForegroundColor White

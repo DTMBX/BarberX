@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 [QueryProperty(nameof(TranscriptUrl), "url")]
 public partial class TranscriptViewerViewModel : BaseViewModel

@@ -1,8 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using BarberX.Shared.Services;
+using Evident.Shared.Services;
 
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 public partial class SettingsViewModel : BaseViewModel
 {
@@ -81,7 +81,7 @@ public partial class SettingsViewModel : BaseViewModel
     [RelayCommand]
     private async Task ViewPrivacyPolicy()
     {
-        await Browser.OpenAsync("https://barberx.info/privacy", BrowserLaunchMode.SystemPreferred);
+        await Browser.OpenAsync("https://Evident.info/privacy", BrowserLaunchMode.SystemPreferred);
     }
 
     [RelayCommand]
@@ -93,13 +93,13 @@ public partial class SettingsViewModel : BaseViewModel
     [RelayCommand]
     private async Task ViewTerms()
     {
-        await Browser.OpenAsync("https://barberx.info/terms", BrowserLaunchMode.SystemPreferred);
+        await Browser.OpenAsync("https://Evident.info/terms", BrowserLaunchMode.SystemPreferred);
     }
 
     [RelayCommand]
     private async Task ViewHelp()
     {
-        await Browser.OpenAsync("https://barberx.info/help", BrowserLaunchMode.SystemPreferred);
+        await Browser.OpenAsync("https://Evident.info/help", BrowserLaunchMode.SystemPreferred);
     }
 
     [RelayCommand]

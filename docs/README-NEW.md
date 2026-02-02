@@ -1,4 +1,4 @@
-# BarberX Legal Technologies®
+# Evident Legal Technologies®
 
 ## Professional AI-Powered BWC Forensic Analysis Platform
 
@@ -18,7 +18,7 @@
 
 - ✅ **Evaluation:** View source for assessment purposes only
 - ❌ **No Use:** Cannot deploy, fork, clone, or use without license
-- 💼 **Commercial Licenses Available:** Contact sales@barberx.info
+- 💼 **Commercial Licenses Available:** Contact sales@Evident.info
 
 **See [LICENSE](LICENSE) for complete terms.**
 
@@ -61,7 +61,7 @@ Then use in GitHub Copilot Chat:
 
 ---
 
-## 🎯 What is BarberX Legal Tech?
+## 🎯 What is Evident Legal Tech?
 
 Professional-grade AI forensic analysis platform for civil rights attorneys, legal discovery teams, law enforcement oversight, and forensic analysts.
 
@@ -129,7 +129,7 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 
 ### Get a License
 
-📧 **sales@barberx.info**  
+📧 **sales@Evident.info**  
 Include: use case, # users, organization
 
 ---
@@ -163,13 +163,13 @@ Include: use case, # users, organization
 
 ## 📞 Contact
 
-**SaaS Sales:** sales@barberx.info (Free & Professional tiers)  
-**Enterprise Sales:** enterprise@barberx.info (Self-hosted licensing)  
-**Support:** support@barberx.info  
-**Legal:** legal@barberx.info  
-**Security:** security@barberx.info
+**SaaS Sales:** sales@Evident.info (Free & Professional tiers)  
+**Enterprise Sales:** enterprise@Evident.info (Self-hosted licensing)  
+**Support:** support@Evident.info  
+**Legal:** legal@Evident.info  
+**Security:** security@Evident.info
 
-**🌐 Start Free Trial:** https://app.barberx.info/signup
+**🌐 Start Free Trial:** https://app.Evident.info/signup
 
 ---
 

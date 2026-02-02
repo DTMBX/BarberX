@@ -1,10 +1,10 @@
 #!/usr/bin/env pwsh
-# BarberX.info - Complete Verification & Startup
+# Evident.info - Complete Verification & Startup
 
-Write-Host "`n? BarberX.info - Final Verification" -ForegroundColor Cyan
+Write-Host "`n? Evident.info - Final Verification" -ForegroundColor Cyan
 Write-Host "=====================================" -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Test 1: Verify AI Components
 Write-Host "`n[1/4] Testing AI Components..." -ForegroundColor Yellow
@@ -95,7 +95,7 @@ except Exception as e:
 # Test 4: Clean & Prepare Database
 Write-Host "`n[4/4] Preparing Database..." -ForegroundColor Yellow
 Remove-Item instance\*.db -Force -ErrorAction SilentlyContinue
-Remove-Item barberx*.db -Force -ErrorAction SilentlyContinue
+Remove-Item Evident*.db -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Path "instance" -Force | Out-Null
 
 python -c @'
@@ -109,18 +109,18 @@ with app.app_context():
     db.create_all()
     
     # Create admin
-    admin = User.query.filter_by(email="admin@barberx.info").first()
+    admin = User.query.filter_by(email="admin@Evident.info").first()
     if not admin:
         admin = User(
-            email="admin@barberx.info",
+            email="admin@Evident.info",
             full_name="Devon Tyler",
-            organization="BarberX Legal Technologies",
+            organization="Evident Legal Technologies",
             tier=TierLevel.ADMIN,
             is_admin=True,
             is_active=True,
             is_verified=True
         )
-        admin.set_password(os.environ.get('BARBERX_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
+        admin.set_password(os.environ.get('Evident_ADMIN_PASSWORD', 'CHANGE_ME_IMMEDIATELY'))
         db.session.add(admin)
         db.session.commit()
         print("  ? Admin user created")
@@ -133,7 +133,7 @@ with app.app_context():
 Write-Host "`n=====================================" -ForegroundColor Cyan
 Write-Host "? Verification Complete!" -ForegroundColor Green -BackgroundColor DarkGreen
 Write-Host "=====================================" -ForegroundColor CyanWrite-Host "`n? Admin credentials stored in environment variables" -ForegroundColor Yellow
-Write-Host "  Set BARBERX_ADMIN_PASSWORD before first login" -ForegroundColor Yellow
+Write-Host "  Set Evident_ADMIN_PASSWORD before first login" -ForegroundColor Yellow
 Write-Host "`n?? STARTING FLASK APPLICATION..." -ForegroundColor Cyan
 
 Write-Host "`n?? CAPABILITIES ENABLED:" -ForegroundColor Yellow
@@ -153,8 +153,8 @@ Write-Host "  Dashboard: http://localhost:5000/auth/dashboard" -ForegroundColor 
 Write-Host "  PDF Upload: http://localhost:5000/batch-pdf-upload.html" -ForegroundColor White
 
 Write-Host "`n?? CREDENTIALS:" -ForegroundColor Cyan
-Write-Host "  Email:    admin@barberx.info" -ForegroundColor White
-Write-Host "  Password: [Set BARBERX_ADMIN_PASSWORD env var]" -ForegroundColor White
+Write-Host "  Email:    admin@Evident.info" -ForegroundColor White
+Write-Host "  Password: [Set Evident_ADMIN_PASSWORD env var]" -ForegroundColor White
 
 Write-Host "`n??  PRESS CTRL+C TO STOP" -ForegroundColor Yellow
 Write-Host "`n=====================================" -ForegroundColor Cyan

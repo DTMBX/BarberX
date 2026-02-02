@@ -1,4 +1,4 @@
-# BarberX.info - AI Dependencies Installation
+# Evident.info - AI Dependencies Installation
 # License-Compliant AI Tools for Constitutional Violation Detection
 # All dependencies are MIT, Apache 2.0, or BSD licensed
 

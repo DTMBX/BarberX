@@ -1,4 +1,4 @@
-# 🚀 QUICK START: Deploy BarberX.info to Netlify
+# 🚀 QUICK START: Deploy Evident.info to Netlify
 
 **You're 3 steps away from going live!**
 
@@ -31,7 +31,7 @@ git push origin main
 
 1. Go to **[app.netlify.com](https://app.netlify.com)**
 2. Click **"Add new site"** → **"Import an existing project"**
-3. Choose **"GitHub"** and select your `BarberX.info` repository
+3. Choose **"GitHub"** and select your `Evident.info` repository
 4. Netlify will auto-detect settings from `netlify.toml`:
    - **Build command:** `bundle exec jekyll build`
    - **Publish directory:** `_site`
@@ -41,10 +41,10 @@ git push origin main
 
 1. In Netlify dashboard → **Site Settings** → **Domain Management**
 2. Click **"Add custom domain"**
-3. Enter: **`barberx.info`**
+3. Enter: **`Evident.info`**
 4. Follow DNS configuration instructions
 
-**Done! Your site will be live at https://barberx.info in 24-48 hours (DNS propagation time)**
+**Done! Your site will be live at https://Evident.info in 24-48 hours (DNS propagation time)**
 
 ---
 
@@ -74,7 +74,7 @@ Follow the prompts:
 
 - **Create & configure a new site?** → Yes
 - **Team:** Select your team
-- **Site name:** barberx (or your choice)
+- **Site name:** Evident (or your choice)
 - **Build command:** `bundle exec jekyll build`
 - **Directory to deploy:** `_site`
 
@@ -211,7 +211,7 @@ netlify deploy --prod
 - ✅ Global CDN
 - ✅ Continuous deployment
 
-**Perfect for BarberX.info!** Your traffic will easily fit in the free tier.
+**Perfect for Evident.info!** Your traffic will easily fit in the free tier.
 
 ---
 
@@ -249,13 +249,13 @@ Once connected to GitHub:
 
 2. **Deploy via Netlify dashboard** (Option 1 above)
 
-3. **Configure custom domain** (barberx.info)
+3. **Configure custom domain** (Evident.info)
 
 4. **Celebrate!** 🎊
 
 Your site will be live at:
 
 - **Temporary:** https://your-site.netlify.app (immediately)
-- **Custom:** https://barberx.info (after DNS propagation)
+- **Custom:** https://Evident.info (after DNS propagation)
 
 **Happy deploying! 🚀**

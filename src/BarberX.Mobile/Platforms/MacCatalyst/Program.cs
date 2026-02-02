@@ -1,7 +1,7 @@
-﻿using ObjCRuntime;
+using ObjCRuntime;
 using UIKit;
 
-namespace BarberX.Mobile;
+namespace Evident.Mobile;
 
 public class Program
 {

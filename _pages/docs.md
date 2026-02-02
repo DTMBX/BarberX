@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "BarberX Documentation"
-description: "Complete technical documentation, API references, and guides for the BarberX Legal Technologies platform"
+title: "Evident Documentation"
+description: "Complete technical documentation, API references, and guides for the Evident Legal Technologies platform"
 permalink: /docs/
 badge: "Technical Reference • User Guides • API Docs"
 cta_primary: "Quick Start Guide"

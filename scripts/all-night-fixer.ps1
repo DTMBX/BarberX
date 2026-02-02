@@ -1,18 +1,18 @@
 #!/usr/bin/env pwsh
-# BarberX Ultimate All-Night Repo Improvement System
+# Evident Ultimate All-Night Repo Improvement System
 # Iterates continuously, never deletes, only adds and improves
 # Enterprise-grade web development standards
 
 $ErrorActionPreference = "Continue"
 $StartTime = Get-Date
 
-Write-Host "`n?? BarberX Ultimate All-Night Improvement System" -ForegroundColor Cyan
+Write-Host "`n?? Evident Ultimate All-Night Improvement System" -ForegroundColor Cyan
 Write-Host "=" * 80 -ForegroundColor Cyan
 Write-Host "?? Goal: Achieve enterprise-grade quality through iterative improvement" -ForegroundColor Yellow
 Write-Host "? Started: $StartTime" -ForegroundColor Gray
 Write-Host "=" * 80 -ForegroundColor Cyan
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Create backup directory
 $BackupDir = "backups\backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
@@ -137,7 +137,7 @@ while ($iteration -le $maxIterations) {
     # Create comprehensive README if missing
     if (-not (Test-Path "README.md")) {
         @"
-# BarberX Legal Technologies
+# Evident Legal Technologies
 
 Professional-grade AI-powered eDiscovery platform for civil rights litigation.
 
@@ -179,7 +179,7 @@ MIT License - See LICENSE file
     # Create/Update CONTRIBUTING.md
     if (-not (Test-Path "CONTRIBUTING.md")) {
         @"
-# Contributing to BarberX
+# Contributing to Evident
 
 ## Code Standards
 
@@ -192,8 +192,8 @@ MIT License - See LICENSE file
 ## Development Setup
 
 \`\`\`bash
-git clone https://github.com/DTB396/BarberX.info
-cd BarberX.info
+git clone https://github.com/DTB396/Evident.info
+cd Evident.info
 pip install -r requirements.txt
 \`\`\`
 
@@ -323,12 +323,12 @@ node_modules/
     
     # Create _config.yml for GitHub Pages
     $configYml = @"
-# BarberX Legal Technologies - GitHub Pages Configuration
+# Evident Legal Technologies - GitHub Pages Configuration
 
-title: BarberX Legal Technologies
+title: Evident Legal Technologies
 description: Professional AI-powered eDiscovery platform for civil rights litigation
 url: "https://dtb396.github.io"
-baseurl: "/BarberX.info"
+baseurl: "/Evident.info"
 
 # Build settings
 markdown: kramdown
@@ -571,7 +571,7 @@ Write-Host "`n?? Next Steps:" -ForegroundColor Yellow
 Write-Host "  1. Review changes: git log -5" -ForegroundColor White
 Write-Host "  2. Push to GitHub: git push origin main" -ForegroundColor White
 Write-Host "  3. Monitor Render: https://dashboard.render.com" -ForegroundColor White
-Write-Host "  4. Check GitHub Pages: https://dtb396.github.io/BarberX.info" -ForegroundColor White
+Write-Host "  4. Check GitHub Pages: https://dtb396.github.io/Evident.info" -ForegroundColor White
 
 Write-Host "`n? Repository is now enterprise-grade! ?" -ForegroundColor Green
 Write-Host ""

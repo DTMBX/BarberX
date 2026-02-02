@@ -1,4 +1,4 @@
-# 🚀 Launch Checklist - BarberX 5-Tier System
+# 🚀 Launch Checklist - Evident 5-Tier System
 
 ## Status: Ready to Launch ✅
 
@@ -110,7 +110,7 @@ curl "https://via.placeholder.com/800x600/10b981/ffffff?text=Search+Warrant" -o 
 ```bash
 crontab -e
 # Add this line:
-0 3 * * * cd /path/to/barberx && /path/to/python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
+0 3 * * * cd /path/to/Evident && /path/to/python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
 ```
 
 **Windows (Task Scheduler):**
@@ -120,7 +120,7 @@ crontab -e
 4. Action: Start a program
 5. Program: `python`
 6. Arguments: `-c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"`
-7. Start in: `C:\path\to\barberx`
+7. Start in: `C:\path\to\Evident`
 
 **Or skip for now** - manual cleanup works for testing
 
@@ -140,13 +140,13 @@ crontab -e
 
 #### 3a. Create Products (15 min)
 - [ ] Login to Stripe Dashboard (Test Mode)
-- [ ] Create "BarberX Starter" - $29/month
+- [ ] Create "Evident Starter" - $29/month
   - Copy Price ID: `STRIPE_PRICE_STARTER`
-- [ ] Create "BarberX Professional" - $79/month (3-day trial)
+- [ ] Create "Evident Professional" - $79/month (3-day trial)
   - Copy Price ID: `STRIPE_PRICE_PROFESSIONAL`
-- [ ] Create "BarberX Premium" - $199/month
+- [ ] Create "Evident Premium" - $199/month
   - Copy Price ID: `STRIPE_PRICE_PREMIUM`
-- [ ] Create "BarberX Enterprise" - $599/month
+- [ ] Create "Evident Enterprise" - $599/month
   - Copy Price ID: `STRIPE_PRICE_ENTERPRISE`
 
 #### 3b. Get API Keys (3 min)
@@ -156,7 +156,7 @@ crontab -e
 
 #### 3c. Create Webhook (5 min)
 - [ ] Go to Developers → Webhooks
-- [ ] Add endpoint: `https://barberx.info/api/stripe/webhook`
+- [ ] Add endpoint: `https://Evident.info/api/stripe/webhook`
 - [ ] Select events:
   - checkout.session.completed
   - customer.subscription.*
@@ -256,7 +256,7 @@ git commit -m "Launch: 5-tier pricing system"
 git push origin main
 
 # 2. Verify deployment
-# Visit: https://barberx.info/pricing
+# Visit: https://Evident.info/pricing
 
 # 3. Monitor Stripe Dashboard
 # Watch for first subscriber!
@@ -308,12 +308,12 @@ git push origin main
 python create_test_subscription_accounts.py
 
 # Credentials:
-free@barberx.test / test123
-starter@barberx.test / test123
-professional@barberx.test / test123
-premium@barberx.test / test123
-enterprise@barberx.test / test123
-admin@barberx.test / admin123
+free@Evident.test / test123
+starter@Evident.test / test123
+professional@Evident.test / test123
+premium@Evident.test / test123
+enterprise@Evident.test / test123
+admin@Evident.test / admin123
 ```
 
 ---

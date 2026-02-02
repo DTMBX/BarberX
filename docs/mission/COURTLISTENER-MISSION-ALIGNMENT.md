@@ -1,7 +1,7 @@
-# 🤝 COURTLISTENER + BARBERX: ALIGNED MISSIONS FOR JUSTICE
+# 🤝 COURTLISTENER + Evident: ALIGNED MISSIONS FOR JUSTICE
 
 **CourtListener's Mission:** Free access to legal materials  
-**BarberX's Mission:** Democratize legal research at 1/10th the cost  
+**Evident's Mission:** Democratize legal research at 1/10th the cost  
 **Shared Goal:** Close the justice gap
 
 ---
@@ -27,13 +27,13 @@
 
 ---
 
-## 🎯 BARBERX'S ROLE IN THEIR MISSION
+## 🎯 Evident'S ROLE IN THEIR MISSION
 
 ### **How We Align Perfectly:**
 
 **1. We're NOT Competition - We're Amplification**
 - CourtListener: Free research platform (direct users)
-- BarberX: Professional platform (solo practitioners, law firms, schools)
+- Evident: Professional platform (solo practitioners, law firms, schools)
 - **Relationship:** We extend their reach to commercial users who need more features
 
 **2. We Share Values:**
@@ -79,7 +79,7 @@
 - Document assembly
 
 **3. Charging Users - YES!**
-- You can charge $50/month for BarberX
+- You can charge $50/month for Evident
 - This funds your business AND supports open access
 - Reinvest profits in features that help mission
 
@@ -126,7 +126,7 @@
 Legal data provided by CourtListener and Free Law Project
 Learn more: https://www.courtlistener.com
 
-BarberX is built on open legal data. While our AI and analysis 
+Evident is built on open legal data. While our AI and analysis 
 tools are proprietary, the underlying case law is freely available 
 at CourtListener.com.
 ```
@@ -141,7 +141,7 @@ at CourtListener.com.
 
 **On Pricing Page:**
 ```
-BarberX provides professional tools and AI analysis. The underlying 
+Evident provides professional tools and AI analysis. The underlying 
 legal data is freely available at CourtListener.com. We charge for 
 our value-added features, not for access to the law.
 ```
@@ -219,14 +219,14 @@ def get_case(citation):
 
 **In Your Marketing:**
 ```
-BarberX uses open legal data from CourtListener, a non-profit 
+Evident uses open legal data from CourtListener, a non-profit 
 dedicated to making the law free and accessible.
 
 We charge for our AI analysis, professional tools, and support—
 not for access to the law itself.
 
 Want free access? Visit CourtListener.com
-Want professional tools? Use BarberX ($50/month)
+Want professional tools? Use Evident ($50/month)
 ```
 
 **On Your Website:**
@@ -248,11 +248,11 @@ Want professional tools? Use BarberX ($50/month)
 
 **Proposal Template:**
 ```
-Subject: Partnership Proposal - BarberX Legal Research Platform
+Subject: Partnership Proposal - Evident Legal Research Platform
 
 Dear Free Law Project team,
 
-I'm building BarberX, a legal research platform that uses CourtListener's 
+I'm building Evident, a legal research platform that uses CourtListener's 
 API to democratize professional legal tools.
 
 Our mission aligns perfectly with yours:
@@ -284,8 +284,8 @@ Can we schedule a 30-minute call?
 
 Best,
 [Your Name]
-BarberX Legal Technologies
-https://barberx.info
+Evident Legal Technologies
+https://Evident.info
 ```
 
 **Benefits of Partnership:**
@@ -305,7 +305,7 @@ https://barberx.info
 - Position as "Powered by Harvard Law + Free Law Project"
 
 **Law School Partnerships:**
-- Offer BarberX to schools using CourtListener
+- Offer Evident to schools using CourtListener
 - "Professional tier for students learning on free tools"
 - Train students on both platforms
 
@@ -320,7 +320,7 @@ https://barberx.info
 
 **Offer:**
 - Free CourtListener for basic research
-- BarberX ($25/month) for AI analysis, mobile, support
+- Evident ($25/month) for AI analysis, mobile, support
 - Seamless upgrade path
 
 ---
@@ -380,7 +380,7 @@ https://barberx.info
 
 **Day 1: Test API Integration**
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Test single case import
 python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll.ingest_from_courtlistener('410 U.S. 113'))"
@@ -503,7 +503,7 @@ for justice in justices:
 3. Democratize legal research skills
 4. Reduce dependence on expensive tools
 
-### **How BarberX Supports This:**
+### **How Evident Supports This:**
 
 **1. Free Tier for Students**
 - Basic access to 10M+ cases
@@ -512,18 +512,18 @@ for justice in justices:
 
 **2. Law School Partnerships**
 - Students use CourtListener for class
-- BarberX for clinics/externships
+- Evident for clinics/externships
 - Smooth transition to professional tools
 
 **3. Legal Aid Training**
 - Free CourtListener workshops
-- Subsidized BarberX for offices
+- Subsidized Evident for offices
 - Documentation showing both tools
 
 **4. Content Creation**
 - Blog: "How to use CourtListener effectively"
 - Videos: "Free legal research skills"
-- Guides: "CourtListener + BarberX workflows"
+- Guides: "CourtListener + Evident workflows"
 
 ---
 
@@ -533,7 +533,7 @@ for justice in justices:
 
 **✅ DO:**
 ```
-"BarberX is built on CourtListener's open legal data, provided by 
+"Evident is built on CourtListener's open legal data, provided by 
 the non-profit Free Law Project. We add professional features like 
 AI analysis, mobile apps, and expert support."
 
@@ -541,14 +541,14 @@ AI analysis, mobile apps, and expert support."
 for AI, mobile access, and customer support—not for access to the law."
 
 "Support open access: Use CourtListener for free research, or upgrade 
-to BarberX for professional tools at 1/10th Westlaw's price."
+to Evident for professional tools at 1/10th Westlaw's price."
 ```
 
 **❌ DON'T:**
 ```
 "We have exclusive access to 10M cases" (Misleading)
 "Our proprietary legal database" (False)
-"Only BarberX has this data" (Untrue)
+"Only Evident has this data" (Untrue)
 ```
 
 ---
@@ -561,7 +561,7 @@ to BarberX for professional tools at 1/10th Westlaw's price."
 - Cases accessed
 - Downloads/month
 
-### **BarberX's Contribution:**
+### **Evident's Contribution:**
 - Users introduced to CourtListener: _____
 - Donations to Free Law Project: $_____
 - Cases added to database: _____
@@ -609,7 +609,7 @@ to BarberX for professional tools at 1/10th Westlaw's price."
 
 **1. Import foundation cases:**
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py --practice-area all
 ```
 
@@ -630,7 +630,7 @@ Amount: $50 (or 2% of your first revenue)
 
 **4. Email partnership proposal:**
 To: info@free.law
-Subject: "Partnership Proposal - BarberX"
+Subject: "Partnership Proposal - Evident"
 Use template above
 
 ---

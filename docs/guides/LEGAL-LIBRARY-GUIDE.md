@@ -454,7 +454,7 @@ These cases support your § 1983 excessive force claim."
 ### Public vs. Private Documents
 ```
 Public documents:
-✓ Available to all BarberX users
+✓ Available to all Evident users
 ✓ Supreme Court opinions
 ✓ Published case law
 ✓ Statutes and regulations

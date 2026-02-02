@@ -1,9 +1,9 @@
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using BarberX.Shared.Models;
-using BarberX.Shared.Services;
+using Evident.Shared.Models;
+using Evident.Shared.Services;
 
 /// <summary>
 /// ViewModel for BWC analysis list

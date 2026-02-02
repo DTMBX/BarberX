@@ -1,4 +1,4 @@
-# 📱 BarberX Mobile Apps - Deploy Summary
+# 📱 Evident Mobile Apps - Deploy Summary
 
 **Date:** January 27, 2026  
 **Status:** ✅ **BOTH PLATFORMS READY**
@@ -23,16 +23,16 @@
 
 ```powershell
 # 1. Open APK location
-explorer "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android"
+explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
 
 # 2. Email this file to yourself:
-com.companyname.barberx.matterdocket.maui-Signed.apk
+com.companyname.Evident.matterdocket.maui-Signed.apk
 
 # 3. On Android phone:
 #    - Download attachment
 #    - Allow "Install from Unknown Sources"
 #    - Tap APK to install
-#    - Launch BarberX!
+#    - Launch Evident!
 ```
 
 **File Size:** 30.57 MB  
@@ -279,7 +279,7 @@ So you:
 ### Today (10 minutes)
 ```powershell
 # Install on Android
-explorer "src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android"
+explorer "src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
 # Email APK to yourself
 # Install on phone
 # Test app!

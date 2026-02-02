@@ -380,7 +380,7 @@ def generate_filing_set_report(results: List[OptimizationResult], jurisdiction: 
     report_lines = []
 
     report_lines.append("=" * 80)
-    report_lines.append("BARBERX LEGAL DOCUMENT OPTIMIZATION REPORT")
+    report_lines.append("Evident LEGAL DOCUMENT OPTIMIZATION REPORT")
     report_lines.append("=" * 80)
     report_lines.append(f"\nGenerated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     report_lines.append(f"Jurisdiction: {jurisdiction}")
@@ -455,7 +455,7 @@ def generate_filing_set_report(results: List[OptimizationResult], jurisdiction: 
     report_lines.append(
         "It does NOT constitute legal advice. All documents must be reviewed by a licensed"
     )
-    report_lines.append("attorney before filing. BarberX makes no guarantees about outcomes.")
+    report_lines.append("attorney before filing. Evident makes no guarantees about outcomes.")
     report_lines.append("\n")
 
     report_lines.append("=" * 80)

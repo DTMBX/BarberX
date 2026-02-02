@@ -202,7 +202,7 @@ Retry-After: 60 seconds
 #### 80% Warning
 
 ```
-Subject: ⚠️ BarberX Usage Alert: AI Tokens
+Subject: ⚠️ Evident Usage Alert: AI Tokens
 Message: You've used 80% of your AI token quota.
 Action: Consider upgrading to avoid interruptions.
 ```
@@ -210,7 +210,7 @@ Action: Consider upgrading to avoid interruptions.
 #### 95% Critical
 
 ```
-Subject: 🔴 BarberX Critical Alert: AI Requests
+Subject: 🔴 Evident Critical Alert: AI Requests
 Message: You've used 95% of your AI request quota.
 Action: Upgrade now to prevent service disruption.
 ```
@@ -218,7 +218,7 @@ Action: Upgrade now to prevent service disruption.
 #### 100% Exceeded
 
 ```
-Subject: ❌ BarberX: Quota Exceeded
+Subject: ❌ Evident: Quota Exceeded
 Message: Your quota has been exceeded. Upgrade to continue.
 Action: Service blocked until upgrade.
 ```
@@ -335,7 +335,7 @@ Every 1st of the month:
 
 ### Check Your Dashboard:
 
-1. Go to: https://barberx.info/workspace
+1. Go to: https://Evident.info/workspace
 2. Scroll to "Smart Meter Usage Dashboard"
 3. See real-time:
    - Usage bars (green/yellow/red)

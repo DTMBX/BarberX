@@ -1,7 +1,7 @@
 # 🚀 Quick Reference — Production Optimizations
 
 **Date:** January 27, 2026  
-**Platform:** BarberX Legal Technologies  
+**Platform:** Evident Legal Technologies  
 **Status:** ✅ Complete
 
 ---
@@ -119,7 +119,7 @@ AMPLITUDE_API_KEY=...
 python -m flask run
 # Open: http://localhost:5000/test_mobile.html
 # DevTools > Application > Service Workers
-# Verify: "barberx-sw" registered
+# Verify: "Evident-sw" registered
 ```
 
 ### Test Offline Mode
@@ -170,4 +170,4 @@ curl -I http://localhost:5000
 
 **Status:** Production Ready 🚀  
 **Blocked By:** PWA icon generation (30 min task)  
-**Contact:** support@barberx.info
+**Contact:** support@Evident.info

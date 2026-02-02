@@ -214,8 +214,8 @@ RATE_LIMITS = {
 ### Request Headers
 ```python
 HEADERS = {
-    'User-Agent': 'BarberX Legal Library Builder/1.0 (Educational; Non-commercial)',
-    'From': 'admin@barberx.info',
+    'User-Agent': 'Evident Legal Library Builder/1.0 (Educational; Non-commercial)',
+    'From': 'admin@Evident.info',
     'Accept': 'application/json'
 }
 ```

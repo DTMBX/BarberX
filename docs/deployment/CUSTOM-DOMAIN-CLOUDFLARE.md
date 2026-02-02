@@ -6,7 +6,7 @@
 https://dash.cloudflare.com/
 
 ### 2. Select Your Domain
-Click on `barberx.info`
+Click on `Evident.info`
 
 ### 3. Go to DNS Settings
 Click "DNS" in the left sidebar
@@ -18,7 +18,7 @@ Click "Add record" and enter:
 ```
 Type: CNAME
 Name: app
-Target: barberx-legal-tech.onrender.com
+Target: Evident-legal-tech.onrender.com
 Proxy status: DNS only (gray cloud) ? IMPORTANT!
 TTL: Auto
 ```
@@ -40,20 +40,20 @@ Click "Save"
 Render auto-provisions SSL (5-15 minutes)
 
 Your app will be live at:
-**https://app.barberx.info** ??
+**https://app.Evident.info** ??
 
 ---
 
 ## Alternative: Root Domain
 
-For `barberx.info` (no subdomain):
+For `Evident.info` (no subdomain):
 
 ### Method 1: Page Rules Redirect
 1. Go to "Rules" ? "Page Rules"
 2. Create rule:
-   - URL: `barberx.info/*`
+   - URL: `Evident.info/*`
    - Setting: Forwarding URL (301)
-   - Destination: `https://app.barberx.info/$1`
+   - Destination: `https://app.Evident.info/$1`
 
 ### Method 2: CNAME Flattening (Cloudflare Only)
 Cloudflare supports CNAME at root:
@@ -61,7 +61,7 @@ Cloudflare supports CNAME at root:
 ```
 Type: CNAME
 Name: @
-Target: barberx-legal-tech.onrender.com
+Target: Evident-legal-tech.onrender.com
 Proxy status: DNS only (gray cloud)
 TTL: Auto
 ```

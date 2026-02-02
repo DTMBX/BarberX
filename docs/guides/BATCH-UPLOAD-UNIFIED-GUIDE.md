@@ -2,7 +2,7 @@
 
 ## ?? **Overview**
 
-BarberX now supports **unified batch uploads** - upload PDFs, BWC videos, and images **together** in one batch. The system automatically:
+Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and images **together** in one batch. The system automatically:
 1. ? **Separates** files by type (PDF, Video, Image)
 2. ? **Processes in parallel** using ThreadPoolExecutor
 3. ? **Returns detailed results** for each file type
@@ -338,7 +338,7 @@ files = [('files', open(f, 'rb')) for f in all_files]
 response = requests.post(
     'http://localhost:5000/api/upload/batch',
     files=files,
-    auth=('admin@barberx.info', 'BarberX2026!')
+    auth=('admin@Evident.info', 'Evident2026!')
 )
 
 result = response.json()
@@ -369,7 +369,7 @@ print(f"  PDFs: {result['summary']['breakdown']['pdfs']['successful']}")
 
 ## ?? **Summary**
 
-**Yes! BarberX can now:**
+**Yes! Evident can now:**
 1. ? Accept PDFs and BWC videos in **one batch upload**
 2. ? **Automatically separate** them by file type
 3. ? **Process simultaneously** (parallel processing)

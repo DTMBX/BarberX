@@ -1,4 +1,4 @@
-# 📁 BarberX Repository Structure Explained
+# 📁 Evident Repository Structure Explained
 
 **Question:** "Do I have a separate repo folder for each app platform? How does it work? Where is our code?"
 
@@ -9,10 +9,10 @@
 ## 🎯 What You're Actually Using (Active Projects)
 
 ### 1. **Flask Backend (Python)** - Main Production App
-**Location:** `C:\web-dev\github-repos\BarberX.info\` (root folder)
+**Location:** `C:\web-dev\github-repos\Evident.info\` (root folder)
 
 ```
-BarberX.info/
+Evident.info/
 ├── app.py                    ← Main Flask application
 ├── api/                      ← REST API (Phase 1 - NEW)
 │   ├── __init__.py
@@ -31,17 +31,17 @@ BarberX.info/
 └── requirements.txt         ← Python dependencies
 ```
 
-**Purpose:** This is your **production Flask app** that runs at https://barberx.info  
+**Purpose:** This is your **production Flask app** that runs at https://Evident.info  
 **Platforms:** Web browsers (all platforms)  
 **Status:** ✅ Production-ready with new REST API
 
 ---
 
 ### 2. **.NET MAUI App (C#)** - Cross-Platform Native Apps
-**Location:** `C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\`
+**Location:** `C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\`
 
 ```
-src/BarberX.MatterDocket.MAUI/
+src/Evident.MatterDocket.MAUI/
 ├── Services/                ← Phase 2 - API client services
 │   ├── ApiService.cs
 │   ├── AuthService.cs
@@ -73,7 +73,7 @@ src/BarberX.MatterDocket.MAUI/
 │   └── Android/             ← Android-specific
 ├── MauiProgram.cs           ← Dependency injection
 ├── AppShell.xaml            ← Navigation
-└── BarberX.MatterDocket.MAUI.csproj
+└── Evident.MatterDocket.MAUI.csproj
 ```
 
 **Purpose:** This **ONE MAUI project** builds apps for **ALL platforms**  
@@ -92,16 +92,16 @@ src/BarberX.MatterDocket.MAUI/
 ### **ONE Codebase → MULTIPLE Platforms**
 
 ```
-BarberX.MatterDocket.MAUI (Single Project)
+Evident.MatterDocket.MAUI (Single Project)
            │
-           ├─→ Build for Windows   → BarberX.exe
-           ├─→ Build for iOS       → BarberX.app
-           ├─→ Build for Android   → BarberX.apk
-           └─→ Build for macOS     → BarberX.app (Mac)
+           ├─→ Build for Windows   → Evident.exe
+           ├─→ Build for iOS       → Evident.app
+           ├─→ Build for Android   → Evident.apk
+           └─→ Build for macOS     → Evident.app (Mac)
 ```
 
 **How it works:**
-1. You write code **once** in `src/BarberX.MatterDocket.MAUI/`
+1. You write code **once** in `src/Evident.MatterDocket.MAUI/`
 2. .NET MAUI compiles it for each platform
 3. Platform-specific features go in `Platforms/` subfolders
 4. Shared code (Services, ViewModels, Views) works everywhere
@@ -124,27 +124,27 @@ dotnet build -f net9.0-android
 
 These folders exist but are **NOT being used** in our current implementation:
 
-### **src/BarberX.Web/**
+### **src/Evident.Web/**
 - **Purpose:** Was intended for Blazor web client
 - **Status:** ❌ Not used (we use Flask templates instead)
 - **Can delete:** Yes (or keep for future Blazor rewrite)
 
-### **src/BarberX.Mobile/**
+### **src/Evident.Mobile/**
 - **Purpose:** Was a placeholder for mobile
 - **Status:** ❌ Not used (MAUI handles mobile now)
 - **Can delete:** Yes
 
-### **src/BarberX.Shared/**
+### **src/Evident.Shared/**
 - **Purpose:** Was for shared .NET code
 - **Status:** ❌ Not used (MAUI Services are the shared code)
 - **Can delete:** Yes
 
-### **src/BarberX.Infrastructure/**
+### **src/Evident.Infrastructure/**
 - **Purpose:** Was for database/infrastructure layer
 - **Status:** ❌ Not used (Flask handles this)
 - **Can delete:** Yes
 
-### **src/BarberX.FlaskBridge/**
+### **src/Evident.FlaskBridge/**
 - **Purpose:** Was for .NET-to-Flask communication
 - **Status:** ❌ Not used (MAUI calls Flask REST API directly)
 - **Can delete:** Yes
@@ -156,7 +156,7 @@ These folders exist but are **NOT being used** in our current implementation:
 ```
 ┌─────────────────────────────────────────────────────┐
 │                  ONE REPOSITORY                      │
-│            github.com/your-username/BarberX.info     │
+│            github.com/your-username/Evident.info     │
 └──────────────┬──────────────────────────────────────┘
                │
     ┌──────────┴──────────┐
@@ -166,11 +166,11 @@ These folders exist but are **NOT being used** in our current implementation:
 │ (Python)     │   │  (C#)                     │
 │              │   │                           │
 │ Location:    │   │ Location:                 │
-│ / (root)     │   │ src/BarberX.MatterDocket  │
+│ / (root)     │   │ src/Evident.MatterDocket  │
 │              │   │     .MAUI/                │
 │              │   │                           │
 │ Runs at:     │   │ Builds to:                │
-│ barberx.info │   │ • Windows .exe            │
+│ Evident.info │   │ • Windows .exe            │
 │              │   │ • iOS .app                │
 │ Serves:      │   │ • Android .apk            │
 │ • Web UI     │   │                           │
@@ -185,7 +185,7 @@ These folders exist but are **NOT being used** in our current implementation:
 
 ### **Flask Backend:**
 - Runs on server (Render.com)
-- URL: https://barberx.info
+- URL: https://Evident.info
 - Provides:
   - Web UI (HTML templates for browsers)
   - REST API at `/api/v1/*` (for MAUI apps)
@@ -207,19 +207,19 @@ These folders exist but are **NOT being used** in our current implementation:
 
 ### **Want to edit the Flask backend?**
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 # Edit: app.py, api/*.py, templates/*.html, etc.
 ```
 
 ### **Want to edit the MAUI apps?**
 ```bash
-cd C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI
+cd C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI
 # Edit: Services/*.cs, ViewModels/*.cs, Views/*.xaml
 ```
 
 ### **Want to edit API endpoints?**
 ```bash
-cd C:\web-dev\github-repos\BarberX.info\api
+cd C:\web-dev\github-repos\Evident.info\api
 # Edit: auth.py, upload.py, analysis.py, etc.
 ```
 
@@ -232,30 +232,30 @@ cd C:\web-dev\github-repos\BarberX.info\api
 # Deployed to Render.com
 git push origin main  
 # → Render auto-deploys
-# → Live at https://barberx.info
+# → Live at https://Evident.info
 ```
 
 ### **Windows App:**
 ```bash
-cd src/BarberX.MatterDocket.MAUI
+cd src/Evident.MatterDocket.MAUI
 dotnet publish -f net9.0-windows10.0.19041.0 -c Release
-# → Creates BarberX.exe
+# → Creates Evident.exe
 # → Package as MSIX for Microsoft Store
 ```
 
 ### **iOS App:**
 ```bash
-cd src/BarberX.MatterDocket.MAUI
+cd src/Evident.MatterDocket.MAUI
 dotnet publish -f net9.0-ios -c Release
-# → Creates BarberX.app
+# → Creates Evident.app
 # → Upload to App Store Connect
 ```
 
 ### **Android App:**
 ```bash
-cd src/BarberX.MatterDocket.MAUI
+cd src/Evident.MatterDocket.MAUI
 dotnet publish -f net9.0-android -c Release
-# → Creates BarberX.apk
+# → Creates Evident.apk
 # → Upload to Google Play Console
 ```
 
@@ -267,22 +267,22 @@ dotnet publish -f net9.0-android -c Release
 |----------|----------|------------|--------|
 | **Web Browser** | `/` (root) | Flask + HTML | ✅ Production |
 | **REST API** | `/api/` | Flask + PyJWT | ✅ Phase 1 Complete |
-| **Windows Desktop** | `src/BarberX.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
-| **iOS** | `src/BarberX.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
-| **Android** | `src/BarberX.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
+| **Windows Desktop** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
+| **iOS** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
+| **Android** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
 
 ---
 
 ## 💡 Key Takeaways
 
-1. **ONE Git Repository** - Everything in `BarberX.info/`
+1. **ONE Git Repository** - Everything in `Evident.info/`
 
 2. **TWO Active Projects:**
    - Flask backend (root folder)
-   - MAUI client (src/BarberX.MatterDocket.MAUI/)
+   - MAUI client (src/Evident.MatterDocket.MAUI/)
 
 3. **MAUI = Cross-Platform Magic:**
-   - Write code once in `BarberX.MatterDocket.MAUI/`
+   - Write code once in `Evident.MatterDocket.MAUI/`
    - Build for Windows, iOS, Android from same codebase
    - Platform-specific code goes in `Platforms/` subfolders
 
@@ -296,22 +296,22 @@ dotnet publish -f net9.0-android -c Release
 
 **Edit Backend API:**
 ```bash
-C:\web-dev\github-repos\BarberX.info\api\
+C:\web-dev\github-repos\Evident.info\api\
 ```
 
 **Edit MAUI Services:**
 ```bash
-C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\Services\
+C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Services\
 ```
 
 **Edit MAUI UI:**
 ```bash
-C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\Views\
+C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Views\
 ```
 
 **Edit Flask Web Templates:**
 ```bash
-C:\web-dev\github-repos\BarberX.info\templates\
+C:\web-dev\github-repos\Evident.info\templates\
 ```
 
 ---

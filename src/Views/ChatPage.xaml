@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
-             xmlns:models="clr-namespace:BarberX.MatterDocket.MAUI.Models"
-             x:Class="BarberX.MatterDocket.MAUI.Views.ChatPage"
+             xmlns:viewmodels="clr-namespace:Evident.MatterDocket.MAUI.ViewModels"
+             xmlns:models="clr-namespace:Evident.MatterDocket.MAUI.Models"
+             x:Class="Evident.MatterDocket.MAUI.Views.ChatPage"
              x:DataType="viewmodels:ChatViewModel"
              Title="Legal AI Assistant"
              Shell.BackgroundColor="#1e293b">

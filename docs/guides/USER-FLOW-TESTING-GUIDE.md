@@ -1,4 +1,4 @@
-# BarberX User Flow Testing Guide
+# Evident User Flow Testing Guide
 
 ## All Fixes Implemented ✅
 
@@ -27,7 +27,7 @@
    - Confirm Password: "SecurePass123!"
 5. Submit form
 6. **Expected Result:**
-   - Success message: "Account created successfully! Welcome to BarberX."
+   - Success message: "Account created successfully! Welcome to Evident."
    - Redirects to `/dashboard`
    - User tier: FREE
    - Usage tracking initialized
@@ -295,7 +295,7 @@ pytest tests/test_auth_flow.py -v
 tail -f logs/app.log
 
 # Monitor database
-watch -n 1 'psql -d barberx -c "SELECT COUNT(*) FROM users;"'
+watch -n 1 'psql -d Evident -c "SELECT COUNT(*) FROM users;"'
 ```
 
 ---

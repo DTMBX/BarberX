@@ -152,7 +152,7 @@ AGENT_SPECIALTIES = {
 }
 
 if __name__ == "__main__":
-    print("BarberX Orchestrator Agent - Usage Examples")
+    print("Evident Orchestrator Agent - Usage Examples")
     print("=" * 60)
     print("\nAvailable Agents:")
     for agent, capabilities in AGENT_SPECIALTIES.items():

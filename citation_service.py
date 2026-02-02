@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Optional, Union
 
 from retrieval_service import Passage
 
-DB_PATH = Path(__file__).parent / "instance" / "barberx_legal.db"
+DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 
 
 @dataclass

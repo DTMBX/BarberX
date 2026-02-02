@@ -65,11 +65,11 @@
 
 .premium-nav__link:hover {
   background: rgb(255 255 255 / 5%);
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
 }
 
 .premium-nav__link:focus-visible {
-  outline: 2px solid var(--barberx-gold);
+  outline: 2px solid var(--Evident-gold);
   outline-offset: 2px;
 }
 
@@ -132,7 +132,7 @@
 .premium-nav-toggle__bar {
   width: 24px;
   height: 2px;
-  background: var(--barberx-gold);
+  background: var(--Evident-gold);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
@@ -168,7 +168,7 @@
   z-index: 1000;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-left: 2px solid var(--barberx-gold);
+  border-left: 2px solid var(--Evident-gold);
 }
 
 @media (width >= 1024px) {
@@ -192,10 +192,10 @@
 }
 
 .premium-nav__mobile-brand {
-  font-family: var(--barberx-font-sans);
+  font-family: var(--Evident-font-sans);
   font-weight: 600;
   font-size: 1.125rem;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -209,7 +209,7 @@
   padding: 0;
   background: transparent;
   border: none;
-  color: var(--barberx-gold);
+  color: var(--Evident-gold);
   cursor: pointer;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -250,7 +250,7 @@
 .premium-nav--mobile .premium-nav__link:hover,
 .premium-nav--mobile .premium-nav__link:focus {
   background: rgb(212 175 55 / 10%);
-  border-left-color: var(--barberx-gold);
+  border-left-color: var(--Evident-gold);
   padding-left: 1.75rem;
 }
 
@@ -306,7 +306,7 @@
 .premium-nav__sublink:hover,
 .premium-nav__sublink:focus {
   background: rgb(212 175 55 / 8%);
-  border-left-color: var(--barberx-brass);
+  border-left-color: var(--Evident-brass);
   color: #fff;
   padding-left: 3.25rem;
 }
@@ -319,7 +319,7 @@
 }
 
 .premium-nav__tagline {
-  font-family: var(--barberx-font-sans);
+  font-family: var(--Evident-font-sans);
   font-size: 0.75rem;
   color: rgb(212 175 55 / 60%);
   letter-spacing: 0.1em;
@@ -363,7 +363,7 @@
   padding: 0.875rem 1.75rem;
   background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
   color: #1a1a2e;
-  font-family: var(--barberx-font-sans);
+  font-family: var(--Evident-font-sans);
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.025em;
@@ -387,7 +387,7 @@
 }
 
 .btn-primary:focus-visible {
-  outline: 2px solid var(--barberx-gold);
+  outline: 2px solid var(--Evident-gold);
   outline-offset: 3px;
 }
 
@@ -419,7 +419,7 @@
 
 /* Focus visible styles */
 *:focus-visible {
-  outline: 2px solid var(--barberx-gold);
+  outline: 2px solid var(--Evident-gold);
   outline-offset: 2px;
 }
 

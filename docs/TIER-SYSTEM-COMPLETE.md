@@ -1,8 +1,8 @@
-# BarberX Tier Access System - Implementation Complete ✅
+# Evident Tier Access System - Implementation Complete ✅
 
 ## What Was Implemented
 
-Successfully created a professional tier-based authentication and authorization system for BarberX with your admin account and 4 subscription tiers.
+Successfully created a professional tier-based authentication and authorization system for Evident with your admin account and 4 subscription tiers.
 
 ---
 
@@ -106,7 +106,7 @@ Successfully created a professional tier-based authentication and authorization 
    - Sample user generator
    - Authentication tester
 
-3. **`instance/barberx_auth.db`**
+3. **`instance/Evident_auth.db`**
    - SQLite database with:
      - Your admin account (set via environment variables)
      - 3 sample test users
@@ -129,7 +129,7 @@ Successfully created a professional tier-based authentication and authorization 
 ### Frontend
 
 5. **`templates/auth/login.html`** (6.2 KB)
-   - Clean BarberX-branded login page
+   - Clean Evident-branded login page
    - Gradient background (red/blue)
    - Barber pole branding
    - Flash message support
@@ -201,7 +201,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  # Set via environment variable
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/barberx_auth.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/Evident_auth.db')
 
 # Initialize extensions
 db.init_app(app)
@@ -242,7 +242,7 @@ def process_bwc():
 ### 4. Login to Your Admin Account
 
 1. Navigate to: `http://localhost:5000/auth/login`
-2. Email: `admin@barberx.info`
+2. Email: `admin@Evident.info`
 3. Password: `(set via ADMIN_PASSWORD env var)`
 4. Click "Login"
 5. You now have full admin access!
@@ -279,7 +279,7 @@ For testing different tier experiences:
 | free@example.com    | test123   | Free         |
 | pro@example.com     | test123   | Professional |
 | premium@example.com | test123   | Premium      |
-| admin@barberx.info  | (env var) | **Admin**    |
+| admin@Evident.info  | (env var) | **Admin**    |
 
 ---
 
@@ -312,7 +312,7 @@ For testing different tier experiences:
 
 ## 🎨 **Branding Integration**
 
-All authentication pages use BarberX branding:
+All authentication pages use Evident branding:
 
 - Classic barber pole logo
 - Red/blue gradient backgrounds
@@ -324,7 +324,7 @@ All authentication pages use BarberX branding:
 
 ## 🔐 **Database Location**
 
-`C:\web-dev\github-repos\BarberX.info\instance\barberx_auth.db`
+`C:\web-dev\github-repos\Evident.info\instance\Evident_auth.db`
 
 **Backup regularly!** This contains all user accounts and subscription data.
 
@@ -340,12 +340,12 @@ python init_auth.py
 python
 >>> from init_auth import app, User
 >>> with app.app_context():
-...     admin = User.query.filter_by(email='admin@barberx.info').first()
+...     admin = User.query.filter_by(email='admin@Evident.info').first()
 ...     print(admin.tier_name)
 ...     print(admin.get_tier_limits())
 
 # Reset database (careful!)
-rm instance/barberx_auth.db
+rm instance/Evident_auth.db
 python init_auth.py
 ```
 
@@ -360,6 +360,6 @@ Your admin account is active with unlimited access to all features and backend t
 ---
 
 **Created:** 2026-01-23  
-**Admin:** admin@barberx.info  
+**Admin:** admin@Evident.info  
 **Tier System:** 4 tiers + Admin  
 **Security:** Production-ready

@@ -1,5 +1,5 @@
 """
-ChatGPT API endpoints for BarberX
+ChatGPT API endpoints for Evident
 Handles chat completions, project management, and conversation history
 """
 

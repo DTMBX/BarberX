@@ -23,7 +23,7 @@ def test_secret_key_validation():
             content = f.read()
 
         # Check that hardcoded secret is removed
-        if "barberx-legal-tech-2026-secure-key-change-in-production" in content:
+        if "Evident-legal-tech-2026-secure-key-change-in-production" in content:
             test_results.append("❌ FAIL: Hardcoded SECRET_KEY still present")
             tests_failed += 1
             return False

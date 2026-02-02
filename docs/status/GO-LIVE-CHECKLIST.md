@@ -59,7 +59,7 @@ Register → Explore (Free) → Upgrade → Checkout → Payment → Success →
 ### Step 1: Merge the Code (2 min)
 
 **Option A: GitHub PR (Recommended)**
-1. Go to: https://github.com/DTB396/BarberX.info/pull/new/payments-clean
+1. Go to: https://github.com/DTB396/Evident.info/pull/new/payments-clean
 2. Click "Create Pull Request"
 3. Review changes
 4. Click "Merge Pull Request"
@@ -103,9 +103,9 @@ git push origin main
 1. Go to: https://dashboard.stripe.com/test/products
 2. Click "+ Add product"
 
-**Product 1: BarberX Pro**
+**Product 1: Evident Pro**
 ```
-Name: BarberX Pro
+Name: Evident Pro
 Description: Complete BWC analysis + unlimited legal AI tools
 Price: $199.00 USD
 Billing: Recurring monthly
@@ -113,9 +113,9 @@ Billing: Recurring monthly
 - Click "Add product"
 - COPY the Price ID (looks like `price_1ABC...`)
 
-**Product 2: BarberX Premium**
+**Product 2: Evident Premium**
 ```
-Name: BarberX Premium
+Name: Evident Premium
 Description: Teams + API + white-label + priority support
 Price: $499.00 USD
 Billing: Recurring monthly
@@ -141,7 +141,7 @@ Billing: Recurring monthly
 
 **After Render deployment completes:**
 
-1. Get your Render URL (e.g., `https://barberx-backend.onrender.com`)
+1. Get your Render URL (e.g., `https://Evident-backend.onrender.com`)
 2. Go to: https://dashboard.stripe.com/test/webhooks
 3. Click "+ Add endpoint"
 
@@ -264,7 +264,7 @@ Annual = $179,280/year
 **Stripe Dashboard:** https://dashboard.stripe.com/test/dashboard  
 **Amplitude Dashboard:** https://amplitude.com/  
 **Render Dashboard:** https://dashboard.render.com/  
-**GitHub PR:** https://github.com/DTB396/BarberX.info/pull/new/payments-clean
+**GitHub PR:** https://github.com/DTB396/Evident.info/pull/new/payments-clean
 
 ---
 

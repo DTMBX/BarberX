@@ -9,7 +9,7 @@
 ## 🚨 CURRENT SITUATION
 
 **Problem:** Production deployment showing "Internal Server Error"
-- URL: https://barberx-legal-tech.onrender.com
+- URL: https://Evident-legal-tech.onrender.com
 - Error: "The server encountered an internal error"
 - Multiple deploy attempts failed
 
@@ -64,7 +64,7 @@ Fixed potential issues in main app.py:
 
 **Steps:**
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Backup current render.yaml
 git mv render.yaml render_full.yaml
@@ -84,9 +84,9 @@ git push origin main
 - Then gradually restore features
 
 **Test URLs:**
-- https://barberx-legal-tech.onrender.com/ → Should show simple page
-- https://barberx-legal-tech.onrender.com/health → Should return JSON
-- https://barberx-legal-tech.onrender.com/env → Shows environment info
+- https://Evident-legal-tech.onrender.com/ → Should show simple page
+- https://Evident-legal-tech.onrender.com/health → Should return JSON
+- https://Evident-legal-tech.onrender.com/env → Shows environment info
 
 ### Option B: Deploy Fixed Main App (CURRENT)
 
@@ -116,7 +116,7 @@ git push origin main
    https://dashboard.render.com
 
 2. **Click on your service:**
-   "barberx-legal-tech"
+   "Evident-legal-tech"
 
 3. **View Logs:**
    - Click "Logs" tab
@@ -150,7 +150,7 @@ git commit -m "Emergency: Deploy minimal app"
 git push origin main
 
 # Wait 5 minutes
-# Test: https://barberx-legal-tech.onrender.com/health
+# Test: https://Evident-legal-tech.onrender.com/health
 # Should return: {"status": "healthy"}
 ```
 

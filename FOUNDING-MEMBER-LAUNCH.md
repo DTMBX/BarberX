@@ -1,4 +1,4 @@
-# 🎉 BarberX Founding Member Program - LIVE
+# 🎉 Evident Founding Member Program - LIVE
 
 ## Launch Date: January 31, 2026
 
@@ -6,7 +6,7 @@
 
 ## 🚀 WE'RE LIVE!
 
-The **BarberX Founding Member Program** is officially open!
+The **Evident Founding Member Program** is officially open!
 
 ### 💎 The Offer
 
@@ -120,11 +120,11 @@ Need more? No problem:
 
 ## 🌐 Where to Sign Up
 
-**Landing Page**: https://barberx.info/#founding-member
+**Landing Page**: https://Evident.info/#founding-member
 
-**Pricing Details**: https://barberx.info/pricing
+**Pricing Details**: https://Evident.info/pricing
 
-**Dashboard**: https://barberx.info/workspace
+**Dashboard**: https://Evident.info/workspace
 
 ---
 
@@ -133,9 +133,9 @@ Need more? No problem:
 ### For Founding Members
 
 - **Discord**: [Founding Members Channel]
-- **Email**: support@barberx.info
+- **Email**: support@Evident.info
 - **Priority Support**: 24-48 hour response time
-- **Feature Requests**: founding-feedback@barberx.info
+- **Feature Requests**: founding-feedback@Evident.info
 
 ---
 
@@ -171,7 +171,7 @@ Need more? No problem:
 **Twitter/X:**
 
 ```
-🚀 BarberX Founding Member Program is LIVE!
+🚀 Evident Founding Member Program is LIVE!
 
 $19/mo locked for life (first 100 only)
 ✅ 10 BWC videos/month
@@ -180,7 +180,7 @@ $19/mo locked for life (first 100 only)
 ✅ Soft caps - no hard stops
 ✅ All future features included
 
-Join the first 100: https://barberx.info/#founding-member
+Join the first 100: https://Evident.info/#founding-member
 
 #LegalTech #eDiscovery #AI
 ```
@@ -188,7 +188,7 @@ Join the first 100: https://barberx.info/#founding-member
 **LinkedIn:**
 
 ```
-I'm excited to announce the launch of the BarberX Founding Member Program!
+I'm excited to announce the launch of the Evident Founding Member Program!
 
 For legal professionals who need AI-powered body cam and document analysis:
 
@@ -207,7 +207,7 @@ Why founding member pricing works:
 
 By the time we launch at full price, you'll have helped build the platform that serves you perfectly.
 
-Join us: https://barberx.info/#founding-member
+Join us: https://Evident.info/#founding-member
 
 #LegalTech #eDiscovery #BodyCamAnalysis #AI
 ```

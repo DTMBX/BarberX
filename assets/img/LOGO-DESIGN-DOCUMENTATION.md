@@ -1,4 +1,4 @@
-# BarberX Legal Technologies - Logo Design System
+# Evident Legal Technologies - Logo Design System
 
 **Created:** January 28, 2026  
 **Design Philosophy:** Restrained, court-credible, constitutional technology
@@ -46,7 +46,7 @@ Text Gray:    #475569 (Subtitle text)
 
 **Letterforms:**
 
-- "BarberX" - Bold weight, tight letter-spacing (authority)
+- "Evident" - Bold weight, tight letter-spacing (authority)
 - "LEGAL TECHNOLOGIES" - Uppercase, wide letter-spacing (technical precision)
 - Tagline - Italic, lighter weight (restrained elegance)
 
@@ -54,7 +54,7 @@ Text Gray:    #475569 (Subtitle text)
 
 ## Logo Variants
 
-### 1. **logo-barberx-full.svg** (480×120px)
+### 1. **logo-Evident-full.svg** (480×120px)
 
 **Use Cases:**
 
@@ -72,7 +72,7 @@ Text Gray:    #475569 (Subtitle text)
 
 ---
 
-### 2. **logo-barberx-horizontal.svg** (360×80px)
+### 2. **logo-Evident-horizontal.svg** (360×80px)
 
 **Use Cases:**
 
@@ -89,7 +89,7 @@ Text Gray:    #475569 (Subtitle text)
 
 ---
 
-### 3. **logo-barberx-icon.svg** (100×100px)
+### 3. **logo-Evident-icon.svg** (100×100px)
 
 **Use Cases:**
 
@@ -145,16 +145,16 @@ Text Gray:    #475569 (Subtitle text)
 ```html
 <!-- Full Logo -->
 <img
-  src="/assets/img/logo-barberx-full.svg"
-  alt="BarberX Legal Technologies - Precision. Integrity. Constitutional Technology."
+  src="/assets/img/logo-Evident-full.svg"
+  alt="Evident Legal Technologies - Precision. Integrity. Constitutional Technology."
   width="480"
   height="120"
 />
 
 <!-- Horizontal Logo (Navigation) -->
 <img
-  src="/assets/img/logo-barberx-horizontal.svg"
-  alt="BarberX Legal Technologies"
+  src="/assets/img/logo-Evident-horizontal.svg"
+  alt="Evident Legal Technologies"
   width="360"
   height="80"
 />
@@ -163,7 +163,7 @@ Text Gray:    #475569 (Subtitle text)
 <link
   rel="icon"
   type="image/svg+xml"
-  href="/assets/img/logo-barberx-icon.svg"
+  href="/assets/img/logo-Evident-icon.svg"
 />
 ```
 
@@ -239,7 +239,7 @@ The five-pointed star represents:
 
 ## Legal Disclaimer (Internal Use)
 
-This logo is the intellectual property of BarberX Legal Technologies (DTMB).
+This logo is the intellectual property of Evident Legal Technologies (DTMB).
 
 **Trademark Status:** Pending registration with USPTO (Class 42: Legal technology services)
 

@@ -1,5 +1,5 @@
 ---
-title: "BarberX Legal Technologies Documentation"
+title: "Evident Legal Technologies Documentation"
 layout: default
 permalink: /docs/
 ---
@@ -138,21 +138,21 @@ code {
 </style>
 
 <div class="docs-hero">
-  <h1>📚 BarberX Documentation</h1>
+  <h1>📚 Evident Documentation</h1>
   <p>AI-powered eDiscovery and forensic analysis for legal professionals</p>
 </div>
 
 <div class="docs-grid">
   <div class="docs-card">
     <h3>🌐 For All Users</h3>
-    <p>Access BarberX via the web at <a href="https://barberx.info">barberx.info</a>. No installation required for standard users — all features available securely through the web app.</p>
+    <p>Access Evident via the web at <a href="https://Evident.info">Evident.info</a>. No installation required for standard users — all features available securely through the web app.</p>
     <a href="/register">Get Started Free →</a>
   </div>
   
   <div class="docs-card enterprise">
     <h3>🏢 For Enterprise</h3>
     <p>Enterprise customers can download and run the local library for air-gapped deployments. Contact support for access to the enterprise package.</p>
-    <a href="mailto:support@barberx.info">Contact Sales →</a>
+    <a href="mailto:support@Evident.info">Contact Sales →</a>
   </div>
 </div>
 
@@ -171,7 +171,7 @@ code {
 
 <div id="overview" class="docs-section">
   <h2>Overview</h2>
-  <p>BarberX is a local-first, privacy-focused legal tech platform for processing body-worn camera (BWC) footage, police reports, and legal documents. Features include:</p>
+  <p>Evident is a local-first, privacy-focused legal tech platform for processing body-worn camera (BWC) footage, police reports, and legal documents. Features include:</p>
   <ul>
     <li><strong>100% Local AI</strong> — No cloud required, data never leaves your machine</li>
     <li><strong>Multi-user Authentication</strong> — Role-based access control for teams</li>
@@ -228,7 +228,7 @@ code {
 
 <div id="faq" class="docs-section">
   <h2>FAQ</h2>
-  <p>Common questions about BarberX features, pricing, security, and technical requirements.</p>
+  <p>Common questions about Evident features, pricing, security, and technical requirements.</p>
   <p><a href="/faq/">View FAQ →</a></p>
 </div>
 
@@ -245,17 +245,17 @@ code {
 <div id="support" class="docs-section">
   <h2>Support & Community</h2>
   <ul>
-    <li><strong>Email:</strong> <a href="mailto:support@barberx.info">support@barberx.info</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/DTB396/BarberX.info/issues">Report Issues</a></li>
+    <li><strong>Email:</strong> <a href="mailto:support@Evident.info">support@Evident.info</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/DTB396/Evident.info/issues">Report Issues</a></li>
     <li><strong>Documentation:</strong> <a href="/docs/">Full Docs</a></li>
   </ul>
 </div>
-- [Contact](mailto:support@barberx.info)
+- [Contact](mailto:support@Evident.info)
 - [Changelog](../CHANGELOG.md)
 
 ---
 
-BarberX Legal Technologies © 2026. All rights reserved.
+Evident Legal Technologies © 2026. All rights reserved.
 
 <section class="system-cards-section">
   <div class="container">

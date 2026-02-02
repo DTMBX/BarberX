@@ -1,4 +1,4 @@
-namespace BarberX.Shared.Models;
+namespace Evident.Shared.Models;
 
 /// <summary>
 /// Shared data model for BWC analysis requests across all platforms

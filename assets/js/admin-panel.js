@@ -1,4 +1,4 @@
-// BarberX Admin Panel - Full Management System
+// Evident Admin Panel - Full Management System
 // Handles all CRUD operations for users, analyses, and system management
 
 let currentUsers = [];

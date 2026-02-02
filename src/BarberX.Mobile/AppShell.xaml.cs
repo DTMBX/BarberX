@@ -1,6 +1,6 @@
-﻿using BarberX.Mobile.Views;
+using Evident.Mobile.Views;
 
-namespace BarberX.Mobile
+namespace Evident.Mobile
 {
     public partial class AppShell : Shell
     {

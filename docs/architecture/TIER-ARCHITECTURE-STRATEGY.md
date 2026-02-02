@@ -1,10 +1,10 @@
-# BarberX Tier Architecture & Feature Matrix
+# Evident Tier Architecture & Feature Matrix
 
 ## 🎯 Current Tier Structure (From models_auth.py)
 
 ### **All Tiers Are Currently WEB-BASED SaaS**
 
-**Critical Finding:** Your current implementation has NO downloadable/desktop app. Everything runs through the web interface at barberx.info.
+**Critical Finding:** Your current implementation has NO downloadable/desktop app. Everything runs through the web interface at Evident.info.
 
 ---
 
@@ -98,13 +98,13 @@ TierLevel.ENTERPRISE: {
 ```yaml
 # Docker deployment they run on their servers
 services:
-  barberx-app:
-    image: barberx/enterprise:latest
+  Evident-app:
+    image: Evident/enterprise:latest
     environment:
       - LICENSE_KEY=${ENTERPRISE_LICENSE_KEY}
-      - LICENSE_CHECK_URL=https://license.barberx.info/validate
+      - LICENSE_CHECK_URL=https://license.Evident.info/validate
     volumes:
-      - /var/barberx/data:/app/data
+      - /var/Evident/data:/app/data
     ports:
       - "443:443"
 ```
@@ -121,7 +121,7 @@ def validate_license():
     
     # Call your license server
     response = requests.post(
-        'https://license.barberx.info/validate',
+        'https://license.Evident.info/validate',
         json={
             'license_key': license_key,
             'machine_id': get_machine_fingerprint(),
@@ -199,7 +199,7 @@ async function analyzeVideo(videoPath) {
     formData.append('video', fs.createReadStream(videoPath));
     
     const response = await axios.post(
-        'https://api.barberx.info/analyze',
+        'https://api.Evident.info/analyze',
         formData,
         {
             headers: {
@@ -277,7 +277,7 @@ Enterprise Self-Hosted: $1,999/month
 
 #### **Phase 3: Q3 2026 - Desktop App (Optional)**
 ```
-BarberX Desktop: Available for Pro+ tiers
+Evident Desktop: Available for Pro+ tiers
 - Native Windows/Mac app (Electron)
 - Syncs with cloud account
 - Offline queueing
@@ -374,7 +374,7 @@ BarberX Desktop: Available for Pro+ tiers
 # License validation (in self-hosted version)
 class LicenseManager:
     def __init__(self):
-        self.license_key = os.getenv('BARBERX_LICENSE_KEY')
+        self.license_key = os.getenv('Evident_LICENSE_KEY')
         self.last_check = None
         self.grace_period_hours = 72  # Can run offline for 3 days
     
@@ -382,7 +382,7 @@ class LicenseManager:
         """Check license with home server"""
         try:
             response = requests.post(
-                'https://license.barberx.info/v1/validate',
+                'https://license.Evident.info/v1/validate',
                 json={
                     'license_key': self.license_key,
                     'machine_id': self.get_machine_id(),
@@ -433,7 +433,7 @@ def enforce_license():
     if not license_manager.is_valid():
         return jsonify({
             'error': 'License invalid or expired',
-            'contact': 'enterprise@barberx.info'
+            'contact': 'enterprise@Evident.info'
         }), 403
 ```
 

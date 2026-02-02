@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# BarberX.info - Application Health Check & Fix Script
+# Evident.info - Application Health Check & Fix Script
 # Diagnoses and fixes common front-end and back-end issues
 
 param(
@@ -11,7 +11,7 @@ param(
 )
 
 $ErrorActionPreference = "Continue"
-$repoRoot = "C:\web-dev\github-repos\BarberX.info"
+$repoRoot = "C:\web-dev\github-repos\Evident.info"
 
 # Color coding
 function Write-Section($text) { Write-Host "`n$text" -ForegroundColor Cyan -BackgroundColor DarkBlue }
@@ -23,7 +23,7 @@ function Write-Fix($text) { Write-Host "?? $text" -ForegroundColor Magenta }
 
 Set-Location $repoRoot
 
-Write-Section "?? BarberX.info Health Check & Fix"
+Write-Section "?? Evident.info Health Check & Fix"
 Write-Host "Repository: $repoRoot" -ForegroundColor Gray
 Write-Host ""
 
@@ -124,12 +124,12 @@ if (-not $SkipDotNet) {
     }
     
     # Check solution file
-    if (Test-Path "BarberX.sln") {
-        Write-Success "Solution file found: BarberX.sln"
+    if (Test-Path "Evident.sln") {
+        Write-Success "Solution file found: Evident.sln"
         
         if ($AutoFix) {
             Write-Fix "Restoring .NET packages..."
-            dotnet restore BarberX.sln --verbosity quiet
+            dotnet restore Evident.sln --verbosity quiet
             if ($LASTEXITCODE -eq 0) {
                 Write-Success ".NET packages restored"
             } else {
@@ -138,7 +138,7 @@ if (-not $SkipDotNet) {
             }
             
             Write-Fix "Building .NET solution..."
-            $buildOutput = dotnet build BarberX.sln --verbosity quiet --no-restore 2>&1
+            $buildOutput = dotnet build Evident.sln --verbosity quiet --no-restore 2>&1
             if ($LASTEXITCODE -eq 0) {
                 Write-Success ".NET solution built successfully"
             } else {
@@ -149,16 +149,16 @@ if (-not $SkipDotNet) {
         }
         
     } else {
-        Write-Warning "BarberX.sln not found"
+        Write-Warning "Evident.sln not found"
         $issues += "Missing .NET solution file"
     }
     
     # Check Web API project
-    if (Test-Path "src\BarberX.Web\BarberX.Web.csproj") {
+    if (Test-Path "src\Evident.Web\Evident.Web.csproj") {
         Write-Success "Web API project found"
     } else {
         Write-Warning "Web API project not found"
-        $issues += "Missing BarberX.Web project"
+        $issues += "Missing Evident.Web project"
     }
 }
 
@@ -233,7 +233,7 @@ if (-not $SkipFrontend) {
 Write-Section "?? Database Check"
 
 # Check for SQLite database (Flask)
-if (Test-Path "instance\barberx.db") {
+if (Test-Path "instance\Evident.db") {
     Write-Success "SQLite database found (Flask)"
 } else {
     Write-Warning "SQLite database not found"
@@ -258,11 +258,11 @@ if (Test-Path ".env") {
     if ($AutoFix) {
         Write-Fix "Creating sample .env file..."
         @"
-# BarberX.info Environment Configuration
+# Evident.info Environment Configuration
 FLASK_APP=app.py
 FLASK_ENV=development
 SECRET_KEY=dev-secret-key-change-in-production
-DATABASE_URL=sqlite:///instance/barberx.db
+DATABASE_URL=sqlite:///instance/Evident.db
 ASPNETCORE_ENVIRONMENT=Development
 "@ | Out-File -FilePath ".env" -Encoding UTF8
         Write-Success ".env file created"
@@ -273,7 +273,7 @@ ASPNETCORE_ENVIRONMENT=Development
 }
 
 # Check appsettings.json for .NET
-if (Test-Path "src\BarberX.Web\appsettings.json") {
+if (Test-Path "src\Evident.Web\appsettings.json") {
     Write-Success ".NET appsettings.json found"
 } else {
     Write-Warning ".NET configuration not found"
@@ -331,14 +331,14 @@ if ($issues.Count -eq 0) {
     Write-Host ""
     Write-Error "Found $($issues.Count) issue(s):"
     foreach ($issue in $issues) {
-        Write-Host "  • $issue" -ForegroundColor Red
+        Write-Host "  ï¿½ $issue" -ForegroundColor Red
     }
     Write-Host ""
     
     if ($fixes.Count -gt 0 -and -not $AutoFix) {
         Write-Host "?? Suggested fixes:" -ForegroundColor Yellow
         foreach ($fix in $fixes) {
-            Write-Host "  • $fix" -ForegroundColor Yellow
+            Write-Host "  ï¿½ $fix" -ForegroundColor Yellow
         }
         Write-Host ""
         Write-Host "Run with -AutoFix to apply automatic fixes" -ForegroundColor Cyan
@@ -360,14 +360,14 @@ if ($RunAfterFix -and $issues.Count -eq 0) {
     
     # Start Flask in background
     $flaskJob = Start-Job -ScriptBlock {
-        Set-Location "C:\web-dev\github-repos\BarberX.info"
+        Set-Location "C:\web-dev\github-repos\Evident.info"
         .\venv\Scripts\Activate.ps1
         python app.py
     }
     
     # Start .NET API in background
     $dotnetJob = Start-Job -ScriptBlock {
-        Set-Location "C:\web-dev\github-repos\BarberX.info\src\BarberX.Web"
+        Set-Location "C:\web-dev\github-repos\Evident.info\src\Evident.Web"
         dotnet run
     }
     

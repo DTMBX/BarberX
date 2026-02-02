@@ -21,7 +21,7 @@
 ### Step 1: Push Workflow to GitHub
 
 ```powershell
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 
 # Add workflow file
 git add .github/workflows/ios-build.yml
@@ -56,10 +56,10 @@ git push origin main
 1. **After build completes:**
    - Actions → Latest workflow run
    - Scroll to "Artifacts" section
-   - Click "BarberX-iOS-Development" to download
+   - Click "Evident-iOS-Development" to download
 
 2. **Extract ZIP:**
-   - Contains: `BarberX.MatterDocket.MAUI.ipa`
+   - Contains: `Evident.MatterDocket.MAUI.ipa`
 
 ---
 

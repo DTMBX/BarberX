@@ -221,7 +221,7 @@ document.addEventListener("theme:change", (e) => {
 });
 
 // App ready
-document.addEventListener("barberx:ready", () => {
+document.addEventListener("Evident:ready", () => {
   // Your code here
 });
 ```

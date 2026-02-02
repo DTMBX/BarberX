@@ -63,7 +63,7 @@ My approach emphasizes:
 
 ---
 
-## Why BarberX?
+## Why Evident?
 
 Because cutting through bureaucratic spin requires precision. These are my documented
 experiences with bad actors who hide behind process, paperwork, and position.

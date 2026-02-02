@@ -27,7 +27,7 @@ class DatabaseConfig:
     engine: str  # sqlite, postgresql, mysql
     host: Optional[str] = None
     port: Optional[int] = None
-    database: str = "barberx.db"
+    database: str = "Evident.db"
     username: Optional[str] = None
     password: Optional[str] = None
     pool_size: int = 10
@@ -125,7 +125,7 @@ class ConfigManager:
                 engine=os.getenv("DB_ENGINE", "sqlite"),
                 host=os.getenv("DB_HOST"),
                 port=int(os.getenv("DB_PORT", 0)) if os.getenv("DB_PORT") else None,
-                database=os.getenv("DB_NAME", "barberx.db"),
+                database=os.getenv("DB_NAME", "Evident.db"),
                 username=os.getenv("DB_USER"),
                 password=os.getenv("DB_PASSWORD"),
             )

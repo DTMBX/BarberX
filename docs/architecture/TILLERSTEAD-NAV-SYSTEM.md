@@ -48,7 +48,7 @@ Organized around Tillerstead's four core pillars:
 ## 📁 Files
 
 ```
-BarberX.info/
+Evident.info/
 ├── _includes/
 │   └── components/
 │       └── navigation/
@@ -145,9 +145,9 @@ Update the "Get Help" and "Prayer" buttons in the header HTML to link to your ac
 | 640px - 1023px | Mobile drawer, full logo |
 | ≥ 1024px | Desktop dropdowns |
 
-## 🆚 Tillerstead vs BarberX
+## 🆚 Tillerstead vs Evident
 
-| Aspect | BarberX | Tillerstead |
+| Aspect | Evident | Tillerstead |
 |--------|---------|-------------|
 | **Colors** | Crimson, Navy, Brass | Forest greens, Earth tones |
 | **Logo** | Geometric BX | Wheat stalks symbol |

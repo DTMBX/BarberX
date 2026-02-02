@@ -2,7 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Threading.Tasks;
 
-namespace BarberX.MatterDocket.MAUI.ViewModels;
+namespace Evident.MatterDocket.MAUI.ViewModels;
 
 public partial class BaseViewModel : ObservableObject
 {

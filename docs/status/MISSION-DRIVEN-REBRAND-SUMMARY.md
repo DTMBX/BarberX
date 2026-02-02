@@ -12,7 +12,7 @@
 
 **Complete sections for:**
 - Hero with stats (10M+ opinions, 270 years, 20x cheaper)
-- "Why BarberX Exists" mission statement
+- "Why Evident Exists" mission statement
 - "How We Plan to Win" (4 strategies)
 - "Path to Greatness" timeline (Launch → 3 Years)
 - "Leveraging Success for Impact" (6 ways)
@@ -95,7 +95,7 @@ at 1/10th the cost of Westlaw and LexisNexis
 
 ### Mission Statement
 ```
-Why BarberX Exists
+Why Evident Exists
 
 Legal research shouldn't cost $2,000 per month.
 
@@ -105,7 +105,7 @@ justice gap.
 
 We're changing that.
 
-BarberX provides research-grade tools—10M+ opinions, Shepard's-equivalent 
+Evident provides research-grade tools—10M+ opinions, Shepard's-equivalent 
 citations, judge intelligence, AI search—for $50/month.
 
 Because justice shouldn't require a trust fund.
@@ -247,7 +247,7 @@ Save $23,400/year
 
 ### Website Updates (2 hours)
 - [ ] Replace homepage hero with mission-driven version
-- [ ] Add "Why BarberX Exists" section
+- [ ] Add "Why Evident Exists" section
 - [ ] Update pricing page with comparison table
 - [ ] Add stats footer (10M+, 270 years, 20x)
 
@@ -297,7 +297,7 @@ Save $23,400/year
 ✅ Roadmap to GREATNESS (3-year plan to market leadership)  
 ✅ Vision for IMPACT (leveraging success for justice)
 
-**This positions BarberX as:**
+**This positions Evident as:**
 - Technically sophisticated (impresses engineers)
 - Socially impactful (impresses activists)
 - Economically disruptive (impresses business minds)

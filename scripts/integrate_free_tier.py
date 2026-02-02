@@ -193,7 +193,7 @@ def create_placeholder_templates():
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ case.title }} - BarberX</title>
+    <title>{{ case.title }} - Evident</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -276,7 +276,7 @@ def create_placeholder_templates():
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Education Center - BarberX</title>
+    <title>Education Center - Evident</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -353,7 +353,7 @@ def main():
     print("   - Check educational resources")
     print("\n4. Set up daily cron job for data cleanup:")
     print(
-        '   0 3 * * * cd /var/www/barberx && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"'
+        '   0 3 * * * cd /var/www/Evident && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"'
     )
 
     return True

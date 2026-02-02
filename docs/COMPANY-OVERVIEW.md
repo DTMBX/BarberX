@@ -1,10 +1,10 @@
-# BarberX Legal Technologies
+# Evident Legal Technologies
 
 # Professional BWC Forensic Analysis Platform
 
 ## 🏢 Company Overview
 
-**BarberX Legal Technologies** is a professional-grade software platform specializing in court-defensible forensic analysis of body-worn camera (BWC) footage for civil rights litigation, law enforcement accountability, and legal research.
+**Evident Legal Technologies** is a professional-grade software platform specializing in court-defensible forensic analysis of body-worn camera (BWC) footage for civil rights litigation, law enforcement accountability, and legal research.
 
 ---
 
@@ -300,8 +300,8 @@
 
 ```powershell
 # Clone repository
-git clone https://github.com/barberx/BarberX.info.git
-cd BarberX.info
+git clone https://github.com/Evident/Evident.info.git
+cd Evident.info
 
 # Activate virtual environment
 .\.venv\Scripts\Activate.ps1
@@ -319,7 +319,7 @@ python app.py
 
 ### Default Admin Account
 
-- **Email:** admin@barberx.info
+- **Email:** admin@Evident.info
 - **Password:** admin123 (⚠️ CHANGE THIS!)
 
 ### Environment Variables
@@ -330,7 +330,7 @@ $env:SECRET_KEY = "your-secret-key-here"
 $env:HUGGINGFACE_TOKEN = "your-hf-token"
 
 # Optional
-$env:DATABASE_URL = "postgresql://user:pass@localhost/barberx"
+$env:DATABASE_URL = "postgresql://user:pass@localhost/Evident"
 $env:UPLOAD_FOLDER = "C:\\uploads"
 $env:ANALYSIS_FOLDER = "C:\\analysis"
 ```
@@ -340,12 +340,12 @@ $env:ANALYSIS_FOLDER = "C:\\analysis"
 ## 📁 Project Structure
 
 ```
-BarberX.info/
+Evident.info/
 ├── app.py                          # Main Flask application
 ├── bwc_forensic_analyzer.py        # Analysis engine
 ├── bwc_web_app.py                  # Legacy simple web app
 ├── requirements.txt                # Python dependencies
-├── barberx_legal.db               # SQLite database
+├── Evident_legal.db               # SQLite database
 ├── templates/                      # HTML templates
 │   ├── landing.html                # Marketing page
 │   ├── register.html               # User registration
@@ -360,7 +360,7 @@ BarberX.info/
 │   └── bwc_videos/
 ├── bwc_analysis/                   # Analysis outputs
 ├── logs/                           # Application logs
-│   └── barberx.log
+│   └── Evident.log
 └── docs/                           # Documentation
     ├── BWC-ANALYSIS-GUIDE.md
     ├── WEB-APP-GUIDE.md
@@ -404,14 +404,14 @@ MIT License - Free and open source
 
 ## 📞 Contact
 
-- **Website:** https://barberx.info
-- **Email:** info@barberx.info
-- **Enterprise Sales:** enterprise@barberx.info
-- **Support:** support@barberx.info
-- **GitHub:** https://github.com/barberx/BarberX.info
+- **Website:** https://Evident.info
+- **Email:** info@Evident.info
+- **Enterprise Sales:** enterprise@Evident.info
+- **Support:** support@Evident.info
+- **GitHub:** https://github.com/Evident/Evident.info
 
 ---
 
-**BarberX Legal Technologies**  
+**Evident Legal Technologies**  
 _Empowering Justice Through Technology_  
 🇺🇸 Made in the USA • 100% Open Source • Court-Defensible

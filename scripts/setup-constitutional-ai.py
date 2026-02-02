@@ -1,7 +1,7 @@
 """
-BarberX Constitutional AI Setup
+Evident Constitutional AI Setup
 Configures AI models for constitutional violation detection
-License: Proprietary (BarberX Legal Technologies)
+License: Proprietary (Evident Legal Technologies)
 """
 
 import os
@@ -288,16 +288,16 @@ VIOLATIONS_DB = ''' + str(CONSTITUTIONAL_VIOLATIONS) + '''
     print("=" * 60)
     
     print("\n?? Ready to detect:")
-    print("  • Miranda violations")
-    print("  • 4th Amendment violations")
-    print("  • Excessive force")
-    print("  • False arrest")
-    print("  • Malicious prosecution")
-    print("  • Brady violations")
-    print("  • 1st Amendment retaliation")
+    print("  ï¿½ Miranda violations")
+    print("  ï¿½ 4th Amendment violations")
+    print("  ï¿½ Excessive force")
+    print("  ï¿½ False arrest")
+    print("  ï¿½ Malicious prosecution")
+    print("  ï¿½ Brady violations")
+    print("  ï¿½ 1st Amendment retaliation")
     
     print("\n?? Loaded case law:")
-    print(f"  • {len([c for v in CONSTITUTIONAL_VIOLATIONS.values() for c in v.get('key_cases', [])])} Supreme Court & Circuit cases")
+    print(f"  ï¿½ {len([c for v in CONSTITUTIONAL_VIOLATIONS.values() for c in v.get('key_cases', [])])} Supreme Court & Circuit cases")
     
     print("\n?? Next steps:")
     print("  1. Upload BWC video to /upload")

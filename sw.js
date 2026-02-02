@@ -1,10 +1,10 @@
 /**
- * BarberX Service Worker - PWA Support
+ * Evident Service Worker - PWA Support
  * Version: 1.0.0
  * Features: Offline support, asset caching, background sync
  */
 
-const CACHE_VERSION = "barberx-v1.0.0";
+const CACHE_VERSION = "Evident-v1.0.0";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -52,7 +52,7 @@ self.addEventListener("activate", (event) => {
             .filter((cacheName) => {
               // Delete caches that don't match current version
               return (
-                cacheName.startsWith("barberx-") &&
+                cacheName.startsWith("Evident-") &&
                 cacheName !== STATIC_CACHE &&
                 cacheName !== DYNAMIC_CACHE &&
                 cacheName !== IMAGE_CACHE
@@ -233,7 +233,7 @@ self.addEventListener("push", (event) => {
     ],
   };
 
-  event.waitUntil(self.registration.showNotification("BarberX", options));
+  event.waitUntil(self.registration.showNotification("Evident", options));
 });
 
 /**

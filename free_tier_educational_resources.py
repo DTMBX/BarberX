@@ -161,9 +161,9 @@ EDUCATIONAL_RESOURCES = {
     "video_tutorials": [
         {
             "id": "platform_overview",
-            "title": "BarberX Platform Overview",
+            "title": "Evident Platform Overview",
             "category": "Getting Started",
-            "description": "5-minute walkthrough of the BarberX platform features.",
+            "description": "5-minute walkthrough of the Evident platform features.",
             "duration": "5:30",
             "thumbnail": "/static/videos/thumbnails/platform_overview.jpg",
             "video_url": "/static/videos/platform_overview.mp4",
@@ -195,7 +195,7 @@ EDUCATIONAL_RESOURCES = {
             "id": "successful_suppression",
             "title": "Case Study: Successful Evidence Suppression",
             "category": "Success Stories",
-            "description": "How a public defender used BarberX to identify Fourth Amendment violations.",
+            "description": "How a public defender used Evident to identify Fourth Amendment violations.",
             "read_time": "8 min",
             "outcome": "Evidence Suppressed",
             "content_url": "/static/case-studies/successful_suppression.html",

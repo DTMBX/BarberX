@@ -1,4 +1,4 @@
-# 🚀 BARBERX DEPLOYMENT STATUS - LIVE!
+# 🚀 Evident DEPLOYMENT STATUS - LIVE!
 
 **Last Updated:** January 26, 2026, 5:45 PM UTC  
 **Status:** ✅ DEPLOYING NOW  
@@ -81,14 +81,14 @@
 ## 🌐 LIVE URLS
 
 ### Production Site
-- **Frontend:** https://barberx.info (Jekyll static site)
-- **Backend API:** https://barberx-backend.onrender.com (Flask app)
+- **Frontend:** https://Evident.info (Jekyll static site)
+- **Backend API:** https://Evident-backend.onrender.com (Flask app)
 
 ### After Deploy Succeeds
-- Dashboard: https://barberx-backend.onrender.com/dashboard
-- Evidence Upload: https://barberx-backend.onrender.com/evidence-intake
-- Welcome (New): https://barberx-backend.onrender.com/welcome
-- Health Check: https://barberx-backend.onrender.com/health
+- Dashboard: https://Evident-backend.onrender.com/dashboard
+- Evidence Upload: https://Evident-backend.onrender.com/evidence-intake
+- Welcome (New): https://Evident-backend.onrender.com/welcome
+- Health Check: https://Evident-backend.onrender.com/health
 
 ---
 
@@ -220,7 +220,7 @@
 - **Framework:** Jekyll 4.3
 - **Hosting:** GitHub Pages
 - **CDN:** Cloudflare
-- **Domain:** barberx.info
+- **Domain:** Evident.info
 
 ### Infrastructure
 - **CI/CD:** Git → GitHub → Render auto-deploy
@@ -281,7 +281,7 @@
 - [ ] Build completes without errors
 - [ ] App starts and binds to port
 - [ ] Health check returns 200 OK
-- [ ] https://barberx-backend.onrender.com/ loads
+- [ ] https://Evident-backend.onrender.com/ loads
 - [ ] Can register/login
 - [ ] Can upload files
 
@@ -316,13 +316,13 @@ https://dashboard.render.com/
 ### Test Endpoints (After Deploy)
 ```bash
 # Health check
-curl https://barberx-backend.onrender.com/health
+curl https://Evident-backend.onrender.com/health
 
 # Homepage
-curl https://barberx-backend.onrender.com/
+curl https://Evident-backend.onrender.com/
 
 # Dashboard (requires login)
-curl https://barberx-backend.onrender.com/dashboard
+curl https://Evident-backend.onrender.com/dashboard
 ```
 
 ### Common Issues & Fixes

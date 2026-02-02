@@ -1,5 +1,5 @@
 """
-AI-Powered Security Module for BarberX
+AI-Powered Security Module for Evident
 Anomaly detection, fraud prevention, and intelligent session management
 """
 

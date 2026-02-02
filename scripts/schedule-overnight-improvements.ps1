@@ -1,9 +1,9 @@
 # Schedule Overnight Improvements
 # Run this to schedule the improvement script to run every night at 2 AM
 
-$TaskName = "BarberX-Overnight-Improvements"
-$ScriptPath = "C:\web-dev\github-repos\BarberX.info\scripts\overnight-improvements.ps1"
-$LogPath = "C:\web-dev\github-repos\BarberX.info\overnight-improvements\scheduled-run.log"
+$TaskName = "Evident-Overnight-Improvements"
+$ScriptPath = "C:\web-dev\github-repos\Evident.info\scripts\overnight-improvements.ps1"
+$LogPath = "C:\web-dev\github-repos\Evident.info\overnight-improvements\scheduled-run.log"
 
 Write-Host "?? Setting up Overnight Improvement Task" -ForegroundColor Cyan
 Write-Host "=" * 60
@@ -44,7 +44,7 @@ Register-ScheduledTask `
     -Trigger $trigger `
     -Settings $settings `
     -Principal $principal `
-    -Description "BarberX repository overnight improvements - runs automated code quality, security, and optimization tasks"
+    -Description "Evident repository overnight improvements - runs automated code quality, security, and optimization tasks"
 
 Write-Host "`n? Task scheduled successfully!" -ForegroundColor Green
 Write-Host ""

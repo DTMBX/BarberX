@@ -79,7 +79,7 @@ def migrate():
         print("   - PRO: $49/month with 3-day trial")
         print("   - PREMIUM: $249/month")
         print("\n3. Configure webhook endpoint:")
-        print("   - URL: https://barberx.info/api/stripe/webhook")
+        print("   - URL: https://Evident.info/api/stripe/webhook")
         print("   - Events: checkout.session.completed, customer.subscription.*")
         print("\n4. Test subscription flow")
 

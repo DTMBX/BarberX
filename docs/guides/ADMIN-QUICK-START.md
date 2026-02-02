@@ -6,7 +6,7 @@
 
 ## 🔑 Admin Credentials
 
-**Email:** `admin@barberx.info`  
+**Email:** `admin@Evident.info`  
 **Password:** `BxAdm!n#2026$Secur3*P@ssw0rd%33^` (33 chars with special characters)
 
 **Security Notes:**
@@ -20,7 +20,7 @@
 
 ## ⚡ Instant Access
 
-**URL:** `https://app.barberx.info/admin`
+**URL:** `https://app.Evident.info/admin`
 
 **Requirements:**
 

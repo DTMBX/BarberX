@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Union
 
-DB_PATH = Path(__file__).parent / "instance" / "barberx_legal.db"
+DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 
 CORE_NJ_COUNTIES = [
     "Atlantic",

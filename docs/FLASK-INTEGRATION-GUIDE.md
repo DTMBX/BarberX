@@ -76,7 +76,7 @@
 ### Step 1: Backup Current Database
 
 ```bash
-cp instance/barberx_legal.db instance/barberx_legal.db.backup
+cp instance/Evident_legal.db instance/Evident_legal.db.backup
 ```
 
 ### Step 2: Update `app.py` Imports
@@ -194,7 +194,7 @@ python init_auth.py
 
 This creates:
 
-- Admin account: admin@barberx.info / (set via ADMIN_PASSWORD env var)
+- Admin account: admin@Evident.info / (set via ADMIN_PASSWORD env var)
 - 3 test users (free, pro, premium tiers)
 
 ---
@@ -268,7 +268,7 @@ http://localhost:5000/dashboard
 
 ### 3. Test Admin Account
 
-1. Login as admin (admin@barberx.info / (set via ADMIN_PASSWORD env var))
+1. Login as admin (admin@Evident.info / (set via ADMIN_PASSWORD env var))
 2. Verify admin tier shows in dashboard
 3. Check unlimited usage limits
 4. Test backend tools access
@@ -327,8 +327,8 @@ SECRET_KEY=your-super-secret-random-key-here
 FLASK_ENV=development
 
 # Database
-DATABASE_URL=sqlite:///instance/barberx_auth.db
-# For production: postgresql://user:pass@host:5432/barberx
+DATABASE_URL=sqlite:///instance/Evident_auth.db
+# For production: postgresql://user:pass@host:5432/Evident
 
 # Mail (for password reset)
 MAIL_SERVER=smtp.gmail.com
@@ -386,7 +386,7 @@ If integration causes issues:
 ### 1. Restore Database:
 
 ```bash
-cp instance/barberx_legal.db.backup instance/barberx_legal.db
+cp instance/Evident_legal.db.backup instance/Evident_legal.db
 ```
 
 ### 2. Revert app.py:

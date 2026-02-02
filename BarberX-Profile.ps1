@@ -1,4 +1,4 @@
-# BarberX Development PowerShell Profile
+# Evident Technologies Development PowerShell Profile
 # Save to: $PROFILE (run `notepad $PROFILE`)
 
 # === COLOR DEFINITIONS ===
@@ -11,12 +11,12 @@ $Script:Colors = @{
 }
 
 # === DIRECTORY SHORTCUTS ===
-$Script:BarberXPaths = @{
-    Root = "C:\web-dev\github-repos\BarberX.info"
-    MAUI = "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI"
-    API = "C:\web-dev\github-repos\BarberX.info\api"
-    Tests = "C:\web-dev\github-repos\BarberX.info\tests"
-    Docs = "C:\web-dev\github-repos\BarberX.info"
+$Script:EvidentPaths = @{
+    Root = "C:\web-dev\github-repos\Evident.info"
+    MAUI = "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI"
+    API = "C:\web-dev\github-repos\Evident.info\api"
+    Tests = "C:\web-dev\github-repos\Evident.info\tests"
+    Docs = "C:\web-dev\github-repos\Evident.info"
 }
 
 # Recent locations stack (max 10)
@@ -25,39 +25,39 @@ $Script:MaxRecentLocations = 10
 
 # === NAVIGATION FUNCTIONS ===
 
-function br {
+function ev {
     <#
     .SYNOPSIS
-    Go to BarberX root directory
+    Go to Evident root directory
     #>
-    Set-LocationWithHistory $Script:BarberXPaths.Root
-    Write-Host "📁 BarberX Root" -ForegroundColor $Script:Colors.Info
+    Set-LocationWithHistory $Script:EvidentPaths.Root
+    Write-Host "📁 Evident Root" -ForegroundColor $Script:Colors.Info
 }
 
-function bm {
+function em {
     <#
     .SYNOPSIS
     Go to MAUI project directory
     #>
-    Set-LocationWithHistory $Script:BarberXPaths.MAUI
+    Set-LocationWithHistory $Script:EvidentPaths.MAUI
     Write-Host "📱 MAUI Project" -ForegroundColor $Script:Colors.Info
 }
 
-function ba {
+function ea {
     <#
     .SYNOPSIS
     Go to API directory
     #>
-    Set-LocationWithHistory $Script:BarberXPaths.API
+    Set-LocationWithHistory $Script:EvidentPaths.API
     Write-Host "🔌 API Directory" -ForegroundColor $Script:Colors.Info
 }
 
-function bd {
+function ed {
     <#
     .SYNOPSIS
     Go to Docs directory
     #>
-    Set-LocationWithHistory $Script:BarberXPaths.Docs
+    Set-LocationWithHistory $Script:EvidentPaths.Docs
     Write-Host "📚 Docs Directory" -ForegroundColor $Script:Colors.Info
 }
 
@@ -120,7 +120,7 @@ function Build-MAUI {
     )
     
     $originalLocation = Get-Location
-    Set-Location $Script:BarberXPaths.MAUI
+    Set-Location $Script:EvidentPaths.MAUI
     
     try {
         if ($Clean) {
@@ -149,7 +149,7 @@ function Run-MAUI {
     Run MAUI app
     #>
     $originalLocation = Get-Location
-    Set-Location $Script:BarberXPaths.MAUI
+    Set-Location $Script:EvidentPaths.MAUI
     
     try {
         Write-Host "🚀 Launching MAUI app..." -ForegroundColor $Script:Colors.Info
@@ -166,7 +166,7 @@ function Start-FlaskAPI {
     Start Flask backend
     #>
     $originalLocation = Get-Location
-    Set-Location $Script:BarberXPaths.Root
+    Set-Location $Script:EvidentPaths.Root
     
     try {
         Write-Host "🔌 Starting Flask API..." -ForegroundColor $Script:Colors.Info
@@ -177,13 +177,13 @@ function Start-FlaskAPI {
     }
 }
 
-function Test-BarberX {
+function Test-Evident {
     <#
     .SYNOPSIS
     Run all tests
     #>
     $originalLocation = Get-Location
-    Set-Location $Script:BarberXPaths.Root
+    Set-Location $Script:EvidentPaths.Root
     
     try {
         Write-Host "🧪 Running tests..." -ForegroundColor $Script:Colors.Info
@@ -195,9 +195,9 @@ function Test-BarberX {
         }
         
         # Run MAUI tests
-        if (Test-Path "src\BarberX.MatterDocket.MAUI.Tests") {
+        if (Test-Path "src\Evident.MatterDocket.MAUI.Tests") {
             Write-Host "  MAUI tests..." -ForegroundColor $Script:Colors.Info
-            dotnet test src\BarberX.MatterDocket.MAUI.Tests
+            dotnet test src\Evident.MatterDocket.MAUI.Tests
         }
         
         Write-Host "✅ Tests complete!" -ForegroundColor $Script:Colors.Success
@@ -279,7 +279,7 @@ function Migrate-DB {
     param([string]$MigrationScript = "migrate_add_chatgpt.py")
     
     $originalLocation = Get-Location
-    Set-Location $Script:BarberXPaths.Root
+    Set-Location $Script:EvidentPaths.Root
     
     try {
         Write-Host "🗄️  Running migration: $MigrationScript" -ForegroundColor $Script:Colors.Info
@@ -303,7 +303,7 @@ function Reset-DB {
     
     if ($confirm -eq "yes") {
         $originalLocation = Get-Location
-        Set-Location $Script:BarberXPaths.Root
+        Set-Location $Script:EvidentPaths.Root
         
         try {
             Remove-Item instance\*.db -Force -ErrorAction SilentlyContinue
@@ -320,13 +320,13 @@ function Reset-DB {
 
 # === UTILITY FUNCTIONS ===
 
-function Show-BarberXMenu {
+function Show-EvidentMenu {
     <#
     .SYNOPSIS
-    Show BarberX command menu
+    Show Evident command menu
     #>
     Write-Host "`n╔══════════════════════════════════════════╗" -ForegroundColor $Script:Colors.Highlight
-    Write-Host "║     BarberX Development Commands         ║" -ForegroundColor $Script:Colors.Highlight
+    Write-Host "║     Evident Development Commands         ║" -ForegroundColor $Script:Colors.Highlight
     Write-Host "╚══════════════════════════════════════════╝`n" -ForegroundColor $Script:Colors.Highlight
     
     Write-Host "📁 Navigation:" -ForegroundColor $Script:Colors.Info
@@ -341,7 +341,7 @@ function Show-BarberXMenu {
     Write-Host "  Build-MAUI        - Build MAUI project"
     Write-Host "  Run-MAUI          - Run MAUI app"
     Write-Host "  Start-FlaskAPI    - Start Flask backend"
-    Write-Host "  Test-BarberX      - Run all tests`n"
+    Write-Host "  Test-Evident      - Run all tests`n"
     
     Write-Host "📝 Git Shortcuts:" -ForegroundColor $Script:Colors.Info
     Write-Host "  gs               - Git status (short)"
@@ -359,12 +359,12 @@ function Show-BarberXMenu {
 }
 
 # Alias for menu
-Set-Alias -Name bmenu -Value Show-BarberXMenu
+Set-Alias -Name bmenu -Value Show-EvidentMenu
 
 # === WELCOME MESSAGE ===
-Write-Host "`n🚀 BarberX Development Environment Loaded!" -ForegroundColor $Script:Colors.Success
+Write-Host "`n🚀 Evident Development Environment Loaded!" -ForegroundColor $Script:Colors.Success
 Write-Host "   Type 'bmenu' to see all commands`n" -ForegroundColor $Script:Colors.Info
 
-# Auto-navigate to BarberX on load (optional)
+# Auto-navigate to Evident on load (optional)
 # Uncomment next line to auto-cd to project on PowerShell start:
 # br

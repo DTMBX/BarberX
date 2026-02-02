@@ -1,4 +1,4 @@
-# 📲 Install BarberX on Android - Visual Guide
+# 📲 Install Evident on Android - Visual Guide
 
 **Time Required:** 2 minutes  
 **Difficulty:** ⭐ Easy
@@ -24,12 +24,12 @@ Step 3: Install and launch!
 1. **Open File Explorer:**
    ```powershell
    # Run this in PowerShell:
-   explorer "C:\web-dev\github-repos\BarberX.info\src\BarberX.MatterDocket.MAUI\bin\Release\net10.0-android"
+   explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
    ```
 
 2. **Find the APK file:**
    ```
-   Look for: com.companyname.barberx.matterdocket.maui-Signed.apk
+   Look for: com.companyname.Evident.matterdocket.maui-Signed.apk
    Size: 30.57 MB
    ```
 
@@ -56,7 +56,7 @@ Step 3: Install and launch!
 
 4. **You'll see notification:**
    ```
-   "com.companyname.barberx.matterdocket.maui-Signed.apk downloaded"
+   "com.companyname.Evident.matterdocket.maui-Signed.apk downloaded"
    ```
 
 ---
@@ -113,7 +113,7 @@ When you tap the APK, Android shows:
    ```
    Do you want to install this application?
    
-   BarberX.MatterDocket.MAUI
+   Evident.MatterDocket.MAUI
    
    [Cancel]  [Install]
    ```
@@ -133,7 +133,7 @@ You should see:
 ```
 ┌─────────────────────────┐
 │                         │
-│   BarberX Logo          │
+│   Evident Logo          │
 │                         │
 │   ────────────────      │
 │                         │
@@ -197,7 +197,7 @@ You should see:
 
 **Solutions:**
 1. **Uninstall old version first** (if you have one)
-   - Settings → Apps → BarberX → Uninstall
+   - Settings → Apps → Evident → Uninstall
 
 2. **Re-download APK** (file may be corrupted)
    - Delete downloaded file
@@ -247,11 +247,11 @@ This is safe - Play Protect warns about apps from outside the Play Store.
 
 **Solutions:**
 1. **Grant permissions:**
-   - Settings → Apps → BarberX → Permissions
+   - Settings → Apps → Evident → Permissions
    - Enable: Storage, Camera, Network
 
 2. **Clear cache:**
-   - Settings → Apps → BarberX → Storage
+   - Settings → Apps → Evident → Storage
    - Tap "Clear cache"
 
 3. **Reinstall:**
@@ -334,9 +334,9 @@ After installation, try these features:
 Once installed, you can view details:
 
 ```
-Settings → Apps → BarberX.MatterDocket.MAUI
+Settings → Apps → Evident.MatterDocket.MAUI
 
-Package Name: com.companyname.barberx.matterdocket.maui
+Package Name: com.companyname.Evident.matterdocket.maui
 Version: 1.0
 Size: 30.57 MB installed
 Permissions:
@@ -350,7 +350,7 @@ Permissions:
 
 ## 🚀 You're All Set!
 
-Your BarberX app is now installed with:
+Your Evident app is now installed with:
 
 - ✅ 15 legal AI tools
 - ✅ ChatGPT integration

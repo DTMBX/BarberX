@@ -21,7 +21,7 @@ body_class: page-contact
     For inquiries, dialogue, or collaboration, write to:
   </p>
   <p>
-    <a href="mailto:contact@barberx.info" style="color: var(--accent-emerald); font-weight: 600;">contact@barberx.info</a>
+    <a href="mailto:contact@Evident.info" style="color: var(--accent-emerald); font-weight: 600;">contact@Evident.info</a>
   </p>
   <p>
     Please include a clear subject line that reflects your purpose — whether it's about

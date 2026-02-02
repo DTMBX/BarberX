@@ -1,7 +1,7 @@
-# PowerShell Netlify Deployment Script for BarberX.info
+# PowerShell Netlify Deployment Script for Evident.info
 # Quick deployment for Windows
 
-Write-Host "🚀 BarberX.info - Netlify Deployment" -ForegroundColor Cyan
+Write-Host "🚀 Evident.info - Netlify Deployment" -ForegroundColor Cyan
 Write-Host "====================================" -ForegroundColor Cyan
 Write-Host ""
 

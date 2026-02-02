@@ -1,7 +1,7 @@
-﻿using ObjCRuntime;
+using ObjCRuntime;
 using UIKit;
 
-namespace BarberX.MatterDocket.MAUI;
+namespace Evident.MatterDocket.MAUI;
 
 public class Program
 {

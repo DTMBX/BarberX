@@ -273,7 +273,7 @@ def profile():
 
 ### Daily Cron Job (Data Retention)
 ```bash
-0 3 * * * cd /var/www/barberx && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
+0 3 * * * cd /var/www/Evident && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
 ```
 
 ### Weekly Review
@@ -325,7 +325,7 @@ Track these in analytics:
 For questions about FREE tier implementation:
 1. Check this doc first
 2. Review code comments in modules
-3. Test with `free@barberx.test` account
+3. Test with `free@Evident.test` account
 
 ---
 

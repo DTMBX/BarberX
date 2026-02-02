@@ -1,18 +1,18 @@
 #!/usr/bin/env pwsh
-# BarberX.info - AI Dependencies Installation Script
+# Evident.info - AI Dependencies Installation Script
 # Installs MIT/Apache/BSD licensed AI tools for constitutional violation detection
 
-Write-Host "`n?? BarberX AI Dependencies Installation" -ForegroundColor Cyan
+Write-Host "`n?? Evident AI Dependencies Installation" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "Installing license-compliant AI tools for:" -ForegroundColor Gray
-Write-Host "  • Constitutional violation detection" -ForegroundColor White
-Write-Host "  • BWC video forensic analysis" -ForegroundColor White
-Write-Host "  • PDF legal document processing" -ForegroundColor White
-Write-Host "  • Audio transcription & speaker ID" -ForegroundColor White
-Write-Host "  • Case law matching & citations" -ForegroundColor White
+Write-Host "  ï¿½ Constitutional violation detection" -ForegroundColor White
+Write-Host "  ï¿½ BWC video forensic analysis" -ForegroundColor White
+Write-Host "  ï¿½ PDF legal document processing" -ForegroundColor White
+Write-Host "  ï¿½ Audio transcription & speaker ID" -ForegroundColor White
+Write-Host "  ï¿½ Case law matching & citations" -ForegroundColor White
 Write-Host ""
 
-Set-Location "C:\web-dev\github-repos\BarberX.info"
+Set-Location "C:\web-dev\github-repos\Evident.info"
 
 # Check Python version
 Write-Host "[1/8] Checking Python version..." -ForegroundColor Yellow

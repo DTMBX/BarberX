@@ -1,4 +1,4 @@
-# PWA Icon Generator for BarberX
+# PWA Icon Generator for Evident
 # Requires: ImageMagick installed
 # Usage: .\generate-pwa-icons.ps1 -SourceImage "path\to\logo.png"
 
@@ -15,7 +15,7 @@ $iconSizes = @(72, 96, 128, 144, 152, 192, 384, 512)
 $appleSizes = @(180, 167, 152)
 $faviconSizes = @(32, 16)
 
-Write-Host "`n=== BarberX PWA Icon Generator ===" -ForegroundColor Cyan
+Write-Host "`n=== Evident PWA Icon Generator ===" -ForegroundColor Cyan
 Write-Host "Source: $SourceImage" -ForegroundColor Gray
 Write-Host "Output: $OutputDir`n" -ForegroundColor Gray
 

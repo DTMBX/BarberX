@@ -6,7 +6,7 @@
 using System;
 using System.CodeDom.Compiler;
 
-namespace BarberX.MatterDocket.MAUI {
+namespace Evident.MatterDocket.MAUI {
 	#pragma warning disable IDE0002
 	/// <summary>
 	/// Android Resource Designer class.

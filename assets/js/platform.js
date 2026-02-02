@@ -1,6 +1,6 @@
 /**
- * BarberX Legal Tech Platform - Interactive Features
- * Court-Defensible eDiscovery • AI-Powered Evidence Processing
+ * Evident Technologies - Interactive Features
+ * Legal-Grade Evidence Processing & Verification Platform
  */
 
 (function () {
@@ -521,7 +521,7 @@
   /**
    * Export utilities for global access
    */
-  window.BarberXPlatform = {
+  window.EvidentPlatform = {
     LoadingState: LoadingStateManager,
     FormValidator: FormValidator,
     announceToScreenReader: window.announceToScreenReader,

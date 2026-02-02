@@ -62,7 +62,7 @@ Or copy the HTML from `_includes/mobile-nav-drawer.html` directly into your layo
 Edit these CSS custom properties in `mobile-nav-drawer.css`:
 
 ```css
---barberx-red-primary: #c41e3a; /* Brand red */
+--Evident-red-primary: #c41e3a; /* Brand red */
 --color-background: #ffffff; /* Drawer background */
 --color-text: #1f2937; /* Text color */
 --color-border: #e5e7eb; /* Border color */
@@ -274,7 +274,7 @@ If using a toggle, add to CSS:
   <body>
     <!-- Header -->
     <header>
-      <div class="logo">BarberX</div>
+      <div class="logo">Evident</div>
 
       <!-- Hamburger Button -->
       <button class="mobile-nav-hamburger" aria-label="Open menu">
@@ -299,9 +299,9 @@ If using a toggle, add to CSS:
 
 ## 📄 License
 
-Part of BarberX.info project - use freely within this project.
+Part of Evident.info project - use freely within this project.
 
 ## 🙏 Credits
 
-Built for BarberX Legal Technologies
+Built for Evident Legal Technologies
 Modern design with accessibility and UX best practices

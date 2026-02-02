@@ -1,9 +1,9 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using BarberX.Shared.Models;
+using Evident.Shared.Models;
 
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 [QueryProperty(nameof(CaseId), "id")]
 public partial class CaseDetailViewModel : BaseViewModel

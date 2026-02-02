@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Create all missing database tables for BarberX Legal Tech Platform
+Create all missing database tables for Evident Legal Tech Platform
 Run this to initialize the database with all required tables
 """
 
@@ -14,7 +14,7 @@ from app import Analysis, APIKey, AuditLog, PDFUpload, User, app, db
 
 def create_tables():
     """Create all database tables"""
-    print("🔧 Creating database tables for BarberX Legal Tech Platform...")
+    print("🔧 Creating database tables for Evident Legal Tech Platform...")
 
     with app.app_context():
         # Create instance directory if it doesn't exist

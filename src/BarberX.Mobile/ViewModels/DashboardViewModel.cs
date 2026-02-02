@@ -2,9 +2,9 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using BarberX.Shared.Services;
+using Evident.Shared.Services;
 
-namespace BarberX.Mobile.ViewModels;
+namespace Evident.Mobile.ViewModels;
 
 public partial class DashboardViewModel : BaseViewModel
 {

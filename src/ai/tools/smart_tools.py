@@ -635,7 +635,7 @@ class SmartTools:
             encoded_query = urllib.parse.quote(query)
             url = f"https://api.duckduckgo.com/?q={encoded_query}&format=json&no_html=1&skip_disambig=1"
 
-            req = urllib.request.Request(url, headers={"User-Agent": "BarberX Legal Assistant/1.0"})
+            req = urllib.request.Request(url, headers={"User-Agent": "Evident Legal Assistant/1.0"})
 
             with urllib.request.urlopen(req, timeout=10) as response:
                 data = json.loads(response.read().decode("utf-8"))
@@ -715,7 +715,7 @@ class SmartTools:
             encoded_term = urllib.parse.quote(search_term)
             url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{encoded_term}"
 
-            req = urllib.request.Request(url, headers={"User-Agent": "BarberX Legal Assistant/1.0"})
+            req = urllib.request.Request(url, headers={"User-Agent": "Evident Legal Assistant/1.0"})
 
             with urllib.request.urlopen(req, timeout=10) as response:
                 data = json.loads(response.read().decode("utf-8"))

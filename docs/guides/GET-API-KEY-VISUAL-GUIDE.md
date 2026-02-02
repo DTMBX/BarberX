@@ -116,7 +116,7 @@ Replace `YOUR_API_KEY_HERE` with your actual token.
 🔗 **https://dashboard.render.com**
 
 ### **Step 2: Select Your Service**
-- Click on your **BarberX** web service
+- Click on your **Evident** web service
 - (Not blueprints, not databases - the main web service)
 
 ### **Step 3: Click Environment**
@@ -143,7 +143,7 @@ Replace `YOUR_API_KEY_HERE` with your actual token.
 ### **Method 1: Run Library Builder**
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py --practice-area all
 ```
 
@@ -158,7 +158,7 @@ python overnight_library_builder.py --practice-area all
 ### **Method 2: Test Direct Import**
 
 ```bash
-cd C:\web-dev\github-repos\BarberX.info
+cd C:\web-dev\github-repos\Evident.info
 python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); result = ll.ingest_from_courtlistener('410 U.S. 113'); print(result)"
 ```
 
@@ -168,7 +168,7 @@ python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); result =
 
 ```bash
 # Check for any errors
-cat logs/barberx.log | tail -n 50
+cat logs/Evident.log | tail -n 50
 ```
 
 Look for:
@@ -204,7 +204,7 @@ Look for:
 **Solution:**
 1. Check `COURTLISTENER_API_KEY` is in Render environment variables
 2. Verify it's marked as SECRET
-3. Check logs: `cat logs/barberx.log`
+3. Check logs: `cat logs/Evident.log`
 4. Try importing one case manually (Method 2 above)
 5. If still fails, check rate limit (100 requests/minute - wait 1 minute and retry)
 
@@ -247,7 +247,7 @@ Thank you!
 - **In curl:** `curl -H "Authorization: Token YOUR_KEY" URL`
 
 ### **Where to Add Token:**
-- **Render:** Dashboard → BarberX service → Environment → Add Variable
+- **Render:** Dashboard → Evident service → Environment → Add Variable
 - **Key:** `COURTLISTENER_API_KEY`
 - **Value:** Your token
 - **Secret:** ✅ Checked

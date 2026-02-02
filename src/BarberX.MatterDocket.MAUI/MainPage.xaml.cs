@@ -1,4 +1,4 @@
-﻿namespace BarberX.MatterDocket.MAUI;
+namespace Evident.MatterDocket.MAUI;
 
 public partial class MainPage : ContentPage
 {

@@ -92,7 +92,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 
 **Stripe Checkout Page looks like:**
 - Stripe branding at top
-- "BarberX Pro" product name
+- "Evident Pro" product name
 - "$199.00 / month" pricing
 - Payment form (card, email, name)
 - Secure padlock icon in URL
@@ -164,7 +164,7 @@ Your subscription is now active.
 1. Go to: https://dashboard.stripe.com/test/subscriptions
 2. Should see new subscription
 3. Status: **Active**
-4. Plan: BarberX Pro
+4. Plan: Evident Pro
 
 **Webhooks:**
 1. Go to: https://dashboard.stripe.com/test/webhooks
@@ -214,7 +214,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 2. Should redirect to Stripe Customer Portal
 
 **What you should see:**
-- Your subscription: BarberX Pro
+- Your subscription: Evident Pro
 - Next payment: [Date] for $199.00
 - Payment method: •••• 4242
 - Options to:

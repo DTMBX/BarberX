@@ -18,7 +18,7 @@ except ImportError:
     PDF_AVAILABLE = False
     print("[WARN] PyPDF2 not available - PDF extraction disabled")
 
-DB_PATH = Path(__file__).parent / "instance" / "barberx_legal.db"
+DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 
 
 class LegalLibraryAdapter:

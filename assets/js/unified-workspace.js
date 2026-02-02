@@ -1,5 +1,5 @@
 /**
- * BARBERX UNIFIED WORKSPACE
+ * EVIDENT UNIFIED WORKSPACE
  * Multi-tool AI-powered legal intelligence platform
  */
 
@@ -672,7 +672,7 @@ async function trackUsage(eventType, eventCategory = "feature", metadata = {}) {
 // ========================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("BarberX Unified Workspace initialized");
+  console.log("Evident Unified Workspace initialized");
 
   // Load initial data
   loadCases();

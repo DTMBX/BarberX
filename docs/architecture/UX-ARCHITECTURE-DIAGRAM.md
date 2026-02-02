@@ -1,8 +1,8 @@
-# BarberX UX Improvements - Visual Architecture
+# Evident UX Improvements - Visual Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                      BARBERX UX ARCHITECTURE                            │
+│                      Evident UX ARCHITECTURE                            │
 └─────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────┐

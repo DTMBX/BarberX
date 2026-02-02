@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Render.com Build Script for BarberX.info Flask App
+# Render.com Build Script for Evident.info Flask App
 
 set -o errexit
 
-echo "🔧 BarberX.info - Render Build"
+echo "🔧 Evident.info - Render Build"
 echo "Python version: $(python --version)"
 
 # Install system dependencies

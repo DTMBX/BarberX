@@ -9,7 +9,7 @@ ISSUE:
 GPL (General Public License) has "copyleft" requirements:
 - Any software that links to GPL libraries must also be GPL
 - Proprietary software CANNOT use GPL libraries without releasing source code
-- This conflicts with BarberX's proprietary license
+- This conflicts with Evident's proprietary license
 
 SOLUTIONS:
 
@@ -21,7 +21,7 @@ Option 1: USE LGPL BUILD (RECOMMENDED)
   Look for: ffmpeg-master-latest-win64-lgpl.zip
 
 Option 2: COMPLY WITH GPL
-- Release BarberX source code under GPL license
+- Release Evident source code under GPL license
 - Allow anyone to use, modify, and redistribute
 - Not compatible with current proprietary licensing
 

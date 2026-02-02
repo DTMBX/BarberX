@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Installation Guide | BarberX"
+title: "Installation Guide | Evident"
 permalink: /docs/installation/
-description: "Complete installation guide for BarberX local AI tools and platform setup."
+description: "Complete installation guide for Evident local AI tools and platform setup."
 ---
 
 <style>
@@ -130,7 +130,7 @@ description: "Complete installation guide for BarberX local AI tools and platfor
 
 <div class="install-hero">
   <h1>Installation Guide</h1>
-  <p>Set up BarberX in 15 minutes</p>
+  <p>Set up Evident in 15 minutes</p>
 </div>
 
 <div class="install-container">
@@ -168,9 +168,9 @@ description: "Complete installation guide for BarberX local AI tools and platfor
       </div>
       
       <div class="install-step">
-        <h3>Clone or Download BarberX</h3>
-        <pre><code>git clone https://github.com/yourusername/BarberX.info.git
-cd BarberX.info</code></pre>
+        <h3>Clone or Download Evident</h3>
+        <pre><code>git clone https://github.com/yourusername/Evident.info.git
+cd Evident.info</code></pre>
         <p>Or download ZIP from GitHub and extract.</p>
       </div>
       
@@ -222,8 +222,8 @@ sudo apt install python3.12 python3-pip python3-venv</code></pre>
       
       <div class="install-step">
         <h3>Clone Repository</h3>
-        <pre><code>git clone https://github.com/yourusername/BarberX.info.git
-cd BarberX.info</code></pre>
+        <pre><code>git clone https://github.com/yourusername/Evident.info.git
+cd Evident.info</code></pre>
       </div>
       
       <div class="install-step">
@@ -289,7 +289,7 @@ python app.py</code></pre>
     <pre><code>python app.py --port 8080</code></pre>
     
     <div class="warning">
-      <strong>Still having issues?</strong> Contact support at <a href="mailto:support@barberx.info">support@barberx.info</a>
+      <strong>Still having issues?</strong> Contact support at <a href="mailto:support@Evident.info">support@Evident.info</a>
     </div>
   </div>
   

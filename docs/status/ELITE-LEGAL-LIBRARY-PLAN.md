@@ -410,10 +410,10 @@ class CitationVisualizer:
 - **Court statistics** (all federal courts)
 
 ### Competitive Positioning:
-- **Westlaw:** $500-2,000/month → BarberX: $50-200/month
-- **LexisNexis:** $500-1,500/month → BarberX: $50-200/month
-- **Bloomberg Law:** $1,000+/month → BarberX: $50-200/month
-- **PACER:** $0.10/page → BarberX: FREE
+- **Westlaw:** $500-2,000/month → Evident: $50-200/month
+- **LexisNexis:** $500-1,500/month → Evident: $50-200/month
+- **Bloomberg Law:** $1,000+/month → Evident: $50-200/month
+- **PACER:** $0.10/page → Evident: FREE
 
 ---
 

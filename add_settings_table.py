@@ -6,7 +6,7 @@ Run this to add the settings management feature to existing database
 import os
 import sqlite3
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "barberx.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "instance", "Evident.db")
 
 
 def add_settings_table():
@@ -89,7 +89,7 @@ def add_settings_table():
     print("Migration Complete!")
     print("=" * 80)
     print("\nNext steps:")
-    print("1. Log in to admin panel: https://app.barberx.info/admin")
+    print("1. Log in to admin panel: https://app.Evident.info/admin")
     print("2. Go to Settings tab")
     print("3. Click 'Initialize Defaults' to create all settings")
     print("=" * 80 + "\n")

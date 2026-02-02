@@ -2,7 +2,7 @@
 const { defineConfig, devices } = require("@playwright/test");
 
 /**
- * Playwright Configuration for BarberX Legal Tech
+ * Playwright Configuration for Evident Legal Tech
  * Tests all features and tier-based access levels
  */
 module.exports = defineConfig({

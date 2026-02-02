@@ -22,7 +22,7 @@ if database_url:
 else:
     basedir = os.path.abspath(os.path.dirname(__file__))
     app.config["SQLALCHEMY_DATABASE_URI"] = (
-        f"sqlite:///{os.path.join(basedir, 'instance', 'barberx.db')}"
+        f"sqlite:///{os.path.join(basedir, 'instance', 'Evident.db')}"
     )
     is_postgres = False
 

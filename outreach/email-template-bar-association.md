@@ -12,11 +12,11 @@
 
 Dear [Name],
 
-I'm reaching out from BarberX Legal Technologies with a partnership proposal that could benefit [State Bar Association]'s criminal defense and civil rights attorney members.
+I'm reaching out from Evident Legal Technologies with a partnership proposal that could benefit [State Bar Association]'s criminal defense and civil rights attorney members.
 
 **Who We Are:**
 
-BarberX is an AI-powered platform that automates the analysis of body-worn camera (BWC) footage for criminal defense cases. We help attorneys reduce BWC analysis time by 85% (from 20 hours to 2 hours per case) through automated transcription, timeline reconstruction, and discrepancy detection.
+Evident is an AI-powered platform that automates the analysis of body-worn camera (BWC) footage for criminal defense cases. We help attorneys reduce BWC analysis time by 85% (from 20 hours to 2 hours per case) through automated transcription, timeline reconstruction, and discrepancy detection.
 
 **The Challenge Your Members Face:**
 
@@ -30,7 +30,7 @@ With 72% of police departments now using BWCs, defense attorneys are drowning in
 
 We'd like to offer [State Bar] members:
 
-1. **Exclusive 15% Discount** on all BarberX subscription plans
+1. **Exclusive 15% Discount** on all Evident subscription plans
    - PROFESSIONAL: $49 → $41.65/month
    - PREMIUM: $199 → $169.15/month
    - ENTERPRISE: $499 → $424.15/month
@@ -74,18 +74,18 @@ Best regards,
 
 **Devon Tyler Barber**  
 Founder & CEO  
-BarberX Legal Technologies
+Evident Legal Technologies
 
-📧 partnerships@barberx.info  
-🌐 https://barberx.info  
+📧 partnerships@Evident.info  
+🌐 https://Evident.info  
 📞 [Your phone number]
 
 **Attachments:**
-- BarberX-Bar-Association-Partnership-Deck.pdf
+- Evident-Bar-Association-Partnership-Deck.pdf
 
 ---
 
-P.S. Here's a 3-minute demo showing how BarberX analyzes BWC footage: [Insert YouTube link]
+P.S. Here's a 3-minute demo showing how Evident analyzes BWC footage: [Insert YouTube link]
 
 ---
 
@@ -103,7 +103,7 @@ I know you're busy, so I'll keep this short:
 
 **Quick Question:** Would your members benefit from a tool that reduces BWC analysis time from 20 hours to 2 hours per case?
 
-If yes, I'd love to discuss how BarberX can:
+If yes, I'd love to discuss how Evident can:
 1. Save your members time (85% faster analysis)
 2. Generate revenue for [State Bar] (10% commission on subscriptions)
 3. Provide valuable CLE content (1.5 credits on BWC analysis)
@@ -151,8 +151,8 @@ Thanks for all you do for the defense bar.
 Best,
 
 **Devon Tyler Barber**  
-BarberX Legal Technologies  
-partnerships@barberx.info
+Evident Legal Technologies  
+partnerships@Evident.info
 
 ---
 
@@ -170,9 +170,9 @@ I wanted to share a success story that might interest your members.
 
 **The Challenge:** Prosecutor had 3 officer testimonies + 8 hours of BWC footage
 
-**The Outcome:** Charges dismissed after BarberX analysis found a 3-second discrepancy proving the officer's injury was self-inflicted, not caused by the defendant.
+**The Outcome:** Charges dismissed after Evident analysis found a 3-second discrepancy proving the officer's injury was self-inflicted, not caused by the defendant.
 
-**Time saved:** Attorney spent 12 hours with BarberX vs. 160+ hours manual review.
+**Time saved:** Attorney spent 12 hours with Evident vs. 160+ hours manual review.
 
 Full case study (anonymized): [Link]
 
@@ -194,7 +194,7 @@ Devon
 
 Hi [Name],
 
-I've reached out a few times about a partnership between BarberX and [State Bar], but haven't heard back.
+I've reached out a few times about a partnership between Evident and [State Bar], but haven't heard back.
 
 I totally understand if it's not a priority right now—you're juggling a lot.
 
@@ -208,8 +208,8 @@ If it's a hard pass, no worries—I'll stop reaching out. Just want to make sure
 Thanks for your time,
 
 **Devon Tyler Barber**  
-BarberX Legal Technologies  
-partnerships@barberx.info
+Evident Legal Technologies  
+partnerships@Evident.info
 
 ---
 

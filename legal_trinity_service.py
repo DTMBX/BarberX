@@ -7,7 +7,7 @@ The "Holy Trinity" of government law:
 - STATE: State statutes, regulations, court rules
 - FEDERAL: U.S. Code, CFR, Federal Rules (GovInfo API)
 
-Enables BarberX to:
+Enables Evident to:
 1. Search all levels simultaneously
 2. Match evidence to applicable law at all levels
 3. Identify jurisdiction hierarchy conflicts

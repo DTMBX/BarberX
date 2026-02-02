@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:BarberX.MatterDocket.MAUI.ViewModels"
-             x:Class="BarberX.MatterDocket.MAUI.Views.DashboardPage"
+             xmlns:viewmodel="clr-namespace:Evident.MatterDocket.MAUI.ViewModels"
+             x:Class="Evident.MatterDocket.MAUI.Views.DashboardPage"
              x:DataType="viewmodel:DashboardViewModel"
              Title="Dashboard"
              BackgroundColor="#0f0f0f">
@@ -12,7 +12,7 @@
             
             <!-- Welcome Header -->
             <VerticalStackLayout Spacing="10">
-                <Label Text="{Binding CurrentUser.Name, StringFormat='Welcome, {0}!', FallbackValue='Welcome to BarberX!'}"
+                <Label Text="{Binding CurrentUser.Name, StringFormat='Welcome, {0}!', FallbackValue='Welcome to Evident!'}"
                        FontSize="28"
                        FontAttributes="Bold"
                        TextColor="#d4a574"/>
