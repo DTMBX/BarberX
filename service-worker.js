@@ -1,7 +1,7 @@
 // Service Worker for Evident Progressive Web App (PWA)
 // Enables offline mode, caching, and push notifications
 
-const CACHE_VERSION = '2.0.0';
+const CACHE_VERSION = '3.0.0';
 const CACHE_NAME = `Evident-v${CACHE_VERSION}`;
 const RUNTIME_CACHE = 'Evident-runtime';
 const DOCUMENT_CACHE = 'Evident-documents';
@@ -10,15 +10,9 @@ const AI_CACHE = 'Evident-ai-responses';
 // Files to cache immediately on install
 const PRECACHE_URLS = [
   '/',
-  '/command-center',
-  '/workspace',
-  '/evidence/dashboard',
-  '/integrated-analysis',
   '/offline.html',
-  '/assets/css/main.css',
-  '/assets/css/responsive-system.css',
-  '/assets/css/legal-tech-platform.css',
-  '/assets/js/main.js',
+  '/assets/css/evident-core.css',
+  '/assets/js/evident-core.js',
   '/manifest.json'
 ];
 
