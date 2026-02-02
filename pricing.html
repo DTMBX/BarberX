@@ -8,7 +8,10 @@ description: Transparent pricing for legal tech professionals. Choose the plan t
 <section class="section-dark hero-section">
   <div class="container">
     <h1>Simple, Transparent Pricing</h1>
-    <p class="hero-subtitle">Choose the plan that fits your needs. All plans include core evidence analysis features.</p>
+    <p class="hero-subtitle">
+      Choose the plan that fits your needs. All plans include core evidence
+      analysis features.
+    </p>
   </div>
 </section>
 
@@ -40,7 +43,9 @@ description: Transparent pricing for legal tech professionals. Choose the plan t
           <li>✓ Community support</li>
           <li>✓ Educational resources</li>
         </ul>
-        <a href="/signup" class="btn btn-secondary btn-full">Get Started Free</a>
+        <a href="/signup" class="btn btn-secondary btn-full"
+          >Get Started Free</a
+        >
       </div>
 
       <!-- Professional Tier -->
@@ -63,7 +68,9 @@ description: Transparent pricing for legal tech professionals. Choose the plan t
           <li>✓ Citation validation</li>
           <li>✓ Export to PDF/Word</li>
         </ul>
-        <a href="/signup?plan=pro" class="btn btn-primary btn-full">Start Free Trial</a>
+        <a href="/signup?plan=pro" class="btn btn-primary btn-full"
+          >Start Free Trial</a
+        >
       </div>
 
       <!-- Enterprise Tier -->
@@ -86,7 +93,9 @@ description: Transparent pricing for legal tech professionals. Choose the plan t
           <li>✓ SLA guarantee</li>
           <li>✓ On-premise deployment option</li>
         </ul>
-        <a href="/contact?subject=enterprise" class="btn btn-secondary btn-full">Contact Sales</a>
+        <a href="/contact?subject=enterprise" class="btn btn-secondary btn-full"
+          >Contact Sales</a
+        >
       </div>
     </div>
   </div>
@@ -99,19 +108,31 @@ description: Transparent pricing for legal tech professionals. Choose the plan t
     <div class="faq-grid">
       <div class="faq-item">
         <h4>Can I change plans later?</h4>
-        <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.</p>
+        <p>
+          Yes, you can upgrade or downgrade your plan at any time. Changes take
+          effect on your next billing cycle.
+        </p>
       </div>
       <div class="faq-item">
         <h4>Is there a free trial?</h4>
-        <p>Professional and Enterprise plans include a 14-day free trial. No credit card required to start.</p>
+        <p>
+          Professional and Enterprise plans include a 14-day free trial. No
+          credit card required to start.
+        </p>
       </div>
       <div class="faq-item">
         <h4>What payment methods do you accept?</h4>
-        <p>We accept all major credit cards, PayPal, and bank transfers for Enterprise accounts.</p>
+        <p>
+          We accept all major credit cards, PayPal, and bank transfers for
+          Enterprise accounts.
+        </p>
       </div>
       <div class="faq-item">
         <h4>Do you offer discounts?</h4>
-        <p>Yes! Annual billing saves 20%, and we offer special rates for public defenders and legal aid organizations.</p>
+        <p>
+          Yes! Annual billing saves 20%, and we offer special rates for public
+          defenders and legal aid organizations.
+        </p>
       </div>
     </div>
   </div>
@@ -127,116 +148,118 @@ description: Transparent pricing for legal tech professionals. Choose the plan t
 </section>
 
 <style>
-/* Pricing-specific styles */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
+  /* Pricing-specific styles */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
 
-.pricing-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  position: relative;
-  border: 2px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  .pricing-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+    border: 2px solid var(--border-color);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
 
-.pricing-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
 
-.pricing-card.featured {
-  border-color: var(--color-primary);
-  transform: scale(1.02);
-}
+  .pricing-card.featured {
+    border-color: var(--color-primary);
+    transform: scale(1.02);
+  }
 
-.pricing-card .badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-primary);
-  color: white;
-  padding: 0.25rem 1rem;
-  border-radius: var(--radius-full);
-  font-size: 0.875rem;
-  font-weight: 600;
-}
+  .pricing-card .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 
-.pricing-header {
-  text-align: center;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 1.5rem;
-}
+  .pricing-header {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+  }
 
-.pricing-header h3 {
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
+  .pricing-header h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
 
-.price {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.25rem;
-}
+  .price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+  }
 
-.price .amount {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-primary);
-}
+  .price .amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
 
-.price .period {
-  color: var(--text-secondary);
-}
+  .price .period {
+    color: var(--text-secondary);
+  }
 
-.founding-price {
-  margin-top: 0.5rem;
-  color: var(--color-secondary);
-  font-size: 0.875rem;
-}
+  .founding-price {
+    margin-top: 0.5rem;
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+  }
 
-.feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
-}
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
 
-.feature-list li {
-  padding: 0.5rem 0;
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border-color);
-}
+  .feature-list li {
+    padding: 0.5rem 0;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+  }
 
-.feature-list li:last-child {
-  border-bottom: none;
-}
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
 
-.btn-full {
-  width: 100%;
-  text-align: center;
-}
+  .btn-full {
+    width: 100%;
+    text-align: center;
+  }
 
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
 
-.faq-item h4 {
-  color: var(--color-secondary);
-  margin-bottom: 0.5rem;
-}
+  .faq-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+  }
 
-.faq-item p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
 </style>

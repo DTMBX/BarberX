@@ -1,4 +1,0 @@
-C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\publish\com.companyname.Evident.matterdocket.maui-Signed.aab
-C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\publish\com.companyname.Evident.matterdocket.maui.aab
-C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\publish\com.companyname.Evident.matterdocket.maui-Signed.apk
-C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\publish\_Microsoft.Android.Resource.Designer.dll

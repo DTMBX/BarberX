@@ -1,8 +1,0 @@
-<api type="release" assembly-name="Evident.MatterDocket.MAUI" mvid="f6d413c35dcd496b96e6ce444e6a7f7e">
-  <module assembly-name="Evident.MatterDocket.MAUI" mvid="f6d413c35dcd496b96e6ce444e6a7f7e" mvid-bytes="wxPU9s1da0mW5s5ETmp/fg==">
-    <types-scratch>
-      <entry key="crc64a8af5c7b7e3ca4ad/MainActivity" java-name="crc64a8af5c7b7e3ca4ad/MainActivity" managed-type-name="Evident.MatterDocket.MAUI.MainActivity" token="33554447" />
-      <entry key="crc64a8af5c7b7e3ca4ad/MainApplication" java-name="crc64a8af5c7b7e3ca4ad/MainApplication" managed-type-name="Evident.MatterDocket.MAUI.MainApplication" token="33554448" />
-    </types-scratch>
-  </module>
-</api>
