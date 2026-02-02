@@ -1,7 +1,0 @@
-Reporting-MTA: dns; a8-79.smtp-out.amazonses.com
-
-Action: failed
-Final-Recipient: rfc822; xxxx.xxxxxxx@xxxxxxxxxxxxxxxxxx.xxx
-Diagnostic-Code: smtp; 550 blocked
-Status: 5.3.0
-
