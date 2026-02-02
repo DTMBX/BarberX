@@ -1,10 +1,10 @@
 /**
  * Evident Service Worker - PWA Support
- * Version: 1.0.0
+ * Version: 2.0.0
  * Features: Offline support, asset caching, background sync
  */
 
-const CACHE_VERSION = "Evident-v1.0.0";
+const CACHE_VERSION = "Evident-v2.0.0";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -12,8 +12,8 @@ const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 // Assets to cache immediately on install
 const STATIC_ASSETS = [
   "/",
-  "/assets/css/critical.css",
-  "/assets/css/mobile.css",
+  "/assets/css/evident-core.css",
+  "/assets/js/evident-core.js",
   "/offline.html",
   "/manifest.json",
 ];

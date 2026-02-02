@@ -3,23 +3,15 @@
  * Premium PWA experience with offline support
  */
 
-const CACHE_NAME = "evident-v1.0.0";
+const CACHE_NAME = "evident-v3.0.0";
 const OFFLINE_URL = "/offline.html";
 
 // Assets to cache immediately on install
 const PRECACHE_ASSETS = [
   "/",
-  "/cases/",
-  "/opra/",
-  "/essays/",
   "/offline.html",
-  "/assets/css/main.css",
-  "/assets/css/components/case-cards.css",
-  "/assets/css/pages/cases-index.css",
-  "/assets/css/pages/opra.css",
-  "/assets/css/premium-app.css",
-  "/assets/js/app.js",
-  "/assets/js/premium-features.js",
+  "/assets/css/evident-core.css",
+  "/assets/js/evident-core.js",
   "/manifest.json",
 ];
 

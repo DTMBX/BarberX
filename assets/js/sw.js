@@ -1,19 +1,15 @@
 // Service Worker for PWA - Offline Support & Caching
-const CACHE_NAME = "evident-premium-v1.0.0";
-const STATIC_CACHE = "evident-static-v1";
-const DYNAMIC_CACHE = "evident-dynamic-v1";
+const CACHE_NAME = "evident-premium-v3.0.0";
+const STATIC_CACHE = "evident-static-v3";
+const DYNAMIC_CACHE = "evident-dynamic-v3";
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
   "/",
-  "/assets/css/main.css",
-  "/assets/js/app.js",
-  "/auth/dashboard",
-  "/evidence/dashboard",
-  "/evidence/intake",
-  "/assets/images/logo.png",
-  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+  "/assets/css/evident-core.css",
+  "/assets/js/evident-core.js",
+  "/manifest.json",
+  "/offline.html",
 ];
 
 // Install event - cache static assets
