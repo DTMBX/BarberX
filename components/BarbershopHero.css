@@ -95,51 +95,7 @@
 }
 
 .barbershop-hero.no-animation {
-  --animation-duration: 0s;
-}
-
-/* ===== Layout Variants ===== */
-
-/* Default Variant */
-.barbershop-hero--default {
-  padding: var(--spacing-lg) var(--spacing-md);
-}
-
-.barbershop-hero--default .hero-inner {
-  max-width: 90vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-lg);
-  text-align: center;
-}
-
-/* Minimal Variant */
-.barbershop-hero--minimal .hero-inner {
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-md);
-}
-
-.barbershop-hero--minimal .hero-title,
-.barbershop-hero--minimal .hero-tagline {
-  display: none;
-}
-
-/* Full Variant */
-.barbershop-hero--full {
-  padding: var(--spacing-2xl) var(--spacing-md);
-}
-
-.barbershop-hero--full .hero-inner {
-  max-width: 1000px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-2xl);
-  align-items: center;
-}
+  // File removed as part of legacy component removal
 
 .barbershop-hero--full .hero-content {
   order: 2;

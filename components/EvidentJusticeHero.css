@@ -1,0 +1,33 @@
+.evident-justice-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.justice-svg {
+  display: block;
+  width: 120px;
+  height: 120px;
+}
+
+/* Animate the scales gently tilting */
+.justice-pan.left {
+  transform-origin: 44px 44px;
+  animation: tilt-left 2.5s ease-in-out infinite alternate;
+}
+
+.justice-pan.right {
+  transform-origin: 76px 44px;
+  animation: tilt-right 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes tilt-left {
+  0% { transform: rotate(-7deg); }
+  100% { transform: rotate(7deg); }
+}
+
+@keyframes tilt-right {
+  0% { transform: rotate(7deg); }
+  100% { transform: rotate(-7deg); }
+}
