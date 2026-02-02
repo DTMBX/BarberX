@@ -3,23 +3,7 @@
 # https://render.com/docs/blueprint-spec
 
 services:
-  # Static Site (Jekyll)
-  - type: web
-    name: Evident-static
-    runtime: ruby
-    env: ruby
-    region: oregon
-    plan: free
-    buildCommand: bundle install && bundle exec jekyll build
-    staticPublishPath: _site
-    envVars:
-      - key: RUBY_VERSION
-        value: "3.3.0"
-      - key: JEKYLL_ENV
-        value: production
-    autoDeploy: true
-
-  # Python Web App
+  # Python Web App (Primary)
   - type: web
     name: Evident-legal-tech
     runtime: python
