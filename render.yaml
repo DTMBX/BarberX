@@ -1,8 +1,25 @@
 # Evident Legal Tech Platform - Render Blueprint
-# Last Updated: 2026-01-30
+# Last Updated: 2026-02-02
 # https://render.com/docs/blueprint-spec
 
 services:
+  # Static Site (Jekyll)
+  - type: web
+    name: Evident-static
+    runtime: ruby
+    env: ruby
+    region: oregon
+    plan: free
+    buildCommand: bundle install && bundle exec jekyll build
+    staticPublishPath: _site
+    envVars:
+      - key: RUBY_VERSION
+        value: "3.3.0"
+      - key: JEKYLL_ENV
+        value: production
+    autoDeploy: true
+
+  # Python Web App
   - type: web
     name: Evident-legal-tech
     runtime: python
