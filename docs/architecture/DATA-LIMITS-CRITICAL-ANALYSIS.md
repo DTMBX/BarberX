@@ -233,6 +233,7 @@ Based on code inspection of the Evident codebase:
    ```
 
 5. **Add Usage Dashboard Warnings**
+
    ```python
    # Show user their current usage
    @app.route('/api/usage')

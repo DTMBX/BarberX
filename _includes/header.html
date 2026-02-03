@@ -1,97 +1,76 @@
 <!-- htmlhint doctype-first:false -->
-<header class="site-header">
-  <div class="header-container">
-    <!-- Logo -->
+
+<header
+  class="site-header bg-paper"
+  style="border-bottom: 1.5px solid var(--grid)"
+>
+  <div
+    class="container"
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 2rem;
+    "
+  >
+    <!-- Logo & Brand -->
     <a
       href="{{ '/' | relative_url }}"
       class="header-brand"
-      aria-label="Evident Technologies Home"
+      aria-label="Evident Home"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 0.75em;
+        text-decoration: none;
+      "
     >
-      <svg
-        class="brand-icon"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          width="32"
-          height="32"
-          rx="8"
-          fill="currentColor"
-          class="brand-bg"
-        />
-        <path
-          d="M8 10h16M8 16h12M8 22h14"
-          stroke="white"
-          stroke-width="2.5"
-          stroke-linecap="round"
-        />
-      </svg>
-      <span class="brand-text">Evident</span>
+      <img
+        src="/assets/img/brand/evident-wordmark-light-hd.svg"
+        alt="Evident Trinity E Wordmark"
+        style="height: 48px; width: auto; display: block; margin-right: 0"
+      />
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="header-nav" aria-label="Main navigation">
+    <nav
+      class="header-nav"
+      aria-label="Main navigation"
+      style="display: flex; gap: 1.5em"
+    >
       <a
         href="{{ '/' | relative_url }}"
-        class="nav-link {% if page.url == '/' %}active{% endif %}"
+        class="nav-link{% if page.url == '/' %} active{% endif %}"
+        style="color: var(--ink); font-weight: 500; text-decoration: none"
         >Home</a
       >
       <a
         href="{{ '/pricing.html' | relative_url }}"
-        class="nav-link {% if page.url contains 'pricing' %}active{% endif %}"
+        class="nav-link{% if page.url contains 'pricing' %} active{% endif %}"
+        style="color: var(--ink); font-weight: 500; text-decoration: none"
         >Pricing</a
       >
       <a
         href="{{ '/docs.html' | relative_url }}"
-        class="nav-link {% if page.url contains 'docs' %}active{% endif %}"
+        class="nav-link{% if page.url contains 'docs' %} active{% endif %}"
+        style="color: var(--ink); font-weight: 500; text-decoration: none"
         >Documentation</a
       >
       <a
         href="{{ '/contact.html' | relative_url }}"
-        class="nav-link {% if page.url contains 'contact' %}active{% endif %}"
+        class="nav-link{% if page.url contains 'contact' %} active{% endif %}"
+        style="color: var(--ink); font-weight: 500; text-decoration: none"
         >Contact</a
       >
     </nav>
 
     <!-- Header Actions -->
-    <div class="header-actions">
+    <div class="header-actions" style="display: flex; gap: 0.75em">
       <a href="https://app.evident.icu/login" class="btn btn-ghost">Sign In</a>
       <a href="https://app.evident.icu/register" class="btn btn-primary"
         >Get Started</a
       >
     </div>
-
-    <!-- Mobile Menu Toggle -->
-    <button
-      class="mobile-menu-toggle"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-    >
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
   </div>
-
-  <!-- Mobile Navigation -->
-  <nav class="mobile-nav" aria-label="Mobile navigation">
-    <a href="{{ '/' | relative_url }}" class="mobile-nav-link">Home</a>
-    <a href="{{ '/pricing.html' | relative_url }}" class="mobile-nav-link"
-      >Pricing</a
-    >
-    <a href="{{ '/docs.html' | relative_url }}" class="mobile-nav-link"
-      >Documentation</a
-    >
-    <a href="{{ '/contact.html' | relative_url }}" class="mobile-nav-link"
-      >Contact</a
-    >
-    <hr class="mobile-nav-divider" />
-    <a href="https://app.evident.icu/login" class="mobile-nav-link">Sign In</a>
-    <a href="https://app.evident.icu/register" class="btn btn-primary btn-block"
-      >Get Started Free</a
-    >
-  </nav>
 </header>

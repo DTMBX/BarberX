@@ -6,17 +6,17 @@
 
 :root {
   /* ═══════════════════════════════════════════════════════════════════════
-     BARBER POLE COLORS — The Classic Trio
+     EVIDENT JUSTICE/COLOR THEME — Modern Courtroom Palette
      ═══════════════════════════════════════════════════════════════════════ */
-  --barber-red: #c41e3a;
-  --barber-red-light: #dc2626;
-  --barber-red-dark: #a01830;
-  --barber-white: #fff;
-  --barber-white-soft: #fafafa;
-  --barber-white-cream: #f8f8f8;
-  --barber-blue: #1e40af;
-  --barber-blue-light: #3b82f6;
-  --barber-blue-dark: #1e3a8a;
+  --evident-gold: #c9a13b;
+  --evident-gold-dark: #a07d2a;
+  --evident-gold-light: #ffe082;
+  --evident-blue: #1e3a5c;
+  --evident-blue-light: #4f6d96;
+  --evident-blue-dark: #16243a;
+  --evident-ivory: #f8f6f0;
+  --evident-gray: #e5e5ea;
+  --evident-black: #0a0a0f;
 
   /* ═══════════════════════════════════════════════════════════════════════
      BRASS & CHROME — Premium Finishes

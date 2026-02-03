@@ -240,6 +240,7 @@ python app.py
    - 3-day trial should be active
 
 5. **Check usage dashboard:**
+
    ```
    http://localhost:5000/dashboard/usage
    ```

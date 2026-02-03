@@ -1,23 +1,4 @@
-/**
- * BarbershopHero.css
- * Shared stylesheet for React/Next.js BarbershopHero components
- * Supports three layout variants: default, minimal, full
- * Mobile-first design with dark mode support
- * 
- * Usage:
- *   import './BarbershopHero.css';
- *   <BarbershopHero variant="default" />
- */
 
-/* ===== CSS Variables & Root Styles ===== */
-:root {
-  /* Color palette */
-  --hero-bg-light: #fafafa;
-  --hero-bg-dark: #0a0a0f;
-  --hero-text-light: #0a0a0f;
-  --hero-text-dark: #f5f5f7;
-  --hero-accent: #d4af37;
-  --hero-border-light: #e5e5ea;
   --hero-border-dark: #424245;
   --hero-shadow-light: rgb(0 0 0 / 8%);
   --hero-shadow-dark: rgb(0 0 0 / 32%);
@@ -62,27 +43,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --hero-bg-light: #0a0a0f;
-    --hero-bg-dark: #0a0a0f;
-    --hero-text-light: #f5f5f7;
-    --hero-text-dark: #f5f5f7;
-    --hero-border-light: #424245;
-    --hero-border-dark: #424245;
-    --hero-shadow-light: rgb(0 0 0 / 32%);
-    --hero-shadow-dark: rgb(0 0 0 / 64%);
-  }
-}
 
-/* ===== Component Container ===== */
-.barbershop-hero {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-md);
-  background: linear-gradient(
     135deg,
     var(--hero-bg-light) 0%,
     rgb(212 175 55 / 3%) 100%

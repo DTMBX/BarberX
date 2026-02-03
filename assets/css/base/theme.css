@@ -5,6 +5,7 @@
    NOTE: All CSS imports are now centralized in main.css to prevent duplication.
    This file contains theme-specific styling only (header, nav, footer, etc.)
    ============================================================================ */
+/* BarberX/Barber Shoppe theme purged. Evident professional theme installed. */
 
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@400;600;700&display=swap");

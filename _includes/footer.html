@@ -6,23 +6,7 @@
       <!-- Brand Column -->
       <div class="footer-brand-col">
         <a href="{{ '/' | relative_url }}" class="footer-brand">
-          <svg
-            class="brand-icon"
-            width="28"
-            height="28"
-            viewBox="0 0 32 32"
-            fill="none"
-          >
-            <rect width="32" height="32" rx="8" fill="currentColor" />
-            <!doctype html>
-            <path
-              d="M8 10h16M8 16h12M8 22h14"
-              stroke="white"
-              stroke-width="2.5"
-              stroke-linecap="round"
-            />
-          </svg>
-          <span>Evident</span>
+          <img src="/assets/img/brand/evident-wordmark-light-hd.svg" alt="Evident Trinity E Wordmark" style="height: 40px; width: auto; display: block; margin-right: 0;" />
         </a>
         <p class="footer-tagline">
           Legal-grade evidence processing and verification for modern legal
@@ -71,62 +55,27 @@
             </svg>
           </a>
         </div>
-      </div>
-
-      <!-- Product Links -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Product</h4>
-        <ul class="footer-links">
-          <li><a href="{{ '/#features' | relative_url }}">Features</a></li>
-          <li><a href="{{ '/pricing.html' | relative_url }}">Pricing</a></li>
-          <li><a href="{{ '/docs.html' | relative_url }}">Documentation</a></li>
-          <li><a href="https://app.evident.icu">Launch App</a></li>
-        </ul>
-      </div>
-
-      <!-- Resources Links -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Resources</h4>
-        <ul class="footer-links">
-          <li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/docs">Docs</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+            <nav class="footer-nav" aria-label="Footer" style="flex: 1 1 200px;">
+              <ul style="display: flex; flex-wrap: wrap; gap: 1.5em; list-style: none; margin: 0; padding: 0; font-size: 1rem; color: var(--muted);">
+                <li><a href="/about">About</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/docs">Docs</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </nav>
+                </nav>
+                <div class="footer-meta" style="font-size: 0.98rem; color: var(--muted); text-align: right; min-width: 180px;">
+                  <span>&copy; 2024 Evident. All rights reserved.</span>
+                  <span class="footer-meta-links" style="margin-left: 1em;">
+                    <a href="/privacy">Privacy</a>
+                    <span style="margin: 0 0.5em;">|</span>
+                    <a href="/terms">Terms</a>
+                  </span>
+                </div>
+              </div>
+            </footer>
             <a href="{{ '/docs.html#api' | relative_url }}">API Reference</a>
-          </li>
-          <li>
-            <a href="{{ '/docs.html#guides' | relative_url }}">User Guides</a>
-          </li>
-          <li>
-            <a href="https://github.com/DTMBX/Evident/releases">Changelog</a>
-          </li>
-          <li><a href="{{ '/faq.html' | relative_url }}">FAQ</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal Links -->
-      <div class="footer-col">
-        <h4 class="footer-heading">Legal</h4>
-        <ul class="footer-links">
-          <li>
-            <a href="{{ '/privacy.html' | relative_url }}">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="{{ '/terms.html' | relative_url }}">Terms of Service</a>
-          </li>
-          <li><a href="{{ '/security.html' | relative_url }}">Security</a></li>
-          <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p class="copyright">
-        &copy; {{ 'now' | date: "%Y" }} Evident Technologies. All rights
-        reserved.
-      </p>
-      <p class="footer-legal">
-        Built for legal professionals. 100% local processing. Your data never
-        leaves your machine.
-      </p>
-    </div>
-  </div>
-</footer>

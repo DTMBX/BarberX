@@ -1,4 +1,5 @@
 # Evident Security Audit Report
+
 ## PHASE 1 — REPOSITORY INVENTORY
 
 **Audit Date**: January 31, 2026  
@@ -10,11 +11,11 @@
 ## 1. SYSTEM COMPONENTS IDENTIFIED
 
 ### 1.1 Frontend Components
+
 - **Flask Web Application** (`app.py` - 6,912 lines)
   - Jinja2 templates in `templates/` (109 files)
   - Static assets in `assets/` (192 items)
   - Client-side JavaScript in `static/js/`
-  
 - **.NET MAUI Mobile App** (`src/Evident.Mobile/`)
   - Cross-platform (Windows, Android, iOS)
   - XAML views with MVVM architecture
@@ -26,11 +27,11 @@
   - Controllers for analysis operations
 
 ### 1.2 Backend/API Services
+
 - **Primary Backend**: Flask (`app.py`)
   - 6,912 lines of Python code
   - Multiple API endpoints (upload, analysis, legal, evidence)
   - Session-based authentication via Flask-Login
-  
 - **API Modules** (`api/` directory - 17 items):
   - `auth.py` - Authentication API
   - `chatgpt.py` - ChatGPT integration
@@ -102,11 +103,13 @@
 ### 1.5 Storage Systems
 
 **Database**:
+
 - SQLAlchemy ORM with SQLite (development) or PostgreSQL (production)
 - `db = SQLAlchemy()` in `models_auth.py`
 - Tables: `users`, `usage_tracking`, and others
 
 **File Storage**:
+
 - `UPLOAD_FOLDER` for BWC videos
 - `uploads/` directory (gitignored)
 - `bwc_videos/` directory (gitignored)
@@ -114,6 +117,7 @@
 - User storage tracking: `storage_used_mb` field in User model
 
 **Secrets Storage**:
+
 - `.env` file (gitignored) - contains API keys
 - `secrets.enc` (encrypted file)
 - Environment variables
@@ -132,6 +136,7 @@
 8. **Legal Trinity Service** (`legal_trinity_service.py` - 33,385 bytes)
 
 **AI Pipeline Orchestration**:
+
 - `src/ai/pipeline/` directory
 - `backend_integration.py` (17,878 bytes)
 - `unified_evidence_service.py` (17,298 bytes)
@@ -139,12 +144,14 @@
 ### 1.7 Configuration & Environment Handling
 
 **Configuration Files**:
+
 - `.env` - **PRESENT IN REPOSITORY** (1,619 bytes) ⚠️ SECURITY RISK
 - `.env-temp` - Present (223 bytes)
 - `.env.template` - Safe template (1,428 bytes)
 - `config_manager.py` (13,011 bytes)
 
 **Mobile App Configuration**:
+
 - `src/Evident.Mobile/appsettings.json` (embedded resource)
 - Environment-based API endpoint selection
 - Configuration loaded at runtime
@@ -154,6 +161,7 @@
 ## 2. SECURITY, AUTH, AND ACCESS-RELATED FILES
 
 ### 2.1 Authentication Files
+
 ```
 ✓ models_auth.py          - User model, tier definitions
 ✓ auth_routes.py          - Login/signup routes
@@ -164,6 +172,7 @@
 ```
 
 ### 2.2 Authorization & Access Control Files
+
 ```
 ✓ tier_gating.py          - Tier-based access control
 ✓ api_middleware.py       - API middleware (14,915 bytes)
@@ -173,6 +182,7 @@
 ```
 
 ### 2.3 Security-Related Files
+
 ```
 ✓ security_audit.py       - Security auditing
 ✓ ai_security.py          - AI security (11,178 bytes)
@@ -182,6 +192,7 @@
 ```
 
 ### 2.4 Audit & Logging Files
+
 ```
 ✓ AuditLog model          - In models (needs verification)
 ✓ user_analytics.py       - User analytics (6,480 bytes)
@@ -195,6 +206,7 @@
 ### 3.1 User Identity Establishment Points
 
 **Primary Authentication**:
+
 ```python
 # Location: auth_routes.py
 @auth_bp.route("/login", methods=["POST"])
@@ -205,6 +217,7 @@ def login():
 ```
 
 **Session Management**:
+
 ```python
 # Flask-Login integration
 @login_manager.user_loader
@@ -213,6 +226,7 @@ def load_user(user_id):
 ```
 
 **Current User Access**:
+
 ```python
 # Throughout app.py
 from flask_login import current_user, login_required
@@ -248,6 +262,7 @@ def dashboard():
    - Returns: 403 if feature not available
 
 **Usage in app.py**:
+
 ```python
 @app.route("/api/upload", methods=["POST"])
 @login_required
@@ -353,15 +368,18 @@ def upload_file():
 ## 5. ATTACK SURFACE SUMMARY
 
 ### Entry Points Requiring Authentication
+
 - 50+ routes with `@login_required`
 - 10+ routes with `@require_tier()`
 - 8+ routes with `@check_usage_limit()`
 
 ### Entry Points WITHOUT Tier Checks
+
 - Multiple `/api/` endpoints only have `@login_required`
 - Need full enumeration in Phase 2
 
 ### Data Flow
+
 ```
 Client Request
     ↓
@@ -385,6 +403,7 @@ Response
 ## NEXT STEPS: PHASE 2
 
 Phase 2 will analyze:
+
 1. Authentication implementation details
 2. Session management security
 3. Token validation (if any)

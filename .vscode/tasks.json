@@ -1,119 +1,119 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "Prettier Format All",
-			"type": "shell",
-			"command": "npx prettier --write .",
-			"group": "build"
-		},
-		{
-			"label": "Stylelint CSS Lint",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "HTMLHint Lint All",
-			"type": "shell",
-			"command": "npx htmlhint \"**/*.html\"",
-			"group": "build"
-		},
-		{
-			"label": "Stylelint CSS Lint",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Re-run Stylelint CSS Lint",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Re-run Stylelint CSS Lint (after layout.css fix)",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Re-run Stylelint CSS Lint (after components.css fix)",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Re-run Stylelint CSS Lint (after more components.css fixes)",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Re-run Stylelint CSS Lint (after card/panel fixes)",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Re-run Stylelint CSS Lint (after hero fixes)",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Run Prettier on all CSS files",
-			"type": "shell",
-			"command": "npx prettier --write \"**/*.css\"",
-			"group": "build"
-		},
-		{
-			"label": "Run CSS Formatter on all CSS files",
-			"type": "shell",
-			"command": "npx css-formatter \"**/*.css\"",
-			"group": "build"
-		},
-		{
-			"label": "Run Stylelint and Stylelint Plus on all CSS files",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "Run Web Validator on all CSS files",
-			"type": "shell",
-			"command": "npx web-validator \"**/*.css\"",
-			"group": "build"
-		},
-		{
-			"label": "Jekyll Build (bundle exec)",
-			"type": "shell",
-			"command": "bundle install && bundle exec jekyll build",
-			"group": "build"
-		},
-		{
-			"label": "Prettier Format All",
-			"type": "shell",
-			"command": "npx prettier --write .",
-			"group": "build"
-		},
-		{
-			"label": "Prettier Format All",
-			"type": "shell",
-			"command": "npx prettier --write .",
-			"group": "build"
-		},
-		{
-			"label": "Stylelint CSS Lint",
-			"type": "shell",
-			"command": "npx stylelint \"**/*.css\" --fix",
-			"group": "build"
-		},
-		{
-			"label": "HTMLHint Lint All",
-			"type": "shell",
-			"command": "npx htmlhint \"**/*.html\"",
-			"group": "build"
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Prettier Format All",
+      "type": "shell",
+      "command": "npx prettier --write .",
+      "group": "build"
+    },
+    {
+      "label": "Stylelint CSS Lint",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "HTMLHint Lint All",
+      "type": "shell",
+      "command": "npx htmlhint \"**/*.html\"",
+      "group": "build"
+    },
+    {
+      "label": "Stylelint CSS Lint",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Re-run Stylelint CSS Lint",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Re-run Stylelint CSS Lint (after layout.css fix)",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Re-run Stylelint CSS Lint (after components.css fix)",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Re-run Stylelint CSS Lint (after more components.css fixes)",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Re-run Stylelint CSS Lint (after card/panel fixes)",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Re-run Stylelint CSS Lint (after hero fixes)",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Run Prettier on all CSS files",
+      "type": "shell",
+      "command": "npx prettier --write \"**/*.css\"",
+      "group": "build"
+    },
+    {
+      "label": "Run CSS Formatter on all CSS files",
+      "type": "shell",
+      "command": "npx css-formatter \"**/*.css\"",
+      "group": "build"
+    },
+    {
+      "label": "Run Stylelint and Stylelint Plus on all CSS files",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "Run Web Validator on all CSS files",
+      "type": "shell",
+      "command": "npx web-validator \"**/*.css\"",
+      "group": "build"
+    },
+    {
+      "label": "Jekyll Build (bundle exec)",
+      "type": "shell",
+      "command": "bundle install && bundle exec jekyll build",
+      "group": "build"
+    },
+    {
+      "label": "Prettier Format All",
+      "type": "shell",
+      "command": "npx prettier --write .",
+      "group": "build"
+    },
+    {
+      "label": "Prettier Format All",
+      "type": "shell",
+      "command": "npx prettier --write .",
+      "group": "build"
+    },
+    {
+      "label": "Stylelint CSS Lint",
+      "type": "shell",
+      "command": "npx stylelint \"**/*.css\" --fix",
+      "group": "build"
+    },
+    {
+      "label": "HTMLHint Lint All",
+      "type": "shell",
+      "command": "npx htmlhint \"**/*.html\"",
+      "group": "build"
+    }
+  ]
 }

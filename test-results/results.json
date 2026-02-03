@@ -22,9 +22,7 @@
         "name": "chromium",
         "testDir": "C:/web-dev/github-repos/Evident.info/tests/e2e",
         "testIgnore": [],
-        "testMatch": [
-          "**/*.spec.cjs"
-        ],
+        "testMatch": ["**/*.spec.cjs"],
         "timeout": 60000
       }
     ],
@@ -42,10 +40,7 @@
           "outputFile": "test-results/results.json"
         }
       ],
-      [
-        "list",
-        null
-      ]
+      ["list", null]
     ],
     "reportSlowTests": {
       "max": 5,

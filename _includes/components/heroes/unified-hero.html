@@ -1,26 +1,44 @@
 <!-- htmlhint doctype-first:false -->
-<section class="hero evident-justice-hero-section">
-  <div class="container evident-justice-hero-container">
-    <!-- Animated Scales of Justice Hero -->
-    <div class="evident-justice-hero-wrapper">
-      <!-- Inline SVG for Scales of Justice (mirrors EvidentJusticeHero.jsx) -->
+
+<section class="hero bg-grid" style="padding: 3.5rem 0 2.5rem 0">
+  <div
+    class="container"
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      justify-content: space-between;
+    "
+  >
+    <!-- Animated Mark Placeholder (SVG/CSS) -->
+    <div
+      style="
+        flex: 1 1 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 220px;
+      "
+    >
       <svg
         class="justice-svg"
-        width="120"
-        height="120"
+        width="110"
+        height="110"
         viewBox="0 0 120 120"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
-        <rect x="55" y="90" width="10" height="20" rx="3" fill="#2d3748" />
-        <rect x="58" y="30" width="4" height="60" rx="2" fill="#4f8ef7" />
-        <rect x="40" y="40" width="40" height="4" rx="2" fill="#4f8ef7" />
+        <rect x="55" y="90" width="10" height="20" rx="3" fill="#2F5D9F" />
+        <rect x="58" y="30" width="4" height="60" rx="2" fill="#2F5D9F" />
+        <rect x="40" y="40" width="40" height="4" rx="2" fill="#2F5D9F" />
         <line
           x1="44"
           y1="44"
           x2="34"
           y2="70"
-          stroke="#2d3748"
+          stroke="#0B0D10"
           stroke-width="2"
         />
         <line
@@ -28,7 +46,7 @@
           y1="44"
           x2="86"
           y2="70"
-          stroke="#2d3748"
+          stroke="#0B0D10"
           stroke-width="2"
         />
         <ellipse
@@ -37,7 +55,7 @@
           cy="74"
           rx="10"
           ry="4"
-          fill="#e2e8f0"
+          fill="#E5E7EB"
         />
         <ellipse
           class="justice-pan right"
@@ -45,39 +63,71 @@
           cy="74"
           rx="10"
           ry="4"
-          fill="#e2e8f0"
+          fill="#E5E7EB"
         />
-        <circle cx="60" cy="30" r="6" fill="#4f8ef7" />
+        <circle cx="60" cy="30" r="6" fill="#2F5D9F" />
       </svg>
     </div>
-    <div class="evident-justice-hero-content">
-      <h1 class="hero-title">
-        Legal-Grade Evidence Processing for Modern Legal Practice
+    <div style="flex: 2 1 340px; min-width: 260px">
+      <h1
+        class="hero-title"
+        style="
+          font-family: var(--font-ui);
+          font-weight: var(--font-weight-bold);
+          font-size: 2.2rem;
+          color: var(--ink);
+          margin-bottom: 0.7em;
+        "
+      >
+        Evident
       </h1>
-      <p class="hero-subtitle">
-        AI-powered transcription, document intelligence, and chain-of-custody
-        verification.<br />
-        100% local processing — your data never leaves your machine.
+      <p
+        class="hero-subtitle"
+        style="
+          font-size: 1.18rem;
+          color: var(--muted);
+          margin-bottom: 1.5em;
+          max-width: 32em;
+        "
+      >
+        Evidence made legible. Truth made durable.<br />
+        Local-first, tamper-evident hashing, chain-of-custody, audit log, export
+        manifests.
       </p>
-      <div class="hero-actions">
+      <div
+        class="hero-actions"
+        style="display: flex; gap: 1em; flex-wrap: wrap"
+      >
         <a
           href="{{ page.cta_primary_url | default: '/register' }}"
           class="btn btn-primary btn-lg"
+          >{{ page.cta_primary | default: "Get Started Free" }}</a
         >
-          {{ page.cta_primary | default: "Get Started Free" }}
-        </a>
         <a
           href="{{ page.cta_secondary_url | default: '#how-it-works' }}"
           class="btn btn-secondary btn-lg"
+          >{{ page.cta_secondary | default: "See How It Works" }}</a
         >
-          {{ page.cta_secondary | default: "See How It Works" }}
-        </a>
       </div>
     </div>
   </div>
 </section>
 
 {% if page.hero_features %}
+<section class="section-sm" style="background: var(--paper)">
+  <div class="container">
+    <div class="features-grid">
+      {% for feature in page.hero_features %}
+      <div class="card">
+        <div class="card-icon">{{ feature.icon }}</div>
+        <h3 class="card-title">{{ feature.title }}</h3>
+        <p class="card-text">{{ feature.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %} {% if page.hero_features %}
 <section class="section-sm" style="background: var(--bg-tertiary)">
   <div class="container">
     <div class="features-grid">
