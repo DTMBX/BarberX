@@ -7,7 +7,7 @@ from functools import wraps
 
 from flask import jsonify, request, session
 
-from models_auth import TierLevel, UsageTracking, User
+from .models_auth import TierLevel, UsageTracking, User
 
 
 def require_tier(minimum_tier):
@@ -495,3 +495,5 @@ def get_user_tier(user=None):
         return TierLevel.FREE
 
     return user.tier
+
+

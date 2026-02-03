@@ -23,16 +23,16 @@ from flask_login import (LoginManager, current_user, login_required,
 from flask_wtf.csrf import CSRFProtect
 from werkzeug.utils import secure_filename
 
-from free_tier_data_retention import DataRetentionManager, get_user_data_status
+from .free_tier_data_retention import DataRetentionManager, get_user_data_status
 # FREE Tier Functionality
-from free_tier_demo_cases import (get_demo_case_by_id, get_demo_cases,
+from .free_tier_demo_cases import (get_demo_case_by_id, get_demo_cases,
                                   is_demo_case)
-from free_tier_educational_resources import (CATEGORIES,
+from .free_tier_educational_resources import (CATEGORIES,
                                              get_all_educational_resources,
                                              get_resource_by_id)
-from free_tier_upload_manager import (OneTimeUploadManager,
+from .free_tier_upload_manager import (OneTimeUploadManager,
                                       free_tier_upload_route_decorator)
-from free_tier_watermark import WatermarkService
+from .free_tier_watermark import WatermarkService
 
 # Security utilities
 try:
@@ -64,8 +64,8 @@ except ImportError as e:
     print(f"[!] Enhanced auth not available: {e}")
 
 # Import TierLevel and User at module level (required for decorators)
-from models_auth import ApiKey as APIKey
-from models_auth import TierLevel, User
+from .models_auth import ApiKey as APIKey
+from .models_auth import TierLevel, User
 
 # Tier gating system
 try:
@@ -355,7 +355,7 @@ MAX_FILE_SIZE_PREMIUM = 5 * 1024 * 1024 * 1024  # 5GB for premium tier
 
 
 # Initialize extensions (defer db binding)
-from models_auth import db
+from .models_auth import db
 
 db.init_app(app)
 compress.init_app(app)
@@ -6950,3 +6950,6 @@ def pricing():
 
     # Option 2: Use Stripe embed (uncomment to switch)
     # return render_template('pricing-stripe-embed.html')
+
+
+

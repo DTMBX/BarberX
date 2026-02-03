@@ -19,7 +19,7 @@ from flask_login import (LoginManager, current_user, login_required,
 from flask_wtf.csrf import validate_csrf
 from wtforms import ValidationError
 
-from models_auth import (EmailVerificationToken, PasswordResetToken, TierLevel,
+from .models_auth import (EmailVerificationToken, PasswordResetToken, TierLevel,
                          UsageTracking, User, db)
 
 # AI Security & Analytics
@@ -1096,3 +1096,5 @@ def admin_change_user_tier(user_id):
         flash("Invalid tier selected.", "danger")
 
     return redirect(url_for("auth.admin_users"))
+
+
