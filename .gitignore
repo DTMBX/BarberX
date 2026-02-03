@@ -320,3 +320,15 @@ stylelint-report.txt
 
 # --- OS/IDE ---
 .vs/
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.vs/
+.vscode/
