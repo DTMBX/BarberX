@@ -16,9 +16,9 @@ def check_url(url):
 
 if __name__ == "__main__":
     urls = [
-        "https://evident.icu",
-        "https://www.evident.icu",
-        "https://app.evident.icu"
+        "https://evident.info",
+        "https://www.evident.info",
+        "https://app.evident.info"
     ]
     for url in urls:
         check_url(url)

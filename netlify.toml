@@ -71,7 +71,7 @@
   status = 404
 
 [context.production]
-  environment = { JEKYLL_ENV = "production", SITE_URL = "https://Evident.info" }
+  environment = { JEKYLL_ENV = "production", SITE_URL = "https://evident.info" }
 
 [context.deploy-preview]
   environment = { JEKYLL_ENV = "staging", SITE_URL = "https://deploy-preview-$DEPLOY_ID--Evident.netlify.app" }
