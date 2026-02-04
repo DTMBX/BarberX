@@ -8,7 +8,7 @@
 ---
 
 **Q2: How do I get started?**  
-<span style="color:#666">A:</span> Visit our [Get Started](https://www.evident.icu/register) page to sign up for a free demo.
+<span style="color:#666">A:</span> Visit our [Get Started](https://www.evident.info/register) page to sign up for a free demo.
 
 ---
 

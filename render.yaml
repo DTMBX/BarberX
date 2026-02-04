@@ -29,7 +29,7 @@ services:
           name: Evident-db
           property: connectionString
       - key: CORS_ORIGINS
-        value: "https://evident.icu,https://www.evident.icu,https://app.evident.icu,https://evident-legal-tech.onrender.com"
+        value: "https://evident.info,https://www.evident.info,https://app.evident.info,https://evident-legal-tech.onrender.com"
       - key: LOG_LEVEL
         value: "INFO"
       - key: WEB_CONCURRENCY

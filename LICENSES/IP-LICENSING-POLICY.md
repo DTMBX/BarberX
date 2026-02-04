@@ -92,4 +92,4 @@ Use of Evident software does not convey any ownership interest in proprietary sy
 
 Licensing or IP questions may be directed to:
 
-**legal@evident.icu**
+**legal@evident.info**

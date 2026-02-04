@@ -29,7 +29,9 @@ jobs:
 
       - name: Install Jekyll deps
         run: |
-          if [ -f Gemfile ]; then
+          cd site
+          if [ -f ../Gemfile ]; then
+            cd ..
             bundle install
           else
             gem install jekyll bundler
@@ -38,8 +40,9 @@ jobs:
       - name: Build site
         run: |
           if [ -f Gemfile ]; then
-            bundle exec jekyll build
+            bundle exec jekyll build --source site --destination _site
           else
+            cd site
             jekyll build
           fi
 

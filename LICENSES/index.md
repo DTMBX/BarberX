@@ -114,4 +114,4 @@ For each public release or customer delivery, recommended minimum checks:
 
 ## 8) Contact
 
-Licensing / IP inquiries: **legal@evident.icu**
+Licensing / IP inquiries: **legal@evident.info**
