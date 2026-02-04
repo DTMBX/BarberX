@@ -22,3 +22,5 @@ if __name__ == "__main__":
     ]
     for url in urls:
         check_url(url)
+
+

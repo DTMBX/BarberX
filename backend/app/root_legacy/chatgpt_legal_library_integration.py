@@ -11,7 +11,7 @@ Enables ChatGPT assistant to:
 import json
 from typing import Dict, List, Optional, Tuple
 
-from retrieval_service import Passage, RetrievalService
+from .retrieval_service import Passage, RetrievalService
 
 try:
     from legal_library import CitationParser, LegalLibraryService
@@ -176,7 +176,7 @@ class ChatGPTLegalLibraryIntegration:
 """
 Add to chat endpoint in api/chatgpt.py:
 
-from chatgpt_legal_library_integration import ChatGPTLegalLibraryIntegration
+from .chatgpt_legal_library_integration import ChatGPTLegalLibraryIntegration
 
 library_integration = ChatGPTLegalLibraryIntegration()
 
@@ -205,3 +205,5 @@ def send_message():
     
     return jsonify({'response': response})
 """
+
+

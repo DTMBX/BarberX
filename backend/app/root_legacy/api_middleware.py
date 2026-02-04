@@ -23,7 +23,7 @@ from typing import Dict, Optional
 from flask import g, jsonify, request
 from werkzeug.exceptions import HTTPException
 
-from backend_integration import error_response, success_response
+from .backend_integration import error_response, success_response
 
 
 class RateLimiter:
@@ -524,3 +524,5 @@ if __name__ == "__main__":
     print("  - @log_request()")
     print("  - @handle_errors()")
     print("  - @api_endpoint(db, ...)")
+
+

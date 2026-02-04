@@ -17,7 +17,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from backend_integration import (Event, ValidationError, cache, cached,
+from .backend_integration import (Event, ValidationError, cache, cached,
                                  error_response, event_bus,
                                  handle_service_errors, monitored,
                                  service_registry, success_response)
@@ -504,3 +504,5 @@ if __name__ == "__main__":
 
     # Clean up
     test_file.unlink()
+
+

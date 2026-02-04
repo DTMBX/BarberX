@@ -34,7 +34,7 @@ from sqlalchemy import (Boolean, Column, DateTime, Enum, ForeignKey, Integer,
 from sqlalchemy.orm import relationship
 
 # Database Models
-from models_auth import db  # Use existing database
+from .models_auth import db  # Use existing database
 
 
 class LegalDocument(db.Model):
@@ -600,3 +600,5 @@ class CitationParser:
     def is_valid(citation: str) -> bool:
         """Validate citation format"""
         return CitationParser.parse(citation) is not None
+
+

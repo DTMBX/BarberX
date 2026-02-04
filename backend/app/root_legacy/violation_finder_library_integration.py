@@ -7,7 +7,7 @@ Links detected violations to precedent case law
 import json
 from typing import Dict, List
 
-from legal_library import LegalLibraryService
+from .legal_library import LegalLibraryService
 
 
 class ViolationFinderLibraryIntegration:
@@ -147,7 +147,7 @@ class ViolationFinderLibraryIntegration:
 """
 Add to ViolationScanner class:
 
-from violation_finder_library_integration import ViolationFinderLibraryIntegration
+from .violation_finder_library_integration import ViolationFinderLibraryIntegration
 
 class ViolationScanner:
     def __init__(self):
@@ -161,3 +161,5 @@ class ViolationScanner:
         
         return enhanced_report
 """
+
+

@@ -6,7 +6,7 @@ Encourages upgrades while providing value
 
 import io
 
-from models_auth import TierLevel
+from .models_auth import TierLevel
 
 # Optional imports for watermarking
 try:
@@ -316,3 +316,5 @@ def watermark_decorator(export_type="pdf"):
 
 # Export key components
 __all__ = ["WatermarkService", "watermark_decorator"]
+
+

@@ -9,7 +9,7 @@ import shutil
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from models_auth import TierLevel, db
+from .models_auth import TierLevel, db
 
 
 class DataRetentionManager:
@@ -277,3 +277,5 @@ def get_user_data_status(user):
 
 # Export key components
 __all__ = ["DataRetentionManager", "get_user_data_status"]
+
+

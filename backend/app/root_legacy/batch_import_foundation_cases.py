@@ -13,7 +13,7 @@ Run with: python batch_import_foundation_cases.py
 import time
 from datetime import datetime
 
-from legal_library import LegalLibraryService
+from .legal_library import LegalLibraryService
 
 # Foundation cases for different practice areas
 FOUNDATION_CASES = {
@@ -190,3 +190,5 @@ if __name__ == "__main__":
         print("1. Search library: GET /api/legal-library/search?q=miranda")
         print("2. View document: GET /api/legal-library/document/1")
         print("3. Add annotations: POST /api/legal-library/annotate")
+
+

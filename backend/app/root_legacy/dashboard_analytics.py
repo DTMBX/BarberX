@@ -6,8 +6,8 @@ Add retention metrics, risk scores, and engagement tracking
 from flask import Blueprint, jsonify, render_template
 from flask_login import current_user, login_required
 
-from models_auth import UsageQuota, User, db
-from user_analytics import check_churn_risk
+from .models_auth import UsageQuota, User, db
+from .user_analytics import check_churn_risk
 
 dashboard_bp = Blueprint("dashboard_analytics", __name__)
 
@@ -95,3 +95,5 @@ def admin_churn_monitoring():
             "at_risk_users": at_risk_users,
         }
     )
+
+

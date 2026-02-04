@@ -417,3 +417,5 @@ if __name__ == "__main__":
     print("\n✓ OCR Service ready!")
     print("  Tesseract: pip install pytesseract pdf2image")
     print("  AWS: pip install boto3")
+
+

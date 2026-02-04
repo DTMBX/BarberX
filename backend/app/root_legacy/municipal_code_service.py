@@ -221,3 +221,5 @@ class MunicipalCodeService:
                 args.append(limit)
                 rows = conn.execute(sql, args).fetchall()
                 return [dict(r) for r in rows]
+
+

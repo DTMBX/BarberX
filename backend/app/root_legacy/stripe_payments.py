@@ -341,3 +341,5 @@ def check_feature_access(user, feature):
 
     required_tiers = feature_tiers.get(feature, ["free"])
     return user.subscription_tier in required_tiers
+
+

@@ -14,7 +14,7 @@ load_dotenv()  # Load env vars before accessing them
 import stripe
 from flask import Blueprint, jsonify, redirect, request, session, url_for
 
-from models_auth import TierLevel, User, db
+from .models_auth import TierLevel, User, db
 
 # Initialize Stripe
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
@@ -722,3 +722,5 @@ def get_stripe_config():
             "prices": {"pro": STRIPE_PRICE_PRO, "premium": STRIPE_PRICE_PREMIUM},
         }
     )
+
+

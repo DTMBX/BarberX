@@ -23,7 +23,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
-from chat_output_formatter import (ChatOutput, Finding, OutputFormatter,
+from .chat_output_formatter import (ChatOutput, Finding, OutputFormatter,
                                    OutputType, Severity, extract_action_items,
                                    format_for_chat, get_critical_findings,
                                    quick_summary)
@@ -636,3 +636,5 @@ if __name__ == "__main__":
     print("=" * 60)
     print(tools.estimate_cost(1000, 500, model="gpt-4"))
     print(tools.estimate_cost(1000, 500, model="gpt-4o-mini"))
+
+

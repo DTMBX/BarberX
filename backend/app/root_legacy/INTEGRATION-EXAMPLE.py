@@ -9,13 +9,13 @@ Copy these sections into your app.py at the appropriate locations
 # SECTION 1: Imports (add to top of app.py after existing imports)
 # ============================================================================
 
-from api_middleware import (api_endpoint, handle_errors, log_request,
+from .api_middleware import (api_endpoint, handle_errors, log_request,
                             rate_limit, require_api_key, require_tier,
                             validate_request)
-from backend_integration import (Event, error_response, event_bus,
+from .backend_integration import (Event, error_response, event_bus,
                                  service_registry, success_response)
-from config_manager import ConfigManager, DatabaseBackup, DatabaseOptimizer
-from unified_evidence_service import (EvidenceReportGenerator,
+from .config_manager import ConfigManager, DatabaseBackup, DatabaseOptimizer
+from .unified_evidence_service import (EvidenceReportGenerator,
                                       UnifiedEvidenceProcessor)
 
 # ============================================================================
@@ -485,7 +485,7 @@ html_report = report_generator.generate_report(results, format='html')
 
 
 # Example 6: Monitor performance
-from backend_integration import performance_monitor
+from .backend_integration import performance_monitor
 stats = performance_monitor.get_stats()
 print(f"Average processing time: {stats['evidence.process_full']['avg_duration']:.2f}s")
 """
@@ -502,3 +502,5 @@ print("2. Adjust imports and variable names as needed")
 print("3. Run database optimizer: optimizer.create_indexes()")
 print("4. Test endpoints with rate limiting")
 print("5. Deploy!")
+
+

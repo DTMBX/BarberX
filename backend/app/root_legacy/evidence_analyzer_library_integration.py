@@ -7,7 +7,7 @@ References legal standards and evidentiary rules from case law
 import json
 from typing import Dict, List
 
-from legal_library import LegalLibraryService
+from .legal_library import LegalLibraryService
 
 
 class EvidenceAnalyzerLibraryIntegration:
@@ -156,7 +156,7 @@ class EvidenceAnalyzerLibraryIntegration:
 """
 Add to EvidenceProcessor class:
 
-from evidence_analyzer_library_integration import EvidenceAnalyzerLibraryIntegration
+from .evidence_analyzer_library_integration import EvidenceAnalyzerLibraryIntegration
 
 class EvidenceProcessor:
     def __init__(self):
@@ -176,3 +176,5 @@ class EvidenceProcessor:
             'brief': brief
         }
 """
+
+

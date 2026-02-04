@@ -352,3 +352,5 @@ def train_anomaly_detector_from_db():
         print(f"[OK] Trained on {len(training_data)} historical login events")
 
     return success
+
+

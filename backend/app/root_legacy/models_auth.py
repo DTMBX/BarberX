@@ -505,3 +505,5 @@ class EmailVerificationToken(db.Model):
 
     def __repr__(self):
         return f"<EmailVerificationToken user:{self.user_id}>"
+
+

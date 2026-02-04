@@ -645,3 +645,5 @@ if __name__ == "__main__":
     print("=" * 80)
     for citation in results["case_law_citations"]:
         print(f"  • {citation}")
+
+

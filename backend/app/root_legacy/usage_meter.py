@@ -12,7 +12,7 @@ from flask import current_app, g, request
 from flask_login import current_user
 from sqlalchemy import func
 
-from models_auth import UsageTracking, User, db
+from .models_auth import UsageTracking, User, db
 
 
 class SmartMeterEvent(db.Model):
@@ -530,3 +530,5 @@ def track_usage(event_type: str, event_category: str = "feature", quota_type: Op
         return wrapper
 
     return decorator
+
+

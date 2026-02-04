@@ -378,3 +378,5 @@ class LicenseService:
                 recent_validations[0].validated_at.isoformat() if recent_validations else None
             ),
         }
+
+

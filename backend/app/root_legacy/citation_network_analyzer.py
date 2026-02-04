@@ -17,8 +17,8 @@ from typing import Dict, List, Optional
 
 import requests
 
-from legal_library import LegalDocument, LegalLibraryService
-from models_auth import db
+from .legal_library import LegalDocument, LegalLibraryService
+from .models_auth import db
 
 
 class CitationTreatment:
@@ -391,3 +391,5 @@ def shepardize(citation: str) -> Dict:
     """
     analyzer = CitationNetworkAnalyzer()
     return analyzer.get_shepards_report(citation)
+
+

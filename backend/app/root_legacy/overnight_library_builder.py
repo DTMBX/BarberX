@@ -22,9 +22,9 @@ import time
 from datetime import datetime
 from typing import Dict, List
 
-from batch_import_foundation_cases import FOUNDATION_CASES
-from models_auth import db
-from verified_legal_sources import (SourceCredibilityTracker,
+from .batch_import_foundation_cases import FOUNDATION_CASES
+from .models_auth import db
+from .verified_legal_sources import (SourceCredibilityTracker,
                                     VerifiedLegalSources)
 
 # Configure logging
@@ -302,3 +302,5 @@ python overnight_library_builder.py --practice-area civil_rights criminal_defens
 # Add to crontab:
 # 0 2 * * * cd /path/to/Evident.info && python overnight_library_builder.py --practice-area all
 """
+
+

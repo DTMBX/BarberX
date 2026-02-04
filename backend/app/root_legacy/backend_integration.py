@@ -613,3 +613,5 @@ if __name__ == "__main__":
     print(json.dumps(get_system_status(), indent=2))
 
     task_queue.shutdown()
+
+

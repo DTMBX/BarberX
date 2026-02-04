@@ -7,7 +7,7 @@ This shows how to protect your law firm from copyright lawsuits.
 from datetime import datetime
 from pathlib import Path
 
-from data_rights import (RIGHTS_PROFILES, ExportViolation, Material,
+from .data_rights import (RIGHTS_PROFILES, ExportViolation, Material,
                          RightsAwareExport)
 
 
@@ -208,3 +208,5 @@ if __name__ == "__main__":
     print("4. Review DATA-RIGHTS-COMPLIANCE.md for full details")
     print("\n⚖️ Your law firm is now protected from copyright lawsuits!")
     print("=" * 80)
+
+

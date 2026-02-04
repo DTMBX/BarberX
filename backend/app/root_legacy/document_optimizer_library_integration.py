@@ -7,7 +7,7 @@ Auto-suggests relevant citations when optimizing legal documents
 import json
 from typing import Dict, List
 
-from legal_library import LegalLibraryService
+from .legal_library import LegalLibraryService
 
 
 class DocumentOptimizerLibraryIntegration:
@@ -198,7 +198,7 @@ class DocumentOptimizerLibraryIntegration:
 """
 Add to LegalDocumentOptimizer class:
 
-from document_optimizer_library_integration import DocumentOptimizerLibraryIntegration
+from .document_optimizer_library_integration import DocumentOptimizerLibraryIntegration
 
 class LegalDocumentOptimizer:
     def __init__(self):
@@ -226,3 +226,5 @@ class LegalDocumentOptimizer:
             citation_coverage=citation_check
         )
 """
+
+

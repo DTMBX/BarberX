@@ -297,3 +297,5 @@ class RetentionTracker:
 analytics = UserAnalytics()
 churn_predictor = ChurnPredictor()
 retention_tracker = RetentionTracker()
+
+

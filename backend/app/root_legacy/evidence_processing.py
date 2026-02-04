@@ -676,3 +676,5 @@ class EvidenceWorkflowManager:
 
 # Global instance
 evidence_workflow = EvidenceWorkflowManager()
+
+

@@ -12,7 +12,7 @@ services:
     plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
@@ -96,5 +96,6 @@ databases:
     rootDir: backend
     region: oregon
     ipAllowList: [] # Allow all IPs (required for Render free tier)
+
 
 

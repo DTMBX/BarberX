@@ -24,11 +24,11 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 
-from code360_client import Code360Client, Municipality
-from legal_library import LegalDocument, LegalLibraryService
-from municipal_code_service import MunicipalCodeService
-from statutory_compliance_checker import StatutoryComplianceChecker
-from verified_legal_sources import VerifiedLegalSources
+from .code360_client import Code360Client, Municipality
+from .legal_library import LegalDocument, LegalLibraryService
+from .municipal_code_service import MunicipalCodeService
+from .statutory_compliance_checker import StatutoryComplianceChecker
+from .verified_legal_sources import VerifiedLegalSources
 
 logger = logging.getLogger(__name__)
 
@@ -856,3 +856,5 @@ def analyze_evidence(evidence: Dict, state: str, municipality: Optional[str] = N
     """
     service = LegalTrinityService()
     return service.analyze_evidence_against_law(evidence, state, municipality)
+
+

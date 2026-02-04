@@ -380,3 +380,5 @@ if __name__ == "__main__":
     print("\n✓ Whisper Transcription Service ready!")
     print("  Install: pip install openai-whisper")
     print("  Usage: service.transcribe_audio('file.mp4')")
+
+

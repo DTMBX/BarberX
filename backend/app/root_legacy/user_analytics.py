@@ -206,3 +206,5 @@ def track_feature(user, feature_name, metadata=None):
 def check_churn_risk(user):
     """Check if user is at risk of churning"""
     return UserAnalytics.predict_churn_risk(user)
+
+

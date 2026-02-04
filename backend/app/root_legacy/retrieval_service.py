@@ -223,3 +223,5 @@ class RetrievalService:
             ).fetchone()
 
             return row["text_content"] if row else None
+
+

@@ -302,7 +302,7 @@ class CitationQualityValidator:
 """
 Add to overnight_library_builder.py:
 
-from citation_quality_validator import CitationQualityValidator
+from .citation_quality_validator import CitationQualityValidator
 
 class OvernightLibraryBuilder:
     def __init__(self):
@@ -320,3 +320,5 @@ class OvernightLibraryBuilder:
             # Import validated citation
             ...
 """
+
+

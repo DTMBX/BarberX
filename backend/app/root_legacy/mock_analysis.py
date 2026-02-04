@@ -269,3 +269,5 @@ class MockAnalysisGenerator:
 
 # Global instance
 mock_generator = MockAnalysisGenerator()
+
+

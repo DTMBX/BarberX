@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from flask import flash, jsonify
 from pypdf import PdfReader  # Migrated from PyPDF2 (deprecated)
 
-from models_auth import TierLevel, db
+from .models_auth import TierLevel, db
 
 
 class OneTimeUploadManager:
@@ -293,3 +293,5 @@ def free_tier_upload_route_decorator(f):
 
 # Export key components
 __all__ = ["OneTimeUploadManager", "free_tier_upload_route_decorator"]
+
+

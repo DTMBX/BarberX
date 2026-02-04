@@ -31,7 +31,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from flask import current_app, g
 from sqlalchemy import desc, func
 
-from models_auth import UsageTracking, User, db
+from .models_auth import UsageTracking, User, db
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -1106,3 +1106,5 @@ if __name__ == "__main__":
     print(f"GPT-4o-mini (10000 prompt + 5000 completion tokens): ${cost:.6f}")
 
     print("\n✓ API Usage Metering Service ready!")
+
+

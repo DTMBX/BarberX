@@ -20,8 +20,8 @@ from typing import Dict, List, Optional
 import requests
 from bs4 import BeautifulSoup
 
-from legal_library import LegalDocument, LegalLibraryService
-from models_auth import db
+from .legal_library import LegalDocument, LegalLibraryService
+from .models_auth import db
 
 
 class VerifiedLegalSources:
@@ -419,7 +419,7 @@ class SourceCredibilityTracker:
 """
 Add to legal_library.py:
 
-from verified_legal_sources import VerifiedLegalSources, SourceCredibilityTracker
+from .verified_legal_sources import VerifiedLegalSources, SourceCredibilityTracker
 
 class LegalLibraryService:
     def __init__(self):
@@ -430,3 +430,5 @@ class LegalLibraryService:
         # Only import from verified sources
         return self.verified_sources.import_from_courtlistener(citation)
 """
+
+

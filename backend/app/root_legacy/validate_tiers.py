@@ -2,7 +2,7 @@
 
 from flask import Flask
 
-from models_auth import TierLevel, User, db
+from .models_auth import TierLevel, User, db
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test.db"
@@ -40,3 +40,5 @@ with app.app_context():
     print("\n" + "=" * 60)
     print("✅ VALIDATION COMPLETE")
     print("=" * 60)
+
+

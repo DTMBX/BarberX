@@ -5,9 +5,9 @@ import json
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from ai_suggestions import smart_suggest
-from legal_ai_agents import AgentCapability, agent_manager
-from legal_document_agents import (BriefWriterAgent, LegalLetterAgent,
+from .ai_suggestions import smart_suggest
+from .legal_ai_agents import AgentCapability, agent_manager
+from .legal_document_agents import (BriefWriterAgent, LegalLetterAgent,
                                    MotionDrafterAgent)
 
 
@@ -528,3 +528,5 @@ class UnifiedWorkflowOrchestrator:
 def get_orchestrator(user_id: str) -> UnifiedWorkflowOrchestrator:
     """Get or create orchestrator for user"""
     return UnifiedWorkflowOrchestrator(user_id)
+
+

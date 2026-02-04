@@ -5,8 +5,8 @@ import re
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from legal_ai_agents import AgentCapability, AgentStatus, LegalAIAgent
-from legal_research_integration import (Jurisdiction, LegalCitation,
+from .legal_ai_agents import AgentCapability, AgentStatus, LegalAIAgent
+from .legal_research_integration import (Jurisdiction, LegalCitation,
                                         legal_research)
 
 
@@ -662,3 +662,5 @@ IN WITNESS WHEREOF, the parties have executed this Agreement.
 
 # Export document drafting agents
 __all__ = ["MotionDrafterAgent", "BriefWriterAgent", "LegalLetterAgent", "ContractDrafterAgent"]
+
+

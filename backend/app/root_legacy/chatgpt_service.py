@@ -230,3 +230,5 @@ IMPORTANT: You are an AI assistant, not a licensed attorney. Always remind users
         # Truncate to approximate character count
         max_chars = max_tokens * 4
         return context[:max_chars] + "\n\n[Context truncated due to length...]"
+
+

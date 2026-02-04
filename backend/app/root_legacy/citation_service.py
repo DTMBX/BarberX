@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
-from retrieval_service import Passage
+from .retrieval_service import Passage
 
 DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 
@@ -149,3 +149,5 @@ class CitationService:
             ).fetchone()
 
             return dict(row) if row else {}
+
+

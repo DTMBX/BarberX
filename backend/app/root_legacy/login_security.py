@@ -14,7 +14,7 @@ from flask import request
 from pyod.models.iforest import IForest
 from pyod.models.lof import LOF
 
-from models_auth import db
+from .models_auth import db
 
 
 class LoginSecurityManager:
@@ -261,3 +261,5 @@ def check_login_security(user_id=None, email=None):
         dict: Risk assessment with recommendation
     """
     return login_security.get_risk_score(user_id, email)
+
+

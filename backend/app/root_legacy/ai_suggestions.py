@@ -280,3 +280,5 @@ class SmartSuggestionEngine:
 
 # Export singleton instance
 smart_suggest = SmartSuggestionEngine()
+
+

@@ -16,7 +16,7 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 # Import our BWC analyzer
-from bwc_forensic_analyzer import BWCForensicAnalyzer
+from .bwc_forensic_analyzer import BWCForensicAnalyzer
 
 app = Flask(__name__)
 CORS(app)
@@ -418,3 +418,5 @@ if __name__ == "__main__":
     )
 
     app.run(host="0.0.0.0", port=5000, debug=True, threaded=True)
+
+

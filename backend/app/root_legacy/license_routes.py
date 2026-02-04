@@ -9,7 +9,7 @@ import socket
 
 from flask import Blueprint, jsonify, request
 
-from models_license import License, LicenseService, LicenseValidation
+from .models_license import License, LicenseService, LicenseValidation
 
 license_bp = Blueprint("license", __name__, url_prefix="/api/v1/license")
 
@@ -260,3 +260,5 @@ def suspend_license(license_key):
 def health_check():
     """Health check for license service"""
     return jsonify({"status": "healthy", "service": "license-validation", "version": "1.0.0"}), 200
+
+

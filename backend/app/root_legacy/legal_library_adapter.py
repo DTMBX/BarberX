@@ -252,3 +252,5 @@ class LegalLibraryAdapter:
                 ).fetchall()
 
             return [dict(row) for row in rows]
+
+

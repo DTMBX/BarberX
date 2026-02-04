@@ -260,3 +260,5 @@ def register_ux_filters(app):
             "contextual_help": contextual_help,
             "get_welcome_message": get_welcome_message,
         }
+
+

@@ -718,3 +718,5 @@ CERTIFICATE OF SERVICE
 
 # Global legal research API instance
 legal_research = LegalResearchAPI()
+
+

@@ -8,8 +8,8 @@ from typing import Optional
 
 from flask import current_app
 
-from models_auth import User, db
-from usage_meter import SmartMeter, UsageQuota
+from .models_auth import User, db
+from .usage_meter import SmartMeter, UsageQuota
 
 
 class AlertManager:
@@ -273,3 +273,5 @@ def init_alert_scheduler(app):
     except ImportError:
         app.logger.warning("APScheduler not installed. Quota alerts will not be automated. Install with: pip install APScheduler")
         return None
+
+

@@ -285,3 +285,5 @@ if __name__ == "__main__":
     print("✓ 2FA Service Ready!")
     print("  Install: pip install pyotp qrcode[pil]")
     print("=" * 80)
+
+

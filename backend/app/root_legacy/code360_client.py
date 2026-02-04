@@ -780,3 +780,5 @@ def search_municipal_codes(
                 municipality_id = row["id"]
 
     return client.search(query, state=state, municipality_id=municipality_id)
+
+
