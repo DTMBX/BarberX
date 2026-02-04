@@ -38,6 +38,10 @@ secure/
 *.key
 *.pem
 
+# Ignore private backend and MAUI test folders
+Evident-Backend/
+Evident-MAUI-Test/
+
 # IDE
 .vscode/
 .idea/
