@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository includes **7 specialized AI agents** built with GitHub Copilot SDK to accelerate development of the Evident legal tech platform for BWC (Body Worn Camera) forensic analysis.
+This repository includes **8 specialized AI agents** built with GitHub Copilot SDK to accelerate development of the Evident legal tech platform for BWC (Body Worn Camera) forensic analysis.
 
 ## 🚀 Quick Start
 
@@ -24,6 +24,7 @@ In your IDE with GitHub Copilot, invoke agents with `@agent-name`:
 @frontend-dev Create a responsive case list component
 @database-architect Design a schema for evidence chain of custody
 @security-devops Review security vulnerabilities in auth flow
+@cloud-integration Implement Dropbox file sync for evidence uploads
 @documentation Write a quick start guide for attorneys
 ```
 
@@ -75,7 +76,31 @@ Add SHA-256 hashing for video file integrity verification
 
 ---
 
-### 3. **@flask-backend** - Flask Backend Developer
+### 3. **@cloud-integration** - Cloud Storage Integration Expert
+
+**Expertise:** Cloud APIs (Dropbox, Google Drive, OneDrive), OAuth 2.0, file sync, webhooks
+
+**Use Cases:**
+
+- Implement cloud storage provider integrations
+- Build OAuth 2.0 authentication flows
+- Create two-way file synchronization
+- Set up webhook listeners for file changes
+- Integrate Dropbox/Drive/OneDrive APIs
+- Ensure chain of custody for cloud evidence
+
+**Key Files:** `cloud_storage_integration.py`, `.env.template`, `SECURITY.md`
+
+**Example:**
+
+```
+@cloud-integration
+Implement Dropbox OAuth flow and evidence file sync with integrity verification
+```
+
+---
+
+### 4. **@flask-backend** - Flask Backend Developer
 
 **Expertise:** Flask APIs, authentication, database integration, security
 
@@ -98,7 +123,7 @@ Create an API endpoint for bulk case export with attorney certification
 
 ---
 
-### 4. **@frontend-dev** - Frontend UI/UX Developer
+### 5. **@frontend-dev** - Frontend UI/UX Developer
 
 **Expertise:** React components, responsive design, accessibility, animations
 
@@ -121,7 +146,7 @@ Create a responsive evidence gallery component with keyboard navigation
 
 ---
 
-### 5. **@database-architect** - Database Schema Designer
+### 6. **@database-architect** - Database Schema Designer
 
 **Expertise:** SQLAlchemy ORM, migrations, data integrity, query optimization
 
@@ -144,7 +169,7 @@ Design a schema for multi-file BWC case management with chain of custody
 
 ---
 
-### 6. **@security-devops** - Security & DevOps Engineer
+### 7. **@security-devops** - Security & DevOps Engineer
 
 **Expertise:** Application security, SSL/TLS, secrets management, CI/CD
 
@@ -167,7 +192,7 @@ Configure SSL certificate and rotate SECRET_KEY for production deployment
 
 ---
 
-### 7. **@documentation** - Technical Documentation Specialist
+### 8. **@documentation** - Technical Documentation Specialist
 
 **Expertise:** Technical writing, API docs, user guides, compliance documentation
 
@@ -206,15 +231,16 @@ Chain agents for complex tasks:
 
 ### Agent Selection Guide
 
-| Task Type         | Recommended Agent     |
-| ----------------- | --------------------- |
-| Export validation | `@legal-compliance`   |
-| Video processing  | `@bwc-forensics`      |
-| API endpoints     | `@flask-backend`      |
-| UI components     | `@frontend-dev`       |
-| Schema changes    | `@database-architect` |
-| Deployment        | `@security-devops`    |
-| User guides       | `@documentation`      |
+| Task Type         | Recommended Agent       |
+| ----------------- | ----------------------- |
+| Export validation | `@legal-compliance`     |
+| Video processing  | `@bwc-forensics`        |
+| API endpoints     | `@flask-backend`        |
+| UI components     | `@frontend-dev`         |
+| Schema changes    | `@database-architect`   |
+| Cloud integration | `@cloud-integration`    |
+| Deployment        | `@security-devops`      |
+| User guides       | `@documentation`        |
 
 ### Code Review Workflow
 
@@ -226,15 +252,16 @@ Chain agents for complex tasks:
 
 ## 📊 Agent Comparison
 
-| Agent              | Model             | Primary Focus     | Audience         |
-| ------------------ | ----------------- | ----------------- | ---------------- |
-| Legal Compliance   | Claude Sonnet 4.5 | Copyright law     | Attorneys        |
-| BWC Forensics      | Claude Sonnet 4.5 | Video analysis    | Forensic experts |
-| Flask Backend      | Claude Sonnet 4.5 | API development   | Backend devs     |
-| Frontend Dev       | Claude Sonnet 4.5 | UI/UX design      | Frontend devs    |
-| Database Architect | Claude Sonnet 4.5 | Schema design     | Database admins  |
-| Security DevOps    | Claude Sonnet 4.5 | Infrastructure    | DevOps engineers |
-| Documentation      | Claude Sonnet 4.5 | Technical writing | End users        |
+| Agent              | Model             | Primary Focus        | Audience         |
+| ------------------ | ----------------- | -------------------- | ---------------- |
+| Legal Compliance   | Claude Sonnet 4.5 | Copyright law        | Attorneys        |
+| BWC Forensics      | Claude Sonnet 4.5 | Video analysis       | Forensic experts |
+| Cloud Integration  | Claude Sonnet 4.5 | Cloud APIs & sync    | Cloud engineers  |
+| Flask Backend      | Claude Sonnet 4.5 | API development      | Backend devs     |
+| Frontend Dev       | Claude Sonnet 4.5 | UI/UX design         | Frontend devs    |
+| Database Architect | Claude Sonnet 4.5 | Schema design        | Database admins  |
+| Security DevOps    | Claude Sonnet 4.5 | Infrastructure       | DevOps engineers |
+| Documentation      | Claude Sonnet 4.5 | Technical writing    | End users        |
 
 ## 🔧 Configuration
 
