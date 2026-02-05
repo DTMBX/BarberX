@@ -60,6 +60,7 @@ bwc_videos/
 
 # Backups
 backups/
+site/backups/
 
 # Large files
 *.zip
