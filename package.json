@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "lint": "npm run lint:css || echo \"no-js-lint\"",
+    "lint": "npm run lint:css && npm run format:check:site",
     "lint:css": "stylelint \"site/components/*.css\" \"site/assets/css/**/*.css\"",
     "format": "prettier --write \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
-    "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\""
+    "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
+    "format:check:site": "prettier --check \"site/**/*.{css,html,md,js,json}\" \"README.md\" \"package.json\"",
+    "build": "node ./scripts/ci-webpack.js"
   },
   "devDependencies": {
     "prettier": "^3.0.0",
