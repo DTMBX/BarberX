@@ -14,7 +14,9 @@ services:
     region: oregon
     plan: free
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
+    # Ensure Render installs the backend requirements explicitly in case the
+    # service doesn't run the build command from `rootDir` for any reason.
+    buildCommand: pip install -r backend/requirements.txt
     startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
