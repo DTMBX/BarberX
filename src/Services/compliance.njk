@@ -1,0 +1,26 @@
+---
+title: Compliance
+description: Policy templates, review workflows, and continuous monitoring mapped to legal requirements.
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <h1 class="text-3xl font-bold">Compliance</h1>
+    <p class="mt-4 text-gray-700 max-w-prose">Policies, audits, and monitoring tools to help organizations meet legal and regulatory standards.</p>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-6 border rounded bg-white">
+        <img src="/assets/images/service-compliance.svg" alt="Compliance icon" class="h-16 w-16"/>
+        <h3 class="mt-4 font-semibold">Regulatory mapping</h3>
+        <p class="mt-2 text-sm text-gray-700">Map standards and requirements to processes and evidence retention policies.</p>
+      </div>
+      <div class="p-6 border rounded bg-white">
+        <img src="/assets/images/service-custody.svg" alt="Custody icon" class="h-16 w-16"/>
+        <h3 class="mt-4 font-semibold">Continuous monitoring</h3>
+        <p class="mt-2 text-sm text-gray-700">Ongoing checks and alerts to ensure compliance posture remains intact.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

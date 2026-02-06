@@ -1,0 +1,26 @@
+---
+title: Chain of Custody
+description: Standardized intake, transfer, and release processes to maintain admissibility.
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <h1 class="text-3xl font-bold">Chain of Custody</h1>
+    <p class="mt-4 text-gray-700 max-w-prose">Document every transfer and handling step with audit records and role-based approvals.</p>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-6 border rounded bg-white">
+        <img src="/assets/images/service-custody.svg" alt="Custody icon" class="h-16 w-16"/>
+        <h3 class="mt-4 font-semibold">Provenance tracking</h3>
+        <p class="mt-2 text-sm text-gray-700">Track each actor, timestamp, and action for full provenance records.</p>
+      </div>
+      <div class="p-6 border rounded bg-white">
+        <img src="/assets/images/service-audit.svg" alt="Audit icon" class="h-16 w-16"/>
+        <h3 class="mt-4 font-semibold">Secure transfers</h3>
+        <p class="mt-2 text-sm text-gray-700">Secure handoffs with cryptographic receipts and audit proofs.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

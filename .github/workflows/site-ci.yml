@@ -1,0 +1,54 @@
+name: Site CI
+
+on:
+  push:
+    branches: [ main, chore/repo-layout ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+      - name: Build site
+        run: npm run build
+      - name: Verify build output
+        run: |
+          if [ -f _site/index.html ]; then echo "_site/index.html exists"; else echo "Build missing _site/index.html"; exit 1; fi
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: _site/**
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: build-and-lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build site (for LHCI)
+        run: npm run build
+      - name: Start static server
+        run: npx http-server _site -p 8080 --silent &
+      - name: Run LHCI
+        run: npx --yes @lhci/cli autorun --config=.lighthouserc.json || true
+      - name: Upload LHCI results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lhci-results
+          path: lhci/**

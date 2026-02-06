@@ -1,0 +1,35 @@
+---
+title: Style Guide
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <h1 class="text-3xl font-bold">Style Guide</h1>
+    <p class="mt-4 text-gray-700">Tokens and components used across the site.</p>
+
+    <h2 class="mt-8 text-2xl font-semibold">Colors</h2>
+    <div class="mt-4 flex gap-4">
+      <div class="p-4 rounded" style="background:var(--color-primary);color:white">Primary</div>
+      <div class="p-4 rounded" style="background:var(--color-accent);color:white">Accent</div>
+      <div class="p-4 rounded" style="background:var(--color-neutral);">Neutral</div>
+    </div>
+
+    <h2 class="mt-8 text-2xl font-semibold">Typography</h2>
+    <div class="mt-4">
+      <h1 class="text-4xl font-bold">Heading 1 — text-4xl</h1>
+      <h2 class="text-3xl font-semibold mt-2">Heading 2 — text-3xl</h2>
+      <p class="mt-4">Body text — uses `Inter` variable font for readable UI copy.</p>
+    </div>
+
+    <h2 class="mt-8 text-2xl font-semibold">Components</h2>
+    <div class="mt-4">
+      <h3 class="font-semibold">Hero</h3>
+      {% include "hero.njk" %}
+
+      <h3 class="mt-8 font-semibold">Services cards</h3>
+      {% include "components/services.njk" %}
+    </div>
+  </section>
+{% endblock %}

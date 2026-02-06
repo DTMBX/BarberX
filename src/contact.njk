@@ -1,0 +1,26 @@
+---
+title: Contact
+description: Get in touch with Evident Technologies
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <h1 class="text-3xl font-bold">Contact</h1>
+    <p class="mt-4">For sales, support, or press, email <a href="mailto:contact@evident.info">contact@evident.info</a> or use the form below.</p>
+
+    <form class="mt-8 max-w-xl" action="/" method="post" aria-label="Contact form">
+      <label class="block">Name
+        <input name="name" class="mt-1 block w-full border rounded p-2" required>
+      </label>
+      <label class="block mt-4">Email
+        <input name="email" type="email" class="mt-1 block w-full border rounded p-2" required>
+      </label>
+      <label class="block mt-4">Message
+        <textarea name="message" class="mt-1 block w-full border rounded p-2" rows="6" required></textarea>
+      </label>
+      <button type="submit" class="mt-4 bg-primary text-white px-4 py-2 rounded">Send Message</button>
+    </form>
+  </section>
+{% endblock %}
