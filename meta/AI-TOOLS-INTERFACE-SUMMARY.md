@@ -2,7 +2,10 @@
 
 ## Summary
 
-Successfully built a comprehensive public-facing interface for Evident AI analysis pipelines, making BWC analysis, PDF processing, legal analysis, OCR, and transcription tools accessible to users with proper tier gating and security.
+Successfully built a comprehensive public-facing interface for Evident AI
+analysis pipelines, making BWC analysis, PDF processing, legal analysis, OCR,
+and transcription tools accessible to users with proper tier gating and
+security.
 
 ---
 
@@ -26,7 +29,8 @@ A beautiful, modern landing page showcasing all 9 AI analysis tools:
 
 **Features**:
 
-- Usage statistics dashboard (videos analyzed, documents processed, storage used)
+- Usage statistics dashboard (videos analyzed, documents processed, storage
+  used)
 - Tier badges (Free, Starter, Pro) on each tool
 - Clean, gradient-based design with hover effects
 - Responsive grid layout
@@ -315,7 +319,8 @@ if not analysis:
 
 ### Before Going Live
 
-1. **Set production URLs** in templates (change `localhost:5000` to production domain)
+1. **Set production URLs** in templates (change `localhost:5000` to production
+   domain)
 2. **Enable HTTPS** for all API endpoints
 3. **Configure CORS** properly for production
 4. **Set up monitoring** for failed analyses
@@ -345,4 +350,5 @@ OPENAI_API_KEY=<your-key>  # if using OpenAI Whisper API
 
 **Next**: Create remaining tool pages and test complete user flows end-to-end.
 
-The public interface is now ready for users to discover and use all AI analysis pipelines with proper access control and usage limits.
+The public interface is now ready for users to discover and use all AI analysis
+pipelines with proper access control and usage limits.

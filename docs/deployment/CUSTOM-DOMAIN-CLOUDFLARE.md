@@ -43,8 +43,7 @@ Click "Save"
 
 Render auto-provisions SSL (5-15 minutes)
 
-Your app will be live at:
-**https://app.Evident.info** ??
+Your app will be live at: **https://app.Evident.info** ??
 
 --
 

@@ -139,7 +139,8 @@ at 1/10th the cost of Westlaw and LexisNexis
 
 ### **AFTER:**
 
-"Legal research shouldn't cost $2,000/month. We're democratizing access to justice."
+"Legal research shouldn't cost $2,000/month. We're democratizing access to
+justice."
 
 **Impact:** Broad appeal, clear problem/solution, moral clarity
 

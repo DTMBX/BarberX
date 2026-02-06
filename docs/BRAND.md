@@ -2,7 +2,9 @@
 
 ## Brand Overview
 
-Evident is a legal-grade evidence processing platform focused on forensic clarity, auditability, and local-first privacy. The brand tone is precise, accessible, and trustworthy—never playful or ambiguous.
+Evident is a legal-grade evidence processing platform focused on forensic
+clarity, auditability, and local-first privacy. The brand tone is precise,
+accessible, and trustworthy—never playful or ambiguous.
 
 - **Brand Name:** Evident
 - **Tagline:** Evidence made legible. Truth made durable.
@@ -18,15 +20,19 @@ Evident is a legal-grade evidence processing platform focused on forensic clarit
 
 ## Design Tokens (see assets/css/tokens.css)
 
-- All colors, radii, shadows, spacing, and typography are defined as CSS variables in `assets/css/tokens.css`.
+- All colors, radii, shadows, spacing, and typography are defined as CSS
+  variables in `assets/css/tokens.css`.
 - Use only tokens for all UI elements.
 
 ## UI System
 
-- **Buttons:** Unified `.btn` system (primary, secondary, ghost), pill radius, accessible focus, no gradients
-- **Layout:** `.container`, `.grid`, `.card`, `.panel`, `.bg-grid` for responsive, accessible layouts
+- **Buttons:** Unified `.btn` system (primary, secondary, ghost), pill radius,
+  accessible focus, no gradients
+- **Layout:** `.container`, `.grid`, `.card`, `.panel`, `.bg-grid` for
+  responsive, accessible layouts
 - **Patterns:** Subtle SVG/CSS grid backgrounds for hero, footer, and cards
-- **Accessibility:** All interactive elements have visible focus, sufficient contrast, and semantic markup
+- **Accessibility:** All interactive elements have visible focus, sufficient
+  contrast, and semantic markup
 
 ## Usage
 

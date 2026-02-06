@@ -7,7 +7,9 @@
 **Official Source:** U.S. Government public domain
 
 - Download from: https://www.defense.gov/Resources/Insignia/
-- Alternative: https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States.svg (convert to PNG)
+- Alternative:
+  https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States.svg (convert
+  to PNG)
 - Statutory authority: 4 U.S.C. Chapter 1
 
 ### 2. pow-mia.png
@@ -22,28 +24,33 @@
 
 **Historical Source:** Charleston Museum / National Archives
 
-- Download from: https://commons.wikimedia.org/wiki/File:Gadsden_flag.svg (convert to PNG)
+- Download from: https://commons.wikimedia.org/wiki/File:Gadsden_flag.svg
+  (convert to PNG)
 - Historical context: First Navy Jack, Christopher Gadsden design 1775
 
 ### 4. appeal-to-heaven.png
 
 **Historical Source:** Pine Tree Flag / Washington's Cruisers
 
-- Download from: https://commons.wikimedia.org/wiki/File:Pine_Tree_Flag.svg (convert to PNG)
+- Download from: https://commons.wikimedia.org/wiki/File:Pine_Tree_Flag.svg
+  (convert to PNG)
 - Historical context: Continental Navy, Massachusetts maritime flag 1775
 
 ### 5. gonzales-come-and-take-it.png
 
 **Historical Source:** Texas State Library and Archives
 
-- Download from: https://commons.wikimedia.org/wiki/File:Texas_Flag_Come_and_Take_It.svg (convert to PNG)
+- Download from:
+  https://commons.wikimedia.org/wiki/File:Texas_Flag_Come_and_Take_It.svg
+  (convert to PNG)
 - Historical context: Battle of Gonzales, October 2, 1835
 
 ### 6. betsy-ross-13-star.png
 
 **Historical Source:** National Archives / Betsy Ross Flag design
 
-- Download from: https://commons.wikimedia.org/wiki/File:Betsy_Ross_flag.svg (convert to PNG)
+- Download from: https://commons.wikimedia.org/wiki/File:Betsy_Ross_flag.svg
+  (convert to PNG)
 - Historical context: 13 stars in circle pattern, original colonies
 
 ## Image Specifications
@@ -73,5 +80,5 @@ convert input.svg -resize 800x600 -background transparent output.png
 
 ## Placeholder Removal
 
-**IMPORTANT:** Replace all placeholder files with actual flag images before deployment.
-Current status: PLACEHOLDERS ONLY - NOT FOR PRODUCTION USE.
+**IMPORTANT:** Replace all placeholder files with actual flag images before
+deployment. Current status: PLACEHOLDERS ONLY - NOT FOR PRODUCTION USE.

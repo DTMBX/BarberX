@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-Fair-scaled pricing structure with consistent 52-84% margins across all tiers, optimized FREE tier with 163%+ ROI, and clear upgrade paths.
+Fair-scaled pricing structure with consistent 52-84% margins across all tiers,
+optimized FREE tier with 163%+ ROI, and clear upgrade paths.
 
 --
 

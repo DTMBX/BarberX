@@ -1,6 +1,7 @@
 # 🎬 Barber Cam Hero Components - START HERE
 
-Welcome! This is your complete guide to all animated hero components for the Barber Cam marketing website.
+Welcome! This is your complete guide to all animated hero components for the
+Barber Cam marketing website.
 
 ## 🚀 Quick Start (Choose Your Path)
 
@@ -8,7 +9,8 @@ Welcome! This is your complete guide to all animated hero components for the Bar
 
 **Status:** ✅ Ready to go — no changes needed!
 
-- The v2.0 refined barber pole animation is already in your `index.html` and `assets/css/style.css`
+- The v2.0 refined barber pole animation is already in your `index.html` and
+  `assets/css/style.css`
 - It includes improved timing (5.5s animation) and refined styling
 - No additional files to copy
 
@@ -37,7 +39,7 @@ cp components/EvidentHero.css src/components/
 **Usage:**
 
 ```jsx
-import EvidentHero from "@/components/EvidentHero";
+import EvidentHero from '@/components/EvidentHero';
 
 export default function Home() {
   return (
@@ -76,14 +78,14 @@ cp components/EvidentHero.css src/components/
 **Usage:**
 
 ```tsx
-import EvidentHero from "@/components/EvidentHero";
+import EvidentHero from '@/components/EvidentHero';
 
 export default function Home() {
   return (
     <EvidentHero
       heading="Welcome to Barber Cam"
       ctaText="Book Now"
-      onCtaClick={() => router.push("/booking")}
+      onCtaClick={() => router.push('/booking')}
     />
   );
 }
@@ -219,7 +221,8 @@ See `REACT_NEXTJS_GUIDE.md` for more color variables.
 Both implementations auto-detect dark mode. To test:
 
 - **Windows/Mac:** Settings → Display → Dark mode
-- **Chrome:** DevTools → Command Palette → "CSS media feature prefers-color-scheme"
+- **Chrome:** DevTools → Command Palette → "CSS media feature
+  prefers-color-scheme"
 
 Everything should automatically switch colors.
 
@@ -233,7 +236,7 @@ Everything should automatically switch colors.
 <EvidentHero
   onCtaClick={() => {
     // Your handler here
-    router.push("/booking");
+    router.push('/booking');
     // or: window.location.href = '/booking';
     // or: handleBookingModal();
   }}
@@ -355,4 +358,5 @@ Happy deploying! 🚀
 
 --
 
-Replace `YOUR_NETLIFY_SITE_ID` in the badge URL with your actual Netlify site ID for live status.
+Replace `YOUR_NETLIFY_SITE_ID` in the badge URL with your actual Netlify site ID
+for live status.

@@ -2,7 +2,8 @@
 
 ## Source Verification System
 
-**Purpose:** Ensure only legitimate, verified, and respected legal sources are used.
+**Purpose:** Ensure only legitimate, verified, and respected legal sources are
+used.
 
 --
 
@@ -411,6 +412,7 @@ Average credibility:       9.2/10
 
 --
 
-**Summary:** Only legitimate, verified, and respected sources used. Multi-stage verification ensures quality and authenticity.
+**Summary:** Only legitimate, verified, and respected sources used. Multi-stage
+verification ensures quality and authenticity.
 
 **Status:** ✅ Production-ready with comprehensive verification

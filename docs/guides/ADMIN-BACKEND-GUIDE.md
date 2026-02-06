@@ -2,7 +2,9 @@
 
 ## Overview
 
-The Evident admin panel now provides complete CRUD (Create, Read, Update, Delete) operations for managing users, analyses, and monitoring system health via an online admin portal.
+The Evident admin panel now provides complete CRUD (Create, Read, Update,
+Delete) operations for managing users, analyses, and monitoring system health
+via an online admin portal.
 
 **Access:** `https://app.Evident.info/admin` (requires admin role)
 
@@ -311,8 +313,10 @@ def admin_panel():
 
 - `free_tier_analyses` - Max analyses per month for free tier (default: 5)
 - `free_tier_storage_mb` - Max storage in MB for free tier (default: 500)
-- `pro_tier_analyses` - Max analyses per month for professional tier (default: 100)
-- `pro_tier_storage_mb` - Max storage in MB for professional tier (default: 2048)
+- `pro_tier_analyses` - Max analyses per month for professional tier
+  (default: 100)
+- `pro_tier_storage_mb` - Max storage in MB for professional tier
+  (default: 2048)
 - `max_file_size_mb` - Maximum file upload size in MB (default: 500)
 
 ##### 📧 Email Configuration
@@ -728,7 +732,8 @@ db.session.commit()
 ## 📖 Related Documentation
 
 - [DASHBOARD-QUICK-REF.md](./DASHBOARD-QUICK-REF.md) - API reference
-- [DASHBOARD-OPTIMIZATION.md](./DASHBOARD-OPTIMIZATION.md) - Implementation details
+- [DASHBOARD-OPTIMIZATION.md](./DASHBOARD-OPTIMIZATION.md) - Implementation
+  details
 - [START-HERE.md](./START-HERE.md) - Quick start guide
 - [WEB-APP-GUIDE.md](./WEB-APP-GUIDE.md) - Full platform guide
 

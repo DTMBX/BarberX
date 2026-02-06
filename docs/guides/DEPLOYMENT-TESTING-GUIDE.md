@@ -51,8 +51,7 @@ Render is currently:
 
 ### **Monitor Deployment:**
 
-**Go to Render Dashboard:**
-https://dashboard.render.com
+**Go to Render Dashboard:** https://dashboard.render.com
 
 **Check:**
 
@@ -210,7 +209,8 @@ Set these in Render ? Environment variables
 | 1 BWC Video    | 1 GB   | 60-120 seconds |
 | 26 Mixed Files | 22 GB  | 15-30 minutes  |
 
-**Note:** Free tier has slower disk I/O. Upgrade to paid tier for faster uploads.
+**Note:** Free tier has slower disk I/O. Upgrade to paid tier for faster
+uploads.
 
 --
 

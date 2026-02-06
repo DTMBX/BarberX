@@ -13,23 +13,23 @@ class ToastNotification {
   }
 
   createContainer() {
-    let container = document.querySelector(".toast-container");
+    let container = document.querySelector('.toast-container');
     if (!container) {
-      container = document.createElement("div");
-      container.className = "toast-container";
+      container = document.createElement('div');
+      container.className = 'toast-container';
       document.body.appendChild(container);
     }
     return container;
   }
 
-  show(message, type = "info", duration = 5000) {
+  show(message, type = 'info', duration = 5000) {
     const toast = this.createToast(message, type);
     this.container.appendChild(toast);
     this.toasts.push(toast);
 
     // Trigger animation
     requestAnimationFrame(() => {
-      toast.classList.add("show");
+      toast.classList.add('show');
     });
 
     // Auto dismiss
@@ -41,10 +41,10 @@ class ToastNotification {
   }
 
   createToast(message, type) {
-    const toast = document.createElement("div");
+    const toast = document.createElement('div');
     toast.className = `toast ${type}`;
-    toast.setAttribute("role", "alert");
-    toast.setAttribute("aria-live", "polite");
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'polite');
 
     const icon = this.getIcon(type);
     const title = this.getTitle(type);
@@ -64,15 +64,15 @@ class ToastNotification {
     `;
 
     // Close button handler
-    const closeBtn = toast.querySelector(".toast-close");
-    closeBtn.addEventListener("click", () => this.dismiss(toast));
+    const closeBtn = toast.querySelector('.toast-close');
+    closeBtn.addEventListener('click', () => this.dismiss(toast));
 
     return toast;
   }
 
   dismiss(toast) {
-    toast.classList.remove("show");
-    toast.classList.add("hide");
+    toast.classList.remove('show');
+    toast.classList.add('hide');
 
     setTimeout(() => {
       if (toast.parentNode) {
@@ -84,45 +84,45 @@ class ToastNotification {
 
   getIcon(type) {
     const icons = {
-      success: "✓",
-      error: "✕",
-      warning: "⚠",
-      info: "ℹ",
+      success: '✓',
+      error: '✕',
+      warning: '⚠',
+      info: 'ℹ',
     };
     return icons[type] || icons.info;
   }
 
   getTitle(type) {
     const titles = {
-      success: "Success",
-      error: "Error",
-      warning: "Warning",
-      info: "Info",
+      success: 'Success',
+      error: 'Error',
+      warning: 'Warning',
+      info: 'Info',
     };
     return titles[type] || titles.info;
   }
 
   escapeHtml(text) {
-    const div = document.createElement("div");
+    const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
   }
 
   // Convenience methods
   success(message, duration) {
-    return this.show(message, "success", duration);
+    return this.show(message, 'success', duration);
   }
 
   error(message, duration) {
-    return this.show(message, "error", duration);
+    return this.show(message, 'error', duration);
   }
 
   warning(message, duration) {
-    return this.show(message, "warning", duration);
+    return this.show(message, 'warning', duration);
   }
 
   info(message, duration) {
-    return this.show(message, "info", duration);
+    return this.show(message, 'info', duration);
   }
 
   // Clear all toasts
@@ -135,6 +135,6 @@ class ToastNotification {
 const toast = new ToastNotification();
 
 // Export for module systems
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = toast;
 }

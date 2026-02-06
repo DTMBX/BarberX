@@ -2,7 +2,8 @@
 
 ## Summary
 
-Successfully implemented a unified retrieval system with citation provenance for the Legal Library. All components are working and tested.
+Successfully implemented a unified retrieval system with citation provenance for
+the Legal Library. All components are working and tested.
 
 ## Components Implemented
 
@@ -94,7 +95,8 @@ doc_id = adapter.ingest_text_document(
 
 **Changes:**
 
-- `search_library_for_context()` now returns `(passages, citations_metadata)` tuple
+- `search_library_for_context()` now returns `(passages, citations_metadata)`
+  tuple
 - Uses `RetrievalService.retrieve()` instead of LIKE-based search
 - `enhance_system_prompt()` builds strict SOURCES block with:
   - Numbered citations [Source 1], [Source 2]
@@ -311,7 +313,8 @@ doc_id = adapter.ingest_text_document(
 )
 ```
 
-This allows unified retrieval across legal library + BWC without changing BWC indexing.
+This allows unified retrieval across legal library + BWC without changing BWC
+indexing.
 
 ## Architecture Benefits
 
@@ -342,7 +345,8 @@ This allows unified retrieval across legal library + BWC without changing BWC in
    })
    ```
 
-3. **Update ChatGPT endpoint** - Wire in retrieval + citations (see Integration section above)
+3. **Update ChatGPT endpoint** - Wire in retrieval + citations (see Integration
+   section above)
 
 4. **Monitor citation stats** - Track which documents are most cited:
    ```python
@@ -370,10 +374,8 @@ This allows unified retrieval across legal library + BWC without changing BWC in
 
 - `instance/Evident_legal.db` - Unified legal retrieval database
 
-All requirements met:
-✅ ONE unified RetrievalService  
-✅ Passage with full provenance fields
-✅ LegalLibraryService adapter calls RetrievalService
-✅ ChatGPT integration accepts passages + citations
-✅ Citations persist (analysis_id, doc_id, page, offsets)
-✅ No breaking changes to BWC
+All requirements met: ✅ ONE unified RetrievalService  
+✅ Passage with full provenance fields ✅ LegalLibraryService adapter calls
+RetrievalService ✅ ChatGPT integration accepts passages + citations ✅
+Citations persist (analysis_id, doc_id, page, offsets) ✅ No breaking changes to
+BWC

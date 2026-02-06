@@ -1,15 +1,19 @@
 # Elegant Navigation System
 
-A beautiful, modern, and fully accessible navigation system designed for Evident Legal Technologies.
+A beautiful, modern, and fully accessible navigation system designed for Evident
+Legal Technologies.
 
 ## 🎨 Design Highlights
 
 ### Desktop Navigation
 
-- **Elegant Dropdown Menus**: Rich dropdowns with icons, titles, and descriptions
-- **Glassmorphism Header**: Modern backdrop blur effect with semi-transparent background
+- **Elegant Dropdown Menus**: Rich dropdowns with icons, titles, and
+  descriptions
+- **Glassmorphism Header**: Modern backdrop blur effect with semi-transparent
+  background
 - **Smooth Animations**: Subtle hover effects and transitions throughout
-- **Hover & Click Support**: Works with both mouse hover and touch/click interactions
+- **Hover & Click Support**: Works with both mouse hover and touch/click
+  interactions
 
 ### Mobile Navigation
 
@@ -247,7 +251,8 @@ Add a dropdown menu:
 /* Desktop: >= 1024px */
 ```
 
-The navigation automatically switches between desktop and mobile modes at 1024px.
+The navigation automatically switches between desktop and mobile modes at
+1024px.
 
 ## 🐛 Troubleshooting
 

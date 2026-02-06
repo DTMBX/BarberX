@@ -1,0 +1,26 @@
+name: Media Validate
+
+on:
+  pull_request:
+    paths:
+      - 'src/assets/media/**'
+      - 'src/assets/images/**'
+      - '.github/**'
+  push:
+    paths:
+      - 'src/assets/media/**'
+      - 'src/assets/images/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install
+        run: npm ci
+      - name: Validate media
+        run: node ./scripts/validate-media.js

@@ -39,8 +39,7 @@ except ImportError as e:
 - `messages` - Individual chat messages
 - `user_api_keys` - Encrypted OpenAI API keys
 
-###3. MAUI App Integration
-**File:** `MauiProgram.cs` (Lines 37-49)
+###3. MAUI App Integration **File:** `MauiProgram.cs` (Lines 37-49)
 
 ```csharp
 // Register ChatGPT Services
@@ -106,8 +105,7 @@ gquick "feat: Integrate ChatGPT"
 
 ### Issue 1: LoadConversationAsync visibility
 
-**File:** `ViewModels/ChatViewModel.cs:50`
-**Fix:** Add `public` modifier
+**File:** `ViewModels/ChatViewModel.cs:50` **Fix:** Add `public` modifier
 
 ```csharp
 [RelayCommand]
@@ -116,8 +114,7 @@ public async Task LoadConversationAsync()  // Add 'public'
 
 ### Issue 2: ChatRequest missing properties
 
-**File:** `Models/ApiModels.cs` (after line 630)
-**Fix:** Add missing properties
+**File:** `Models/ApiModels.cs` (after line 630) **Fix:** Add missing properties
 
 ```csharp
 public class ChatRequest
@@ -134,8 +131,8 @@ public class ChatRequest
 
 ### Issue 3: ChatResponse property name mismatch
 
-**File:** `ViewModels/ChatViewModel.cs:119`
-**Fix:** Change `.Message` to `.Content`
+**File:** `ViewModels/ChatViewModel.cs:119` **Fix:** Change `.Message` to
+`.Content`
 
 ```csharp
 // Old:
@@ -147,8 +144,7 @@ Content = response.Data.Content,
 
 ### Issue 4: MessagesResponse not iterable
 
-**File:** `ViewModels/ChatViewModel.cs:62`
-**Fix:** Access `.Messages` property
+**File:** `ViewModels/ChatViewModel.cs:62` **Fix:** Access `.Messages` property
 
 ```csharp
 // Old:

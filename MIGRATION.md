@@ -21,7 +21,11 @@ npm run build
 ```
 
 Notes:
-- This repository has been scaffolded with Eleventy (`@11ty/eleventy`) and Tailwind CSS.
-- CSS entry: `src/assets/css/tailwind.css` compiled to `_site/assets/css/styles.css`.
+
+- This repository has been scaffolded with Eleventy (`@11ty/eleventy`) and
+  Tailwind CSS.
+- CSS entry: `src/assets/css/tailwind.css` compiled to
+  `_site/assets/css/styles.css`.
 - Templates live in `src/` (Nunjucks). Layouts in `src/_includes/layouts/`.
-- Next steps: move content from existing Jekyll `_*` folders into `src/` and convert Liquid → Nunjucks includes.
+- Next steps: move content from existing Jekyll `_*` folders into `src/` and
+  convert Liquid → Nunjucks includes.

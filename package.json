@@ -12,6 +12,7 @@
     "build:images": "node ./scripts/optimize-images.js",
     "build:css": "postcss src/assets/css/tailwind.css -o _site/assets/css/styles.css",
     "build:eleventy": "eleventy",
+    "build:wasm": "node ./scripts/build-wasm.js",
     "build": "npm run build:images && npm run build:css && npm run build:eleventy",
     "dev": "npm run build:css && eleventy --serve",
     "start": "eleventy --serve"
@@ -27,6 +28,8 @@
     "stylelint": "^17.1.1",
     "stylelint-config-standard": "^40.0.0",
     "tailwindcss": "^3.4.0",
+    "@tailwindcss/forms": "^0.5.4",
+    "@tailwindcss/typography": "^0.5.9",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {

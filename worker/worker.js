@@ -4,24 +4,24 @@
 // Cloudflare Worker for Docket Upload (PR-based workflow)
 // Deploy this to Cloudflare Workers and configure secrets
 
-addEventListener("fetch", (event) => {
+addEventListener('fetch', (event) => {
   event.respondWith(handleRequest(event.request));
 });
 
 async function handleRequest(request) {
   // CORS headers
   const corsHeaders = {
-    "Access-Control-Allow-Origin": "https://faithfrontier.org",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    'Access-Control-Allow-Origin': 'https://faithfrontier.org',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
   };
 
-  if (request.method === "OPTIONS") {
+  if (request.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
-  if (request.method !== "POST") {
-    return new Response("Method not allowed", { status: 405 });
+  if (request.method !== 'POST') {
+    return new Response('Method not allowed', { status: 405 });
   }
 
   try {
@@ -30,20 +30,17 @@ async function handleRequest(request) {
 
     // Validate inputs
     if (!slug || !date || !type || !title || !filename || !content) {
-      return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
-        {
-          status: 400,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        },
-      );
+      return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
     }
 
     // GitHub API credentials from environment
     const GITHUB_TOKEN = GITHUB_PAT; // Set this secret in Cloudflare Workers
-    const REPO_OWNER = "XTX33";
-    const REPO_NAME = "FaithFrontier";
-    const BASE_BRANCH = "main";
+    const REPO_OWNER = 'XTX33';
+    const REPO_NAME = 'FaithFrontier';
+    const BASE_BRANCH = 'main';
 
     // Create a unique branch name
     const branchName = `docket/${slug}-${date}-${Date.now()}`;
@@ -54,55 +51,49 @@ async function handleRequest(request) {
       {
         headers: {
           Authorization: `token ${GITHUB_TOKEN}`,
-          "User-Agent": "FaithFrontier-DocketWorker",
+          'User-Agent': 'FaithFrontier-DocketWorker',
         },
-      },
+      }
     );
     const baseRefData = await baseRef.json();
     const baseSha = baseRefData.object.sha;
 
     // Create new branch
-    await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/refs`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `token ${GITHUB_TOKEN}`,
-          "User-Agent": "FaithFrontier-DocketWorker",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ref: `refs/heads/${branchName}`,
-          sha: baseSha,
-        }),
+    await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/refs`, {
+      method: 'POST',
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+        'User-Agent': 'FaithFrontier-DocketWorker',
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({
+        ref: `refs/heads/${branchName}`,
+        sha: baseSha,
+      }),
+    });
 
     // Prepare file path
-    const sanitizedFilename = filename.replace(/[^a-zA-Z0-9._-]/g, "-");
+    const sanitizedFilename = filename.replace(/[^a-zA-Z0-9._-]/g, '-');
     const pdfPath = `cases/${slug}/filings/${date}_${type}_${sanitizedFilename}`;
 
     // Upload PDF file
-    await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${pdfPath}`,
-      {
-        method: "PUT",
-        headers: {
-          Authorization: `token ${GITHUB_TOKEN}`,
-          "User-Agent": "FaithFrontier-DocketWorker",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: `chore(docket): add ${type} for ${slug}`,
-          content: content,
-          branch: branchName,
-        }),
+    await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${pdfPath}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+        'User-Agent': 'FaithFrontier-DocketWorker',
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({
+        message: `chore(docket): add ${type} for ${slug}`,
+        content: content,
+        branch: branchName,
+      }),
+    });
 
     // Update docket YAML
     const docketPath = `_data/docket/${slug}.yml`;
-    let docketYaml = "";
+    let docketYaml = '';
 
     // Try to get existing docket file
     const existingDocket = await fetch(
@@ -110,9 +101,9 @@ async function handleRequest(request) {
       {
         headers: {
           Authorization: `token ${GITHUB_TOKEN}`,
-          "User-Agent": "FaithFrontier-DocketWorker",
+          'User-Agent': 'FaithFrontier-DocketWorker',
         },
-      },
+      }
     );
 
     let docketSha = null;
@@ -125,53 +116,50 @@ async function handleRequest(request) {
     // Append new entry
     const id = `${date}-${title
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/[^a-z0-9]+/g, '-')
       .substring(0, 40)}`;
     const newEntry = `
 - id: ${id}
   date: ${date}
   type: ${type}
   title: ${title}
-  file: /${pdfPath}${notes ? `\n  notes: ${notes}` : ""}`;
+  file: /${pdfPath}${notes ? `\n  notes: ${notes}` : ''}`;
 
-    docketYaml += newEntry + "\n";
+    docketYaml += newEntry + '\n';
 
     // Update/create docket file
-    await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${docketPath}`,
-      {
-        method: "PUT",
-        headers: {
-          Authorization: `token ${GITHUB_TOKEN}`,
-          "User-Agent": "FaithFrontier-DocketWorker",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: `chore(docket): update ${slug} docket with ${type}`,
-          content: btoa(docketYaml),
-          branch: branchName,
-          ...(docketSha && { sha: docketSha }),
-        }),
+    await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${docketPath}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+        'User-Agent': 'FaithFrontier-DocketWorker',
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({
+        message: `chore(docket): update ${slug} docket with ${type}`,
+        content: btoa(docketYaml),
+        branch: branchName,
+        ...(docketSha && { sha: docketSha }),
+      }),
+    });
 
     // Create pull request
     const prResponse = await fetch(
       `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/pulls`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
           Authorization: `token ${GITHUB_TOKEN}`,
-          "User-Agent": "FaithFrontier-DocketWorker",
-          "Content-Type": "application/json",
+          'User-Agent': 'FaithFrontier-DocketWorker',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           title: `chore(docket): add ${type} for ${slug}`,
-          body: `## Docket Entry Submission\n\n- **Case:** ${slug}\n- **Date:** ${date}\n- **Type:** ${type}\n- **Title:** ${title}\n${notes ? `- **Notes:** ${notes}\n` : ""}\n- **File:** ${pdfPath}\n\nAutomatically generated from docket submission form.`,
+          body: `## Docket Entry Submission\n\n- **Case:** ${slug}\n- **Date:** ${date}\n- **Type:** ${type}\n- **Title:** ${title}\n${notes ? `- **Notes:** ${notes}\n` : ''}\n- **File:** ${pdfPath}\n\nAutomatically generated from docket submission form.`,
           head: branchName,
           base: BASE_BRANCH,
         }),
-      },
+      }
     );
 
     const prData = await prResponse.json();
@@ -183,8 +171,8 @@ async function handleRequest(request) {
         pr_number: prData.number,
       }),
       {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      },
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      }
     );
   } catch (error) {
     return new Response(
@@ -193,8 +181,8 @@ async function handleRequest(request) {
       }),
       {
         status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      },
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      }
     );
   }
 }

@@ -69,7 +69,7 @@
   /* =========================
      Typography
   ========================== */
-  --font-ui: "Inter", "Source Sans 3", "IBM Plex Sans", arial, sans-serif;
+  --font-ui: 'Inter', 'Source Sans 3', 'IBM Plex Sans', arial, sans-serif;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
@@ -110,7 +110,7 @@
 }
 
 .bg-grid::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;

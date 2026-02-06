@@ -16,7 +16,8 @@
 
 **Problem**: `premium-header.js` is not being loaded on pages
 
-- The mobile nav toggle button exists in HTML but has no JavaScript functionality
+- The mobile nav toggle button exists in HTML but has no JavaScript
+  functionality
 - Users on mobile/tablet cannot access the navigation menu
 - The hamburger button does nothing when clicked
 
@@ -225,6 +226,4 @@ python app.py
 
 ---
 
-**Status**: READY TO FIX
-**Priority**: CRITICAL
-**Est. Time**: 5 minutes
+**Status**: READY TO FIX **Priority**: CRITICAL **Est. Time**: 5 minutes

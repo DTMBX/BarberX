@@ -249,9 +249,9 @@ Once DNS is verified:
 
 Your Evident app will be accessible at:
 
-**Main App:** https://app.Evident.info
-**Login:** https://app.Evident.info/auth/login
-**Dashboard:** https://app.Evident.info/auth/dashboard
+**Main App:** https://app.Evident.info **Login:**
+https://app.Evident.info/auth/login **Dashboard:**
+https://app.Evident.info/auth/dashboard
 
 **Credentials:**
 
@@ -273,4 +273,5 @@ Your Evident app will be accessible at:
 
 --
 
-**Ready to set up? Tell me which domain registrar you use and I'll help you through it!** ??
+**Ready to set up? Tell me which domain registrar you use and I'll help you
+through it!** ??

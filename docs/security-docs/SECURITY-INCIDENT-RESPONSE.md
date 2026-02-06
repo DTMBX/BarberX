@@ -28,7 +28,8 @@ Sensitive credentials were committed to the public GitHub repository:
 ### ✅ Completed
 
 1. Removed all instances of exposed credentials from files
-2. Updated `init_auth.py` to use environment variables (ADMIN_EMAIL, ADMIN_PASSWORD)
+2. Updated `init_auth.py` to use environment variables (ADMIN_EMAIL,
+   ADMIN_PASSWORD)
 3. Created `.env.template` for secure configuration documentation
 4. Updated `.gitignore` to prevent future credential commits
 5. Committed fixes to local repository
@@ -71,7 +72,8 @@ Sensitive credentials were committed to the public GitHub repository:
   - Force logout all sessions
   - Review admin activity logs
 - [ ] **Flask SECRET_KEY**
-  - Generate new secret: `python -c "import secrets; print(secrets.token_urlsafe(32))"`
+  - Generate new secret:
+    `python -c "import secrets; print(secrets.token_urlsafe(32))"`
   - Update in production .env
   - Will invalidate all sessions
 

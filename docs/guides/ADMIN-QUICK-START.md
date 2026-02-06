@@ -7,7 +7,8 @@
 ## 🔑 Admin Credentials
 
 **Email:** `admin@Evident.info`  
-**Password:** `BxAdm!n#2026$Secur3*P@ssw0rd%33^` (33 chars with special characters)
+**Password:** `BxAdm!n#2026$Secur3*P@ssw0rd%33^` (33 chars with special
+characters)
 
 **Security Notes:**
 
@@ -234,4 +235,5 @@ Just log in as admin and navigate to `/admin`.
 
 --
 
-**Questions?** Check [ADMIN-BACKEND-GUIDE.md](./ADMIN-BACKEND-GUIDE.md) for detailed instructions.
+**Questions?** Check [ADMIN-BACKEND-GUIDE.md](./ADMIN-BACKEND-GUIDE.md) for
+detailed instructions.

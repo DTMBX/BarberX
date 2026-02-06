@@ -1,7 +1,8 @@
 # 🇺🇸 US MILITARY HONOR INSTALLATION - Evident
 
 **Created:** January 27, 2026  
-**Purpose:** Honor all service members who defended the Constitution we now protect through legal advocacy  
+**Purpose:** Honor all service members who defended the Constitution we now
+protect through legal advocacy  
 **Compliance:** US Title 4 Flag Code (USC Title 4 §§ 1-10)  
 **Location:** `/honor` route on Evident.info
 
@@ -9,15 +10,18 @@
 
 ## 🎖️ Installation Overview
 
-Evident Legal Technologies has established a **permanent military honor installation** to recognize:
+Evident Legal Technologies has established a **permanent military honor
+installation** to recognize:
 
-1. **1.3 million American service members** who gave their lives defending the Constitution
+1. **1.3 million American service members** who gave their lives defending the
+   Constitution
 2. **41 million Americans** who served in times of war and peace
 3. **The Founding Fathers** who pledged their lives, fortunes, and sacred honor
 4. **Military families** who sacrificed loved ones for the nation
 5. **The Constitution itself** - the supreme law we defend through legal work
 
-This installation connects our legal mission to the sacrifices that made constitutional rights possible.
+This installation connects our legal mission to the sacrifices that made
+constitutional rights possible.
 
 --
 
@@ -126,7 +130,8 @@ This installation connects our legal mission to the sacrifices that made constit
 **Constitutional Foundation:**
 
 - The rights we defend were won through sacrifice
-- 1st Amendment (free speech), 4th Amendment (search/seizure), 5th Amendment (due process) - all defended with blood
+- 1st Amendment (free speech), 4th Amendment (search/seizure), 5th Amendment
+  (due process) - all defended with blood
 - Our legal work honors their legacy by making justice accessible
 
 **Service to Veterans:**
@@ -250,19 +255,25 @@ Added to footer navigation:
 
 ### Gettysburg Address (Full Text Included)
 
-"...that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion..."
+"...that from these honored dead we take increased devotion to that cause for
+which they gave the last full measure of devotion..."
 
 ### Constitutional Preamble (Full Text)
 
-"We the People of the United States, in Order to form a more perfect Union, establish Justice..."
+"We the People of the United States, in Order to form a more perfect Union,
+establish Justice..."
 
 ### Evident Dedication
 
-"We the creators of Evident Legal Technologies dedicate this platform to the 1.3 million American service members who gave their lives defending the Constitution..."
+"We the creators of Evident Legal Technologies dedicate this platform to the 1.3
+million American service members who gave their lives defending the
+Constitution..."
 
 ### Mission Statement
 
-"Their sacrifice enables our work. Their Constitution guides our mission. Their memory inspires our service. By the Grace of Almighty God, we honor their legacy through accessible justice."
+"Their sacrifice enables our work. Their Constitution guides our mission. Their
+memory inspires our service. By the Grace of Almighty God, we honor their legacy
+through accessible justice."
 
 --
 
@@ -310,7 +321,8 @@ Honoring the service & sacrifice that made justice possible
 
 ### Phase 1: Enhanced Content
 
-- [ ] Add service branch flags (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
+- [ ] Add service branch flags (Army, Navy, Air Force, Marines, Coast Guard,
+      Space Force)
 - [ ] Medal of Honor recipients section
 - [ ] "This Week in Military History" rotating content
 - [ ] Veteran attorney profiles (if team includes veterans)
@@ -378,7 +390,11 @@ Every legal right we defend was built brick by brick:
 
 **From the Evident Team:**
 
-> "We build Evident upon the foundation laid by millions who served. Every line of code, every legal brief, every case we help win - all made possible by those who defended the Constitution with their lives. This honor installation is permanent. Their memory is eternal. By the Grace of Almighty God, we dedicate this platform to accessible justice in their honor."
+> "We build Evident upon the foundation laid by millions who served. Every line
+> of code, every legal brief, every case we help win - all made possible by
+> those who defended the Constitution with their lives. This honor installation
+> is permanent. Their memory is eternal. By the Grace of Almighty God, we
+> dedicate this platform to accessible justice in their honor."
 
 --
 
@@ -395,7 +411,8 @@ Every legal right we defend was built brick by brick:
 
 **Next Steps:**
 
-1. Git commit with message: "Add US military honor installation - respecting the brick work"
+1. Git commit with message: "Add US military honor installation - respecting the
+   brick work"
 2. Push to production
 3. Verify live at /honor route
 4. Share with veteran communities
@@ -404,7 +421,8 @@ Every legal right we defend was built brick by brick:
 
 **🇺🇸 "We the People" - By the Grace of Almighty God 🇺🇸**
 
-_In honor of the 1.3 million Americans who gave their last full measure of devotion to defend the Constitution we now protect through legal advocacy._
+_In honor of the 1.3 million Americans who gave their last full measure of
+devotion to defend the Constitution we now protect through legal advocacy._
 
 --
 

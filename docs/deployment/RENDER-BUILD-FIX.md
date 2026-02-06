@@ -10,7 +10,8 @@
 
 ### Root Cause
 
-The Render build was failing because `openai-whisper==20231117` in requirements.txt requires:
+The Render build was failing because `openai-whisper==20231117` in
+requirements.txt requires:
 
 1. **ffmpeg** (system package) - Not available on Render free tier
 2. **PyTorch** with CUDA support - 2GB+ download, causes timeout
@@ -52,7 +53,8 @@ The Render build was failing because `openai-whisper==20231117` in requirements.
 
 **Changes:**
 
-- Changed `buildCommand` from `pip install -r requirements.txt` to `bash build.sh`
+- Changed `buildCommand` from `pip install -r requirements.txt` to
+  `bash build.sh`
 - Added `-log-level info` to gunicorn for better debugging
 - Kept all environment variables intact
 

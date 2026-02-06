@@ -155,7 +155,8 @@ Add these DNS records at your domain registrar:
 
 ## ⚡ Flask Backend Integration (Optional)
 
-Your site has Flask backend components (`app.py`, auth routes, etc.). Here are your options:
+Your site has Flask backend components (`app.py`, auth routes, etc.). Here are
+your options:
 
 ### Option 1: Netlify Functions (Serverless)
 
@@ -165,12 +166,12 @@ Convert Flask routes to Netlify Functions:
 // netlify/functions/auth-handler.js
 exports.handler = async (event, context) => {
   // Handle /auth/* routes
-  const path = event.path.replace("/.netlify/functions/auth-handler/", "");
+  const path = event.path.replace('/.netlify/functions/auth-handler/', '');
 
   // Your auth logic here
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Auth handler" }),
+    body: JSON.stringify({ message: 'Auth handler' }),
   };
 };
 ```

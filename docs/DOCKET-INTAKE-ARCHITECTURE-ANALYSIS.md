@@ -8,7 +8,11 @@
 
 ## Executive Summary
 
-This report provides a comprehensive analysis of the Evident.info docket intake system, identifying critical integrity issues, architectural inconsistencies, and providing prioritized recommendations for improvement. The system currently supports 10+ active legal cases with hundreds of court filings, making data integrity paramount.
+This report provides a comprehensive analysis of the Evident.info docket intake
+system, identifying critical integrity issues, architectural inconsistencies,
+and providing prioritized recommendations for improvement. The system currently
+supports 10+ active legal cases with hundreds of court filings, making data
+integrity paramount.
 
 --
 
@@ -16,7 +20,8 @@ This report provides a comprehensive analysis of the Evident.info docket intake 
 
 ### 1.1 System Overview
 
-The docket intake system is a Jekyll-based static site architecture with automated PDF processing capabilities:
+The docket intake system is a Jekyll-based static site architecture with
+automated PDF processing capabilities:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -54,7 +59,7 @@ ATL-L-002794-25: atl-l-002794-25
 
 ```yaml
 - id: 2026-01-10-2026-01-10_Order_order-dismissing-first-otsc
-  date: "2026-01-10"
+  date: '2026-01-10'
   type: Order
   title: 2026 01 10 Order order dismissing first otsc
   file: /cases/atl-l-003252-25/filings/2026-01-10_Order_order-dismissing-first-otsc.pdf
@@ -380,7 +385,7 @@ name: Weekly Backup & Integrity Check
 
 on:
   schedule:
-    - cron: "0 3 * * 0" # Sundays at 3 AM
+    - cron: '0 3 * * 0' # Sundays at 3 AM
   workflow_dispatch: {}
 
 jobs:
@@ -412,7 +417,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
       - run: npm ci
       - run: node scripts/validate-case-integrity.js
       - run: node tools/generate-checksums.js -verify
@@ -494,11 +499,11 @@ jobs:
 // Proposed: Enhanced error handling in docket-intake.js
 
 const IntakeError = {
-  INVALID_PDF: "INVALID_PDF",
-  CASE_NOT_FOUND: "CASE_NOT_FOUND",
-  DUPLICATE_FILE: "DUPLICATE_FILE",
-  CHECKSUM_MISMATCH: "CHECKSUM_MISMATCH",
-  MOVE_FAILED: "MOVE_FAILED",
+  INVALID_PDF: 'INVALID_PDF',
+  CASE_NOT_FOUND: 'CASE_NOT_FOUND',
+  DUPLICATE_FILE: 'DUPLICATE_FILE',
+  CHECKSUM_MISMATCH: 'CHECKSUM_MISMATCH',
+  MOVE_FAILED: 'MOVE_FAILED',
 };
 
 async function processWithRecovery(pdfPath) {
@@ -601,8 +606,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "_inbox/**"
-      - "assets/uploads/**"
+      - '_inbox/**'
+      - 'assets/uploads/**'
 
 permissions:
   contents: write
@@ -616,8 +621,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -634,8 +639,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          title: "intake: Automated docket processing"
-          commit-message: "chore: Process docket intake files"
+          title: 'intake: Automated docket processing'
+          commit-message: 'chore: Process docket intake files'
           branch: automated/docket-intake
           delete-branch: true
           body: |
@@ -659,14 +664,14 @@ jobs:
 # _data/audit/<slug>-audit.yml
 # Audit trail for case: atl-l-003252-25
 
-- timestamp: "2026-01-19T14:30:00Z"
+- timestamp: '2026-01-19T14:30:00Z'
   action: FILE_ADDED
   file: /cases/atl-l-003252-25/filings/2026-01-19_Motion_example.pdf
   sha256: abc123...
   source: inbox
   user: github-actions[bot]
 
-- timestamp: "2026-01-19T14:30:01Z"
+- timestamp: '2026-01-19T14:30:01Z'
   action: DOCKET_UPDATED
   file: _data/docket/atl-l-003252-25.yml
   entries_added: 1
@@ -753,16 +758,16 @@ fi
  * 5. Create backup before changes
  */
 
-import fs from "fs";
-import path from "path";
-import yaml from "js-yaml";
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
 
-const DRY_RUN = process.argv.includes("-dry-run");
+const DRY_RUN = process.argv.includes('-dry-run');
 const BACKUP_DIR = `backups/migration-${Date.now()}`;
 
 async function main() {
-  console.log("🔄 Docket System Migration");
-  console.log(`Mode: ${DRY_RUN ? "DRY RUN" : "LIVE"}\n`);
+  console.log('🔄 Docket System Migration');
+  console.log(`Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE'}\n`);
 
   // Step 1: Create backup
   if (!DRY_RUN) {
@@ -773,18 +778,18 @@ async function main() {
   // Step 2: Inventory current state
   const inventory = {
     docketFiles: fs
-      .readdirSync("_data/docket")
-      .filter((f) => f.endsWith(".yml")),
+      .readdirSync('_data/docket')
+      .filter((f) => f.endsWith('.yml')),
     docketIndexFiles: fs
-      .readdirSync("_data/docket_index")
-      .filter((f) => f.endsWith(".yml")),
+      .readdirSync('_data/docket_index')
+      .filter((f) => f.endsWith('.yml')),
     casesWithDocketFolder: [],
     casesWithFilingsFolder: [],
   };
 
   // ... migration logic
 
-  console.log("\n✅ Migration complete");
+  console.log('\n✅ Migration complete');
 }
 
 main().catch(console.error);

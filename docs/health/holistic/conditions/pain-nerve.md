@@ -1,17 +1,17 @@
 ---
 
-layout: default
-title: "Pain + Nerve Support"
-permalink: /docs/health/holistic/conditions/pain-nerve/
---
+layout: default title: "Pain + Nerve Support" permalink:
+/docs/health/holistic/conditions/pain-nerve/ --
 
 # Pain + Nerve Support (Food-first)
 
-This subguide supports nerve irritation and musculoskeletal pain through **low-risk, daily practices**.
+This subguide supports nerve irritation and musculoskeletal pain through
+**low-risk, daily practices**.
 
 ## Start here
 
-- Tea rotation: ginger + turmeric (morning), tulsi (afternoon), chamomile/lavender (evening)
+- Tea rotation: ginger + turmeric (morning), tulsi (afternoon),
+  chamomile/lavender (evening)
 - Gentle movement: frequent short walks; avoid long sitting
 - Topical support: rosemary/ginger infused oil massage (hips/glutes/back)
 

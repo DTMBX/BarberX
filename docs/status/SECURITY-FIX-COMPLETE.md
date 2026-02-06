@@ -39,7 +39,8 @@
 - CVE-2024-28179: Out-of-bounds read vulnerability
 - Multiple arbitrary code execution risks
 
-**Impact:** Used in PDF processing and image uploads - potential remote code execution if exploited
+**Impact:** Used in PDF processing and image uploads - potential remote code
+execution if exploited
 
 --
 
@@ -53,7 +54,8 @@
 - Fixed timing attack vulnerabilities
 - Improved certificate validation
 
-**Impact:** Used for password hashing, API keys, session tokens - core security component
+**Impact:** Used for password hashing, API keys, session tokens - core security
+component
 
 --
 
@@ -247,8 +249,7 @@ python app.py
 
 ### 4. Dependency Conflicts
 
-**Initial Issue:** langchain packages required newer versions
-**Resolution:**
+**Initial Issue:** langchain packages required newer versions **Resolution:**
 
 - Updated openai: 1.59.5 → 2.15.0
 - Updated requests: 2.32.3 → 2.32.5
@@ -312,8 +313,7 @@ stripe==11.4.0            # Payment processing
 
 ### For Developers
 
-**PyPDF2 Migration:**
-If you have any custom scripts using PyPDF2, update them:
+**PyPDF2 Migration:** If you have any custom scripts using PyPDF2, update them:
 
 ```python
 # OLD - Do not use
@@ -323,14 +323,14 @@ from PyPDF2 import PdfReader, PdfWriter
 from pypdf import PdfReader, PdfWriter
 ```
 
-**OpenAI API:**
-OpenAI client v2.x has minor API changes. Most common usages remain compatible, but check:
+**OpenAI API:** OpenAI client v2.x has minor API changes. Most common usages
+remain compatible, but check:
 
 - `openai.ChatCompletion.create()` → `client.chat.completions.create()`
 - Client initialization now required
 
-**Stripe API:**
-Stripe v11.x has updated webhook signatures and some API changes. Review:
+**Stripe API:** Stripe v11.x has updated webhook signatures and some API
+changes. Review:
 
 - Webhook signature verification
 - Payment intent creation

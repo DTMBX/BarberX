@@ -55,17 +55,20 @@ Open browser: `http://localhost:5000/tools`
 
 **Issue**: SpaCy requires C++ build tools on Windows and fails to compile.
 
-**Workaround**: SpaCy is **not required** for any of the AI tools to function. The legal analysis, OCR, transcription, and BWC analysis all work without it.
+**Workaround**: SpaCy is **not required** for any of the AI tools to function.
+The legal analysis, OCR, transcription, and BWC analysis all work without it.
 
 **If you really need it**:
 
-1. Install Visual Studio Build Tools: https://visualstudio.microsoft.com/downloads/
+1. Install Visual Studio Build Tools:
+   https://visualstudio.microsoft.com/downloads/
 2. Install spaCy: `pip install spacy`
 3. Download model: `python -m spacy download en_core_web_sm`
 
 ### FAISS (Optional - for similarity search)
 
-ChromaDB is already installed and provides vector search functionality. FAISS is optional.
+ChromaDB is already installed and provides vector search functionality. FAISS is
+optional.
 
 ```bash
 pip install faiss-cpu
@@ -149,7 +152,8 @@ print(response.choices[0].message.content)
 WARNING: Redis unavailable, using in-memory cache
 ```
 
-**Solution**: Redis is optional. The app works fine without it using in-memory caching.
+**Solution**: Redis is optional. The app works fine without it using in-memory
+caching.
 
 To install Redis (optional):
 

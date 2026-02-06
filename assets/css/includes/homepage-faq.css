@@ -13,16 +13,8 @@
 .ff-hero {
   padding: 3.25rem 0 2.25rem;
   background:
-    radial-gradient(
-      1200px 500px at 20% 10%,
-      rgb(214 175 102 / 12%),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 420px at 90% 30%,
-      rgb(0 168 197 / 10%),
-      transparent 55%
-    );
+    radial-gradient(1200px 500px at 20% 10%, rgb(214 175 102 / 12%), transparent 60%),
+    radial-gradient(900px 420px at 90% 30%, rgb(0 168 197 / 10%), transparent 55%);
 }
 
 .ff-hero-inner {
@@ -40,7 +32,7 @@
 }
 
 .ff-hero-title {
-  font-family: Cinzel, "Libre Baskerville", serif;
+  font-family: Cinzel, 'Libre Baskerville', serif;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: #fdf7ec;
@@ -78,7 +70,7 @@
 }
 
 .ff-h2 {
-  font-family: Cinzel, "Libre Baskerville", serif;
+  font-family: Cinzel, 'Libre Baskerville', serif;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;

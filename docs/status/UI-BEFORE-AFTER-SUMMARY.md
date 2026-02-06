@@ -2,7 +2,10 @@
 
 ## Overview
 
-This document summarizes the changes made during the rebrand and UI modernization of the Evident platform (formerly Evident). All legacy branding, design tokens, and UI systems have been replaced with the new Evident system, focused on forensic clarity, accessibility, and modern design.
+This document summarizes the changes made during the rebrand and UI
+modernization of the Evident platform (formerly Evident). All legacy branding,
+design tokens, and UI systems have been replaced with the new Evident system,
+focused on forensic clarity, accessibility, and modern design.
 
 --
 
@@ -19,12 +22,16 @@ This document summarizes the changes made during the rebrand and UI modernizatio
 ## After (Evident)
 
 - All UI, docs, and assets reference "Evident" only
-- Unified `.btn` system (primary, secondary, ghost), pill radius, accessible focus
-- Centralized design tokens in `assets/css/tokens.css` for all colors, radii, shadows, spacing, typography
-- Header, hero, and footer refactored for new brand, layout, and pattern backgrounds
+- Unified `.btn` system (primary, secondary, ghost), pill radius, accessible
+  focus
+- Centralized design tokens in `assets/css/tokens.css` for all colors, radii,
+  shadows, spacing, typography
+- Header, hero, and footer refactored for new brand, layout, and pattern
+  backgrounds
 - Modern grid/card/panel utilities for all layouts
 - Subtle SVG/CSS grid backgrounds for hero, footer, and cards
-- All interactive elements have visible focus, sufficient contrast, and semantic markup
+- All interactive elements have visible focus, sufficient contrast, and semantic
+  markup
 - Forensic, accessible, and trustworthy tone throughout
 
 --

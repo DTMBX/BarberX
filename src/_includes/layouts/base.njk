@@ -3,11 +3,11 @@
   <head>
     {% include "head.njk" %}
   </head>
-  <body class="font-sans text-gray-900 bg-white">
+  <body class="font-sans text-gray-900 bg-white antialiased">
     <a class="skip-link" href="#main">Skip to content</a>
     {% include "header.njk" %}
 
-    <main id="main" class="site-container py-8">
+    <main id="main" class="site-container py-8 md:py-12 lg:py-16">
       {% block content %}{{ content | safe }}{% endblock %}
     </main>
 

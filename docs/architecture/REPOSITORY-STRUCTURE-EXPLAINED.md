@@ -1,8 +1,10 @@
 # 📁 Evident Repository Structure Explained
 
-**Question:** "Do I have a separate repo folder for each app platform? How does it work? Where is our code?"
+**Question:** "Do I have a separate repo folder for each app platform? How does
+it work? Where is our code?"
 
-**Answer:** You have **ONE repository** with **multiple project folders**, but most are legacy/placeholder. Here's what you actually have:
+**Answer:** You have **ONE repository** with **multiple project folders**, but
+most are legacy/placeholder. Here's what you actually have:
 
 --
 
@@ -32,7 +34,8 @@ Evident.info/
 └── requirements.txt         ← Python dependencies
 ```
 
-**Purpose:** This is your **production Flask app** that runs at https://Evident.info  
+**Purpose:** This is your **production Flask app** that runs at
+https://Evident.info  
 **Platforms:** Web browsers (all platforms)  
 **Status:** ✅ Production-ready with new REST API
 
@@ -40,7 +43,8 @@ Evident.info/
 
 ### 2. **.NET MAUI App (C#)** - Cross-Platform Native Apps
 
-**Location:** `C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\`
+**Location:**
+`C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\`
 
 ```
 src/Evident.MatterDocket.MAUI/
@@ -305,7 +309,8 @@ dotnet publish -f net9.0-android -c Release
    - Build for Windows, iOS, Android from same codebase
    - Platform-specific code goes in `Platforms/` subfolders
 
-4. **Other `src/` folders are unused** - Created earlier but not part of current architecture
+4. **Other `src/` folders are unused** - Created earlier but not part of current
+   architecture
 
 5. **All apps connect to same Flask backend** via REST API
 
@@ -339,4 +344,7 @@ C:\web-dev\github-repos\Evident.info\templates\
 
 --
 
-**Simple Answer:** You have **ONE repository** with **ONE Flask backend** and **ONE MAUI project** that builds apps for all platforms. The magic of .NET MAUI is that you write the code once and it compiles to Windows .exe, iOS .app, and Android .apk from the same source! 🎉
+**Simple Answer:** You have **ONE repository** with **ONE Flask backend** and
+**ONE MAUI project** that builds apps for all platforms. The magic of .NET MAUI
+is that you write the code once and it compiles to Windows .exe, iOS .app, and
+Android .apk from the same source! 🎉

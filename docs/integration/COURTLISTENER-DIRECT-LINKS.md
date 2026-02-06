@@ -76,15 +76,19 @@ Example: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 - 🔗 **Positions:** https://www.courtlistener.com/api/rest/v4/positions/
 - 🔗 **Education:** https://www.courtlistener.com/api/rest/v4/educations/
 - 🔗 **Schools:** https://www.courtlistener.com/api/rest/v4/schools/
-- 🔗 **Political Affiliations:** https://www.courtlistener.com/api/rest/v4/political-affiliations/
+- 🔗 **Political Affiliations:**
+  https://www.courtlistener.com/api/rest/v4/political-affiliations/
 - 🔗 **ABA Ratings:** https://www.courtlistener.com/api/rest/v4/aba-ratings/
-- 🔗 **Financial Disclosures:** https://www.courtlistener.com/api/rest/v4/financial-disclosures/
+- 🔗 **Financial Disclosures:**
+  https://www.courtlistener.com/api/rest/v4/financial-disclosures/
 
 #### **📋 Dockets & Documents**
 
 - 🔗 **Dockets:** https://www.courtlistener.com/api/rest/v4/dockets/
-- 🔗 **Docket Entries:** https://www.courtlistener.com/api/rest/v4/docket-entries/
-- 🔗 **RECAP Documents:** https://www.courtlistener.com/api/rest/v4/recap-documents/
+- 🔗 **Docket Entries:**
+  https://www.courtlistener.com/api/rest/v4/docket-entries/
+- 🔗 **RECAP Documents:**
+  https://www.courtlistener.com/api/rest/v4/recap-documents/
 - 🔗 **Parties:** https://www.courtlistener.com/api/rest/v4/parties/
 - 🔗 **Attorneys:** https://www.courtlistener.com/api/rest/v4/attorneys/
 
@@ -232,8 +236,7 @@ def search_caselaw_access_project(query):
 **API:** Limited (mostly web scraping)  
 **Use:** Supreme Court cases, USC, CFR
 
-**Supreme Court API:**
-🔗 **https://api.oyez.org/**
+**Supreme Court API:** 🔗 **https://api.oyez.org/**
 
 - Oral arguments
 - Justice votes

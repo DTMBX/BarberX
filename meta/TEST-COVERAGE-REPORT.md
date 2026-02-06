@@ -298,7 +298,5 @@ The Evident application has comprehensive E2E test coverage including:
 
 ---
 
-_Last Updated: January 31, 2026_
-_Test Framework: Playwright v1.58.1_
-_Total Tests: 150+_
-_Pass Rate Target: ≥95%_
+_Last Updated: January 31, 2026_ _Test Framework: Playwright v1.58.1_ _Total
+Tests: 150+_ _Pass Rate Target: ≥95%_

@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository includes **8 specialized AI agents** built with GitHub Copilot SDK to accelerate development of the Evident legal tech platform for BWC (Body Worn Camera) forensic analysis.
+This repository includes **8 specialized AI agents** built with GitHub Copilot
+SDK to accelerate development of the Evident legal tech platform for BWC (Body
+Worn Camera) forensic analysis.
 
 ## 🚀 Quick Start
 
@@ -42,7 +44,8 @@ In your IDE with GitHub Copilot, invoke agents with `@agent-name`:
 - Design rights-aware database schemas
 - Prevent Westlaw/Lexis content republishing
 
-**Key Files:** `data_rights.py`, `models_data_rights.py`, `DATA-RIGHTS-COMPLIANCE.md`
+**Key Files:** `data_rights.py`, `models_data_rights.py`,
+`DATA-RIGHTS-COMPLIANCE.md`
 
 **Example:**
 
@@ -55,7 +58,8 @@ Check if this PDF export violates Westlaw copyright terms
 
 ### 2. **@bwc-forensics** - BWC Forensic Analysis Specialist
 
-**Expertise:** Video analysis, AI transcription, evidence integrity, chain of custody
+**Expertise:** Video analysis, AI transcription, evidence integrity, chain of
+custody
 
 **Use Cases:**
 
@@ -63,9 +67,11 @@ Check if this PDF export violates Westlaw copyright terms
 - Integrate Whisper AI for transcription
 - Build timeline reconstruction features
 - Design evidence integrity verification
-  - Prepare forensic reports intended to assist court submissions; final admissibility is determined by courts and counsel
+  - Prepare forensic reports intended to assist court submissions; final
+    admissibility is determined by courts and counsel
 
-**Key Files:** `bwc_forensic_analyzer.py`, `bwc_web_app.py`, `BWC-ANALYSIS-GUIDE.md`
+**Key Files:** `bwc_forensic_analyzer.py`, `bwc_web_app.py`,
+`BWC-ANALYSIS-GUIDE.md`
 
 **Example:**
 
@@ -78,7 +84,8 @@ Add SHA-256 hashing for video file integrity verification
 
 ### 3. **@cloud-integration** - Cloud Storage Integration Expert
 
-**Expertise:** Cloud APIs (Dropbox, Google Drive, OneDrive), OAuth 2.0, file sync, webhooks
+**Expertise:** Cloud APIs (Dropbox, Google Drive, OneDrive), OAuth 2.0, file
+sync, webhooks
 
 **Use Cases:**
 
@@ -158,7 +165,8 @@ Create a responsive evidence gallery component with keyboard navigation
 - Enforce data constraints
 - Plan SQLite → PostgreSQL migration
 
-**Key Files:** `models_auth.py`, `models_data_rights.py`, `add_missing_columns.py`
+**Key Files:** `models_auth.py`, `models_data_rights.py`,
+`add_missing_columns.py`
 
 **Example:**
 
@@ -194,7 +202,8 @@ Configure SSL certificate and rotate SECRET_KEY for production deployment
 
 ### 8. **@documentation** - Technical Documentation Specialist
 
-**Expertise:** Technical writing, API docs, user guides, compliance documentation
+**Expertise:** Technical writing, API docs, user guides, compliance
+documentation
 
 **Use Cases:**
 
@@ -204,7 +213,8 @@ Configure SSL certificate and rotate SECRET_KEY for production deployment
 - Maintain compliance documentation
 - Organize project documentation
 
-**Key Files:** `README-NEW.md`, `ADMIN-QUICK-START.md`, `COPYRIGHT-QUICK-START.md`
+**Key Files:** `README-NEW.md`, `ADMIN-QUICK-START.md`,
+`COPYRIGHT-QUICK-START.md`
 
 **Example:**
 
@@ -270,7 +280,7 @@ Agents are configured in `.github/copilot-agents.yml`:
 ```yaml
 agents:
   legal-compliance:
-    name: "Evident Legal Compliance Expert"
+    name: 'Evident Legal Compliance Expert'
     model: claude-sonnet-4.5
     tools: [view, edit, create, grep, glob, powershell]
     instructions: |

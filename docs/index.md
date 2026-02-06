@@ -1,8 +1,10 @@
 ---
-title: "Evident Legal Technologies Documentation"
+title: 'Evident Legal Technologies Documentation'
 layout: default
 permalink: /docs/
-description: "Documentation for Evident's evidence processing, verification, and eDiscovery platform."
+description:
+  "Documentation for Evident's evidence processing, verification, and eDiscovery
+  platform."
 extra_css:
   - /assets/css/pages/docs.css
 ---

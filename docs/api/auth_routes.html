@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <meta name="generator" content="pdoc3 0.11.6" />
     <title>auth_routes API documentation</title>
     <meta
@@ -113,7 +110,7 @@ Login, logout, signup, and user management"
       .title code {
         font-weight: bold;
       }
-      h2[id^="header-"] {
+      h2[id^='header-'] {
         margin-top: 2em;
       }
       .ident {
@@ -128,7 +125,7 @@ Login, logout, signup, and user management"
       }
       code {
         background: #f3f3f3;
-        font-family: "DejaVu Sans Mono", monospace;
+        font-family: 'DejaVu Sans Mono', monospace;
         padding: 1px 4px;
         overflow-wrap: break-word;
       }
@@ -271,7 +268,7 @@ Login, logout, signup, and user management"
         display: inline;
       }
       .hlist li:after {
-        content: ",\2002";
+        content: ',\2002';
       }
       .hlist li:last-child:after {
         content: none;
@@ -367,19 +364,19 @@ Login, logout, signup, and user management"
           text-shadow: none !important;
         }
         a[href]:after {
-          content: " (" attr(href) ")";
+          content: ' (' attr(href) ')';
           font-size: 90%;
         }
         a[href][title]:after {
           content: none;
         }
         abbr[title]:after {
-          content: " (" attr(title) ")";
+          content: ' (' attr(title) ')';
         }
         .ir a:after,
-        a[href^="javascript:"]:after,
-        a[href^="#"]:after {
-          content: "";
+        a[href^='javascript:']:after,
+        a[href^='#']:after {
+          content: '';
         }
         pre,
         blockquote {
@@ -422,41 +419,36 @@ Login, logout, signup, and user management"
       crossorigin
     ></script>
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
+      window.addEventListener('DOMContentLoaded', () => {
         hljs.configure({
           languages: [
-            "bash",
-            "css",
-            "diff",
-            "graphql",
-            "ini",
-            "javascript",
-            "json",
-            "plaintext",
-            "python",
-            "python-repl",
-            "rust",
-            "shell",
-            "sql",
-            "typescript",
-            "xml",
-            "yaml",
+            'bash',
+            'css',
+            'diff',
+            'graphql',
+            'ini',
+            'javascript',
+            'json',
+            'plaintext',
+            'python',
+            'python-repl',
+            'rust',
+            'shell',
+            'sql',
+            'typescript',
+            'xml',
+            'yaml',
           ],
         });
         hljs.highlightAll();
         /* Collapse source docstrings */
         setTimeout(() => {
-          [...document.querySelectorAll(".hljs.language-python > .hljs-string")]
-            .filter(
-              (el) =>
-                el.innerHTML.length > 200 &&
-                ['"""', "'''"].includes(el.innerHTML.substring(0, 3)),
-            )
+          [...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+            .filter((el) => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
             .forEach((el) => {
-              let d = document.createElement("details");
-              d.classList.add("hljs-string");
-              d.innerHTML =
-                '<summary>"""</summary>' + el.innerHTML.substring(3);
+              let d = document.createElement('details');
+              d.classList.add('hljs-string');
+              d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
               el.replaceWith(d);
             });
         }, 100);
@@ -470,10 +462,7 @@ Login, logout, signup, and user management"
           <h1 class="title">Module <code>auth_routes</code></h1>
         </header>
         <section id="section-intro">
-          <p>
-            Evident Authentication Routes Login, logout, signup, and user
-            management
-          </p>
+          <p>Evident Authentication Routes Login, logout, signup, and user management</p>
         </section>
         <section></section>
         <section></section>
@@ -482,8 +471,7 @@ Login, logout, signup, and user management"
           <dl>
             <dt id="auth_routes.admin_change_user_tier">
               <code class="name flex">
-                <span
-                  >def <span class="ident">admin_change_user_tier</span></span
+                <span>def <span class="ident">admin_change_user_tier</span></span
                 >(<span>user_id)</span>
               </code>
             </dt>
@@ -538,8 +526,7 @@ def admin_change_user_tier(user_id):
             </dd>
             <dt id="auth_routes.admin_toggle_user_active">
               <code class="name flex">
-                <span
-                  >def <span class="ident">admin_toggle_user_active</span></span
+                <span>def <span class="ident">admin_toggle_user_active</span></span
                 >(<span>user_id)</span>
               </code>
             </dt>
@@ -1340,177 +1327,85 @@ def verify_login():
             <ul class="">
               <li>
                 <code
-                  ><a
-                    title="auth_routes.admin_change_user_tier"
-                    href="#auth_routes.admin_change_user_tier"
+                  ><a title="auth_routes.admin_change_user_tier" href="#auth_routes.admin_change_user_tier"
                     >admin_change_user_tier</a
                   ></code
                 >
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.admin_required"
-                    href="#auth_routes.admin_required"
-                    >admin_required</a
-                  ></code
-                >
+                <code><a title="auth_routes.admin_required" href="#auth_routes.admin_required">admin_required</a></code>
               </li>
               <li>
                 <code
-                  ><a
-                    title="auth_routes.admin_toggle_user_active"
-                    href="#auth_routes.admin_toggle_user_active"
+                  ><a title="auth_routes.admin_toggle_user_active" href="#auth_routes.admin_toggle_user_active"
                     >admin_toggle_user_active</a
                   ></code
                 >
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.admin_users"
-                    href="#auth_routes.admin_users"
-                    >admin_users</a
-                  ></code
-                >
+                <code><a title="auth_routes.admin_users" href="#auth_routes.admin_users">admin_users</a></code>
               </li>
               <li>
                 <code
-                  ><a
-                    title="auth_routes.check_usage_limit"
-                    href="#auth_routes.check_usage_limit"
+                  ><a title="auth_routes.check_usage_limit" href="#auth_routes.check_usage_limit"
                     >check_usage_limit</a
                   ></code
                 >
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.dashboard"
-                    href="#auth_routes.dashboard"
-                    >dashboard</a
-                  ></code
-                >
+                <code><a title="auth_routes.dashboard" href="#auth_routes.dashboard">dashboard</a></code>
               </li>
               <li>
                 <code
-                  ><a
-                    title="auth_routes.feature_required"
-                    href="#auth_routes.feature_required"
+                  ><a title="auth_routes.feature_required" href="#auth_routes.feature_required"
                     >feature_required</a
                   ></code
                 >
               </li>
               <li>
                 <code
-                  ><a
-                    title="auth_routes.forgot_password"
-                    href="#auth_routes.forgot_password"
-                    >forgot_password</a
-                  ></code
+                  ><a title="auth_routes.forgot_password" href="#auth_routes.forgot_password">forgot_password</a></code
                 >
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.init_auth"
-                    href="#auth_routes.init_auth"
-                    >init_auth</a
-                  ></code
-                >
+                <code><a title="auth_routes.init_auth" href="#auth_routes.init_auth">init_auth</a></code>
+              </li>
+              <li>
+                <code><a title="auth_routes.is_safe_url" href="#auth_routes.is_safe_url">is_safe_url</a></code>
+              </li>
+              <li>
+                <code><a title="auth_routes.load_user" href="#auth_routes.load_user">load_user</a></code>
+              </li>
+              <li>
+                <code><a title="auth_routes.login" href="#auth_routes.login">login</a></code>
+              </li>
+              <li>
+                <code><a title="auth_routes.logout" href="#auth_routes.logout">logout</a></code>
               </li>
               <li>
                 <code
-                  ><a
-                    title="auth_routes.is_safe_url"
-                    href="#auth_routes.is_safe_url"
-                    >is_safe_url</a
-                  ></code
-                >
-              </li>
-              <li>
-                <code
-                  ><a
-                    title="auth_routes.load_user"
-                    href="#auth_routes.load_user"
-                    >load_user</a
-                  ></code
-                >
-              </li>
-              <li>
-                <code
-                  ><a title="auth_routes.login" href="#auth_routes.login"
-                    >login</a
-                  ></code
-                >
-              </li>
-              <li>
-                <code
-                  ><a title="auth_routes.logout" href="#auth_routes.logout"
-                    >logout</a
-                  ></code
-                >
-              </li>
-              <li>
-                <code
-                  ><a
-                    title="auth_routes.resend_verification"
-                    href="#auth_routes.resend_verification"
+                  ><a title="auth_routes.resend_verification" href="#auth_routes.resend_verification"
                     >resend_verification</a
                   ></code
                 >
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.reset_password"
-                    href="#auth_routes.reset_password"
-                    >reset_password</a
-                  ></code
-                >
+                <code><a title="auth_routes.reset_password" href="#auth_routes.reset_password">reset_password</a></code>
               </li>
               <li>
-                <code
-                  ><a title="auth_routes.signup" href="#auth_routes.signup"
-                    >signup</a
-                  ></code
-                >
+                <code><a title="auth_routes.signup" href="#auth_routes.signup">signup</a></code>
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.tier_required"
-                    href="#auth_routes.tier_required"
-                    >tier_required</a
-                  ></code
-                >
+                <code><a title="auth_routes.tier_required" href="#auth_routes.tier_required">tier_required</a></code>
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.usage_api"
-                    href="#auth_routes.usage_api"
-                    >usage_api</a
-                  ></code
-                >
+                <code><a title="auth_routes.usage_api" href="#auth_routes.usage_api">usage_api</a></code>
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.verify_email"
-                    href="#auth_routes.verify_email"
-                    >verify_email</a
-                  ></code
-                >
+                <code><a title="auth_routes.verify_email" href="#auth_routes.verify_email">verify_email</a></code>
               </li>
               <li>
-                <code
-                  ><a
-                    title="auth_routes.verify_login"
-                    href="#auth_routes.verify_login"
-                    >verify_login</a
-                  ></code
-                >
+                <code><a title="auth_routes.verify_login" href="#auth_routes.verify_login">verify_login</a></code>
               </li>
             </ul>
           </li>
@@ -1520,9 +1415,7 @@ def verify_login():
     <footer id="footer">
       <p>
         Generated by
-        <a
-          href="https://pdoc3.github.io/pdoc"
-          title="pdoc: Python API documentation generator"
+        <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"
           ><cite>pdoc</cite> 0.11.6</a
         >.
       </p>

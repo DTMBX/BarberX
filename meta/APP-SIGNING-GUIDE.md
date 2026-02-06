@@ -18,7 +18,8 @@ keytool -genkey -v -keystore Evident-release.keystore -alias Evident -keyalg RSA
 # - Your name, organization, city, state, country
 ```
 
-**Important:** Store the keystore file and passwords securely. You cannot recover them if lost!
+**Important:** Store the keystore file and passwords securely. You cannot
+recover them if lost!
 
 ### 2. Configure Android Signing
 
@@ -88,8 +89,10 @@ dotnet publish src/Evident.Mobile/Evident.Mobile.csproj `
 
 ### 1. Apple Developer Account
 
-1. Enroll in [Apple Developer Program](https://developer.apple.com/programs/) ($99/year)
-2. Create App ID in [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/)
+1. Enroll in [Apple Developer Program](https://developer.apple.com/programs/)
+   ($99/year)
+2. Create App ID in
+   [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/)
    - Bundle ID: `com.Evident.mobile` (must match your app)
    - Enable capabilities: Push Notifications, In-App Purchase, etc.
 

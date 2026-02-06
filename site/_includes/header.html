@@ -1,25 +1,12 @@
 <header class="site-header">
   <div class="header-container">
     <!-- Brand -->
-    <a
-      href="{{ '/' | relative_url }}"
-      class="header-brand"
-      aria-label="Evident Home"
-    >
-      <img
-        src="/assets/img/brand/evident-wordmark-light-hd.svg"
-        alt="Evident Technologies"
-        class="brand-logo"
-      />
+    <a href="{{ '/' | relative_url }}" class="header-brand" aria-label="Evident Home">
+      <img src="/assets/img/brand/evident-wordmark-light-hd.svg" alt="Evident Technologies" class="brand-logo" />
     </a>
 
     <!-- Mobile Toggle -->
-    <button
-      class="nav-toggle"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      data-nav-toggle
-    >
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
       <span></span>
       <span></span>
       <span></span>
@@ -27,22 +14,14 @@
 
     <!-- Navigation -->
     <nav class="header-nav" aria-label="Main navigation">
-      <a
-        href="{{ '/' | relative_url }}"
-        class="nav-link{% if page.url == '/' %} active{% endif %}"
-      >
-        Home
-      </a>
+      <a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}"> Home </a>
       <a
         href="{{ '/pricing.html' | relative_url }}"
         class="nav-link{% if page.url contains 'pricing' %} active{% endif %}"
       >
         Pricing
       </a>
-      <a
-        href="{{ '/docs.html' | relative_url }}"
-        class="nav-link{% if page.url contains 'docs' %} active{% endif %}"
-      >
+      <a href="{{ '/docs.html' | relative_url }}" class="nav-link{% if page.url contains 'docs' %} active{% endif %}">
         Documentation
       </a>
       <a
@@ -55,12 +34,8 @@
 
     <!-- Actions -->
     <div class="header-actions">
-      <a href="https://app.evident.info/login" class="btn btn-ghost">
-        Sign In
-      </a>
-      <a href="https://app.evident.info/register" class="btn btn-primary">
-        Get Started
-      </a>
+      <a href="https://app.evident.info/login" class="btn btn-ghost"> Sign In </a>
+      <a href="https://app.evident.info/register" class="btn btn-primary"> Get Started </a>
     </div>
   </div>
 </header>

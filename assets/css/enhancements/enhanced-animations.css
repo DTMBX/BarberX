@@ -373,8 +373,7 @@
 
 .char-reveal {
   display: inline-block;
-  animation: char-fade-in var(--anim-duration-normal) var(--ease-smooth)
-    forwards;
+  animation: char-fade-in var(--anim-duration-normal) var(--ease-smooth) forwards;
 }
 
 @keyframes char-fade-in {

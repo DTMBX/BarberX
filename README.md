@@ -1,12 +1,19 @@
 # Evident Technologies
 
-**Evident Technologies** is a professional-grade evidence processing platform for video, documents, and records—built for verification, chain of custody, and court-ready analysis.
+**Evident Technologies** is a professional-grade evidence processing platform
+for video, documents, and records—built for verification, chain of custody, and
+court-ready analysis.
 
-The system is designed to help litigants, advocates, and legal teams work with **body-worn camera footage, discovery documents, and public-records data** in a way that preserves **evidentiary integrity, transparency, and chain of custody**—without reliance on cloud processing.
+The system is designed to help litigants, advocates, and legal teams work with
+**body-worn camera footage, discovery documents, and public-records data** in a
+way that preserves **evidentiary integrity, transparency, and chain of
+custody**—without reliance on cloud processing.
 
-> Evidence is processed locally. Originals are preserved. Analysis is reproducible.
+> Evidence is processed locally. Originals are preserved. Analysis is
+> reproducible.
 
-Note: This repository includes governance guidance for AI assistants in `.github/copilot-instructions.md` and `copilot-instructions.md`.
+Note: This repository includes governance guidance for AI assistants in
+`.github/copilot-instructions.md` and `copilot-instructions.md`.
 
 ---
 
@@ -24,7 +31,8 @@ Evident is built around several non-negotiable principles:
   Originals are immutable. Derivatives are traceable.
 
 - **Civil-rights focused workflows**  
-  Optimized for constitutional, public-accountability, and discovery review contexts.
+  Optimized for constitutional, public-accountability, and discovery review
+  contexts.
 
 - **Transparency and auditability**  
   Processing steps are inspectable and reproducible.

@@ -275,7 +275,8 @@ dotnet format
 
 ### Support
 
-- GitHub Issues: [Create an issue](https://github.com/YOUR_ORG/Evident.info/issues)
+- GitHub Issues:
+  [Create an issue](https://github.com/YOUR_ORG/Evident.info/issues)
 - Email: support@Evident.info
 
 --

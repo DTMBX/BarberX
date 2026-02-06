@@ -2,7 +2,10 @@
 
 ## Body-Worn Camera Evidence Processing with Audit Trails
 
-This system provides tools to assist analysis of police body-worn camera footage; outputs are intended to assist preparation of materials for litigation under applicable evidentiary rules. Final admissibility is determined by courts and counsel.
+This system provides tools to assist analysis of police body-worn camera
+footage; outputs are intended to assist preparation of materials for litigation
+under applicable evidentiary rules. Final admissibility is determined by courts
+and counsel.
 
 --
 
@@ -315,7 +318,8 @@ TRANSCRIPT
 4. Identify discrepancies in officer statements
 5. Generate court exhibit reports
 
-**Output:** Complete timeline with officer statements, contradictions highlighted
+**Output:** Complete timeline with officer statements, contradictions
+highlighted
 
 ### 2. Brady Violations
 

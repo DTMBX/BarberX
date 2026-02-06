@@ -7,11 +7,11 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   // Wait for DOM
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
@@ -20,7 +20,7 @@
     const form = document.querySelector('form[name="early-access"]');
     if (!form) return;
 
-    form.addEventListener("submit", handleSubmit);
+    form.addEventListener('submit', handleSubmit);
   }
 
   function handleSubmit(e) {
@@ -31,21 +31,21 @@
 
     const interest = interestSelect.value;
     const thankYouPages = {
-      supporter: "/thank-you/supporter/",
-      developer: "/thank-you/developer/",
-      reviewer: "/thank-you/reviewer/",
-      curious: "/thank-you/curious/",
+      supporter: '/thank-you/supporter/',
+      developer: '/thank-you/developer/',
+      reviewer: '/thank-you/reviewer/',
+      curious: '/thank-you/curious/',
     };
 
     // Update form action to redirect to the correct thank you page
-    const redirectUrl = thankYouPages[interest] || "/thank-you/curious/";
-    form.setAttribute("action", redirectUrl);
+    const redirectUrl = thankYouPages[interest] || '/thank-you/curious/';
+    form.setAttribute('action', redirectUrl);
 
     // Let form submit naturally - Netlify will handle it and redirect
   }
 
   // Add CSS for honeypot field
-  const style = document.createElement("style");
+  const style = document.createElement('style');
   style.textContent = `
     .hidden {
       position: absolute;

@@ -15,22 +15,37 @@
 - **Effective:** December 15, 1791
 
 - **SHA-256 Checksum:** [To be calculated]
-- **Preservation Note:** First ten amendments to the Constitution, guaranteeing fundamental individual rights against government power.
+- **Preservation Note:** First ten amendments to the Constitution, guaranteeing
+  fundamental individual rights against government power.
 
-- **Historical Context:** The Bill of Rights was demanded by Anti-Federalists as condition for ratifying the Constitution. These amendments limit federal government power and protect individual liberty.
+- **Historical Context:** The Bill of Rights was demanded by Anti-Federalists as
+  condition for ratifying the Constitution. These amendments limit federal
+  government power and protect individual liberty.
 
 ---
 
 ## PREAMBLE TO THE BILL OF RIGHTS
 
 **Congress of the United States**  
-begun and held at the City of New-York, on Wednesday the fourth of March, one thousand seven hundred and eighty nine.
+begun and held at the City of New-York, on Wednesday the fourth of March, one
+thousand seven hundred and eighty nine.
 
-THE Conventions of a number of the States, having at the time of their adopting the Constitution, expressed a desire, in order to prevent misconstruction or abuse of its powers, that further declaratory and restrictive clauses should be added: And as extending the ground of public confidence in the Government, will best ensure the beneficent ends of its institution.
+THE Conventions of a number of the States, having at the time of their adopting
+the Constitution, expressed a desire, in order to prevent misconstruction or
+abuse of its powers, that further declaratory and restrictive clauses should be
+added: And as extending the ground of public confidence in the Government, will
+best ensure the beneficent ends of its institution.
 
-RESOLVED by the Senate and House of Representatives of the United States of America, in Congress assembled, two thirds of both Houses concurring, that the following Articles be proposed to the Legislatures of the several States, as amendments to the Constitution of the United States, all, or any of which Articles, when ratified by three fourths of the said Legislatures, to be valid to all intents and purposes, as part of the said Constitution; viz.
+RESOLVED by the Senate and House of Representatives of the United States of
+America, in Congress assembled, two thirds of both Houses concurring, that the
+following Articles be proposed to the Legislatures of the several States, as
+amendments to the Constitution of the United States, all, or any of which
+Articles, when ratified by three fourths of the said Legislatures, to be valid
+to all intents and purposes, as part of the said Constitution; viz.
 
-ARTICLES in addition to, and Amendment of the Constitution of the United States of America, proposed by Congress, and ratified by the Legislatures of the several States, pursuant to the fifth Article of the original Constitution.
+ARTICLES in addition to, and Amendment of the Constitution of the United States
+of America, proposed by Congress, and ratified by the Legislatures of the
+several States, pursuant to the fifth Article of the original Constitution.
 
 ---
 
@@ -38,7 +53,10 @@ ARTICLES in addition to, and Amendment of the Constitution of the United States 
 
 **Religion, Speech, Press, Assembly, Petition**
 
-Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+Congress shall make no law respecting an establishment of religion, or
+prohibiting the free exercise thereof; or abridging the freedom of speech, or of
+the press; or the right of the people peaceably to assemble, and to petition the
+Government for a redress of grievances.
 
 **Ratified:** December 15, 1791
 
@@ -50,7 +68,9 @@ Congress shall make no law respecting an establishment of religion, or prohibiti
 - **Assembly:** Right to peaceful gathering
 - **Petition:** Right to petition government for redress
 
-**Foundation:** Built on blood of religious martyrs (St. Thomas Becket, Pilgrims, Roger Williams, Quaker martyrs). See `RELIGIOUS-FREEDOM-FOUNDATION.md` for complete history.
+**Foundation:** Built on blood of religious martyrs (St. Thomas Becket,
+Pilgrims, Roger Williams, Quaker martyrs). See `RELIGIOUS-FREEDOM-FOUNDATION.md`
+for complete history.
 
 ---
 
@@ -58,7 +78,8 @@ Congress shall make no law respecting an establishment of religion, or prohibiti
 
 **Right to Bear Arms**
 
-A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+A well regulated Militia, being necessary to the security of a free State, the
+right of the people to keep and bear Arms, shall not be infringed.
 
 **Ratified:** December 15, 1791
 
@@ -70,7 +91,8 @@ A well regulated Militia, being necessary to the security of a free State, the r
 
 **Supreme Court Interpretation:**
 
-- _District of Columbia v. Heller_ (2008) - Individual right, not militia-dependent
+- _District of Columbia v. Heller_ (2008) - Individual right, not
+  militia-dependent
 - _McDonald v. City of Chicago_ (2010) - Applied to states via 14th Amendment
 
 ---
@@ -79,7 +101,9 @@ A well regulated Militia, being necessary to the security of a free State, the r
 
 **Quartering of Soldiers**
 
-No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+No Soldier shall, in time of peace be quartered in any house, without the
+consent of the Owner, nor in time of war, but in a manner to be prescribed by
+law.
 
 **Ratified:** December 15, 1791
 
@@ -88,7 +112,8 @@ No Soldier shall, in time of peace be quartered in any house, without the consen
 - No forced quartering of troops in private homes
 - Response to British Quartering Acts (colonial grievance)
 
-**Historical Context:** British troops forcibly occupied colonists' homes. This amendment protects home sanctity and private property.
+**Historical Context:** British troops forcibly occupied colonists' homes. This
+amendment protects home sanctity and private property.
 
 ---
 
@@ -96,7 +121,11 @@ No Soldier shall, in time of peace be quartered in any house, without the consen
 
 **Search and Seizure**
 
-The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+The right of the people to be secure in their persons, houses, papers, and
+effects, against unreasonable searches and seizures, shall not be violated, and
+no Warrants shall issue, but upon probable cause, supported by Oath or
+affirmation, and particularly describing the place to be searched, and the
+persons or things to be seized.
 
 **Ratified:** December 15, 1791
 
@@ -107,7 +136,9 @@ The right of the people to be secure in their persons, houses, papers, and effec
 - Warrants require probable cause
 - Warrants must particularly describe place and items
 
-**Critical for Evident BWC Cases:** Police body camera footage often involves 4th Amendment search and seizure issues. This amendment is foundational to criminal defense work.
+**Critical for Evident BWC Cases:** Police body camera footage often involves
+4th Amendment search and seizure issues. This amendment is foundational to
+criminal defense work.
 
 ---
 
@@ -115,7 +146,14 @@ The right of the people to be secure in their persons, houses, papers, and effec
 
 **Due Process, Self-Incrimination, Double Jeopardy**
 
-No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+No person shall be held to answer for a capital, or otherwise infamous crime,
+unless on a presentment or indictment of a Grand Jury, except in cases arising
+in the land or naval forces, or in the Militia, when in actual service in time
+of War or public danger; nor shall any person be subject for the same offence to
+be twice put in jeopardy of life or limb; nor shall be compelled in any criminal
+case to be a witness against himself, nor be deprived of life, liberty, or
+property, without due process of law; nor shall private property be taken for
+public use, without just compensation.
 
 **Ratified:** December 15, 1791
 
@@ -127,7 +165,8 @@ No person shall be held to answer for a capital, or otherwise infamous crime, un
 - **Due Process:** Cannot deprive life, liberty, property without due process
 - **Takings:** Just compensation for eminent domain
 
-**Critical Protections:** Due process and self-incrimination rights are core to American criminal justice.
+**Critical Protections:** Due process and self-incrimination rights are core to
+American criminal justice.
 
 ---
 
@@ -135,7 +174,13 @@ No person shall be held to answer for a capital, or otherwise infamous crime, un
 
 **Right to Fair Trial**
 
-In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed, which district shall have been previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have the Assistance of Counsel for his defence.
+In all criminal prosecutions, the accused shall enjoy the right to a speedy and
+public trial, by an impartial jury of the State and district wherein the crime
+shall have been committed, which district shall have been previously ascertained
+by law, and to be informed of the nature and cause of the accusation; to be
+confronted with the witnesses against him; to have compulsory process for
+obtaining witnesses in his favor, and to have the Assistance of Counsel for his
+defence.
 
 **Ratified:** December 15, 1791
 
@@ -149,7 +194,8 @@ In all criminal prosecutions, the accused shall enjoy the right to a speedy and 
 - **Compulsory Process:** Subpoena favorable witnesses
 - **Counsel:** Right to attorney (_Gideon v. Wainwright_, 1963)
 
-**Foundation of Fair Trial:** Every protection in this amendment is critical to defending the accused against government power.
+**Foundation of Fair Trial:** Every protection in this amendment is critical to
+defending the accused against government power.
 
 ---
 
@@ -157,7 +203,10 @@ In all criminal prosecutions, the accused shall enjoy the right to a speedy and 
 
 **Trial by Jury in Civil Cases**
 
-In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law.
+In Suits at common law, where the value in controversy shall exceed twenty
+dollars, the right of trial by jury shall be preserved, and no fact tried by a
+jury, shall be otherwise re-examined in any Court of the United States, than
+according to the rules of the common law.
 
 **Ratified:** December 15, 1791
 
@@ -166,7 +215,8 @@ In Suits at common law, where the value in controversy shall exceed twenty dolla
 - Jury trial in civil cases (common law suits)
 - Jury findings cannot be overturned except per common law rules
 
-**Modern Application:** $20 threshold is historical. Principle remains: right to jury in significant civil disputes.
+**Modern Application:** $20 threshold is historical. Principle remains: right to
+jury in significant civil disputes.
 
 ---
 
@@ -174,7 +224,8 @@ In Suits at common law, where the value in controversy shall exceed twenty dolla
 
 **Cruel and Unusual Punishment, Excessive Bail**
 
-Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.
+Excessive bail shall not be required, nor excessive fines imposed, nor cruel and
+unusual punishments inflicted.
 
 **Ratified:** December 15, 1791
 
@@ -197,7 +248,8 @@ Excessive bail shall not be required, nor excessive fines imposed, nor cruel and
 
 **Unenumerated Rights**
 
-The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.
+The enumeration in the Constitution, of certain rights, shall not be construed
+to deny or disparage others retained by the people.
 
 **Ratified:** December 15, 1791
 
@@ -207,7 +259,8 @@ The enumeration in the Constitution, of certain rights, shall not be construed t
 - People retain additional unenumerated rights
 - Just because a right isn't listed doesn't mean it doesn't exist
 
-**Natural Law Foundation:** This amendment acknowledges natural rights philosophy - rights exist before government and are not granted by government.
+**Natural Law Foundation:** This amendment acknowledges natural rights
+philosophy - rights exist before government and are not granted by government.
 
 **Examples of Unenumerated Rights (court-recognized):**
 
@@ -222,7 +275,9 @@ The enumeration in the Constitution, of certain rights, shall not be construed t
 
 **States' Rights and Powers Reserved**
 
-The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.
+The powers not delegated to the United States by the Constitution, nor
+prohibited by it to the States, are reserved to the States respectively, or to
+the people.
 
 **Ratified:** December 15, 1791
 
@@ -232,7 +287,8 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 - **State Powers:** Everything else (except what's prohibited)
 - **People's Rights:** Ultimate sovereignty rests with the people
 
-**Federalism:** This amendment preserves state sovereignty and limits federal government to enumerated powers.
+**Federalism:** This amendment preserves state sovereignty and limits federal
+government to enumerated powers.
 
 **Critical Tension:** Ongoing debates over federal vs. state power:
 
@@ -256,7 +312,8 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 8. **Pennsylvania** - March 10, 1790
 9. **Rhode Island** - June 7, 1790
 10. **Vermont** - November 3, 1791
-11. **Virginia** - December 15, 1791 ✓ (Ratification complete - 3/4 of 14 states)
+11. **Virginia** - December 15, 1791 ✓ (Ratification complete - 3/4 of 14
+    states)
 
 **States That Ratified Later:**
 
@@ -291,8 +348,7 @@ _Ratified 203 years later as 27th Amendment (1992)_
 - Preserves state sovereignty
 - Recognizes natural rights
 
-**Evident Mission:**
-These rights are what we defend in every case:
+**Evident Mission:** These rights are what we defend in every case:
 
 - 1st Amendment - Religious freedom, speech
 - 4th Amendment - Search and seizure (BWC cases)
@@ -306,15 +362,19 @@ These rights are what we defend in every case:
 
 **14th Amendment (1868) Extended Bill of Rights to States:**
 
-Originally, Bill of Rights only limited federal government. Through "incorporation doctrine," Supreme Court applied most protections to states via 14th Amendment Due Process Clause.
+Originally, Bill of Rights only limited federal government. Through
+"incorporation doctrine," Supreme Court applied most protections to states via
+14th Amendment Due Process Clause.
 
 **Incorporated Rights (Applied to States):**
 
-- ✅ 1st Amendment - All protections (religion, speech, press, assembly, petition)
+- ✅ 1st Amendment - All protections (religion, speech, press, assembly,
+  petition)
 - ✅ 2nd Amendment - Right to bear arms (_McDonald_, 2010)
 - ❌ 3rd Amendment - NOT incorporated (rarely litigated)
 - ✅ 4th Amendment - Search and seizure protections
-- ✅ 5th Amendment - Due process, self-incrimination, double jeopardy (NOT grand jury requirement)
+- ✅ 5th Amendment - Due process, self-incrimination, double jeopardy (NOT grand
+  jury requirement)
 - ✅ 6th Amendment - All fair trial protections
 - ❌ 7th Amendment - NOT incorporated (civil jury trial)
 - ✅ 8th Amendment - Cruel and unusual punishment, excessive bail/fines
@@ -325,16 +385,21 @@ Originally, Bill of Rights only limited federal government. Through "incorporati
 
 ## PRESERVATION NOTES
 
-**Transcription Accuracy:** Manually transcribed from National Archives official text. Original 18th-century spelling and punctuation preserved.
+**Transcription Accuracy:** Manually transcribed from National Archives official
+text. Original 18th-century spelling and punctuation preserved.
 
-**Why Exact Text Matters:** Constitutional interpretation depends on precise wording. Supreme Court cases hinge on individual words ("the people," "shall not be infringed," "due process").
+**Why Exact Text Matters:** Constitutional interpretation depends on precise
+wording. Supreme Court cases hinge on individual words ("the people," "shall not
+be infringed," "due process").
 
 **Living vs. Original Intent:**
 
 - **Originalists:** Interpret based on 1791 meaning
 - **Living Constitution:** Interpret based on evolving standards
 
-**Evident Position:** We preserve the original text and let courts interpret. Our role is to defend rights as currently understood while maintaining historical accuracy.
+**Evident Position:** We preserve the original text and let courts interpret.
+Our role is to defend rights as currently understood while maintaining
+historical accuracy.
 
 ---
 
@@ -342,7 +407,8 @@ Originally, Bill of Rights only limited federal government. Through "incorporati
 **Preserved on Evident Legal Technologies**  
 **January 27, 2026**
 
-**"The enumeration of certain rights shall not be construed to deny or disparage others retained by the people."**
+**"The enumeration of certain rights shall not be construed to deny or disparage
+others retained by the people."**
 
 ---
 

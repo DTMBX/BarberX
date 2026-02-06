@@ -17,7 +17,8 @@ notepad $PROFILE
 
 ### Step 2: Add Evident Profile
 
-**Copy and paste** the entire contents of `Evident-Profile.ps1` into your profile file.
+**Copy and paste** the entire contents of `Evident-Profile.ps1` into your
+profile file.
 
 Or use this one-liner:
 

@@ -1,3 +1,31 @@
+const forms = require('@tailwindcss/forms');
+const typography = require('@tailwindcss/typography');
+
+module.exports = {
+  content: [
+    './src/**/*.{njk,md,html,js,css}',
+    './_site/**/*.html'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'ad-navy': '#002e5d',
+        'ad-blue': '#0b5f73',
+        'ad-red': '#b22234',
+        'ad-accent': '#e07a5f',
+        'ad-neutral': '#f6f7f9'
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+      },
+      container: {
+        center: true,
+        padding: '1rem'
+      }
+    }
+  },
+  plugins: [forms, typography]
+};
 module.exports = {
   content: ["./src/**/*.{html,njk,md}", "./_site/**/*.html"],
   theme: {

@@ -36,30 +36,15 @@
     rgb(5 13 28 / 98%) 50%,
     rgb(16 92 74 / 15%) 100%
   );
-  --gradient-card: linear-gradient(
-    145deg,
-    rgb(15 23 42 / 80%) 0%,
-    rgb(10 27 50 / 90%) 100%
-  );
-  --gradient-accent: linear-gradient(
-    90deg,
-    var(--emerald-500),
-    var(--brass-500)
-  );
-  --gradient-glow: radial-gradient(
-    ellipse at center,
-    rgb(212 165 116 / 15%) 0%,
-    transparent 70%
-  );
+  --gradient-card: linear-gradient(145deg, rgb(15 23 42 / 80%) 0%, rgb(10 27 50 / 90%) 100%);
+  --gradient-accent: linear-gradient(90deg, var(--emerald-500), var(--brass-500));
+  --gradient-glow: radial-gradient(ellipse at center, rgb(212 165 116 / 15%) 0%, transparent 70%);
 
   /* Premium shadows */
   --shadow-premium:
-    0 4px 6px rgb(0 0 0 / 10%), 0 10px 20px rgb(0 0 0 / 15%),
-    0 20px 40px rgb(0 0 0 / 20%);
-  --shadow-glow-brass:
-    0 0 20px rgb(212 165 116 / 20%), 0 0 40px rgb(212 165 116 / 10%);
-  --shadow-glow-emerald:
-    0 0 20px rgb(16 92 74 / 25%), 0 0 40px rgb(16 92 74 / 15%);
+    0 4px 6px rgb(0 0 0 / 10%), 0 10px 20px rgb(0 0 0 / 15%), 0 20px 40px rgb(0 0 0 / 20%);
+  --shadow-glow-brass: 0 0 20px rgb(212 165 116 / 20%), 0 0 40px rgb(212 165 116 / 10%);
+  --shadow-glow-emerald: 0 0 20px rgb(16 92 74 / 25%), 0 0 40px rgb(16 92 74 / 15%);
 
   /* Animation timing */
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
@@ -264,7 +249,7 @@
 
 .card-premium::before,
 .panel-premium::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   padding: 1px;
@@ -314,15 +299,10 @@
 }
 
 .shimmer::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgb(255 255 255 / 10%) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgb(255 255 255 / 10%) 50%, transparent 100%);
   animation: shimmer 2s infinite;
 }
 
@@ -417,7 +397,7 @@
 }
 
 .hero-full::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: var(--gradient-glow);
@@ -431,17 +411,13 @@
 }
 
 .hero-animated::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-    circle at center,
-    rgb(212 165 116 / 8%) 0%,
-    transparent 40%
-  );
+  background: radial-gradient(circle at center, rgb(212 165 116 / 8%) 0%, transparent 40%);
   animation: rotate-bg 30s linear infinite;
 }
 
@@ -468,7 +444,7 @@
 }
 
 .divider-fancy::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -480,7 +456,7 @@
 }
 
 .divider-fancy::after {
-  content: "◆";
+  content: '◆';
   position: absolute;
   left: 50%;
   top: 50%;
@@ -535,7 +511,7 @@
 }
 
 .btn-outline-fill::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: var(--ff-secondary);
@@ -567,7 +543,7 @@
 }
 
 .cases-hero::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -577,19 +553,14 @@
 }
 
 .cases-hero::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary), transparent);
 }
 
 /* Stats row in hero */
@@ -642,7 +613,7 @@
 }
 
 .case-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -683,7 +654,7 @@
 }
 
 .case-card-status-active::before {
-  content: "";
+  content: '';
   width: 6px;
   height: 6px;
   background: currentcolor;

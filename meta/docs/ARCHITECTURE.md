@@ -62,8 +62,8 @@ Infrastructure ✗→ Mobile
 
 ### 1. **Evident.Shared** (Core Domain)
 
-**Target:** `.NET 9` (Standard library)
-**Purpose:** Platform-agnostic domain logic
+**Target:** `.NET 9` (Standard library) **Purpose:** Platform-agnostic domain
+logic
 
 **Contains:**
 
@@ -82,8 +82,7 @@ Infrastructure ✗→ Mobile
 
 ### 2. **Evident.Infrastructure** (Data Access)
 
-**Target:** `.NET 9`
-**Purpose:** Data persistence and external integrations
+**Target:** `.NET 9` **Purpose:** Data persistence and external integrations
 
 **Contains:**
 
@@ -101,8 +100,7 @@ Infrastructure ✗→ Mobile
 
 ### 3. **Evident.Web** (Web API)
 
-**Target:** `.NET 9`
-**Purpose:** RESTful API and web services
+**Target:** `.NET 9` **Purpose:** RESTful API and web services
 
 **Contains:**
 
@@ -120,8 +118,8 @@ Infrastructure ✗→ Mobile
 
 ### 4. **Evident.Mobile** (MAUI App)
 
-**Target:** `.NET 10` (MAUI multi-targeting)
-**Purpose:** Cross-platform mobile app
+**Target:** `.NET 10` (MAUI multi-targeting) **Purpose:** Cross-platform mobile
+app
 
 **Contains:**
 
@@ -146,8 +144,8 @@ Infrastructure ✗→ Mobile
 
 ### 5. **Evident.MatterDocket.MAUI** (Legal Docket App)
 
-**Target:** `.NET 10` (MAUI multi-targeting)
-**Purpose:** Specialized legal matter management
+**Target:** `.NET 10` (MAUI multi-targeting) **Purpose:** Specialized legal
+matter management
 
 **Contains:**
 
@@ -329,12 +327,9 @@ public class SqlCaseRepository : ICaseRepository
 
 ## Summary
 
-**Architecture Goals:**
-✅ Strict tier boundaries enforced at compile-time
-✅ Platform-independent core (Shared layer)
-✅ Mobile apps work offline with local storage
-✅ Web API can scale independently
-✅ All layers independently testable
+**Architecture Goals:** ✅ Strict tier boundaries enforced at compile-time ✅
+Platform-independent core (Shared layer) ✅ Mobile apps work offline with local
+storage ✅ Web API can scale independently ✅ All layers independently testable
 ✅ Dependency Inversion Principle followed
 
 **Key Rules:**

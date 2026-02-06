@@ -2,7 +2,8 @@
 
 ## Required Icons
 
-Place the following icon files in this directory. Icons should be SVG format for best cross-platform scaling.
+Place the following icon files in this directory. Icons should be SVG format for
+best cross-platform scaling.
 
 ### Navigation Icons (TabBar)
 

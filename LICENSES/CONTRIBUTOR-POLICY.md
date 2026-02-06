@@ -8,13 +8,17 @@
 
 ## 1. Purpose
 
-This policy governs contributions to Evident Technologies repositories that contain open-source or publicly accessible components. It is designed to permit collaboration without requiring a Contributor License Agreement (CLA), while preserving Evident’s proprietary rights.
+This policy governs contributions to Evident Technologies repositories that
+contain open-source or publicly accessible components. It is designed to permit
+collaboration without requiring a Contributor License Agreement (CLA), while
+preserving Evident’s proprietary rights.
 
 ---
 
 ## 2. Scope of Contributions
 
-This policy applies only to repositories or directories explicitly designated as open-source or public-facing.
+This policy applies only to repositories or directories explicitly designated as
+open-source or public-facing.
 
 It does **not** apply to:
 
@@ -29,10 +33,14 @@ It does **not** apply to:
 
 By submitting a contribution, you agree that:
 
-- Your contribution is licensed under the **existing license** of the repository or directory to which it is submitted (e.g., MIT, BSD, Apache 2.0).
-- You grant Evident Technologies a **perpetual, worldwide, non-exclusive, royalty-free license** to use, modify, distribute, and sublicense the contribution as permitted by that license.
+- Your contribution is licensed under the **existing license** of the repository
+  or directory to which it is submitted (e.g., MIT, BSD, Apache 2.0).
+- You grant Evident Technologies a **perpetual, worldwide, non-exclusive,
+  royalty-free license** to use, modify, distribute, and sublicense the
+  contribution as permitted by that license.
 
-No additional rights are granted beyond those already provided by the applicable open-source license.
+No additional rights are granted beyond those already provided by the applicable
+open-source license.
 
 ---
 
@@ -45,7 +53,8 @@ Contributors do **not** obtain any ownership interest in:
 - Evidence integrity or custody logic
 - Internal orchestration or verification mechanisms
 
-Submission of a contribution does not create joint authorship or implied rights in non-public systems.
+Submission of a contribution does not create joint authorship or implied rights
+in non-public systems.
 
 ---
 
@@ -61,7 +70,8 @@ By contributing, you represent that:
 
 ## 6. No Obligation to Accept
 
-Evident Technologies reserves the right to review, modify, reject, or remove any contribution at its sole discretion.
+Evident Technologies reserves the right to review, modify, reject, or remove any
+contribution at its sole discretion.
 
 ---
 

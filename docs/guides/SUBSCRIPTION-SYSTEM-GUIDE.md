@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-This guide covers the complete implementation of the **tiered subscription system** with Stripe integration, usage tracking, and access gating for Evident.
+This guide covers the complete implementation of the **tiered subscription
+system** with Stripe integration, usage tracking, and access gating for Evident.
 
 --
 

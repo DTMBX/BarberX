@@ -13,27 +13,27 @@
   const medicationStates = window.MEDICATION_STATES_DATA;
 
   if (!plantsData || !medicationStates) {
-    console.warn("Required data not loaded");
+    console.warn('Required data not loaded');
     return;
   }
 
   // DOM Elements
-  const zoneSelect = document.getElementById("zoneSelect");
-  const stateSelect = document.getElementById("stateSelect");
-  const searchInput = document.getElementById("searchInput");
-  const chipsWrap = document.getElementById("conditionChips");
-  const resultsGrid = document.getElementById("resultsGrid");
-  const resultsMeta = document.getElementById("resultsMeta");
-  const tooltip = document.getElementById("mapTooltip");
+  const zoneSelect = document.getElementById('zoneSelect');
+  const stateSelect = document.getElementById('stateSelect');
+  const searchInput = document.getElementById('searchInput');
+  const chipsWrap = document.getElementById('conditionChips');
+  const resultsGrid = document.getElementById('resultsGrid');
+  const resultsMeta = document.getElementById('resultsMeta');
+  const tooltip = document.getElementById('mapTooltip');
 
   if (!zoneSelect || !resultsGrid || !resultsMeta) return;
 
   // Selected state
   const selected = {
-    zone: "",
+    zone: '',
     conditions: new Set(),
-    q: "",
-    state: "",
+    q: '',
+    state: '',
   };
 
   // ============================================================
@@ -45,12 +45,12 @@
       /[&<>"']/g,
       (m) =>
         ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#039;",
-        })[m],
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;',
+        })[m]
     );
   }
 
@@ -62,7 +62,7 @@
   function getMedicationInfo(medName) {
     if (!overmedData?.top_medicines) return null;
     return overmedData.top_medicines.find((m) =>
-      m.name.toLowerCase().includes(medName.toLowerCase()),
+      m.name.toLowerCase().includes(medName.toLowerCase())
     );
   }
 
@@ -79,12 +79,12 @@
 
     const rxLevel =
       stateData.rx_percentage >= 68
-        ? "Very High (Crisis)"
+        ? 'Very High (Crisis)'
         : stateData.rx_percentage >= 66
-          ? "High"
+          ? 'High'
           : stateData.rx_percentage >= 60
-            ? "Moderate"
-            : "Lower";
+            ? 'Moderate'
+            : 'Lower';
 
     let html = `
             <div class="state-info-panel">
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="overmedication-stats">
-                    <div class="stat-card rx-level-${rxLevel.toLowerCase().replace(/[^a-z]/g, "")}">
+                    <div class="stat-card rx-level-${rxLevel.toLowerCase().replace(/[^a-z]/g, '')}">
                         <span class="stat-label">Prescription Rate</span>
                         <span class="stat-value">${stateData.rx_percentage}%</span>
                         <span class="stat-level">${rxLevel}</span>
@@ -125,19 +125,19 @@
                                                 ? `
                                                 <div class="med-section med-alternatives">
                                                     <strong>🌱 Garden Alternatives:</strong> 
-                                                    ${medInfo.supportive_plants.map((p) => escapeHtml(p)).join(", ")}
+                                                    ${medInfo.supportive_plants.map((p) => escapeHtml(p)).join(', ')}
                                                 </div>
                                             `
-                                                : ""
+                                                : ''
                                             }
                                         </div>
                                     `
-                                        : ""
+                                        : ''
                                     }
                                 </div>
                             `;
                           })
-                          .join("")}
+                          .join('')}
                     </div>
                 </div>
 
@@ -151,9 +151,9 @@
                                 <span class="plant-icon">🌿</span>
                                 <span class="plant-item-text">${escapeHtml(plant)}</span>
                             </div>
-                        `,
+                        `
                           )
-                          .join("")}
+                          .join('')}
                     </div>
                 </div>
 
@@ -168,7 +168,7 @@
                             ${escapeHtml(stateData.clinician_opportunity)}
                         </p>
                     `
-                        : ""
+                        : ''
                     }
                 </div>
 
@@ -189,37 +189,31 @@
 
   function getMapRoot() {
     // Inline SVG
-    const inline = document.getElementById("usMapSvg");
+    const inline = document.getElementById('usMapSvg');
     if (inline) return inline;
 
     // <object> embedded SVG
-    const obj = document.getElementById("usMapObj");
+    const obj = document.getElementById('usMapObj');
     if (!obj) return null;
     const svgDoc = obj.contentDocument;
-    return svgDoc ? svgDoc.querySelector("svg") : null;
+    return svgDoc ? svgDoc.querySelector('svg') : null;
   }
 
   function getStateElements(mapRoot) {
     if (!mapRoot) return [];
-    return Array.from(
-      mapRoot.querySelectorAll("[data-state], .state, path[id]"),
-    );
+    return Array.from(mapRoot.querySelectorAll('[data-state], .state, path[id]'));
   }
 
   function getStateAbbr(el) {
-    return (
-      el.getAttribute("data-state") ||
-      el.getAttribute("id") ||
-      ""
-    ).toUpperCase();
+    return (el.getAttribute('data-state') || el.getAttribute('id') || '').toUpperCase();
   }
 
   function getMedicationColor(rxPercentage) {
-    if (!rxPercentage) return "#e5e7eb"; // gray
-    if (rxPercentage >= 68) return "#dc2626"; // red (crisis)
-    if (rxPercentage >= 66) return "#f59e0b"; // orange (high)
-    if (rxPercentage >= 60) return "#fbbf24"; // yellow (moderate)
-    return "#10b981"; // green (lower)
+    if (!rxPercentage) return '#e5e7eb'; // gray
+    if (rxPercentage >= 68) return '#dc2626'; // red (crisis)
+    if (rxPercentage >= 66) return '#f59e0b'; // orange (high)
+    if (rxPercentage >= 60) return '#fbbf24'; // yellow (moderate)
+    return '#10b981'; // green (lower)
   }
 
   function colorizeMapByMedication() {
@@ -235,27 +229,27 @@
       if (stateData) {
         const color = getMedicationColor(stateData.rx_percentage);
         el.style.fill = color;
-        el.style.stroke = "#1f2937";
-        el.style.strokeWidth = "0.5";
-        el.style.cursor = "pointer";
-        el.style.transition = "all 0.2s ease";
+        el.style.stroke = '#1f2937';
+        el.style.strokeWidth = '0.5';
+        el.style.cursor = 'pointer';
+        el.style.transition = 'all 0.2s ease';
 
         // Add hover effect
-        el.addEventListener("mouseenter", () => {
-          el.style.stroke = "#000";
-          el.style.strokeWidth = "2";
+        el.addEventListener('mouseenter', () => {
+          el.style.stroke = '#000';
+          el.style.strokeWidth = '2';
           if (tooltip) {
             tooltip.textContent = `${stateData.name}: ${stateData.rx_percentage}% Rx rate`;
             tooltip.hidden = false;
           }
         });
 
-        el.addEventListener("mouseleave", () => {
-          el.style.strokeWidth = "0.5";
+        el.addEventListener('mouseleave', () => {
+          el.style.strokeWidth = '0.5';
           if (tooltip) tooltip.hidden = true;
         });
 
-        el.addEventListener("mousemove", (e) => {
+        el.addEventListener('mousemove', (e) => {
           if (tooltip) {
             tooltip.style.left = `${e.clientX + 10}px`;
             tooltip.style.top = `${e.clientY - 30}px`;
@@ -270,21 +264,21 @@
     if (!mapRoot) return;
 
     // Remove old selection
-    mapRoot.querySelectorAll(".state--selected").forEach((n) => {
-      n.classList.remove("state-selected");
-      n.style.stroke = "#1f2937";
-      n.style.strokeWidth = "0.5";
+    mapRoot.querySelectorAll('.state--selected').forEach((n) => {
+      n.classList.remove('state-selected');
+      n.style.stroke = '#1f2937';
+      n.style.strokeWidth = '0.5';
     });
 
     if (!selected.state) return;
 
     const sel = mapRoot.querySelector(
-      `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`,
+      `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`
     );
     if (sel) {
-      sel.classList.add("state-selected");
-      sel.style.stroke = "#000";
-      sel.style.strokeWidth = "3";
+      sel.classList.add('state-selected');
+      sel.style.stroke = '#000';
+      sel.style.strokeWidth = '3';
     }
   }
 
@@ -305,9 +299,9 @@
   }
 
   function wireMap() {
-    const obj = document.getElementById("usMapObj");
+    const obj = document.getElementById('usMapObj');
     if (obj) {
-      obj.addEventListener("load", attachMapHandlers);
+      obj.addEventListener('load', attachMapHandlers);
     } else {
       attachMapHandlers();
     }
@@ -324,7 +318,7 @@
       const abbr = getStateAbbr(el);
       if (!abbr || abbr.length > 3) return;
 
-      el.addEventListener("click", () => {
+      el.addEventListener('click', () => {
         selectState(abbr);
       });
     });
@@ -350,7 +344,7 @@
   }
 
   function matchesQuery(plant) {
-    const q = (selected.q || "").trim().toLowerCase();
+    const q = (selected.q || '').trim().toLowerCase();
     if (!q) return true;
 
     const searchText = [
@@ -363,7 +357,7 @@
       ...(plant.tags || []),
     ]
       .filter(Boolean)
-      .join(" ")
+      .join(' ')
       .toLowerCase();
 
     return searchText.includes(q);
@@ -371,12 +365,11 @@
 
   function renderPlants() {
     const filtered = plantsData.plants.filter(
-      (p) => matchesZone(p) && matchesConditions(p) && matchesQuery(p),
+      (p) => matchesZone(p) && matchesConditions(p) && matchesQuery(p)
     );
 
     if (filtered.length === 0) {
-      resultsGrid.innerHTML =
-        '<p class="no-results">No plants match your filters.</p>';
+      resultsGrid.innerHTML = '<p class="no-results">No plants match your filters.</p>';
       return;
     }
 
@@ -385,7 +378,7 @@
         (plant) => `
             <div class="plant-card">
                 <h3 class="plant-name">${escapeHtml(plant.name)}</h3>
-                ${plant.latin ? `<p class="plant-latin">${escapeHtml(plant.latin)}</p>` : ""}
+                ${plant.latin ? `<p class="plant-latin">${escapeHtml(plant.latin)}</p>` : ''}
                 
                 <div class="plant-zones">
                     <strong>Zones:</strong> ${plant.zones?.min}-${plant.zones?.max}
@@ -397,11 +390,11 @@
                     <div class="plant-uses">
                         <strong>Uses:</strong>
                         <ul>
-                            ${plant.uses.map((use) => `<li>${escapeHtml(use)}</li>`).join("")}
+                            ${plant.uses.map((use) => `<li>${escapeHtml(use)}</li>`).join('')}
                         </ul>
                     </div>
                 `
-                    : ""
+                    : ''
                 }
 
                 ${
@@ -409,7 +402,7 @@
                     ? `
                     <p class="plant-notes">${escapeHtml(plant.grow_notes)}</p>
                 `
-                    : ""
+                    : ''
                 }
 
                 ${
@@ -418,16 +411,16 @@
                     <div class="plant-cautions">
                         <strong>⚠ Cautions:</strong>
                         <ul>
-                            ${plant.cautions.map((c) => `<li>${escapeHtml(c)}</li>`).join("")}
+                            ${plant.cautions.map((c) => `<li>${escapeHtml(c)}</li>`).join('')}
                         </ul>
                     </div>
                 `
-                    : ""
+                    : ''
                 }
             </div>
-        `,
+        `
       )
-      .join("");
+      .join('');
   }
 
   // ============================================================
@@ -435,38 +428,38 @@
   // ============================================================
 
   if (zoneSelect) {
-    zoneSelect.addEventListener("change", (e) => {
+    zoneSelect.addEventListener('change', (e) => {
       selected.zone = e.target.value;
       renderPlants();
     });
   }
 
   if (stateSelect) {
-    stateSelect.addEventListener("change", (e) => {
+    stateSelect.addEventListener('change', (e) => {
       const abbr = e.target.value;
       if (abbr) selectState(abbr);
     });
   }
 
   if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
+    searchInput.addEventListener('input', (e) => {
       selected.q = e.target.value;
       renderPlants();
     });
   }
 
   if (chipsWrap) {
-    chipsWrap.addEventListener("click", (e) => {
-      const chip = e.target.closest("[data-condition]");
+    chipsWrap.addEventListener('click', (e) => {
+      const chip = e.target.closest('[data-condition]');
       if (!chip) return;
 
       const cond = chip.dataset.condition;
       if (selected.conditions.has(cond)) {
         selected.conditions.delete(cond);
-        chip.classList.remove("active");
+        chip.classList.remove('active');
       } else {
         selected.conditions.add(cond);
-        chip.classList.add("active");
+        chip.classList.add('active');
       }
       renderPlants();
     });

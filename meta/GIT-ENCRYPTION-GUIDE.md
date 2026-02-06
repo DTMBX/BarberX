@@ -1,10 +1,14 @@
 # Git Encryption Setup Guide for Evident
 
-This repository uses **git-crypt** to transparently encrypt sensitive files at rest in Git. This guide explains how team members can set up and use git-crypt properly.
+This repository uses **git-crypt** to transparently encrypt sensitive files at
+rest in Git. This guide explains how team members can set up and use git-crypt
+properly.
 
 ## 🔐 What is git-crypt?
 
-git-crypt enables transparent encryption and decryption of files in a git repository. Files which you choose to protect are encrypted when committed, and decrypted when checked out. This means:
+git-crypt enables transparent encryption and decryption of files in a git
+repository. Files which you choose to protect are encrypted when committed, and
+decrypted when checked out. This means:
 
 - Sensitive files are encrypted in the repository (including GitHub)
 - Authorized users can read/edit files normally after unlocking
@@ -74,7 +78,8 @@ git-crypt export-key /secure/location/Evident-git-crypt.key
 
 #### Option A: Using Symmetric Key (Recommended for Small Teams)
 
-1. **Get the key** from repository admin (via secure channel like 1Password, Bitwarden, etc.)
+1. **Get the key** from repository admin (via secure channel like 1Password,
+   Bitwarden, etc.)
 
 2. **Clone the repository**:
 
@@ -115,7 +120,8 @@ Current encryption patterns in `.gitattributes`:
 ### Always Encrypted
 
 - `secrets.enc`, `secrets.encrypted`, `*.secrets` - Explicit secret files
-- `.env`, `.env.local`, `.env.production`, `.env.staging` - Environment files (if tracked)
+- `.env`, `.env.local`, `.env.production`, `.env.staging` - Environment files
+  (if tracked)
 - `*.key`, `*.pem`, `*.p12`, `*.pfx` - Private keys and certificates
 - `barber-cam/**` - Body-worn camera footage and analysis
 - `secure/**` - Secure output directory

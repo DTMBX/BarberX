@@ -42,7 +42,8 @@
 - ✅ **THIRD-PARTY-LICENSES.md** - Complete license documentation
 - ✅ **ATTRIBUTION.md** - Acknowledgments and credits
 - ✅ **LICENSES/** directory - Full license texts repository
-- ✅ **Updated data_rights.py** - Auto-includes tool attributions in every export
+- ✅ **Updated data_rights.py** - Auto-includes tool attributions in every
+  export
 - ✅ **Updated ATTRIBUTION.txt** - Generated with every export package
 
 --
@@ -427,7 +428,8 @@ legal@Evident.info
 - ✅ Excluded materials list (what was blocked)
 - ✅ Third-party tool credits (all 8+ tools)
 
-**Your platform is now FULLY COMPLIANT with both proprietary and open-source licensing requirements.**
+**Your platform is now FULLY COMPLIANT with both proprietary and open-source
+licensing requirements.**
 
 --
 

@@ -6,11 +6,9 @@
 */
 :root {
   /* Typography */
-  --font-display:
-    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
-  --font-body:
-    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
-  --font-mono: "SF Mono", monaco, "Cascadia Code", monospace;
+  --font-display: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', monaco, 'Cascadia Code', monospace;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;

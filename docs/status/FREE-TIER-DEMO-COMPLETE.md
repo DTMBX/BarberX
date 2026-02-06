@@ -7,7 +7,8 @@
 
 ## 🎯 ANSWER: YES, DEMO WORKS FULLY!
 
-Your FREE tier demo functionality is **complete and ready to use** with your existing case files in the `/cases` directory for reference.
+Your FREE tier demo functionality is **complete and ready to use** with your
+existing case files in the `/cases` directory for reference.
 
 --
 
@@ -59,8 +60,10 @@ Located in: `free_tier_demo_cases.py`
 
 **Templates Complete:**
 
-- `templates/free_tier_dashboard.html` - Beautiful gradient cards, upload status, demo cases grid
-- `templates/demo_case_detail.html` - Full case view with timeline, AI analysis, upgrade CTAs
+- `templates/free_tier_dashboard.html` - Beautiful gradient cards, upload
+  status, demo cases grid
+- `templates/demo_case_detail.html` - Full case view with timeline, AI analysis,
+  upgrade CTAs
 
 **Features:**
 
@@ -90,7 +93,8 @@ Located in: `free_tier_demo_cases.py`
 
 - Demo cases are **pre-generated virtual cases** ($0 cost, no processing)
 - Real cases in `/cases` directory are available for reference/exploration
-- FREE users can explore demo cases + use **1 one-time upload** to process their own file
+- FREE users can explore demo cases + use **1 one-time upload** to process their
+  own file
 - One-time upload can be PDF (10 pages max) or video (5 min max)
 - Results kept for 7 days, then deleted
 

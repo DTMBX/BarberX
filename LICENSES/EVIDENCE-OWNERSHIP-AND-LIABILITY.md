@@ -40,13 +40,15 @@ Evident does not:
 - Guarantee admissibility
 - Replace attorney judgment
 
-All legal interpretation and strategic use of evidence remains the sole responsibility of the user.
+All legal interpretation and strategic use of evidence remains the sole
+responsibility of the user.
 
 ---
 
 ## 4. No Warranty of Outcome
 
-While Evident employs integrity and verification mechanisms designed to support evidentiary reliability:
+While Evident employs integrity and verification mechanisms designed to support
+evidentiary reliability:
 
 - No outcome is guaranteed
 - No inference is mandated

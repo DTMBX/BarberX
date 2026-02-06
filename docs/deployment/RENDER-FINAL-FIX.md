@@ -8,7 +8,8 @@ File "/opt/render/project/src/app.py", line 2597, in <module>
 ModuleNotFoundError: No module named 'openai'
 ```
 
-**Line 2597 of app.py was importing `openai` but it wasn't in requirements.txt!**
+**Line 2597 of app.py was importing `openai` but it wasn't in
+requirements.txt!**
 
 --
 

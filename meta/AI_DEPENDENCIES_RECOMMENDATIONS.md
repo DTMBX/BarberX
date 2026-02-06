@@ -9,7 +9,8 @@
 ### **FingerprintJS** (FREE - MIT License)
 
 - **Purpose:** Browser fingerprinting for fraud detection
-- **Use Case:** Detect suspicious login patterns, bot accounts, account takeovers
+- **Use Case:** Detect suspicious login patterns, bot accounts, account
+  takeovers
 - **Install:** `npm install @fingerprintjs/fingerprintjs`
 - **Python Integration:** Use via API or frontend JS
 
@@ -23,7 +24,8 @@ device_id = tracker.get_fingerprint(request)
 ### **PyOD** (FREE - BSD License)
 
 - **Purpose:** Python Outlier Detection library with 40+ algorithms
-- **Use Case:** Detect anomalous login behavior (unusual times, locations, patterns)
+- **Use Case:** Detect anomalous login behavior (unusual times, locations,
+  patterns)
 - **Install:** `pip install pyod`
 
 ```python
@@ -368,4 +370,5 @@ def login():
 
 ---
 
-**Recommendation:** Start with **PyOD + PostHog + Redis** for immediate security and analytics benefits, then add ML-powered retention tools in Phase 2.
+**Recommendation:** Start with **PyOD + PostHog + Redis** for immediate security
+and analytics benefits, then add ML-powered retention tools in Phase 2.

@@ -3,7 +3,8 @@
 **Know the Rules: Lawful Documentation in NJ**
 
 **Last Updated:** January 28, 2026  
-**Disclaimer:** This is educational information, not legal advice. Consult an attorney for specific guidance.
+**Disclaimer:** This is educational information, not legal advice. Consult an
+attorney for specific guidance.
 
 --
 
@@ -33,15 +34,17 @@
 
 ### What It Means
 
-New Jersey law allows you to record conversations **where you are a participant** without telling the other person.
+New Jersey law allows you to record conversations **where you are a
+participant** without telling the other person.
 
 **Legal Citation:**
 
 - N.J.S.A. 2A:156A-3 (Wiretapping and Electronic Surveillance Control Act)
-- "Intercept" defined as acquisition by device **without consent of at least one party**
+- "Intercept" defined as acquisition by device **without consent of at least one
+  party**
 
-**Plain English:**
-If you're part of the conversation, you can record it. If you're not part of it, you need consent from all parties.
+**Plain English:** If you're part of the conversation, you can record it. If
+you're not part of it, you need consent from all parties.
 
 ### Examples
 
@@ -63,16 +66,20 @@ If you're part of the conversation, you can record it. If you're not part of it,
 
 ### Your Constitutional Right
 
-The **First Amendment protects your right to record police** performing official duties in public places.
+The **First Amendment protects your right to record police** performing official
+duties in public places.
 
 **Key Case Law:**
 
-- _Glik v. Cunniffe_ (1st Cir. 2011) - "a citizen's right to film government officials...is a basic, vital, and well-established liberty"
-- _ACLU v. Alvarez_ (7th Cir. 2012) - Recording police in public is protected speech
-- _Fields v. City of Philadelphia_ (3rd Cir. 2017) - NJ is in 3rd Circuit jurisdiction
+- _Glik v. Cunniffe_ (1st Cir. 2011) - "a citizen's right to film government
+  officials...is a basic, vital, and well-established liberty"
+- _ACLU v. Alvarez_ (7th Cir. 2012) - Recording police in public is protected
+  speech
+- _Fields v. City of Philadelphia_ (3rd Cir. 2017) - NJ is in 3rd Circuit
+  jurisdiction
 
-**NJ Attorney General Guidance:**
-The NJ AG has issued directives recognizing the public's right to record police activities in public.
+**NJ Attorney General Guidance:** The NJ AG has issued directives recognizing
+the public's right to record police activities in public.
 
 ### What "In Public" Means
 
@@ -98,8 +105,8 @@ The NJ AG has issued directives recognizing the public's right to record police 
 - Interfere with an arrest or investigation
 - Create a safety hazard
 
-**Legal Consequence:**
-Interfering with police duties is a **separate criminal offense** (N.J.S.A. 2C:29-1 Obstruction).
+**Legal Consequence:** Interfering with police duties is a **separate criminal
+offense** (N.J.S.A. 2C:29-1 Obstruction).
 
 **Best Practice:**
 
@@ -114,7 +121,8 @@ Interfering with police duties is a **separate criminal offense** (N.J.S.A. 2C:2
 
 ### Criminal or Tortious Purpose
 
-Even if consent rules allow recording, using recordings for illegal purposes creates exposure:
+Even if consent rules allow recording, using recordings for illegal purposes
+creates exposure:
 
 ❌ **Illegal purposes:**
 
@@ -123,8 +131,8 @@ Even if consent rules allow recording, using recordings for illegal purposes cre
 - Invasion of privacy torts
 - Evidence tampering
 
-**Example:**
-Recording someone in public is usually legal, but following them repeatedly to record them could be stalking.
+**Example:** Recording someone in public is usually legal, but following them
+repeatedly to record them could be stalking.
 
 ### Invasion of Privacy
 
@@ -257,7 +265,8 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 
 **Legal:**
 
-- Courts have ruled police generally **cannot force you to unlock your phone** without a warrant
+- Courts have ruled police generally **cannot force you to unlock your phone**
+  without a warrant
 - 5th Amendment protects passcodes (testimonial)
 - Biometrics (fingerprint/face) have weaker protection in some jurisdictions
 
@@ -296,19 +305,24 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 A: No, but it can reduce tension and is often recommended for transparency.
 
 **Q: Can police take my phone?**  
-A: Not without a warrant, probable cause, or arrest. If arrested, they can seize property but generally need a warrant to search it.
+A: Not without a warrant, probable cause, or arrest. If arrested, they can seize
+property but generally need a warrant to search it.
 
 **Q: Can I record 911 calls I make?**  
 A: Yes, you're a party to the call. Note: 911 centers also record all calls.
 
 **Q: What if the recording shows me doing something illegal?**  
-A: Recordings can be used as evidence. Consult an attorney before sharing anything that might incriminate you.
+A: Recordings can be used as evidence. Consult an attorney before sharing
+anything that might incriminate you.
 
 **Q: Can I record my own arrest?**  
-A: Yes, if you can do so without resisting or interfering. Use voice recording, hands-free mount, or livestream.
+A: Yes, if you can do so without resisting or interfering. Use voice recording,
+hands-free mount, or livestream.
 
 --
 
-**Remember:** The goal is documentation, not confrontation. Stay safe, stay legal, stay calm.
+**Remember:** The goal is documentation, not confrontation. Stay safe, stay
+legal, stay calm.
 
-**Need Help?** Contact a civil rights attorney if you believe your rights were violated.
+**Need Help?** Contact a civil rights attorney if you believe your rights were
+violated.

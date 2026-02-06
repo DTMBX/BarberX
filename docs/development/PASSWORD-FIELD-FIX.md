@@ -2,8 +2,9 @@
 
 ## Issue Fixed
 
-**Problem:** When revealing password, text moved behind the lock icon
-**Cause:** Password input field had same padding as email field, but needed extra space for the eye icon button
+**Problem:** When revealing password, text moved behind the lock icon **Cause:**
+Password input field had same padding as email field, but needed extra space for
+the eye icon button
 
 ## Solution Applied
 
@@ -13,8 +14,8 @@
 
 ```css
 /* Extra padding for password field with reveal button */
-input[type="password"]#password,
-input[type="text"]#password {
+input[type='password']#password,
+input[type='text']#password {
   padding-right: 5.5rem;
 }
 ```
@@ -23,10 +24,10 @@ input[type="text"]#password {
 
 ```css
 /* Extra padding for password fields with reveal button */
-input[type="password"]#password,
-input[type="text"]#password,
-input[type="password"]#confirm_password,
-input[type="text"]#confirm_password {
+input[type='password']#password,
+input[type='text']#password,
+input[type='password']#confirm_password,
+input[type='text']#confirm_password {
   padding-right: 5.5rem;
 }
 ```
@@ -108,7 +109,8 @@ No JavaScript changes needed - pure CSS fix.
 
 ## Next Steps
 
-1. **Hard refresh** your browser: `Ctrl + F5` (Windows) or `Cmd + Shift + R` (Mac)
+1. **Hard refresh** your browser: `Ctrl + F5` (Windows) or `Cmd + Shift + R`
+   (Mac)
 2. Navigate to: http://localhost:5000/auth/login
 3. Test password reveal feature
 4. Text should stay properly positioned

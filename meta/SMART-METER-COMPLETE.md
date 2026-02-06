@@ -237,7 +237,8 @@ Tracks every individual event with full metadata:
 - Status tracking (success, error, throttled)
 - Timestamps (when it happened)
 
-**Indexes:** `user_id`, `event_type`, `event_category`, `timestamp`, `request_id`
+**Indexes:** `user_id`, `event_type`, `event_category`, `timestamp`,
+`request_id`
 
 #### `usage_quotas` (25 columns)
 
@@ -453,7 +454,8 @@ status: pushed to main
 ✅ Cost attribution  
 ✅ Audit trails
 
-**Result:** Fair, transparent, usage-based platform with complete visibility for every user and every action.
+**Result:** Fair, transparent, usage-based platform with complete visibility for
+every user and every action.
 
 ---
 

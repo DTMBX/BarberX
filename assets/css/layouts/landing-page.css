@@ -95,7 +95,7 @@
 }
 
 .dropdown-toggle::after {
-  content: "▼";
+  content: '▼';
   font-size: 0.7rem;
   transition: transform 0.3s;
 }
@@ -147,7 +147,7 @@
 }
 
 .dropdown-menu a::before {
-  content: "→";
+  content: '→';
   margin-right: 0.5rem;
   opacity: 0;
   transition: opacity 0.2s;

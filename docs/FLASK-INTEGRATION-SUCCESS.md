@@ -2,7 +2,8 @@
 
 ## 🎉 Achievement Summary
 
-Successfully integrated enhanced authentication system with Flask! Server is running and ready for testing.
+Successfully integrated enhanced authentication system with Flask! Server is
+running and ready for testing.
 
 --
 

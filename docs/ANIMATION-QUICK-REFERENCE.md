@@ -187,20 +187,20 @@ window.animationEngine;
 
 // Stagger children manually
 AnimationEngine.stagger(
-  document.querySelector(".container"),
-  ".item",
-  100, // delay in ms
+  document.querySelector('.container'),
+  '.item',
+  100 // delay in ms
 );
 
 // Text reveal
-TextReveal.reveal(document.querySelector("h1"), {
+TextReveal.reveal(document.querySelector('h1'), {
   duration: 50,
   delay: 0,
   stagger: true,
 });
 
 // Floating animation
-FloatingAnimation.apply(".icon", {
+FloatingAnimation.apply('.icon', {
   distance: 20,
   duration: 3000,
   delay: 0,
@@ -211,17 +211,17 @@ FloatingAnimation.apply(".icon", {
 
 ```javascript
 // Element revealed
-document.addEventListener("element-revealed", (e) => {
+document.addEventListener('element-revealed', (e) => {
   console.log(e.detail.target);
 });
 
 // Theme changed
-document.addEventListener("theme:change", (e) => {
+document.addEventListener('theme:change', (e) => {
   console.log(e.detail.theme);
 });
 
 // App ready
-document.addEventListener("Evident:ready", () => {
+document.addEventListener('Evident:ready', () => {
   // Your code here
 });
 ```
@@ -321,7 +321,7 @@ console.log(window.themeManager); // Should be object
 
 ```javascript
 // Add class manually
-document.querySelector(".my-element").classList.add("revealed");
+document.querySelector('.my-element').classList.add('revealed');
 ```
 
 ### Check for conflicts

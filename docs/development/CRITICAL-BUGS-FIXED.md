@@ -68,7 +68,7 @@ envVars:
 
 ```yaml
 - key: CORS_ORIGINS
-  value: "https://Evident.info,https://www.Evident.info,https://Evident-legal-tech.onrender.com"
+  value: 'https://Evident.info,https://www.Evident.info,https://Evident-legal-tech.onrender.com'
 ```
 
 --

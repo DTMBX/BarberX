@@ -106,7 +106,8 @@
 
 **Output Files Generated:**
 
-- `exports/exp_[uuid]/RIGHTS_MANIFEST.json` - Complete attribution + rights tracking
+- `exports/exp_[uuid]/RIGHTS_MANIFEST.json` - Complete attribution + rights
+  tracking
 - `exports/exp_[uuid]/ATTRIBUTION.txt` - Human-readable attribution file
 
 --
@@ -115,7 +116,8 @@
 
 ### Pattern 1: Citation-Only Storage
 
-**Problem Solved:** Law firms were copying full Westlaw/Lexis opinions into databases → Copyright infringement
+**Problem Solved:** Law firms were copying full Westlaw/Lexis opinions into
+databases → Copyright infringement
 
 **Solution Implemented:**
 
@@ -147,8 +149,10 @@ citation = CitationMetadata(
 
 **Solution Implemented:**
 
-- **Public table** (`public_case_data`): CourtListener text, our analysis, public records
-- **Proprietary table** (`proprietary_source_data`): Westlaw KeyCite, Lexis Shepard's
+- **Public table** (`public_case_data`): CourtListener text, our analysis,
+  public records
+- **Proprietary table** (`proprietary_source_data`): Westlaw KeyCite, Lexis
+  Shepard's
 - Forced flags: `export_allowed=False`, `internal_use_only=True`
 
 **Code Enforcement:**
@@ -164,7 +168,8 @@ class ProprietarySourceData:
 
 ### Pattern 3: Rights-Aware Exports
 
-**Problem Solved:** Attorneys accidentally exporting Westlaw/Lexis data → License violations
+**Problem Solved:** Attorneys accidentally exporting Westlaw/Lexis data →
+License violations
 
 **Solution Implemented:**
 
@@ -228,7 +233,8 @@ export.add_material(westlaw_material)  # AUTO-EXCLUDED
 2. **Export functions not integrated** → Update app.py to use RightsAwareExport
 3. **bwc_forensic_analyzer.py not updated** → Add data_rights import
 
-**Risk if not fixed:** $150,000 per copyright violation + lawsuit from Westlaw/Lexis
+**Risk if not fixed:** $150,000 per copyright violation + lawsuit from
+Westlaw/Lexis
 
 ### Priority 2 - SECURITY (CRITICAL)
 

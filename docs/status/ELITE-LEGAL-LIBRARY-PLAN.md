@@ -521,4 +521,5 @@ class CitationVisualizer:
 - ✅ API lets them build custom tools
 - ✅ Data quality suitable for law review publication
 
-**Bottom Line:** You're building the legal research platform law students wish existed when they were in school.
+**Bottom Line:** You're building the legal research platform law students wish
+existed when they were in school.
