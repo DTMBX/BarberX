@@ -13,7 +13,8 @@ services:
     region: oregon
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
+    # Use env vars for tunables so scaling changes stay in one place.
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers $WEB_CONCURRENCY --threads $GUNICORN_THREADS --timeout $GUNICORN_TIMEOUT --log-level $LOG_LEVEL --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
@@ -30,11 +31,15 @@ services:
           name: Evident-db
           property: connectionString
       - key: CORS_ORIGINS
-        value: "https://Evident.info,https://www.Evident.info,https://Evident-legal-tech.onrender.com"
+        value: "https://evident.info,https://www.evident.info,https://evident-legal-tech.onrender.com"
       - key: LOG_LEVEL
         value: "INFO"
       - key: WEB_CONCURRENCY
         value: "2"
+      - key: GUNICORN_THREADS
+        value: "4"
+      - key: GUNICORN_TIMEOUT
+        value: "300"
     healthCheckPath: /health
     autoDeploy: true
     # Build filters - ignore non-web-app changes
