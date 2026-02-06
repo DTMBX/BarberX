@@ -74,4 +74,10 @@
 		<EmbeddedResource Include="appsettings.json" />
 	</ItemGroup>
 
+	<!-- Exclude non-image files from Resources\Images so MAUI resizetizer ignores them -->
+	<ItemGroup>
+		<MauiImage Remove="Resources\Images\download-icons.ps1" />
+		<MauiImage Remove="Resources\Images\ICONS-README.md" />
+	</ItemGroup>
+
 </Project>
