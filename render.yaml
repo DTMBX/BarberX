@@ -14,10 +14,10 @@ services:
     region: oregon
     plan: free
     rootDir: backend
-    # Ensure Render installs the backend requirements explicitly in case the
-    # service doesn't run the build command from `rootDir` for any reason.
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
+    # Install backend dependencies without caching to keep build artifacts small
+    buildCommand: pip install --no-cache-dir -r backend/requirements.txt
+    # Use the configured `WEB_CONCURRENCY` for worker count (set in envVars)
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers $WEB_CONCURRENCY --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
