@@ -19,6 +19,7 @@ from pathlib import Path
 import flask
 from flask import (Flask, flash, jsonify, redirect, render_template, request,
                    send_file, session, url_for)
+from jinja2 import ChoiceLoader, FileSystemLoader
 from flask_compress import Compress
 from flask_cors import CORS
 from flask_login import (LoginManager, current_user, login_required,
@@ -168,6 +169,25 @@ except ImportError as e:
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Configure Jinja2 template search paths so Flask finds templates placed
+# at common repository locations (backend/src/templates, repo-level
+# templates/, site/templates/, _site/templates/). This avoids duplicating
+# templates and makes tests/CI able to render views.
+from pathlib import Path
+_repo_root = Path(__file__).resolve().parents[2]
+_candidates = [
+    Path(__file__).resolve().parent / "templates",
+    _repo_root / "templates",
+    _repo_root / "site" / "templates",
+    _repo_root / "_site" / "templates",
+]
+_existing = [p for p in _candidates if p.exists()]
+if _existing:
+    if len(_existing) == 1:
+        app.jinja_loader = FileSystemLoader(str(_existing[0]))
+    else:
+        app.jinja_loader = ChoiceLoader([FileSystemLoader(str(p)) for p in _existing])
 
 # Initialize logger for the application
 logger = logging.getLogger(__name__)

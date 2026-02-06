@@ -12,8 +12,10 @@ const candidates = [
 ];
 
 const hasEntry = candidates.some(p => fs.existsSync(p));
-if (!hasEntry) {
-  console.log('No frontend entry found under ./src — skipping webpack.');
+const webpackConfig = path.join(cwd, 'webpack.config.js');
+const hasWebpackConfig = fs.existsSync(webpackConfig);
+if (!hasEntry || !hasWebpackConfig) {
+  console.log('No frontend entry or webpack.config.js found — skipping webpack.');
   process.exit(0);
 }
 

@@ -1,0 +1,179 @@
+﻿lint	Set up job	∩╗┐2026-02-06T08:18:17.0296676Z Current runner version: '2.331.0'
+lint	Set up job	2026-02-06T08:18:17.0321436Z ##[group]Runner Image Provisioner
+lint	Set up job	2026-02-06T08:18:17.0322333Z Hosted Compute Agent
+lint	Set up job	2026-02-06T08:18:17.0322909Z Version: 20260123.484
+lint	Set up job	2026-02-06T08:18:17.0323500Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+lint	Set up job	2026-02-06T08:18:17.0324623Z Build Date: 2026-01-23T19:41:17Z
+lint	Set up job	2026-02-06T08:18:17.0325334Z Worker ID: {8e00aa94-78cf-4410-92e0-cd209f7accbd}
+lint	Set up job	2026-02-06T08:18:17.0326025Z Azure Region: westus3
+lint	Set up job	2026-02-06T08:18:17.0326629Z ##[endgroup]
+lint	Set up job	2026-02-06T08:18:17.0328351Z ##[group]Operating System
+lint	Set up job	2026-02-06T08:18:17.0329029Z Ubuntu
+lint	Set up job	2026-02-06T08:18:17.0329543Z 24.04.3
+lint	Set up job	2026-02-06T08:18:17.0330032Z LTS
+lint	Set up job	2026-02-06T08:18:17.0330492Z ##[endgroup]
+lint	Set up job	2026-02-06T08:18:17.0330994Z ##[group]Runner Image
+lint	Set up job	2026-02-06T08:18:17.0331609Z Image: ubuntu-24.04
+lint	Set up job	2026-02-06T08:18:17.0332092Z Version: 20260126.10.1
+lint	Set up job	2026-02-06T08:18:17.0333111Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260126.10/images/ubuntu/Ubuntu2404-Readme.md
+lint	Set up job	2026-02-06T08:18:17.0335143Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260126.10
+lint	Set up job	2026-02-06T08:18:17.0336158Z ##[endgroup]
+lint	Set up job	2026-02-06T08:18:17.0337189Z ##[group]GITHUB_TOKEN Permissions
+lint	Set up job	2026-02-06T08:18:17.0339181Z Contents: read
+lint	Set up job	2026-02-06T08:18:17.0339994Z Metadata: read
+lint	Set up job	2026-02-06T08:18:17.0340476Z Packages: read
+lint	Set up job	2026-02-06T08:18:17.0340972Z ##[endgroup]
+lint	Set up job	2026-02-06T08:18:17.0342999Z Secret source: Actions
+lint	Set up job	2026-02-06T08:18:17.0344318Z Prepare workflow directory
+lint	Set up job	2026-02-06T08:18:17.0666217Z Prepare all required actions
+lint	Set up job	2026-02-06T08:18:17.0722846Z Getting action download info
+lint	Set up job	2026-02-06T08:18:17.5127966Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+lint	Set up job	2026-02-06T08:18:17.6243474Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+lint	Set up job	2026-02-06T08:18:17.8197414Z Complete job name: lint
+lint	Run actions/checkout@v4	∩╗┐2026-02-06T08:18:17.8880553Z ##[group]Run actions/checkout@v4
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8881454Z with:
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8881902Z   repository: DTMBX/Evident
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8882538Z   token: ***
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8882923Z   ssh-strict: true
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8883316Z   ssh-user: git
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8883720Z   persist-credentials: true
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8884340Z   clean: true
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8884748Z   sparse-checkout-cone-mode: true
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8885222Z   fetch-depth: 1
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8885626Z   fetch-tags: false
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8886027Z   show-progress: true
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8886478Z   lfs: false
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8886894Z   submodules: false
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8887437Z   set-safe-directory: true
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.8888188Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.9996782Z Syncing repository: DTMBX/Evident
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.9998552Z ##[group]Getting Git version info
+lint	Run actions/checkout@v4	2026-02-06T08:18:17.9999612Z Working directory is '/home/runner/work/Evident/Evident'
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0001342Z [command]/usr/bin/git version
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0090347Z git version 2.52.0
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0117736Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0134607Z Temporarily overriding HOME='/home/runner/work/_temp/f1825486-64f5-45ac-927f-18c9b0fc2090' before making global git config changes
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0137042Z Adding repository directory to the temporary git global config as a safe directory
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0141375Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0180641Z Deleting the contents of '/home/runner/work/Evident/Evident'
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0184303Z ##[group]Initializing the repository
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0188280Z [command]/usr/bin/git init /home/runner/work/Evident/Evident
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0298649Z hint: Using 'master' as the name for the initial branch. This default branch name
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0300057Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0300978Z hint: to use in all of your new repositories, which will suppress this warning,
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0302319Z hint: call:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0303068Z hint:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0304275Z hint: 	git config --global init.defaultBranch <name>
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0305370Z hint:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0306386Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0308116Z hint: 'development'. The just-created branch can be renamed via this command:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0309450Z hint:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0310188Z hint: 	git branch -m <name>
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0310981Z hint:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0312000Z hint: Disable this message with "git config set advice.defaultBranchName false"
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0313683Z Initialized empty Git repository in /home/runner/work/Evident/Evident/.git/
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0316757Z [command]/usr/bin/git remote add origin https://github.com/DTMBX/Evident
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0353420Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0354896Z ##[group]Disabling automatic garbage collection
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0358434Z [command]/usr/bin/git config --local gc.auto 0
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0387378Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0388622Z ##[group]Setting up auth
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0394931Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0426066Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0774328Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.0805123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.1044360Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.1087209Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.1327941Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.1364598Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.1365959Z ##[group]Fetching the repository
+lint	Run actions/checkout@v4	2026-02-06T08:18:18.1377156Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bbeada95ef0a7344f7349f8743d759b9ada250d2:refs/remotes/pull/50/merge
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5555074Z From https://github.com/DTMBX/Evident
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5559143Z  * [new ref]         bbeada95ef0a7344f7349f8743d759b9ada250d2 -> pull/50/merge
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5594056Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5596024Z ##[group]Determining the checkout info
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5597994Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5601249Z [command]/usr/bin/git sparse-checkout disable
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5654938Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5689220Z ##[group]Checking out the ref
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.5693623Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/50/merge
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7589106Z Note: switching to 'refs/remotes/pull/50/merge'.
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7590574Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7591743Z You are in 'detached HEAD' state. You can look around, make experimental
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7594680Z changes and commit them, and you can discard any commits you make in this
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7597430Z state without impacting any branches by switching back to a branch.
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7599050Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7600097Z If you want to create a new branch to retain commits you create, you may
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7602551Z do so (now or later) by using -c with the switch command. Example:
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7604215Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7604808Z   git switch -c <new-branch-name>
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7605853Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7606402Z Or undo this operation with:
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7607413Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7607900Z   git switch -
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7609056Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7610270Z Turn off this advice by setting config variable advice.detachedHead to false
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7612195Z 
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7614401Z HEAD is now at bbeada9 Merge 260b103ed4ea1cc1020523374aa2b3ab740d30a9 into 030d9cd9e4a66472903de89748644294da6a8552
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7620768Z ##[endgroup]
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7648332Z [command]/usr/bin/git log -1 --format=%H
+lint	Run actions/checkout@v4	2026-02-06T08:18:19.7673654Z bbeada95ef0a7344f7349f8743d759b9ada250d2
+lint	Setup Node	∩╗┐2026-02-06T08:18:19.7963412Z ##[group]Run actions/setup-node@v4
+lint	Setup Node	2026-02-06T08:18:19.7964284Z with:
+lint	Setup Node	2026-02-06T08:18:19.7964600Z   node-version: 22
+lint	Setup Node	2026-02-06T08:18:19.7964968Z   always-auth: false
+lint	Setup Node	2026-02-06T08:18:19.7965358Z   check-latest: false
+lint	Setup Node	2026-02-06T08:18:19.7966022Z   token: ***
+lint	Setup Node	2026-02-06T08:18:19.7966332Z ##[endgroup]
+lint	Setup Node	2026-02-06T08:18:19.9988779Z Found in cache @ /opt/hostedtoolcache/node/22.22.0/x64
+lint	Setup Node	2026-02-06T08:18:19.9995271Z ##[group]Environment details
+lint	Setup Node	2026-02-06T08:18:22.3531565Z node: v22.22.0
+lint	Setup Node	2026-02-06T08:18:22.3532126Z npm: 10.9.4
+lint	Setup Node	2026-02-06T08:18:22.3532440Z yarn: 1.22.22
+lint	Setup Node	2026-02-06T08:18:22.3546106Z ##[endgroup]
+lint	Install dependencies	∩╗┐2026-02-06T08:18:22.3654834Z ##[group]Run npm ci
+lint	Install dependencies	2026-02-06T08:18:22.3655200Z [36;1mnpm ci[0m
+lint	Install dependencies	2026-02-06T08:18:22.3735657Z shell: /usr/bin/bash -e {0}
+lint	Install dependencies	2026-02-06T08:18:22.3735973Z ##[endgroup]
+lint	Install dependencies	2026-02-06T08:18:26.0904593Z 
+lint	Install dependencies	2026-02-06T08:18:26.0914030Z added 230 packages, and audited 231 packages in 4s
+lint	Install dependencies	2026-02-06T08:18:26.0914597Z 
+lint	Install dependencies	2026-02-06T08:18:26.0914960Z 57 packages are looking for funding
+lint	Install dependencies	2026-02-06T08:18:26.0915568Z   run `npm fund` for details
+lint	Install dependencies	2026-02-06T08:18:26.1003469Z 
+lint	Install dependencies	2026-02-06T08:18:26.1003980Z found 0 vulnerabilities
+lint	Run stylelint	∩╗┐2026-02-06T08:18:26.1456249Z ##[group]Run npm run lint:css
+lint	Run stylelint	2026-02-06T08:18:26.1456574Z [36;1mnpm run lint:css[0m
+lint	Run stylelint	2026-02-06T08:18:26.1493105Z shell: /usr/bin/bash -e {0}
+lint	Run stylelint	2026-02-06T08:18:26.1493360Z ##[endgroup]
+lint	Run stylelint	2026-02-06T08:18:26.2429800Z 
+lint	Run stylelint	2026-02-06T08:18:26.2430337Z > evident-repo-tools@0.0.0 lint:css
+lint	Run stylelint	2026-02-06T08:18:26.2431241Z > stylelint "site/components/*.css" "site/assets/css/**/*.css"
+lint	Run stylelint	2026-02-06T08:18:26.2431809Z 
+lint	Prettier check	∩╗┐2026-02-06T08:18:29.3384765Z ##[group]Run npm run format:check
+lint	Prettier check	2026-02-06T08:18:29.3385095Z [36;1mnpm run format:check[0m
+lint	Prettier check	2026-02-06T08:18:29.3418015Z shell: /usr/bin/bash -e {0}
+lint	Prettier check	2026-02-06T08:18:29.3418258Z ##[endgroup]
+lint	Prettier check	2026-02-06T08:18:29.4354861Z 
+lint	Prettier check	2026-02-06T08:18:29.4355595Z > evident-repo-tools@0.0.0 format:check
+lint	Prettier check	2026-02-06T08:18:29.4356271Z > prettier --check "**/*.{css,html,md,js,ts,tsx,jsx,json}"
+lint	Prettier check	2026-02-06T08:18:29.4356555Z 
+lint	Prettier check	2026-02-06T08:18:29.5184441Z Checking formatting...
+lint	Prettier check	2026-02-06T08:18:29.9146144Z [[33mwarn[39m] backend/src/templates/auth/login.html
+lint	Prettier check	2026-02-06T08:18:41.3156014Z [[33mwarn[39m] Code style issues found in the above file. Run Prettier with --write to fix.
+lint	Prettier check	2026-02-06T08:18:41.3648101Z ##[error]Process completed with exit code 1.
+lint	Post Run actions/checkout@v4	∩╗┐2026-02-06T08:18:41.3759324Z Post job cleanup.
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4714333Z [command]/usr/bin/git version
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4751065Z git version 2.52.0
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4796029Z Temporarily overriding HOME='/home/runner/work/_temp/6de826d5-a5d8-4492-a003-d376513d9cd3' before making global git config changes
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4797719Z Adding repository directory to the temporary git global config as a safe directory
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4809869Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4845044Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.4878309Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.5109957Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.5131576Z http.https://github.com/.extraheader
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.5145591Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.5176974Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.5402446Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+lint	Post Run actions/checkout@v4	2026-02-06T08:18:41.5433553Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+lint	Complete job	∩╗┐2026-02-06T08:18:41.5767455Z Cleaning up orphan processes

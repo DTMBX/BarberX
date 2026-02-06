@@ -31,3 +31,4 @@ gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0"
 
 # Minimal Gemfile for Jekyll and Webrick to enable local build and serve
+gem 'jekyll', '~> 4.3.2'

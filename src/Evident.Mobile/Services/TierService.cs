@@ -1,4 +1,5 @@
 using Evident.Shared.Models;
+using Evident.Shared.Services;
 
 namespace Evident.Mobile.Services;
 

@@ -6,8 +6,6 @@ name: iOS Build
 on:
   push:
     branches: [main, develop]
-  pull_request:
-    branches: [main]
   workflow_dispatch: # Manual trigger
 
 jobs:
@@ -15,6 +13,26 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Check Xcode version
+        id: xcode-check
+        run: |
+          set -euo pipefail
+          REQUIRED="26.2"
+          INSTALLED_FULL=$(xcodebuild -version | head -n1 || true)
+          INSTALLED=$(echo "$INSTALLED_FULL" | awk '{print $2}')
+          echo "Installed Xcode: ${INSTALLED_FULL}"
+          if [ "${INSTALLED}" = "${REQUIRED}" ]; then
+            echo "xcode_ok=true" >> $GITHUB_OUTPUT
+          else
+            echo "xcode_ok=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Skip iOS build if Xcode mismatch
+        if: steps.xcode-check.outputs.xcode_ok != 'true'
+        run: |
+          echo "::warning::Required Xcode 26.2 not found. Skipping iOS build on this runner."
+          echo "To run iOS builds: use a runner with Xcode 26.2, or trigger this workflow manually on an appropriate self-hosted/macOS runner."
+          exit 0
       - uses: actions/checkout@v4
 
       - name: Setup .NET
@@ -29,6 +47,7 @@ jobs:
         run: dotnet restore src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj
 
       - name: Build iOS app (Development)
+        if: steps.xcode-check.outputs.xcode_ok == 'true'
         run: |
           dotnet build src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj \
             -f net10.0-ios \

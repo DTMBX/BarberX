@@ -1,0 +1,689 @@
+﻿build (20.x)	Set up job	∩╗┐2026-02-06T08:18:17.2484854Z Current runner version: '2.331.0'
+build (20.x)	Set up job	2026-02-06T08:18:17.2507914Z ##[group]Runner Image Provisioner
+build (20.x)	Set up job	2026-02-06T08:18:17.2508850Z Hosted Compute Agent
+build (20.x)	Set up job	2026-02-06T08:18:17.2509437Z Version: 20260123.484
+build (20.x)	Set up job	2026-02-06T08:18:17.2510164Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+build (20.x)	Set up job	2026-02-06T08:18:17.2510951Z Build Date: 2026-01-23T19:41:17Z
+build (20.x)	Set up job	2026-02-06T08:18:17.2511971Z Worker ID: {0fac9469-8da3-4755-9e15-d92005c5eff3}
+build (20.x)	Set up job	2026-02-06T08:18:17.2512829Z Azure Region: westus
+build (20.x)	Set up job	2026-02-06T08:18:17.2513417Z ##[endgroup]
+build (20.x)	Set up job	2026-02-06T08:18:17.2514914Z ##[group]Operating System
+build (20.x)	Set up job	2026-02-06T08:18:17.2515543Z Ubuntu
+build (20.x)	Set up job	2026-02-06T08:18:17.2516173Z 24.04.3
+build (20.x)	Set up job	2026-02-06T08:18:17.2516650Z LTS
+build (20.x)	Set up job	2026-02-06T08:18:17.2517216Z ##[endgroup]
+build (20.x)	Set up job	2026-02-06T08:18:17.2517844Z ##[group]Runner Image
+build (20.x)	Set up job	2026-02-06T08:18:17.2518413Z Image: ubuntu-24.04
+build (20.x)	Set up job	2026-02-06T08:18:17.2518974Z Version: 20260126.10.1
+build (20.x)	Set up job	2026-02-06T08:18:17.2520057Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260126.10/images/ubuntu/Ubuntu2404-Readme.md
+build (20.x)	Set up job	2026-02-06T08:18:17.2521893Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260126.10
+build (20.x)	Set up job	2026-02-06T08:18:17.2522964Z ##[endgroup]
+build (20.x)	Set up job	2026-02-06T08:18:17.2524085Z ##[group]GITHUB_TOKEN Permissions
+build (20.x)	Set up job	2026-02-06T08:18:17.2525980Z Contents: read
+build (20.x)	Set up job	2026-02-06T08:18:17.2526578Z Metadata: read
+build (20.x)	Set up job	2026-02-06T08:18:17.2527188Z Packages: read
+build (20.x)	Set up job	2026-02-06T08:18:17.2527757Z ##[endgroup]
+build (20.x)	Set up job	2026-02-06T08:18:17.2529857Z Secret source: Actions
+build (20.x)	Set up job	2026-02-06T08:18:17.2530587Z Prepare workflow directory
+build (20.x)	Set up job	2026-02-06T08:18:17.2846325Z Prepare all required actions
+build (20.x)	Set up job	2026-02-06T08:18:17.2883251Z Getting action download info
+build (20.x)	Set up job	2026-02-06T08:18:17.7591273Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build (20.x)	Set up job	2026-02-06T08:18:17.8687893Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build (20.x)	Set up job	2026-02-06T08:18:18.0644068Z Complete job name: build (20.x)
+build (20.x)	Run actions/checkout@v4	∩╗┐2026-02-06T08:18:18.1243555Z ##[group]Run actions/checkout@v4
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1244394Z with:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1244810Z   repository: DTMBX/Evident
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1245432Z   token: ***
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1245815Z   ssh-strict: true
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1246193Z   ssh-user: git
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1246587Z   persist-credentials: true
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1247021Z   clean: true
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1247424Z   sparse-checkout-cone-mode: true
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1247892Z   fetch-depth: 1
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1248277Z   fetch-tags: false
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1248676Z   show-progress: true
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1249067Z   lfs: false
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1249432Z   submodules: false
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1249847Z   set-safe-directory: true
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.1250494Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2346353Z Syncing repository: DTMBX/Evident
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2348426Z ##[group]Getting Git version info
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2349171Z Working directory is '/home/runner/work/Evident/Evident'
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2350337Z [command]/usr/bin/git version
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2395606Z git version 2.52.0
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2421236Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2435528Z Temporarily overriding HOME='/home/runner/work/_temp/9a61fb32-49ed-478f-bdec-67d46673eb72' before making global git config changes
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2436873Z Adding repository directory to the temporary git global config as a safe directory
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2440602Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2478319Z Deleting the contents of '/home/runner/work/Evident/Evident'
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2481972Z ##[group]Initializing the repository
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2485787Z [command]/usr/bin/git init /home/runner/work/Evident/Evident
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2585663Z hint: Using 'master' as the name for the initial branch. This default branch name
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2586793Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2587693Z hint: to use in all of your new repositories, which will suppress this warning,
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2588418Z hint: call:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2589247Z hint:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2590005Z hint: 	git config --global init.defaultBranch <name>
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2590639Z hint:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2591174Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2592230Z hint: 'development'. The just-created branch can be renamed via this command:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2592915Z hint:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2593287Z hint: 	git branch -m <name>
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2593711Z hint:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2594278Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2595436Z Initialized empty Git repository in /home/runner/work/Evident/Evident/.git/
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2600508Z [command]/usr/bin/git remote add origin https://github.com/DTMBX/Evident
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2634938Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2635674Z ##[group]Disabling automatic garbage collection
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2638948Z [command]/usr/bin/git config --local gc.auto 0
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2666027Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2666693Z ##[group]Setting up auth
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2672951Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2701943Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3035720Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3063818Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3288822Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3331210Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3579579Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3613963Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3615293Z ##[group]Fetching the repository
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:18.3623094Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bbeada95ef0a7344f7349f8743d759b9ada250d2:refs/remotes/pull/50/merge
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6611203Z From https://github.com/DTMBX/Evident
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6612985Z  * [new ref]         bbeada95ef0a7344f7349f8743d759b9ada250d2 -> pull/50/merge
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6644286Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6646194Z ##[group]Determining the checkout info
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6648310Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6652081Z [command]/usr/bin/git sparse-checkout disable
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6691083Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6718026Z ##[group]Checking out the ref
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.6722149Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/50/merge
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8550497Z Note: switching to 'refs/remotes/pull/50/merge'.
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8552108Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8553070Z You are in 'detached HEAD' state. You can look around, make experimental
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8554890Z changes and commit them, and you can discard any commits you make in this
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8556553Z state without impacting any branches by switching back to a branch.
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8557554Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8558221Z If you want to create a new branch to retain commits you create, you may
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8560624Z do so (now or later) by using -c with the switch command. Example:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8562258Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8562856Z   git switch -c <new-branch-name>
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8563843Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8564394Z Or undo this operation with:
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8565350Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8565929Z   git switch -
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8566960Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8568064Z Turn off this advice by setting config variable advice.detachedHead to false
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8569837Z 
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8572092Z HEAD is now at bbeada9 Merge 260b103ed4ea1cc1020523374aa2b3ab740d30a9 into 030d9cd9e4a66472903de89748644294da6a8552
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8577814Z ##[endgroup]
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8604854Z [command]/usr/bin/git log -1 --format=%H
+build (20.x)	Run actions/checkout@v4	2026-02-06T08:18:19.8636262Z bbeada95ef0a7344f7349f8743d759b9ada250d2
+build (20.x)	Use Node.js 20.x	∩╗┐2026-02-06T08:18:19.8954897Z ##[group]Run actions/setup-node@v4
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:19.8956051Z with:
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:19.8956829Z   node-version: 20.x
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:19.8957729Z   always-auth: false
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:19.8958622Z   check-latest: false
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:19.8959811Z   token: ***
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:19.8960607Z ##[endgroup]
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:20.0708925Z Found in cache @ /opt/hostedtoolcache/node/20.20.0/x64
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:20.0714966Z ##[group]Environment details
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:20.4105158Z node: v20.20.0
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:20.4106698Z npm: 10.8.2
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:20.4107139Z yarn: 1.22.22
+build (20.x)	Use Node.js 20.x	2026-02-06T08:18:20.4109872Z ##[endgroup]
+build (20.x)	Build	∩╗┐2026-02-06T08:18:20.4231937Z ##[group]Run npm install --no-audit --no-fund --no-progress
+build (20.x)	Build	2026-02-06T08:18:20.4232542Z [36;1mnpm install --no-audit --no-fund --no-progress[0m
+build (20.x)	Build	2026-02-06T08:18:20.4232928Z [36;1mnpx --yes webpack[0m
+build (20.x)	Build	2026-02-06T08:18:20.4275339Z shell: /usr/bin/bash -e {0}
+build (20.x)	Build	2026-02-06T08:18:20.4275674Z ##[endgroup]
+build (20.x)	Build	2026-02-06T08:18:23.3837075Z 
+build (20.x)	Build	2026-02-06T08:18:23.3846917Z added 230 packages in 3s
+build (20.x)	Build	2026-02-06T08:18:24.2112780Z Entrypoint [1mmain[39m[22m =
+build (20.x)	Build	2026-02-06T08:18:24.2113450Z 
+build (20.x)	Build	2026-02-06T08:18:24.2113910Z [1m[33mWARNING[39m[22m in [1mconfiguration
+build (20.x)	Build	2026-02-06T08:18:24.2115209Z The [1m[31m'mode' option has not been set[39m[22m[1m, webpack will fallback to 'production' for this value.
+build (20.x)	Build	2026-02-06T08:18:24.2116886Z [1m[32mSet 'mode' option to 'development' or 'production'[39m[22m[1m to enable defaults for each environment.
+build (20.x)	Build	2026-02-06T08:18:24.2121790Z You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2123202Z 
+build (20.x)	Build	2026-02-06T08:18:24.2123968Z [1m[31mERROR[39m[22m in [1m[32mmain[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2126706Z [1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './src' in '/home/runner/work/Evident/Evident'[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2127931Z resolve './src' in '/home/runner/work/Evident/Evident'
+build (20.x)	Build	2026-02-06T08:18:24.2128898Z   using description file: /home/runner/work/Evident/Evident/package.json (relative path: .)
+build (20.x)	Build	2026-02-06T08:18:24.2129883Z     Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2130910Z     using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src)
+build (20.x)	Build	2026-02-06T08:18:24.2131890Z       no extension
+build (20.x)	Build	2026-02-06T08:18:24.2132437Z         Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2133172Z         /home/runner/work/Evident/Evident/src is not a file
+build (20.x)	Build	2026-02-06T08:18:24.2133701Z       .js
+build (20.x)	Build	2026-02-06T08:18:24.2134216Z         Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2135300Z [1m[31m        /home/runner/work/Evident/Evident/src.js doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2135951Z       .json
+build (20.x)	Build	2026-02-06T08:18:24.2136489Z         Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2137542Z [1m[31m        /home/runner/work/Evident/Evident/src.json doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2138193Z       .wasm
+build (20.x)	Build	2026-02-06T08:18:24.2138702Z         Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2139733Z [1m[31m        /home/runner/work/Evident/Evident/src.wasm doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2225275Z       as directory
+build (20.x)	Build	2026-02-06T08:18:24.2225996Z         existing directory /home/runner/work/Evident/Evident/src
+build (20.x)	Build	2026-02-06T08:18:24.2229073Z           using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src)
+build (20.x)	Build	2026-02-06T08:18:24.2230597Z             using path: /home/runner/work/Evident/Evident/src/index
+build (20.x)	Build	2026-02-06T08:18:24.2231952Z               using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src/index)
+build (20.x)	Build	2026-02-06T08:18:24.2232842Z                 no extension
+build (20.x)	Build	2026-02-06T08:18:24.2233573Z                   Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2234812Z [1m[31m                  /home/runner/work/Evident/Evident/src/index doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2235504Z                 .js
+build (20.x)	Build	2026-02-06T08:18:24.2236081Z                   Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2237260Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.js doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2237969Z                 .json
+build (20.x)	Build	2026-02-06T08:18:24.2238544Z                   Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2239732Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.json doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2240450Z                 .wasm
+build (20.x)	Build	2026-02-06T08:18:24.2241287Z                   Field 'browser' doesn't contain a valid alias configuration
+build (20.x)	Build	2026-02-06T08:18:24.2242693Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.wasm doesn't exist[39m[22m
+build (20.x)	Build	2026-02-06T08:18:24.2243361Z 
+build (20.x)	Build	2026-02-06T08:18:24.2244251Z webpack 5.105.0 compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m in 52 ms
+build (20.x)	Build	2026-02-06T08:18:24.2312064Z ##[error]Process completed with exit code 1.
+build (20.x)	Post Run actions/checkout@v4	∩╗┐2026-02-06T08:18:24.2428437Z Post job cleanup.
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3379443Z [command]/usr/bin/git version
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3419483Z git version 2.52.0
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3462715Z Temporarily overriding HOME='/home/runner/work/_temp/d80b624f-d965-4ea9-942f-1cdac03761d6' before making global git config changes
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3464408Z Adding repository directory to the temporary git global config as a safe directory
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3476229Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3511924Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3546428Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3787574Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3808786Z http.https://github.com/.extraheader
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3823754Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.3856332Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.4089023Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (20.x)	Post Run actions/checkout@v4	2026-02-06T08:18:24.4122067Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (20.x)	Complete job	∩╗┐2026-02-06T08:18:24.4532085Z Cleaning up orphan processes
+build (22.x)	Set up job	∩╗┐2026-02-06T08:18:16.4893919Z Current runner version: '2.331.0'
+build (22.x)	Set up job	2026-02-06T08:18:16.4919695Z ##[group]Runner Image Provisioner
+build (22.x)	Set up job	2026-02-06T08:18:16.4920608Z Hosted Compute Agent
+build (22.x)	Set up job	2026-02-06T08:18:16.4921382Z Version: 20260123.484
+build (22.x)	Set up job	2026-02-06T08:18:16.4921933Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+build (22.x)	Set up job	2026-02-06T08:18:16.4922704Z Build Date: 2026-01-23T19:41:17Z
+build (22.x)	Set up job	2026-02-06T08:18:16.4923334Z Worker ID: {d2b086e4-8a39-40eb-bb01-0eec2a97b4f9}
+build (22.x)	Set up job	2026-02-06T08:18:16.4924039Z Azure Region: eastus2
+build (22.x)	Set up job	2026-02-06T08:18:16.4924567Z ##[endgroup]
+build (22.x)	Set up job	2026-02-06T08:18:16.4925995Z ##[group]Operating System
+build (22.x)	Set up job	2026-02-06T08:18:16.4926555Z Ubuntu
+build (22.x)	Set up job	2026-02-06T08:18:16.4927076Z 24.04.3
+build (22.x)	Set up job	2026-02-06T08:18:16.4927544Z LTS
+build (22.x)	Set up job	2026-02-06T08:18:16.4927987Z ##[endgroup]
+build (22.x)	Set up job	2026-02-06T08:18:16.4928562Z ##[group]Runner Image
+build (22.x)	Set up job	2026-02-06T08:18:16.4929106Z Image: ubuntu-24.04
+build (22.x)	Set up job	2026-02-06T08:18:16.4929614Z Version: 20260201.15.1
+build (22.x)	Set up job	2026-02-06T08:18:16.4930530Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+build (22.x)	Set up job	2026-02-06T08:18:16.4932588Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+build (22.x)	Set up job	2026-02-06T08:18:16.4933542Z ##[endgroup]
+build (22.x)	Set up job	2026-02-06T08:18:16.4934588Z ##[group]GITHUB_TOKEN Permissions
+build (22.x)	Set up job	2026-02-06T08:18:16.4936707Z Contents: read
+build (22.x)	Set up job	2026-02-06T08:18:16.4937370Z Metadata: read
+build (22.x)	Set up job	2026-02-06T08:18:16.4937895Z Packages: read
+build (22.x)	Set up job	2026-02-06T08:18:16.4938353Z ##[endgroup]
+build (22.x)	Set up job	2026-02-06T08:18:16.4941018Z Secret source: Actions
+build (22.x)	Set up job	2026-02-06T08:18:16.4942021Z Prepare workflow directory
+build (22.x)	Set up job	2026-02-06T08:18:16.5275672Z Prepare all required actions
+build (22.x)	Set up job	2026-02-06T08:18:16.5313975Z Getting action download info
+build (22.x)	Set up job	2026-02-06T08:18:16.8881708Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build (22.x)	Set up job	2026-02-06T08:18:17.0054909Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build (22.x)	Set up job	2026-02-06T08:18:17.2760371Z Complete job name: build (22.x)
+build (22.x)	Run actions/checkout@v4	∩╗┐2026-02-06T08:18:17.3411263Z ##[group]Run actions/checkout@v4
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3412359Z with:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3412844Z   repository: DTMBX/Evident
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3413583Z   token: ***
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3413988Z   ssh-strict: true
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3414410Z   ssh-user: git
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3414827Z   persist-credentials: true
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3415291Z   clean: true
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3415715Z   sparse-checkout-cone-mode: true
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3416214Z   fetch-depth: 1
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3416623Z   fetch-tags: false
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3417044Z   show-progress: true
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3417485Z   lfs: false
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3417879Z   submodules: false
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3418303Z   set-safe-directory: true
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.3418996Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4494596Z Syncing repository: DTMBX/Evident
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4496469Z ##[group]Getting Git version info
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4497217Z Working directory is '/home/runner/work/Evident/Evident'
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4498201Z [command]/usr/bin/git version
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4584741Z git version 2.52.0
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4611561Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4626020Z Temporarily overriding HOME='/home/runner/work/_temp/4aa27b4b-e00b-4327-9215-f963b54c24a4' before making global git config changes
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4628893Z Adding repository directory to the temporary git global config as a safe directory
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4631822Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4676061Z Deleting the contents of '/home/runner/work/Evident/Evident'
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4680200Z ##[group]Initializing the repository
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4684868Z [command]/usr/bin/git init /home/runner/work/Evident/Evident
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4804611Z hint: Using 'master' as the name for the initial branch. This default branch name
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4805787Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4806869Z hint: to use in all of your new repositories, which will suppress this warning,
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4807662Z hint: call:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4808333Z hint:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4809076Z hint: 	git config --global init.defaultBranch <name>
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4810114Z hint:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4810884Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4811941Z hint: 'development'. The just-created branch can be renamed via this command:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4812674Z hint:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4813075Z hint: 	git branch -m <name>
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4813527Z hint:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4814138Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4815428Z Initialized empty Git repository in /home/runner/work/Evident/Evident/.git/
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4821145Z [command]/usr/bin/git remote add origin https://github.com/DTMBX/Evident
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4861034Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4862508Z ##[group]Disabling automatic garbage collection
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4863767Z [command]/usr/bin/git config --local gc.auto 0
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4891175Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4892080Z ##[group]Setting up auth
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4900301Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.4935799Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5322337Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5357409Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5616005Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5657969Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5898488Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5935262Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5936929Z ##[group]Fetching the repository
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:17.5945763Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bbeada95ef0a7344f7349f8743d759b9ada250d2:refs/remotes/pull/50/merge
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2627900Z From https://github.com/DTMBX/Evident
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2629532Z  * [new ref]         bbeada95ef0a7344f7349f8743d759b9ada250d2 -> pull/50/merge
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2662084Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2663950Z ##[group]Determining the checkout info
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2665977Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2670184Z [command]/usr/bin/git sparse-checkout disable
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2712032Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2738198Z ##[group]Checking out the ref
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.2742246Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/50/merge
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4554074Z Note: switching to 'refs/remotes/pull/50/merge'.
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4555607Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4556726Z You are in 'detached HEAD' state. You can look around, make experimental
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4559506Z changes and commit them, and you can discard any commits you make in this
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4562492Z state without impacting any branches by switching back to a branch.
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4564136Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4565309Z If you want to create a new branch to retain commits you create, you may
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4567852Z do so (now or later) by using -c with the switch command. Example:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4569303Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4569928Z   git switch -c <new-branch-name>
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4572683Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4573301Z Or undo this operation with:
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4574324Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4574861Z   git switch -
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4576011Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4577233Z Turn off this advice by setting config variable advice.detachedHead to false
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4578873Z 
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4580313Z HEAD is now at bbeada9 Merge 260b103ed4ea1cc1020523374aa2b3ab740d30a9 into 030d9cd9e4a66472903de89748644294da6a8552
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4584758Z ##[endgroup]
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4610155Z [command]/usr/bin/git log -1 --format=%H
+build (22.x)	Run actions/checkout@v4	2026-02-06T08:18:18.4634226Z bbeada95ef0a7344f7349f8743d759b9ada250d2
+build (22.x)	Use Node.js 22.x	∩╗┐2026-02-06T08:18:18.4975785Z ##[group]Run actions/setup-node@v4
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.4976913Z with:
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.4977699Z   node-version: 22.x
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.4978599Z   always-auth: false
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.4979502Z   check-latest: false
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.4980673Z   token: ***
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.4981687Z ##[endgroup]
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.7183999Z Found in cache @ /opt/hostedtoolcache/node/22.22.0/x64
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:18.7188637Z ##[group]Environment details
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:22.2057325Z node: v22.22.0
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:22.2057947Z npm: 10.9.4
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:22.2058266Z yarn: 1.22.22
+build (22.x)	Use Node.js 22.x	2026-02-06T08:18:22.2059101Z ##[endgroup]
+build (22.x)	Build	∩╗┐2026-02-06T08:18:22.2162902Z ##[group]Run npm install --no-audit --no-fund --no-progress
+build (22.x)	Build	2026-02-06T08:18:22.2163408Z [36;1mnpm install --no-audit --no-fund --no-progress[0m
+build (22.x)	Build	2026-02-06T08:18:22.2163741Z [36;1mnpx --yes webpack[0m
+build (22.x)	Build	2026-02-06T08:18:22.2209361Z shell: /usr/bin/bash -e {0}
+build (22.x)	Build	2026-02-06T08:18:22.2209633Z ##[endgroup]
+build (22.x)	Build	2026-02-06T08:18:30.9210237Z 
+build (22.x)	Build	2026-02-06T08:18:30.9221099Z added 230 packages in 9s
+build (22.x)	Build	2026-02-06T08:18:31.9802670Z Entrypoint [1mmain[39m[22m =
+build (22.x)	Build	2026-02-06T08:18:31.9803404Z 
+build (22.x)	Build	2026-02-06T08:18:31.9804513Z [1m[33mWARNING[39m[22m in [1mconfiguration
+build (22.x)	Build	2026-02-06T08:18:31.9806220Z The [1m[31m'mode' option has not been set[39m[22m[1m, webpack will fallback to 'production' for this value.
+build (22.x)	Build	2026-02-06T08:18:31.9808521Z [1m[32mSet 'mode' option to 'development' or 'production'[39m[22m[1m to enable defaults for each environment.
+build (22.x)	Build	2026-02-06T08:18:31.9811271Z You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9812591Z 
+build (22.x)	Build	2026-02-06T08:18:31.9813169Z [1m[31mERROR[39m[22m in [1m[32mmain[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9815177Z [1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './src' in '/home/runner/work/Evident/Evident'[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9889039Z resolve './src' in '/home/runner/work/Evident/Evident'
+build (22.x)	Build	2026-02-06T08:18:31.9890095Z   using description file: /home/runner/work/Evident/Evident/package.json (relative path: .)
+build (22.x)	Build	2026-02-06T08:18:31.9891260Z     Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9892357Z     using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src)
+build (22.x)	Build	2026-02-06T08:18:31.9893242Z       no extension
+build (22.x)	Build	2026-02-06T08:18:31.9893789Z         Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9894642Z         /home/runner/work/Evident/Evident/src is not a file
+build (22.x)	Build	2026-02-06T08:18:31.9895185Z       .js
+build (22.x)	Build	2026-02-06T08:18:31.9895696Z         Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9896906Z [1m[31m        /home/runner/work/Evident/Evident/src.js doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9897555Z       .json
+build (22.x)	Build	2026-02-06T08:18:31.9898134Z         Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9899252Z [1m[31m        /home/runner/work/Evident/Evident/src.json doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9900090Z       .wasm
+build (22.x)	Build	2026-02-06T08:18:31.9900681Z         Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9902114Z [1m[31m        /home/runner/work/Evident/Evident/src.wasm doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9902870Z       as directory
+build (22.x)	Build	2026-02-06T08:18:31.9903515Z         existing directory /home/runner/work/Evident/Evident/src
+build (22.x)	Build	2026-02-06T08:18:31.9904647Z           using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src)
+build (22.x)	Build	2026-02-06T08:18:31.9906154Z             using path: /home/runner/work/Evident/Evident/src/index
+build (22.x)	Build	2026-02-06T08:18:31.9907296Z               using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src/index)
+build (22.x)	Build	2026-02-06T08:18:31.9908357Z                 no extension
+build (22.x)	Build	2026-02-06T08:18:31.9909114Z                   Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9910464Z [1m[31m                  /home/runner/work/Evident/Evident/src/index doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9911419Z                 .js
+build (22.x)	Build	2026-02-06T08:18:31.9912059Z                   Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9913369Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.js doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9914176Z                 .json
+build (22.x)	Build	2026-02-06T08:18:31.9914820Z                   Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9916205Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.json doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9917036Z                 .wasm
+build (22.x)	Build	2026-02-06T08:18:31.9918194Z                   Field 'browser' doesn't contain a valid alias configuration
+build (22.x)	Build	2026-02-06T08:18:31.9919587Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.wasm doesn't exist[39m[22m
+build (22.x)	Build	2026-02-06T08:18:31.9920261Z 
+build (22.x)	Build	2026-02-06T08:18:31.9921326Z webpack 5.105.0 compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m in 145 ms
+build (22.x)	Build	2026-02-06T08:18:32.0120118Z ##[error]The operation was canceled.
+build (22.x)	Post Run actions/checkout@v4	∩╗┐2026-02-06T08:18:32.0223283Z Post job cleanup.
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1163678Z [command]/usr/bin/git version
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1201355Z git version 2.52.0
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1246712Z Temporarily overriding HOME='/home/runner/work/_temp/59484d06-356e-4993-99b1-7c99097ac644' before making global git config changes
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1248240Z Adding repository directory to the temporary git global config as a safe directory
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1259897Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1294241Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1326392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1560981Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1581519Z http.https://github.com/.extraheader
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1594904Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1626624Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1851920Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (22.x)	Post Run actions/checkout@v4	2026-02-06T08:18:32.1883842Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (22.x)	Complete job	∩╗┐2026-02-06T08:18:32.2217330Z Cleaning up orphan processes
+build (18.x)	Set up job	∩╗┐2026-02-06T08:18:17.2455263Z Current runner version: '2.331.0'
+build (18.x)	Set up job	2026-02-06T08:18:17.2480717Z ##[group]Runner Image Provisioner
+build (18.x)	Set up job	2026-02-06T08:18:17.2481566Z Hosted Compute Agent
+build (18.x)	Set up job	2026-02-06T08:18:17.2482095Z Version: 20260123.484
+build (18.x)	Set up job	2026-02-06T08:18:17.2482759Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+build (18.x)	Set up job	2026-02-06T08:18:17.2483486Z Build Date: 2026-01-23T19:41:17Z
+build (18.x)	Set up job	2026-02-06T08:18:17.2484123Z Worker ID: {f35c4e53-6cfb-4df9-9055-e1046c79694d}
+build (18.x)	Set up job	2026-02-06T08:18:17.2484874Z Azure Region: westus
+build (18.x)	Set up job	2026-02-06T08:18:17.2485395Z ##[endgroup]
+build (18.x)	Set up job	2026-02-06T08:18:17.2486812Z ##[group]Operating System
+build (18.x)	Set up job	2026-02-06T08:18:17.2487614Z Ubuntu
+build (18.x)	Set up job	2026-02-06T08:18:17.2488196Z 24.04.3
+build (18.x)	Set up job	2026-02-06T08:18:17.2488604Z LTS
+build (18.x)	Set up job	2026-02-06T08:18:17.2489077Z ##[endgroup]
+build (18.x)	Set up job	2026-02-06T08:18:17.2489636Z ##[group]Runner Image
+build (18.x)	Set up job	2026-02-06T08:18:17.2490140Z Image: ubuntu-24.04
+build (18.x)	Set up job	2026-02-06T08:18:17.2490648Z Version: 20260201.15.1
+build (18.x)	Set up job	2026-02-06T08:18:17.2491692Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+build (18.x)	Set up job	2026-02-06T08:18:17.2493350Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+build (18.x)	Set up job	2026-02-06T08:18:17.2494357Z ##[endgroup]
+build (18.x)	Set up job	2026-02-06T08:18:17.2495430Z ##[group]GITHUB_TOKEN Permissions
+build (18.x)	Set up job	2026-02-06T08:18:17.2497512Z Contents: read
+build (18.x)	Set up job	2026-02-06T08:18:17.2498030Z Metadata: read
+build (18.x)	Set up job	2026-02-06T08:18:17.2498559Z Packages: read
+build (18.x)	Set up job	2026-02-06T08:18:17.2499049Z ##[endgroup]
+build (18.x)	Set up job	2026-02-06T08:18:17.2501195Z Secret source: Actions
+build (18.x)	Set up job	2026-02-06T08:18:17.2501875Z Prepare workflow directory
+build (18.x)	Set up job	2026-02-06T08:18:17.2821279Z Prepare all required actions
+build (18.x)	Set up job	2026-02-06T08:18:17.2873879Z Getting action download info
+build (18.x)	Set up job	2026-02-06T08:18:17.7629474Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build (18.x)	Set up job	2026-02-06T08:18:18.0898763Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build (18.x)	Set up job	2026-02-06T08:18:18.4462505Z Complete job name: build (18.x)
+build (18.x)	Run actions/checkout@v4	∩╗┐2026-02-06T08:18:18.5109315Z ##[group]Run actions/checkout@v4
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5110201Z with:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5110667Z   repository: DTMBX/Evident
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5111352Z   token: ***
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5111766Z   ssh-strict: true
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5112189Z   ssh-user: git
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5112611Z   persist-credentials: true
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5113083Z   clean: true
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5113528Z   sparse-checkout-cone-mode: true
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5114050Z   fetch-depth: 1
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5114460Z   fetch-tags: false
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5114883Z   show-progress: true
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5115318Z   lfs: false
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5115706Z   submodules: false
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5116131Z   set-safe-directory: true
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.5117110Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.6182663Z Syncing repository: DTMBX/Evident
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.6184469Z ##[group]Getting Git version info
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.6185215Z Working directory is '/home/runner/work/Evident/Evident'
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.6186223Z [command]/usr/bin/git version
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7000124Z git version 2.52.0
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7029071Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7042367Z Temporarily overriding HOME='/home/runner/work/_temp/0e990701-ecda-47c3-9909-fa1f54fd8a04' before making global git config changes
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7043873Z Adding repository directory to the temporary git global config as a safe directory
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7047941Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7118893Z Deleting the contents of '/home/runner/work/Evident/Evident'
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7122707Z ##[group]Initializing the repository
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7126477Z [command]/usr/bin/git init /home/runner/work/Evident/Evident
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7582096Z hint: Using 'master' as the name for the initial branch. This default branch name
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7583997Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7585409Z hint: to use in all of your new repositories, which will suppress this warning,
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7586517Z hint: call:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7587740Z hint:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7588492Z hint: 	git config --global init.defaultBranch <name>
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7589445Z hint:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7590215Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7591522Z hint: 'development'. The just-created branch can be renamed via this command:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7592547Z hint:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7593061Z hint: 	git branch -m <name>
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7593682Z hint:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7594524Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7630710Z Initialized empty Git repository in /home/runner/work/Evident/Evident/.git/
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7643545Z [command]/usr/bin/git remote add origin https://github.com/DTMBX/Evident
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7713744Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7715094Z ##[group]Disabling automatic garbage collection
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7718805Z [command]/usr/bin/git config --local gc.auto 0
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7748404Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7749801Z ##[group]Setting up auth
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7756125Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.7788077Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9406382Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9439568Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9658827Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9688546Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9905491Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9938987Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9939980Z ##[group]Fetching the repository
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:18.9948626Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bbeada95ef0a7344f7349f8743d759b9ada250d2:refs/remotes/pull/50/merge
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1449544Z From https://github.com/DTMBX/Evident
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1451733Z  * [new ref]         bbeada95ef0a7344f7349f8743d759b9ada250d2 -> pull/50/merge
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1545963Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1548093Z ##[group]Determining the checkout info
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1550365Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1553890Z [command]/usr/bin/git sparse-checkout disable
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1630332Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1657908Z ##[group]Checking out the ref
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.1661355Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/50/merge
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3745895Z Note: switching to 'refs/remotes/pull/50/merge'.
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3747615Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3748679Z You are in 'detached HEAD' state. You can look around, make experimental
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3751097Z changes and commit them, and you can discard any commits you make in this
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3753201Z state without impacting any branches by switching back to a branch.
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3754945Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3756206Z If you want to create a new branch to retain commits you create, you may
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3759279Z do so (now or later) by using -c with the switch command. Example:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3760934Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3761523Z   git switch -c <new-branch-name>
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3762630Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3763278Z Or undo this operation with:
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3764398Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3764960Z   git switch -
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3766294Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3767873Z Turn off this advice by setting config variable advice.detachedHead to false
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3769991Z 
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3772288Z HEAD is now at bbeada9 Merge 260b103ed4ea1cc1020523374aa2b3ab740d30a9 into 030d9cd9e4a66472903de89748644294da6a8552
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3777882Z ##[endgroup]
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3803334Z [command]/usr/bin/git log -1 --format=%H
+build (18.x)	Run actions/checkout@v4	2026-02-06T08:18:20.3824690Z bbeada95ef0a7344f7349f8743d759b9ada250d2
+build (18.x)	Use Node.js 18.x	∩╗┐2026-02-06T08:18:20.4152426Z ##[group]Run actions/setup-node@v4
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.4153572Z with:
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.4154340Z   node-version: 18.x
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.4155231Z   always-auth: false
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.4156110Z   check-latest: false
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.4157547Z   token: ***
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.4158357Z ##[endgroup]
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:20.6215745Z Attempting to download 18.x...
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:21.6810999Z Acquiring 18.20.8 - x64 from https://github.com/actions/node-versions/releases/download/18.20.8-14110393767/node-18.20.8-linux-x64.tar.gz
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:22.2383017Z Extracting ...
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:22.2493053Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/2dd2d933-e821-4ed6-b04b-e7c9125a7ab4 -f /home/runner/work/_temp/3ca7dbc9-f6c7-4e5a-b412-3381c04c6bfa
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:23.1813088Z Adding to the cache ...
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:24.8639284Z ##[group]Environment details
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:25.1442438Z node: v18.20.8
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:25.1442922Z npm: 10.8.2
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:25.1443239Z yarn: 1.22.22
+build (18.x)	Use Node.js 18.x	2026-02-06T08:18:25.1443776Z ##[endgroup]
+build (18.x)	Build	∩╗┐2026-02-06T08:18:25.1591031Z ##[group]Run npm install --no-audit --no-fund --no-progress
+build (18.x)	Build	2026-02-06T08:18:25.1655192Z [36;1mnpm install --no-audit --no-fund --no-progress[0m
+build (18.x)	Build	2026-02-06T08:18:25.1655557Z [36;1mnpx --yes webpack[0m
+build (18.x)	Build	2026-02-06T08:18:25.1695367Z shell: /usr/bin/bash -e {0}
+build (18.x)	Build	2026-02-06T08:18:25.1695666Z ##[endgroup]
+build (18.x)	Build	2026-02-06T08:18:25.6278437Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6279510Z npm warn EBADENGINE   package: '@csstools/css-parser-algorithms@4.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6280069Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6280561Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6280928Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6281226Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6281652Z npm warn EBADENGINE   package: '@csstools/css-tokenizer@4.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6282113Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6282575Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6283249Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6283753Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6284277Z npm warn EBADENGINE   package: '@csstools/media-query-list-parser@5.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6284780Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6285247Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6285600Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6286301Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6287295Z npm warn EBADENGINE   package: '@csstools/selector-resolve-nested@4.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6287805Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6288270Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6288622Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6289787Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6290507Z npm warn EBADENGINE   package: '@csstools/selector-specificity@6.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6291006Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6291469Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6291824Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6303985Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6304644Z npm warn EBADENGINE   package: 'globby@16.1.0',
+build (18.x)	Build	2026-02-06T08:18:25.6305313Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6306112Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6306695Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6307198Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6307579Z npm warn EBADENGINE   package: 'hashery@1.4.0',
+build (18.x)	Build	2026-02-06T08:18:25.6307963Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6308409Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6308774Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6310666Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6311304Z npm warn EBADENGINE   package: 'html-tags@5.1.0',
+build (18.x)	Build	2026-02-06T08:18:25.6311709Z npm warn EBADENGINE   required: { node: '>=20.10' },
+build (18.x)	Build	2026-02-06T08:18:25.6312157Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6312510Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6314629Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6315264Z npm warn EBADENGINE   package: 'meow@14.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6315642Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6316110Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6316461Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6320216Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6320856Z npm warn EBADENGINE   package: 'qified@0.6.0',
+build (18.x)	Build	2026-02-06T08:18:25.6321245Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6321689Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6322326Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6323199Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6323854Z npm warn EBADENGINE   package: 'stylelint@17.1.1',
+build (18.x)	Build	2026-02-06T08:18:25.6324393Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6324843Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6325291Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6325774Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6326461Z npm warn EBADENGINE   package: 'stylelint-config-recommended@18.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6327286Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6328100Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6328455Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6328752Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6329507Z npm warn EBADENGINE   package: 'stylelint-config-standard@40.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6330170Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6330724Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6331313Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6331698Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6332127Z npm warn EBADENGINE   package: 'string-width@8.1.1',
+build (18.x)	Build	2026-02-06T08:18:25.6332516Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6333130Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6333733Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6334103Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6334517Z npm warn EBADENGINE   package: 'supports-hyperlinks@4.4.0',
+build (18.x)	Build	2026-02-06T08:18:25.6334928Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6335370Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6335924Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6336408Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6336799Z npm warn EBADENGINE   package: 'unicorn-magic@0.4.0',
+build (18.x)	Build	2026-02-06T08:18:25.6337398Z npm warn EBADENGINE   required: { node: '>=20' },
+build (18.x)	Build	2026-02-06T08:18:25.6337834Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6338172Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:25.6338450Z npm warn EBADENGINE Unsupported engine {
+build (18.x)	Build	2026-02-06T08:18:25.6339011Z npm warn EBADENGINE   package: 'write-file-atomic@7.0.0',
+build (18.x)	Build	2026-02-06T08:18:25.6339477Z npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+build (18.x)	Build	2026-02-06T08:18:25.6339947Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build (18.x)	Build	2026-02-06T08:18:25.6340283Z npm warn EBADENGINE }
+build (18.x)	Build	2026-02-06T08:18:28.0134504Z 
+build (18.x)	Build	2026-02-06T08:18:28.0135552Z added 230 packages in 3s
+build (18.x)	Build	2026-02-06T08:18:28.9582159Z Entrypoint [1mmain[39m[22m =
+build (18.x)	Build	2026-02-06T08:18:28.9582616Z 
+build (18.x)	Build	2026-02-06T08:18:28.9588292Z [1m[33mWARNING[39m[22m in [1mconfiguration
+build (18.x)	Build	2026-02-06T08:18:28.9589937Z The [1m[31m'mode' option has not been set[39m[22m[1m, webpack will fallback to 'production' for this value.
+build (18.x)	Build	2026-02-06T08:18:28.9591995Z [1m[32mSet 'mode' option to 'development' or 'production'[39m[22m[1m to enable defaults for each environment.
+build (18.x)	Build	2026-02-06T08:18:28.9593420Z You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9594081Z 
+build (18.x)	Build	2026-02-06T08:18:28.9594381Z [1m[31mERROR[39m[22m in [1m[32mmain[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9595503Z [1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './src' in '/home/runner/work/Evident/Evident'[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9596424Z resolve './src' in '/home/runner/work/Evident/Evident'
+build (18.x)	Build	2026-02-06T08:18:28.9597252Z   using description file: /home/runner/work/Evident/Evident/package.json (relative path: .)
+build (18.x)	Build	2026-02-06T08:18:28.9598000Z     Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9599073Z     using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src)
+build (18.x)	Build	2026-02-06T08:18:28.9599667Z       no extension
+build (18.x)	Build	2026-02-06T08:18:28.9600084Z         Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9600639Z         /home/runner/work/Evident/Evident/src is not a file
+build (18.x)	Build	2026-02-06T08:18:28.9601021Z       .js
+build (18.x)	Build	2026-02-06T08:18:28.9601410Z         Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9602206Z [1m[31m        /home/runner/work/Evident/Evident/src.js doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9602571Z       .json
+build (18.x)	Build	2026-02-06T08:18:28.9602896Z         Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9603497Z [1m[31m        /home/runner/work/Evident/Evident/src.json doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9603994Z       .wasm
+build (18.x)	Build	2026-02-06T08:18:28.9604369Z         Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9604970Z [1m[31m        /home/runner/work/Evident/Evident/src.wasm doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9605343Z       as directory
+build (18.x)	Build	2026-02-06T08:18:28.9605662Z         existing directory /home/runner/work/Evident/Evident/src
+build (18.x)	Build	2026-02-06T08:18:28.9606273Z           using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src)
+build (18.x)	Build	2026-02-06T08:18:28.9606844Z             using path: /home/runner/work/Evident/Evident/src/index
+build (18.x)	Build	2026-02-06T08:18:28.9607667Z               using description file: /home/runner/work/Evident/Evident/package.json (relative path: ./src/index)
+build (18.x)	Build	2026-02-06T08:18:28.9608226Z                 no extension
+build (18.x)	Build	2026-02-06T08:18:28.9608598Z                   Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9609254Z [1m[31m                  /home/runner/work/Evident/Evident/src/index doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9609637Z                 .js
+build (18.x)	Build	2026-02-06T08:18:28.9609959Z                   Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9610597Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.js doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9611002Z                 .json
+build (18.x)	Build	2026-02-06T08:18:28.9611330Z                   Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9611993Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.json doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9612584Z                 .wasm
+build (18.x)	Build	2026-02-06T08:18:28.9612901Z                   Field 'browser' doesn't contain a valid alias configuration
+build (18.x)	Build	2026-02-06T08:18:28.9613545Z [1m[31m                  /home/runner/work/Evident/Evident/src/index.wasm doesn't exist[39m[22m
+build (18.x)	Build	2026-02-06T08:18:28.9613883Z 
+build (18.x)	Build	2026-02-06T08:18:28.9614302Z webpack 5.105.0 compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m in 56 ms
+build (18.x)	Build	2026-02-06T08:18:28.9904880Z ##[error]The operation was canceled.
+build (18.x)	Post Run actions/checkout@v4	∩╗┐2026-02-06T08:18:29.0005513Z Post job cleanup.
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.0959513Z [command]/usr/bin/git version
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.0994760Z git version 2.52.0
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1045360Z Temporarily overriding HOME='/home/runner/work/_temp/1fa150e0-ee10-47aa-bb35-eea3052332cc' before making global git config changes
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1046492Z Adding repository directory to the temporary git global config as a safe directory
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1050812Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Evident/Evident
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1083788Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1117823Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1379949Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1399931Z http.https://github.com/.extraheader
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1412363Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1442216Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1663346Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (18.x)	Post Run actions/checkout@v4	2026-02-06T08:18:29.1693883Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (18.x)	Complete job	∩╗┐2026-02-06T08:18:29.2033522Z Cleaning up orphan processes
