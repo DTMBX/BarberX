@@ -5,7 +5,4 @@
     <Project Path="src/Evident.Shared/Evident.Shared.csproj" />
     <Project Path="src/Evident.Web/Evident.Web.csproj" />
   </Folder>
-  <Folder Name="/tests/">
-    <Project Path="tests/Evident.Tests.Unit/Evident.Tests.Unit.csproj" />
-  </Folder>
 </Solution>
