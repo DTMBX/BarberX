@@ -233,7 +233,7 @@ propcache==0.4.1
 proto-plus==1.27.0
 protobuf==6.33.4
 psutil==7.2.1
-psycopg2-binary==2.9.10
+psycopg2-binary==2.9.11
 pyannote-audio==4.0.3
 pyannote-core==6.0.1
 pyannote-database==6.1.1
