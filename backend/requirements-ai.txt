@@ -51,7 +51,7 @@ case-law-parser==1.0.0  # Parse case citations
 # API Clients for AI Models
 openai==1.6.1
 anthropic==0.8.1
-cohere==4.37
+cohere==5.20.4
 
 # Data Processing
 numpy==1.24.3

@@ -1,0 +1,137 @@
+/* Docs page styles: keep page-specific layout in one place. */
+
+.docs-hero {
+  background: linear-gradient(
+    135deg,
+    var(--evident-red-primary, #c41e3a) 0%,
+    #0f172a 100%
+  );
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.docs-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+}
+
+.docs-hero p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.125rem;
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.docs-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  border-left: 4px solid var(--evident-blue, #3b82f6);
+}
+
+.docs-card h3 {
+  margin: 0 0 0.75rem;
+  color: #0f172a;
+}
+
+.docs-card p {
+  margin: 0 0 1rem;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.docs-card a {
+  color: var(--evident-blue, #3b82f6);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.docs-card a:hover {
+  text-decoration: underline;
+}
+
+.docs-card.enterprise {
+  border-left-color: var(--evident-red-primary, #c41e3a);
+}
+
+.docs-toc {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.docs-toc h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.docs-toc ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.docs-toc li {
+  margin-bottom: 0.5rem;
+}
+
+.docs-toc a {
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.docs-toc a:hover {
+  color: var(--evident-blue, #3b82f6);
+}
+
+.docs-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+}
+
+.docs-section h2 {
+  margin: 0 0 1.5rem;
+  color: var(--evident-red-primary, #c41e3a);
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 0.75rem;
+}
+
+.docs-section h3 {
+  margin: 1.5rem 0 0.75rem;
+  color: #0f172a;
+}
+
+.docs-section p,
+.docs-section li {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.docs-section ul {
+  padding-left: 1.5rem;
+}
+
+.docs-section a {
+  color: var(--evident-blue, #3b82f6);
+}
+
+code {
+  background: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
