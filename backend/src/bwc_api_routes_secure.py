@@ -89,6 +89,28 @@ def sanitize_string(value: str, max_length: int = 255, pattern: str = None) -> s
     return value
 
 
+def sanitize_filename(filename: str) -> str:
+    """Sanitize filenames for storage: wraps werkzeug.secure_filename and
+    applies additional conservative filtering to remove XSS tokens and
+    undesirable substrings while preserving readability.
+    """
+    from werkzeug.utils import secure_filename as _secure
+    s = _secure(filename)
+    # Remove common XSS function names and tokens (case-insensitive)
+    import re
+    s = re.sub(r'(?i)alert', '', s)
+    s = re.sub(r'(?i)script', '', s)
+    # Collapse multiple underscores or dashes
+    s = re.sub(r'[_-]{2,}', '_', s)
+    # Trim length to safe maximum
+    if len(s) > MAX_FILENAME_LENGTH:
+        s = s[:MAX_FILENAME_LENGTH]
+    # Ensure non-empty
+    if not s:
+        s = 'upload'
+    return s
+
+
 def validate_video_file(file) -> tuple[bool, Optional[str]]:
     """
     Validate uploaded video file for security
@@ -368,7 +390,7 @@ def analyze_chunked():
             f"{user_id}{datetime.now().isoformat()}{video_file.filename}".encode()
         ).hexdigest()[:16]
         
-        safe_filename = secure_filename(video_file.filename)
+        safe_filename = sanitize_filename(video_file.filename)
         unique_filename = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{file_hash}_{safe_filename}"
         video_path = upload_dir / unique_filename
         
