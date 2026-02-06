@@ -46,7 +46,7 @@ jobs:
       - name: Start static server
         run: npx http-server _site -p 8080 --silent &
       - name: Run LHCI
-        run: npx --yes @lhci/cli autorun --config=.lighthouserc.json || true
+        run: npx --yes @lhci/cli autorun --config=.lighthouserc.json
       - name: Upload LHCI results
         uses: actions/upload-artifact@v4
         with:
