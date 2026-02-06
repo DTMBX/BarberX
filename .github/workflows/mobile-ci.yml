@@ -38,11 +38,15 @@ jobs:
       - name: Install .NET MAUI workload
         run: dotnet workload install maui
 
-      - name: Restore dependencies
-        run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+      - name: Restore dependencies (Mobile + MAUI)
+        run: |
+          dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+          dotnet restore src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj || true
 
       - name: Build
-        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj --configuration Release --no-restore
+        run: |
+          dotnet build src/Evident.Mobile/Evident.Mobile.csproj --configuration Release --no-restore
+          dotnet build src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj --configuration Release --no-restore || true
 
       - name: Run unit tests
         run: dotnet test tests/Evident.Mobile.Tests/Evident.Mobile.Tests.csproj --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
@@ -71,11 +75,15 @@ jobs:
       - name: Install .NET MAUI workload
         run: dotnet workload install maui-android
 
-      - name: Restore dependencies
-        run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+      - name: Restore dependencies (Android: Mobile + MAUI)
+        run: |
+          dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+          dotnet restore src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj || true
 
-      - name: Build Android APK
-        run: dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-android -c Release -p:AndroidPackageFormat=apk
+      - name: Build Android APKs
+        run: |
+          dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-android -c Release -p:AndroidPackageFormat=apk
+          dotnet publish src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj -f net10.0-android -c Release -p:AndroidPackageFormat=apk || true
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
@@ -102,8 +110,10 @@ jobs:
       - name: Install .NET MAUI workload
         run: dotnet workload install maui-ios
 
-      - name: Restore dependencies
-        run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+      - name: Restore dependencies (iOS)
+        run: |
+          dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+          dotnet restore src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj || true
 
       - name: Build iOS
         run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release
@@ -133,11 +143,15 @@ jobs:
       - name: Install .NET MAUI workload
         run: dotnet workload install maui-windows
 
-      - name: Restore dependencies
-        run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+      - name: Restore dependencies (Windows)
+        run: |
+          dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
+          dotnet restore src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj || true
 
       - name: Build Windows
-        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-windows10.0.19041.0 -c Release
+        run: |
+          dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-windows10.0.19041.0 -c Release
+          dotnet build src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj -f net10.0-windows10.0.19041.0 -c Release || true
 
       - name: Upload Windows build
         uses: actions/upload-artifact@v4

@@ -23,8 +23,8 @@ RUN apt-get update && apt-get install -y \
 # Create app directory
 WORKDIR $APP_HOME
 
-# Copy requirements
-COPY requirements.txt .
+# Copy requirements (include backend requirements so nested -r works)
+COPY requirements.txt backend/requirements.txt ./
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt

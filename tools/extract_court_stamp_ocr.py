@@ -1,33 +1,22 @@
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
-# Python script: Extract court stamp from PDF using OCR (pytesseract)
-import sys
+sys.exit(2)  # Not found
 
-import pytesseract
-from pdf2image import convert_from_path
+
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../utils')))
+from court_stamp import extract_court_stamp
 
 if len(sys.argv) < 2:
     print("Usage: python extract_court_stamp_ocr.py <pdfPath>")
     sys.exit(1)
 
 pdf_path = sys.argv[1]
-
-# Convert first page of PDF to image
-images = convert_from_path(pdf_path, first_page=1, last_page=1)
-if not images:
-    print("No images found in PDF")
-    sys.exit(2)
-
-text = pytesseract.image_to_string(images[0])
-
-# Heuristic: look for lines with "Filed" and "Court"
-for line in text.split("\n"):
-    if "Filed" in line and "Court" in line:
-        print(line.strip())
-        sys.exit(0)
-    if "Filed" in line and any(char.isdigit() for char in line):
-        print(line.strip())
-        sys.exit(0)
-
-sys.exit(2)  # Not found
+result = extract_court_stamp(pdf_path)
+if result:
+    print(result)
+    sys.exit(0)
+else:
+    sys.exit(2)  # Not found

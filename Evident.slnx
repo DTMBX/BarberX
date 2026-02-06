@@ -4,5 +4,6 @@
     <Project Path="src/Evident.Mobile/Evident.Mobile.csproj" />
     <Project Path="src/Evident.Shared/Evident.Shared.csproj" />
     <Project Path="src/Evident.Web/Evident.Web.csproj" />
+    <Project Path="src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj" />
   </Folder>
 </Solution>
