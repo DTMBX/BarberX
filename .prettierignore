@@ -1,0 +1,13 @@
+backend/scripts/
+scripts/
+tools/
+meta/fixtures/
+site/_site/
+node_modules/
+.venv/
+.vscode/
+*.log
+*.lock
+.bundle/
+.cache/
+.jekyll-cache/
