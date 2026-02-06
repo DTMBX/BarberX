@@ -287,7 +287,7 @@ requests==2.32.5
 requests-oauthlib==2.0.0
 requests-toolbelt==1.0.0
 responses==0.25.8
-rich==14.2.0
+rich==14.3.2
 rpds-py==0.30.0
 rsa==4.9.1
 ruamel.yaml==0.19.1
