@@ -11,14 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "Evident API", Version = "v1" });
-    c.AddSecurityDefinition("Bearer", new()
-    {
-        Description = "JWT Authorization header using the Bearer scheme",
-        Name = "Authorization",
-        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
-    });
+    // Security definitions removed temporarily to avoid package/namespace resolution issues
+    // Re-add OpenAPI security configuration once Microsoft.OpenApi types resolve cleanly.
 });
 
 // Configure CORS
