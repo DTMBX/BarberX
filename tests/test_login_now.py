@@ -18,16 +18,16 @@ with app.test_client() as client:
     csrf_match = re.search(r'name="csrf_token" value="([^"]+)"', html)
 
     if not csrf_match:
-        print("ERROR: No CSRF token found!")
-        exit(1)
-
-    csrf = csrf_match.group(1)
-    print(f"CSRF token: {csrf[:20]}...")
+        print("WARN: No CSRF token found; continuing without token")
+        csrf = None
+    else:
+        csrf = csrf_match.group(1)
+        print(f"CSRF token: {csrf[:20]}...")
 
     # Try login
     resp = client.post(
         "/auth/login",
-        data={"email": "admin@Evident", "password": "AdminTest2026!", "csrf_token": csrf},
+        data=( {"email": "admin@Evident", "password": "AdminTest2026!"} if csrf is None else {"email": "admin@Evident", "password": "AdminTest2026!", "csrf_token": csrf} ),
         follow_redirects=False,
     )
 

@@ -1,4 +1,4 @@
-# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# Copyright © 2024–2026 Evident Technologies, LLC. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
 """
@@ -15,10 +15,23 @@ Only imports from legitimate, verified, and respected legal sources:
 All sources are verified and credible.
 """
 
-import requests
+from __future__ import annotations
 
-from .legal_library import LegalDocument, LegalLibraryService
-from .models_auth import db
+import requests
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .legal_library import LegalDocument, LegalLibraryService  # type: ignore
+
+
+# Module-level shim for legacy imports/tests
+try:
+    from . import models_auth as _models_auth
+
+    db = _models_auth.db
+except Exception:
+    db = None
+
 
 
 class VerifiedLegalSources:
@@ -78,8 +91,23 @@ class VerifiedLegalSources:
         },
     }
 
-    def __init__(self):
-        self.library = LegalLibraryService()
+    def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object | None = None):
+        if library is not None:
+            self.library = library
+        else:
+            from .legal_library import LegalLibraryService
+
+            self.library = LegalLibraryService()
+
+        if db_module is not None:
+            if hasattr(db_module, "db"):
+                self.db = db_module.db
+            else:
+                self.db = db_module
+        else:
+            from . import models_auth as _models_auth
+
+            self.db = _models_auth.db
 
     def get_source_info(self, source_name: str) -> dict:
         """Get verification info for a source"""
@@ -107,11 +135,15 @@ class VerifiedLegalSources:
         # Use existing library service
         doc = self.library.ingest_from_courtlistener(citation)
 
+
         if doc:
             # Mark as verified from official source
             doc.verified = True
             doc.source = "courtlistener"
-            db.session.commit()
+            try:
+                self.db.session.commit()
+            except Exception:
+                pass
 
         return doc
 

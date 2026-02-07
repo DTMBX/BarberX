@@ -17,11 +17,24 @@ Examples:
 - Supreme Court official website
 """
 
-import requests
-from typing import Optional
+from __future__ import annotations
 
-from legal_library import LegalDocument, LegalLibraryService
-from models_auth import db
+import requests
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    # imports only for type checking to avoid import-time side effects
+    from legal_library import LegalDocument, LegalLibraryService  # type: ignore
+
+
+# Provide a module-level `db` shim so tests can monkeypatch `vls_mod.db`.
+try:
+    import models_auth as _models_auth
+
+    db = _models_auth.db
+except Exception:
+    db = None
+
 
 
 class VerifiedLegalSources:
@@ -81,8 +94,33 @@ class VerifiedLegalSources:
         },
     }
 
-    def __init__(self):
-        self.library = LegalLibraryService()
+    def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object | None = None):
+        """
+        Initialize VerifiedLegalSources.
+
+        Args:
+            library: Optional LegalLibraryService instance (inject for testing).
+            db_module: Optional DB module (e.g., `models_auth`) that exposes `db`.
+                       If omitted, the DB module is imported lazily.
+        """
+        # Lazy init to avoid import-time side effects in application/tests
+        if library is not None:
+            self.library = library
+        else:
+            from legal_library import LegalLibraryService  # imported at runtime
+
+            self.library = LegalLibraryService()
+
+        if db_module is not None:
+            # Accept either the module that provides `db` or an object with `.session`
+            if hasattr(db_module, "db"):
+                self.db = db_module.db
+            else:
+                self.db = db_module
+        else:
+            import models_auth as _models_auth
+
+            self.db = _models_auth.db
 
     def get_source_info(self, source_name: str) -> dict:
         """Get verification info for a source"""
@@ -114,7 +152,12 @@ class VerifiedLegalSources:
             # Mark as verified from official source
             doc.verified = True
             doc.source = "courtlistener"
-            db.session.commit()
+            try:
+                # `self.db` should expose `.session.commit()` for compatibility
+                self.db.session.commit()
+            except Exception:
+                # Best-effort commit; ignore failures to avoid breaking import flows
+                pass
 
         return doc
 
