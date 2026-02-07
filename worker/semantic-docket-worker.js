@@ -29,7 +29,7 @@ async function handleRequest(request) {
     const docketText = await docketResp.text();
 
     // Find the entry with id == entryId
-    const entryRegex = new RegExp(`- id: ${entryId}\\n([\s\S]*?)file: (.+)`, 'm');
+    const entryRegex = new RegExp(`- id: ${entryId}\\n([\\s\\S]*?)file: (.+)`, 'm');
     const entryMatch = docketText.match(entryRegex);
     if (!entryMatch) {
       return new Response('Docket entry not found', { status: 404 });
