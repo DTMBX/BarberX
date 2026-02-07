@@ -100,7 +100,7 @@ def setup_test_accounts():
             )
 
             print(f"\n{tier_emoji} {account['email']}")
-            print(f"   Password: {account['password']}")
+            print("   Password: [HIDDEN]")
             print(f"   Tier:     {user.tier.name} ({user.tier_name})")
             print(f"   Admin:    {user.is_admin}")
             print(f"   Active:   {user.is_active}")

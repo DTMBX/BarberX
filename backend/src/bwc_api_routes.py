@@ -7,6 +7,7 @@ Integrates enhanced analyzer with frontend
 """
 
 import json
+import logging
 
 # Import our enhanced analyzer
 import sys
@@ -274,7 +275,8 @@ def mark_critical_section():
         )
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logging.exception("Error in /mark-critical while creating critical section")
+        return jsonify({"error": "An internal error has occurred."}), 500
 
 
 # Register blueprint in main app

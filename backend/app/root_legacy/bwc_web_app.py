@@ -24,6 +24,48 @@ from .bwc_forensic_analyzer import BWCForensicAnalyzer
 app = Flask(__name__)
 CORS(app)
 
+
+def _get_safe_report_path(upload_id: str) -> Path:
+    """
+    Return the resolved Path to report.json for a given upload_id,
+    ensuring it stays within ANALYSIS_FOLDER to prevent path traversal.
+    """
+    base_dir = ANALYSIS_FOLDER.resolve()
+    candidate_dir = (ANALYSIS_FOLDER / upload_id).resolve()
+
+    # Ensure the candidate directory is inside the analysis base directory
+    try:
+        candidate_dir.relative_to(base_dir)
+    except ValueError:
+        raise ValueError("Upload ID resolves outside analysis folder")
+
+    return candidate_dir / "report.json"
+
+
+def _safe_report_path(upload_id: str) -> Path | None:
+    """
+    Build a safe path to report.json for the given upload_id.
+
+    Returns a Path if upload_id is syntactically valid and resolves
+    to a location under ANALYSIS_FOLDER, otherwise returns None.
+    """
+    # Allow only simple, directory-name-safe IDs
+    import re
+
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", upload_id or ""):
+        return None
+
+    base = ANALYSIS_FOLDER.resolve()
+    candidate = (ANALYSIS_FOLDER / upload_id / "report.json").resolve()
+
+    try:
+        candidate.relative_to(base)
+    except ValueError:
+        # candidate is not within ANALYSIS_FOLDER
+        return None
+
+    return candidate
+
 # Configuration
 UPLOAD_FOLDER = Path("./uploads/bwc_videos")
 ANALYSIS_FOLDER = Path("./bwc_analysis")
@@ -268,7 +310,10 @@ def download_report(upload_id, format):
         report_file = output_dir / "report.md"
         mimetype = "text/markdown"
     else:
-        return jsonify({"error": "Invalid format"}), 400
+    try:
+        report_file = _get_safe_report_path(upload_id)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID path"}), 400
 
     if not report_file.exists():
         return jsonify({"error": "Report file not found"}), 404
@@ -293,12 +338,27 @@ def get_transcript(upload_id):
         return jsonify({"error": "Analysis not completed"}), 400
 
     # Load JSON report
-    report_file = ANALYSIS_FOLDER / upload_id / "report.json"
+    safe_upload_id = secure_filename(str(upload_id))
+    report_file = ANALYSIS_FOLDER / safe_upload_id / "report.json"
 
-    if not report_file.exists():
+    # Ensure the resolved path stays within the analysis folder
+    try:
+        report_file = _get_safe_report_path(upload_id)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID path"}), 400
+        report_file_resolved = report_file.resolve()
+        analysis_root_resolved = ANALYSIS_FOLDER.resolve()
+    except FileNotFoundError:
+        # If components in the path do not exist yet, treat as not found
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, encoding="utf-8") as f:
+    if analysis_root_resolved not in report_file_resolved.parents and report_file_resolved != analysis_root_resolved:
+        return jsonify({"error": "Invalid upload ID"}), 400
+
+    if not report_file_resolved.exists():
+        return jsonify({"error": "Report not found"}), 404
+
+    with open(report_file_resolved, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(
@@ -310,7 +370,9 @@ def get_transcript(upload_id):
     )
 
 
-@app.route("/api/discrepancies/<upload_id>", methods=["GET"])
+    report_file = _safe_report_path(upload_id)
+    if report_file is None:
+        return jsonify({"error": "Invalid upload ID format"}), 400
 def get_discrepancies(upload_id):
     """Get all discrepancies found"""
     if upload_id not in analysis_status:
@@ -325,7 +387,10 @@ def get_discrepancies(upload_id):
     report_file = ANALYSIS_FOLDER / upload_id / "report.json"
 
     if not report_file.exists():
-        return jsonify({"error": "Report not found"}), 404
+    try:
+        report_file = _get_safe_report_path(upload_id)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID path"}), 400
 
     with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
