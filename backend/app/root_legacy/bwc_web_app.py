@@ -24,6 +24,31 @@ from .bwc_forensic_analyzer import BWCForensicAnalyzer
 app = Flask(__name__)
 CORS(app)
 
+
+def _safe_report_path(upload_id: str) -> Path | None:
+    """
+    Build a safe path to report.json for the given upload_id.
+
+    Returns a Path if upload_id is syntactically valid and resolves
+    to a location under ANALYSIS_FOLDER, otherwise returns None.
+    """
+    # Allow only simple, directory-name-safe IDs
+    import re
+
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", upload_id or ""):
+        return None
+
+    base = ANALYSIS_FOLDER.resolve()
+    candidate = (ANALYSIS_FOLDER / upload_id / "report.json").resolve()
+
+    try:
+        candidate.relative_to(base)
+    except ValueError:
+        # candidate is not within ANALYSIS_FOLDER
+        return None
+
+    return candidate
+
 # Configuration
 UPLOAD_FOLDER = Path("./uploads/bwc_videos")
 ANALYSIS_FOLDER = Path("./bwc_analysis")
@@ -322,7 +347,9 @@ def get_transcript(upload_id):
     )
 
 
-@app.route("/api/discrepancies/<upload_id>", methods=["GET"])
+    report_file = _safe_report_path(upload_id)
+    if report_file is None:
+        return jsonify({"error": "Invalid upload ID format"}), 400
 def get_discrepancies(upload_id):
     """Get all discrepancies found"""
     if upload_id not in analysis_status:
