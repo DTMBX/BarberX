@@ -25,6 +25,23 @@ app = Flask(__name__)
 CORS(app)
 
 
+def _get_safe_report_path(upload_id: str) -> Path:
+    """
+    Return the resolved Path to report.json for a given upload_id,
+    ensuring it stays within ANALYSIS_FOLDER to prevent path traversal.
+    """
+    base_dir = ANALYSIS_FOLDER.resolve()
+    candidate_dir = (ANALYSIS_FOLDER / upload_id).resolve()
+
+    # Ensure the candidate directory is inside the analysis base directory
+    try:
+        candidate_dir.relative_to(base_dir)
+    except ValueError:
+        raise ValueError("Upload ID resolves outside analysis folder")
+
+    return candidate_dir / "report.json"
+
+
 def _safe_report_path(upload_id: str) -> Path | None:
     """
     Build a safe path to report.json for the given upload_id.
@@ -293,7 +310,10 @@ def download_report(upload_id, format):
         report_file = output_dir / "report.md"
         mimetype = "text/markdown"
     else:
-        return jsonify({"error": "Invalid format"}), 400
+    try:
+        report_file = _get_safe_report_path(upload_id)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID path"}), 400
 
     if not report_file.exists():
         return jsonify({"error": "Report file not found"}), 404
@@ -323,6 +343,9 @@ def get_transcript(upload_id):
 
     # Ensure the resolved path stays within the analysis folder
     try:
+        report_file = _get_safe_report_path(upload_id)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID path"}), 400
         report_file_resolved = report_file.resolve()
         analysis_root_resolved = ANALYSIS_FOLDER.resolve()
     except FileNotFoundError:
@@ -364,7 +387,10 @@ def get_discrepancies(upload_id):
     report_file = ANALYSIS_FOLDER / upload_id / "report.json"
 
     if not report_file.exists():
-        return jsonify({"error": "Report not found"}), 404
+    try:
+        report_file = _get_safe_report_path(upload_id)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID path"}), 400
 
     with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
