@@ -1,0 +1,121 @@
+{
+  "scannedAt": "2026-02-07T02:16:17.649Z",
+  "pages": {
+    "about/index.html": {
+      "anchors": 22,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "america-by-design/index.html": {
+      "anchors": 24,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "assets/media/README_FLAGS/index.html": {
+      "anchors": 0,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "auth/signup/index.html": {
+      "anchors": 23,
+      "images": 2,
+      "scripts": 5,
+      "links": 7
+    },
+    "contact/index.html": {
+      "anchors": 22,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "docs/index.html": {
+      "anchors": 21,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "Evident.FlaskBridge/README/index.html": {
+      "anchors": 0,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "Evident.Mobile/Resources/Images/ICONS-README/index.html": {
+      "anchors": 3,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "Evident.Mobile/Tools/ICONS-README/index.html": {
+      "anchors": 0,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "faq/index.html": {
+      "anchors": 22,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "index.html": {
+      "anchors": 27,
+      "images": 2,
+      "scripts": 5,
+      "links": 7
+    },
+    "pricing/index.html": {
+      "anchors": 23,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "privacy/index.html": {
+      "anchors": 21,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "Services/audit/index.html": {
+      "anchors": 21,
+      "images": 4,
+      "scripts": 4,
+      "links": 7
+    },
+    "Services/compliance/index.html": {
+      "anchors": 21,
+      "images": 4,
+      "scripts": 4,
+      "links": 7
+    },
+    "Services/custody/index.html": {
+      "anchors": 21,
+      "images": 4,
+      "scripts": 4,
+      "links": 7
+    },
+    "signup/index.html": {
+      "anchors": 23,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "styleguide/index.html": {
+      "anchors": 26,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "terms/index.html": {
+      "anchors": 21,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    }
+  },
+  "brokenLinks": [],
+  "missingAssets": []
+}

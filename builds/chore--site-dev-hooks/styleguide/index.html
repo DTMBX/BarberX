@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0b5f73" />
+
+
+<title>Evident Technologies</title>
+<meta name="description" content="Legal-grade evidence processing and verification platform helping citizens and agencies process information reliably." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="/styleguide/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Evident Technologies" />
+<meta property="og:title" content="Evident Technologies" />
+<meta property="og:description" content="Legal-grade evidence processing and verification platform helping citizens and agencies process information reliably." />
+<meta property="og:url" content="/styleguide/" />
+
+<meta property="og:image" content="/assets/img/flags/us-flag-50.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Evident Technologies" />
+<meta name="twitter:description" content="Legal-grade evidence processing and verification platform helping citizens and agencies process information reliably." />
+
+<meta name="twitter:image" content="/assets/img/flags/us-flag-50.svg" />
+
+
+<script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Evident Technologies","url":"/","description":"Legal-grade evidence processing and verification platform helping citizens and agencies process information reliably.","email":"","foundingDate":"2024"}
+</script>
+
+<script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Evident Technologies","url":"/","inLanguage":"en-US"}
+</script>
+
+
+<link rel="stylesheet" href="/assets/css/styles.css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+  </head>
+  <body class="font-sans text-gray-900 bg-white antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header bg-white border-b sticky top-0 z-50">
+  <div class="site-container flex items-center justify-between py-4">
+    <a href="/" class="header-brand flex items-center gap-3" aria-label="Evident Home">
+      <img src="/assets/img/logo/light-variant-logo.svg" alt="Evident Technologies" class="brand-logo h-8" />
+    </a>
+
+    <div class="flex items-center gap-4">
+      <nav id="primary-nav" class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+        <div class="relative" data-nav-item>
+          <button class="nav-link inline-flex items-center gap-2" aria-haspopup="true" aria-expanded="false" data-dropdown-button>Services<span class="sr-only">Open Services menu</span></button>
+          <div class="dropdown hidden absolute bg-white shadow-md mt-2 rounded-md w-64 p-4" role="menu" aria-label="Services menu" data-dropdown>
+            <a href="/services/audit/" class="block p-2 hover:bg-gray-50" role="menuitem">Audit Trails</a>
+            <a href="/services/custody/" class="block p-2 hover:bg-gray-50" role="menuitem">Chain of Custody</a>
+            <a href="/services/compliance/" class="block p-2 hover:bg-gray-50" role="menuitem">Compliance</a>
+          </div>
+        </div>
+        <a href="/america-by-design/" class="nav-link">America by Design</a>
+        <a href="/docs.html" class="nav-link">Documentation</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://app.evident.info/login" class="btn btn-ghost">Sign In</a>
+        <a href="https://app.evident.info/register" class="btn btn-primary">Get Started</a>
+      </div>
+
+      <button id="mobile-nav-toggle" class="md:hidden p-2" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+    <main id="main" class="site-container py-8 md:py-12 lg:py-16">
+      
+  <section class="site-container py-12">
+    <h1 class="text-3xl font-bold">Style Guide</h1>
+    <p class="mt-4 text-gray-700">Tokens and components used across the site.</p>
+
+    <h2 class="mt-8 text-2xl font-semibold">Colors</h2>
+    <div class="mt-4 flex gap-4">
+      <div class="p-4 rounded" style="background:var(--color-primary);color:white">Primary</div>
+      <div class="p-4 rounded" style="background:var(--color-accent);color:white">Accent</div>
+      <div class="p-4 rounded" style="background:var(--color-neutral);">Neutral</div>
+    </div>
+
+    <h2 class="mt-8 text-2xl font-semibold">Typography</h2>
+    <div class="mt-4">
+      <h1 class="text-4xl font-bold">Heading 1 — text-4xl</h1>
+      <h2 class="text-3xl font-semibold mt-2">Heading 2 — text-3xl</h2>
+      <p class="mt-4">Body text — uses `Inter` variable font for readable UI copy.</p>
+    </div>
+
+    <h2 class="mt-8 text-2xl font-semibold">Components</h2>
+    <div class="mt-4">
+      <h3 class="font-semibold">Hero</h3>
+      <section class="hero relative bg-cover bg-center rounded-lg overflow-hidden" style="background-image:linear-gradient(rgba(11,95,115,0.5), rgba(11,95,115,0.3)), url('/assets/images/hero.svg');">
+  <div class="site-container py-16 md:py-20 text-white">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">Style Guide</h1>
+    
+    <div class="mt-6 md:mt-8 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="/contact.html">Get Started</a>
+      <a class="btn btn-ghost" href="/docs.html">Learn more</a>
+    </div>
+  </div>
+</section>
+
+
+      <h3 class="mt-8 font-semibold">Services cards</h3>
+      <section class="services mt-12 md:mt-16 lg:mt-20">
+  <div class="site-container">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <article class="p-4 md:p-6 border rounded-md bg-white shadow-sm">
+        <h3 class="font-semibold text-lg md:text-xl">Audit Trails</h3>
+        <p class="mt-2 text-sm md:text-base text-gray-700">Append-only logs, tamper-evident archives, and verifiable snapshots for legal-grade evidence.</p>
+        <a class="mt-4 inline-block text-ad-blue hover:underline" href="/services/audit/">Learn more →</a>
+      </article>
+      <article class="p-4 md:p-6 border rounded-md bg-white shadow-sm">
+        <h3 class="font-semibold text-lg md:text-xl">Chain of Custody</h3>
+        <p class="mt-2 text-sm md:text-base text-gray-700">Standardized intake, transfer, and release processes to maintain admissibility and provenance.</p>
+        <a class="mt-4 inline-block text-ad-blue hover:underline" href="/services/custody/">Learn more →</a>
+      </article>
+      <article class="p-4 md:p-6 border rounded-md bg-white shadow-sm">
+        <h3 class="font-semibold text-lg md:text-xl">Compliance</h3>
+        <p class="mt-2 text-sm md:text-base text-gray-700">Policy templates, review workflows, and continuous monitoring mapped to legal requirements.</p>
+        <a class="mt-4 inline-block text-ad-blue hover:underline" href="/services/compliance/">Learn more →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+    </div>
+  </section>
+
+    </main>
+
+    <footer class="site-footer bg-gray-50 border-t py-8">
+  <div class="footer-container site-container">
+    <div class="footer-grid grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-brand inline-block mb-3">
+          <img src="/assets/img/logo/light-variant-logo.svg" alt="Evident Trinity E Wordmark" style="height:40px;" />
+        </a>
+        <p class="footer-tagline text-sm text-gray-600">Legal-grade evidence processing and verification for modern legal practice.</p>
+        <div class="footer-social mt-3 flex gap-3 text-sm">
+          <a href="https://github.com/DTMBX/Evident" aria-label="GitHub" class="social-link">GitHub</a>
+          <a href="https://twitter.com/evidenttech" aria-label="Twitter" class="social-link">Twitter</a>
+          <a href="mailto:contact@evident.info" aria-label="Email" class="social-link">Email</a>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul class="flex flex-wrap gap-4 text-sm text-gray-700 p-0 m-0 list-none">
+          <li><a href="/contact.html">About</a></li>
+          <li><a href="/docs.html#faq">FAQ</a></li>
+          <li><a href="/docs.html">Docs</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-meta text-sm text-gray-600 text-right">
+        <div>&copy; <span id="site-year"></span> Evident. All rights reserved.</div>
+        <script>document.getElementById('site-year').textContent=new Date().getFullYear();</script>
+        <div class="footer-meta-links mt-2"><a href="/docs.html#privacy">Privacy</a> <span class="mx-2">|</span> <a href="/docs.html#terms">Terms</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      <script src="/assets/js/menu.js" defer></script>
+      
+    </body>
+</html>

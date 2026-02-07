@@ -1,0 +1,21 @@
+<h1>Evident Flask Bridge</h1>
+<p>This directory contains the integration layer between the existing Python Flask
+app and the new .NET infrastructure.</p>
+<h2>Current Flask App</h2>
+<ul>
+<li>Location: <code>C:\web-dev\github-repos\Evident.info\app.py</code></li>
+<li>Run with: <code>python app.py</code> or <code>flask run</code></li>
+</ul>
+<h2>Integration Strategy</h2>
+<ol>
+<li>Keep existing Flask app for BWC analysis features</li>
+<li>Use .NET Web API for new scalable features (bookings, payments, user
+management)</li>
+<li>Share data via REST APIs or shared database</li>
+</ol>
+<h2>Running Both Apps</h2>
+<ul>
+<li>Flask (Python): Port 5000</li>
+<li>.NET API: Port 5001</li>
+</ul>
+<p>See: <code>/docs/api/INTEGRATION.md</code> for API contracts</p>

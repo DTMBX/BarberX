@@ -1,0 +1,742 @@
+{
+  "scannedAt": "2026-02-07T02:04:11.156Z",
+  "siteDir": "C:\\web-dev\\github-repos\\Evident\\builds\\chore--add-tokens-core-and-ci",
+  "pages": {
+    "about/index.html": {
+      "anchors": 22,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "america-by-design/index.html": {
+      "anchors": 24,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "assets/media/README_FLAGS/index.html": {
+      "anchors": 0,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "contact/index.html": {
+      "anchors": 22,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "docs/index.html": {
+      "anchors": 21,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "Evident.FlaskBridge/README/index.html": {
+      "anchors": 0,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "Evident.Mobile/Resources/Images/ICONS-README/index.html": {
+      "anchors": 3,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "Evident.Mobile/Tools/ICONS-README/index.html": {
+      "anchors": 0,
+      "images": 0,
+      "scripts": 0,
+      "links": 0
+    },
+    "faq/index.html": {
+      "anchors": 22,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "index.html": {
+      "anchors": 27,
+      "images": 2,
+      "scripts": 5,
+      "links": 7
+    },
+    "pricing/index.html": {
+      "anchors": 23,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "privacy/index.html": {
+      "anchors": 21,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "Services/audit/index.html": {
+      "anchors": 21,
+      "images": 4,
+      "scripts": 4,
+      "links": 7
+    },
+    "Services/compliance/index.html": {
+      "anchors": 21,
+      "images": 4,
+      "scripts": 4,
+      "links": 7
+    },
+    "Services/custody/index.html": {
+      "anchors": 21,
+      "images": 4,
+      "scripts": 4,
+      "links": 7
+    },
+    "styleguide/index.html": {
+      "anchors": 26,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    },
+    "terms/index.html": {
+      "anchors": 21,
+      "images": 2,
+      "scripts": 4,
+      "links": 7
+    }
+  },
+  "brokenLinks": [
+    {
+      "page": "about/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "about/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "contact/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "docs/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "faq/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "index.html",
+      "href": "/assets/media/renditions/flag-1080p.mp4",
+      "target": "assets/media/renditions/flag-1080p.mp4"
+    },
+    {
+      "page": "index.html",
+      "href": "/assets/media/renditions/flag-720p.mp4",
+      "target": "assets/media/renditions/flag-720p.mp4"
+    },
+    {
+      "page": "index.html",
+      "href": "/assets/media/renditions/flag-360p.mp4",
+      "target": "assets/media/renditions/flag-360p.mp4"
+    },
+    {
+      "page": "index.html",
+      "href": "/assets/media/renditions/flag-1080p.webm",
+      "target": "assets/media/renditions/flag-1080p.webm"
+    },
+    {
+      "page": "index.html",
+      "href": "/assets/media/renditions/flag-720p.webm",
+      "target": "assets/media/renditions/flag-720p.webm"
+    },
+    {
+      "page": "index.html",
+      "href": "/assets/media/renditions/flag-360p.webm",
+      "target": "assets/media/renditions/flag-360p.webm"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/signup",
+      "target": "signup"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "pricing/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "privacy/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/audit/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/compliance/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "Services/custody/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "styleguide/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/pricing.html",
+      "target": "pricing.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/docs.html#faq",
+      "target": "docs.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/docs.html",
+      "target": "docs.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/contact.html",
+      "target": "contact.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/docs.html#privacy",
+      "target": "docs.html"
+    },
+    {
+      "page": "terms/index.html",
+      "href": "/docs.html#terms",
+      "target": "docs.html"
+    }
+  ],
+  "missingAssets": [
+    {
+      "page": "index.html",
+      "src": "/assets/media/renditions/flag-1080p.mp4",
+      "target": "assets/media/renditions/flag-1080p.mp4"
+    },
+    {
+      "page": "index.html",
+      "src": "/assets/media/renditions/flag-720p.mp4",
+      "target": "assets/media/renditions/flag-720p.mp4"
+    },
+    {
+      "page": "index.html",
+      "src": "/assets/media/renditions/flag-360p.mp4",
+      "target": "assets/media/renditions/flag-360p.mp4"
+    },
+    {
+      "page": "index.html",
+      "src": "/assets/media/renditions/flag-1080p.webm",
+      "target": "assets/media/renditions/flag-1080p.webm"
+    },
+    {
+      "page": "index.html",
+      "src": "/assets/media/renditions/flag-720p.webm",
+      "target": "assets/media/renditions/flag-720p.webm"
+    },
+    {
+      "page": "index.html",
+      "src": "/assets/media/renditions/flag-360p.webm",
+      "target": "assets/media/renditions/flag-360p.webm"
+    }
+  ]
+}

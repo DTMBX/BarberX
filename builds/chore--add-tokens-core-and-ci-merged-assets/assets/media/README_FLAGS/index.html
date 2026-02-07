@@ -1,0 +1,20 @@
+<p>Flag media placement and guidelines</p>
+<ol>
+<li>Add the actual video file to: <code>src/assets/media/flag.mp4</code> (MP4 H.264 is
+recommended for broad compatibility).</li>
+<li>Add a poster image for the video at: <code>src/assets/images/flag-poster.jpg</code> (use
+1280×720 or similar).</li>
+<li>If you have multiple variants (webm, av1), add them as additional <code>&lt;source&gt;</code>
+entries in <code>src/_includes/components/flag-video.njk</code>.</li>
+<li>For production builds, prefer storing the canonical video in CI artifacts or
+an origin (CDN/S3) and reference the content-addressed URL.</li>
+<li>When replacing the placeholder, run image optimization for the poster and
+consider generating multiple video renditions (adaptive bitrate) if you need
+performance.</li>
+</ol>
+<p>Example local add:</p>
+<pre><code class="language-bash">mkdir -p src/assets/media src/assets/images
+cp /path/to/flag.mp4 src/assets/media/flag.mp4
+cp /path/to/flag-poster.jpg src/assets/images/flag-poster.jpg
+npm run build
+</code></pre>

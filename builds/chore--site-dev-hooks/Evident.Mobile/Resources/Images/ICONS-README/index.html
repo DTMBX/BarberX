@@ -1,0 +1,84 @@
+<h1>Evident Mobile App Icons</h1>
+<h2>Required Icons</h2>
+<p>Place the following icon files in this directory. Icons should be SVG format for
+best cross-platform scaling.</p>
+<h3>Navigation Icons (TabBar)</h3>
+<ul>
+<li><code>home.png</code> or <code>home.svg</code> - Dashboard/Home</li>
+<li><code>folder.png</code> or <code>folder.svg</code> - Cases</li>
+<li><code>chart.png</code> or <code>chart.svg</code> - Analysis</li>
+<li><code>upload.png</code> or <code>upload.svg</code> - Upload</li>
+<li><code>person.png</code> or <code>person.svg</code> - Profile</li>
+</ul>
+<h3>Flyout Menu Icons</h3>
+<ul>
+<li><code>book.png</code> or <code>book.svg</code> - Legal Library</li>
+<li><code>document.png</code> or <code>document.svg</code> - Documents</li>
+<li><code>settings.png</code> or <code>settings.svg</code> - Settings</li>
+<li><code>help.png</code> or <code>help.svg</code> - Help &amp; Support</li>
+<li><code>logout.png</code> or <code>logout.svg</code> - Logout</li>
+</ul>
+<h3>Detail Page Icons</h3>
+<ul>
+<li><code>video.png</code> or <code>video.svg</code> - Video content</li>
+<li><code>chevron_right.png</code> or <code>chevron_right.svg</code> - Navigation arrows</li>
+</ul>
+<h3>App Branding</h3>
+<ul>
+<li><code>Evident_logo.png</code> - Main app logo (200x200 minimum)</li>
+<li><code>case_placeholder.png</code> - Placeholder for cases without thumbnails</li>
+<li><code>default_avatar.png</code> - Default user profile image</li>
+</ul>
+<h2>Icon Specifications</h2>
+<h3>Size Requirements</h3>
+<ul>
+<li><strong>SVG</strong>: Preferred for all icons (scalable)</li>
+<li><strong>PNG</strong>: If using PNG, provide @1x, @2x, @3x versions
+<ul>
+<li>@1x: 24x24px</li>
+<li>@2x: 48x48px</li>
+<li>@3x: 72x72px</li>
+</ul>
+</li>
+</ul>
+<h3>Color Guidelines</h3>
+<ul>
+<li>Use monochrome icons for navigation (will be tinted by theme)</li>
+<li>Logo should include brand colors</li>
+<li>Follow Material Design icon guidelines</li>
+</ul>
+<h2>Icon Sources</h2>
+<p>You can obtain icons from:</p>
+<ul>
+<li><a href="https://fonts.google.com/icons">Material Icons</a></li>
+<li><a href="https://ionic.io/ionicons">Ionicons</a></li>
+<li><a href="https://feathericons.com/">Feather Icons</a></li>
+<li>Custom design matching Evident brand</li>
+</ul>
+<h2>Adding Icons to Project</h2>
+<ol>
+<li>Place icon files in this directory</li>
+<li>Icons are automatically included via <code>Evident.Mobile.csproj</code>:<pre><code class="language-xml">&lt;MauiImage Include=&quot;Resources\Images\*&quot; /&gt;
+</code></pre>
+</li>
+<li>Reference in XAML:<pre><code class="language-xml">&lt;Image Source=&quot;icon_name.png&quot; /&gt;
+</code></pre>
+</li>
+<li>No file extension needed in XAML - MAUI finds the appropriate resource</li>
+</ol>
+<h2>Platform-Specific Icons</h2>
+<h3>iOS</h3>
+<ul>
+<li>App icon configured in <code>Resources/AppIcon/appicon.svg</code></li>
+<li>Launch screen in <code>Resources/Splash/splash.svg</code></li>
+</ul>
+<h3>Android</h3>
+<ul>
+<li>App icon configured in <code>Resources/AppIcon/appicon.svg</code></li>
+<li>Adaptive icon foreground in <code>Resources/AppIcon/appiconfg.svg</code></li>
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>App icon configured in <code>Resources/AppIcon/appicon.svg</code></li>
+<li>Tile images generated automatically</li>
+</ul>
