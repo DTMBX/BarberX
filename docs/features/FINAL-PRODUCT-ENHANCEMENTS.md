@@ -40,9 +40,7 @@ visualization, multi-format export capabilities, and enterprise-level reporting.
 #### Enhanced Header Controls
 
 ```html
-<header-right>
-  - Status Filter Dropdown - Sort By Dropdown - ➕ New Analysis Button
-</header-right>
+<header-right> - Status Filter Dropdown - Sort By Dropdown - ➕ New Analysis Button </header-right>
 ```
 
 --

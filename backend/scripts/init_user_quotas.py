@@ -12,7 +12,6 @@ import sys
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from datetime import datetime
 
 from app import app, db
 from models_auth import User
@@ -29,9 +28,9 @@ def initialize_all_quotas():
         skipped = 0
         errors = 0
 
-        print(f"\n{'='*70}")
+        print(f"\n{'=' * 70}")
         print(f"  INITIALIZING USAGE QUOTAS FOR {len(users)} USERS")
-        print(f"{'='*70}\n")
+        print(f"{'=' * 70}\n")
 
         for user in users:
             try:
@@ -56,14 +55,14 @@ def initialize_all_quotas():
         # Commit all changes
         db.session.commit()
 
-        print(f"\n{'='*70}")
-        print(f"  INITIALIZATION COMPLETE")
-        print(f"{'='*70}")
+        print(f"\n{'=' * 70}")
+        print("  INITIALIZATION COMPLETE")
+        print(f"{'=' * 70}")
         print(f"  ✅ Initialized: {initialized}")
         print(f"  ⏭️  Skipped:     {skipped}")
         print(f"  ❌ Errors:      {errors}")
         print(f"  📊 Total:       {len(users)}")
-        print(f"{'='*70}\n")
+        print(f"{'=' * 70}\n")
 
         return initialized, skipped, errors
 

@@ -12,7 +12,7 @@ import socket
 
 from flask import Blueprint, jsonify, request
 
-from models_license import License, LicenseService, LicenseValidation
+from models_license import License, LicenseService
 
 license_bp = Blueprint("license", __name__, url_prefix="/api/v1/license")
 

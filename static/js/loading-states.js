@@ -12,13 +12,13 @@ class LoadingState {
    * @param {HTMLElement} button - The button element
    * @param {string} loadingText - Text to show while loading (optional)
    */
-  static showButtonLoading(button, loadingText = 'Loading...') {
+  static showButtonLoading(button, loadingText = "Loading...") {
     if (!button) return;
 
     // Store original content
     button.dataset.originalText = button.innerHTML;
     button.disabled = true;
-    button.classList.add('loading');
+    button.classList.add("loading");
 
     const spinner = `
       <span class="btn-spinner" role="status" aria-live="polite">
@@ -41,7 +41,7 @@ class LoadingState {
     if (!button) return;
 
     button.disabled = false;
-    button.classList.remove('loading');
+    button.classList.remove("loading");
 
     if (button.dataset.originalText) {
       button.innerHTML = button.dataset.originalText;
@@ -53,15 +53,15 @@ class LoadingState {
    * Show full-page loading overlay
    * @param {string} message - Loading message (optional)
    */
-  static showPageLoading(message = 'Loading...') {
-    let overlay = document.getElementById('page-loading-overlay');
+  static showPageLoading(message = "Loading...") {
+    let overlay = document.getElementById("page-loading-overlay");
 
     if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.id = 'page-loading-overlay';
-      overlay.setAttribute('role', 'alert');
-      overlay.setAttribute('aria-live', 'assertive');
-      overlay.setAttribute('aria-busy', 'true');
+      overlay = document.createElement("div");
+      overlay.id = "page-loading-overlay";
+      overlay.setAttribute("role", "alert");
+      overlay.setAttribute("aria-live", "assertive");
+      overlay.setAttribute("aria-busy", "true");
 
       overlay.innerHTML = `
         <div class="page-loading-content">
@@ -78,16 +78,16 @@ class LoadingState {
       document.body.appendChild(overlay);
     }
 
-    setTimeout(() => overlay.classList.add('active'), 10);
+    setTimeout(() => overlay.classList.add("active"), 10);
   }
 
   /**
    * Hide full-page loading overlay
    */
   static hidePageLoading() {
-    const overlay = document.getElementById('page-loading-overlay');
+    const overlay = document.getElementById("page-loading-overlay");
     if (overlay) {
-      overlay.classList.remove('active');
+      overlay.classList.remove("active");
       setTimeout(() => overlay.remove(), 300);
     }
   }
@@ -97,7 +97,7 @@ class LoadingState {
    * @param {HTMLElement} container - Container to show skeleton in
    * @param {string} type - Type of skeleton ('text', 'card', 'list')
    */
-  static showSkeleton(container, type = 'text') {
+  static showSkeleton(container, type = "text") {
     if (!container) return;
 
     container.dataset.originalContent = container.innerHTML;
@@ -129,7 +129,7 @@ class LoadingState {
     };
 
     container.innerHTML = skeletons[type] || skeletons.text;
-    container.classList.add('skeleton-active');
+    container.classList.add("skeleton-active");
   }
 
   /**
@@ -143,7 +143,7 @@ class LoadingState {
       container.innerHTML = container.dataset.originalContent;
       delete container.dataset.originalContent;
     }
-    container.classList.remove('skeleton-active');
+    container.classList.remove("skeleton-active");
   }
 
   /**
@@ -151,19 +151,19 @@ class LoadingState {
    * @param {HTMLElement} element - Element to show spinner in
    * @param {string} size - Size ('sm', 'md', 'lg')
    */
-  static showInlineSpinner(element, size = 'md') {
+  static showInlineSpinner(element, size = "md") {
     if (!element) return;
 
     const sizeClasses = {
-      sm: 'spinner-sm',
-      md: 'spinner-md',
-      lg: 'spinner-lg',
+      sm: "spinner-sm",
+      md: "spinner-md",
+      lg: "spinner-lg",
     };
 
-    const spinner = document.createElement('span');
+    const spinner = document.createElement("span");
     spinner.className = `inline-spinner ${sizeClasses[size]}`;
-    spinner.setAttribute('role', 'status');
-    spinner.setAttribute('aria-label', 'Loading');
+    spinner.setAttribute("role", "status");
+    spinner.setAttribute("aria-label", "Loading");
     spinner.innerHTML = `
       <svg class="spinner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle class="spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"/>
@@ -181,17 +181,17 @@ class LoadingState {
    * @param {number} progress - Progress percentage (0-100)
    * @param {string} label - Progress label (optional)
    */
-  static showProgress(container, progress = 0, label = '') {
+  static showProgress(container, progress = 0, label = "") {
     if (!container) return;
 
-    let progressBar = container.querySelector('.progress-bar-container');
+    let progressBar = container.querySelector(".progress-bar-container");
 
     if (!progressBar) {
-      progressBar = document.createElement('div');
-      progressBar.className = 'progress-bar-container';
-      progressBar.setAttribute('role', 'progressbar');
-      progressBar.setAttribute('aria-valuemin', '0');
-      progressBar.setAttribute('aria-valuemax', '100');
+      progressBar = document.createElement("div");
+      progressBar.className = "progress-bar-container";
+      progressBar.setAttribute("role", "progressbar");
+      progressBar.setAttribute("aria-valuemin", "0");
+      progressBar.setAttribute("aria-valuemax", "100");
 
       progressBar.innerHTML = `
         <div class="progress-bar-label"></div>
@@ -204,12 +204,12 @@ class LoadingState {
       container.appendChild(progressBar);
     }
 
-    const fill = progressBar.querySelector('.progress-bar-fill');
-    const labelEl = progressBar.querySelector('.progress-bar-label');
-    const percentageEl = progressBar.querySelector('.progress-bar-percentage');
+    const fill = progressBar.querySelector(".progress-bar-fill");
+    const labelEl = progressBar.querySelector(".progress-bar-label");
+    const percentageEl = progressBar.querySelector(".progress-bar-percentage");
 
     fill.style.width = `${Math.min(100, Math.max(0, progress))}%`;
-    progressBar.setAttribute('aria-valuenow', progress);
+    progressBar.setAttribute("aria-valuenow", progress);
 
     if (label) labelEl.textContent = label;
     percentageEl.textContent = `${Math.round(progress)}%`;
@@ -217,7 +217,7 @@ class LoadingState {
 }
 
 // Add CSS for loading states
-const loadingStatesStyle = document.createElement('style');
+const loadingStatesStyle = document.createElement("style");
 loadingStatesStyle.textContent = `
   /* Button Loading States */
   button.loading {
@@ -442,6 +442,6 @@ loadingStatesStyle.textContent = `
 document.head.appendChild(loadingStatesStyle);
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = LoadingState;
 }

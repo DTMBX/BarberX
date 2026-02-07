@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -20,7 +21,7 @@ import re
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 
 class ViolationType(Enum):
@@ -58,9 +59,9 @@ class Violation:
     description: str
     evidence_reference: str
     legal_basis: str
-    case_law_support: List[str]
+    case_law_support: list[str]
     recommended_action: str
-    timestamp_reference: Optional[str] = None
+Optional[timestamp_reference: str] = None
     confidence: float = 0.0
 
 
@@ -74,8 +75,8 @@ class CaseLawPrecedent:
     jurisdiction: str
     holding: str
     relevance_score: float
-    key_facts: List[str]
-    distinguishing_factors: Optional[List[str]] = None
+    key_facts: list[str]
+Optional[distinguishing_factors: list[str]] = None
 
 
 class ConstitutionalRightsAnalyzer:
@@ -84,7 +85,7 @@ class ConstitutionalRightsAnalyzer:
     def __init__(self):
         self.violations = []
 
-    def analyze_miranda_compliance(self, transcript: str, context: Dict) -> List[Violation]:
+    def analyze_miranda_compliance(self, transcript: str, context: dict) -> list[Violation]:
         """
         Check for Miranda rights violations
 
@@ -156,7 +157,7 @@ class ConstitutionalRightsAnalyzer:
 
         return violations
 
-    def analyze_fourth_amendment(self, transcript: str, context: Dict) -> List[Violation]:
+    def analyze_fourth_amendment(self, transcript: str, context: dict) -> list[Violation]:
         """
         Check for Fourth Amendment search/seizure violations
 
@@ -237,7 +238,7 @@ class ConstitutionalRightsAnalyzer:
 
         return violations
 
-    def analyze_brady_giglio(self, documents: List[str], context: Dict) -> List[Violation]:
+    def analyze_brady_giglio(self, documents: list[str], context: dict) -> list[Violation]:
         """
         Check for Brady/Giglio material (exculpatory evidence)
 
@@ -294,7 +295,7 @@ class CaseLawDatabase:
     def __init__(self):
         self.cases = self._load_precedents()
 
-    def _load_precedents(self) -> Dict[str, List[CaseLawPrecedent]]:
+    def _load_precedents(self) -> dict[str, list[CaseLawPrecedent]]:
         """Load case law database"""
         return {
             "miranda": [
@@ -419,8 +420,8 @@ class CaseLawDatabase:
         }
 
     def find_relevant_cases(
-        self, violation_type: ViolationType, facts: List[str]
-    ) -> List[CaseLawPrecedent]:
+        self, violation_type: ViolationType, facts: list[str]
+    ) -> list[CaseLawPrecedent]:
         """Find case law relevant to specific violation"""
         category_map = {
             ViolationType.MIRANDA: "miranda",
@@ -439,7 +440,7 @@ class ViolationScanner:
         self.constitutional_analyzer = ConstitutionalRightsAnalyzer()
         self.case_law_db = CaseLawDatabase()
 
-    def scan_transcript(self, transcript: str, context: Dict) -> Dict[str, Any]:
+    def scan_transcript(self, transcript: str, context: dict) -> dict[str, Any]:
         """
         Comprehensive scan of transcript for violations
 
@@ -494,7 +495,7 @@ class ViolationScanner:
             "summary": self._generate_summary(all_violations),
         }
 
-    def scan_documents(self, documents: List[str], context: Dict) -> Dict[str, Any]:
+    def scan_documents(self, documents: list[str], context: dict) -> dict[str, Any]:
         """Scan legal documents for Brady/Giglio material"""
         violations = self.constitutional_analyzer.analyze_brady_giglio(documents, context)
 
@@ -506,7 +507,7 @@ class ViolationScanner:
             "case_law_citations": self._collect_case_law(violations),
         }
 
-    def _violation_to_dict(self, violation: Violation) -> Dict:
+    def _violation_to_dict(self, violation: Violation) -> dict:
         """Convert violation to dictionary"""
         return {
             "type": violation.violation_type.value,
@@ -520,7 +521,7 @@ class ViolationScanner:
             "confidence": violation.confidence,
         }
 
-    def _generate_motion_recommendations(self, violations: List[Violation]) -> List[Dict]:
+    def _generate_motion_recommendations(self, violations: list[Violation]) -> list[dict]:
         """Generate motion filing recommendations"""
         motions = []
 
@@ -567,14 +568,14 @@ class ViolationScanner:
 
         return motions
 
-    def _collect_case_law(self, violations: List[Violation]) -> List[str]:
+    def _collect_case_law(self, violations: list[Violation]) -> list[str]:
         """Collect all cited case law"""
         citations = set()
         for violation in violations:
             citations.update(violation.case_law_support)
         return sorted(list(citations))
 
-    def _generate_summary(self, violations: List[Violation]) -> str:
+    def _generate_summary(self, violations: list[Violation]) -> str:
         """Generate executive summary of violations"""
         if not violations:
             return "No violations detected in evidence."
@@ -648,5 +649,3 @@ if __name__ == "__main__":
     print("=" * 80)
     for citation in results["case_law_citations"]:
         print(f"  • {citation}")
-
-

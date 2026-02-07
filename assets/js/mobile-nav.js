@@ -12,14 +12,14 @@ class EvidentMobileNav {
   constructor(options = {}) {
     this.options = {
       container: options.container || document.body,
-      activeClass: 'nav-active',
+      activeClass: "nav-active",
       hapticFeedback: options.hapticFeedback !== false,
       showInstallPrompt: options.showInstallPrompt !== false,
       ...options,
     };
 
     this.deferredPrompt = null;
-    this.isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    this.isStandalone = window.matchMedia("(display-mode: standalone)").matches;
 
     this.init();
   }
@@ -35,8 +35,8 @@ class EvidentMobileNav {
     // Only show on mobile
     if (window.innerWidth > 768) return;
 
-    const nav = document.createElement('nav');
-    nav.className = 'evident-mobile-nav';
+    const nav = document.createElement("nav");
+    nav.className = "evident-mobile-nav";
     nav.innerHTML = `
       <div class="mobile-nav-items">
         <a href="/workspace" class="mobile-nav-item" data-nav="workspace">
@@ -138,10 +138,10 @@ class EvidentMobileNav {
   }
 
   injectStyles() {
-    if (document.getElementById('evident-mobile-nav-styles')) return;
+    if (document.getElementById("evident-mobile-nav-styles")) return;
 
-    const styles = document.createElement('style');
-    styles.id = 'evident-mobile-nav-styles';
+    const styles = document.createElement("style");
+    styles.id = "evident-mobile-nav-styles";
     styles.textContent = `
       .Evident-mobile-nav {
         display: none;
@@ -362,30 +362,30 @@ class EvidentMobileNav {
     if (!this.nav) return;
 
     // Navigation item clicks
-    this.nav.querySelectorAll('.mobile-nav-item').forEach((item) => {
-      item.addEventListener('click', (e) => this.handleNavClick(e, item));
+    this.nav.querySelectorAll(".mobile-nav-item").forEach((item) => {
+      item.addEventListener("click", (e) => this.handleNavClick(e, item));
     });
 
     // Menu close button
-    const closeBtn = this.nav.querySelector('.close-menu');
+    const closeBtn = this.nav.querySelector(".close-menu");
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.closeMenu());
+      closeBtn.addEventListener("click", () => this.closeMenu());
     }
 
     // Overlay click to close
-    const overlay = document.getElementById('mobileNavOverlay');
+    const overlay = document.getElementById("mobileNavOverlay");
     if (overlay) {
-      overlay.addEventListener('click', () => this.closeMenu());
+      overlay.addEventListener("click", () => this.closeMenu());
     }
 
     // Install button
-    const installBtn = document.getElementById('installBtn');
+    const installBtn = document.getElementById("installBtn");
     if (installBtn) {
-      installBtn.addEventListener('click', () => this.promptInstall());
+      installBtn.addEventListener("click", () => this.promptInstall());
     }
 
     // Resize handler
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {
         this.closeMenu();
       }
@@ -401,12 +401,12 @@ class EvidentMobileNav {
     }
 
     switch (navType) {
-      case 'menu':
+      case "menu":
         e.preventDefault();
         this.toggleMenu();
         break;
 
-      case 'upload':
+      case "upload":
         e.preventDefault();
         this.triggerUpload();
         break;
@@ -418,45 +418,45 @@ class EvidentMobileNav {
   }
 
   toggleMenu() {
-    const menu = document.getElementById('mobileNavMenu');
-    const overlay = document.getElementById('mobileNavOverlay');
+    const menu = document.getElementById("mobileNavMenu");
+    const overlay = document.getElementById("mobileNavOverlay");
 
     if (menu && overlay) {
-      menu.classList.toggle('active');
-      overlay.classList.toggle('active');
+      menu.classList.toggle("active");
+      overlay.classList.toggle("active");
 
       // Prevent body scroll when menu is open
-      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+      document.body.style.overflow = menu.classList.contains("active") ? "hidden" : "";
     }
   }
 
   closeMenu() {
-    const menu = document.getElementById('mobileNavMenu');
-    const overlay = document.getElementById('mobileNavOverlay');
+    const menu = document.getElementById("mobileNavMenu");
+    const overlay = document.getElementById("mobileNavOverlay");
 
     if (menu && overlay) {
-      menu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
+      menu.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.style.overflow = "";
     }
   }
 
   triggerUpload() {
     // Check if there's already an upload input
-    let input = document.getElementById('mobileUploadInput');
+    let input = document.getElementById("mobileUploadInput");
     if (!input) {
-      input = document.createElement('input');
-      input.type = 'file';
-      input.id = 'mobileUploadInput';
-      input.accept = '.pdf,.doc,.docx,.txt,application/pdf,application/msword';
+      input = document.createElement("input");
+      input.type = "file";
+      input.id = "mobileUploadInput";
+      input.accept = ".pdf,.doc,.docx,.txt,application/pdf,application/msword";
       input.multiple = true;
-      input.style.display = 'none';
+      input.style.display = "none";
       document.body.appendChild(input);
 
-      input.addEventListener('change', (e) => {
+      input.addEventListener("change", (e) => {
         if (e.target.files.length > 0) {
           // Navigate to workspace with files
-          window.location.href = '/workspace?action=upload';
+          window.location.href = "/workspace?action=upload";
           // Store files in sessionStorage for the workspace to pick up
           // (actual implementation would handle file upload)
         }
@@ -471,12 +471,12 @@ class EvidentMobileNav {
 
     const path = window.location.pathname;
 
-    this.nav.querySelectorAll('.mobile-nav-item[href]').forEach((item) => {
-      const href = item.getAttribute('href');
+    this.nav.querySelectorAll(".mobile-nav-item[href]").forEach((item) => {
+      const href = item.getAttribute("href");
       if (href && path.startsWith(href)) {
-        item.classList.add('nav-active');
+        item.classList.add("nav-active");
       } else {
-        item.classList.remove('nav-active');
+        item.classList.remove("nav-active");
       }
     });
   }
@@ -484,22 +484,22 @@ class EvidentMobileNav {
   checkInstallPrompt() {
     if (this.isStandalone) return;
 
-    window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       this.deferredPrompt = e;
 
       // Show install button
-      const installBtn = document.getElementById('installBtn');
+      const installBtn = document.getElementById("installBtn");
       if (installBtn) {
-        installBtn.style.display = 'flex';
+        installBtn.style.display = "flex";
       }
     });
 
-    window.addEventListener('appinstalled', () => {
+    window.addEventListener("appinstalled", () => {
       this.deferredPrompt = null;
-      const installBtn = document.getElementById('installBtn');
+      const installBtn = document.getElementById("installBtn");
       if (installBtn) {
-        installBtn.style.display = 'none';
+        installBtn.style.display = "none";
       }
     });
   }
@@ -510,8 +510,8 @@ class EvidentMobileNav {
     this.deferredPrompt.prompt();
     const { outcome } = await this.deferredPrompt.userChoice;
 
-    if (outcome === 'accepted') {
-      console.log('[Evident] PWA installed');
+    if (outcome === "accepted") {
+      console.log("[Evident] PWA installed");
     }
 
     this.deferredPrompt = null;
@@ -524,11 +524,11 @@ class EvidentMobileNav {
     let touchStartY = 0;
     let touchEndY = 0;
 
-    const menu = document.getElementById('mobileNavMenu');
+    const menu = document.getElementById("mobileNavMenu");
     if (!menu) return;
 
     menu.addEventListener(
-      'touchstart',
+      "touchstart",
       (e) => {
         touchStartY = e.touches[0].clientY;
       },
@@ -536,14 +536,14 @@ class EvidentMobileNav {
     );
 
     menu.addEventListener(
-      'touchmove',
+      "touchmove",
       (e) => {
         touchEndY = e.touches[0].clientY;
       },
       { passive: true }
     );
 
-    menu.addEventListener('touchend', () => {
+    menu.addEventListener("touchend", () => {
       const swipeDistance = touchEndY - touchStartY;
 
       // Swipe down to close
@@ -558,10 +558,10 @@ class EvidentMobileNav {
     const badge = this.nav?.querySelector(`[data-nav="${navItem}"] .nav-badge`);
     if (badge) {
       if (count > 0) {
-        badge.textContent = count > 99 ? '99+' : count;
-        badge.style.display = 'block';
+        badge.textContent = count > 99 ? "99+" : count;
+        badge.style.display = "block";
       } else {
-        badge.style.display = 'none';
+        badge.style.display = "none";
       }
     }
   }
@@ -574,11 +574,11 @@ class EvidentMobileNav {
 }
 
 // Auto-initialize on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   window.EvidentMobileNav = new EvidentMobileNav();
 });
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = EvidentMobileNav;
 }

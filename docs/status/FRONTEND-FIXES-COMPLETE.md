@@ -138,22 +138,21 @@ Evident.info/
 ### **Colors:**
 
 ```css
---primary-navy: #0a1f44 --accent-blue: #3b82f6 --accent-cyan: #06b6d4
-  --success: #10b981 --error: #ef4444;
+--primary-navy: #0a1f44 --accent-blue: #3b82f6 --accent-cyan: #06b6d4 --success: #10b981
+  --error: #ef4444;
 ```
 
 ### **Typography Scale:**
 
 ```css
---font-size-xs: 0.75rem (12px) --font-size-base: 1rem (16px)
-  --font-size-2xl: 1.5rem (24px) --font-size-4xl: 2.25rem (36px);
+--font-size-xs: 0.75rem (12px) --font-size-base: 1rem (16px) --font-size-2xl: 1.5rem (24px)
+  --font-size-4xl: 2.25rem (36px);
 ```
 
 ### **Spacing Scale:**
 
 ```css
---space-1: 0.25rem (4px) --space-4: 1rem (16px) --space-8: 2rem (32px)
-  --space-16: 4rem (64px);
+--space-1: 0.25rem (4px) --space-4: 1rem (16px) --space-8: 2rem (32px) --space-16: 4rem (64px);
 ```
 
 --

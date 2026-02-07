@@ -202,32 +202,30 @@
 ### Colors:
 
 ```css
---accent-red: #c41e3a /* Barber pole red */ --accent-blue: #1e40af
-  /* Barber pole blue */ --brass-gold: #ffd700 /* Pole caps */
-  --success: #10b981 /* Success states */ --error: #ef4444 /* Error states */
-  --warning: #f59e0b /* Warning states */;
+--accent-red: #c41e3a /* Barber pole red */ --accent-blue: #1e40af /* Barber pole blue */
+  --brass-gold: #ffd700 /* Pole caps */ --success: #10b981 /* Success states */ --error: #ef4444
+  /* Error states */ --warning: #f59e0b /* Warning states */;
 ```
 
 ### Spacing (4px Grid):
 
 ```css
---space-2: 0.5rem /* 8px */ --space-3: 0.75rem /* 12px */ --space-4: 1rem
-  /* 16px */ --space-6: 1.5rem /* 24px */ --space-8: 2rem /* 32px */
-  --space-12: 3rem /* 48px */;
+--space-2: 0.5rem /* 8px */ --space-3: 0.75rem /* 12px */ --space-4: 1rem /* 16px */
+  --space-6: 1.5rem /* 24px */ --space-8: 2rem /* 32px */ --space-12: 3rem /* 48px */;
 ```
 
 ### Border Radius:
 
 ```css
---radius-sm: 4px --radius-md: 8px --radius-lg: 16px --radius-xl: 24px
-  --radius-2xl: 32px --radius-full: 9999px;
+--radius-sm: 4px --radius-md: 8px --radius-lg: 16px --radius-xl: 24px --radius-2xl: 32px
+  --radius-full: 9999px;
 ```
 
 ### Transitions:
 
 ```css
---ease-smooth: cubic-bezier(0.4, 0, 0.2, 1) --duration-fast: 200ms
-  --duration-normal: 300ms --duration-slow: 500ms;
+--ease-smooth: cubic-bezier(0.4, 0, 0.2, 1) --duration-fast: 200ms --duration-normal: 300ms
+  --duration-slow: 500ms;
 ```
 
 --
@@ -299,18 +297,18 @@
 ### Show Toast Notification:
 
 ```javascript
-Toast.success('Operation completed!');
-Toast.error('Something went wrong');
-Toast.warning('Approaching limit');
-Toast.info('Processing...');
+Toast.success("Operation completed!");
+Toast.error("Something went wrong");
+Toast.warning("Approaching limit");
+Toast.info("Processing...");
 ```
 
 ### Add Loading State:
 
 ```javascript
-button.classList.add('is-loading');
+button.classList.add("is-loading");
 // ... do work ...
-button.classList.remove('is-loading');
+button.classList.remove("is-loading");
 ```
 
 ### Enable Form Validation:

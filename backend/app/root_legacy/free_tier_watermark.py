@@ -225,7 +225,7 @@ class WatermarkService:
             z-index: 9999;
         ">
             <span style="margin-right: 15px;">
-                🎯 {WatermarkService.WATERMARK_TEXTS['report']}
+                🎯 {WatermarkService.WATERMARK_TEXTS["report"]}
             </span>
             <a href="https://Evident.info/pricing" style="
                 background: white;
@@ -264,7 +264,7 @@ class WatermarkService:
         return {
             "watermarked": True,
             "tier": "FREE",
-            "message": f"FREE tier exports include a watermark. Upgrade to remove.",
+            "message": "FREE tier exports include a watermark. Upgrade to remove.",
             "watermark_text": WatermarkService.WATERMARK_TEXTS.get(
                 export_type, WatermarkService.WATERMARK_TEXTS["pdf"]
             ),
@@ -319,5 +319,3 @@ def watermark_decorator(export_type="pdf"):
 
 # Export key components
 __all__ = ["WatermarkService", "watermark_decorator"]
-
-

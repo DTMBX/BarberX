@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -10,7 +11,7 @@ import sqlite3
 import uuid
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 from retrieval_service import Passage
 
@@ -35,7 +36,7 @@ class Citation:
 class CitationService:
     """Persist and retrieve citations for analyses"""
 
-    def __init__(self, db_path: Union[str, Path] = DB_PATH):
+    def __init__(self, db_path: str | Path = DB_PATH):
         self.db_path = Path(db_path)
 
     def _conn(self) -> sqlite3.Connection:
@@ -43,7 +44,7 @@ class CitationService:
         conn.row_factory = sqlite3.Row
         return conn
 
-    def persist_citations(self, analysis_id: Optional[str], passages: List[Passage]) -> str:
+Optional[def persist_citations(self, analysis_id: str], passages: list[Passage]) -> str:
         """
         Store citations for an analysis
 
@@ -81,7 +82,7 @@ class CitationService:
 
         return analysis_id
 
-    def get_citations(self, analysis_id: str) -> List[Citation]:
+    def get_citations(self, analysis_id: str) -> list[Citation]:
         """Get all citations for an analysis"""
         with self._conn() as conn:
             rows = conn.execute(
@@ -108,7 +109,7 @@ class CitationService:
                 for row in rows
             ]
 
-    def get_citations_by_document(self, document_id: str) -> List[Citation]:
+    def get_citations_by_document(self, document_id: str) -> list[Citation]:
         """Get all citations referencing a specific document"""
         with self._conn() as conn:
             rows = conn.execute(
@@ -135,7 +136,7 @@ class CitationService:
                 for row in rows
             ]
 
-    def get_citation_stats(self, document_id: str) -> Dict[str, Any]:
+    def get_citation_stats(self, document_id: str) -> dict[str, Any]:
         """Get citation statistics for a document"""
         with self._conn() as conn:
             row = conn.execute(
@@ -152,4 +153,3 @@ class CitationService:
             ).fetchone()
 
             return dict(row) if row else {}
-

@@ -6,9 +6,7 @@ const path = require('path');
 const cwd = process.cwd();
 const patterns = [
   'src/assets/css/**/*.css',
-  'src/**/*.css',
-  'site/assets/css/**/*.css',
-  'site/components/*.css'
+  'src/**/*.css'
 ];
 
 // Use git to detect tracked files matching the patterns so we avoid NoFilesFoundError

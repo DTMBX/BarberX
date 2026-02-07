@@ -1,12 +1,14 @@
 <!-- htmlhint doctype-first:false -->
-{%- assign cta_label = include.cta_label | default: "Explore Now" -%} {%- assign cta_href = include.cta_href | default:
-"#preview" -%} {%- assign badge = include.badge | default: "Under Development" -%} {%- assign hero_title_1 =
-include.title_1 | default: "Citizen" -%} {%- assign hero_title_2 = include.title_2 | default: "Accountability" -%} {%-
-assign hero_title_3 = include.title_3 | default: "Through Record" -%} {%- assign hero_lead = include.lead | default:
-"Like a fresh fade — precision, patience, and the right tools make all the difference. Barber Cam is citizen-led
-documentation built on dignity, restraint, and due process." -%} {%- comment -%} Unique suffix to avoid duplicate SVG
-ids if included more than once. {%- endcomment -%} {%- assign uid = include.uid | default: page.url | default: "home"
--%} {%- assign uid = uid | slugify | replace: "-", "" | truncate: 12, "" -%}
+{%- assign cta_label = include.cta_label | default: "Explore Now" -%} {%- assign cta_href =
+include.cta_href | default: "#preview" -%} {%- assign badge = include.badge | default: "Under
+Development" -%} {%- assign hero_title_1 = include.title_1 | default: "Citizen" -%} {%- assign
+hero_title_2 = include.title_2 | default: "Accountability" -%} {%- assign hero_title_3 =
+include.title_3 | default: "Through Record" -%} {%- assign hero_lead = include.lead | default: "Like
+a fresh fade — precision, patience, and the right tools make all the difference. Barber Cam is
+citizen-led documentation built on dignity, restraint, and due process." -%} {%- comment -%} Unique
+suffix to avoid duplicate SVG ids if included more than once. {%- endcomment -%} {%- assign uid =
+include.uid | default: page.url | default: "home" -%} {%- assign uid = uid | slugify | replace: "-",
+"" | truncate: 12, "" -%}
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
      UNIFIED BARBER HERO — A CUT ABOVE

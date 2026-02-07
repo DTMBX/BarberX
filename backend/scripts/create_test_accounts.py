@@ -32,7 +32,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "test-secret-key"
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = (
-    f'sqlite:///{os.path.join(basedir, "instance", "Evident_auth.db")}'
+    f"sqlite:///{os.path.join(basedir, 'instance', 'Evident_auth.db')}"
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -175,12 +175,12 @@ def create_test_accounts():
             tier_name = account["tier"].name
             print(f"✅ {tier_name:12} - {account['email']:25} (password: {account['password']})")
 
-        print(f"\n{'='*80}")
-        print(f"📊 Summary:")
+        print(f"\n{'=' * 80}")
+        print("📊 Summary:")
         print(f"   • Created: {created_count} new accounts")
         print(f"   • Updated: {updated_count} existing accounts")
         print(f"   • Total:   {created_count + updated_count} test accounts ready")
-        print(f"{'='*80}\n")
+        print(f"{'=' * 80}\n")
 
         print("🎉 Test Account Creation Complete!")
         print("\n📝 Login Instructions:")
@@ -207,4 +207,3 @@ if __name__ == "__main__":
 
         traceback.print_exc()
         sys.exit(1)
-

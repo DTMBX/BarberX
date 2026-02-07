@@ -205,7 +205,7 @@ The mobile CSS is automatically imported via
 [assets/css/main.css](assets/css/main.css):
 
 ```css
-@import url('mobile.css');
+@import url("mobile.css");
 ```
 
 ### **Step 2: Use Navigation Component**

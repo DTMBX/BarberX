@@ -514,10 +514,7 @@ Replace "Evident Legal Technologies" messaging with:
 **File:** `templates/bwc_upload.html`
 
 ```html
-<div
-  class="safety-banner"
-  style="background: #fff3cd; padding: 1rem; margin-bottom: 1rem;"
->
+<div class="safety-banner" style="background: #fff3cd; padding: 1rem; margin-bottom: 1rem;">
   <h4>⚠️ Before You Upload</h4>
   <ul>
     <li>Only upload recordings you made lawfully</li>

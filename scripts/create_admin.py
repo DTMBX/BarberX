@@ -125,9 +125,9 @@ def create_admin_account():
     print(f"Email:    {ADMIN_EMAIL}")
     print(f"Password: {ADMIN_PASSWORD}")
     print(f"Name:     {ADMIN_NAME}")
-    print(f"Role:     admin")
-    print(f"Tier:     enterprise")
-    print(f"Status:   Active")
+    print("Role:     admin")
+    print("Tier:     enterprise")
+    print("Status:   Active")
     print("=" * 80 + "\n")
 
     # Verify no other admins exist
@@ -135,7 +135,7 @@ def create_admin_account():
     total_admins = cursor.fetchone()[0]
 
     if total_admins == 1:
-        print(f"✅ VERIFIED: Exactly ONE admin account exists\n")
+        print("✅ VERIFIED: Exactly ONE admin account exists\n")
     else:
         print(f"⚠️  WARNING: {total_admins} admin accounts found!\n")
 
@@ -212,5 +212,5 @@ if __name__ == "__main__":
     verify_admin_login()
 
     print("✅ Setup complete!\n")
-    print(f"🌐 Access admin panel at: https://app.Evident.info/admin")
+    print("🌐 Access admin panel at: https://app.Evident.info/admin")
     print(f"📧 Login with: {ADMIN_EMAIL}\n")

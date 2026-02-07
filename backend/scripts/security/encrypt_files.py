@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -71,7 +72,7 @@ def collect_files(config: dict) -> list[Path]:
     return sorted(set(filtered))
 
 
-def encrypt_file(fernet: Fernet, path: Path, manifest: dict) -> dict | None:
+Optional[def encrypt_file(fernet: Fernet, path: Path, manifest: dict) -> dict]:
     rel = path.as_posix()
     data = path.read_bytes()
     digest = sha256_bytes(data)
@@ -144,4 +145,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

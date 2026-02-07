@@ -9,10 +9,10 @@ Handles evidence management, transcription, OCR processing
 from datetime import datetime
 
 from flask import jsonify, request
+from tier_gating import check_tier_access
 
 from api import evidence_api
 from api.auth import jwt_required
-from tier_gating import check_tier_access
 
 
 @evidence_api.route("/list", methods=["GET"])

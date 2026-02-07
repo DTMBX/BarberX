@@ -10,15 +10,15 @@ let analysisResults = null;
 let uploadedDocuments = [];
 
 // Initialize when backend is available
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const isBackendAvailable = await checkBackendHealth();
 
   if (isBackendAvailable) {
-    document.getElementById('aiFeatures').style.display = 'block';
-    document.getElementById('offlineNotice').style.display = 'none';
+    document.getElementById("aiFeatures").style.display = "block";
+    document.getElementById("offlineNotice").style.display = "none";
   } else {
-    document.getElementById('aiFeatures').style.display = 'none';
-    document.getElementById('offlineNotice').style.display = 'block';
+    document.getElementById("aiFeatures").style.display = "none";
+    document.getElementById("offlineNotice").style.display = "block";
   }
 });
 
@@ -26,30 +26,30 @@ document.addEventListener('DOMContentLoaded', async () => {
  * Analyze uploaded document for constitutional violations
  */
 async function analyzeDocument(file) {
-  showToast('Analyzing document for constitutional violations...', 'info');
+  showToast("Analyzing document for constitutional violations...", "info");
 
   const formData = new FormData();
-  formData.append('file', file);
-  formData.append('analyze_violations', 'true');
-  formData.append('extract_citations', 'true');
+  formData.append("file", file);
+  formData.append("analyze_violations", "true");
+  formData.append("extract_citations", "true");
 
   try {
     const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/ai/analyze-document`, {
-      method: 'POST',
+      method: "POST",
       body: formData,
     });
 
-    if (!response.ok) throw new Error('Analysis failed');
+    if (!response.ok) throw new Error("Analysis failed");
 
     const result = await response.json();
     displayAnalysisResults(result);
     analysisResults = result;
 
-    showToast('Analysis complete! Review findings below.', 'success');
+    showToast("Analysis complete! Review findings below.", "success");
     return result;
   } catch (error) {
-    console.error('Analysis error:', error);
-    showToast('Analysis failed. Check backend connection.', 'error');
+    console.error("Analysis error:", error);
+    showToast("Analysis failed. Check backend connection.", "error");
     return null;
   }
 }
@@ -58,7 +58,7 @@ async function analyzeDocument(file) {
  * Display AI analysis results
  */
 function displayAnalysisResults(analysis) {
-  const resultsContainer = document.getElementById('analysisResults');
+  const resultsContainer = document.getElementById("analysisResults");
   if (!resultsContainer) return;
 
   const violations = analysis.violations_detected || [];
@@ -95,11 +95,11 @@ function displayAnalysisResults(analysis) {
               <div class="violation-card violation-card-${getSeverity(v.severity)}">
                 <div class="violation-header">
                   <span class="violation-type">${formatViolationType(v.type)}</span>
-                  <span class="severity-badge severity-badge-${getSeverity(v.severity)}">${v.severity || 'Medium'}</span>
+                  <span class="severity-badge severity-badge-${getSeverity(v.severity)}">${v.severity || "Medium"}</span>
                 </div>
                 <p class="violation-description">${v.description}</p>
-                ${v.amendment ? `<p class="violation-amendment">Amendment: ${v.amendment}</p>` : ''}
-                ${v.case_law ? `<p class="violation-caselaw">Case Law: ${v.case_law}</p>` : ''}
+                ${v.amendment ? `<p class="violation-amendment">Amendment: ${v.amendment}</p>` : ""}
+                ${v.case_law ? `<p class="violation-caselaw">Case Law: ${v.case_law}</p>` : ""}
                 ${
                   v.damages_range
                     ? `
@@ -108,12 +108,12 @@ function displayAnalysisResults(analysis) {
                     $${formatNumber(v.damages_range[0])} - $${formatNumber(v.damages_range[1])}
                   </div>
                 `
-                    : ''
+                    : ""
                 }
               </div>
             `
               )
-              .join('')}
+              .join("")}
           </div>
         </div>
       `
@@ -126,11 +126,11 @@ function displayAnalysisResults(analysis) {
         <div class="analysis-section">
           <h4>🔑 Key Facts</h4>
           <ul class="facts-list">
-            ${keyFacts.map((fact) => `<li>${fact}</li>`).join('')}
+            ${keyFacts.map((fact) => `<li>${fact}</li>`).join("")}
           </ul>
         </div>
       `
-          : ''
+          : ""
       }
       
       ${
@@ -139,11 +139,11 @@ function displayAnalysisResults(analysis) {
         <div class="analysis-section">
           <h4>📚 Legal Citations</h4>
           <ul class="citations-list">
-            ${citations.map((cite) => `<li>${cite}</li>`).join('')}
+            ${citations.map((cite) => `<li>${cite}</li>`).join("")}
           </ul>
         </div>
       `
-          : ''
+          : ""
       }
       
       ${
@@ -152,11 +152,11 @@ function displayAnalysisResults(analysis) {
         <div class="analysis-section recommendations-section">
           <h4>💡 Recommended Actions</h4>
           <ul class="recommendations-list">
-            ${recommendations.map((rec) => `<li>${rec}</li>`).join('')}
+            ${recommendations.map((rec) => `<li>${rec}</li>`).join("")}
           </ul>
         </div>
       `
-          : ''
+          : ""
       }
       
       <div class="analysis-actions">
@@ -185,10 +185,10 @@ function displayAnalysisResults(analysis) {
   `;
 
   resultsContainer.innerHTML = html;
-  resultsContainer.style.display = 'block';
+  resultsContainer.style.display = "block";
 
   // Scroll to results
-  resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  resultsContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 /**
@@ -196,34 +196,34 @@ function displayAnalysisResults(analysis) {
  */
 async function generateComplaint() {
   if (!analysisResults) {
-    showToast('No analysis results available', 'error');
+    showToast("No analysis results available", "error");
     return;
   }
 
-  showToast('Generating verified complaint...', 'info');
+  showToast("Generating verified complaint...", "info");
 
   try {
     const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/ai/generate-complaint`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         analysis: analysisResults,
         include_exhibits: true,
         include_damages: true,
-        format: 'verified_complaint',
+        format: "verified_complaint",
       }),
     });
 
-    if (!response.ok) throw new Error('Generation failed');
+    if (!response.ok) throw new Error("Generation failed");
 
     const result = await response.json();
 
     // Download generated complaint
     downloadComplaint(result.content, result.filename);
-    showToast('Verified complaint generated successfully!', 'success');
+    showToast("Verified complaint generated successfully!", "success");
   } catch (error) {
-    console.error('Generation error:', error);
-    showToast('Failed to generate complaint. Try again.', 'error');
+    console.error("Generation error:", error);
+    showToast("Failed to generate complaint. Try again.", "error");
   }
 }
 
@@ -232,12 +232,12 @@ async function generateComplaint() {
  */
 function downloadComplaint(content, filename) {
   const blob = new Blob([content], {
-    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   });
   const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
-  a.download = filename || 'verified-complaint.docx';
+  a.download = filename || "verified-complaint.docx";
   a.click();
   window.URL.revokeObjectURL(url);
 }
@@ -247,31 +247,31 @@ function downloadComplaint(content, filename) {
  */
 async function exportAnalysis() {
   if (!analysisResults) {
-    showToast('No analysis to export', 'error');
+    showToast("No analysis to export", "error");
     return;
   }
 
   try {
     const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/documents/export-analysis`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ analysis: analysisResults, format: 'pdf' }),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ analysis: analysisResults, format: "pdf" }),
     });
 
-    if (!response.ok) throw new Error('Export failed');
+    if (!response.ok) throw new Error("Export failed");
 
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
     a.download = `analysis-${analysisResults.filename}.pdf`;
     a.click();
     window.URL.revokeObjectURL(url);
 
-    showToast('Analysis exported successfully!', 'success');
+    showToast("Analysis exported successfully!", "success");
   } catch (error) {
-    console.error('Export error:', error);
-    showToast('Export failed. Generating text version...', 'warning');
+    console.error("Export error:", error);
+    showToast("Export failed. Generating text version...", "warning");
     exportAnalysisAsText();
   }
 }
@@ -281,9 +281,9 @@ async function exportAnalysis() {
  */
 function exportAnalysisAsText() {
   const text = JSON.stringify(analysisResults, null, 2);
-  const blob = new Blob([text], { type: 'text/plain' });
+  const blob = new Blob([text], { type: "text/plain" });
   const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `analysis-${analysisResults.filename}.txt`;
   a.click();
@@ -294,15 +294,15 @@ function exportAnalysisAsText() {
  * Interactive AI conversation
  */
 async function askAI() {
-  const question = prompt('Ask AI about this document:');
+  const question = prompt("Ask AI about this document:");
   if (!question) return;
 
-  showToast('AI is thinking...', 'info');
+  showToast("AI is thinking...", "info");
 
   try {
     const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/ai/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         message: question,
         document_context: [analysisResults],
@@ -310,42 +310,42 @@ async function askAI() {
       }),
     });
 
-    if (!response.ok) throw new Error('AI chat failed');
+    if (!response.ok) throw new Error("AI chat failed");
 
     const result = await response.json();
     alert(`AI Response:\n\n${result.message}`);
   } catch (error) {
-    console.error('AI chat error:', error);
-    showToast('AI conversation failed', 'error');
+    console.error("AI chat error:", error);
+    showToast("AI conversation failed", "error");
   }
 }
 
 // Utility functions
 function formatDocumentType(type) {
-  return (type || 'unknown').replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  return (type || "unknown").replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
 function formatViolationType(type) {
   const typeMap = {
-    '4th_excessive_force': '4th Amendment - Excessive Force',
-    '4th_unlawful_search': '4th Amendment - Unlawful Search',
-    '4th_unlawful_seizure': '4th Amendment - Unlawful Seizure',
-    '5th_miranda': '5th Amendment - Miranda Violation',
-    '5th_self_incrimination': '5th Amendment - Self-Incrimination',
-    '6th_right_to_counsel': '6th Amendment - Right to Counsel',
-    '14th_due_process': '14th Amendment - Due Process',
-    '14th_equal_protection': '14th Amendment - Equal Protection',
+    "4th_excessive_force": "4th Amendment - Excessive Force",
+    "4th_unlawful_search": "4th Amendment - Unlawful Search",
+    "4th_unlawful_seizure": "4th Amendment - Unlawful Seizure",
+    "5th_miranda": "5th Amendment - Miranda Violation",
+    "5th_self_incrimination": "5th Amendment - Self-Incrimination",
+    "6th_right_to_counsel": "6th Amendment - Right to Counsel",
+    "14th_due_process": "14th Amendment - Due Process",
+    "14th_equal_protection": "14th Amendment - Equal Protection",
   };
   return typeMap[type] || type;
 }
 
 function getSeverity(severity) {
-  const s = (severity || 'medium').toLowerCase();
-  if (s.includes('high') || s.includes('severe')) return 'high';
-  if (s.includes('low') || s.includes('minor')) return 'low';
-  return 'medium';
+  const s = (severity || "medium").toLowerCase();
+  if (s.includes("high") || s.includes("severe")) return "high";
+  if (s.includes("low") || s.includes("minor")) return "low";
+  return "medium";
 }
 
 function formatNumber(num) {
-  return new Intl.NumberFormat('en-US').format(num);
+  return new Intl.NumberFormat("en-US").format(num);
 }

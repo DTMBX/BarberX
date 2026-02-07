@@ -6,8 +6,6 @@ Evident Flask App Integration Script
 Merges enhanced auth system with existing app.py
 """
 
-import os
-import sys
 from pathlib import Path
 
 # Get the project root
@@ -23,10 +21,10 @@ def backup_existing():
         import shutil
 
         shutil.copy(app_path, backup_path)
-        print(f"✅ Backed up app.py to app.py.backup")
+        print("✅ Backed up app.py to app.py.backup")
         return True
     elif backup_path.exists():
-        print(f"⚠️  Backup already exists: app.py.backup")
+        print("⚠️  Backup already exists: app.py.backup")
         return False
     return False
 
@@ -305,4 +303,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

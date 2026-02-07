@@ -18,7 +18,7 @@ def integrate_free_tier():
     print("=" * 70)
 
     # Read current app.py
-    with open("app.py", "r", encoding="utf-8") as f:
+    with open("app.py", encoding="utf-8") as f:
         app_content = f.read()
 
     # Check if already integrated

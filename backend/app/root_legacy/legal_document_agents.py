@@ -4,13 +4,11 @@
 # Legal Document Drafting Agents
 # Specialized agents for creating motions, briefs, letters using proper legal citations
 
-import re
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from .legal_ai_agents import AgentCapability, AgentStatus, LegalAIAgent
-from .legal_research_integration import (Jurisdiction, LegalCitation,
-                                        legal_research)
+from .legal_research_integration import Jurisdiction, LegalCitation, legal_research
 
 
 class MotionDrafterAgent(LegalAIAgent):
@@ -33,7 +31,7 @@ class MotionDrafterAgent(LegalAIAgent):
             "tone": "professional",
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Draft a legal motion"""
         self.status = AgentStatus.PROCESSING
 
@@ -101,11 +99,11 @@ class MotionDrafterAgent(LegalAIAgent):
     def _fill_template(
         self,
         template: str,
-        case_info: Dict,
+        case_info: dict,
         facts: str,
-        legal_arguments: List[Dict],
-        case_law: List[Dict],
-        statutes: List[Dict],
+        legal_arguments: list[dict],
+        case_law: list[dict],
+        statutes: list[dict],
     ) -> str:
         """Fill motion template with case-specific information"""
 
@@ -167,7 +165,7 @@ class MotionDrafterAgent(LegalAIAgent):
                     ]
                 )
 
-                arguments_text += f"\n\n{chr(64+i)}. {heading}\n\n{content}\n\n{citations}\n"
+                arguments_text += f"\n\n{chr(64 + i)}. {heading}\n\n{content}\n\n{citations}\n"
 
             motion = motion.replace("[Legal argument with case citations]", arguments_text)
             motion = motion.replace(
@@ -183,12 +181,12 @@ class MotionDrafterAgent(LegalAIAgent):
 
         return motion
 
-    def _format_citations(self, text: str, cases: List[Dict], statutes: List[Dict]) -> str:
+    def _format_citations(self, text: str, cases: list[dict], statutes: list[dict]) -> str:
         """Format legal citations in Bluebook style"""
 
         # Replace case placeholders with proper citations
         for case in cases:
-            placeholder = f"[CASE CITATION]"
+            placeholder = "[CASE CITATION]"
             citation = LegalCitation.format_case(
                 case_name=case["case_name"],
                 reporter=case["citation"].split()[1],
@@ -226,7 +224,7 @@ class BriefWriterAgent(LegalAIAgent):
             "research_depth": "comprehensive",  # basic, standard, comprehensive
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Write a legal brief"""
         self.status = AgentStatus.PROCESSING
 
@@ -271,7 +269,7 @@ class BriefWriterAgent(LegalAIAgent):
 
         return results
 
-    def _conduct_legal_research(self, issue: str, arguments: List[Dict], jurisdiction: str) -> Dict:
+    def _conduct_legal_research(self, issue: str, arguments: list[dict], jurisdiction: str) -> dict:
         """Conduct comprehensive legal research"""
 
         results = {"cases": [], "statutes": [], "regulations": [], "secondary_sources": []}
@@ -293,8 +291,8 @@ class BriefWriterAgent(LegalAIAgent):
         return results
 
     def _create_brief_structure(
-        self, brief_type: str, issue: str, facts: str, arguments: List[Dict], research: Dict
-    ) -> Dict:
+        self, brief_type: str, issue: str, facts: str, arguments: list[dict], research: dict
+    ) -> dict:
         """Create outline structure for brief"""
 
         structure = {
@@ -310,7 +308,7 @@ class BriefWriterAgent(LegalAIAgent):
 
         return structure
 
-    def _draft_brief(self, structure: Dict, research: Dict) -> str:
+    def _draft_brief(self, structure: dict, research: dict) -> str:
         """Draft the full brief"""
 
         brief = """
@@ -339,7 +337,7 @@ V. CONCLUSION
 
         # Fill in sections
         issues_text = "\n".join(
-            [f"{i+1}. {issue}" for i, issue in enumerate(structure["statement_of_issues"])]
+            [f"{i + 1}. {issue}" for i, issue in enumerate(structure["statement_of_issues"])]
         )
 
         arguments_text = ""
@@ -356,7 +354,7 @@ V. CONCLUSION
                 ]
             )
 
-            arguments_text += f"\n\n{chr(64+i)}. {heading}\n\n{content}\n\n{case_discussion}\n"
+            arguments_text += f"\n\n{chr(64 + i)}. {heading}\n\n{content}\n\n{case_discussion}\n"
 
         brief = brief.format(
             issues=issues_text,
@@ -368,7 +366,7 @@ V. CONCLUSION
 
         return brief
 
-    def _create_table_of_authorities(self, research: Dict) -> str:
+    def _create_table_of_authorities(self, research: dict) -> str:
         """Create table of authorities"""
 
         toa = "TABLE OF AUTHORITIES\n\nCases\n\n"
@@ -401,7 +399,7 @@ class LegalLetterAgent(LegalAIAgent):
             "include_legal_citations": True,
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Draft a legal letter"""
         self.status = AgentStatus.PROCESSING
 
@@ -441,11 +439,11 @@ class LegalLetterAgent(LegalAIAgent):
     def _fill_letter_template(
         self,
         template: str,
-        client_info: Dict,
-        recipient_info: Dict,
+        client_info: dict,
+        recipient_info: dict,
         facts: str,
-        legal_basis: List[str],
-        demands: List[str],
+        legal_basis: list[str],
+        demands: list[str],
     ) -> str:
         """Fill letter template"""
 
@@ -478,7 +476,7 @@ class LegalLetterAgent(LegalAIAgent):
 
         # Legal basis
         if legal_basis:
-            legal_text = "\n".join([f"{i+1}. {basis}" for i, basis in enumerate(legal_basis)])
+            legal_text = "\n".join([f"{i + 1}. {basis}" for i, basis in enumerate(legal_basis)])
             letter = letter.replace(
                 "[First basis for liability with legal support]",
                 legal_basis[0] if legal_basis else "",
@@ -496,7 +494,7 @@ class LegalLetterAgent(LegalAIAgent):
 
         # Demands
         if demands:
-            demands_text = "\n".join([f"{i+1}. {demand}" for i, demand in enumerate(demands)])
+            demands_text = "\n".join([f"{i + 1}. {demand}" for i, demand in enumerate(demands)])
             letter = letter.replace("[Additional demands]", demands_text)
 
         # Attorney info
@@ -513,7 +511,7 @@ class LegalLetterAgent(LegalAIAgent):
 
         return letter
 
-    def _add_citations(self, letter: str, causes_of_action: List[str], jurisdiction: str) -> str:
+    def _add_citations(self, letter: str, causes_of_action: list[str], jurisdiction: str) -> str:
         """Add legal citations to letter"""
 
         for cause in causes_of_action:
@@ -525,9 +523,9 @@ class LegalLetterAgent(LegalAIAgent):
                 citation = f" See {case['case_name']}, {case['citation']}."
 
                 # Add citation after cause of action mention
-                letter = letter.replace(f"[CAUSE OF ACTION]", f"{cause}.{citation}", 1)
+                letter = letter.replace("[CAUSE OF ACTION]", f"{cause}.{citation}", 1)
                 letter = letter.replace(
-                    f"constitutes [CAUSE OF ACTION]", f"constitutes {cause}.{citation}", 1
+                    "constitutes [CAUSE OF ACTION]", f"constitutes {cause}.{citation}", 1
                 )
 
         return letter
@@ -551,7 +549,7 @@ class ContractDrafterAgent(LegalAIAgent):
             "favor_client": True,  # true = favor drafter's client
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Draft a contract"""
         self.status = AgentStatus.PROCESSING
 
@@ -632,7 +630,7 @@ IN WITNESS WHEREOF, the parties have executed this Agreement.
         return "[CONTRACT TEMPLATE]"
 
     def _customize_contract(
-        self, template: str, party1: Dict, party2: Dict, terms: Dict, special_provisions: List[str]
+        self, template: str, party1: dict, party2: dict, terms: dict, special_provisions: list[str]
     ) -> str:
         """Customize contract for specific parties"""
 
@@ -665,5 +663,3 @@ IN WITNESS WHEREOF, the parties have executed this Agreement.
 
 # Export document drafting agents
 __all__ = ["MotionDrafterAgent", "BriefWriterAgent", "LegalLetterAgent", "ContractDrafterAgent"]
-
-

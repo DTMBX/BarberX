@@ -10,8 +10,7 @@ This shows how to protect your law firm from copyright lawsuits.
 from datetime import datetime
 from pathlib import Path
 
-from .data_rights import (RIGHTS_PROFILES, ExportViolation, Material,
-                         RightsAwareExport)
+from .data_rights import RIGHTS_PROFILES, ExportViolation, Material, RightsAwareExport
 
 
 def example_compliant_discovery_production():
@@ -126,7 +125,7 @@ def example_compliant_discovery_production():
     print("EXPORT SUMMARY")
     print("=" * 80)
     print(f"Export ID: {export.export_id}")
-    print(f"Case Number: ATL-L-002794-25")
+    print("Case Number: ATL-L-002794-25")
     print(f"Export Directory: {export_path}")
     print(f"\nMaterials Included: {len(export.materials)}")
     for material in export.materials:
@@ -211,5 +210,3 @@ if __name__ == "__main__":
     print("4. Review DATA-RIGHTS-COMPLIANCE.md for full details")
     print("\n⚖️ Your law firm is now protected from copyright lawsuits!")
     print("=" * 80)
-
-

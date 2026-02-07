@@ -35,7 +35,7 @@
 
 /* Animated background pattern */
 .premium-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image:
@@ -60,7 +60,7 @@
 
 /* Subtle grid pattern */
 .premium-hero::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image:
@@ -193,7 +193,7 @@
 }
 
 .premium-hero-button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgb(255 255 255 / 10%) 0%, transparent 100%);
@@ -259,7 +259,7 @@
 }
 
 .premium-hero-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -343,7 +343,7 @@
 }
 
 .premium-hero-scroll-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 6px;
   left: 50%;

@@ -87,9 +87,9 @@ Test credentials:
 
    <script>
      async function subscribeToPlan(tier) {
-       const res = await fetch('/api/stripe/create-checkout-session', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
+       const res = await fetch("/api/stripe/create-checkout-session", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
          body: JSON.stringify({ tier }),
        });
        const data = await res.json();
@@ -189,10 +189,7 @@ def timeline():
 {% if current_user.is_authenticated %}
 <div>
   <p>Tier: {{ current_user.tier.name }}</p>
-  <p>
-    PDFs used: {{ usage.pdf_documents_processed }} / {{
-    limits.pdf_documents_per_month }}
-  </p>
+  <p>PDFs used: {{ usage.pdf_documents_processed }} / {{ limits.pdf_documents_per_month }}</p>
 </div>
 {% endif %}
 ```
@@ -211,8 +208,8 @@ def timeline():
 ### **Limit Warnings:**
 
 ```html
-{% set remaining = get_remaining_usage(current_user, 'pdf_documents_per_month')
-%} {% if remaining < 3 and remaining > 0 %}
+{% set remaining = get_remaining_usage(current_user, 'pdf_documents_per_month') %} {% if remaining <
+3 and remaining > 0 %}
 <div class="alert alert-warning">
   Only {{ remaining }} PDFs remaining this month!
   <a href="/pricing">Upgrade for unlimited</a>

@@ -213,10 +213,10 @@ overview: "Challenge to state regulations affecting religious freedom..."
 
 ```yaml
 - date: 2024-01-15
-  type: 'Motion'
-  title: 'Motion for Summary Judgment'
-  file: '/cases/barber-v-nj/filings/msj.pdf'
-  notes: 'Requesting judgment as a matter of law'
+  type: "Motion"
+  title: "Motion for Summary Judgment"
+  file: "/cases/barber-v-nj/filings/msj.pdf"
+  notes: "Requesting judgment as a matter of law"
 ```
 
 --
@@ -509,9 +509,9 @@ hide_progress_bar: true
 
 ```yaml
 related_essays:
-  - title: 'Essay Title'
+  - title: "Essay Title"
     url: /path/
-    description: 'Brief description'
+    description: "Brief description"
 ```
 
 --

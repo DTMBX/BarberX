@@ -126,9 +126,9 @@ Add checkout buttons to `pricing.html`:
 ```html
 <script>
   async function subscribeToPlan(tier) {
-    const response = await fetch('/api/stripe/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch("/api/stripe/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ tier: tier }),
     });
 
@@ -137,9 +137,7 @@ Add checkout buttons to `pricing.html`:
   }
 </script>
 
-<button onclick="subscribeToPlan('PROFESSIONAL')">
-  Start 3-Day Free Trial
-</button>
+<button onclick="subscribeToPlan('PROFESSIONAL')">Start 3-Day Free Trial</button>
 
 <button onclick="subscribeToPlan('PREMIUM')">Upgrade to Premium</button>
 ```

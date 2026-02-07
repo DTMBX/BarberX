@@ -7,11 +7,8 @@ Extracts text from images, scanned PDFs, and handwritten documents
 """
 
 import hashlib
-import io
-import json
 import os
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 from PIL import Image
 
@@ -68,7 +65,7 @@ class OCRService:
 
     def extract_text_from_image(
         self, image_path: str, language: str = "eng", preserve_layout: bool = False
-    ) -> Dict:
+    ) -> dict:
         """
         Extract text from image file
 
@@ -106,7 +103,7 @@ class OCRService:
 
     def _extract_with_tesseract(
         self, image_path: str, language: str, preserve_layout: bool
-    ) -> Dict:
+    ) -> dict:
         """Extract text using Tesseract OCR"""
         self._load_tesseract()
 
@@ -165,7 +162,7 @@ class OCRService:
             },
         }
 
-    def _extract_with_textract(self, image_path: str) -> Dict:
+    def _extract_with_textract(self, image_path: str) -> dict:
         """Extract text using AWS Textract (premium, more accurate)"""
         self._load_textract()
 
@@ -214,7 +211,7 @@ class OCRService:
             },
         }
 
-    def extract_text_from_pdf(self, pdf_path: str, language: str = "eng") -> Dict:
+    def extract_text_from_pdf(self, pdf_path: str, language: str = "eng") -> dict:
         """
         Extract text from scanned PDF
 
@@ -275,7 +272,7 @@ class OCRService:
             },
         }
 
-    def extract_form_fields(self, image_path: str) -> Dict:
+    def extract_form_fields(self, image_path: str) -> dict:
         """
         Extract form fields from structured documents
         (checkboxes, signatures, form values)
@@ -315,7 +312,7 @@ class OCRService:
             },
         }
 
-    def batch_ocr(self, file_paths: List[str], **kwargs) -> List[Dict]:
+    def batch_ocr(self, file_paths: list[str], **kwargs) -> list[dict]:
         """Process multiple files with OCR"""
         results = []
 
@@ -333,7 +330,7 @@ class OCRService:
 
                 results.append({"success": True, "file": file_path, "result": result})
 
-                print(f"  ✓ Confidence: {result['confidence']*100:.1f}%")
+                print(f"  ✓ Confidence: {result['confidence'] * 100:.1f}%")
 
             except Exception as e:
                 print(f"  ✗ Error: {str(e)}")
@@ -341,7 +338,7 @@ class OCRService:
 
         return results
 
-    def _group_into_blocks(self, data: Dict) -> List[Dict]:
+    def _group_into_blocks(self, data: dict) -> list[dict]:
         """Group words into text blocks (paragraphs)"""
         blocks = []
         current_block = []
@@ -363,7 +360,7 @@ class OCRService:
 
         return blocks
 
-    def _get_text_from_relationship(self, block: Dict, all_blocks: List[Dict]) -> str:
+    def _get_text_from_relationship(self, block: dict, all_blocks: list[dict]) -> str:
         """Helper for form field extraction"""
         text = []
         if "Relationships" in block:
@@ -375,7 +372,7 @@ class OCRService:
                             text.append(child_block["Text"])
         return " ".join(text)
 
-    def _get_value_from_relationship(self, block: Dict, all_blocks: List[Dict]) -> str:
+    def _get_value_from_relationship(self, block: dict, all_blocks: list[dict]) -> str:
         """Helper for form field extraction"""
         if "Relationships" in block:
             for relationship in block["Relationships"]:

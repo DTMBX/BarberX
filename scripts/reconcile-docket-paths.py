@@ -105,7 +105,7 @@ def reconcile_case(docket_file: Path, case_dir: Path, dry_run: bool = False) -> 
 
     # Load YAML
     try:
-        with open(docket_file, "r", encoding="utf-8") as f:
+        with open(docket_file, encoding="utf-8") as f:
             entries = yaml.safe_load(f) or []
     except Exception as e:
         result["errors"].append(f"Failed to read YAML: {e}")

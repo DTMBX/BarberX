@@ -71,7 +71,7 @@ def test_database():
         return False
 
     print(f"   ✅ Database has {len(tables)} tables")
-    print(f"   ✅ Admin user exists")
+    print("   ✅ Admin user exists")
 
     conn.close()
     return True

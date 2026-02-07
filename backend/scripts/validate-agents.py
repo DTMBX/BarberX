@@ -8,8 +8,6 @@ This file demonstrates and validates the 7 custom agents created for Evident.
 Run validation checks to ensure agents are properly configured.
 """
 
-import json
-import os
 from pathlib import Path
 
 import yaml
@@ -31,7 +29,7 @@ def validate_agents_config():
 
     # Load and parse YAML
     try:
-        with open(agents_path, "r", encoding="utf-8") as f:
+        with open(agents_path, encoding="utf-8") as f:
             config = yaml.safe_load(f)
     except Exception as e:
         print(f"❌ ERROR: Failed to parse YAML: {e}")
@@ -241,4 +239,3 @@ if __name__ == "__main__":
 
     success = main()
     exit(0 if success else 1)
-

@@ -41,7 +41,7 @@ def dedupe_docket_file(docket_file: Path, dry_run: bool = False) -> dict:
     }
 
     try:
-        with open(docket_file, "r", encoding="utf-8") as f:
+        with open(docket_file, encoding="utf-8") as f:
             entries = yaml.safe_load(f) or []
     except Exception as e:
         result["errors"].append(f"Failed to read: {e}")

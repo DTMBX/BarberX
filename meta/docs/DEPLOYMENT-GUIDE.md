@@ -330,14 +330,13 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
 
       - name: Restore dependencies
         run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
 
       - name: Build Android
-        run:
-          dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f
+        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f
           net10.0-android -c Release
 
       - name: Sign APK
@@ -364,7 +363,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
 
       - name: Install provisioning profile
         run: |
@@ -373,14 +372,12 @@ jobs:
             ~/Library/MobileDevice/Provisioning\ Profiles/Evident.mobileprovision
 
       - name: Build iOS
-        run:
-          dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios
+        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios
           -c Release
 
       - name: Archive
         if: github.ref == 'refs/heads/main'
-        run:
-          dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios
+        run: dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios
           -c Release -p:ArchiveOnBuild=true
 
       - name: Upload IPA
@@ -409,7 +406,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
@@ -444,7 +441,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: "9.0.x"
 
       - name: Restore dependencies
         run: dotnet restore src/Evident.Web/Evident.Web.csproj
@@ -456,8 +453,7 @@ jobs:
         run: dotnet test
 
       - name: Publish
-        run:
-          dotnet publish src/Evident.Web/Evident.Web.csproj -c Release -o
+        run: dotnet publish src/Evident.Web/Evident.Web.csproj -c Release -o
           ./publish
 
       - name: Deploy to Azure

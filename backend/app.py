@@ -10,4 +10,3 @@ if __name__ == "__main__":
 
 # Gunicorn entrypoint
 app = create_app()
-

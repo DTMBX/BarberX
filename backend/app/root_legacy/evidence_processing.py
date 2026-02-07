@@ -7,9 +7,7 @@ Chain of Custody, Evidence Management, Court-Ready Workflows
 """
 
 import hashlib
-import json
 from datetime import datetime
-from typing import Dict, List, Optional
 
 
 class ChainOfCustody:
@@ -97,7 +95,7 @@ class EvidenceProcessor:
     def __init__(self):
         self.chain_of_custody = ChainOfCustody()
 
-    def create_evidence_package(self, evidence_data: Dict) -> Dict:
+    def create_evidence_package(self, evidence_data: dict) -> dict:
         """Create comprehensive evidence package"""
 
         # Initialize chain of custody
@@ -160,7 +158,7 @@ class EvidenceProcessor:
         deadline = datetime.utcnow() + timedelta(hours=hours)
         return deadline.isoformat()
 
-    def advance_stage(self, current_stage: str, actor: str, notes: str = "") -> Dict:
+    def advance_stage(self, current_stage: str, actor: str, notes: str = "") -> dict:
         """Advance evidence to next processing stage"""
         try:
             current_index = self.PROCESSING_STAGES.index(current_stage)
@@ -182,7 +180,7 @@ class EvidenceProcessor:
         except (ValueError, IndexError):
             return {"success": False, "error": "Invalid stage or already at final stage"}
 
-    def generate_processing_checklist(self, evidence_type: str) -> List[Dict]:
+    def generate_processing_checklist(self, evidence_type: str) -> list[dict]:
         """Generate processing checklist for evidence type"""
 
         base_checklist = [
@@ -341,7 +339,7 @@ class EvidenceProcessor:
 
         return base_checklist
 
-    def create_evidence_correlation(self, evidence_items: List[Dict]) -> Dict:
+    def create_evidence_correlation(self, evidence_items: list[dict]) -> dict:
         """Correlate multiple pieces of evidence"""
 
         correlations = {
@@ -379,12 +377,12 @@ class EvidenceProcessor:
 
         return correlations
 
-    def _timelines_overlap(self, item1: Dict, item2: Dict) -> bool:
+    def _timelines_overlap(self, item1: dict, item2: dict) -> bool:
         """Check if two evidence items have overlapping timelines"""
         # Simplified check - would use actual timestamp comparison
         return True
 
-    def generate_court_exhibit(self, evidence_package: Dict, exhibit_number: str) -> Dict:
+    def generate_court_exhibit(self, evidence_package: dict, exhibit_number: str) -> dict:
         """Generate court-ready exhibit package"""
 
         exhibit = {
@@ -442,7 +440,7 @@ class EvidenceWorkflowManager:
     def __init__(self):
         self.processor = EvidenceProcessor()
 
-    def create_intake_form(self) -> Dict:
+    def create_intake_form(self) -> dict:
         """Generate evidence intake form"""
         return {
             "form_version": "2.0",
@@ -635,7 +633,7 @@ class EvidenceWorkflowManager:
             ],
         }
 
-    def get_workflow_status(self, evidence_package: Dict) -> Dict:
+    def get_workflow_status(self, evidence_package: dict) -> dict:
         """Get detailed workflow status"""
         current_stage = evidence_package["processing_status"]["stage"]
 
@@ -679,5 +677,3 @@ class EvidenceWorkflowManager:
 
 # Global instance
 evidence_workflow = EvidenceWorkflowManager()
-
-

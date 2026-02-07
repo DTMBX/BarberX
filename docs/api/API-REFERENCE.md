@@ -1069,18 +1069,18 @@ analysis_id = response.json()["analysis_id"]
 
 ```javascript
 // Login
-const response = await fetch('https://Evident.info/api/v1/auth/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email: 'user@example.com', password: 'password123' }),
+const response = await fetch("https://Evident.info/api/v1/auth/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email: "user@example.com", password: "password123" }),
 });
 const { token } = await response.json();
 
 // Upload PDF
 const formData = new FormData();
-formData.append('file', pdfFile);
-const uploadResponse = await fetch('https://Evident.info/api/v1/upload/pdf', {
-  method: 'POST',
+formData.append("file", pdfFile);
+const uploadResponse = await fetch("https://Evident.info/api/v1/upload/pdf", {
+  method: "POST",
   headers: { Authorization: `Bearer ${token}` },
   body: formData,
 });

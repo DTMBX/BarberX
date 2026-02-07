@@ -41,7 +41,11 @@ def admin_monitoring():
         (
             19.0
             if (u.tier == "STARTER")
-            else 49.0 if (u.tier == "PROFESSIONAL") else 149.0 if (u.tier == "PREMIUM") else 0.0
+            else 49.0
+            if (u.tier == "PROFESSIONAL")
+            else 149.0
+            if (u.tier == "PREMIUM")
+            else 0.0
         )
         for u, q in users
     )

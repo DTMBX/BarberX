@@ -18,57 +18,57 @@ class ToastManager {
 
   init() {
     // Create container if it doesn't exist
-    if (!document.querySelector('.toast-container')) {
-      this.container = document.createElement('div');
-      this.container.className = 'toast-container';
-      this.container.setAttribute('role', 'alert');
-      this.container.setAttribute('aria-live', 'polite');
+    if (!document.querySelector(".toast-container")) {
+      this.container = document.createElement("div");
+      this.container.className = "toast-container";
+      this.container.setAttribute("role", "alert");
+      this.container.setAttribute("aria-live", "polite");
       document.body.appendChild(this.container);
     } else {
-      this.container = document.querySelector('.toast-container');
+      this.container = document.querySelector(".toast-container");
     }
   }
 
   show(options) {
     const {
-      type = 'info',
-      title = '',
-      message = '',
+      type = "info",
+      title = "",
+      message = "",
       duration = 5000,
       dismissible = true,
       icon = null,
     } = options;
 
-    const id = 'toast-' + Date.now();
-    const toast = document.createElement('div');
+    const id = "toast-" + Date.now();
+    const toast = document.createElement("div");
     toast.className = `toast toast-${type}`;
     toast.id = id;
 
     const icons = {
-      success: '✓',
-      error: '✕',
-      warning: '⚠',
-      info: 'ℹ',
+      success: "✓",
+      error: "✕",
+      warning: "⚠",
+      info: "ℹ",
     };
 
     toast.innerHTML = `
       <div class="toast-icon">${icon || icons[type] || icons.info}</div>
       <div class="toast-content">
-        ${title ? `<div class="toast-title">${title}</div>` : ''}
+        ${title ? `<div class="toast-title">${title}</div>` : ""}
         <div class="toast-message">${message}</div>
       </div>
-      ${dismissible ? '<button class="toast-close" aria-label="Dismiss">✕</button>' : ''}
-      ${duration > 0 ? '<div class="toast-progress"><div class="toast-progress-bar"></div></div>' : ''}
+      ${dismissible ? '<button class="toast-close" aria-label="Dismiss">✕</button>' : ""}
+      ${duration > 0 ? '<div class="toast-progress"><div class="toast-progress-bar"></div></div>' : ""}
     `;
 
     // Add close handler
     if (dismissible) {
-      toast.querySelector('.toast-close').addEventListener('click', () => this.dismiss(id));
+      toast.querySelector(".toast-close").addEventListener("click", () => this.dismiss(id));
     }
 
     // Set progress bar duration
     if (duration > 0) {
-      const progressBar = toast.querySelector('.toast-progress-bar');
+      const progressBar = toast.querySelector(".toast-progress-bar");
       if (progressBar) {
         progressBar.style.animationDuration = `${duration}ms`;
       }
@@ -88,7 +88,7 @@ class ToastManager {
   dismiss(id) {
     const toast = this.toasts.get(id);
     if (toast) {
-      toast.style.animation = 'toast-out 0.3s var(--ease-out) forwards';
+      toast.style.animation = "toast-out 0.3s var(--ease-out) forwards";
       setTimeout(() => {
         toast.remove();
         this.toasts.delete(id);
@@ -101,20 +101,20 @@ class ToastManager {
   }
 
   // Convenience methods
-  success(message, title = 'Success') {
-    return this.show({ type: 'success', title, message });
+  success(message, title = "Success") {
+    return this.show({ type: "success", title, message });
   }
 
-  error(message, title = 'Error') {
-    return this.show({ type: 'error', title, message, duration: 8000 });
+  error(message, title = "Error") {
+    return this.show({ type: "error", title, message, duration: 8000 });
   }
 
-  warning(message, title = 'Warning') {
-    return this.show({ type: 'warning', title, message });
+  warning(message, title = "Warning") {
+    return this.show({ type: "warning", title, message });
   }
 
-  info(message, title = '') {
-    return this.show({ type: 'info', title, message });
+  info(message, title = "") {
+    return this.show({ type: "info", title, message });
   }
 }
 
@@ -126,7 +126,7 @@ window.toast = new ToastManager();
 // ===========================
 class FormValidator {
   constructor(form, options = {}) {
-    this.form = typeof form === 'string' ? document.querySelector(form) : form;
+    this.form = typeof form === "string" ? document.querySelector(form) : form;
     if (!this.form) return;
 
     this.options = {
@@ -137,7 +137,7 @@ class FormValidator {
     };
 
     this.validators = {
-      required: (value) => value.trim() !== '',
+      required: (value) => value.trim() !== "",
       email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
       minLength: (value, min) => value.length >= parseInt(min),
       maxLength: (value, max) => value.length <= parseInt(max),
@@ -153,35 +153,35 @@ class FormValidator {
     };
 
     this.messages = {
-      required: 'This field is required',
-      email: 'Please enter a valid email address',
-      minLength: 'Must be at least {min} characters',
-      maxLength: 'Must be no more than {max} characters',
-      pattern: 'Please match the requested format',
-      match: 'Fields do not match',
-      password: 'Password must be at least 8 characters with uppercase, lowercase, and number',
+      required: "This field is required",
+      email: "Please enter a valid email address",
+      minLength: "Must be at least {min} characters",
+      maxLength: "Must be no more than {max} characters",
+      pattern: "Please match the requested format",
+      match: "Fields do not match",
+      password: "Password must be at least 8 characters with uppercase, lowercase, and number",
     };
 
     this.init();
   }
 
   init() {
-    const inputs = this.form.querySelectorAll('input, select, textarea');
+    const inputs = this.form.querySelectorAll("input, select, textarea");
 
     inputs.forEach((input) => {
       if (this.options.validateOnBlur) {
-        input.addEventListener('blur', () => this.validateField(input));
+        input.addEventListener("blur", () => this.validateField(input));
       }
       if (this.options.validateOnInput) {
-        input.addEventListener('input', () => this.validateField(input, true));
+        input.addEventListener("input", () => this.validateField(input, true));
       }
     });
 
-    this.form.addEventListener('submit', (e) => {
+    this.form.addEventListener("submit", (e) => {
       if (!this.validateAll()) {
         e.preventDefault();
         // Focus first invalid field
-        const firstInvalid = this.form.querySelector('.is-invalid');
+        const firstInvalid = this.form.querySelector(".is-invalid");
         if (firstInvalid) firstInvalid.focus();
       }
     });
@@ -190,19 +190,19 @@ class FormValidator {
   validateField(input, isTyping = false) {
     const rules = this.getFieldRules(input);
     let isValid = true;
-    let errorMessage = '';
+    let errorMessage = "";
 
     for (const [rule, param] of Object.entries(rules)) {
       const validator = this.validators[rule];
       if (validator && !validator(input.value, param)) {
         isValid = false;
-        errorMessage = this.messages[rule]?.replace(`{${rule}}`, param) || 'Invalid value';
+        errorMessage = this.messages[rule]?.replace(`{${rule}}`, param) || "Invalid value";
         break;
       }
     }
 
     // Don't show error while typing unless field was already invalid
-    if (isTyping && !input.classList.contains('is-invalid') && !isValid) {
+    if (isTyping && !input.classList.contains("is-invalid") && !isValid) {
       return isValid;
     }
 
@@ -211,7 +211,7 @@ class FormValidator {
   }
 
   validateAll() {
-    const inputs = this.form.querySelectorAll('input, select, textarea');
+    const inputs = this.form.querySelectorAll("input, select, textarea");
     let isFormValid = true;
 
     inputs.forEach((input) => {
@@ -227,39 +227,39 @@ class FormValidator {
     const rules = {};
 
     if (input.required) rules.required = true;
-    if (input.type === 'email') rules.email = true;
+    if (input.type === "email") rules.email = true;
     if (input.minLength > 0) rules.minLength = input.minLength;
     if (input.maxLength > 0 && input.maxLength < 524288) rules.maxLength = input.maxLength;
     if (input.pattern) rules.pattern = input.pattern;
     if (input.dataset.match) rules.match = input.dataset.match;
-    if (input.dataset.validate === 'password') rules.password = true;
+    if (input.dataset.validate === "password") rules.password = true;
 
     return rules;
   }
 
-  setFieldState(input, isValid, message = '') {
-    const group = input.closest('.form-group') || input.parentElement;
-    let feedback = group.querySelector('.form-feedback');
+  setFieldState(input, isValid, message = "") {
+    const group = input.closest(".form-group") || input.parentElement;
+    let feedback = group.querySelector(".form-feedback");
 
     // Remove existing states
-    input.classList.remove('is-valid', 'is-invalid');
+    input.classList.remove("is-valid", "is-invalid");
 
     if (isValid && this.options.showSuccessState && input.value) {
-      input.classList.add('is-valid');
+      input.classList.add("is-valid");
       if (feedback) {
-        feedback.className = 'form-feedback valid';
-        feedback.innerHTML = '<span>✓</span> Looks good';
+        feedback.className = "form-feedback valid";
+        feedback.innerHTML = "<span>✓</span> Looks good";
       }
     } else if (!isValid) {
-      input.classList.add('is-invalid');
+      input.classList.add("is-invalid");
       if (!feedback) {
-        feedback = document.createElement('div');
+        feedback = document.createElement("div");
         group.appendChild(feedback);
       }
-      feedback.className = 'form-feedback invalid';
+      feedback.className = "form-feedback invalid";
       feedback.innerHTML = `<span>!</span> ${message}`;
     } else if (feedback) {
-      feedback.textContent = '';
+      feedback.textContent = "";
     }
   }
 }
@@ -269,7 +269,7 @@ class FormValidator {
 // ===========================
 class PasswordStrength {
   constructor(input, options = {}) {
-    this.input = typeof input === 'string' ? document.querySelector(input) : input;
+    this.input = typeof input === "string" ? document.querySelector(input) : input;
     if (!this.input) return;
 
     this.options = {
@@ -282,8 +282,8 @@ class PasswordStrength {
   }
 
   init() {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'password-strength';
+    const wrapper = document.createElement("div");
+    wrapper.className = "password-strength";
     wrapper.innerHTML = `
       <div class="password-strength-bar">
         <div class="password-strength-segment"></div>
@@ -296,9 +296,9 @@ class PasswordStrength {
 
     this.input.parentElement.appendChild(wrapper);
     this.meter = wrapper;
-    this.textEl = wrapper.querySelector('.password-strength-text');
+    this.textEl = wrapper.querySelector(".password-strength-text");
 
-    this.input.addEventListener('input', () => this.update());
+    this.input.addEventListener("input", () => this.update());
   }
 
   update() {
@@ -323,8 +323,8 @@ class PasswordStrength {
     if (checks.numbers) score++;
     if (checks.symbols || checks.longPassword) score++;
 
-    const labels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
-    return { score, label: labels[score] || '' };
+    const labels = ["", "Weak", "Fair", "Good", "Strong"];
+    return { score, label: labels[score] || "" };
   }
 }
 
@@ -344,7 +344,7 @@ class SkeletonLoader {
       </div>
     `
       )
-      .join('');
+      .join("");
   }
 
   static table(rows = 5) {
@@ -359,7 +359,7 @@ class SkeletonLoader {
       </div>
     `
       )
-      .join('');
+      .join("");
   }
 
   static stats(count = 4) {
@@ -372,27 +372,27 @@ class SkeletonLoader {
       </div>
     `
       )
-      .join('');
+      .join("");
   }
 
-  static show(container, type = 'card', count = 3) {
-    const el = typeof container === 'string' ? document.querySelector(container) : container;
+  static show(container, type = "card", count = 3) {
+    const el = typeof container === "string" ? document.querySelector(container) : container;
     if (!el) return;
 
     el.dataset.originalContent = el.innerHTML;
     el.innerHTML = this[type] ? this[type](count) : this.card(count);
-    el.classList.add('loading');
+    el.classList.add("loading");
   }
 
   static hide(container) {
-    const el = typeof container === 'string' ? document.querySelector(container) : container;
+    const el = typeof container === "string" ? document.querySelector(container) : container;
     if (!el) return;
 
     if (el.dataset.originalContent) {
       el.innerHTML = el.dataset.originalContent;
       delete el.dataset.originalContent;
     }
-    el.classList.remove('loading');
+    el.classList.remove("loading");
   }
 }
 
@@ -403,10 +403,10 @@ window.SkeletonLoader = SkeletonLoader;
 // ===========================
 class ProcessingIndicator {
   constructor(container, options = {}) {
-    this.container = typeof container === 'string' ? document.querySelector(container) : container;
+    this.container = typeof container === "string" ? document.querySelector(container) : container;
     this.options = {
-      title: 'Processing',
-      description: 'Please wait while we process your request.',
+      title: "Processing",
+      description: "Please wait while we process your request.",
       estimatedTime: null,
       steps: [],
       ...options,
@@ -417,13 +417,13 @@ class ProcessingIndicator {
     const stepsHtml = this.options.steps
       .map(
         (step, i) => `
-      <div class="processing-step ${i === 0 ? 'active' : 'pending'}" data-step="${i}">
-        <div class="processing-step-icon">${i === 0 ? '●' : '○'}</div>
+      <div class="processing-step ${i === 0 ? "active" : "pending"}" data-step="${i}">
+        <div class="processing-step-icon">${i === 0 ? "●" : "○"}</div>
         <div class="processing-step-text">${step}</div>
       </div>
     `
       )
-      .join('');
+      .join("");
 
     this.container.innerHTML = `
       <div class="processing-card">
@@ -438,42 +438,42 @@ class ProcessingIndicator {
             Estimated time: ${this.options.estimatedTime}
           </div>
         `
-            : ''
+            : ""
         }
-        ${stepsHtml ? `<div class="processing-steps">${stepsHtml}</div>` : ''}
+        ${stepsHtml ? `<div class="processing-steps">${stepsHtml}</div>` : ""}
       </div>
     `;
   }
 
   updateStep(stepIndex) {
-    const steps = this.container.querySelectorAll('.processing-step');
+    const steps = this.container.querySelectorAll(".processing-step");
     steps.forEach((step, i) => {
-      step.classList.remove('completed', 'active', 'pending');
-      const icon = step.querySelector('.processing-step-icon');
+      step.classList.remove("completed", "active", "pending");
+      const icon = step.querySelector(".processing-step-icon");
       if (i < stepIndex) {
-        step.classList.add('completed');
-        icon.textContent = '✓';
+        step.classList.add("completed");
+        icon.textContent = "✓";
       } else if (i === stepIndex) {
-        step.classList.add('active');
-        icon.textContent = '●';
+        step.classList.add("active");
+        icon.textContent = "●";
       } else {
-        step.classList.add('pending');
-        icon.textContent = '○';
+        step.classList.add("pending");
+        icon.textContent = "○";
       }
     });
   }
 
   complete() {
-    const card = this.container.querySelector('.processing-card');
+    const card = this.container.querySelector(".processing-card");
     if (card) {
-      const icon = card.querySelector('.processing-icon');
-      icon.classList.remove('spinning');
-      icon.textContent = '✓';
-      icon.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      const icon = card.querySelector(".processing-icon");
+      icon.classList.remove("spinning");
+      icon.textContent = "✓";
+      icon.style.background = "linear-gradient(135deg, #22c55e, #16a34a)";
 
-      card.querySelector('.processing-title').textContent = 'Complete!';
-      card.querySelector('.processing-description').textContent =
-        'Your request has been processed successfully.';
+      card.querySelector(".processing-title").textContent = "Complete!";
+      card.querySelector(".processing-description").textContent =
+        "Your request has been processed successfully.";
 
       // Mark all steps complete
       this.updateStep(this.options.steps.length);
@@ -503,21 +503,21 @@ window.debounce = debounce;
 // ===========================
 // Auto-init on DOM Ready
 // ===========================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Auto-init form validation on forms with data-validate
-  document.querySelectorAll('form[data-validate]').forEach((form) => {
+  document.querySelectorAll("form[data-validate]").forEach((form) => {
     new FormValidator(form);
   });
 
   // Auto-init password strength on inputs with data-password-strength
-  document.querySelectorAll('input[data-password-strength]').forEach((input) => {
+  document.querySelectorAll("input[data-password-strength]").forEach((input) => {
     new PasswordStrength(input);
   });
 
   // Show toast on flash messages
-  const flashMessages = document.querySelectorAll('[data-flash]');
+  const flashMessages = document.querySelectorAll("[data-flash]");
   flashMessages.forEach((el) => {
-    const type = el.dataset.flashType || 'info';
+    const type = el.dataset.flashType || "info";
     const message = el.textContent;
     window.toast.show({ type, message });
     el.remove();

@@ -46,13 +46,12 @@ Find `templates/components/footer.html` (or equivalent) and add:
   <div class="attribution">
     <p>
       Legal data provided by
-      <a href="https://www.courtlistener.com" target="_blank">CourtListener</a>,
-      a project of
+      <a href="https://www.courtlistener.com" target="_blank">CourtListener</a>, a project of
       <a href="https://free.law" target="_blank">Free Law Project</a>
     </p>
     <p class="value-add">
-      Evident adds AI analysis, mobile apps, and professional tools. The law
-      itself is always free at CourtListener.com
+      Evident adds AI analysis, mobile apps, and professional tools. The law itself is always free
+      at CourtListener.com
     </p>
   </div>
 </footer>

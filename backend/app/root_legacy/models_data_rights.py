@@ -7,7 +7,6 @@ Database models for data rights and export compliance.
 Implements Pattern 2: Keep proprietary layers separate
 """
 
-import json
 from datetime import datetime
 
 from .app import db
@@ -369,5 +368,3 @@ if __name__ == "__main__":
     from app import app
 
     init_data_rights_tables()
-
-

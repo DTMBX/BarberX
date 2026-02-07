@@ -177,13 +177,13 @@ operator: system
 files:
   - filename: 20260119-order-granting-motion.pdf
     type: Order
-    title: 'Order Granting Motion to Compel'
-    date: '2026-01-19'
+    title: "Order Granting Motion to Compel"
+    date: "2026-01-19"
     checksum: sha256:abc123...
   - filename: 20260119-memorandum.pdf
     type: Filing
-    title: 'Memorandum in Support'
-    date: '2026-01-19'
+    title: "Memorandum in Support"
+    date: "2026-01-19"
     checksum: sha256:def456...
 validation:
   schema_valid: true
@@ -384,7 +384,7 @@ name: Docket Integrity Verification
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Daily at 6 AM
+    - cron: "0 6 * * *" # Daily at 6 AM
   workflow_dispatch:
 
 jobs:

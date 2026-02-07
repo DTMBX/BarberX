@@ -14,8 +14,8 @@ the eye icon button
 
 ```css
 /* Extra padding for password field with reveal button */
-input[type='password']#password,
-input[type='text']#password {
+input[type="password"]#password,
+input[type="text"]#password {
   padding-right: 5.5rem;
 }
 ```
@@ -24,10 +24,10 @@ input[type='text']#password {
 
 ```css
 /* Extra padding for password fields with reveal button */
-input[type='password']#password,
-input[type='text']#password,
-input[type='password']#confirm_password,
-input[type='text']#confirm_password {
+input[type="password"]#password,
+input[type="text"]#password,
+input[type="password"]#confirm_password,
+input[type="text"]#confirm_password {
   padding-right: 5.5rem;
 }
 ```

@@ -6,7 +6,6 @@
 Check Live App Status - Diagnose Evident deployment
 """
 
-import json
 from datetime import datetime
 
 import requests
@@ -14,10 +13,10 @@ import requests
 
 def test_url(url, description):
     """Test if URL is accessible"""
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"Testing: {description}")
     print(f"URL: {url}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     try:
         response = requests.get(url, timeout=10, allow_redirects=True)
@@ -25,27 +24,27 @@ def test_url(url, description):
         print(f"✅ Response time: {response.elapsed.total_seconds():.2f}s")
 
         if response.status_code == 200:
-            print(f"✅ Page loaded successfully!")
+            print("✅ Page loaded successfully!")
             # Show first 200 chars of response
             preview = response.text[:200].replace("\n", " ")
             print(f"Preview: {preview}...")
             return True
         elif response.status_code == 500:
-            print(f"❌ SERVER ERROR - App is crashing")
+            print("❌ SERVER ERROR - App is crashing")
             print(f"Response: {response.text[:500]}")
             return False
         elif response.status_code == 404:
-            print(f"❌ NOT FOUND - Wrong URL or route missing")
+            print("❌ NOT FOUND - Wrong URL or route missing")
             return False
         else:
             print(f"⚠️  Unexpected status: {response.status_code}")
             return False
 
     except requests.exceptions.ConnectionError:
-        print(f"❌ CANNOT CONNECT - App is not running")
+        print("❌ CANNOT CONNECT - App is not running")
         return False
     except requests.exceptions.Timeout:
-        print(f"❌ TIMEOUT - App is too slow or hung")
+        print("❌ TIMEOUT - App is too slow or hung")
         return False
     except Exception as e:
         print(f"❌ ERROR: {e}")
@@ -54,9 +53,9 @@ def test_url(url, description):
 
 def test_registration():
     """Test if registration works"""
-    print(f"\n{'='*60}")
-    print(f"Testing: Registration Endpoint")
-    print(f"{'='*60}")
+    print(f"\n{'=' * 60}")
+    print("Testing: Registration Endpoint")
+    print(f"{'=' * 60}")
 
     urls = [
         "https://Evident/auth/register",
@@ -79,10 +78,10 @@ def test_registration():
             print(f"Status: {response.status_code}")
 
             if response.status_code == 201:
-                print(f"✅ Registration works!")
+                print("✅ Registration works!")
                 return True
             elif response.status_code == 400:
-                print(f"⚠️  Registration endpoint exists but rejected data")
+                print("⚠️  Registration endpoint exists but rejected data")
                 print(f"Response: {response.text[:200]}")
                 return True  # Endpoint works, just validation issue
             else:
@@ -92,7 +91,7 @@ def test_registration():
             print(f"❌ Failed: {e}")
             continue
 
-    print(f"\n❌ Registration not working on any URL")
+    print("\n❌ Registration not working on any URL")
     return False
 
 
@@ -116,9 +115,7 @@ def main():
     results.append(("Register Page", test_url("https://Evident/register", "Register Page")))
 
     print("\n\n📍 TESTING PAYMENT PAGES...")
-    results.append(
-        ("Pricing Page", test_url("https://Evident/payments/pricing", "Pricing Page"))
-    )
+    results.append(("Pricing Page", test_url("https://Evident/payments/pricing", "Pricing Page")))
 
     print("\n\n📍 TESTING API ENDPOINTS...")
     results.append(("Registration API", test_registration()))
@@ -180,4 +177,3 @@ if __name__ == "__main__":
     import sys
 
     sys.exit(main())
-

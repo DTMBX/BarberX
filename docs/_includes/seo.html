@@ -1,7 +1,7 @@
 <!-- htmlhint doctype-first:false -->
-{%- assign seo_title = page.title | default: site.title -%} {%- assign seo_desc = page.description | default:
-site.description -%} {%- assign seo_image = page.image | default: site.image -%} {%- assign seo_type = page.og_type |
-default: 'website' -%}
+{%- assign seo_title = page.title | default: site.title -%} {%- assign seo_desc = page.description |
+default: site.description -%} {%- assign seo_image = page.image | default: site.image -%} {%- assign
+seo_type = page.og_type | default: 'website' -%}
 
 <title>{{ seo_title }}</title>
 <meta name="description" content="{{ seo_desc | escape }}" />

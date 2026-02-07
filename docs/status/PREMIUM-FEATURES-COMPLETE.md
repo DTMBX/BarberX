@@ -83,19 +83,19 @@ breakpoints, toast notifications, dark mode, and skeleton loaders.
 
 ```javascript
 // Success notification
-toast.success('Profile updated successfully!');
+toast.success("Profile updated successfully!");
 
 // Error notification
-toast.error('Failed to save changes');
+toast.error("Failed to save changes");
 
 // Warning notification
-toast.warning('Please verify your email');
+toast.warning("Please verify your email");
 
 // Info notification
-toast.info('New features available');
+toast.info("New features available");
 
 // Custom duration (default 5000ms)
-toast.success('Saved!', 3000);
+toast.success("Saved!", 3000);
 ```
 
 ### **Features**:
@@ -151,8 +151,8 @@ toast.success('Saved!', 3000);
 
 ```javascript
 // Listen for dark mode changes
-document.addEventListener('darkmodechange', (e) => {
-  console.log('Dark mode:', e.detail.darkMode);
+document.addEventListener("darkmodechange", (e) => {
+  console.log("Dark mode:", e.detail.darkMode);
 });
 ```
 
@@ -316,11 +316,11 @@ templates/
 
 ```javascript
 // Show loading skeleton while fetching
-const container = document.querySelector('.features');
+const container = document.querySelector(".features");
 container.innerHTML = `
   <div class="skeleton-grid">
     ${Array(6)
-      .fill('')
+      .fill("")
       .map(
         () => `
       <div class="skeleton-feature-card">
@@ -330,23 +330,23 @@ container.innerHTML = `
       </div>
     `
       )
-      .join('')}
+      .join("")}
   </div>
 `;
 
 // Fetch data
-fetch('/api/features')
+fetch("/api/features")
   .then((res) => res.json())
   .then((data) => {
     // Show success toast
-    toast.success('Features loaded!');
+    toast.success("Features loaded!");
 
     // Render actual content
     container.innerHTML = renderFeatures(data);
   })
   .catch((err) => {
     // Show error toast
-    toast.error('Failed to load features');
+    toast.error("Failed to load features");
   });
 ```
 

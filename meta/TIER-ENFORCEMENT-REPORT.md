@@ -90,7 +90,7 @@ TierLevel = profile.Tier;
 
 ```javascript
 if (errorPayload.upgrade_required) {
-  showOpenAiStatus(errorMessage, 'warning');
+  showOpenAiStatus(errorMessage, "warning");
 }
 ```
 

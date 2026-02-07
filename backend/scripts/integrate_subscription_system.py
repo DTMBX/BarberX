@@ -27,7 +27,7 @@ from tier_gating import (
 """
 
     # Read app.py
-    with open("app.py", "r", encoding="utf-8") as f:
+    with open("app.py", encoding="utf-8") as f:
         content = f.read()
 
     # Check if already added
@@ -56,7 +56,7 @@ def register_blueprints():
     """Register Stripe blueprint"""
     print("\n📝 Registering Stripe blueprint...")
 
-    with open("app.py", "r", encoding="utf-8") as f:
+    with open("app.py", encoding="utf-8") as f:
         content = f.read()
 
     if "app.register_blueprint(stripe_bp)" in content:
@@ -98,7 +98,7 @@ def add_usage_dashboard_route():
     """Add route for usage dashboard"""
     print("\n🎯 Adding usage dashboard route...")
 
-    with open("app.py", "r", encoding="utf-8") as f:
+    with open("app.py", encoding="utf-8") as f:
         content = f.read()
 
     if "@app.route('/dashboard/usage')" in content:
@@ -157,7 +157,7 @@ STRIPE_PRICE_PREMIUM=price_YOUR_PREMIUM_PRICE_ID_HERE
         print("⚠️  .env file not found")
         return
 
-    with open(".env", "r", encoding="utf-8") as f:
+    with open(".env", encoding="utf-8") as f:
         content = f.read()
 
     if "STRIPE_SECRET_KEY" in content:
@@ -312,4 +312,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

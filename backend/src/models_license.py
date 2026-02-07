@@ -8,7 +8,6 @@ Handles license generation, validation, and enforcement for self-hosted deployme
 
 import hashlib
 import secrets
-import uuid
 from datetime import datetime, timedelta
 from enum import Enum
 
@@ -381,4 +380,3 @@ class LicenseService:
                 recent_validations[0].validated_at.isoformat() if recent_validations else None
             ),
         }
-

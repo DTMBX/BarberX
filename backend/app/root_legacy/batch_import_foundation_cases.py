@@ -14,7 +14,6 @@ Run with: python batch_import_foundation_cases.py
 """
 
 import time
-from datetime import datetime
 
 from .legal_library import LegalLibraryService
 
@@ -95,7 +94,6 @@ def import_foundation_library(practice_area: str = "all", delay_seconds: int = 2
         try:
             # Check if already exists
             from legal_library import LegalDocument
-            from models_auth import db
 
             existing = LegalDocument.query.filter_by(citation=citation).first()
 
@@ -111,7 +109,7 @@ def import_foundation_library(practice_area: str = "all", delay_seconds: int = 2
                 print(f"  ✓ Imported successfully (id: {doc.id})")
                 imported += 1
             else:
-                print(f"  ✗ Import failed - not found on CourtListener")
+                print("  ✗ Import failed - not found on CourtListener")
                 failed += 1
 
             # Delay to avoid rate limiting
@@ -122,9 +120,9 @@ def import_foundation_library(practice_area: str = "all", delay_seconds: int = 2
             print(f"  ✗ Error: {e}")
             failed += 1
 
-    print(f"\n{'='*60}")
-    print(f"Import Complete!")
-    print(f"{'='*60}")
+    print(f"\n{'=' * 60}")
+    print("Import Complete!")
+    print(f"{'=' * 60}")
     print(f"✓ Imported: {imported}")
     print(f"⊙ Skipped (already in library): {skipped}")
     print(f"✗ Failed: {failed}")
@@ -157,7 +155,7 @@ def import_custom_cases(citations: list, delay_seconds: int = 2):
                 print(f"  ✓ {doc.title} (id: {doc.id})")
                 imported += 1
             else:
-                print(f"  ✗ Not found")
+                print("  ✗ Not found")
                 failed += 1
 
             if delay_seconds > 0:
@@ -177,7 +175,6 @@ if __name__ == "__main__":
 
     # Run in Flask app context
     with app.app_context():
-
         if len(sys.argv) > 1:
             practice_area = sys.argv[1]
         else:
@@ -193,5 +190,3 @@ if __name__ == "__main__":
         print("1. Search library: GET /api/legal-library/search?q=miranda")
         print("2. View document: GET /api/legal-library/document/1")
         print("3. Add annotations: POST /api/legal-library/annotate")
-
-

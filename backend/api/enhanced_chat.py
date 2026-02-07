@@ -17,14 +17,10 @@ Provides:
 import logging
 import traceback
 from datetime import datetime
-from functools import wraps
-from typing import Any, Dict
 
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
-
-from src.ai.chat import (ConversationMemoryStore, EnhancedChatAssistant,
-                         ReferenceManager)
+from src.ai.chat import ConversationMemoryStore, EnhancedChatAssistant, ReferenceManager
 
 logger = logging.getLogger(__name__)
 

@@ -46,8 +46,8 @@
 
   /* Typography */
   --font-sans:
-    -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
-  --font-mono: 'SF Mono', monaco, 'Cascadia Code', 'Roboto Mono', consolas, monospace;
+    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
+  --font-mono: "SF Mono", monaco, "Cascadia Code", "Roboto Mono", consolas, monospace;
 
   /* Spacing Scale */
   --space-1: 0.25rem;
@@ -208,7 +208,7 @@ code {
 }
 
 .hero-legal-tech::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image:
@@ -344,7 +344,7 @@ code {
 }
 
 .btn-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -455,7 +455,7 @@ code {
 }
 
 .feature-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -527,7 +527,7 @@ code {
 }
 
 .feature-list li::before {
-  content: '✓';
+  content: "✓";
   position: absolute;
   left: 0;
   color: var(--success-green);
@@ -835,7 +835,7 @@ a:focus-visible {
 }
 
 .btn.loading::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 14px;
   height: 14px;

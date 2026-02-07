@@ -64,7 +64,7 @@ def test_admin_login():
 
     email, password_hash, role, tier, is_active = result
 
-    print(f"✅ Admin account found:")
+    print("✅ Admin account found:")
     print(f"   Email: {email}")
     print(f"   Role: {role}")
     print(f"   Tier: {tier}")
@@ -83,7 +83,7 @@ def test_admin_login():
     admin_count = cursor.fetchone()[0]
 
     if admin_count == 1:
-        print(f"✅ Security check: Exactly ONE admin account exists")
+        print("✅ Security check: Exactly ONE admin account exists")
     else:
         print(f"⚠️  Warning: {admin_count} admin accounts found (should be 1)")
 
@@ -108,7 +108,7 @@ def test_mobile_navigation():
     print(f"✅ Layout file found: {layout_file}")
 
     # Check for correct JavaScript reference
-    with open(layout_file, "r", encoding="utf-8") as f:
+    with open(layout_file, encoding="utf-8") as f:
         content = f.read()
 
     if "premium-header.js" in content:
@@ -128,7 +128,7 @@ def test_mobile_navigation():
     print(f"✅ JavaScript file exists: {js_file}")
 
     # Check JavaScript contains mobile nav functions
-    with open(js_file, "r", encoding="utf-8") as f:
+    with open(js_file, encoding="utf-8") as f:
         js_content = f.read()
 
     required_functions = ["openNav", "closeNav", "toggleNav"]
@@ -199,5 +199,3 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-
-

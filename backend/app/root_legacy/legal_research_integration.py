@@ -1,16 +1,11 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
 # Legal Research Integration & Resources
 # Connects AI agents to legal databases, statutes, case law, and drafting tools
 
-import hashlib
-import json
-import os
-import re
-from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
 
 
 class Jurisdiction:
@@ -82,7 +77,7 @@ class LegalCitation:
         return f"{case_name}, {volume} {reporter} {page} ({year})"
 
     @staticmethod
-    def format_statute(title: str, code: str, section: str, year: Optional[str] = None) -> str:
+Optional[def format_statute(title: str, code: str, section: str, year: str] = None) -> str:
         """Format statute citation"""
         if year:
             return f"{title} {code} § {section} ({year})"
@@ -102,14 +97,14 @@ class LegalCitation:
 class LegalResearchAPI:
     """Interface to legal research databases"""
 
-    def __init__(self, api_keys: Optional[Dict[str, str]] = None):
+Optional[def __init__(self, api_keys: dict[str, str]] = None):
         self.api_keys = api_keys or {}
         self.cache_dir = Path("./legal_research_cache")
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
     def search_case_law(
         self, query: str, jurisdiction: str = Jurisdiction.FEDERAL, limit: int = 10
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """Search case law databases"""
 
         # Try case.law API (free)
@@ -125,7 +120,7 @@ class LegalResearchAPI:
 
         return results or self._get_mock_case_law(query, jurisdiction, limit)
 
-    def get_statute(self, jurisdiction: str, title: str, section: str) -> Optional[Dict]:
+Optional[def get_statute(self, jurisdiction: str, title: str, section: str) -> dict]:
         """Retrieve specific statute text"""
 
         # Try USCode API for federal
@@ -142,7 +137,7 @@ class LegalResearchAPI:
         # Mock fallback
         return self._get_mock_statute(jurisdiction, title, section)
 
-    def search_regulations(self, query: str, agency: Optional[str] = None) -> List[Dict]:
+Optional[def search_regulations(self, query: str, agency: str] = None) -> list[dict]:
         """Search federal regulations (CFR)"""
 
         # Try govinfo API
@@ -150,7 +145,7 @@ class LegalResearchAPI:
 
         return results or self._get_mock_regulations(query)
 
-    def get_legal_form(self, form_type: str, jurisdiction: str) -> Optional[str]:
+Optional[def get_legal_form(self, form_type: str, jurisdiction: str) -> str]:
         """Get legal document template"""
 
         form_templates = {
@@ -170,38 +165,38 @@ class LegalResearchAPI:
 
     def _search_caselaw_access_project(
         self, query: str, jurisdiction: str, limit: int
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """Search Case.law (Harvard Law School API)"""
         # In production, use actual API:
         # https://api.case.law/v1/cases/?search=query&jurisdiction=jurisdiction
         return []
 
-    def _search_lexis_nexis(self, query: str, jurisdiction: str, limit: int) -> List[Dict]:
+    def _search_lexis_nexis(self, query: str, jurisdiction: str, limit: int) -> list[dict]:
         """Search LexisNexis (requires API key)"""
         # Production implementation would use LexisNexis API
         return []
 
-    def _search_westlaw(self, query: str, jurisdiction: str, limit: int) -> List[Dict]:
+    def _search_westlaw(self, query: str, jurisdiction: str, limit: int) -> list[dict]:
         """Search Westlaw (requires API key)"""
         # Production implementation would use Westlaw API
         return []
 
-    def _get_federal_statute(self, title: str, section: str) -> Optional[Dict]:
+Optional[def _get_federal_statute(self, title: str, section: str) -> dict]:
         """Get federal statute from USCode"""
         # Production: https://www.govinfo.gov/app/details/USCODE-{year}-title{title}
         return None
 
-    def _get_state_statute(self, jurisdiction: str, title: str, section: str) -> Optional[Dict]:
+Optional[def _get_state_statute(self, jurisdiction: str, title: str, section: str) -> dict]:
         """Get state statute"""
         # Production: State-specific APIs
         return None
 
-    def _search_cfr(self, query: str, agency: Optional[str]) -> List[Dict]:
+Optional[def _search_cfr(self, query: str, agency: str]) -> list[dict]:
         """Search Code of Federal Regulations"""
         # Production: https://www.ecfr.gov/api/search/
         return []
 
-    def _get_mock_case_law(self, query: str, jurisdiction: str, limit: int) -> List[Dict]:
+    def _get_mock_case_law(self, query: str, jurisdiction: str, limit: int) -> list[dict]:
         """Mock case law results for development"""
         return [
             {
@@ -226,7 +221,7 @@ class LegalResearchAPI:
             },
         ][:limit]
 
-    def _get_mock_statute(self, jurisdiction: str, title: str, section: str) -> Dict:
+    def _get_mock_statute(self, jurisdiction: str, title: str, section: str) -> dict:
         """Mock statute for development"""
         return {
             "jurisdiction": jurisdiction,
@@ -239,7 +234,7 @@ class LegalResearchAPI:
             "related_sections": [],
         }
 
-    def _get_mock_regulations(self, query: str) -> List[Dict]:
+    def _get_mock_regulations(self, query: str) -> list[dict]:
         """Mock regulations for development"""
         return [
             {
@@ -721,5 +716,3 @@ CERTIFICATE OF SERVICE
 
 # Global legal research API instance
 legal_research = LegalResearchAPI()
-
-

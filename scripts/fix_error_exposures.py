@@ -15,7 +15,7 @@ def fix_error_exposures():
 
     app_path = Path("app.py")
 
-    with open(app_path, "r", encoding="utf-8") as f:
+    with open(app_path, encoding="utf-8") as f:
         content = f.read()
 
     # Pattern 1: return jsonify({"error": str(e)}), STATUS_CODE
@@ -76,9 +76,9 @@ logger = get_logger('api')
         f.write(fixed_content)
 
     print(f"✓ Fixed {len(matches)} error exposure vulnerabilities")
-    print(f"✓ Added proper error sanitization")
-    print(f"✓ Added error ticket generation")
-    print(f"✓ Added server-side logging")
+    print("✓ Added proper error sanitization")
+    print("✓ Added error ticket generation")
+    print("✓ Added server-side logging")
 
     return len(matches)
 

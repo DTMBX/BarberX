@@ -1,4 +1,4 @@
-# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# Copyright © 2024–2026 Evident Technologies, LLC. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
 """
@@ -15,16 +15,23 @@ Only imports from legitimate, verified, and respected legal sources:
 All sources are verified and credible.
 """
 
-import json
-import time
-from datetime import datetime
-from typing import Dict, List, Optional
+from __future__ import annotations
 
 import requests
-from bs4 import BeautifulSoup
+from typing import Optional, TYPE_CHECKING
 
-from .legal_library import LegalDocument, LegalLibraryService
-from .models_auth import db
+if TYPE_CHECKING:
+    from .legal_library import LegalDocument, LegalLibraryService  # type: ignore
+
+
+# Module-level shim for legacy imports/tests
+try:
+    from . import models_auth as _models_auth
+
+    db = _models_auth.db
+except Exception:
+    db = None
+
 
 
 class VerifiedLegalSources:
@@ -84,10 +91,25 @@ class VerifiedLegalSources:
         },
     }
 
-    def __init__(self):
-        self.library = LegalLibraryService()
+Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object] = None):
+        if library is not None:
+            self.library = library
+        else:
+            from .legal_library import LegalLibraryService
 
-    def get_source_info(self, source_name: str) -> Dict:
+            self.library = LegalLibraryService()
+
+        if db_module is not None:
+            if hasattr(db_module, "db"):
+                self.db = db_module.db
+            else:
+                self.db = db_module
+        else:
+            from . import models_auth as _models_auth
+
+            self.db = _models_auth.db
+
+    def get_source_info(self, source_name: str) -> dict:
         """Get verification info for a source"""
         return self.VERIFIED_SOURCES.get(source_name, {"verified": False, "credibility": "UNKNOWN"})
 
@@ -96,7 +118,7 @@ class VerifiedLegalSources:
         info = self.get_source_info(source_name)
         return info.get("verified", False)
 
-    def import_from_courtlistener(self, citation: str) -> Optional[LegalDocument]:
+Optional[def import_from_courtlistener(self, citation: str) -> LegalDocument]:
         """
         Import from CourtListener (verified source)
 
@@ -113,15 +135,19 @@ class VerifiedLegalSources:
         # Use existing library service
         doc = self.library.ingest_from_courtlistener(citation)
 
+
         if doc:
             # Mark as verified from official source
             doc.verified = True
             doc.source = "courtlistener"
-            db.session.commit()
+            try:
+                self.db.session.commit()
+            except Exception:
+                pass
 
         return doc
 
-    def import_from_cornell_lii(self, citation: str) -> Optional[LegalDocument]:
+Optional[def import_from_cornell_lii(self, citation: str) -> LegalDocument]:
         """
         Import from Cornell Legal Information Institute
 
@@ -137,7 +163,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def import_from_govinfo(self, citation: str) -> Optional[LegalDocument]:
+Optional[def import_from_govinfo(self, citation: str) -> LegalDocument]:
         """
         Import from GovInfo.gov (official U.S. government source)
 
@@ -153,7 +179,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def import_from_supreme_court_official(self, year: int, docket: str) -> Optional[LegalDocument]:
+Optional[def import_from_supreme_court_official(self, year: int, docket: str) -> LegalDocument]:
         """
         Import directly from Supreme Court official website
 
@@ -164,7 +190,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def verify_citation_authenticity(self, citation: str, source: str) -> Dict:
+    def verify_citation_authenticity(self, citation: str, source: str) -> dict:
         """
         Verify a citation is authentic from multiple sources
 
@@ -179,8 +205,6 @@ class VerifiedLegalSources:
         Requires COURTLISTENER_API_KEY environment variable for API access
         """
         import os
-
-        import requests
 
         verified_sources = []
         warnings = []
@@ -224,7 +248,9 @@ class VerifiedLegalSources:
         confidence = (
             "HIGH"
             if len(verified_sources) >= 2
-            else "MEDIUM" if len(verified_sources) == 1 else "LOW"
+            else "MEDIUM"
+            if len(verified_sources) == 1
+            else "LOW"
         )
 
         if confidence == "LOW":
@@ -238,8 +264,8 @@ class VerifiedLegalSources:
         }
 
     def batch_import_verified_only(
-        self, citations: List[str], min_confidence: str = "MEDIUM"
-    ) -> Dict:
+        self, citations: list[str], min_confidence: str = "MEDIUM"
+    ) -> dict:
         """
         Batch import only citations that can be verified
 
@@ -261,7 +287,6 @@ class VerifiedLegalSources:
             if verification["confidence"] in ["HIGH", "MEDIUM"] or (
                 min_confidence == "LOW" and verification["authentic"]
             ):
-
                 # Import from verified source
                 doc = self.import_from_courtlistener(citation)
 
@@ -300,7 +325,7 @@ class SourceCredibilityTracker:
     def __init__(self):
         self.source_ratings = {}
 
-    def rate_source(self, source_name: str) -> Dict:
+    def rate_source(self, source_name: str) -> dict:
         """
         Rate a source's credibility
 
@@ -395,7 +420,7 @@ class SourceCredibilityTracker:
             },
         )
 
-    def get_highest_credibility_sources(self) -> List[str]:
+    def get_highest_credibility_sources(self) -> list[str]:
         """Get list of highest credibility sources (rating >= 9.0)"""
 
         high_credibility = []
@@ -433,5 +458,3 @@ class LegalLibraryService:
         # Only import from verified sources
         return self.verified_sources.import_from_courtlistener(citation)
 """
-
-

@@ -7,9 +7,6 @@ Document Optimizer Integration with Legal Reference Library
 Auto-suggests relevant citations when optimizing legal documents
 """
 
-import json
-from typing import Dict, List
-
 from legal_library import LegalLibraryService
 
 
@@ -21,7 +18,7 @@ class DocumentOptimizerLibraryIntegration:
 
     def suggest_citations_for_document(
         self, document_text: str, doc_type: str = None
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         Suggest relevant citations based on document content
 
@@ -92,7 +89,7 @@ class DocumentOptimizerLibraryIntegration:
 
         return base_prompt + citation_context
 
-    def verify_citations_exist(self, document_text: str) -> Dict:
+    def verify_citations_exist(self, document_text: str) -> dict:
         """
         Verify that all citations in document exist in library
 
@@ -131,7 +128,7 @@ class DocumentOptimizerLibraryIntegration:
             "coverage": len(verified) / len(citations) if citations else 0,
         }
 
-    def _extract_legal_issues(self, text: str) -> List[str]:
+    def _extract_legal_issues(self, text: str) -> list[str]:
         """Extract legal issues from document text"""
 
         # Keywords indicating legal issues
@@ -181,7 +178,7 @@ class DocumentOptimizerLibraryIntegration:
         else:
             return "Cite to support legal argument"
 
-    def _deduplicate_and_rank(self, suggestions: List[Dict]) -> List[Dict]:
+    def _deduplicate_and_rank(self, suggestions: list[dict]) -> list[dict]:
         """Remove duplicate citations and rank by relevance"""
 
         seen = set()

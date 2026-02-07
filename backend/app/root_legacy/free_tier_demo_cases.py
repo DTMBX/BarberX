@@ -7,8 +7,6 @@ Pre-loaded sample cases with full reports for FREE tier users
 Cost: $0 (pre-generated, no processing)
 """
 
-from datetime import datetime, timedelta
-
 from .models_auth import TierLevel
 
 DEMO_CASES = [
@@ -215,5 +213,3 @@ def assign_demo_cases_to_user(user):
 def is_demo_case(case_id):
     """Check if a case ID is a demo case"""
     return case_id.startswith("demo_")
-
-

@@ -16,7 +16,7 @@ def check_error_handling(file_path):
     """Check if endpoints have proper error handling"""
     issues = []
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
         lines = content.split("\n")
 
@@ -50,7 +50,7 @@ def check_input_validation(file_path):
     """Check for input validation"""
     issues = []
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
         lines = content.split("\n")
 
@@ -76,7 +76,7 @@ def check_authentication(file_path):
     """Check for missing authentication on sensitive endpoints"""
     issues = []
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         lines = f.readlines()
 
     i = 0
@@ -92,7 +92,7 @@ def check_authentication(file_path):
 
                 # Skip health check and public endpoints
                 if "/api/health" not in line and "@login_required" not in next_few_lines:
-                    issues.append(f"Line {i+1}: API endpoint without @login_required: {line}")
+                    issues.append(f"Line {i + 1}: API endpoint without @login_required: {line}")
 
         i += 1
 
@@ -103,7 +103,7 @@ def check_file_upload_security(file_path):
     """Check file upload endpoints for security"""
     issues = []
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
 
     # Check for file upload handling
@@ -125,7 +125,7 @@ def check_password_security(file_path):
     """Check password handling"""
     issues = []
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
         lines = content.split("\n")
 
@@ -151,7 +151,7 @@ def check_csrf_protection(file_path):
     """Check CSRF protection"""
     issues = []
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
 
     # Check if CSRF is enabled
@@ -194,7 +194,7 @@ def main():
         if issues:
             print(f"   ⚠️  Found {len(issues)} issue(s)")
         else:
-            print(f"   ✅ Passed")
+            print("   ✅ Passed")
         print()
 
     # Summary
@@ -236,4 +236,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-

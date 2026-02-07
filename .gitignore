@@ -138,7 +138,7 @@ test_*.html
 # Evident Security Rules (Added 2026-01-28)
 # Evident Confidential Financial Data
 INVESTOR-LOG.md
-*INVESTOR*.md
+artifacts/
 *CONFIDENTIAL*.md
 *financial*.xlsx
 *revenue*.csv
@@ -314,6 +314,9 @@ google-services.json
 # Local Development
 launchSettings.json
 *.local.json
+
+# Local test virtualenv created during CI/test runs
+.venv_test/
 
 # --- build/caches ---
 _site/

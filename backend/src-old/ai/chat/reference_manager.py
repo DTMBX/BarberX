@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -13,9 +14,9 @@ Provides:
 
 import logging
 import re
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any
 
-from src.ai.pipeline import Passage, RetrieveResult, get_orchestrator
+from src.ai.pipeline import Passage, get_orchestrator
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ class ReferenceManager:
         self.orchestrator = get_orchestrator()
 
         # Cache of recently accessed documents
-        self.document_cache: Dict[int, Dict] = {}
+        self.document_cache: dict[int, dict] = {}
 
         # Reference patterns (citation formats)
         self.citation_patterns = [
@@ -47,7 +48,7 @@ class ReferenceManager:
 
         logger.info("ReferenceManager initialized")
 
-    def detect_references(self, text: str) -> List[Dict[str, Any]]:
+    def detect_references(self, text: str) -> list[dict[str, Any]]:
         """
         Detect references to legal cases or documents in text
 
@@ -78,9 +79,9 @@ class ReferenceManager:
     def suggest_references(
         self,
         query: str,
-        conversation_context: Optional[List[Dict]] = None,
+Optional[conversation_context: list[dict]] = None,
         max_suggestions: int = 5,
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """
         Suggest relevant references based on query and context
 
@@ -99,7 +100,7 @@ class ReferenceManager:
 
         # Convert passages to reference suggestions
         suggestions = []
-        seen_documents: Set[int] = set()
+        seen_documents: set[int] = set()
 
         for passage in retrieve_result.passages:
             if passage.document_id in seen_documents:
@@ -123,7 +124,7 @@ class ReferenceManager:
 
     def resolve_reference(
         self, citation: str, search_local: bool = True, search_authorities: bool = True
-    ) -> Optional[Dict[str, Any]]:
+Optional[) -> dict[str, Any]]:
         """
         Resolve a citation to actual document
 
@@ -153,8 +154,8 @@ class ReferenceManager:
         return None
 
     def get_reference_context(
-        self, document_id: int, page_number: Optional[int] = None, context_pages: int = 2
-    ) -> Dict[str, Any]:
+Optional[self, document_id: int, page_number: int] = None, context_pages: int = 2
+    ) -> dict[str, Any]:
         """
         Get context around a reference (surrounding pages)
 
@@ -200,7 +201,7 @@ class ReferenceManager:
             }
 
     def track_reference_usage(
-        self, conversation_id: int, document_id: int, page_number: Optional[int] = None
+Optional[self, conversation_id: int, document_id: int, page_number: int] = None
     ):
         """
         Track that a document was referenced in conversation
@@ -216,7 +217,7 @@ class ReferenceManager:
             f"doc={document_id}, page={page_number}"
         )
 
-    def get_reference_stats(self, document_id: int) -> Dict[str, Any]:
+    def get_reference_stats(self, document_id: int) -> dict[str, Any]:
         """
         Get usage statistics for a document
 
@@ -236,7 +237,7 @@ class ReferenceManager:
             "last_cited": None,
         }
 
-    def build_reference_network(self, document_ids: List[int]) -> Dict[str, Any]:
+    def build_reference_network(self, document_ids: list[int]) -> dict[str, Any]:
         """
         Build network of related documents based on co-citation
 
@@ -288,17 +289,17 @@ class ReferenceManager:
         else:
             return f"Related to topic (score: {passage.score:.2f})"
 
-    def _search_local_documents(self, citation: str) -> Optional[Dict]:
+Optional[def _search_local_documents(self, citation: str) -> dict]:
         """Search user's local document library"""
         # TODO: Query documents table by citation
         return None
 
-    def _search_authorities(self, citation: str) -> Optional[Dict]:
+Optional[def _search_authorities(self, citation: str) -> dict]:
         """Search authority cache (CourtListener)"""
         # TODO: Use AuthorityCacheService
         return None
 
-    def _load_document_metadata(self, document_id: int) -> Dict:
+    def _load_document_metadata(self, document_id: int) -> dict:
         """Load document metadata from database"""
         # TODO: Query documents table
         return {
@@ -308,7 +309,7 @@ class ReferenceManager:
             "source_system": "app",
         }
 
-    def _load_pages(self, document_id: int, page_numbers: List[int]) -> List[Dict]:
+    def _load_pages(self, document_id: int, page_numbers: list[int]) -> list[dict]:
         """Load specific pages from document"""
         # TODO: Query document_pages table
         return [{"page_number": p, "text": f"Content of page {p}"} for p in page_numbers]

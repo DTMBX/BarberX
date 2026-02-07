@@ -186,10 +186,10 @@ image objects - Proper relationships
 
 ```javascript
 // Before: Accept/Reject only
-setConsent('accepted');
+setConsent("accepted");
 
 // After: Granular preferences
-setConsent('customized', {
+setConsent("customized", {
   analytics: true,
   marketing: false,
 });
@@ -203,34 +203,34 @@ setConsent('customized', {
 
 ```yaml
 # Analytics (Enhanced)
-analytics_provider: 'google' # 'google', 'ga4', 'plausible', 'fathom', 'custom'
-analytics_id: 'G-XXXXXXXXXX'
+analytics_provider: "google" # 'google', 'ga4', 'plausible', 'fathom', 'custom'
+analytics_id: "G-XXXXXXXXXX"
 analytics_anonymize_ip: true
 analytics_cookie_expires: 63072000 # 2 years in seconds
 enable_performance_monitoring: true
 enable_error_tracking: true
-plausible_script: 'plausible' # or 'plausible.outbound-links'
+plausible_script: "plausible" # or 'plausible.outbound-links'
 
 # SEO (Enhanced)
-geo_region: 'US-NJ'
-geo_placename: 'New Jersey'
-google_site_verification: 'xxxxx'
-msvalidate: 'xxxxx'
-fb_app_id: 'xxxxx'
-referrer_policy: 'strict-origin-when-cross-origin'
+geo_region: "US-NJ"
+geo_placename: "New Jersey"
+google_site_verification: "xxxxx"
+msvalidate: "xxxxx"
+fb_app_id: "xxxxx"
+referrer_policy: "strict-origin-when-cross-origin"
 enable_search: true
-organization: 'Your Organization Name'
-contact_email: 'contact@example.com'
+organization: "Your Organization Name"
+contact_email: "contact@example.com"
 social_links:
-  - 'https://twitter.com/username'
-  - 'https://facebook.com/page'
+  - "https://twitter.com/username"
+  - "https://facebook.com/page"
 
 # Cookie Consent (Enhanced)
 cookie_consent_days: 365
 enable_cookie_consent: true
 
 # Newsletter (Enhanced)
-newsletter_provider: 'custom' # 'mailchimp', 'convertkit', 'buttondown', 'custom'
+newsletter_provider: "custom" # 'mailchimp', 'convertkit', 'buttondown', 'custom'
 newsletter_enabled: true
 ```
 
@@ -343,8 +343,8 @@ cookie_consent_days: 180 # 6 months
 ### Add Custom Analytics Event
 
 ```javascript
-window.addEventListener('cookieConsentUpdated', function (e) {
-  console.log('Consent:', e.detail);
+window.addEventListener("cookieConsentUpdated", function (e) {
+  console.log("Consent:", e.detail);
 });
 ```
 

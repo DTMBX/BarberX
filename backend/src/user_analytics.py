@@ -7,7 +7,7 @@ PostHog integration, churn prediction, and engagement tracking
 """
 
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import posthog
 

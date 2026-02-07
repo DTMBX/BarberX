@@ -95,10 +95,7 @@ accidental export
       "reason": "Proprietary database content - internal use only"
     }
   ],
-  "attribution": [
-    "Whisper AI (OpenAI) - MIT License",
-    "CourtListener - CC0 Public Domain"
-  ]
+  "attribution": ["Whisper AI (OpenAI) - MIT License", "CourtListener - CC0 Public Domain"]
 }
 ```
 

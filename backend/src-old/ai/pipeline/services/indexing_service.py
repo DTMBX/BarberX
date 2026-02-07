@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -12,7 +13,6 @@ Responsibilities:
 """
 
 import logging
-from typing import Optional
 
 from ..contracts import IndexResult
 
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 class IndexingService:
     """Handles document indexing for search"""
 
-    def __init__(self, config: Optional[dict] = None, manifest_service=None):
+Optional[def __init__(self, config: dict] = None, manifest_service=None):
         self.config = config or {}
         self.manifest_service = manifest_service
 

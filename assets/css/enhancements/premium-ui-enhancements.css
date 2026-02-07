@@ -50,7 +50,7 @@
 }
 
 .premium-nav-item-has-dropdown:hover .premium-nav-chevron,
-.premium-nav-submenu-toggle[aria-expanded='true'] .premium-nav-chevron {
+.premium-nav-submenu-toggle[aria-expanded="true"] .premium-nav-chevron {
   transform: rotate(180deg);
 }
 
@@ -93,7 +93,7 @@
 }
 
 .premium-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -224,7 +224,7 @@
 }
 
 .progress-bar-fill::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, transparent, rgb(255 255 255 / 30%), transparent);
@@ -326,7 +326,7 @@
 }
 
 .tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 100%;
   left: 50%;
@@ -376,7 +376,7 @@
 
 .divider-text::before,
 .divider-text::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgb(255 255 255 / 10%), transparent);

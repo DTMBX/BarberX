@@ -7,9 +7,13 @@ import sys
 
 sys.path.insert(0, ".")
 
-from free_tier_demo_cases import (DEMO_CASES, assign_demo_cases_to_user,
-                                  get_demo_case_by_id, get_demo_cases,
-                                  is_demo_case)
+from free_tier_demo_cases import (
+    DEMO_CASES,
+    assign_demo_cases_to_user,
+    get_demo_case_by_id,
+    get_demo_cases,
+    is_demo_case,
+)
 
 print("=" * 80)
 print("FREE TIER DEMO CASES - INTEGRATION TEST")
@@ -23,14 +27,14 @@ print(f"   - is_demo_case: {callable(is_demo_case)}")
 print(f"   - assign_demo_cases_to_user: {callable(assign_demo_cases_to_user)}")
 
 # Test 2: Demo cases loaded
-print(f"\n✅ TEST 2: Demo cases loaded")
+print("\n✅ TEST 2: Demo cases loaded")
 cases = get_demo_cases()
 print(f"   - Found {len(cases)} demo cases")
-print(f"   - Expected: 3 demo cases")
+print("   - Expected: 3 demo cases")
 print(f"   - Status: {'✅ PASS' if len(cases) == 3 else '❌ FAIL'}")
 
 # Test 3: List all demo cases
-print(f"\n✅ TEST 3: Demo case details")
+print("\n✅ TEST 3: Demo case details")
 for i, case in enumerate(cases, 1):
     print(f"\n   {i}. {case['id']}")
     print(f"      - Title: {case['title']}")
@@ -44,7 +48,7 @@ for i, case in enumerate(cases, 1):
     print(f"      - Locked: {case.get('locked', False)}")
 
 # Test 4: get_demo_case_by_id
-print(f"\n✅ TEST 4: Get demo case by ID")
+print("\n✅ TEST 4: Get demo case by ID")
 test_id = "demo_traffic_stop_2024"
 case = get_demo_case_by_id(test_id)
 print(f"   - Searching for: {test_id}")
@@ -52,7 +56,7 @@ print(f"   - Found: {case['title'] if case else 'Not found'}")
 print(f"   - Status: {'✅ PASS' if case else '❌ FAIL'}")
 
 # Test 5: is_demo_case
-print(f"\n✅ TEST 5: Demo case detection")
+print("\n✅ TEST 5: Demo case detection")
 print(f"   - is_demo_case('demo_traffic_stop_2024'): {is_demo_case('demo_traffic_stop_2024')}")
 print(f"   - is_demo_case('real_case_123'): {is_demo_case('real_case_123')}")
 print(
@@ -60,7 +64,7 @@ print(
 )
 
 # Test 6: Data completeness
-print(f"\n✅ TEST 6: Data completeness check")
+print("\n✅ TEST 6: Data completeness check")
 required_fields = [
     "id",
     "title",
@@ -79,7 +83,7 @@ for case in cases:
         all_complete = False
 
 if all_complete:
-    print(f"   ✅ All cases have required fields")
+    print("   ✅ All cases have required fields")
 
 print("\n" + "=" * 80)
 print("DEMO FUNCTIONALITY VERIFICATION")
@@ -87,9 +91,9 @@ print("=" * 80)
 
 print("\n📊 SUMMARY:")
 print(f"   - Demo cases defined: {len(DEMO_CASES)}")
-print(f"   - Functions working: ✅")
+print("   - Functions working: ✅")
 print(f"   - Data complete: {'✅' if all_complete else '❌'}")
-print(f"   - TierLevel import: ✅ (Fixed)")
+print("   - TierLevel import: ✅ (Fixed)")
 
 print("\n🎯 NEXT STEPS:")
 print("   1. Create FREE test account")

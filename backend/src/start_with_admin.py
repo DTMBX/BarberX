@@ -23,6 +23,7 @@ print("Evident Quick Start - Admin Login Fixed")
 print("=" * 70 + "\n")
 
 from app import app
+
 # Import models and app
 from models_auth import TierLevel, User, db
 
@@ -97,4 +98,3 @@ if __name__ == "__main__":
         debug=True,
         use_reloader=False,  # Disable reloader to avoid double startup
     )
-

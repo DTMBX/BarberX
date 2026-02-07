@@ -35,4 +35,3 @@ if os.path.exists(db_path):
     conn.close()
 else:
     print(f"Database {db_path} does not exist")
-

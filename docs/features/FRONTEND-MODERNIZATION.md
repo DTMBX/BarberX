@@ -534,10 +534,10 @@ window.EvidentPlatform = {
 
 ```javascript
 // Announce message to screen readers
-window.EvidentPlatform.announceToScreenReader('Message text');
+window.EvidentPlatform.announceToScreenReader("Message text");
 
 // Show loading state
-EvidentPlatform.LoadingState.show(element, 'Loading...');
+EvidentPlatform.LoadingState.show(element, "Loading...");
 
 // Hide loading state
 EvidentPlatform.LoadingState.hide(element);

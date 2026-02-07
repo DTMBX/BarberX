@@ -166,7 +166,7 @@ netlify.toml handles this.
 **Fix:** Check \_config.yml:
 
 ```yaml
-baseurl: '' # Must be empty for root domain
+baseurl: "" # Must be empty for root domain
 ```
 
 ### "Custom domain not working"

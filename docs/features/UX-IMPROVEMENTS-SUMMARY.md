@@ -157,17 +157,17 @@ improves user trust and reduces confusion
 
 ```javascript
 // ❌ Don't do this
-alert('Error occurred');
+alert("Error occurred");
 
 // ✅ Do this instead
-toast.error('Unable to save. Please try again.');
+toast.error("Unable to save. Please try again.");
 ```
 
 **3. Add Loading States**
 
 ```javascript
 // Show loading
-LoadingState.showButtonLoading(button, 'Saving...');
+LoadingState.showButtonLoading(button, "Saving...");
 
 // Hide loading
 LoadingState.hideButtonLoading(button);
@@ -178,7 +178,7 @@ LoadingState.hideButtonLoading(button);
 ```javascript
 const validator = new FormValidator(formElement);
 
-form.addEventListener('validSubmit', async (e) => {
+form.addEventListener("validSubmit", async (e) => {
   // Form is validated and ready to submit
 });
 ```

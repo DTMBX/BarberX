@@ -16,9 +16,8 @@ Provides:
 import json
 from dataclasses import dataclass, field
 from datetime import datetime
-from decimal import Decimal
 from enum import Enum
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 
 class OutputType(Enum):
@@ -85,7 +84,7 @@ class Finding:
 
         return md
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "title": self.title,
             "description": self.description,
@@ -115,27 +114,27 @@ class ChatOutput:
 
     # Summary (for quick overview)
     summary: str = ""
-    key_points: List[str] = field(default_factory=list)
+    key_points: list[str] = field(default_factory=list)
 
     # Detailed findings
-    findings: List[Finding] = field(default_factory=list)
+    findings: list[Finding] = field(default_factory=list)
 
     # Statistics/metrics
-    stats: Dict[str, Any] = field(default_factory=dict)
+    stats: dict[str, Any] = field(default_factory=dict)
 
     # Action items
-    action_items: List[str] = field(default_factory=list)
+    action_items: list[str] = field(default_factory=list)
 
     # Citations/references
-    citations: List[str] = field(default_factory=list)
+    citations: list[str] = field(default_factory=list)
 
     # Raw data (for programmatic access)
-    raw_data: Dict[str, Any] = field(default_factory=dict)
+    raw_data: dict[str, Any] = field(default_factory=dict)
 
     # Status
     success: bool = True
     error: str = ""
-    warnings: List[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
     def to_chat_message(self, verbose: bool = False) -> str:
         """
@@ -237,7 +236,7 @@ class ChatOutput:
 
         return "\n".join(lines)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         """Convert to dictionary for JSON serialization"""
         return {
             "output_type": self.output_type.value,
@@ -260,7 +259,7 @@ class ChatOutput:
         return json.dumps(self.to_dict(), indent=indent, default=str)
 
     @classmethod
-    def from_dict(cls, data: Dict) -> "ChatOutput":
+    def from_dict(cls, data: dict) -> "ChatOutput":
         """Create from dictionary"""
         findings = [
             Finding(
@@ -308,7 +307,7 @@ class OutputFormatter:
     """
 
     @staticmethod
-    def format_transcription(result: Dict) -> ChatOutput:
+    def format_transcription(result: dict) -> ChatOutput:
         """Format transcription results for chat"""
         segments = result.get("segments", [])
         text = result.get("text", "")
@@ -337,7 +336,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_bwc_analysis(result: Dict) -> ChatOutput:
+    def format_bwc_analysis(result: dict) -> ChatOutput:
         """Format BWC forensic analysis for chat"""
         findings = []
         action_items = []
@@ -407,7 +406,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_evidence_processing(result: Dict) -> ChatOutput:
+    def format_evidence_processing(result: dict) -> ChatOutput:
         """Format evidence processing results for chat"""
         findings = []
         action_items = []
@@ -478,7 +477,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_citation_analysis(result: Dict) -> ChatOutput:
+    def format_citation_analysis(result: dict) -> ChatOutput:
         """Format citation network analysis for chat"""
         findings = []
 
@@ -534,7 +533,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_violation_scan(result: Dict) -> ChatOutput:
+    def format_violation_scan(result: dict) -> ChatOutput:
         """Format violation scan results for chat"""
         findings = []
         action_items = []
@@ -590,7 +589,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_usage_report(result: Dict) -> ChatOutput:
+    def format_usage_report(result: dict) -> ChatOutput:
         """Format API usage report for chat"""
         summary_data = result.get("summary", {})
         quota = result.get("quota", {})
@@ -630,7 +629,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_compliance_check(result: Dict) -> ChatOutput:
+    def format_compliance_check(result: dict) -> ChatOutput:
         """Format compliance check results for chat"""
         findings = []
         action_items = []
@@ -672,7 +671,7 @@ class OutputFormatter:
         )
 
     @staticmethod
-    def format_generic(result: Dict, title: str = "Analysis Results") -> ChatOutput:
+    def format_generic(result: dict, title: str = "Analysis Results") -> ChatOutput:
         """Format generic results for chat"""
         return ChatOutput(
             output_type=OutputType.GENERAL,
@@ -691,7 +690,7 @@ class OutputFormatter:
 # =============================================================================
 
 
-def format_for_chat(result: Dict, output_type: str = "general", **kwargs) -> str:
+def format_for_chat(result: dict, output_type: str = "general", **kwargs) -> str:
     """
     Quick helper to format any result for chat display
 
@@ -731,7 +730,7 @@ def format_for_chat(result: Dict, output_type: str = "general", **kwargs) -> str
     return chat_output.to_chat_message(verbose=kwargs.get("verbose", False))
 
 
-def quick_summary(result: Dict, output_type: str = "general") -> str:
+def quick_summary(result: dict, output_type: str = "general") -> str:
     """Get a one-line summary of results"""
     formatter = OutputFormatter()
 
@@ -755,7 +754,7 @@ def quick_summary(result: Dict, output_type: str = "general") -> str:
     return chat_output.summary
 
 
-def extract_action_items(result: Dict, output_type: str = "general") -> List[str]:
+def extract_action_items(result: dict, output_type: str = "general") -> list[str]:
     """Extract action items from results"""
     formatter = OutputFormatter()
 
@@ -776,7 +775,7 @@ def extract_action_items(result: Dict, output_type: str = "general") -> List[str
     return chat_output.action_items
 
 
-def get_critical_findings(result: Dict, output_type: str = "general") -> List[Dict]:
+def get_critical_findings(result: dict, output_type: str = "general") -> list[dict]:
     """Extract only critical findings from results"""
     formatter = OutputFormatter()
 
@@ -857,5 +856,3 @@ if __name__ == "__main__":
     print("USAGE REPORT OUTPUT")
     print("=" * 60)
     print(format_for_chat(usage_result, "usage"))
-
-

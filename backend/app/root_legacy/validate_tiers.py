@@ -43,5 +43,3 @@ with app.app_context():
     print("\n" + "=" * 60)
     print("✅ VALIDATION COMPLETE")
     print("=" * 60)
-
-

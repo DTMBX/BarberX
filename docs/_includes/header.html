@@ -3,7 +3,10 @@
   <div class="site-header-inner">
     <a href="{{ '/' | relative_url }}" class="brand" aria-label="Evident Technologies home">
       <picture>
-        <source srcset="{{ '/assets/img/logo/evident-header-hd.svg' | relative_url }}" type="image/svg+xml" />
+        <source
+          srcset="{{ '/assets/img/logo/evident-header-hd.svg' | relative_url }}"
+          type="image/svg+xml"
+        />
         <img
           class="brand-logo"
           src="{{ '/assets/img/logo/evident-header-hd.svg' | relative_url }}"
@@ -18,7 +21,12 @@
 
     {% include nav.html %}
 
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+    <button
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
       <span></span><span></span><span></span>
     </button>
   </div>

@@ -2,6 +2,8 @@
 
 Privacy-first legal AI platform backend API.
 
+**Requires:** Python >= 3.12
+
 ## Structure
 
 ```
@@ -38,6 +40,34 @@ cp .env.template .env
 # Run development server
 python src/app.py
 ```
+
+## Running Tests (recommended isolated venv)
+
+We recommend running tests in an isolated virtual environment to avoid interfering with developer or CI environments.
+
+Windows (PowerShell):
+
+```powershell
+py -3 -m venv .venv_test
+.venv_test\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest -q backend/tests
+```
+
+Unix / macOS:
+
+```bash
+python -m venv .venv_test
+source .venv_test/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest -q backend/tests
+```
+
+Notes:
+- The backend `requirements.txt` now includes `numpy` which is required by the audio sync tests and `bwc_sync` utilities.
+- If you encounter issues with the system `.venv`, create a fresh `.venv_test` as above.
 
 ## Environment Variables
 

@@ -230,9 +230,7 @@ Create simple HTML pages:
         <li>Were Miranda rights given?</li>
       </ul>
 
-      <a href="/free-dashboard" class="btn btn-primary mt-4"
-        >Back to Dashboard</a
-      >
+      <a href="/free-dashboard" class="btn btn-primary mt-4">Back to Dashboard</a>
     </div>
   </body>
 </html>

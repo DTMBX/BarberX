@@ -31,19 +31,13 @@ Modern, accessible slide-out navigation menu with animated hamburger icon.
 In `_layouts/default.html`, add to `<head>`:
 
 ```html
-<link
-  rel="stylesheet"
-  href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}"
-/>
+<link rel="stylesheet" href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}" />
 ```
 
 ### Step 2: Add JavaScript before `</body>`
 
 ```html
-<script
-  src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}"
-  defer
-></script>
+<script src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}" defer></script>
 ```
 
 ### Step 3: Include HTML component
@@ -77,8 +71,8 @@ Change drawer width in `mobile-nav-drawer.js`:
 
 ```javascript
 const CONFIG = {
-  drawerWidth: '85%', // Mobile width
-  maxDrawerWidth: '400px', // Desktop max width
+  drawerWidth: "85%", // Mobile width
+  maxDrawerWidth: "400px", // Desktop max width
   // ...
 };
 ```
@@ -163,7 +157,7 @@ MobileNav.toggle();
 
 // Check if open
 if (MobileNav.isOpen()) {
-  console.log('Drawer is open');
+  console.log("Drawer is open");
 }
 ```
 

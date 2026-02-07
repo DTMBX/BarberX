@@ -16,7 +16,7 @@ def backup_file(filename):
     """Create backup before modifying"""
     if os.path.exists(filename):
         backup_name = f"{filename}.backup.{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        with open(filename, "r", encoding="utf-8") as f:
+        with open(filename, encoding="utf-8") as f:
             content = f.read()
         with open(backup_name, "w", encoding="utf-8") as f:
             f.write(content)
@@ -217,7 +217,7 @@ def main():
 
     # Read file
     print("Step 2: Reading app.py...")
-    with open(app_file, "r", encoding="utf-8") as f:
+    with open(app_file, encoding="utf-8") as f:
         content = f.read()
     print(f"✅ Read {len(content)} characters")
     print()

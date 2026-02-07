@@ -1,0 +1,170 @@
+name: Law tests & SBOM
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  ARTIFACTS_DIR: artifacts
+
+jobs:
+  style-check:
+    name: Style Check (ruff + prettier)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install ruff
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff==0.15.0
+
+      - name: Run ruff format check
+        run: |
+          python -m ruff format --check .
+          python -m ruff check .
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Node dev deps
+        run: |
+          if [ -f package.json ]; then npm ci --prefer-offline --no-audit --no-fund; else echo 'no package.json'; fi
+
+      - name: Prettier check
+        run: |
+          if [ -f package.json ]; then npm run format:check --silent; else echo 'no frontend to check'; fi
+
+    if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main'
+
+  lane-a:
+    name: Lane A — Offline-safe tests & SBOM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install law runtime deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/tools/law/requirements.txt
+          pip install -r backend/tools/law/requirements-dev.txt
+
+      - name: Run pip-audit (policy: fail on HIGH/CRITICAL)
+        run: |
+          pip-audit --format json > pip_audit.json || true
+          python - <<'PY'
+import json,sys
+data=json.load(open('pip_audit.json'))
+vulns=data.get('vulnerabilities') or []
+bad=[v for v in vulns if v.get('severity') in ('HIGH','CRITICAL')]
+if bad:
+    print('pip-audit found high/critical vulnerabilities:')
+    print(json.dumps(bad,indent=2))
+    sys.exit(1)
+print('pip-audit: no HIGH/CRITICAL vulnerabilities')
+PY
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run npm ci and npm audit (policy: fail on high)
+        run: |
+          if [ -f package.json ]; then
+            npm ci --prefer-offline --no-audit --no-fund || true
+            npm audit --audit-level=high --json > npm_audit.json || true
+            python - <<'PY'
+import json,sys
+data=json.load(open('npm_audit.json'))
+meta=data.get('metadata',{})
+vsum=0
+if meta:
+    vsum=sum(meta.get('vulnerabilities',{}).values())
+if vsum>0:
+    print('npm audit found high+ vulnerabilities', meta.get('vulnerabilities'))
+    sys.exit(1)
+print('npm audit: no high vulnerabilities')
+PY
+          else
+            echo 'No package.json found; skipping npm audit'
+          fi
+
+      - name: Generate Python CycloneDX SBOM
+        run: |
+          mkdir -p $ARTIFACTS_DIR
+          # cyclonedx-bom from requirements-dev should be available
+          cyclonedx-bom -o $ARTIFACTS_DIR/law-python-bom.json --format json || true
+
+      - name: Generate npm CycloneDX SBOM
+        run: |
+          mkdir -p $ARTIFACTS_DIR
+          if [ -f package.json ]; then
+            # use npx to avoid permanent global install
+            npx @cyclonedx/bom -o $ARTIFACTS_DIR/law-npm-bom.json --format json || true
+          else
+            echo 'No package.json; skipping npm SBOM'
+          fi
+
+      - name: Run law-module unit tests (offline)
+        run: |
+          python -m pytest -q backend/tests/test_normalize_determinism.py backend/tests/test_citations_ordering.py backend/tests/test_storage_fts.py backend/tests/test_courtlistener_ingest_mocked.py backend/tests/test_webhook_idempotency.py -q
+
+      - name: Upload SBOM artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: law-sbom-artifacts
+          path: ${{ env.ARTIFACTS_DIR }}
+
+  lane-b:
+    name: Lane B — Privileged integration (requires secrets)
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    needs: lane-a
+    env:
+      LAW_API_KEY: ${{ secrets.LAW_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install law deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/tools/law/requirements.txt
+          pip install -r backend/tools/law/requirements-dev.txt
+
+      - name: Ensure LAW_API_KEY is available
+        run: |
+          if [ -z "${LAW_API_KEY}" ]; then
+            echo "LAW_API_KEY secret missing; skipping privileged tests." >&2
+            exit 1
+          fi
+
+      - name: Run privileged integration steps (networked)
+        run: |
+          echo "Run any integration tests that require LAW_API_KEY here"
+
+      - name: Upload SBOM artifacts (from lane A)
+        uses: actions/download-artifact@v4
+        with:
+          name: law-sbom-artifacts
+

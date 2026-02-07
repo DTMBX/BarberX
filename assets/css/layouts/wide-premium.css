@@ -249,7 +249,7 @@
 
 .card-premium::before,
 .panel-premium::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   padding: 1px;
@@ -299,7 +299,7 @@
 }
 
 .shimmer::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, transparent 0%, rgb(255 255 255 / 10%) 50%, transparent 100%);
@@ -397,7 +397,7 @@
 }
 
 .hero-full::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--gradient-glow);
@@ -411,7 +411,7 @@
 }
 
 .hero-animated::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -444,7 +444,7 @@
 }
 
 .divider-fancy::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -456,7 +456,7 @@
 }
 
 .divider-fancy::after {
-  content: '◆';
+  content: "◆";
   position: absolute;
   left: 50%;
   top: 50%;
@@ -511,7 +511,7 @@
 }
 
 .btn-outline-fill::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--ff-secondary);
@@ -543,7 +543,7 @@
 }
 
 .cases-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -553,7 +553,7 @@
 }
 
 .cases-hero::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -613,7 +613,7 @@
 }
 
 .case-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -654,7 +654,7 @@
 }
 
 .case-card-status-active::before {
-  content: '';
+  content: "";
   width: 6px;
   height: 6px;
   background: currentcolor;

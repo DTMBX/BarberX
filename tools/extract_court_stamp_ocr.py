@@ -4,9 +4,10 @@
 sys.exit(2)  # Not found
 
 
-import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../utils')))
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../utils")))
 from court_stamp import extract_court_stamp
 
 if len(sys.argv) < 2:

@@ -13,11 +13,10 @@ sys.path.insert(0, ".")
 
 # Load environment variables
 from dotenv import load_dotenv
+
 # Import Flask and SQLAlchemy directly to avoid OpenAI imports
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 load_dotenv()
 

@@ -1,0 +1,17 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ main ]
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run dependency review
+        uses: github/dependency-review-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

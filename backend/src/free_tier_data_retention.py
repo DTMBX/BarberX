@@ -7,7 +7,6 @@ Automatically deletes FREE tier user data after 7 days
 Runs as scheduled job to keep storage costs minimal
 """
 
-import os
 import shutil
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -155,7 +154,7 @@ class DataRetentionManager:
         email_content = f"""
         Subject: Your Evident Data Expires in {days_remaining} Days
         
-        Hi {user.full_name or 'there'},
+        Hi {user.full_name or "there"},
         
         This is a friendly reminder that your FREE tier data will be automatically 
         deleted in {days_remaining} days.
@@ -280,4 +279,3 @@ def get_user_data_status(user):
 
 # Export key components
 __all__ = ["DataRetentionManager", "get_user_data_status"]
-

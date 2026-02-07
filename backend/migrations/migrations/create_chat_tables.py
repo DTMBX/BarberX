@@ -15,7 +15,6 @@ Run with: python migrations/create_chat_tables.py
 """
 
 import sqlite3
-from datetime import datetime
 from pathlib import Path
 
 

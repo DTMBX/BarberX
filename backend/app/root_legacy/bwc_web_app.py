@@ -14,7 +14,7 @@ import threading
 from datetime import datetime
 from pathlib import Path
 
-from flask import Flask, jsonify, render_template_string, request, send_file
+from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -101,7 +101,7 @@ def upload_file():
 
     if not allowed_file(file.filename):
         return (
-            jsonify({"error": f'Invalid file type. Allowed: {", ".join(ALLOWED_EXTENSIONS)}'}),
+            jsonify({"error": f"Invalid file type. Allowed: {', '.join(ALLOWED_EXTENSIONS)}"}),
             400,
         )
 
@@ -298,7 +298,7 @@ def get_transcript(upload_id):
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, "r", encoding="utf-8") as f:
+    with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(
@@ -327,7 +327,7 @@ def get_discrepancies(upload_id):
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, "r", encoding="utf-8") as f:
+    with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
 
     discrepancies = report_data.get("discrepancies", [])
@@ -369,7 +369,7 @@ def get_entities(upload_id):
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, "r", encoding="utf-8") as f:
+    with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(
@@ -421,5 +421,3 @@ if __name__ == "__main__":
     )
 
     app.run(host="0.0.0.0", port=5000, debug=True, threaded=True)
-
-

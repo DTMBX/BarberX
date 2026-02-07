@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -16,7 +17,6 @@ import uuid
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional
 
 
 class SourceType(Enum):
@@ -119,7 +119,7 @@ class Material:
         filename: str,
         category: str,
         rights: DataRights,
-        file_path: Optional[Path] = None,
+Optional[file_path: Path] = None,
         acquired_by: str = "",
         acquired_date: datetime = None,
         source_url: str = "",
@@ -188,8 +188,8 @@ class RightsAwareExport:
         self.case_number = case_number
         self.export_type = export_type
         self.export_id = f"exp_{uuid.uuid4().hex[:12]}"
-        self.materials: List[Material] = []
-        self.excluded_materials: List[Dict] = []
+        self.materials: list[Material] = []
+        self.excluded_materials: list[dict] = []
 
         self.manifest = {
             "export_id": self.export_id,
@@ -360,31 +360,31 @@ class RightsAwareExport:
         # Write human-readable attribution file
         attribution_path = export_path / "ATTRIBUTION.txt"
         with open(attribution_path, "w") as f:
-            f.write(f"EXPORT ATTRIBUTION AND RIGHTS NOTICE\n")
+            f.write("EXPORT ATTRIBUTION AND RIGHTS NOTICE\n")
             f.write(f"{'=' * 60}\n\n")
             f.write(f"Export ID: {self.export_id}\n")
             f.write(f"Case Number: {self.case_number}\n")
             f.write(f"Export Date: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}\n")
             f.write(f"Certified By: {certifying_attorney} (Bar #{attorney_bar_number})\n\n")
 
-            f.write(f"CONTENT ATTRIBUTION REQUIREMENTS:\n")
+            f.write("CONTENT ATTRIBUTION REQUIREMENTS:\n")
             f.write(f"{'-' * 60}\n")
             for attr in self.manifest["attribution_requirements"]:
                 f.write(f"• {attr}\n")
 
-            f.write(f"\n\nTHIRD-PARTY SOFTWARE & TOOLS:\n")
+            f.write("\n\nTHIRD-PARTY SOFTWARE & TOOLS:\n")
             f.write(f"{'-' * 60}\n")
-            f.write(f"This export was generated using the following open-source tools:\n\n")
+            f.write("This export was generated using the following open-source tools:\n\n")
             for tool in self.manifest["third_party_tools"]:
                 f.write(f"• {tool['name']} ({tool['license']})\n")
                 f.write(f"  {tool['purpose']} | {tool['url']}\n")
                 f.write(f"  {tool['copyright']}\n\n")
 
-            f.write(f"\nFull license texts available at:\n")
-            f.write(f"https://Evident/licenses\n")
+            f.write("\nFull license texts available at:\n")
+            f.write("https://Evident/licenses\n")
 
             if self.excluded_materials:
-                f.write(f"\n\nEXCLUDED MATERIALS (Not in Export):\n")
+                f.write("\n\nEXCLUDED MATERIALS (Not in Export):\n")
                 f.write(f"{'-' * 60}\n")
                 for item in self.excluded_materials:
                     f.write(f"• {item['filename']}: {item['reason']}\n")
@@ -450,4 +450,3 @@ if __name__ == "__main__":
         attorney_bar_number="NJ12345",
         export_directory=Path("./exports"),
     )
-

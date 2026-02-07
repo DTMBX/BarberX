@@ -41,10 +41,7 @@
 **After:**
 
 ```html
-<script
-  src="{{ '/assets/js/premium-header.js' | relative_url }}"
-  defer
-></script>
+<script src="{{ '/assets/js/premium-header.js' | relative_url }}" defer></script>
 ```
 
 **Mobile Nav Features Now Working:**

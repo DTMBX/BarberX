@@ -280,10 +280,10 @@ npm audit fix
    # .github/dependabot.yml
    version: 2
    updates:
-     - package-ecosystem: 'pip'
-       directory: '/'
+     - package-ecosystem: "pip"
+       directory: "/"
        schedule:
-         interval: 'weekly'
+         interval: "weekly"
        open-pull-requests-limit: 10
    ```
 

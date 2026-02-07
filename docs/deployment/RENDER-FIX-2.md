@@ -32,7 +32,7 @@ Pillow 10.1.0 failed to build from source on Python 3.13.
 ```yaml
 envVars:
   - key: PYTHON_VERSION
-    value: '3.11.9'
+    value: "3.11.9"
 runtime: python
 ```
 

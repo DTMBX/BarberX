@@ -9,9 +9,6 @@ Demonstrates how to use the 7 custom Copilot agents in a real development workfl
 This script simulates a typical feature development cycle using all agents.
 """
 
-import json
-from datetime import datetime
-
 
 class AgentWorkflowDemo:
     """Demonstrates agent usage in Evident development workflows."""
@@ -352,4 +349,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

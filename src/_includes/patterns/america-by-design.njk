@@ -1,0 +1,45 @@
+{#
+  America-by-Design pattern (template only)
+
+  Usage:
+    {% from "_includes/patterns/america-by-design.njk" import america_by_design %}
+    {{ america_by_design({ title: 'Title', description: 'Short description' }) }}
+
+  This file is a developer-facing template: it provides a clean, documented
+  macro that outputs the hero, optional flag video, and content sections. Use
+  it as a starting point for production pages and component extraction.
+#}
+
+{% macro america_by_design(opts={}) %}
+  {% set title = opts.title or 'America by Design — Evident Technologies' %}
+  {% set description = opts.description or 'Hospitality design for public interfaces: accessible, accountable, and human-centered.' %}
+
+  <section class="hero relative bg-cover bg-center rounded-lg overflow-hidden" style="background-image:linear-gradient(rgba(11,95,115,0.5), rgba(11,95,115,0.3)), url('/assets/images/hero.svg');">
+    <div class="site-container py-16 md:py-20 text-white">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">{{ title }}</h1>
+      <p class="mt-4 text-lg md:text-xl max-w-3xl">{{ description }}</p>
+      <div class="mt-6 md:mt-8 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/contact/">Get Started</a>
+        <a class="btn btn-ghost" href="/docs/">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  {# optional flag video include; developers can pass opts.show_flag=false to skip #}
+  {% if opts.show_flag is not defined or opts.show_flag %}
+    {% include "components/flag-video.njk" %}
+  {% endif %}
+
+  <main class="site-container py-12">
+    <article class="prose max-w-none">
+      <h2>Mission (Template)</h2>
+      <p>{{ opts.mission or 'Design interfaces that serve citizens with clarity, respect, and accountability.' }}</p>
+      <h3>Guidance</h3>
+      <ul>
+        <li>Use tokenized colors and typography from `src/assets/css/americabydesign.css`.</li>
+        <li>Prefer progressive enhancement and accessible markup for interactive components.</li>
+      </ul>
+    </article>
+  </main>
+
+{% endmacro %}

@@ -1,13 +1,15 @@
 {# Accessible, responsive flag video component #}
 <figure class="flag-video mx-auto my-8 max-w-4xl">
-  <video id="flag-video" class="w-full h-auto rounded-lg shadow-md bg-black" controls playsinline muted loop preload="metadata" aria-describedby="flag-desc">
-    <!-- sources will be selected client-side to choose an appropriate rendition -->
-    <source data-src-mp4-1080="/assets/media/renditions/flag-1080p.mp4" type="video/mp4">
-    <source data-src-mp4-720="/assets/media/renditions/flag-720p.mp4" type="video/mp4">
-    <source data-src-mp4-360="/assets/media/renditions/flag-360p.mp4" type="video/mp4">
-    <source data-src-webm-1080="/assets/media/renditions/flag-1080p.webm" type="video/webm">
-    <source data-src-webm-720="/assets/media/renditions/flag-720p.webm" type="video/webm">
-    <source data-src-webm-360="/assets/media/renditions/flag-360p.webm" type="video/webm">
+  <video id="flag-video" class="w-full h-auto rounded-lg shadow-md bg-black" controls playsinline muted loop preload="metadata" aria-describedby="flag-desc" poster="/assets/img/flags/us-flag-50.svg">
+    <!-- Rendition-aware sources (lazy-assigned). The generator writes renditions to /assets/media/renditions/ -->
+    <source data-src-mp4-1080p="/assets/media/renditions/flag-1080p.mp4" type="video/mp4">
+    <source data-src-mp4-720p="/assets/media/renditions/flag-720p.mp4" type="video/mp4">
+    <source data-src-mp4-360p="/assets/media/renditions/flag-360p.mp4" type="video/mp4">
+    <source data-src-webm-1080p="/assets/media/renditions/flag-1080p.webm" type="video/webm">
+    <source data-src-webm-720p="/assets/media/renditions/flag-720p.webm" type="video/webm">
+    <source data-src-webm-360p="/assets/media/renditions/flag-360p.webm" type="video/webm">
+    <!-- Fallback to master if renditions missing -->
+    <source src="/assets/media/flag.mp4" type="video/mp4">
     <p class="p-4">Your browser does not support HTML5 video. View the flag at <a href="/assets/media/flag.mp4">this link</a>.</p>
   </video>
   <figcaption id="flag-desc" class="text-sm text-gray-600 mt-2">A gently waving flag used for decorative and branding purposes. Provide a short descriptive caption; replace with authoritative description if used in evidence context.</figcaption>
@@ -17,27 +19,39 @@
   (function(){
     const vid = document.getElementById('flag-video');
     if (!vid) return;
-    const width = Math.max(window.innerWidth || 1024, 320);
-    // pick resolution target
-    const target = width >= 1000 ? '1080' : (width >= 600 ? '720' : '360');
-    // prefer WebM on supported browsers
-    const canPlayWebm = vid.canPlayType && vid.canPlayType('video/webm; codecs="vp9"');
-    const sources = vid.querySelectorAll('source');
-    sources.forEach(s => {
-      const attrs = s.getAttributeNames();
-      for (const a of attrs) {
-        if (a.startsWith('data-src-')) {
-          const parts = a.split('-');
-          const fmt = parts[1];
-          const res = parts[2];
-          if (res === target) {
-            if (fmt === 'webm' && canPlayWebm) s.src = s.getAttribute(a);
-            if (fmt === 'mp4' && !canPlayWebm) s.src = s.getAttribute(a);
+
+    // Lazy-assign sources when element is near viewport for performance
+    const assignSources = () => {
+      const width = Math.max(window.innerWidth || 1024, 320);
+      const target = width >= 1000 ? '1080p' : (width >= 600 ? '720p' : '360p');
+      const canPlayWebm = vid.canPlayType && vid.canPlayType('video/webm; codecs="vp9,vorbis"');
+      const sources = vid.querySelectorAll('source');
+      sources.forEach(s => {
+        const attrs = s.getAttributeNames();
+        for (const a of attrs) {
+          if (a.startsWith('data-src-')) {
+            const parts = a.split('-');
+            // expected format: data-src-<fmt>-<res>
+            const fmt = parts[2];
+            const res = parts[3];
+            if (res === target) {
+              if (fmt === 'webm' && canPlayWebm) s.src = s.getAttribute(a);
+              if (fmt === 'mp4' && !canPlayWebm) s.src = s.getAttribute(a);
+            }
           }
         }
-      }
-    });
-    // reload sources
-    try { vid.load(); } catch(e) {}
+      });
+      try { vid.load(); } catch(e) {}
+    };
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => { if (e.isIntersecting) { assignSources(); obs.disconnect(); } });
+      }, { rootMargin: '200px' });
+      io.observe(vid);
+    } else {
+      // fallback: assign immediately
+      assignSources();
+    }
   })();
 </script>

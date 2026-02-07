@@ -220,13 +220,13 @@ def validate_upgrade_paths():
 
         # Value proposition
         if next_tier == "STARTER":
-            print(f"  💡 Value: Keep data forever + process 10 videos monthly for $0.97/day")
+            print("  💡 Value: Keep data forever + process 10 videos monthly for $0.97/day")
         elif next_tier == "PROFESSIONAL":
-            print(f"  💡 Value: 2.5x capacity + timeline builder + 3-day trial for +$1.67/day")
+            print("  💡 Value: 2.5x capacity + timeline builder + 3-day trial for +$1.67/day")
         elif next_tier == "PREMIUM":
-            print(f"  💡 Value: 3x capacity + forensic tools + API + soft caps for +$4/day")
+            print("  💡 Value: 3x capacity + forensic tools + API + soft caps for +$4/day")
         elif next_tier == "ENTERPRISE":
-            print(f"  💡 Value: 4x capacity + 25 users + private AI + white-label for +$13.33/day")
+            print("  💡 Value: 4x capacity + 25 users + private AI + white-label for +$13.33/day")
 
 
 def validate_overage_economics():
@@ -330,11 +330,11 @@ def validate_use_case_alignment():
         )
 
         if video_usage > 100 or pdf_usage > 100 or case_usage > 100:
-            print(f"  ⚠️ WARNING: Use case exceeds tier limits!")
+            print("  ⚠️ WARNING: Use case exceeds tier limits!")
         elif video_usage < 50 or pdf_usage < 50 or case_usage < 50:
-            print(f"  ⚠️ WARNING: Tier may be oversized for use case")
+            print("  ⚠️ WARNING: Tier may be oversized for use case")
         else:
-            print(f"  ✅ Good fit (50-100% capacity)")
+            print("  ✅ Good fit (50-100% capacity)")
 
 
 if __name__ == "__main__":
@@ -358,4 +358,3 @@ if __name__ == "__main__":
     print("  ✅ Overage profitability (95%+ margins)")
     print("  ✅ Use case alignment (real-world fit)")
     print("\n")
-

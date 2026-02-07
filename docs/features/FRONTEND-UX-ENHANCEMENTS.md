@@ -27,10 +27,10 @@ Replaces intrusive browser `alert()` popups with elegant toast notifications.
 **API**:
 
 ```javascript
-toast.success('Operation completed!', 5000);
-toast.error('Something went wrong', 7000);
-toast.warning('Please review this', 6000);
-toast.info('FYI: Auto-save enabled', 5000);
+toast.success("Operation completed!", 5000);
+toast.error("Something went wrong", 7000);
+toast.warning("Please review this", 6000);
+toast.info("FYI: Auto-save enabled", 5000);
 ```
 
 ### 2. Form Validation Framework
@@ -77,10 +77,10 @@ Consistent loading indicators across all async operations.
 **API**:
 
 ```javascript
-LoadingState.showButtonLoading(btn, 'Processing...');
+LoadingState.showButtonLoading(btn, "Processing...");
 LoadingState.hideButtonLoading(btn);
-LoadingState.showPageLoading('Loading...');
-LoadingState.showProgress(container, 65, 'Uploading...');
+LoadingState.showPageLoading("Loading...");
+LoadingState.showProgress(container, 65, "Uploading...");
 ```
 
 ## Templates Enhanced
@@ -348,19 +348,19 @@ LoadingState.showProgress(container, 65, 'Uploading...');
 
 ```javascript
 // Before
-alert('Error occurred');
+alert("Error occurred");
 
 // After
-toast.error('Error occurred');
+toast.error("Error occurred");
 ```
 
 **Step 3**: Add form validation
 
 ```javascript
-const form = document.getElementById('myForm');
+const form = document.getElementById("myForm");
 new FormValidator(form);
 
-form.addEventListener('validSubmit', (e) => {
+form.addEventListener("validSubmit", (e) => {
   // Form is valid, proceed
 });
 ```
@@ -370,15 +370,15 @@ form.addEventListener('validSubmit', (e) => {
 ```javascript
 const btn = form.querySelector('button[type="submit"]');
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  LoadingState.showButtonLoading(btn, 'Saving...');
+  LoadingState.showButtonLoading(btn, "Saving...");
 
   try {
     await saveData();
-    toast.success('Saved!');
+    toast.success("Saved!");
   } catch (error) {
-    toast.error('Failed to save');
+    toast.error("Failed to save");
   } finally {
     LoadingState.hideButtonLoading(btn);
   }

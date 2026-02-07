@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -16,11 +17,9 @@ and optimizes them for:
 Does NOT provide legal advice - acts as drafting and optimization assistant only.
 """
 
-import json
 import os
 import re
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
 
 import openai
 
@@ -32,7 +31,7 @@ class LegalDocument:
     filename: str
     doc_type: str  # 'complaint', 'motion', 'certificate', 'exhibit', etc.
     content: str
-    metadata: Dict
+    metadata: dict
 
 
 @dataclass
@@ -52,18 +51,18 @@ class OptimizationResult:
 
     original_doc: LegalDocument
     optimized_content: str
-    changes_summary: List[str]
-    consistency_issues: List[str]
-    evidence_gaps: List[str]
-    procedural_issues: List[str]
-    strategic_improvements: List[str]
+    changes_summary: list[str]
+    consistency_issues: list[str]
+    evidence_gaps: list[str]
+    procedural_issues: list[str]
+    strategic_improvements: list[str]
     confidence_score: float
 
 
 class LegalDocumentOptimizer:
     """Advanced legal document optimization engine"""
 
-    def __init__(self, api_key: Optional[str] = None):
+Optional[def __init__(self, api_key: str] = None):
         """Initialize with OpenAI API key"""
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
         openai.api_key = self.api_key
@@ -82,11 +81,11 @@ class LegalDocumentOptimizer:
 
     def analyze_filing_set(
         self,
-        documents: List[LegalDocument],
-        evidence: List[EvidenceItem],
+        documents: list[LegalDocument],
+        evidence: list[EvidenceItem],
         jurisdiction: str = "default",
         filing_type: str = "state_court",
-    ) -> Dict:
+    ) -> dict:
         """
         Analyze entire filing set for consistency and optimization opportunities
 
@@ -113,10 +112,10 @@ class LegalDocumentOptimizer:
     def optimize_document(
         self,
         document: LegalDocument,
-        evidence: List[EvidenceItem],
-        related_docs: List[LegalDocument],
+        evidence: list[EvidenceItem],
+        related_docs: list[LegalDocument],
         jurisdiction: str = "default",
-        optimization_goals: Optional[Dict] = None,
+Optional[optimization_goals: dict] = None,
     ) -> OptimizationResult:
         """
         Optimize a single document within context of full filing set
@@ -165,7 +164,7 @@ class LegalDocumentOptimizer:
             confidence_score=analysis["confidence_score"],
         )
 
-    def _build_optimizer_prompt(self, doc_type: str, jurisdiction: str, goals: Dict) -> str:
+    def _build_optimizer_prompt(self, doc_type: str, jurisdiction: str, goals: dict) -> str:
         """Build specialized system prompt for document optimization"""
 
         base_prompt = """You are an advanced legal-document optimization assistant designed to support state-court filings.
@@ -281,8 +280,8 @@ You are provided with a legal document and supporting materials. Your role is to
     def _build_document_context(
         self,
         document: LegalDocument,
-        evidence: List[EvidenceItem],
-        related_docs: List[LegalDocument],
+        evidence: list[EvidenceItem],
+        related_docs: list[LegalDocument],
     ) -> str:
         """Build context string with evidence and related documents"""
 
@@ -347,7 +346,7 @@ Please provide the optimized version of this document, following all guidelines 
         except Exception as e:
             raise Exception(f"Error calling OpenAI API: {str(e)}")
 
-    def _check_consistency(self, documents: List[LegalDocument]) -> Dict:
+    def _check_consistency(self, documents: list[LegalDocument]) -> dict:
         """Check cross-document consistency"""
 
         issues = []
@@ -392,8 +391,8 @@ Please provide the optimized version of this document, following all guidelines 
         }
 
     def _analyze_evidence_coverage(
-        self, documents: List[LegalDocument], evidence: List[EvidenceItem]
-    ) -> Dict:
+        self, documents: list[LegalDocument], evidence: list[EvidenceItem]
+    ) -> dict:
         """Analyze how well evidence supports factual allegations"""
 
         # Extract factual allegations from documents
@@ -422,8 +421,8 @@ Please provide the optimized version of this document, following all guidelines 
         }
 
     def _check_procedural_compliance(
-        self, documents: List[LegalDocument], jurisdiction: str
-    ) -> Dict:
+        self, documents: list[LegalDocument], jurisdiction: str
+    ) -> dict:
         """Check procedural compliance for jurisdiction"""
 
         issues = []
@@ -449,7 +448,7 @@ Please provide the optimized version of this document, following all guidelines 
 
         return {"compliant": len(issues) == 0, "issues": issues, "jurisdiction": jurisdiction}
 
-    def _extract_party_names(self, content: str) -> Dict[str, List[str]]:
+    def _extract_party_names(self, content: str) -> dict[str, list[str]]:
         """Extract plaintiff and defendant names"""
         # Simplified - would need more sophisticated parsing
         plaintiffs = []
@@ -467,7 +466,7 @@ Please provide the optimized version of this document, following all guidelines 
 
         return {"plaintiffs": plaintiffs, "defendants": defendants}
 
-    def _extract_case_number(self, content: str) -> Optional[str]:
+Optional[def _extract_case_number(self, content: str) -> str]:
         """Extract case number"""
         # Common patterns: "Case No. 12-CV-34567", "No. 2023-1234", etc.
         patterns = [
@@ -483,13 +482,13 @@ Please provide the optimized version of this document, following all guidelines 
 
         return None
 
-    def _check_date_consistency(self, documents: List[LegalDocument]) -> List[str]:
+    def _check_date_consistency(self, documents: list[LegalDocument]) -> list[str]:
         """Check for date inconsistencies"""
         issues = []
         # Implementation would check dates across documents
         return issues
 
-    def _extract_allegations(self, content: str) -> List[str]:
+    def _extract_allegations(self, content: str) -> list[str]:
         """Extract factual allegations from document"""
         allegations = []
         # Look for numbered paragraphs or allegations
@@ -499,8 +498,8 @@ Please provide the optimized version of this document, following all guidelines 
         return allegations
 
     def _find_supporting_evidence(
-        self, allegation: str, evidence: List[EvidenceItem]
-    ) -> Optional[str]:
+        self, allegation: str, evidence: list[EvidenceItem]
+Optional[) -> str]:
         """Find evidence that supports an allegation"""
         # Simplified keyword matching - would use semantic search in production
         for ev in evidence:
@@ -508,12 +507,12 @@ Please provide the optimized version of this document, following all guidelines 
             pass
         return None
 
-    def _get_required_documents(self, jurisdiction: str) -> List[str]:
+    def _get_required_documents(self, jurisdiction: str) -> list[str]:
         """Get list of required documents for jurisdiction"""
         # Default requirements
         return ["complaint", "certificate_of_service"]
 
-    def _analyze_optimization_changes(self, original: str, optimized: str) -> Dict:
+    def _analyze_optimization_changes(self, original: str, optimized: str) -> dict:
         """Analyze what changed and why"""
 
         # Parse optimized output (assuming GPT formatted it with sections)
@@ -528,7 +527,7 @@ Please provide the optimized version of this document, following all guidelines 
             "confidence_score": sections.get("confidence_score", 0.85),
         }
 
-    def _parse_optimized_output(self, optimized: str) -> Dict:
+    def _parse_optimized_output(self, optimized: str) -> dict:
         """Parse structured output from GPT"""
         sections = {}
 

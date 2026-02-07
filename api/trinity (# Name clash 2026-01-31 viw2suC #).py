@@ -17,9 +17,8 @@ Endpoints:
 import logging
 from functools import wraps
 
-from flask import Blueprint, jsonify, request
-
 from auth_routes import login_required, tier_required
+from flask import Blueprint, jsonify, request
 from models_auth import TierLevel
 
 logger = logging.getLogger(__name__)

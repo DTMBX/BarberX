@@ -1,54 +1,54 @@
-<footer class="site-footer">
-  <div class="footer-container">
-    <!-- Footer Main -->
-    <div class="footer-grid">
-      <!-- Brand Column -->
-      <div class="footer-brand-col">
-        <a href="{{ '/' | relative_url }}" class="footer-brand">
+<footer class="site-footer bg-gray-100 border-t border-gray-200 mt-12" role="contentinfo">
+  <div class="footer-container max-w-7xl mx-auto px-4 py-8">
+    <div class="footer-grid flex flex-col md:flex-row gap-8 md:gap-12">
+      <div class="footer-brand-col flex-1">
+        <a href="{{ '/' | relative_url }}" class="footer-brand flex items-center mb-2">
           <img
-            src="/assets/img/brand/evident-wordmark-light-hd.svg"
+            src="/assets/img/logo/light-variant-logo.svg"
             alt="Evident Trinity E Wordmark"
-            style="height: 40px; width: auto; display: block; margin-right: 0"
+            class="h-8 md:h-10"
           />
         </a>
-        <p class="footer-tagline">Legal-grade evidence processing and verification for modern legal practice.</p>
-        <div class="footer-social">
-          <a href="https://github.com/DTMBX/Evident" aria-label="GitHub" class="social-link">
-            <!-- GitHub icon omitted for brevity -->
-            GitHub
-          </a>
-          <a href="https://twitter.com/evidenttech" aria-label="Twitter" class="social-link"> Twitter </a>
-          <a href="mailto:contact@evident.info" aria-label="Email" class="social-link"> Email </a>
+        <p class="footer-tagline text-gray-700 mb-4">
+          Legal-grade evidence processing and verification for modern legal practice.
+        </p>
+        <div class="footer-social flex gap-3">
+          <a
+            href="https://github.com/DTMBX/Evident"
+            aria-label="GitHub"
+            class="social-link text-gray-600 hover:text-blue-700"
+            >GitHub</a
+          >
+          <a
+            href="https://twitter.com/evidenttech"
+            aria-label="Twitter"
+            class="social-link text-gray-600 hover:text-blue-700"
+            >Twitter</a
+          >
+          <a
+            href="mailto:contact@evident.info"
+            aria-label="Email"
+            class="social-link text-gray-600 hover:text-blue-700"
+            >Email</a
+          >
         </div>
       </div>
-      <nav class="footer-nav" aria-label="Footer" style="flex: 1 1 200px">
-        <ul
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5em;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            font-size: 1rem;
-            color: var(--muted);
-          "
-        >
-          <li><a href="/about">About</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/docs">Docs</a></li>
-          <li><a href="/contact">Contact</a></li>
+      <nav class="footer-nav flex-1" aria-label="Footer">
+        <ul class="flex flex-wrap gap-4 list-none m-0 p-0 text-gray-600">
+          <li><a href="/about" class="hover:text-blue-700">About</a></li>
+          <li><a href="/faq" class="hover:text-blue-700">FAQ</a></li>
+          <li><a href="/docs" class="hover:text-blue-700">Docs</a></li>
+          <li><a href="/contact" class="hover:text-blue-700">Contact</a></li>
         </ul>
       </nav>
-      <div class="footer-meta" style="font-size: 0.98rem; color: var(--muted); text-align: right; min-width: 180px">
+      <div class="footer-meta flex-1 text-right text-gray-500 text-sm min-w-[180px]">
         <span>&copy; 2024 Evident. All rights reserved.</span>
-        <span class="footer-meta-links" style="margin-left: 1em">
-          <a href="/privacy">Privacy</a>
-          <span style="margin: 0 0.5em">|</span>
-          <a href="/terms">Terms</a>
+        <span class="footer-meta-links ml-2">
+          <a href="/privacy" class="hover:text-blue-700">Privacy</a>
+          <span class="mx-1">|</span>
+          <a href="/terms" class="hover:text-blue-700">Terms</a>
         </span>
       </div>
     </div>
-    <!-- Close .footer-grid -->
   </div>
 </footer>

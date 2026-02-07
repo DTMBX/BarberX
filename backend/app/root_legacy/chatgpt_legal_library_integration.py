@@ -11,9 +11,6 @@ Enables ChatGPT assistant to:
 - Link to full case text in the library
 """
 
-import json
-from typing import Dict, List, Optional, Tuple
-
 from .retrieval_service import Passage, RetrievalService
 
 try:
@@ -34,7 +31,7 @@ class ChatGPTLegalLibraryIntegration:
 
     def search_library_for_context(
         self, user_message: str, user_id: int = None
-    ) -> Tuple[List[Passage], Dict[str, Any]]:
+    ) -> tuple[list[Passage], dict[str, Any]]:
         """
         Search legal library based on user's question using unified retrieval
 
@@ -69,7 +66,7 @@ class ChatGPTLegalLibraryIntegration:
 
         return passages, citations_metadata
 
-    def enhance_system_prompt(self, base_prompt: str, passages: List[Passage]) -> str:
+    def enhance_system_prompt(self, base_prompt: str, passages: list[Passage]) -> str:
         """
         Add retrieved passages to ChatGPT system prompt with strict citation requirements
 
@@ -128,7 +125,7 @@ class ChatGPTLegalLibraryIntegration:
 
         return response_text
 
-    def _extract_legal_keywords(self, text: str) -> List[str]:
+    def _extract_legal_keywords(self, text: str) -> list[str]:
         """Extract legal keywords from user message"""
 
         # Common legal terms
@@ -208,5 +205,3 @@ def send_message():
     
     return jsonify({'response': response})
 """
-
-

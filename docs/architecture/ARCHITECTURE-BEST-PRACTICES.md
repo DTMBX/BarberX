@@ -57,12 +57,10 @@
 ### Tier 1: Code Repository (GitHub)
 
 ```yaml
-What Lives Here:
-  ✓ Source code (.py, .js, .html files) ✓ Configuration files (render.yaml,
+What Lives Here: ✓ Source code (.py, .js, .html files) ✓ Configuration files (render.yaml,
   requirements.txt) ✓ Documentation (.md files) ✓ Version history (git commits)
 
-What NEVER Lives Here:
-  ✗ User-uploaded files (PDFs, videos, images) ✗ Database data (user accounts,
+What NEVER Lives Here: ✗ User-uploaded files (PDFs, videos, images) ✗ Database data (user accounts,
   analysis results) ✗ Generated reports ✗ Cache data ✗ Environment secrets (API
   keys)
 
@@ -74,12 +72,10 @@ Storage Limit: 1-100 GB (not for large files!)
 ### Tier 2: Application Server (Render/AWS/Azure)
 
 ```yaml
-What Lives Here:
-  ✓ Running Flask application ✓ Python environment & dependencies ✓ Active user
+What Lives Here: ✓ Running Flask application ✓ Python environment & dependencies ✓ Active user
   sessions ✓ Temporary processing files ✓ Application logs
 
-What NEVER Lives Here:
-  ✗ Git repository (.git folder - too large) ✗ Long-term file storage (use
+What NEVER Lives Here: ✗ Git repository (.git folder - too large) ✗ Long-term file storage (use
   S3/Azure Blob) ✗ Large video files (use cloud storage)
 
 Access: HTTP/HTTPS endpoints
@@ -90,12 +86,10 @@ Storage Limit: 10-50 GB ephemeral (resets on deploy!)
 ### Tier 3: Database (PostgreSQL on Render/AWS)
 
 ```yaml
-What Lives Here:
-  ✓ User accounts & profiles ✓ Analysis metadata ✓ Case information ✓
+What Lives Here: ✓ User accounts & profiles ✓ Analysis metadata ✓ Case information ✓
   Subscription data ✓ Audit logs
 
-What NEVER Lives Here:
-  ✗ Large files (videos, PDFs) - use file paths to S3 ✗ Source code ✗
+What NEVER Lives Here: ✗ Large files (videos, PDFs) - use file paths to S3 ✗ Source code ✗
   Application logic
 
 Access: Private connection string
@@ -106,12 +100,10 @@ Storage Limit: 1 GB - 1 TB+ (scalable)
 ### Tier 4: Object Storage (AWS S3 / Azure Blob)
 
 ```yaml
-What Lives Here:
-  ✓ User-uploaded PDFs ✓ BWC video files ✓ Generated reports ✓ Evidence images ✓
+What Lives Here: ✓ User-uploaded PDFs ✓ BWC video files ✓ Generated reports ✓ Evidence images ✓
   Audio transcriptions
 
-Why Separate Storage:
-  ✓ Unlimited scalability ✓ 99.99% durability ✓ CDN integration ✓ Automatic
+Why Separate Storage: ✓ Unlimited scalability ✓ 99.99% durability ✓ CDN integration ✓ Automatic
   backups ✓ Cost-effective ($0.023/GB/month)
 
 Access: Pre-signed URLs or CDN
@@ -121,11 +113,9 @@ Cost: ~$2-50/month for 100-1000 GB
 ### Tier 5: CDN (Cloudflare / AWS CloudFront)
 
 ```yaml
-What Lives Here:
-  ✓ CSS stylesheets ✓ JavaScript files ✓ Logo images ✓ Fonts ✓ Icons
+What Lives Here: ✓ CSS stylesheets ✓ JavaScript files ✓ Logo images ✓ Fonts ✓ Icons
 
-Why CDN:
-  ✓ 10-100x faster load times ✓ Reduced server bandwidth ✓ Global edge locations
+Why CDN: ✓ 10-100x faster load times ✓ Reduced server bandwidth ✓ Global edge locations
   ✓ DDoS protection
 
 Access: Public HTTPS URLs

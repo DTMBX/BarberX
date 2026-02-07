@@ -4,7 +4,7 @@
    ============================================================================ */
 
 /* Import the global theme first */
-@import url('../base/theme.css');
+@import url("../base/theme.css");
 
 /* ===== HOME PAGE LIGHT MODE OVERRIDES ===== */
 
@@ -448,7 +448,7 @@
 
 /* Dark Mode Boundaries */
 .dark-mode .home-boundaries,
-[data-theme='dark'] .home-boundaries {
+[data-theme="dark"] .home-boundaries {
   background: rgb(14 27 42 / 70%);
   border: 2px solid rgb(110 231 183 / 20%);
 }
@@ -477,22 +477,22 @@
 
 /* Dark Mode Boundaries Text */
 .dark-mode .home-boundaries .section-eyebrow,
-[data-theme='dark'] .home-boundaries .section-eyebrow {
+[data-theme="dark"] .home-boundaries .section-eyebrow {
   color: var(--link-on-dark, #6ee7b7);
 }
 
 .dark-mode .home-boundaries .section-heading,
-[data-theme='dark'] .home-boundaries .section-heading {
+[data-theme="dark"] .home-boundaries .section-heading {
   color: var(--text-on-dark, #f9fafb);
 }
 
 .dark-mode .home-boundaries .bullets li,
-[data-theme='dark'] .home-boundaries .bullets li {
+[data-theme="dark"] .home-boundaries .bullets li {
   color: var(--text-on-dark-muted, #cbd5e1);
 }
 
 .dark-mode .home-boundaries .bullets li::before,
-[data-theme='dark'] .home-boundaries .bullets li::before {
+[data-theme="dark"] .home-boundaries .bullets li::before {
   background: var(--link-on-dark, #6ee7b7);
   box-shadow: 0 2px 8px rgb(110 231 183 / 30%);
 }
@@ -511,7 +511,7 @@
 }
 
 .ff-home .bullets li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0.55rem;

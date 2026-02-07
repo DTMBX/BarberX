@@ -8,9 +8,8 @@ PostHog, Amplitude, and Prophet-based churn prediction
 
 import os
 from datetime import datetime, timedelta
-from typing import Any, Dict, Optional
+from typing import Any
 
-import numpy as np
 import pandas as pd
 
 # PostHog integration
@@ -46,7 +45,7 @@ class UserAnalytics:
     """Track user behavior and engagement"""
 
     @staticmethod
-    def track_event(user_id: int, event_name: str, properties: Dict[str, Any] = None):
+    def track_event(user_id: int, event_name: str, properties: dict[str, Any] = None):
         """Track event to all available analytics platforms"""
         properties = properties or {}
         properties["timestamp"] = datetime.utcnow().isoformat()
@@ -69,7 +68,7 @@ class UserAnalytics:
                 print(f"[ERROR] Amplitude tracking failed: {e}")
 
     @staticmethod
-    def identify_user(user_id: int, traits: Dict[str, Any]):
+    def identify_user(user_id: int, traits: dict[str, Any]):
         """Identify user with traits"""
         # PostHog
         if POSTHOG_AVAILABLE:
@@ -151,7 +150,7 @@ class ChurnPredictor:
     def __init__(self):
         self.churn_threshold = 0.7  # 70% probability
 
-    def predict_churn(self, user_activity: pd.DataFrame) -> Dict[str, Any]:
+    def predict_churn(self, user_activity: pd.DataFrame) -> dict[str, Any]:
         """
         Predict churn probability based on user activity
 
@@ -223,7 +222,6 @@ class ChurnPredictor:
         """Get user activity from database"""
         from sqlalchemy import func
 
-        from models_auth import User
         from usage_meter import SmartMeterEvent
 
         since = datetime.utcnow() - timedelta(days=days)
@@ -264,7 +262,7 @@ class RetentionTracker:
     """Track and analyze user retention"""
 
     @staticmethod
-    def calculate_retention_cohort(signup_date: datetime, user_id: int) -> Dict[str, Any]:
+    def calculate_retention_cohort(signup_date: datetime, user_id: int) -> dict[str, Any]:
         """Calculate retention metrics for user cohort"""
         from usage_meter import SmartMeterEvent
 
@@ -300,5 +298,3 @@ class RetentionTracker:
 analytics = UserAnalytics()
 churn_predictor = ChurnPredictor()
 retention_tracker = RetentionTracker()
-
-

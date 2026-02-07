@@ -10,10 +10,10 @@ Requires admin role
 from functools import wraps
 
 from flask import jsonify, request
+from models_auth import User
 
 from api import admin_api
 from api.auth import jwt_required
-from models_auth import User
 
 
 def admin_required(f):

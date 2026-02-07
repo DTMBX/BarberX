@@ -7,23 +7,25 @@ Login, logout, signup, and user management with enhanced security
 """
 
 import logging
-import secrets
-import hashlib
-from datetime import datetime, timedelta
+import time
+from collections import defaultdict
+from datetime import datetime
 from functools import wraps
 from urllib.parse import urljoin, urlparse
-from collections import defaultdict
-import time
 
-from flask import (Blueprint, flash, jsonify, redirect, render_template,
-                   request, session, url_for)
-from flask_login import (LoginManager, current_user, login_required,
-                         login_user, logout_user)
+from flask import Blueprint, flash, jsonify, redirect, render_template, request, session, url_for
+from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask_wtf.csrf import validate_csrf
 from wtforms import ValidationError
 
-from models_auth import (EmailVerificationToken, PasswordResetToken, TierLevel,
-                         UsageTracking, User, db)
+from models_auth import (
+    EmailVerificationToken,
+    PasswordResetToken,
+    TierLevel,
+    UsageTracking,
+    User,
+    db,
+)
 
 # AI Security & Analytics
 try:
@@ -56,7 +58,7 @@ except ImportError as e:
 
 # In-memory rate limiting (consider Redis for production)
 login_attempts = defaultdict(list)  # IP -> list of timestamps
-failed_logins = defaultdict(int)    # email -> count of failures
+failed_logins = defaultdict(int)  # email -> count of failures
 lockout_until = defaultdict(float)  # email -> lockout timestamp
 
 # Rate limit settings
@@ -67,9 +69,9 @@ LOCKOUT_DURATION = 300  # 5 minutes
 
 def get_client_ip():
     """Get client IP, handling proxies"""
-    if request.headers.get('X-Forwarded-For'):
-        return request.headers['X-Forwarded-For'].split(',')[0].strip()
-    return request.remote_addr or '127.0.0.1'
+    if request.headers.get("X-Forwarded-For"):
+        return request.headers["X-Forwarded-For"].split(",")[0].strip()
+    return request.remote_addr or "127.0.0.1"
 
 
 def check_rate_limit(ip_address):
@@ -296,7 +298,9 @@ def login():
 
         # Block highly suspicious attempts
         if recommendation == "block":
-            logger.warning(f"Blocked suspicious login attempt for {email}: risk_score={risk_score}, IP={client_ip}")
+            logger.warning(
+                f"Blocked suspicious login attempt for {email}: risk_score={risk_score}, IP={client_ip}"
+            )
             flash(
                 "Suspicious activity detected. Please try again later or contact support.", "danger"
             )
@@ -350,11 +354,17 @@ def login():
             logger.warning(f"Failed login attempt for {email} from IP {client_ip}")
 
             if is_now_locked:
-                flash(f"Too many failed attempts. Account locked for {LOCKOUT_DURATION // 60} minutes.", "danger")
+                flash(
+                    f"Too many failed attempts. Account locked for {LOCKOUT_DURATION // 60} minutes.",
+                    "danger",
+                )
             else:
                 remaining_attempts = MAX_FAILED_LOGINS - failed_logins.get(email, 0)
                 if remaining_attempts <= 2:
-                    flash(f"Invalid email or password. {remaining_attempts} attempts remaining.", "danger")
+                    flash(
+                        f"Invalid email or password. {remaining_attempts} attempts remaining.",
+                        "danger",
+                    )
                 else:
                     flash("Invalid email or password.", "danger")
 
@@ -481,9 +491,9 @@ def logout():
 def auth_status():
     """Check authentication status - useful for debugging"""
     from flask import current_app
-    
+
     client_ip = get_client_ip()
-    
+
     status = {
         "authenticated": current_user.is_authenticated,
         "timestamp": datetime.utcnow().isoformat(),
@@ -496,16 +506,20 @@ def auth_status():
         "is_https": request.is_secure,
         "protocol": request.scheme,
     }
-    
+
     if current_user.is_authenticated:
-        status.update({
-            "user_id": current_user.id,
-            "email": current_user.email,
-            "tier": current_user.tier.name if hasattr(current_user.tier, 'name') else str(current_user.tier),
-            "is_admin": current_user.is_admin,
-            "is_active": current_user.is_active,
-        })
-    
+        status.update(
+            {
+                "user_id": current_user.id,
+                "email": current_user.email,
+                "tier": current_user.tier.name
+                if hasattr(current_user.tier, "name")
+                else str(current_user.tier),
+                "is_admin": current_user.is_admin,
+                "is_active": current_user.is_active,
+            }
+        )
+
     return jsonify(status)
 
 
@@ -514,29 +528,27 @@ def test_credentials():
     """Test credentials without logging in - for diagnostics only"""
     email = request.form.get("email", "").strip().lower()
     password = request.form.get("password", "")
-    
+
     if not email or not password:
         return jsonify({"success": False, "error": "Email and password required"})
-    
+
     user = User.query.filter_by(email=email).first()
-    
+
     if not user:
-        return jsonify({
-            "success": False, 
-            "error": "User not found",
-            "email_exists": False
-        })
-    
+        return jsonify({"success": False, "error": "User not found", "email_exists": False})
+
     password_valid = user.check_password(password)
-    
-    return jsonify({
-        "success": password_valid,
-        "email_exists": True,
-        "password_valid": password_valid,
-        "user_active": user.is_active,
-        "user_verified": user.is_verified,
-        "tier": user.tier.name if hasattr(user.tier, 'name') else str(user.tier),
-    })
+
+    return jsonify(
+        {
+            "success": password_valid,
+            "email_exists": True,
+            "password_valid": password_valid,
+            "user_active": user.is_active,
+            "user_verified": user.is_verified,
+            "tier": user.tier.name if hasattr(user.tier, "name") else str(user.tier),
+        }
+    )
 
 
 @auth_bp.route("/verify-login", methods=["GET", "POST"])
@@ -1108,4 +1120,3 @@ def admin_change_user_tier(user_id):
         flash("Invalid tier selected.", "danger")
 
     return redirect(url_for("auth.admin_users"))
-
