@@ -91,3 +91,28 @@ It is **not** designed to provide legal advice or automated legal conclusions.
 pip install -r requirements.txt
 python app.py
 ```
+
+---
+
+## Local linting
+
+Run these checks locally before creating a PR to catch formatting and lint issues (these match CI):
+
+- Prettier (formatting):
+
+```bash
+npx prettier --check .
+```
+
+- Stylelint (CSS):
+
+```bash
+npx stylelint "**/*.css"
+```
+
+- HTMLHint (HTML):
+
+```bash
+npx htmlhint "**/*.html"
+```
+
