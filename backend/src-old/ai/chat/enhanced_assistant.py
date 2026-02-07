@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -33,7 +34,7 @@ class EnhancedChatAssistant:
     - Multi-modal context (text, audio transcripts, evidence)
     """
 
-    def __init__(self, user_id: int, project_id: int | None = None):
+Optional[def __init__(self, user_id: int, project_id: int] = None):
         """
         Initialize enhanced chat assistant
 
@@ -48,14 +49,14 @@ class EnhancedChatAssistant:
         self.orchestrator = get_orchestrator()
 
         # Conversation state
-        self.conversation_id: int | None = None
+Optional[self.conversation_id: int] = None
         self.message_history: list[dict] = []
         self.referenced_documents: list[int] = []  # Track doc_ids
 
         logger.info(f"EnhancedChatAssistant initialized for user_id={user_id}")
 
     def start_conversation(
-        self, title: str | None = None, context_documents: list[int] | None = None
+Optional[self, title: str]Optional[= None, context_documents: list[int]] = None
     ) -> dict[str, Any]:
         """
         Start a new conversation with optional document context
@@ -219,7 +220,7 @@ class EnhancedChatAssistant:
         }
 
     def search_conversation_history(
-        self, query: str, message_type: str | None = None
+Optional[self, query: str, message_type: str] = None
     ) -> list[dict[str, Any]]:
         """
         Search within conversation history

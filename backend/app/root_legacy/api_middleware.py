@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -62,7 +63,7 @@ class RateLimiter:
 
         return bucket
 
-    def check_limit(self, identifier: str, tier: str = "free") -> tuple[bool, int | None]:
+Optional[def check_limit(self, identifier: str, tier: str = "free") -> tuple[bool, int]]:
         """
         Check if request is allowed
 
@@ -96,7 +97,7 @@ class RateLimiter:
 rate_limiter = RateLimiter()
 
 
-def rate_limit(tier_override: str | None = None):
+Optional[def rate_limit(tier_override: str] = None):
     """
     Rate limiting decorator
 
@@ -157,7 +158,7 @@ class APIKeyAuth:
         self.db = db
         self.logger = logging.getLogger(__name__)
 
-    def validate_api_key(self, api_key: str) -> dict | None:
+Optional[def validate_api_key(self, api_key: str) -> dict]:
         """
         Validate API key and return user info
 
@@ -440,8 +441,8 @@ def handle_errors():
 def api_endpoint(
     db,
     require_auth: bool = True,
-    min_tier: str | None = None,
-    validation_schema: dict | None = None,
+Optional[min_tier: str] = None,
+Optional[validation_schema: dict] = None,
 ):
     """
     Combined decorator for API endpoints

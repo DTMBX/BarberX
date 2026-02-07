@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -60,7 +61,7 @@ class Violation:
     legal_basis: str
     case_law_support: list[str]
     recommended_action: str
-    timestamp_reference: str | None = None
+Optional[timestamp_reference: str] = None
     confidence: float = 0.0
 
 
@@ -75,7 +76,7 @@ class CaseLawPrecedent:
     holding: str
     relevance_score: float
     key_facts: list[str]
-    distinguishing_factors: list[str] | None = None
+Optional[distinguishing_factors: list[str]] = None
 
 
 class ConstitutionalRightsAnalyzer:

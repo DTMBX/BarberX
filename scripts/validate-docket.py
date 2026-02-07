@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -227,7 +228,7 @@ def check_for_duplicates(docket_dir: Path) -> list[str]:
     return duplicates
 
 
-def generate_checksum(filepath: Path) -> str | None:
+Optional[def generate_checksum(filepath: Path) -> str]:
     """Generate SHA-256 checksum for a file."""
     if not filepath.exists():
         return None

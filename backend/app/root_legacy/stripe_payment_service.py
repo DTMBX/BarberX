@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -25,7 +26,7 @@ class StripePaymentService:
     - Trial periods
     """
 
-    def __init__(self, api_key: str | None = None):
+Optional[def __init__(self, api_key: str] = None):
         """
         Initialize Stripe service
 
@@ -38,7 +39,7 @@ class StripePaymentService:
 
         self.webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
 
-    def create_customer(self, email: str, name: str, metadata: dict | None = None) -> dict:
+Optional[def create_customer(self, email: str, name: str, metadata: dict] = None) -> dict:
         """
         Create Stripe customer
 
@@ -60,7 +61,7 @@ class StripePaymentService:
         }
 
     def create_subscription(
-        self, customer_id: str, price_id: str, trial_days: int = 14, metadata: dict | None = None
+Optional[self, customer_id: str, price_id: str, trial_days: int = 14, metadata: dict] = None
     ) -> dict:
         """
         Create subscription for customer
@@ -208,7 +209,7 @@ class StripePaymentService:
         }
 
     def create_usage_record(
-        self, subscription_item_id: str, quantity: int, timestamp: int | None = None
+Optional[self, subscription_item_id: str, quantity: int, timestamp: int] = None
     ) -> dict:
         """
         Record usage for metered billing

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -767,7 +768,7 @@ class AgentManager:
         self.storage_path.mkdir(parents=True, exist_ok=True)
         self.agents = {}
 
-    def deploy_agent(self, agent_type: str, user_id: str, config: dict | None = None) -> str:
+Optional[def deploy_agent(self, agent_type: str, user_id: str, config: dict] = None) -> str:
         """Deploy a new agent instance"""
         agent_id = str(uuid.uuid4())[:12]
 
@@ -877,7 +878,7 @@ class AgentManager:
                 indent=2,
             )
 
-    def _load_agent(self, agent_id: str) -> LegalAIAgent | None:
+Optional[def _load_agent(self, agent_id: str) -> LegalAIAgent]:
         """Load agent from disk"""
         # Import document agents
         from legal_document_agents import (

@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Optional
 
 import sqlite3
 from pathlib import Path
@@ -61,7 +62,7 @@ def init_db(db_path: Path) -> sqlite3.Connection:
     return conn
 
 
-def get_conn(db_path: Path | None = None) -> sqlite3.Connection:
+Optional[def get_conn(db_path: Path] = None) -> sqlite3.Connection:
     if db_path is None:
         db_path = Path.cwd() / "backend" / "tools" / "law" / "law.db"
     return init_db(db_path)

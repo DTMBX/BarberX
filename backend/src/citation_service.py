@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -43,7 +44,7 @@ class CitationService:
         conn.row_factory = sqlite3.Row
         return conn
 
-    def persist_citations(self, analysis_id: str | None, passages: list[Passage]) -> str:
+Optional[def persist_citations(self, analysis_id: str], passages: list[Passage]) -> str:
         """
         Store citations for an analysis
 

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -155,11 +156,11 @@ class LegalLibraryService:
     def search_library(
         self,
         query: str,
-        doc_type: str | None = None,
-        court: str | None = None,
-        jurisdiction: str | None = None,
-        date_from: datetime | None = None,
-        date_to: datetime | None = None,
+Optional[doc_type: str] = None,
+Optional[court: str] = None,
+Optional[jurisdiction: str] = None,
+Optional[date_from: datetime] = None,
+Optional[date_to: datetime] = None,
         limit: int = 50,
     ) -> list[LegalDocument]:
         """
@@ -200,7 +201,7 @@ class LegalLibraryService:
 
         return results
 
-    def ingest_from_courtlistener(self, citation: str) -> LegalDocument | None:
+Optional[def ingest_from_courtlistener(self, citation: str) -> LegalDocument]:
         """
         Fetch case from CourtListener API by citation
 
@@ -272,10 +273,10 @@ class LegalLibraryService:
         file_path: str,
         title: str,
         doc_type: str = "user_upload",
-        user_id: int | None = None,
-        case_id: int | None = None,
-        metadata: dict | None = None,
-    ) -> LegalDocument | None:
+Optional[user_id: int] = None,
+Optional[case_id: int] = None,
+Optional[metadata: dict] = None,
+Optional[) -> LegalDocument]:
         """
         Ingest legal document from uploaded file (PDF, TXT, DOCX)
 
@@ -382,7 +383,7 @@ class LegalLibraryService:
         user_id: int,
         text_selection: str,
         annotation: str,
-        tags: list[str] | None = None,
+Optional[tags: list[str]] = None,
     ) -> DocumentAnnotation:
         """Add user annotation to document"""
 
@@ -430,7 +431,7 @@ class LegalLibraryService:
             print(f"Error extracting text: {e}")
             return None
 
-    def _parse_citation(self, text: str) -> str | None:
+Optional[def _parse_citation(self, text: str) -> str]:
         """Extract legal citation from text"""
 
         # Common citation patterns
@@ -558,7 +559,7 @@ class CitationParser:
     """Parse and validate legal citations"""
 
     @staticmethod
-    def parse(citation_text: str) -> dict | None:
+Optional[def parse(citation_text: str) -> dict]:
         """
         Parse citation into components
 

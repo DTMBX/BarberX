@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -479,7 +480,7 @@ class APIUsageMeteringService:
         user_id: int,
         provider: str,
         api_key: str,
-        key_name: str | None = None,
+Optional[key_name: str] = None,
     ) -> dict[str, Any]:
         """
         Securely store an API key
@@ -552,7 +553,7 @@ class APIUsageMeteringService:
             db.session.rollback()
             return {"success": False, "error": str(e)}
 
-    def get_api_key(self, user_id: int, provider: str = "openai") -> str | None:
+Optional[def get_api_key(self, user_id: int, provider: str = "openai") -> str]:
         """
         Retrieve decrypted API key for user
 
@@ -658,11 +659,11 @@ class APIUsageMeteringService:
         model: str,
         prompt_tokens: int,
         completion_tokens: int,
-        request_data: dict | None = None,
-        response_data: dict | None = None,
+Optional[request_data: dict] = None,
+Optional[response_data: dict] = None,
         endpoint: str = "/chat/completions",
         success: bool = True,
-        error_type: str | None = None,
+Optional[error_type: str] = None,
     ) -> APIUsageLog:
         """
         Record API usage with verification hashes
@@ -802,7 +803,7 @@ class APIUsageMeteringService:
     # Rate Limiting
     # -------------------------------------------------------------------------
 
-    def check_rate_limit(self, user_id: int) -> tuple[bool, str | None]:
+Optional[def check_rate_limit(self, user_id: int) -> tuple[bool, str]]:
         """
         Check if user is within rate limits
 
@@ -970,8 +971,8 @@ class APIUsageMeteringService:
     def export_usage_audit(
         self,
         user_id: int,
-        start_date: datetime | None = None,
-        end_date: datetime | None = None,
+Optional[start_date: datetime] = None,
+Optional[end_date: datetime] = None,
     ) -> list[dict]:
         """
         Export verifiable usage audit trail

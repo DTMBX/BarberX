@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -77,8 +78,8 @@ class TranscriptSegment:
     start_time: float
     end_time: float
     text: str
-    speaker: str | None = None  # "SPEAKER_00", "SPEAKER_01", etc.
-    speaker_label: str | None = None  # "Officer Smith", "Civilian", etc.
+Optional[speaker: str] = None  # "SPEAKER_00", "SPEAKER_01", etc.
+Optional[speaker_label: str] = None  # "Officer Smith", "Civilian", etc.
     confidence: float = 1.0
     words: list[dict] = field(default_factory=list)
 
@@ -107,7 +108,7 @@ class DiscrepancyReport:
     bwc_evidence: str
     conflicting_evidence: str
     conflicting_source: str  # "CAD log", "Police report", "Officer statement"
-    timestamp: float | None = None
+Optional[timestamp: float] = None
     description: str = ""
     legal_significance: str = ""
 
@@ -155,8 +156,8 @@ class BWCAnalysisReport:
     entities: dict[str, list[str]] = field(default_factory=dict)
 
     # Court documentation
-    evidence_number: str | None = None
-    case_number: str | None = None
+Optional[evidence_number: str] = None
+Optional[case_number: str] = None
 
     def to_dict(self) -> dict:
         return {
@@ -204,8 +205,8 @@ class BWCForensicAnalyzer:
     def __init__(
         self,
         whisper_model_size: str = "base",
-        hf_token: str | None = None,
-        device: str | None = None,
+Optional[hf_token: str] = None,
+Optional[device: str] = None,
     ):
         """
         Initialize BWC analyzer with AI models
@@ -287,7 +288,7 @@ class BWCForensicAnalyzer:
             source=source,
         )
 
-    def extract_audio(self, video_path: str, output_path: str | None = None) -> str:
+Optional[def extract_audio(self, video_path: str, output_path: str] = None) -> str:
         """
         Extract audio from video file using ffmpeg
 
@@ -345,7 +346,7 @@ class BWCForensicAnalyzer:
         logger.info(f"✅ Transcription complete: {len(result['segments'])} segments")
         return result
 
-    def diarize_speakers(self, audio_path: str) -> list[dict] | None:
+Optional[def diarize_speakers(self, audio_path: str) -> list[dict]]:
         """
         Identify and separate speakers in audio
 
@@ -370,7 +371,7 @@ class BWCForensicAnalyzer:
         return segments
 
     def merge_transcription_with_speakers(
-        self, transcription: dict, diarization: list[dict] | None
+Optional[self, transcription: dict, diarization: list[dict]]
     ) -> list[TranscriptSegment]:
         """
         Merge Whisper transcription with pyannote speaker diarization
@@ -442,7 +443,7 @@ class BWCForensicAnalyzer:
         return entities
 
     def label_speakers(
-        self, segments: list[TranscriptSegment], known_officers: list[str] | None = None
+Optional[self, segments: list[TranscriptSegment], known_officers: list[str]] = None
     ) -> dict[str, str]:
         """
         Attempt to label speakers based on context and known information
@@ -485,8 +486,8 @@ class BWCForensicAnalyzer:
     def detect_discrepancies(
         self,
         transcript: list[TranscriptSegment],
-        cad_log: dict | None = None,
-        police_report: str | None = None,
+Optional[cad_log: dict] = None,
+Optional[police_report: str] = None,
     ) -> list[DiscrepancyReport]:
         """
         Detect discrepancies between BWC footage and other evidence
@@ -566,11 +567,11 @@ class BWCForensicAnalyzer:
         video_path: str,
         acquired_by: str,
         source: str,
-        case_number: str | None = None,
-        evidence_number: str | None = None,
-        known_officers: list[str] | None = None,
-        cad_log: dict | None = None,
-        police_report: str | None = None,
+Optional[case_number: str] = None,
+Optional[evidence_number: str] = None,
+Optional[known_officers: list[str]] = None,
+Optional[cad_log: dict] = None,
+Optional[police_report: str] = None,
     ) -> BWCAnalysisReport:
         """
         Perform comprehensive forensic analysis of BWC file

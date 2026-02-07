@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -146,7 +147,7 @@ def list_opra_record_dirs(opra_root: Path) -> list[Path]:
     return sorted(dirs)
 
 
-def load_yaml_if_exists(path: Path) -> dict | None:
+Optional[def load_yaml_if_exists(path: Path) -> dict]:
     if not path.exists():
         return None
     data = yaml.safe_load(read_text(path)) or {}
@@ -163,7 +164,7 @@ def write_map_template(path: Path) -> None:
     write_text(path, content)
 
 
-def ensure_case_slug(case_file: Path) -> str | None:
+Optional[def ensure_case_slug(case_file: Path) -> str]:
     md = read_text(case_file)
     fm, body = split_front_matter(md)
 
@@ -240,7 +241,7 @@ def gather_opra_text_blob(opra_record_dir: Path) -> str:
     return "\n\n".join(parts)
 
 
-def merge_unique_list(existing: list | None, add: list[str]) -> list[str]:
+Optional[def merge_unique_list(existing: list], add: list[str]) -> list[str]:
     out: list[str] = []
     seen = set()
     for x in existing or []:

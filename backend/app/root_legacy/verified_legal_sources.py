@@ -91,7 +91,7 @@ class VerifiedLegalSources:
         },
     }
 
-    def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object | None = None):
+Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object] = None):
         if library is not None:
             self.library = library
         else:
@@ -118,7 +118,7 @@ class VerifiedLegalSources:
         info = self.get_source_info(source_name)
         return info.get("verified", False)
 
-    def import_from_courtlistener(self, citation: str) -> LegalDocument | None:
+Optional[def import_from_courtlistener(self, citation: str) -> LegalDocument]:
         """
         Import from CourtListener (verified source)
 
@@ -147,7 +147,7 @@ class VerifiedLegalSources:
 
         return doc
 
-    def import_from_cornell_lii(self, citation: str) -> LegalDocument | None:
+Optional[def import_from_cornell_lii(self, citation: str) -> LegalDocument]:
         """
         Import from Cornell Legal Information Institute
 
@@ -163,7 +163,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def import_from_govinfo(self, citation: str) -> LegalDocument | None:
+Optional[def import_from_govinfo(self, citation: str) -> LegalDocument]:
         """
         Import from GovInfo.gov (official U.S. government source)
 
@@ -179,7 +179,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def import_from_supreme_court_official(self, year: int, docket: str) -> LegalDocument | None:
+Optional[def import_from_supreme_court_official(self, year: int, docket: str) -> LegalDocument]:
         """
         Import directly from Supreme Court official website
 

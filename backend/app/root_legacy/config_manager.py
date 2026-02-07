@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -27,11 +28,11 @@ class DatabaseConfig:
     """Database configuration"""
 
     engine: str  # sqlite, postgresql, mysql
-    host: str | None = None
-    port: int | None = None
+Optional[host: str] = None
+Optional[port: int] = None
     database: str = "Evident.db"
-    username: str | None = None
-    password: str | None = None
+Optional[username: str] = None
+Optional[password: str] = None
     pool_size: int = 10
     max_overflow: int = 20
     pool_timeout: int = 30
@@ -44,8 +45,8 @@ class CacheConfig:
     """Cache configuration"""
 
     backend: str = "memory"  # memory, redis, memcached
-    host: str | None = None
-    port: int | None = None
+Optional[host: str] = None
+Optional[port: int] = None
     default_ttl: int = 3600
     max_size: int = 1000
 
@@ -68,11 +69,11 @@ class AppConfig:
     cache: CacheConfig = None
 
     # External services
-    stripe_secret_key: str | None = None
-    stripe_webhook_secret: str | None = None
-    openai_api_key: str | None = None
-    aws_access_key: str | None = None
-    aws_secret_key: str | None = None
+Optional[stripe_secret_key: str] = None
+Optional[stripe_webhook_secret: str] = None
+Optional[openai_api_key: str] = None
+Optional[aws_access_key: str] = None
+Optional[aws_secret_key: str] = None
 
     # Feature flags
     enable_2fa: bool = True
@@ -94,11 +95,11 @@ class AppConfig:
 class ConfigManager:
     """Centralized configuration management"""
 
-    def __init__(self, config_file: Path | None = None):
+Optional[def __init__(self, config_file: Path] = None):
         self.logger = logging.getLogger(__name__)
         self.config = self._load_config(config_file)
 
-    def _load_config(self, config_file: Path | None) -> AppConfig:
+Optional[def _load_config(self, config_file: Path]) -> AppConfig:
         """Load configuration from file or environment"""
 
         # Try to load from file

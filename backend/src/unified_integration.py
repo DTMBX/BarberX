@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -146,7 +147,7 @@ class UnifiedWorkflowOrchestrator:
         }
 
     def generate_document_from_analysis(
-        self, workflow_id: str, document_type: str, custom_inputs: dict | None = None
+Optional[self, workflow_id: str, document_type: str, custom_inputs: dict] = None
     ) -> dict[str, Any]:
         """
         Generate legal document based on evidence analysis

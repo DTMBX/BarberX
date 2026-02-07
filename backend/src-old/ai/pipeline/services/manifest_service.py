@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -37,7 +38,7 @@ class ManifestService:
         manifest/{sha256}.json                  - Audit trail
     """
 
-    def __init__(self, config: dict | None = None):
+Optional[def __init__(self, config: dict] = None):
         self.config = config or {}
 
         # Base paths
@@ -54,7 +55,7 @@ class ManifestService:
         logger.info(f"ManifestService initialized: storage={self.storage_root}")
 
     def ingest(
-        self, file_path: str, source_system: SourceSystem, metadata: dict | None = None
+Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = None
     ) -> IngestResult:
         """
         Ingest file: hash, dedupe, save to canonical location, create manifest
@@ -169,7 +170,7 @@ class ManifestService:
         self._save_manifest(sha256, manifest)
         logger.info(f"Updated manifest for {sha256}")
 
-    def get_manifest(self, sha256: str) -> ManifestRecord | None:
+Optional[def get_manifest(self, sha256: str) -> ManifestRecord]:
         """Load manifest by SHA-256"""
         return self._load_manifest(sha256)
 
@@ -185,7 +186,7 @@ class ManifestService:
                 sha256.update(chunk)
         return sha256.hexdigest()
 
-    def _check_duplicate(self, sha256: str) -> tuple[bool, int | None]:
+Optional[def _check_duplicate(self, sha256: str) -> tuple[bool, int]]:
         """
         Check if document with this hash already exists
 
@@ -239,7 +240,7 @@ class ManifestService:
 
         logger.debug(f"Saved manifest: {manifest_path}")
 
-    def _load_manifest(self, sha256: str) -> ManifestRecord | None:
+Optional[def _load_manifest(self, sha256: str) -> ManifestRecord]:
         """Load manifest from disk"""
         manifest_path = self.manifest_root / f"{sha256}.json"
 

@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Optional
 
 import re
 from html.parser import HTMLParser
@@ -16,7 +17,7 @@ class _TextStripper(HTMLParser):
         return "".join(self.parts)
 
 
-def canonicalize_bytes(raw: bytes, content_type: str | None = None) -> tuple[bytes, str]:
+Optional[def canonicalize_bytes(raw: bytes, content_type: str] = None) -> tuple[bytes, str]:
     """Return (canonical_bytes, canonical_text).
 
     Deterministic rules: normalize newlines to LF, collapse spaces, strip leading/trailing whitespace per line,

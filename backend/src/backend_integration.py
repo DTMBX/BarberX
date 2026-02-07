@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -51,7 +52,7 @@ class ServiceInfo:
     dependencies: list[str] = field(default_factory=list)
     initialized_at: datetime = field(default_factory=datetime.utcnow)
     error_count: int = 0
-    last_error: str | None = None
+Optional[last_error: str] = None
 
 
 class ServiceRegistry:
@@ -72,7 +73,7 @@ class ServiceRegistry:
             )
             self._logger.info(f"Service registered: {name} v{version}")
 
-    def get(self, name: str) -> Any | None:
+Optional[def get(self, name: str) -> Any]:
         """Get service instance"""
         service_info = self._services.get(name)
         if not service_info:
@@ -143,7 +144,7 @@ class Cache:
         self._hits = 0
         self._misses = 0
 
-    def get(self, key: str) -> Any | None:
+Optional[def get(self, key: str) -> Any]:
         """Get value from cache"""
         with self._lock:
             if key in self._cache:
@@ -160,7 +161,7 @@ class Cache:
             self._misses += 1
             return None
 
-    def set(self, key: str, value: Any, ttl: int | None = None) -> None:
+Optional[def set(self, key: str, value: Any, ttl: int] = None) -> None:
         """Set value in cache"""
         with self._lock:
             ttl = ttl or self._default_ttl
@@ -279,7 +280,7 @@ perf_monitor = PerformanceMonitor()
 performance_monitor = perf_monitor  # Alias for consistency
 
 
-def monitored(operation_name: str | None = None):
+Optional[def monitored(operation_name: str] = None):
     """Decorator for monitoring function performance"""
 
     def decorator(func: Callable) -> Callable:
@@ -466,10 +467,10 @@ class Task:
     kwargs: dict
     status: TaskStatus = TaskStatus.PENDING
     result: Any = None
-    error: str | None = None
+Optional[error: str] = None
     created_at: datetime = field(default_factory=datetime.utcnow)
-    started_at: datetime | None = None
-    completed_at: datetime | None = None
+Optional[started_at: datetime] = None
+Optional[completed_at: datetime] = None
 
 
 class TaskQueue:
@@ -528,7 +529,7 @@ class TaskQueue:
         self._queue.put(task)
         return task_id
 
-    def get_status(self, task_id: str) -> dict | None:
+Optional[def get_status(self, task_id: str) -> dict]:
         """Get task status"""
         with self._lock:
             task = self._tasks.get(task_id)

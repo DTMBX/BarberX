@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Optional
 
 from datetime import datetime
 from pathlib import Path
@@ -11,7 +12,7 @@ from ..storage import get_conn
 
 
 class Ingestor:
-    def __init__(self, db_path: Path | None = None):
+Optional[def __init__(self, db_path: Path] = None):
         self.conn = get_conn(db_path)
 
     def ingest_opinion(
@@ -20,7 +21,7 @@ class Ingestor:
         source_key: str,
         opinion_json: dict,
         tool_versions_json: str = "{}",
-        idempotency_key: str | None = None,
+Optional[idempotency_key: str] = None,
     ):
         # fetch content bytes and content_type via minimal client shape
         client = CourtListenerClient()

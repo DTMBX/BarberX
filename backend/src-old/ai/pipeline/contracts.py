@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -64,7 +65,7 @@ class IngestResult:
 
     # Deduplication info
     is_duplicate: bool = False
-    duplicate_of_doc_id: int | None = None
+Optional[duplicate_of_doc_id: int] = None
 
 
 @dataclass
@@ -74,9 +75,9 @@ class PageExtraction:
     page_number: int  # 1-indexed
     text: str
     char_count: int
-    storage_path: str | None = None  # Path to cached page text file
+Optional[storage_path: str] = None  # Path to cached page text file
     extraction_method: ExtractionMethod = ExtractionMethod.TEXT
-    confidence_score: float | None = None  # OCR confidence if applicable
+Optional[confidence_score: float] = None  # OCR confidence if applicable
 
 
 @dataclass
@@ -99,7 +100,7 @@ class ExtractResult:
     text_layer_detected: bool  # Was native text present?
     extraction_method: ExtractionMethod  # How we got the text
     ocr_triggered: bool = False
-    storage_path_processed: str | None = None  # Path to OCR'd PDF if created
+Optional[storage_path_processed: str] = None  # Path to OCR'd PDF if created
 
     # Quality metrics
     total_chars: int = 0
@@ -130,7 +131,7 @@ class IndexResult:
 
     # Quality metrics
     total_terms: int = 0  # Unique terms in keyword index
-    embedding_dimensions: int | None = None
+Optional[embedding_dimensions: int] = None
 
     indexed_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -207,8 +208,8 @@ class CitationRecord:
     snippet: str  # Cited text
 
     # Authority info (if legal citation)
-    authority_name: str | None = None  # e.g., "Miranda v. Arizona"
-    authority_citation: str | None = None  # e.g., "384 U.S. 436 (1966)"
+Optional[authority_name: str] = None  # e.g., "Miranda v. Arizona"
+Optional[authority_citation: str] = None  # e.g., "384 U.S. 436 (1966)"
 
     created_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -238,7 +239,7 @@ class AnalysisResult:
     # Metadata
     model: str = "gpt-4"
     tokens_used: int = 0
-    confidence_score: float | None = None
+Optional[confidence_score: float] = None
 
     created_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -274,7 +275,7 @@ class ManifestRecord:
 
     # Provenance
     source_system: str = "app"
-    doc_id: int | None = None  # DB primary key once inserted
+Optional[doc_id: int] = None  # DB primary key once inserted
 
 
 # Validation helpers

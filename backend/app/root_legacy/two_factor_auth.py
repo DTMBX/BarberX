@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -182,7 +183,7 @@ class TwoFactorAuthService:
 
     def validate_backup_code(
         self, provided_code: str, valid_codes: list
-    ) -> tuple[bool, str | None]:
+Optional[) -> tuple[bool, str]]:
         """
         Validate backup code and return remaining code
 

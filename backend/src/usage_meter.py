@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -154,7 +155,7 @@ class UsageQuota(db.Model):
 
             db.session.commit()
 
-    def check_quota(self, quota_type: str, amount: float = 1) -> tuple[bool, str | None]:
+Optional[def check_quota(self, quota_type: str, amount: float = 1) -> tuple[bool, str]]:
         """
         Check if user has quota available for a specific resource
 
@@ -289,8 +290,8 @@ class SmartMeter:
     def track_event(
         event_type: str,
         event_category: str,
-        user_id: int | None = None,
-        resource_name: str | None = None,
+Optional[user_id: int] = None,
+Optional[resource_name: str] = None,
         quantity: float = 1.0,
         tokens_input: int = 0,
         tokens_output: int = 0,
@@ -298,7 +299,7 @@ class SmartMeter:
         file_size_bytes: int = 0,
         cost_usd: float = 0.0,
         status: str = "success",
-        error_message: str | None = None,
+Optional[error_message: str] = None,
     ) -> SmartMeterEvent:
         """
         Track a usage event
@@ -457,7 +458,7 @@ class SmartMeter:
         }
 
 
-def track_usage(event_type: str, event_category: str = "feature", quota_type: str | None = None):
+Optional[def track_usage(event_type: str, event_category: str = "feature", quota_type: str] = None):
     """
     Decorator to automatically track usage of functions
 

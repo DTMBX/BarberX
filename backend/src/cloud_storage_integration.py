@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -48,7 +49,7 @@ class CloudStorageService:
         else:
             raise ValueError(f"Unsupported provider: {provider}")
 
-    def list_files(self, folder_path: str = "", file_types: list[str] | None = None) -> list[dict]:
+Optional[def list_files(self, folder_path: str = "", file_types: list[str]] = None) -> list[dict]:
         """
         List files in cloud folder
 

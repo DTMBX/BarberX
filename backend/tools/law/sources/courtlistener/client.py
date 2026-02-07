@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Optional
 
 import json
 from typing import Any
@@ -7,14 +8,14 @@ from ...blobs import write_blob
 
 
 class CourtListenerClient:
-    def __init__(self, base_url: str | None = None):
+Optional[def __init__(self, base_url: str] = None):
         self.base_url = base_url or "https://www.courtlistener.com/api/rest/v3"
 
     def search_opinions(
         self,
-        court: str | None = None,
-        date_min: str | None = None,
-        date_max: str | None = None,
+Optional[court: str] = None,
+Optional[date_min: str] = None,
+Optional[date_max: str] = None,
         page: int = 1,
     ) -> dict[str, Any]:
         # In tests this method will be mocked. Provide a minimal shape when called directly.

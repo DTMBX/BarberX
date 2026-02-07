@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -231,7 +232,7 @@ class UnifiedEvidenceProcessor:
             return results
 
     @cached(ttl=3600, key_prefix="transcription")
-    def _transcribe_evidence(self, file_path: Path, context: dict) -> str | None:
+Optional[def _transcribe_evidence(self, file_path: Path, context: dict) -> str]:
         """Transcribe audio/video evidence"""
         transcription_service = service_registry.get("transcription")
 
@@ -251,7 +252,7 @@ class UnifiedEvidenceProcessor:
             return None
 
     @cached(ttl=3600, key_prefix="ocr")
-    def _extract_text(self, file_path: Path, context: dict) -> str | None:
+Optional[def _extract_text(self, file_path: Path, context: dict) -> str]:
         """Extract text from document/image"""
         ocr_service = service_registry.get("ocr")
 
@@ -267,7 +268,7 @@ class UnifiedEvidenceProcessor:
             self.logger.error(f"OCR failed: {str(e)}")
             return None
 
-    def _analyze_violations(self, text: str, context: dict) -> dict | None:
+Optional[def _analyze_violations(self, text: str, context: dict) -> dict]:
         """Analyze text for legal violations"""
         scanner = service_registry.get("violation_scanner")
 
@@ -282,7 +283,7 @@ class UnifiedEvidenceProcessor:
             self.logger.error(f"Violation analysis failed: {str(e)}")
             return None
 
-    def _check_compliance(self, file_path: Path, evidence_type: str, context: dict) -> dict | None:
+Optional[def _check_compliance(self, file_path: Path, evidence_type: str, context: dict) -> dict]:
         """Check evidence compliance"""
         checker = service_registry.get("compliance_checker")
 

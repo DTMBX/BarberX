@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -78,7 +79,7 @@ class ReferenceManager:
     def suggest_references(
         self,
         query: str,
-        conversation_context: list[dict] | None = None,
+Optional[conversation_context: list[dict]] = None,
         max_suggestions: int = 5,
     ) -> list[dict[str, Any]]:
         """
@@ -123,7 +124,7 @@ class ReferenceManager:
 
     def resolve_reference(
         self, citation: str, search_local: bool = True, search_authorities: bool = True
-    ) -> dict[str, Any] | None:
+Optional[) -> dict[str, Any]]:
         """
         Resolve a citation to actual document
 
@@ -153,7 +154,7 @@ class ReferenceManager:
         return None
 
     def get_reference_context(
-        self, document_id: int, page_number: int | None = None, context_pages: int = 2
+Optional[self, document_id: int, page_number: int] = None, context_pages: int = 2
     ) -> dict[str, Any]:
         """
         Get context around a reference (surrounding pages)
@@ -200,7 +201,7 @@ class ReferenceManager:
             }
 
     def track_reference_usage(
-        self, conversation_id: int, document_id: int, page_number: int | None = None
+Optional[self, conversation_id: int, document_id: int, page_number: int] = None
     ):
         """
         Track that a document was referenced in conversation
@@ -288,12 +289,12 @@ class ReferenceManager:
         else:
             return f"Related to topic (score: {passage.score:.2f})"
 
-    def _search_local_documents(self, citation: str) -> dict | None:
+Optional[def _search_local_documents(self, citation: str) -> dict]:
         """Search user's local document library"""
         # TODO: Query documents table by citation
         return None
 
-    def _search_authorities(self, citation: str) -> dict | None:
+Optional[def _search_authorities(self, citation: str) -> dict]:
         """Search authority cache (CourtListener)"""
         # TODO: Use AuthorityCacheService
         return None

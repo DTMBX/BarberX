@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -36,7 +37,7 @@ class ToolResult:
     data: Any
     source: str = ""
     confidence: float = 1.0
-    error: str | None = None
+Optional[error: str] = None
 
 
 class SmartTools:
@@ -534,7 +535,7 @@ class SmartTools:
         except Exception as e:
             return ToolResult(tool="math", success=False, data=None, error=str(e))
 
-    def _extract_math_expression(self, query: str) -> str | None:
+Optional[def _extract_math_expression(self, query: str) -> str]:
         """Extract mathematical expression from natural language"""
         # Remove common question words
         cleaned = re.sub(r"^(what is|calculate|compute|solve|evaluate|find)\s*", "", query.lower())

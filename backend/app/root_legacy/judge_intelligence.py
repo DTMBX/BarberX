@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -91,7 +92,7 @@ class JudgeIntelligence:
             "notable_opinions": self.get_notable_opinions(judge_id, limit=10),
         }
 
-    def _find_judge_by_name(self, name: str) -> dict | None:
+Optional[def _find_judge_by_name(self, name: str) -> dict]:
         """Search for judge by name"""
         url = f"{self.api_base}people/"
         params = {"name_last__icontains": name.split()[-1]}
@@ -274,7 +275,7 @@ class JudgeIntelligence:
             "ideological_score": self._calculate_ideological_score(judge_id),
         }
 
-    def _get_appointing_president(self, judge_id: int) -> str | None:
+Optional[def _get_appointing_president(self, judge_id: int) -> str]:
         """Get which president appointed the judge"""
         positions = self.get_career_history(judge_id)
 

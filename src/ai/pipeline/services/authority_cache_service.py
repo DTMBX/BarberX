@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -22,7 +23,7 @@ logger = logging.getLogger(__name__)
 class AuthorityCacheService:
     """Caches legal authority lookups to avoid repeated API calls"""
 
-    def __init__(self, config: dict | None = None):
+Optional[def __init__(self, config: dict] = None):
         self.config = config or {}
 
         # Cache TTL (default: 90 days)
@@ -30,7 +31,7 @@ class AuthorityCacheService:
 
         logger.info(f"AuthorityCacheService initialized: TTL={self.cache_ttl_days} days")
 
-    def lookup_authority(self, citation: str, source: str = "courtlistener") -> dict | None:
+Optional[def lookup_authority(self, citation: str, source: str = "courtlistener") -> dict]:
         """
         Lookup authority by citation (cached)
 
@@ -65,7 +66,7 @@ class AuthorityCacheService:
 
     def bulk_lookup(
         self, citations: list[str], source: str = "courtlistener"
-    ) -> dict[str, dict | None]:
+Optional[) -> dict[str, dict]]:
         """
         Lookup multiple authorities (batch)
 
@@ -102,7 +103,7 @@ class AuthorityCacheService:
         # Fallback: just clean whitespace
         return citation.lower().strip().replace(" ", "_")
 
-    def _fetch_from_api(self, citation: str, source: str) -> dict | None:
+Optional[def _fetch_from_api(self, citation: str, source: str) -> dict]:
         """
         Fetch authority from external API
 

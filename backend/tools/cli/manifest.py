@@ -4,6 +4,7 @@ Produces a JSON manifest listing originals with size, mtime, and sha256.
 """
 
 from __future__ import annotations
+from typing import Optional
 
 import json
 import platform
@@ -25,7 +26,7 @@ def _detect_ffmpeg_version() -> str:
 
 
 def create_manifest(
-    case_dir: Path, originals_subdir: str = "originals", tool_versions: dict[str, str] | None = None
+Optional[case_dir: Path, originals_subdir: str = "originals", tool_versions: dict[str, str]] = None
 ) -> dict[str, Any]:
     """Create canonical manifest and meta manifest.
 

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -66,7 +67,7 @@ class ChatbotCache:
         """Create consistent hash for cache key."""
         return hashlib.sha256(key.encode()).hexdigest()[:32]
 
-    def get(self, key: str) -> dict | None:
+Optional[def get(self, key: str) -> dict]:
         """Get cached value."""
         hashed = self._hash_key(key)
         try:
@@ -103,7 +104,7 @@ class ChatbotCache:
             logger.error(f"Cache invalidate error: {e}")
             return 0
 
-    def get_embedding(self, text: str) -> list[float] | None:
+Optional[def get_embedding(self, text: str) -> list[float]]:
         """Get cached embedding for text."""
         key = f"emb:{self._hash_key(text)}"
         try:
@@ -188,7 +189,7 @@ class BackgroundJobQueue:
             logger.error(f"Failed to enqueue job: {e}")
             raise
 
-    def get_job_status(self, job_id: str) -> dict | None:
+Optional[def get_job_status(self, job_id: str) -> dict]:
         """Get status of a job."""
         try:
             if self.enabled and self.redis:
@@ -198,7 +199,7 @@ class BackgroundJobQueue:
         except Exception:
             return None
 
-    def update_job_status(self, job_id: str, status: str, result: dict | None = None) -> bool:
+Optional[def update_job_status(self, job_id: str, status: str, result: dict] = None) -> bool:
         """Update job status and optionally set result."""
         try:
             if self.enabled and self.redis:

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -33,8 +34,8 @@ class MuniSource:
     state: str
     county: str
     municipality: str
-    provider: str | None
-    base_url: str | None
+Optional[provider: str]
+Optional[base_url: str]
 
 
 class MunicipalCodeService:
@@ -57,8 +58,8 @@ class MunicipalCodeService:
         self,
         county: str,
         municipality: str,
-        provider: str | None = "eCode360",
-        base_url: str | None = None,
+Optional[provider: str] = "eCode360",
+Optional[base_url: str] = None,
     ) -> MuniSource:
         """Ensure municipal source exists, create if not"""
         with self._conn() as conn:
@@ -90,11 +91,11 @@ class MunicipalCodeService:
         source_id: int,
         section_citation: str,
         text: str,
-        title: str | None = None,
-        source_url: str | None = None,
-        effective_date: str | None = None,
-        last_updated: str | None = None,
-        section_path: str | None = None,
+Optional[title: str] = None,
+Optional[source_url: str] = None,
+Optional[effective_date: str] = None,
+Optional[last_updated: str] = None,
+Optional[section_path: str] = None,
     ) -> int:
         """Insert or update a municipal code section"""
         sha = self._sha256_text(text)
@@ -151,7 +152,7 @@ class MunicipalCodeService:
             return int(sec_row["id"])
 
     def seed_core_counties(
-        self, municipalities_by_county: dict[str, Iterable[str]] | None = None
+Optional[self, municipalities_by_county: dict[str, Iterable[str]]] = None
     ) -> None:
         """
         Seeds muni_sources rows for core NJ counties.
@@ -179,8 +180,8 @@ class MunicipalCodeService:
     def search(
         self,
         query: str,
-        county: str | None = None,
-        municipality: str | None = None,
+Optional[county: str] = None,
+Optional[municipality: str] = None,
         limit: int = 10,
     ) -> list[dict]:
         """Search municipal codes using FTS or fallback to LIKE"""

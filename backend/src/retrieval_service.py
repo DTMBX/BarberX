@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -30,8 +31,8 @@ class Passage:
     snippet: str
     score: float
     source_system: str  # 'legal_library', 'muni_code', 'bwc'
-    document_type: str | None = None
-    metadata: dict[str, Any] | None = None
+Optional[document_type: str] = None
+Optional[metadata: dict[str, Any]] = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -49,7 +50,7 @@ class RetrievalService:
         return conn
 
     def retrieve(
-        self, query: str, filters: dict[str, Any] | None = None, top_k: int = 5
+Optional[self, query: str, filters: dict[str, Any]] = None, top_k: int = 5
     ) -> list[Passage]:
         """
         Retrieve passages using FTS5 BM25 ranking
@@ -188,7 +189,7 @@ class RetrievalService:
 
         return snippet, start, end
 
-    def get_document_info(self, document_id: str) -> dict[str, Any] | None:
+Optional[def get_document_info(self, document_id: str) -> dict[str, Any]]:
         """Get full document metadata"""
         with self._conn() as conn:
             row = conn.execute(
@@ -217,7 +218,7 @@ class RetrievalService:
                 "created_at": row["created_at"],
             }
 
-    def get_page_content(self, document_id: str, page_number: int) -> str | None:
+Optional[def get_page_content(self, document_id: str, page_number: int) -> str]:
         """Get full text of a specific page"""
         with self._conn() as conn:
             row = conn.execute(

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -15,7 +16,7 @@ import openai
 class ChatGPTService:
     """Service for interacting with OpenAI's ChatGPT API"""
 
-    def __init__(self, api_key: str | None = None):
+Optional[def __init__(self, api_key: str] = None):
         """
         Initialize ChatGPT service
 
@@ -154,7 +155,7 @@ class ChatGPTService:
         except Exception as e:
             yield {"success": False, "error": str(e)}
 
-    def build_legal_system_prompt(self, custom_instructions: str | None = None) -> str:
+Optional[def build_legal_system_prompt(self, custom_instructions: str] = None) -> str:
         """
         Build system prompt for legal analysis
 

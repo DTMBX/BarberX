@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -119,7 +120,7 @@ def sanitize_filename(filename: str) -> str:
     return s
 
 
-def validate_video_file(file) -> tuple[bool, str | None]:
+Optional[def validate_video_file(file) -> tuple[bool, str]]:
     """
     Validate uploaded video file for security
 
@@ -158,7 +159,7 @@ def validate_video_file(file) -> tuple[bool, str | None]:
     return True, None
 
 
-def validate_tier(tier: str, user_tier: str) -> tuple[bool, str | None]:
+Optional[def validate_tier(tier: str, user_tier: str) -> tuple[bool, str]]:
     """Validate that requested tier matches user's subscription"""
     valid_tiers = ["FREE", "STARTER", "PROFESSIONAL", "PREMIUM", "ENTERPRISE"]
 
@@ -174,7 +175,7 @@ def validate_tier(tier: str, user_tier: str) -> tuple[bool, str | None]:
     return True, None
 
 
-def check_rate_limit(user_id: int, tier: str) -> tuple[bool, str | None]:
+Optional[def check_rate_limit(user_id: int, tier: str) -> tuple[bool, str]]:
     """Check if user has exceeded rate limits"""
     now = datetime.now()
     hour_ago = now - timedelta(hours=1)
@@ -201,7 +202,7 @@ def check_rate_limit(user_id: int, tier: str) -> tuple[bool, str | None]:
     return True, None
 
 
-def check_budget_limits(user_id: int, tier: str, estimated_cost: float) -> tuple[bool, str | None]:
+Optional[def check_budget_limits(user_id: int, tier: str, estimated_cost: float) -> tuple[bool, str]]:
     """Check if user has budget remaining for this request"""
     if not CostGovernor:
         return True, None  # Skip check if governor not available

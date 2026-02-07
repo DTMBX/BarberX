@@ -19,6 +19,7 @@ This is intentionally conservative:
 """
 
 from __future__ import annotations
+from typing import Optional
 
 import argparse
 import csv
@@ -74,7 +75,7 @@ def clamp01(x: float) -> float:
     return max(0.0, min(1.0, x))
 
 
-def parse_color(s: str) -> tuple[int, int, int, float] | None:
+Optional[def parse_color(s: str) -> tuple[int, int, int, float]]:
     """Return (r,g,b,a) or None if unsupported."""
     s = s.strip()
     if s.lower() in ("none", "transparent"):

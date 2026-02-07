@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -118,7 +119,7 @@ class Material:
         filename: str,
         category: str,
         rights: DataRights,
-        file_path: Path | None = None,
+Optional[file_path: Path] = None,
         acquired_by: str = "",
         acquired_date: datetime = None,
         source_url: str = "",

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -76,7 +77,7 @@ class LegalCitation:
         return f"{case_name}, {volume} {reporter} {page} ({year})"
 
     @staticmethod
-    def format_statute(title: str, code: str, section: str, year: str | None = None) -> str:
+Optional[def format_statute(title: str, code: str, section: str, year: str] = None) -> str:
         """Format statute citation"""
         if year:
             return f"{title} {code} § {section} ({year})"
@@ -96,7 +97,7 @@ class LegalCitation:
 class LegalResearchAPI:
     """Interface to legal research databases"""
 
-    def __init__(self, api_keys: dict[str, str] | None = None):
+Optional[def __init__(self, api_keys: dict[str, str]] = None):
         self.api_keys = api_keys or {}
         self.cache_dir = Path("./legal_research_cache")
         self.cache_dir.mkdir(parents=True, exist_ok=True)
@@ -119,7 +120,7 @@ class LegalResearchAPI:
 
         return results or self._get_mock_case_law(query, jurisdiction, limit)
 
-    def get_statute(self, jurisdiction: str, title: str, section: str) -> dict | None:
+Optional[def get_statute(self, jurisdiction: str, title: str, section: str) -> dict]:
         """Retrieve specific statute text"""
 
         # Try USCode API for federal
@@ -136,7 +137,7 @@ class LegalResearchAPI:
         # Mock fallback
         return self._get_mock_statute(jurisdiction, title, section)
 
-    def search_regulations(self, query: str, agency: str | None = None) -> list[dict]:
+Optional[def search_regulations(self, query: str, agency: str] = None) -> list[dict]:
         """Search federal regulations (CFR)"""
 
         # Try govinfo API
@@ -144,7 +145,7 @@ class LegalResearchAPI:
 
         return results or self._get_mock_regulations(query)
 
-    def get_legal_form(self, form_type: str, jurisdiction: str) -> str | None:
+Optional[def get_legal_form(self, form_type: str, jurisdiction: str) -> str]:
         """Get legal document template"""
 
         form_templates = {
@@ -180,17 +181,17 @@ class LegalResearchAPI:
         # Production implementation would use Westlaw API
         return []
 
-    def _get_federal_statute(self, title: str, section: str) -> dict | None:
+Optional[def _get_federal_statute(self, title: str, section: str) -> dict]:
         """Get federal statute from USCode"""
         # Production: https://www.govinfo.gov/app/details/USCODE-{year}-title{title}
         return None
 
-    def _get_state_statute(self, jurisdiction: str, title: str, section: str) -> dict | None:
+Optional[def _get_state_statute(self, jurisdiction: str, title: str, section: str) -> dict]:
         """Get state statute"""
         # Production: State-specific APIs
         return None
 
-    def _search_cfr(self, query: str, agency: str | None) -> list[dict]:
+Optional[def _search_cfr(self, query: str, agency: str]) -> list[dict]:
         """Search Code of Federal Regulations"""
         # Production: https://www.ecfr.gov/api/search/
         return []

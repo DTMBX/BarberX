@@ -94,7 +94,7 @@ class VerifiedLegalSources:
         },
     }
 
-    def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object | None = None):
+Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object] = None):
         """
         Initialize VerifiedLegalSources.
 

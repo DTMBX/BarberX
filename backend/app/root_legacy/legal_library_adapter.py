@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -49,7 +50,7 @@ class LegalLibraryAdapter:
         filepath: Path | str,
         source_system: str = "legal_library",
         document_type: str = "case_law",
-        metadata: dict[str, Any] | None = None,
+Optional[metadata: dict[str, Any]] = None,
     ) -> str:
         """
         Ingest PDF document and extract pages
@@ -148,7 +149,7 @@ class LegalLibraryAdapter:
         filename: str,
         source_system: str = "legal_library",
         document_type: str = "statute",
-        metadata: dict[str, Any] | None = None,
+Optional[metadata: dict[str, Any]] = None,
         page_size: int = 5000,  # Characters per "page"
     ) -> str:
         """
@@ -226,7 +227,7 @@ class LegalLibraryAdapter:
             return result.rowcount > 0
 
     def list_documents(
-        self, source_system: str | None = None, limit: int = 100
+Optional[self, source_system: str] = None, limit: int = 100
     ) -> list[dict[str, Any]]:
         """List ingested documents"""
         with self._conn() as conn:

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -244,7 +245,7 @@ class PDFDiscoveryAnalyzer:
 
     def _extract_with_patterns(
         self, content: str, pattern_list: list[str], extract_all: bool = False
-    ) -> str | None | list[str]:
+Optional[) -> str] | list[str]:
         """Extract information using list of regex patterns"""
         results = []
 

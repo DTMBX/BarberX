@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -51,7 +52,7 @@ class WhisperTranscriptionService:
     def transcribe_audio(
         self,
         audio_path: str,
-        language: str | None = None,
+Optional[language: str] = None,
         task: str = "transcribe",
         enable_timestamps: bool = True,
     ) -> dict:

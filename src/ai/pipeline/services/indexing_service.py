@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 class IndexingService:
     """Handles document indexing for search"""
 
-    def __init__(self, config: dict | None = None, manifest_service=None):
+Optional[def __init__(self, config: dict] = None, manifest_service=None):
         self.config = config or {}
         self.manifest_service = manifest_service
 

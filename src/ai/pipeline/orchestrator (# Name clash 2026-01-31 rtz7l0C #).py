@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -60,7 +61,7 @@ class PipelineOrchestrator:
         )
     """
 
-    def __init__(self, config: dict | None = None):
+Optional[def __init__(self, config: dict] = None):
         """
         Initialize orchestrator with services and adapters
 
@@ -92,7 +93,7 @@ class PipelineOrchestrator:
     # =================================================================
 
     def ingest_document(
-        self, file_path: str, source_system: SourceSystem, metadata: dict | None = None
+Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = None
     ) -> IngestResult:
         """
         Ingest a document into the pipeline
@@ -203,7 +204,7 @@ class PipelineOrchestrator:
         return result
 
     def retrieve(
-        self, query: str, filters: dict | None = None, top_k: int = 10, method: str = "keyword"
+Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
@@ -239,7 +240,7 @@ class PipelineOrchestrator:
         return result
 
     def analyze(
-        self, query: str, context: list[Passage] | None = None, mode: str = "legal_research"
+Optional[self, query: str, context: list[Passage]] = None, mode: str = "legal_research"
     ) -> AnalysisResult:
         """
         Perform LLM analysis with grounded citations
@@ -381,10 +382,10 @@ class PipelineOrchestrator:
 
 
 # Singleton instance for global access
-_orchestrator_instance: PipelineOrchestrator | None = None
+Optional[_orchestrator_instance: PipelineOrchestrator] = None
 
 
-def get_orchestrator(config: dict | None = None) -> PipelineOrchestrator:
+Optional[def get_orchestrator(config: dict] = None) -> PipelineOrchestrator:
     """
     Get global orchestrator instance (singleton)
 

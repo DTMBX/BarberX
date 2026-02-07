@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -61,7 +62,7 @@ class OptimizationResult:
 class LegalDocumentOptimizer:
     """Advanced legal document optimization engine"""
 
-    def __init__(self, api_key: str | None = None):
+Optional[def __init__(self, api_key: str] = None):
         """Initialize with OpenAI API key"""
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
         openai.api_key = self.api_key
@@ -114,7 +115,7 @@ class LegalDocumentOptimizer:
         evidence: list[EvidenceItem],
         related_docs: list[LegalDocument],
         jurisdiction: str = "default",
-        optimization_goals: dict | None = None,
+Optional[optimization_goals: dict] = None,
     ) -> OptimizationResult:
         """
         Optimize a single document within context of full filing set
@@ -465,7 +466,7 @@ Please provide the optimized version of this document, following all guidelines 
 
         return {"plaintiffs": plaintiffs, "defendants": defendants}
 
-    def _extract_case_number(self, content: str) -> str | None:
+Optional[def _extract_case_number(self, content: str) -> str]:
         """Extract case number"""
         # Common patterns: "Case No. 12-CV-34567", "No. 2023-1234", etc.
         patterns = [
@@ -498,7 +499,7 @@ Please provide the optimized version of this document, following all guidelines 
 
     def _find_supporting_evidence(
         self, allegation: str, evidence: list[EvidenceItem]
-    ) -> str | None:
+Optional[) -> str]:
         """Find evidence that supports an allegation"""
         # Simplified keyword matching - would use semantic search in production
         for ev in evidence:

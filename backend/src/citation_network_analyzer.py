@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -348,7 +349,7 @@ class CitationNetworkAnalyzer:
             "recommendation": self._get_recommendation(good_law, treatment["signal"]),
         }
 
-    def _find_opinion_by_citation(self, citation: str) -> dict | None:
+Optional[def _find_opinion_by_citation(self, citation: str) -> dict]:
         """Find opinion by citation using CourtListener API"""
         url = f"{self.api_base}citation-lookup/"
         params = {"citation": citation}

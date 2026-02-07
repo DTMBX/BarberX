@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -24,7 +25,7 @@ logger = logging.getLogger(__name__)
 class RetrievalService:
     """Handles passage retrieval with citation metadata"""
 
-    def __init__(self, config: dict | None = None):
+Optional[def __init__(self, config: dict] = None):
         self.config = config or {}
 
         # Passage extraction settings
@@ -33,7 +34,7 @@ class RetrievalService:
         logger.info("RetrievalService initialized")
 
     def retrieve(
-        self, query: str, filters: dict | None = None, top_k: int = 10, method: str = "keyword"
+Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)

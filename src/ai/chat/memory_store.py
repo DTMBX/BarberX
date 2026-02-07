@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -41,7 +42,7 @@ class ConversationMemoryStore:
         logger.info("ConversationMemoryStore initialized")
 
     def store_conversation(
-        self, user_id: int, project_id: int | None, title: str, metadata: dict | None = None
+Optional[self, user_id: int, project_id: int]Optional[, title: str, metadata: dict] = None
     ) -> int:
         """
         Create new conversation record
@@ -66,8 +67,8 @@ class ConversationMemoryStore:
         conversation_id: int,
         role: str,
         content: str,
-        citations: list[dict] | None = None,
-        metadata: dict | None = None,
+Optional[citations: list[dict]] = None,
+Optional[metadata: dict] = None,
     ) -> int:
         """
         Store a message in conversation
@@ -117,11 +118,11 @@ class ConversationMemoryStore:
     def search_conversations(
         self,
         user_id: int,
-        query: str | None = None,
-        date_from: datetime | None = None,
-        date_to: datetime | None = None,
+Optional[query: str] = None,
+Optional[date_from: datetime] = None,
+Optional[date_to: datetime] = None,
         has_citations: bool = False,
-        topics: list[str] | None = None,
+Optional[topics: list[str]] = None,
         limit: int = 50,
     ) -> list[dict[str, Any]]:
         """
@@ -193,7 +194,7 @@ class ConversationMemoryStore:
         return {"nodes": list(nodes.values()), "edges": edges, "total_citations": len(citations)}
 
     def get_conversation_analytics(
-        self, user_id: int, date_from: datetime | None = None
+Optional[self, user_id: int, date_from: datetime] = None
     ) -> dict[str, Any]:
         """
         Get analytics for user's conversations
