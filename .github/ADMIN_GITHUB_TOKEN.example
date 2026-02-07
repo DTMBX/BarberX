@@ -1,0 +1,27 @@
+# ADMIN_GITHUB_TOKEN (example)
+
+DO NOT store real tokens in the repository.
+
+This file explains how to create and add an `ADMIN_GITHUB_TOKEN` repository secret used by the `branch-protection.yml` workflow.
+
+1. Create a Personal Access Token (PAT):
+   - Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) or fine-grained tokens.
+   - The token must have `repo` (full control of private repositories) or equivalent admin scopes for this repository.
+
+2. Add the secret to the repository:
+   - Go to the repository → Settings → Secrets & variables → Actions → New repository secret.
+   - Name: `ADMIN_GITHUB_TOKEN`
+   - Value: paste the PAT you created.
+
+3. Usage (the workflow reads `secrets.ADMIN_GITHUB_TOKEN`):
+   - The `branch-protection.yml` workflow uses this secret to call the GitHub API and apply branch protection settings.
+
+Local testing: export the token into your shell (never commit):
+
+  Windows PowerShell:
+    $env:ADMIN_GITHUB_TOKEN = 'ghp_XXXXXXXXXXXXXXXXXXXXXXXX'
+
+  macOS / Linux:
+    export ADMIN_GITHUB_TOKEN=ghp_XXXXXXXXXXXXXXXXXXXXXXXX
+
+Remove the token from your environment after testing.
