@@ -49,7 +49,7 @@ legal-tools==0.1.0  # Basic legal text processing
 case-law-parser==1.0.0  # Parse case citations
 
 # API Clients for AI Models
-openai==1.6.1
+openai==2.17.0
 anthropic==0.8.1
 cohere==5.20.4
 
