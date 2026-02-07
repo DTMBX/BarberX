@@ -90,8 +90,8 @@ Entry-level to Enterprise pricing keeps solo practitioners locked out
 
 **KEY CHANGE:** Show full price range, not just enterprise
 
-**ADDED:** Reference to LSC 2024 study (63% stat source)
-**ADDED:** "now free via CourtListener" for PACER
+**ADDED:** Reference to LSC 2024 study (63% stat source) **ADDED:** "now free
+via CourtListener" for PACER
 
 --
 
@@ -358,7 +358,9 @@ All Evident features now show launch timeline:
 
 ### Our Positioning Statement:
 
-> "Evident brings CourtListener's exceptional legal data to mobile devices with AI-powered research tools and professional support. **The data is always free at CourtListener.com—we charge for our added value.**"
+> "Evident brings CourtListener's exceptional legal data to mobile devices with
+> AI-powered research tools and professional support. **The data is always free
+> at CourtListener.com—we charge for our added value.**"
 
 --
 
@@ -435,7 +437,8 @@ All website language has been verified and grounded in reality:
 - ✅ **Transparent** about free alternatives
 - ✅ **Mission-aligned** with Free Law Project
 
-**The site now presents an honest, professional image worthy of trust from Yale/Harvard grads and legal professionals.** ⚖️
+**The site now presents an honest, professional image worthy of trust from
+Yale/Harvard grads and legal professionals.** ⚖️
 
 --
 

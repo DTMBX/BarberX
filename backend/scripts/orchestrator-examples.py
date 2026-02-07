@@ -178,4 +178,3 @@ This will automatically:
 6. Generate documentation
 """
     )
-

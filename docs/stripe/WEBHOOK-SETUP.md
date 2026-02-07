@@ -1,6 +1,7 @@
 # Stripe Webhook Setup Guide for Evident
 
-> Complete guide for connecting Stripe webhooks to handle subscriptions, payments, and member management.
+> Complete guide for connecting Stripe webhooks to handle subscriptions,
+> payments, and member management.
 
 --
 
@@ -64,7 +65,8 @@ STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## 📋 EVENT SELECTION GUIDE
 
-In Stripe's new UI, events are organized by category. Here's exactly what to select:
+In Stripe's new UI, events are organized by category. Here's exactly what to
+select:
 
 ### CATEGORY: Checkout
 
@@ -95,7 +97,8 @@ Click **"Customer"** in the left sidebar, then check:
 
 ### CATEGORY: Customer > Subscription
 
-This is the **MOST IMPORTANT** category. Click **"Customer"** → expand **"subscription"**:
+This is the **MOST IMPORTANT** category. Click **"Customer"** → expand
+**"subscription"**:
 
 | ✓   | Event Name                             | What It Does for Evident                                     |
 | --- | -------------------------------------- | ------------------------------------------------------------ |
@@ -123,7 +126,8 @@ Click **"Invoice"** in the left sidebar:
 | ☐   | `invoice.created`                 | Optional: Track invoice creation                                 |
 | ☐   | `invoice.finalized`               | Optional: Track finalized invoices                               |
 
-**How to find:** Invoice → check `paid`, `payment_failed`, `payment_action_required`, `upcoming`
+**How to find:** Invoice → check `paid`, `payment_failed`,
+`payment_action_required`, `upcoming`
 
 --
 
@@ -136,7 +140,8 @@ For one-time payments or add-ons. Click **"Payment Intent"**:
 | ☐   | `payment_intent.succeeded`      | Confirms one-time payment (add-ons, credits) |
 | ☐   | `payment_intent.payment_failed` | Logs failed one-time payments                |
 
-**How to find:** Payment Intent → check `succeeded` and `payment_failed` if needed
+**How to find:** Payment Intent → check `succeeded` and `payment_failed` if
+needed
 
 --
 

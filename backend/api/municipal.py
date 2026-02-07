@@ -242,4 +242,3 @@ def search_by_topic():
             "audit_trail": result.audit_trail,
         }
     )
-

@@ -6,9 +6,8 @@ Enhanced Output Formatter
 Beautiful, professional formatting for evidence analysis results
 """
 
-import json
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 
 class OutputFormatter:
@@ -26,7 +25,7 @@ class OutputFormatter:
             "end": "\033[0m",
         }
 
-    def format_analysis_output(self, analysis_results: Dict[str, Any]) -> str:
+    def format_analysis_output(self, analysis_results: dict[str, Any]) -> str:
         """
         Format complete analysis results into beautiful, readable output
 
@@ -77,20 +76,20 @@ class OutputFormatter:
 ╚═══════════════════════════════════════════════════════════════════════════════╝
         """.strip()
 
-    def _create_document_info(self, results: Dict) -> str:
+    def _create_document_info(self, results: dict) -> str:
         """Create document information section"""
         return f"""
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ DOCUMENT INFORMATION                                                        │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ Filename:        {results.get('filename', 'N/A'):<60} │
-│ Document Type:   {results.get('document_type', 'Unknown'):<60} │
-│ Analyzed At:     {results.get('analyzed_at', 'N/A'):<60} │
-│ Confidence:      {'●' * 9 + '○'} 96%                                         │
+│ Filename:        {results.get("filename", "N/A"):<60} │
+│ Document Type:   {results.get("document_type", "Unknown"):<60} │
+│ Analyzed At:     {results.get("analyzed_at", "N/A"):<60} │
+│ Confidence:      {"●" * 9 + "○"} 96%                                         │
 └─────────────────────────────────────────────────────────────────────────────┘
         """.strip()
 
-    def _create_executive_summary(self, results: Dict) -> str:
+    def _create_executive_summary(self, results: dict) -> str:
         """Create executive summary section"""
         summary = results.get("summary", "No summary available")
         return f"""
@@ -98,12 +97,12 @@ class OutputFormatter:
 │ EXECUTIVE SUMMARY                                                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-{self._wrap_text(summary, prefix='│ ', width=77)}
+{self._wrap_text(summary, prefix="│ ", width=77)}
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
         """.strip()
 
-    def _create_key_findings(self, results: Dict) -> str:
+    def _create_key_findings(self, results: dict) -> str:
         """Create key findings cards"""
         findings = []
 
@@ -115,10 +114,10 @@ class OutputFormatter:
     ┌─────────────────────────────────────┐
     │ 🚨 ARREST INFORMATION              │
     ├─────────────────────────────────────┤
-    │ Date:     {arrest.get('arrest_date', 'N/A'):<23} │
-    │ Time:     {arrest.get('arrest_time', 'N/A'):<23} │
-    │ Officer:  {arrest.get('arresting_officer', 'N/A'):<23} │
-    │ Badge:    {arrest.get('badge_number', 'N/A'):<23} │
+    │ Date:     {arrest.get("arrest_date", "N/A"):<23} │
+    │ Time:     {arrest.get("arrest_time", "N/A"):<23} │
+    │ Officer:  {arrest.get("arresting_officer", "N/A"):<23} │
+    │ Badge:    {arrest.get("badge_number", "N/A"):<23} │
     └─────────────────────────────────────┘
             """.strip()
             )
@@ -132,9 +131,9 @@ class OutputFormatter:
     ┌─────────────────────────────────────┐
     │ ⚖️  CHARGES FILED                  │
     ├─────────────────────────────────────┤
-    │ Count:    {charges.get('total_charges', 0):<23} │
-    │ Charges:  {charge_list[0][:21] if charge_list else 'N/A':<23} │
-    │           {charge_list[1][:21] if len(charge_list) > 1 else '':<23} │
+    │ Count:    {charges.get("total_charges", 0):<23} │
+    │ Charges:  {charge_list[0][:21] if charge_list else "N/A":<23} │
+    │           {charge_list[1][:21] if len(charge_list) > 1 else "":<23} │
     └─────────────────────────────────────┘
             """.strip()
             )
@@ -147,9 +146,9 @@ class OutputFormatter:
     ┌─────────────────────────────────────┐
     │ 🚗 VEHICLE INFORMATION             │
     ├─────────────────────────────────────┤
-    │ Vehicle:  {vehicle.get('make_model', 'N/A')[:21]:<23} │
-    │ Plate:    {vehicle.get('license_plate', 'N/A'):<23} │
-    │ VIN:      {vehicle.get('vin', 'N/A')[:21]:<23} │
+    │ Vehicle:  {vehicle.get("make_model", "N/A")[:21]:<23} │
+    │ Plate:    {vehicle.get("license_plate", "N/A"):<23} │
+    │ VIN:      {vehicle.get("vin", "N/A")[:21]:<23} │
     └─────────────────────────────────────┘
             """.strip()
             )
@@ -162,9 +161,9 @@ class OutputFormatter:
     ┌─────────────────────────────────────┐
     │ 🚛 TOW INFORMATION                 │
     ├─────────────────────────────────────┤
-    │ Date:     {tow.get('tow_date', 'N/A'):<23} │
-    │ Company:  {tow.get('tow_company', 'N/A')[:21]:<23} │
-    │ Fee:      ${tow.get('tow_fee', 'N/A'):<22} │
+    │ Date:     {tow.get("tow_date", "N/A"):<23} │
+    │ Company:  {tow.get("tow_company", "N/A")[:21]:<23} │
+    │ Fee:      ${tow.get("tow_fee", "N/A"):<22} │
     └─────────────────────────────────────┘
             """.strip()
             )
@@ -177,9 +176,9 @@ class OutputFormatter:
     ┌─────────────────────────────────────┐
     │ ⚖️  COURT INFORMATION               │
     ├─────────────────────────────────────┤
-    │ Date:     {court.get('court_date', 'N/A'):<23} │
-    │ Time:     {court.get('court_time', 'N/A'):<23} │
-    │ Bail:     ${court.get('bail_amount', 'N/A'):<22} │
+    │ Date:     {court.get("court_date", "N/A"):<23} │
+    │ Time:     {court.get("court_time", "N/A"):<23} │
+    │ Bail:     ${court.get("bail_amount", "N/A"):<22} │
     └─────────────────────────────────────┘
             """.strip()
             )
@@ -195,7 +194,7 @@ class OutputFormatter:
             rows = []
             for i in range(0, len(findings), 2):
                 if i + 1 < len(findings):
-                    rows.append(f"{findings[i]}    {findings[i+1]}")
+                    rows.append(f"{findings[i]}    {findings[i + 1]}")
                 else:
                     rows.append(findings[i])
 
@@ -203,7 +202,7 @@ class OutputFormatter:
 
         return ""
 
-    def _create_timeline_section(self, timeline: List[Dict]) -> str:
+    def _create_timeline_section(self, timeline: list[dict]) -> str:
         """Create timeline visualization"""
         if not timeline:
             return ""
@@ -232,7 +231,7 @@ class OutputFormatter:
 
         return "\n".join(lines)
 
-    def _create_arrest_section(self, arrest: Dict) -> str:
+    def _create_arrest_section(self, arrest: dict) -> str:
         """Create detailed arrest section"""
         if not arrest.get("was_arrested"):
             return ""
@@ -241,15 +240,15 @@ class OutputFormatter:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ ARREST DETAILS                                                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ Arrest Date:         {arrest.get('arrest_date', 'N/A'):<56} │
-│ Arrest Time:         {arrest.get('arrest_time', 'N/A'):<56} │
-│ Arrest Location:     {arrest.get('arrest_location', 'N/A')[:56]:<56} │
-│ Arresting Officer:   {arrest.get('arresting_officer', 'N/A'):<56} │
-│ Badge Number:        {arrest.get('badge_number', 'N/A'):<56} │
+│ Arrest Date:         {arrest.get("arrest_date", "N/A"):<56} │
+│ Arrest Time:         {arrest.get("arrest_time", "N/A"):<56} │
+│ Arrest Location:     {arrest.get("arrest_location", "N/A")[:56]:<56} │
+│ Arresting Officer:   {arrest.get("arresting_officer", "N/A"):<56} │
+│ Badge Number:        {arrest.get("badge_number", "N/A"):<56} │
 └─────────────────────────────────────────────────────────────────────────────┘
         """.strip()
 
-    def _create_charges_section(self, charges: Dict) -> str:
+    def _create_charges_section(self, charges: dict) -> str:
         """Create detailed charges section"""
         if charges.get("total_charges", 0) == 0:
             return ""
@@ -261,9 +260,7 @@ class OutputFormatter:
 ├─────────────────────────────────────────────────────────────────────────────┤
 │ Total Charges:       {:<56} │
 └─────────────────────────────────────────────────────────────────────────────┘
-        """.format(
-                charges.get("total_charges", 0)
-            ).strip()
+        """.format(charges.get("total_charges", 0)).strip()
         ]
 
         charge_list = charges.get("charges", [])
@@ -277,7 +274,7 @@ class OutputFormatter:
 
         return "\n".join(lines)
 
-    def _create_vehicle_section(self, vehicle: Dict) -> str:
+    def _create_vehicle_section(self, vehicle: dict) -> str:
         """Create vehicle section"""
         if not vehicle.get("has_vehicle_info"):
             return ""
@@ -286,13 +283,13 @@ class OutputFormatter:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ VEHICLE INFORMATION                                                         │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ Make/Model:          {vehicle.get('make_model', 'N/A'):<56} │
-│ License Plate:       {vehicle.get('license_plate', 'N/A'):<56} │
-│ VIN:                 {vehicle.get('vin', 'N/A'):<56} │
+│ Make/Model:          {vehicle.get("make_model", "N/A"):<56} │
+│ License Plate:       {vehicle.get("license_plate", "N/A"):<56} │
+│ VIN:                 {vehicle.get("vin", "N/A"):<56} │
 └─────────────────────────────────────────────────────────────────────────────┘
         """.strip()
 
-    def _create_tow_section(self, tow: Dict) -> str:
+    def _create_tow_section(self, tow: dict) -> str:
         """Create tow/impound section"""
         if not tow.get("was_towed"):
             return ""
@@ -301,15 +298,15 @@ class OutputFormatter:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ TOW/IMPOUND INFORMATION                                                     │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ Tow Date:            {tow.get('tow_date', 'N/A'):<56} │
-│ Tow Time:            {tow.get('tow_time', 'N/A'):<56} │
-│ Towing Company:      {tow.get('tow_company', 'N/A')[:56]:<56} │
-│ Tow Location:        {tow.get('tow_location', 'N/A')[:56]:<56} │
-│ Tow Fee:             ${tow.get('tow_fee', 'N/A'):<55} │
+│ Tow Date:            {tow.get("tow_date", "N/A"):<56} │
+│ Tow Time:            {tow.get("tow_time", "N/A"):<56} │
+│ Towing Company:      {tow.get("tow_company", "N/A")[:56]:<56} │
+│ Tow Location:        {tow.get("tow_location", "N/A")[:56]:<56} │
+│ Tow Fee:             ${tow.get("tow_fee", "N/A"):<55} │
 └─────────────────────────────────────────────────────────────────────────────┘
         """.strip()
 
-    def _create_court_section(self, court: Dict) -> str:
+    def _create_court_section(self, court: dict) -> str:
         """Create court information section"""
         if not court.get("court_date"):
             return ""
@@ -318,16 +315,16 @@ class OutputFormatter:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ COURT INFORMATION                                                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ Court Date:          {court.get('court_date', 'N/A'):<56} │
-│ Court Time:          {court.get('court_time', 'N/A'):<56} │
-│ Court Location:      {court.get('court_location', 'N/A')[:56]:<56} │
-│ Docket Number:       {court.get('docket_number', 'N/A'):<56} │
-│ Bail Amount:         ${court.get('bail_amount', 'N/A'):<55} │
-│ Bail Status:         {court.get('bail_status', 'N/A')[:56]:<56} │
+│ Court Date:          {court.get("court_date", "N/A"):<56} │
+│ Court Time:          {court.get("court_time", "N/A"):<56} │
+│ Court Location:      {court.get("court_location", "N/A")[:56]:<56} │
+│ Docket Number:       {court.get("docket_number", "N/A"):<56} │
+│ Bail Amount:         ${court.get("bail_amount", "N/A"):<55} │
+│ Bail Status:         {court.get("bail_status", "N/A")[:56]:<56} │
 └─────────────────────────────────────────────────────────────────────────────┘
         """.strip()
 
-    def _create_people_section(self, people: Dict) -> str:
+    def _create_people_section(self, people: dict) -> str:
         """Create people involved section"""
         if not people:
             return ""
@@ -345,9 +342,9 @@ class OutputFormatter:
             lines.append(
                 f"""
     SUSPECT:
-    • Name:    {suspect.get('name', 'N/A')}
-    • DOB:     {suspect.get('dob', 'N/A')}
-    • Address: {suspect.get('address', 'N/A')}
+    • Name:    {suspect.get("name", "N/A")}
+    • DOB:     {suspect.get("dob", "N/A")}
+    • Address: {suspect.get("address", "N/A")}
             """.strip()
             )
 
@@ -356,7 +353,7 @@ class OutputFormatter:
             lines.append(
                 f"""
     VICTIM:
-    • Name:    {victim.get('name', 'N/A')}
+    • Name:    {victim.get("name", "N/A")}
             """.strip()
             )
 
@@ -368,7 +365,7 @@ class OutputFormatter:
 
         return "\n".join(lines)
 
-    def _create_ai_insights(self, results: Dict) -> str:
+    def _create_ai_insights(self, results: dict) -> str:
         """Create AI insights and recommendations"""
         return """
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -397,7 +394,7 @@ class OutputFormatter:
         return f"""
 
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║ Report Generated: {datetime.now().strftime('%B %d, %Y at %I:%M %p'):<60} ║
+║ Report Generated: {datetime.now().strftime("%B %d, %Y at %I:%M %p"):<60} ║
 ║ Powered by Evident Legal AI Technology                                       ║
 ║ © 2026 Evident Legal Technologies - All Rights Reserved                      ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
@@ -436,7 +433,7 @@ class OutputFormatter:
 
         return "\n".join(lines)
 
-    def format_for_web(self, analysis_results: Dict[str, Any]) -> Dict[str, Any]:
+    def format_for_web(self, analysis_results: dict[str, Any]) -> dict[str, Any]:
         """
         Format analysis results for web display (JSON structure for frontend)
 
@@ -459,7 +456,7 @@ class OutputFormatter:
             "actions": self._suggest_next_actions(analysis_results),
         }
 
-    def _extract_highlights(self, results: Dict) -> List[str]:
+    def _extract_highlights(self, results: dict) -> list[str]:
         """Extract key highlights from results"""
         highlights = []
 
@@ -477,7 +474,7 @@ class OutputFormatter:
 
         return highlights
 
-    def _format_findings_for_web(self, results: Dict) -> List[Dict]:
+    def _format_findings_for_web(self, results: dict) -> list[dict]:
         """Format findings as structured cards for web UI"""
         findings = []
 
@@ -517,7 +514,7 @@ class OutputFormatter:
 
         return findings
 
-    def _format_timeline_for_web(self, timeline: List[Dict]) -> List[Dict]:
+    def _format_timeline_for_web(self, timeline: list[dict]) -> list[dict]:
         """Format timeline for web display"""
         return [
             {
@@ -530,7 +527,7 @@ class OutputFormatter:
             for i, event in enumerate(timeline[:20])
         ]
 
-    def _generate_ai_insights_for_web(self, results: Dict) -> Dict:
+    def _generate_ai_insights_for_web(self, results: dict) -> dict:
         """Generate AI insights for web display"""
         return {
             "issues": [
@@ -559,7 +556,7 @@ class OutputFormatter:
             ],
         }
 
-    def _suggest_next_actions(self, results: Dict) -> List[Dict]:
+    def _suggest_next_actions(self, results: dict) -> list[dict]:
         """Suggest next actions based on analysis"""
         return [
             {"action": "generate_timeline", "label": "Generate Full Timeline", "icon": "clock"},
@@ -622,4 +619,3 @@ if __name__ == "__main__":
 
     # Print formatted output
     print(formatter.format_analysis_output(sample_results))
-

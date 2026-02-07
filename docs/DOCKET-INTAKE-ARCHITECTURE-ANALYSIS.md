@@ -8,7 +8,11 @@
 
 ## Executive Summary
 
-This report provides a comprehensive analysis of the Evident.info docket intake system, identifying critical integrity issues, architectural inconsistencies, and providing prioritized recommendations for improvement. The system currently supports 10+ active legal cases with hundreds of court filings, making data integrity paramount.
+This report provides a comprehensive analysis of the Evident.info docket intake
+system, identifying critical integrity issues, architectural inconsistencies,
+and providing prioritized recommendations for improvement. The system currently
+supports 10+ active legal cases with hundreds of court filings, making data
+integrity paramount.
 
 --
 
@@ -16,7 +20,8 @@ This report provides a comprehensive analysis of the Evident.info docket intake 
 
 ### 1.1 System Overview
 
-The docket intake system is a Jekyll-based static site architecture with automated PDF processing capabilities:
+The docket intake system is a Jekyll-based static site architecture with
+automated PDF processing capabilities:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -772,12 +777,8 @@ async function main() {
 
   // Step 2: Inventory current state
   const inventory = {
-    docketFiles: fs
-      .readdirSync("_data/docket")
-      .filter((f) => f.endsWith(".yml")),
-    docketIndexFiles: fs
-      .readdirSync("_data/docket_index")
-      .filter((f) => f.endsWith(".yml")),
+    docketFiles: fs.readdirSync("_data/docket").filter((f) => f.endsWith(".yml")),
+    docketIndexFiles: fs.readdirSync("_data/docket_index").filter((f) => f.endsWith(".yml")),
     casesWithDocketFolder: [],
     casesWithFilingsFolder: [],
   };

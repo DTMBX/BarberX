@@ -2,7 +2,8 @@
 
 ## ?? **Overview**
 
-Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and images **together** in one batch. The system automatically:
+Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and
+images **together** in one batch. The system automatically:
 
 1. ? **Separates** files by type (PDF, Video, Image)
 2. ? **Processes in parallel** using ThreadPoolExecutor
@@ -201,8 +202,8 @@ You receive discovery with:
 - 2 PDF documents
 - 5 photos
 
-**Before:** Upload PDFs separately, then videos separately
-**Now:** Drag all 31 files at once ? automatic sorting + parallel processing
+**Before:** Upload PDFs separately, then videos separately **Now:** Drag all 31
+files at once ? automatic sorting + parallel processing
 
 --
 
@@ -279,25 +280,18 @@ def process_video_file(file, user_id):
 
 ### **Chain of Custody:**
 
-? SHA-256 hash at upload
-? Timestamp recorded
-? User attribution
-? Source tracking (discovery, OPRA, etc.)
-? File integrity verification
+? SHA-256 hash at upload ? Timestamp recorded ? User attribution ? Source
+tracking (discovery, OPRA, etc.) ? File integrity verification
 
 ### **Access Control:**
 
-? Login required
-? Tier limits enforced
-? Storage quotas checked
-? Audit logs created
+? Login required ? Tier limits enforced ? Storage quotas checked ? Audit logs
+created
 
 ### **File Validation:**
 
-? Extension whitelist
-? Size limits per tier
-? Filename sanitization
-? Duplicate detection (by hash)
+? Extension whitelist ? Size limits per tier ? Filename sanitization ? Duplicate
+detection (by hash)
 
 --
 

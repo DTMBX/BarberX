@@ -259,4 +259,6 @@
 
 --
 
-**Recommendation**: Deploy the new elegant navigation system to production. It provides a significantly better user experience while maintaining all existing functionality and improving accessibility.
+**Recommendation**: Deploy the new elegant navigation system to production. It
+provides a significantly better user experience while maintaining all existing
+functionality and improving accessibility.

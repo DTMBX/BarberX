@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -15,10 +16,8 @@ CRITICAL: This is the missing keystone that makes OCR work automatically.
 """
 
 import logging
-from pathlib import Path
-from typing import Optional, Tuple
 
-from ..contracts import ExtractionMethod, ExtractResult, PageExtraction
+from ..contracts import ExtractResult
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +30,7 @@ class ExtractionService:
     and ensures OCR on image-only PDFs.
     """
 
-    def __init__(self, config: Optional[dict] = None, manifest_service=None):
+Optional[def __init__(self, config: dict] = None, manifest_service=None):
         self.config = config or {}
         self.manifest_service = manifest_service
 
@@ -77,7 +76,7 @@ class ExtractionService:
 
         raise NotImplementedError("ExtractionService.extract() - coming in next commit")
 
-    def detect_text_layer(self, pdf_path: str) -> Tuple[bool, dict]:
+    def detect_text_layer(self, pdf_path: str) -> tuple[bool, dict]:
         """
         Detect if PDF has usable text layer
 

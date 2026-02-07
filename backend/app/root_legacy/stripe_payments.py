@@ -9,8 +9,7 @@ Handles subscriptions, checkouts, and customer management
 import os
 
 import stripe
-from flask import (Blueprint, jsonify, redirect, render_template, request,
-                   url_for)
+from flask import Blueprint, jsonify, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
 
 # Initialize Stripe
@@ -143,8 +142,7 @@ def payment_success():
 
         # Track analytics
         try:
-            from utils.analytics import (track_revenue,
-                                         track_subscription_change)
+            from utils.analytics import track_revenue, track_subscription_change
 
             track_subscription_change(
                 str(current_user.id), "free", plan, SUBSCRIPTION_PLANS[plan]["price"]
@@ -344,5 +342,3 @@ def check_feature_access(user, feature):
 
     required_tiers = feature_tiers.get(feature, ["free"])
     return user.subscription_tier in required_tiers
-
-

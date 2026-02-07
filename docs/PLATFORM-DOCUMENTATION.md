@@ -17,7 +17,9 @@
 
 ## Platform Overview
 
-**Evident Legal Technologies** is an enterprise-grade evidence processing and legal analysis platform designed for attorneys, legal professionals, and law firms.
+**Evident Legal Technologies** is an enterprise-grade evidence processing and
+legal analysis platform designed for attorneys, legal professionals, and law
+firms.
 
 ### Key Features
 
@@ -225,7 +227,8 @@ optimizer.analyze_tables()   # Update query planner stats
 
 - `RateLimiter` - Token bucket rate limiting
 - `APIKeyAuth` - API key authentication
-- Decorators: `@rate_limit()`, `@require_api_key()`, `@require_tier()`, `@validate_request()`
+- Decorators: `@rate_limit()`, `@require_api_key()`, `@require_tier()`,
+  `@validate_request()`
 - Combined: `@api_endpoint()` (all-in-one protection)
 
 **Rate Limits:**

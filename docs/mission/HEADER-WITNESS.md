@@ -13,9 +13,16 @@
 
 Let a Header Be Set as Witness.
 
-Establish a unified mark at the summit of the site, constituted as a quiet standard and not an ornament, wherein symbols are placed by order, proportion, and intent. Let the principal banner stand first and unaltered, as recognized by Law and Measure, holding precedence by right, seniority, and covenant.
+Establish a unified mark at the summit of the site, constituted as a quiet
+standard and not an ornament, wherein symbols are placed by order, proportion,
+and intent. Let the principal banner stand first and unaltered, as recognized by
+Law and Measure, holding precedence by right, seniority, and covenant.
 
-All accompanying standards shall be rendered subordinate in scale and revelation, grouped as one body, revealed only by consent or inquiry, so that none contend with the First nor obscure its charge. No symbol shall be diminished, dramatized, or falsely adorned; each shall appear as record, not spectacle.
+All accompanying standards shall be rendered subordinate in scale and
+revelation, grouped as one body, revealed only by consent or inquiry, so that
+none contend with the First nor obscure its charge. No symbol shall be
+diminished, dramatized, or falsely adorned; each shall appear as record, not
+spectacle.
 
 This component shall operate as a standing clause:
 
@@ -24,9 +31,12 @@ This component shall operate as a standing clause:
 - **Accessible to those who seek** — Click to reveal subordinate flags
 - **Silent to those who pass** — Discrete, not imposing
 
-Let spacing be deliberate, alignment square, and color truthful. Let nothing move that should stand. Let nothing shout that was meant to testify.
+Let spacing be deliberate, alignment square, and color truthful. Let nothing
+move that should stand. Let nothing shout that was meant to testify.
 
-By this design, truth is preserved, order is maintained, and all contained herein is held in good faith, under the Light, and under the Son—set apart for remembrance, protection, and lawful continuity.
+By this design, truth is preserved, order is maintained, and all contained
+herein is held in good faith, under the Light, and under the Son—set apart for
+remembrance, protection, and lawful continuity.
 
 --
 
@@ -224,8 +234,8 @@ Let the header stand as witness.
 - Never touching ground ✅ (elevated header position)
 - Never altered ✅ (exact official colors)
 
-**36 USC §902** - POW/MIA Flag:
-✅ Displayed at federal installations alongside US Flag  
+**36 USC §902** - POW/MIA Flag: ✅ Displayed at federal installations alongside
+US Flag  
 ✅ Properly subordinate to US Flag  
 ✅ Visible on significant dates
 
@@ -235,7 +245,8 @@ Let the header stand as witness.
 
 **From the Proclamation:**
 
-> "Let the principal banner stand first and unaltered, as recognized by Law and Measure, holding precedence by right, seniority, and covenant."
+> "Let the principal banner stand first and unaltered, as recognized by Law and
+> Measure, holding precedence by right, seniority, and covenant."
 
 **Interpretation:**
 
@@ -246,7 +257,8 @@ Let the header stand as witness.
 - Measure = Proper dimensions
 - Precedence = Always supreme
 
-> "No symbol shall be diminished, dramatized, or falsely adorned; each shall appear as record, not spectacle."
+> "No symbol shall be diminished, dramatized, or falsely adorned; each shall
+> appear as record, not spectacle."
 
 **Interpretation:**
 
@@ -255,7 +267,8 @@ Let the header stand as witness.
 - Static display = Record, not spectacle
 - Discrete panel = Restraint, not show
 
-> "Let nothing move that should stand. Let nothing shout that was meant to testify."
+> "Let nothing move that should stand. Let nothing shout that was meant to
+> testify."
 
 **Interpretation:**
 

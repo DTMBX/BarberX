@@ -12,31 +12,39 @@ import os
 import sys
 import threading
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 import flask
-from flask import (Flask, flash, jsonify, redirect, render_template, request,
-                   send_file, session, url_for)
-from jinja2 import ChoiceLoader, FileSystemLoader
+from flask import (
+    Flask,
+    flash,
+    jsonify,
+    redirect,
+    render_template,
+    request,
+    send_file,
+    session,
+    url_for,
+)
 from flask_compress import Compress
 from flask_cors import CORS
-from flask_login import (LoginManager, current_user, login_required,
-                         login_user, logout_user)
+from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask_wtf.csrf import CSRFProtect
+from jinja2 import ChoiceLoader, FileSystemLoader
 from werkzeug.utils import secure_filename
 
-from free_tier_data_retention import DataRetentionManager, get_user_data_status
+from free_tier_data_retention import get_user_data_status
+
 # FREE Tier Functionality
-from free_tier_demo_cases import (get_demo_case_by_id, get_demo_cases,
-                                  is_demo_case)
-from free_tier_educational_resources import (CATEGORIES,
-                                             get_all_educational_resources,
-                                             get_resource_by_id)
-from free_tier_upload_manager import (OneTimeUploadManager,
-                                      free_tier_upload_route_decorator)
-from free_tier_watermark import WatermarkService
+from free_tier_demo_cases import get_demo_case_by_id, get_demo_cases, is_demo_case
+from free_tier_educational_resources import (
+    CATEGORIES,
+    get_all_educational_resources,
+    get_resource_by_id,
+)
+from free_tier_upload_manager import OneTimeUploadManager
 
 # Security utilities
 try:
@@ -147,11 +155,9 @@ except ImportError:
 
 # Backend Optimization Components
 try:
-    from backend_integration import (error_response, event_bus,
-                                     service_registry, success_response)
+    from backend_integration import error_response, event_bus, service_registry, success_response
     from config_manager import ConfigManager, DatabaseOptimizer
-    from unified_evidence_service import (EvidenceReportGenerator,
-                                          UnifiedEvidenceProcessor)
+    from unified_evidence_service import EvidenceReportGenerator, UnifiedEvidenceProcessor
 
     BACKEND_OPTIMIZATION_AVAILABLE = True
     print("[OK] Backend optimization components loaded")
@@ -174,7 +180,6 @@ app = Flask(__name__)
 # at common repository locations (backend/src/templates, repo-level
 # templates/, site/templates/, _site/templates/). This avoids duplicating
 # templates and makes tests/CI able to render views.
-from pathlib import Path
 _repo_root = Path(__file__).resolve().parents[2]
 _candidates = [
     Path(__file__).resolve().parent / "templates",
@@ -222,7 +227,7 @@ FOUNDING_MEMBER_SIGNUPS_FILE = "founding_member_signups.csv"
 
 def utc_now():
     """Return current UTC datetime (timezone-aware replacement for datetime.utcnow())."""
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 # Load environment variables
@@ -398,7 +403,13 @@ csrf.exempt("admin_api")
 csrf.exempt("evidence_api")
 
 # Exempt upload routes from CSRF (will be applied after routes are defined)
-CSRF_EXEMPT_VIEWS = ["upload_file", "upload_pdf", "batch_upload", "unified_batch_upload", "auth.test_credentials"]
+CSRF_EXEMPT_VIEWS = [
+    "upload_file",
+    "upload_pdf",
+    "batch_upload",
+    "unified_batch_upload",
+    "auth.test_credentials",
+]
 
 CORS(
     app,
@@ -650,6 +661,7 @@ class Analysis(db.Model):
 
     __tablename__ = "analyses"
     __table_args__ = {"extend_existing": True}
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.String(32), primary_key=True)  # UUID
     user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), nullable=False, index=True)
@@ -735,6 +747,7 @@ class AppSettings(db.Model):
     """Application settings and configuration"""
 
     __tablename__ = "app_settings"
+    __table_args__ = {"extend_existing": True}
     __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -880,6 +893,7 @@ class PDFUpload(db.Model):
     """Model for tracking uploaded PDF files"""
 
     __tablename__ = "pdf_uploads"
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), nullable=True, index=True)
@@ -941,6 +955,7 @@ class AuditLog(db.Model):
     """Audit log for compliance and security"""
 
     __tablename__ = "audit_logs"
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), index=True)
@@ -1990,8 +2005,7 @@ def register():
         return send_file("templates/register.html")
 
     from utils.logging_config import get_logger
-    from utils.responses import (error_response, success_response,
-                                 validation_error)
+    from utils.responses import error_response, success_response, validation_error
     from utils.security import InputValidator
 
     logger = get_logger("auth")
@@ -2189,7 +2203,7 @@ def admin_founding_members():
     signups = []
 
     if signups_file.exists():
-        with open(signups_file, "r", newline="", encoding="utf-8") as f:
+        with open(signups_file, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             signups = list(reader)
 
@@ -2279,11 +2293,11 @@ def change_password():
     if not ENHANCED_AUTH_AVAILABLE:
         return jsonify({"error": ERROR_FEATURE_NOT_AVAILABLE}), 503
 
-    from models_auth import db
     from utils.logging_config import get_logger
-    from utils.responses import (error_response, success_response,
-                                 validation_error)
+    from utils.responses import error_response, success_response, validation_error
     from utils.security import ErrorSanitizer, InputValidator
+
+    from models_auth import db
 
     logger = get_logger("auth")
 
@@ -2430,7 +2444,7 @@ def get_enhanced_analysis(analysis_id):
     if analysis.report_json_path and os.path.exists(analysis.report_json_path):
         import json
 
-        with open(analysis.report_json_path, "r") as f:
+        with open(analysis.report_json_path) as f:
             report_data = json.load(f)
         return jsonify(report_data)
 
@@ -2473,7 +2487,11 @@ def download_analysis_report(analysis_id, format):
         return send_file(
             analysis.report_txt_path, as_attachment=True, download_name=f"{analysis.id}_report.txt"
         )
-    elif output_format == "md" and analysis.report_md_path and os.path.exists(analysis.report_md_path):
+    elif (
+        output_format == "md"
+        and analysis.report_md_path
+        and os.path.exists(analysis.report_md_path)
+    ):
         return send_file(
             analysis.report_md_path, as_attachment=True, download_name=f"{analysis.id}_report.md"
         )
@@ -2531,11 +2549,11 @@ def evidence_dashboard_page():
 @login_required
 def evidence_intake_submit():
     """Submit new evidence for processing"""
-    from evidence_processing import evidence_workflow
     from utils.logging_config import get_logger
-    from utils.responses import (error_response, success_response,
-                                 validation_error)
+    from utils.responses import error_response, success_response, validation_error
     from utils.security import ErrorSanitizer, InputValidator
+
+    from evidence_processing import evidence_workflow
 
     logger = get_logger("api")
 
@@ -2731,7 +2749,7 @@ def list_evidence():
         )
 
         if metadata_path.exists():
-            with open(metadata_path, "r") as f:
+            with open(metadata_path) as f:
                 evidence_package = json.load(f)
             evidence_list.append(evidence_package)
         else:
@@ -3905,14 +3923,12 @@ def founding_member_signup():
         # Use simple flat file for email capture (avoid database complexity)
         # Production version should integrate with Stripe customer creation
         import csv
-        import os
-        from datetime import datetime
 
         signups_file = Path(FOUNDING_MEMBER_SIGNUPS_FILE)
 
         # Check if already signed up
         if signups_file.exists():
-            with open(signups_file, "r", newline="", encoding="utf-8") as f:
+            with open(signups_file, newline="", encoding="utf-8") as f:
                 reader = csv.DictReader(f)
                 for row in reader:
                     if row.get("email", "").lower() == email:
@@ -3952,7 +3968,7 @@ def founding_member_signup():
             )
 
         # Count total signups
-        with open(signups_file, "r", newline="", encoding="utf-8") as f:
+        with open(signups_file, newline="", encoding="utf-8") as f:
             count = sum(1 for _ in f) - 1  # -1 for header
             spots_remaining = max(0, 100 - count)
 
@@ -4621,7 +4637,7 @@ def export_analysis_report(analysis, format):
 
         import json
 
-        with open(analysis.report_json_path, "r") as f:
+        with open(analysis.report_json_path) as f:
             json.load(f)
 
         output_dir = Path(app.config["ANALYSIS_FOLDER"]) / analysis.id
@@ -4632,8 +4648,7 @@ def export_analysis_report(analysis, format):
             from reportlab.lib import colors
             from reportlab.lib.pagesizes import letter
             from reportlab.lib.styles import getSampleStyleSheet
-            from reportlab.platypus import (Paragraph, SimpleDocTemplate,
-                                            Spacer, Table, TableStyle)
+            from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
             pdf_path = output_dir / f"report_{analysis.id}.pdf"
             doc = SimpleDocTemplate(str(pdf_path), pagesize=letter)
@@ -4783,8 +4798,8 @@ def export_analysis_report(analysis, format):
             # Chain of Custody
             doc.add_heading("Chain of Custody", level=1)
             doc.add_paragraph(f"File Integrity (SHA-256): {analysis.file_hash}")
-            doc.add_paragraph(f'Acquired By: {analysis.acquired_by or "Not specified"}')
-            doc.add_paragraph(f'Source: {analysis.source or "Not specified"}')
+            doc.add_paragraph(f"Acquired By: {analysis.acquired_by or 'Not specified'}")
+            doc.add_paragraph(f"Source: {analysis.source or 'Not specified'}")
 
             # Attribution
             doc.add_heading("Attribution", level=1)
@@ -4866,19 +4881,19 @@ def export_analysis_report(analysis, format):
                 else "N/A"
             )
             file_size_str = (
-                f"{analysis.file_size / (1024*1024):.2f} MB" if analysis.file_size else "N/A"
+                f"{analysis.file_size / (1024 * 1024):.2f} MB" if analysis.file_size else "N/A"
             )
 
             text_content = f"""
 ========================================
 BWC FORENSIC ANALYSIS REPORT
 ========================================
-Generated: {utc_now().strftime('%B %d, %Y at %I:%M %p UTC')}
+Generated: {utc_now().strftime("%B %d, %Y at %I:%M %p UTC")}
 
 CASE INFORMATION
 ----------------
-Case Number: {analysis.case_number or 'N/A'}
-Evidence Number: {analysis.evidence_number or 'N/A'}
+Case Number: {analysis.case_number or "N/A"}
+Evidence Number: {analysis.evidence_number or "N/A"}
 Filename: {analysis.filename}
 File Size: {file_size_str}
 Duration: {duration_str}
@@ -4892,14 +4907,14 @@ Total Discrepancies: {analysis.total_discrepancies or 0}
 Critical Issues: {analysis.critical_discrepancies or 0}
 Analysis Status: {analysis.status.upper()}
 Completion Progress: {analysis.progress}%
-Current Step: {analysis.current_step or 'N/A'}
+Current Step: {analysis.current_step or "N/A"}
 
 CHAIN OF CUSTODY
 ----------------
-Evidence Acquired By: {analysis.acquired_by or 'Not specified'}
-Source/Origin: {analysis.source or 'Not specified'}
-Upload Date: {analysis.created_at.strftime('%Y-%m-%d %H:%M:%S UTC')}
-Analysis Completed: {analysis.updated_at.strftime('%Y-%m-%d %H:%M:%S UTC')}
+Evidence Acquired By: {analysis.acquired_by or "Not specified"}
+Source/Origin: {analysis.source or "Not specified"}
+Upload Date: {analysis.created_at.strftime("%Y-%m-%d %H:%M:%S UTC")}
+Analysis Completed: {analysis.updated_at.strftime("%Y-%m-%d %H:%M:%S UTC")}
 Analyzed By: {current_user.email}
 
 INTEGRITY VERIFICATION
@@ -4948,18 +4963,18 @@ For official use only - Confidential
                 else "N/A"
             )
             file_size_str = (
-                f"{analysis.file_size / (1024*1024):.2f} MB" if analysis.file_size else "N/A"
+                f"{analysis.file_size / (1024 * 1024):.2f} MB" if analysis.file_size else "N/A"
             )
 
             markdown_content = f"""# BWC FORENSIC ANALYSIS REPORT
 
-**Generated:** {utc_now().strftime('%B %d, %Y at %I:%M %p UTC')}
+**Generated:** {utc_now().strftime("%B %d, %Y at %I:%M %p UTC")}
 
 ---
 
 ## EXECUTIVE SUMMARY
 
-This report presents the forensic analysis results for body-worn camera footage case **{analysis.case_number or 'N/A'}**.
+This report presents the forensic analysis results for body-worn camera footage case **{analysis.case_number or "N/A"}**.
 The analysis identified **{analysis.total_speakers or 0}** distinct speaker(s) across **{analysis.total_segments or 0}** transcript segments.
 
 {"**⚠️ ALERT:** " + str(analysis.critical_discrepancies) + " critical discrepancies require immediate attention." if analysis.critical_discrepancies and analysis.critical_discrepancies > 0 else "✅ No critical issues were detected."}
@@ -4970,8 +4985,8 @@ The analysis identified **{analysis.total_speakers or 0}** distinct speaker(s) a
 
 | Field | Value |
 |-------|-------|
-| Case Number | {analysis.case_number or 'N/A'} |
-| Evidence Number | {analysis.evidence_number or 'N/A'} |
+| Case Number | {analysis.case_number or "N/A"} |
+| Evidence Number | {analysis.evidence_number or "N/A"} |
 | Filename | {analysis.filename} |
 | File Size | {file_size_str} |
 | Duration | {duration_str} |
@@ -4985,10 +5000,10 @@ The analysis identified **{analysis.total_speakers or 0}** distinct speaker(s) a
 |--------|-------|--------|
 | Speakers Identified | {analysis.total_speakers or 0} | ✓ |
 | Transcript Segments | {analysis.total_segments or 0} | ✓ |
-| Total Discrepancies | {analysis.total_discrepancies or 0} | {'⚠️' if analysis.total_discrepancies and analysis.total_discrepancies > 0 else '✓'} |
-| Critical Issues | {analysis.critical_discrepancies or 0} | {'⚠️' if analysis.critical_discrepancies and analysis.critical_discrepancies > 0 else '✓'} |
-| Analysis Status | {analysis.status.upper()} | {'✓' if analysis.status == 'completed' else '⏳'} |
-| Completion | {analysis.progress}% | {'✓' if analysis.progress == 100 else '⏳'} |
+| Total Discrepancies | {analysis.total_discrepancies or 0} | {"⚠️" if analysis.total_discrepancies and analysis.total_discrepancies > 0 else "✓"} |
+| Critical Issues | {analysis.critical_discrepancies or 0} | {"⚠️" if analysis.critical_discrepancies and analysis.critical_discrepancies > 0 else "✓"} |
+| Analysis Status | {analysis.status.upper()} | {"✓" if analysis.status == "completed" else "⏳"} |
+| Completion | {analysis.progress}% | {"✓" if analysis.progress == 100 else "⏳"} |
 
 ---
 
@@ -4996,10 +5011,10 @@ The analysis identified **{analysis.total_speakers or 0}** distinct speaker(s) a
 
 | Event | Details |
 |-------|---------|
-| Evidence Acquired By | {analysis.acquired_by or 'Not specified'} |
-| Source/Origin | {analysis.source or 'Not specified'} |
-| Upload Date | {analysis.created_at.strftime('%Y-%m-%d %H:%M:%S UTC')} |
-| Analysis Completed | {analysis.updated_at.strftime('%Y-%m-%d %H:%M:%S UTC')} |
+| Evidence Acquired By | {analysis.acquired_by or "Not specified"} |
+| Source/Origin | {analysis.source or "Not specified"} |
+| Upload Date | {analysis.created_at.strftime("%Y-%m-%d %H:%M:%S UTC")} |
+| Analysis Completed | {analysis.updated_at.strftime("%Y-%m-%d %H:%M:%S UTC")} |
 | Analyzed By | {current_user.email} |
 | Integrity Verification | `SHA-256: {analysis.file_hash}` |
 
@@ -5345,7 +5360,11 @@ def admin_manage_user(user_id):
             user.full_name = data["full_name"]
         if "organization" in data:
             user.organization = data["organization"]
-        if "subscription_tier" in data and data["subscription_tier"] in ["free", "professional", "enterprise"]:
+        if "subscription_tier" in data and data["subscription_tier"] in [
+            "free",
+            "professional",
+            "enterprise",
+        ]:
             user.subscription_tier = data["subscription_tier"]
         if "role" in data and data["role"] in ["user", "pro", "admin"]:
             user.role = data["role"]
@@ -5409,7 +5428,7 @@ def admin_toggle_user_status(user_id):
 
     return jsonify(
         {
-            "message": f'User {"activated" if user.is_active else "deactivated"} successfully',
+            "message": f"User {'activated' if user.is_active else 'deactivated'} successfully",
             "is_active": user.is_active,
         }
     )
@@ -5612,7 +5631,6 @@ def admin_operations_summary():
     from datetime import timedelta
 
     import psutil
-    from sqlalchemy import func
 
     def ensure_setting(key, default, value_type="string", category="operations", description=""):
         setting = AppSettings.query.filter_by(key=key).first()
@@ -6546,7 +6564,9 @@ def upload_video():
                 db.session.commit()
 
                 # Save report to file
-                output_dir = Path(app.config.get("ANALYSIS_FOLDER", ANALYSIS_FOLDER_PATH)) / analysis.id
+                output_dir = (
+                    Path(app.config.get("ANALYSIS_FOLDER", ANALYSIS_FOLDER_PATH)) / analysis.id
+                )
                 output_dir.mkdir(parents=True, exist_ok=True)
 
                 # Save JSON report
@@ -6821,7 +6841,6 @@ def free_dashboard():
 @login_required
 def view_case(case_id):
     """View case details (handles both demo and real cases)"""
-    from flask_login import current_user
 
     # Check if it's a demo case
     if is_demo_case(case_id):
@@ -6945,9 +6964,7 @@ if __name__ == "__main__":
 
     Ready for production deployment!
     Press Ctrl+C to stop the server.
-    """.format(
-            port=port
-        )
+    """.format(port=port)
     )
 
     app.run(host="0.0.0.0", port=port, debug=debug)
@@ -6973,4 +6990,3 @@ def pricing():
 
     # Option 2: Use Stripe embed (uncomment to switch)
     # return render_template('pricing-stripe-embed.html')
-

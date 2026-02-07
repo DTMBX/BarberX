@@ -31,7 +31,7 @@ class ExtractionService:
     and ensures OCR on image-only PDFs.
     """
 
-    def __init__(self, config: Optional[dict] = None, manifest_service=None):
+Optional[def __init__(self, config: dict] = None, manifest_service=None):
         self.config = config or {}
         self.manifest_service = manifest_service
 
@@ -77,7 +77,7 @@ class ExtractionService:
 
         raise NotImplementedError("ExtractionService.extract() - coming in next commit")
 
-    def detect_text_layer(self, pdf_path: str) -> Tuple[bool, dict]:
+    def detect_text_layer(self, pdf_path: str) -> tuple[bool, dict]:
         """
         Detect if PDF has usable text layer
 

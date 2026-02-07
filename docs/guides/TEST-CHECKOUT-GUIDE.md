@@ -14,8 +14,7 @@ Login → Pricing Page → Checkout → Payment → Success → Verification
 
 ### Check Render Environment (2 min):
 
-Go to: https://dashboard.render.com/
-Click your service → Environment tab
+Go to: https://dashboard.render.com/ Click your service → Environment tab
 
 **Verify all 6 Stripe variables are set:**
 

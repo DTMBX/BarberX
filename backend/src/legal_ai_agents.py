@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -5,12 +6,11 @@
 # Custom agents for discovery processing, evidence organization, and legal workflow automation
 
 import json
-import os
 import re
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 class AgentCapability:
@@ -54,15 +54,15 @@ class LegalAIAgent:
         self.config = {}
         self.results = []
 
-    def configure(self, config: Dict[str, Any]):
+    def configure(self, config: dict[str, Any]):
         """Configure agent parameters"""
         self.config.update(config)
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Execute agent task - override in subclasses"""
         raise NotImplementedError("Subclasses must implement execute()")
 
-    def get_status(self) -> Dict[str, Any]:
+    def get_status(self) -> dict[str, Any]:
         """Get agent status and results"""
         return {
             "agent_id": self.agent_id,
@@ -75,7 +75,7 @@ class LegalAIAgent:
             "results_count": len(self.results),
         }
 
-    def save_result(self, result: Dict[str, Any]):
+    def save_result(self, result: dict[str, Any]):
         """Save agent execution result"""
         result["timestamp"] = datetime.utcnow().isoformat()
         self.results.append(result)
@@ -103,7 +103,7 @@ class DiscoveryProcessingAgent(LegalAIAgent):
             "batch_size": 50,
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Process discovery documents"""
         self.status = AgentStatus.PROCESSING
 
@@ -166,7 +166,7 @@ class DiscoveryProcessingAgent(LegalAIAgent):
 
         return results
 
-    def _categorize_document(self, file: Dict) -> str:
+    def _categorize_document(self, file: dict) -> str:
         """Categorize document by type"""
         filename = file.get("name", "").lower()
         content = file.get("content", "").lower()
@@ -212,7 +212,7 @@ class DiscoveryProcessingAgent(LegalAIAgent):
 
         return "Miscellaneous"
 
-    def _extract_entities(self, file: Dict) -> List[Dict]:
+    def _extract_entities(self, file: dict) -> list[dict]:
         """Extract key entities from document"""
         content = file.get("content", "")
         entities = []
@@ -239,7 +239,7 @@ class DiscoveryProcessingAgent(LegalAIAgent):
 
         return entities
 
-    def _is_privileged(self, file: Dict) -> bool:
+    def _is_privileged(self, file: dict) -> bool:
         """Check if document is privileged"""
         content = file.get("content", "").lower()
 
@@ -253,7 +253,7 @@ class DiscoveryProcessingAgent(LegalAIAgent):
 
         return any(keyword in content for keyword in privilege_keywords)
 
-    def _extract_timeline_events(self, file: Dict) -> List[Dict]:
+    def _extract_timeline_events(self, file: dict) -> list[dict]:
         """Extract events with dates for timeline"""
         content = file.get("content", "")
         events = []
@@ -278,7 +278,7 @@ class DiscoveryProcessingAgent(LegalAIAgent):
 
         return events[:10]  # Limit
 
-    def _is_key_document(self, file: Dict) -> bool:
+    def _is_key_document(self, file: dict) -> bool:
         """Determine if document is key to the case"""
         content = file.get("content", "").lower()
 
@@ -294,15 +294,15 @@ class DiscoveryProcessingAgent(LegalAIAgent):
 
         return any(indicator in content for indicator in key_indicators)
 
-    def _generate_summary(self, results: Dict) -> str:
+    def _generate_summary(self, results: dict) -> str:
         """Generate human-readable summary"""
         summary = f"""
 Discovery Processing Complete:
-- Processed {results['processed']} of {results['total_files']} documents
-- Found {len(results['entities_found'])} entities
-- Identified {len(results['privileged_docs'])} privileged documents
-- Extracted {len(results['timeline_events'])} timeline events
-- Flagged {len(results['key_documents'])} key documents
+- Processed {results["processed"]} of {results["total_files"]} documents
+- Found {len(results["entities_found"])} entities
+- Identified {len(results["privileged_docs"])} privileged documents
+- Extracted {len(results["timeline_events"])} timeline events
+- Flagged {len(results["key_documents"])} key documents
 
 Categories:
 """
@@ -333,7 +333,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
             "link_related": True,
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Organize evidence into structured format"""
         self.status = AgentStatus.PROCESSING
 
@@ -371,7 +371,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
 
         return results
 
-    def _organize_by_date(self, evidence: List[Dict]) -> Dict:
+    def _organize_by_date(self, evidence: list[dict]) -> dict:
         """Organize evidence chronologically"""
         organized = {}
 
@@ -384,7 +384,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
         # Sort by date
         return dict(sorted(organized.items()))
 
-    def _organize_by_party(self, evidence: List[Dict]) -> Dict:
+    def _organize_by_party(self, evidence: list[dict]) -> dict:
         """Organize by party involved"""
         parties = {}
 
@@ -396,7 +396,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
 
         return parties
 
-    def _organize_by_issue(self, evidence: List[Dict]) -> Dict:
+    def _organize_by_issue(self, evidence: list[dict]) -> dict:
         """Organize by legal issue"""
         issues = {"Liability": [], "Damages": [], "Causation": [], "Negligence": [], "Other": []}
 
@@ -417,7 +417,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
 
         return issues
 
-    def _organize_by_type(self, evidence: List[Dict]) -> Dict:
+    def _organize_by_type(self, evidence: list[dict]) -> dict:
         """Organize by evidence type"""
         types = {}
 
@@ -429,7 +429,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
 
         return types
 
-    def _create_cross_references(self, evidence: List[Dict]) -> List[Dict]:
+    def _create_cross_references(self, evidence: list[dict]) -> list[dict]:
         """Find related evidence items"""
         references = []
 
@@ -453,7 +453,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
 
         return references
 
-    def _calculate_similarity(self, item1: Dict, item2: Dict) -> float:
+    def _calculate_similarity(self, item1: dict, item2: dict) -> float:
         """Calculate similarity between two evidence items"""
         score = 0.0
 
@@ -479,7 +479,7 @@ class EvidenceOrganizerAgent(LegalAIAgent):
 
         return min(score, 1.0)
 
-    def _generate_index(self, structure: Dict) -> List[Dict]:
+    def _generate_index(self, structure: dict) -> list[dict]:
         """Generate searchable index"""
         index = []
 
@@ -513,7 +513,7 @@ class TimelineBuilderAgent(LegalAIAgent):
             "include_source": True,
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Build comprehensive case timeline"""
         self.status = AgentStatus.PROCESSING
 
@@ -549,7 +549,7 @@ class TimelineBuilderAgent(LegalAIAgent):
 
         return results
 
-    def _sort_events(self, events: List[Dict]) -> List[Dict]:
+    def _sort_events(self, events: list[dict]) -> list[dict]:
         """Sort events chronologically"""
 
         def parse_date(event):
@@ -564,7 +564,7 @@ class TimelineBuilderAgent(LegalAIAgent):
 
         return sorted(events, key=parse_date)
 
-    def _detect_conflicts(self, events: List[Dict]) -> List[Dict]:
+    def _detect_conflicts(self, events: list[dict]) -> list[dict]:
         """Find conflicting accounts of same event"""
         conflicts = []
 
@@ -589,7 +589,7 @@ class TimelineBuilderAgent(LegalAIAgent):
 
         return conflicts
 
-    def _find_gaps(self, events: List[Dict]) -> List[Dict]:
+    def _find_gaps(self, events: list[dict]) -> list[dict]:
         """Find significant gaps in timeline"""
         gaps = []
 
@@ -614,7 +614,7 @@ class TimelineBuilderAgent(LegalAIAgent):
 
         return gaps
 
-    def _identify_critical_dates(self, events: List[Dict]) -> List[Dict]:
+    def _identify_critical_dates(self, events: list[dict]) -> list[dict]:
         """Identify legally significant dates"""
         critical = []
 
@@ -667,7 +667,7 @@ class ComplianceCheckerAgent(LegalAIAgent):
             "check_privacy": True,
         }
 
-    def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """Check for legal compliance issues"""
         self.status = AgentStatus.PROCESSING
 
@@ -703,7 +703,7 @@ class ComplianceCheckerAgent(LegalAIAgent):
 
         return results
 
-    def _check_miranda(self, item: Dict, results: Dict):
+    def _check_miranda(self, item: dict, results: dict):
         """Check Miranda warning compliance"""
         if item.get("type") == "interrogation":
             content = str(item.get("content", "")).lower()
@@ -726,7 +726,7 @@ class ComplianceCheckerAgent(LegalAIAgent):
                     }
                 )
 
-    def _check_chain_of_custody(self, item: Dict, results: Dict):
+    def _check_chain_of_custody(self, item: dict, results: dict):
         """Check chain of custody documentation"""
         if not item.get("chain_of_custody"):
             results["warnings"].append(
@@ -738,7 +738,7 @@ class ComplianceCheckerAgent(LegalAIAgent):
                 }
             )
 
-    def _check_privacy(self, item: Dict, results: Dict):
+    def _check_privacy(self, item: dict, results: dict):
         """Check privacy compliance"""
         content = str(item.get("content", "")).lower()
 
@@ -768,15 +768,17 @@ class AgentManager:
         self.storage_path.mkdir(parents=True, exist_ok=True)
         self.agents = {}
 
-    def deploy_agent(self, agent_type: str, user_id: str, config: Optional[Dict] = None) -> str:
+Optional[def deploy_agent(self, agent_type: str, user_id: str, config: dict] = None) -> str:
         """Deploy a new agent instance"""
         agent_id = str(uuid.uuid4())[:12]
 
         # Import document agents
-        from legal_document_agents import (BriefWriterAgent,
-                                           ContractDrafterAgent,
-                                           LegalLetterAgent,
-                                           MotionDrafterAgent)
+        from legal_document_agents import (
+            BriefWriterAgent,
+            ContractDrafterAgent,
+            LegalLetterAgent,
+            MotionDrafterAgent,
+        )
 
         # Create agent based on type
         if agent_type == "discovery":
@@ -808,7 +810,7 @@ class AgentManager:
 
         return agent_id
 
-    def execute_agent(self, agent_id: str, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def execute_agent(self, agent_id: str, input_data: dict[str, Any]) -> dict[str, Any]:
         """Execute agent task"""
         agent = self.agents.get(agent_id)
 
@@ -823,7 +825,7 @@ class AgentManager:
 
         return result
 
-    def get_agent_status(self, agent_id: str) -> Dict[str, Any]:
+    def get_agent_status(self, agent_id: str) -> dict[str, Any]:
         """Get agent status"""
         agent = self.agents.get(agent_id)
 
@@ -835,12 +837,12 @@ class AgentManager:
 
         return agent.get_status()
 
-    def list_user_agents(self, user_id: str) -> List[Dict[str, Any]]:
+    def list_user_agents(self, user_id: str) -> list[dict[str, Any]]:
         """List all agents for a user"""
         user_agents = []
 
         for agent_file in self.storage_path.glob(f"*_{user_id}.json"):
-            with open(agent_file, "r") as f:
+            with open(agent_file) as f:
                 agent_data = json.load(f)
                 user_agents.append(agent_data)
 
@@ -876,16 +878,18 @@ class AgentManager:
                 indent=2,
             )
 
-    def _load_agent(self, agent_id: str) -> Optional[LegalAIAgent]:
+Optional[def _load_agent(self, agent_id: str) -> LegalAIAgent]:
         """Load agent from disk"""
         # Import document agents
-        from legal_document_agents import (BriefWriterAgent,
-                                           ContractDrafterAgent,
-                                           LegalLetterAgent,
-                                           MotionDrafterAgent)
+        from legal_document_agents import (
+            BriefWriterAgent,
+            ContractDrafterAgent,
+            LegalLetterAgent,
+            MotionDrafterAgent,
+        )
 
         for agent_file in self.storage_path.glob(f"{agent_id}_*.json"):
-            with open(agent_file, "r") as f:
+            with open(agent_file) as f:
                 data = json.load(f)
 
                 # Reconstruct agent based on capability

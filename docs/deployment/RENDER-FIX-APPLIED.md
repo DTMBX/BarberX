@@ -2,7 +2,8 @@
 
 ## ? Problem:
 
-Render auto-selected **Python 3.13.4**, but SQLAlchemy 2.0.23 is **NOT compatible** with Python 3.13.
+Render auto-selected **Python 3.13.4**, but SQLAlchemy 2.0.23 is **NOT
+compatible** with Python 3.13.
 
 **Error:**
 
@@ -67,8 +68,7 @@ pip install -r requirements.txt
 
 ## ?? Monitor Deployment:
 
-Go to your Render dashboard:
-**https://dashboard.render.com**
+Go to your Render dashboard: **https://dashboard.render.com**
 
 You'll see:
 
@@ -80,8 +80,7 @@ You'll see:
 
 ## ? Once Live:
 
-Your app will be at:
-**https://Evident-legal-tech.onrender.com**
+Your app will be at: **https://Evident-legal-tech.onrender.com**
 
 **Test:**
 

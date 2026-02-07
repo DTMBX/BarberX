@@ -26,10 +26,7 @@
     }
 
     // Check system preference
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches
-    ) {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
       return THEME_LIGHT;
     }
 
@@ -72,8 +69,7 @@
    * Announce theme change to screen readers
    */
   function announceThemeChange(theme) {
-    const announcement =
-      theme === THEME_LIGHT ? "Light mode activated" : "Dark mode activated";
+    const announcement = theme === THEME_LIGHT ? "Light mode activated" : "Dark mode activated";
 
     let announcer = document.getElementById("theme-announcer");
     if (!announcer) {

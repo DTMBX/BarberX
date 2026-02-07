@@ -25,8 +25,6 @@ def run_migration():
 
     with app.app_context():
         # Import the models to register them
-        from api_usage_metering import (APIUsageLog, EncryptedAPIKey,
-                                        UserAPIQuota)
 
         print("=" * 60)
         print("API Usage Metering - Database Migration")

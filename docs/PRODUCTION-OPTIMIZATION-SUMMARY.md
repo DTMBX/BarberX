@@ -71,10 +71,7 @@
      "logo": "{{ url_for('static', filename='images/logo.png') }}",
      "email": "contact@Evident.info",
      "foundingDate": "2025",
-     "sameAs": [
-       "https://twitter.com/Evident",
-       "https://linkedin.com/company/Evident"
-     ]
+     "sameAs": ["https://twitter.com/Evident", "https://linkedin.com/company/Evident"]
    }
    ```
 
@@ -282,9 +279,7 @@ async function networkFirstStrategy(request) {
     cache.put(request, response.clone());
     return response;
   } catch (error) {
-    return (
-      (await caches.match(request)) || (await caches.match("/offline.html"))
-    );
+    return (await caches.match(request)) || (await caches.match("/offline.html"));
   }
 }
 ```
@@ -426,9 +421,7 @@ self.addEventListener("message", (event) => {
     {
       "name": "Dashboard",
       "url": "/dashboard",
-      "icons": [
-        { "src": "/assets/images/dashboard-icon.png", "sizes": "96x96" }
-      ]
+      "icons": [{ "src": "/assets/images/dashboard-icon.png", "sizes": "96x96" }]
     }
   ]
 }
@@ -481,9 +474,7 @@ self.addEventListener("message", (event) => {
     <p>It looks like you've lost your internet connection.</p>
     <p>Don't worry - your work is safe!</p>
 
-    <button class="retry-button" onclick="location.reload()">
-      Retry Connection
-    </button>
+    <button class="retry-button" onclick="location.reload()">Retry Connection</button>
 
     <div style="margin-top: 3rem; opacity: 0.8;">
       <h3>Cached Pages Available:</h3>

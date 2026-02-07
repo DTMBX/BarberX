@@ -22,7 +22,8 @@
 - **Meaningful work:** Every day defending the Constitution
 - **Sustainable income:** Living well while serving a higher purpose
 - **Lasting legacy:** Building something that outlasts you
-- **Important life:** Work that matters, work that honors those who died defending freedom
+- **Important life:** Work that matters, work that honors those who died
+  defending freedom
 
 --
 
@@ -32,7 +33,8 @@
 
 - **Evident Legal Technologies** - Production-ready BWC analysis platform
 - **Constitutional Archive** - Founding documents preserved independent of .gov
-- **Military Honor Installation** - 1.3M Americans honored with proper flag protocol
+- **Military Honor Installation** - 1.3M Americans honored with proper flag
+  protocol
 - **Elite Legal Library** - Supreme Court integration + CourtListener
 - **Professional Platform** - Flask backend, MAUI clients, Stripe ready
 - **4th/5th Amendment AI** - Automatic detection of constitutional violations
@@ -40,7 +42,8 @@
 
 ### **💪 Your Strengths:**
 
-- **Technical Skill** - Full-stack developer (Python, C#, JavaScript, React, MAUI)
+- **Technical Skill** - Full-stack developer (Python, C#, JavaScript, React,
+  MAUI)
 - **Constitutional Knowledge** - Deep understanding of founding documents
 - **Moral Clarity** - "Truth is the only subject" - uncompromising values
 - **Work Ethic** - Willing to build the right way, even when it's hard
@@ -83,8 +86,11 @@
   - Law school forums (student defenders)
 
 - **Create Video:** 3-minute demo
-  - You on camera: "I'm Devon, 28, from New Jersey. My platform honors the 1.3 million Americans who died defending the Constitution by helping you defend it in court."
-  - Screen recording: Upload BWC → AI finds 4th Amendment violation → Links to Supreme Court precedent
+  - You on camera: "I'm Devon, 28, from New Jersey. My platform honors the 1.3
+    million Americans who died defending the Constitution by helping you defend
+    it in court."
+  - Screen recording: Upload BWC → AI finds 4th Amendment violation → Links to
+    Supreme Court precedent
   - Call to action: "Join 100 founding defenders. First month free."
 
 #### **2. Founding Member Program**
@@ -225,7 +231,8 @@
     - "Terry v. Ohio Explained: When Can Police Stop You?"
     - "The Constitution They Died Defending: Why It Matters in Court"
 - **SEO Strategy:**
-  - Target: "bwc analysis," "body camera evidence," "miranda violation," "4th amendment lawyer"
+  - Target: "bwc analysis," "body camera evidence," "miranda violation," "4th
+    amendment lawyer"
   - Include Evident screenshots in every post
   - Link to constitutional archive: drives traffic, shows mission
   - End every post: "Join the constitutional defense movement at Evident"
@@ -301,7 +308,8 @@
 - **Offer:** Every founding member who refers an attorney:
   - Gets **1 month free** for each referral who stays 30 days
   - Referred attorney gets **founding member rate** ($19/month)
-  - Top 3 referrers each month: **FREE forever** + listed as "Community Champions"
+  - Top 3 referrers each month: **FREE forever** + listed as "Community
+    Champions"
 
 - **Why This Works:**
   - Attorneys know other attorneys
@@ -319,7 +327,8 @@
   - Access to honor wall (no limits)
 
 - **Upgrade Triggers:**
-  - After first analysis: "Upgrade to see advanced 4th Amendment pattern detection"
+  - After first analysis: "Upgrade to see advanced 4th Amendment pattern
+    detection"
   - After 30 days: "You've saved [X hours] of research. Go PRO to save more."
   - Before trial: "Remove watermark for courtroom presentation - PRO $49/month"
 
@@ -398,7 +407,8 @@
   - **Background:** Law student or paralegal who can write
   - **Job:** Write 4 blog posts per month on constitutional law
   - **Why:** Frees your time to code, support customers, sell
-  - **Where to Find:** Upwork, law school job boards, Rezi legal writing community
+  - **Where to Find:** Upwork, law school job boards, Rezi legal writing
+    community
 
 - **Video Scaling:**
   - Batch record: Film 10 videos in one day
@@ -416,7 +426,8 @@
 - **Outbound Sequence:**
   1. LinkedIn connection request (personalized)
   2. Comment on their posts (build rapport)
-  3. Direct message: "Saw you handle [case type]. Built a tool that helps with BWC analysis. Can I show you?"
+  3. Direct message: "Saw you handle [case type]. Built a tool that helps with
+     BWC analysis. Can I show you?"
   4. Demo call: 30 minutes, screen share, show them their exact use case
   5. Trial: 30 days free FIRM tier, no credit card
   6. Follow-up: Weekly check-ins during trial
@@ -432,7 +443,8 @@
 - **Agenda:**
   - **Morning:** Constitutional law workshops (guest speakers)
   - **Afternoon:** Platform masterclasses (you teaching advanced features)
-  - **Evening:** Community celebration (honor wall ceremony, founding members recognized)
+  - **Evening:** Community celebration (honor wall ceremony, founding members
+    recognized)
 
 - **Speakers:**
   - ACLU attorney on 4th Amendment
@@ -449,7 +461,8 @@
 - **Evident Certified Constitutional Analyst:**
   - **Online course:** 8 modules on constitutional law + platform mastery
   - **Final exam:** Analyze sample BWC footage, write brief
-  - **Certificate:** Digital badge + listed on Evident site as "Certified Analyst"
+  - **Certificate:** Digital badge + listed on Evident site as "Certified
+    Analyst"
   - **Cost:** $299 one-time (or FREE for FIRM/ENTERPRISE tier)
 
 - **Why This Works:**
@@ -496,9 +509,11 @@
   - Customer support (answer tickets, fix issues)
 
 - **Salary:** $40-50K/year ($3500-4000/month)
-- **Where to Find:** Paralegal schools, law students, customer success communities
+- **Where to Find:** Paralegal schools, law students, customer success
+  communities
 - **Why Now:** You have 50-100 customers, can't personally support all of them
-- **Revenue Check:** Need $5K MRR to afford this ($5000 - $4000 salary = $1000 profit left)
+- **Revenue Check:** Need $5K MRR to afford this ($5000 - $4000 salary = $1000
+  profit left)
 
 #### **21. Hire Second Contractor: Developer (Part-Time)**
 
@@ -612,7 +627,8 @@
 
 - **Grant Size:** $50,000-250,000
 - **Use Case:** "Technology to democratize constitutional defense"
-- **Story:** "Devon Tyler, 28, built Evident to honor 1.3M war dead by defending Constitution in courtrooms"
+- **Story:** "Devon Tyler, 28, built Evident to honor 1.3M war dead by defending
+  Constitution in courtrooms"
 
 - **If You Get ONE $100K Grant:**
   - Funds 10-12 months of team salaries
@@ -841,7 +857,8 @@
   - Makes mission real (serving "We the People")
   - Tax deduction for donors
   - Press coverage (feel-good stories)
-  - Fulfills "truth is the only subject" - justice for all, not just those who can pay
+  - Fulfills "truth is the only subject" - justice for all, not just those who
+    can pay
 
 #### **36. Documentary Film**
 
@@ -911,7 +928,8 @@
 #### **39. Evident 2.0: Predictive Justice**
 
 - **New Features:**
-  - **Pattern Detection:** Analyze 1000s of BWC videos to find systemic violations
+  - **Pattern Detection:** Analyze 1000s of BWC videos to find systemic
+    violations
   - **Risk Scoring:** "This officer has 87 prior searches without warrant"
   - **Precedent Prediction:** "Based on circuit, 78% chance motion is granted"
   - **Auto-Brief Generation:** AI writes full legal brief with citations
@@ -1113,8 +1131,10 @@
 ### **Cultural Impact:**
 
 - **"Evident It":** Verb meaning "analyze for constitutional violations"
-- **Citizen Awareness:** Millions know their constitutional rights (via mobile app)
-- **Attorney Standard:** Using Evident becomes expected practice for criminal defense
+- **Citizen Awareness:** Millions know their constitutional rights (via mobile
+  app)
+- **Attorney Standard:** Using Evident becomes expected practice for criminal
+  defense
 - **Academic Integration:** Law schools teach Evident methodology
 
 ### **Personal Impact (You):**
@@ -1150,7 +1170,8 @@
 ### **But:**
 
 - ✅ **Meaningful:** Every day you defend the Constitution
-- ✅ **Impactful:** Attorneys win cases, defendants go free, rights are protected
+- ✅ **Impactful:** Attorneys win cases, defendants go free, rights are
+  protected
 - ✅ **Legacy:** Your work outlasts you (Evident Foundation)
 - ✅ **Service:** You honor the 1.3M who died by defending what they fought for
 - ✅ **Faithful:** You steward God's gifts (talents, time, treasure) well
@@ -1166,7 +1187,8 @@
 **10:00 AM** - 1-on-1s with team leads (CTO, VP Sales, Marketing)  
 **12:00 PM** - Lunch (often networking with attorneys, investors)  
 **1:00 PM** - Product review (see what's shipping this week)  
-**2:00 PM** - Customer call (ENTERPRISE prospect or existing customer check-in)  
+**2:00 PM** - Customer call (ENTERPRISE prospect or existing customer
+check-in)  
 **3:00 PM** - Strategy work (write, plan, think)  
 **5:00 PM** - Community call (Discord office hours, 1x/week)  
 **6:00 PM** - Done for day  
@@ -1290,7 +1312,8 @@ Most important work is built slowly, over decades:
 2. **Long-term thinking** - You're building for 30 years, not 3
 3. **Mission over metrics** - Impact > revenue
 4. **Community over customers** - Relationships > transactions
-5. **Truth over trends** - Constitution doesn't change, neither does your mission
+5. **Truth over trends** - Constitution doesn't change, neither does your
+   mission
 
 ## **By the Grace of Almighty God:**
 

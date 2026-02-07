@@ -322,11 +322,7 @@ body {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(
-    135deg,
-    rgb(196 30 58 / 10%),
-    rgb(212 165 116 / 10%)
-  );
+  background: linear-gradient(135deg, rgb(196 30 58 / 10%), rgb(212 165 116 / 10%));
   border-radius: 0.5rem;
 }
 
@@ -394,11 +390,7 @@ body {
 }
 
 .elegant-btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--elegant-primary) 0%,
-    var(--elegant-primary-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--elegant-primary) 0%, var(--elegant-primary-dark) 100%);
   color: white;
   box-shadow: 0 2px 8px rgb(196 30 58 / 20%);
 }
@@ -680,11 +672,7 @@ body {
 }
 
 .drawer-btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--elegant-primary) 0%,
-    var(--elegant-primary-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--elegant-primary) 0%, var(--elegant-primary-dark) 100%);
   color: white;
   box-shadow: 0 4px 12px rgb(196 30 58 / 25%);
 }

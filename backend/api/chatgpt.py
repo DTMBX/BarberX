@@ -8,7 +8,6 @@ Handles chat completions, project management, and conversation history
 
 import json
 from datetime import datetime
-from functools import wraps
 
 from flask import Blueprint, Response, jsonify, request, stream_with_context
 from flask_login import login_required
@@ -16,15 +15,14 @@ from sqlalchemy import desc
 
 from chatgpt_service import ChatGPTService
 from models_auth import db
-from tier_gating import check_tier_access, get_user_tier
+from tier_gating import check_tier_access
 
 # Create blueprint
 chatgpt_bp = Blueprint("chatgpt", __name__, url_prefix="/api/v1")
 
 
 # Database Models
-from sqlalchemy import (Boolean, Column, DateTime, Float, ForeignKey, Integer,
-                        String, Text)
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
 
 
@@ -576,4 +574,3 @@ def get_api_keys():
             ]
         }
     )
-

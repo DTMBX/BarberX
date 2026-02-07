@@ -173,9 +173,7 @@
    * Theme Toggle (Light/Dark Mode)
    */
   function initThemeToggle() {
-    const toggleBtn = document.querySelector(
-      ".header-actions .icon-button:nth-child(2)",
-    );
+    const toggleBtn = document.querySelector(".header-actions .icon-button:nth-child(2)");
     if (!toggleBtn) return;
 
     const lightIcon = toggleBtn.querySelector(".theme-icon-light");
@@ -187,9 +185,7 @@
 
     toggleBtn.addEventListener("click", () => {
       const newTheme =
-        document.documentElement.getAttribute("data-theme") === "dark"
-          ? "light"
-          : "dark";
+        document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       setTheme(newTheme);
     });
 
@@ -219,9 +215,7 @@
     document.addEventListener("keydown", (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
         e.preventDefault();
-        const searchBtn = document.querySelector(
-          ".header-actions .icon-button:first-child",
-        );
+        const searchBtn = document.querySelector(".header-actions .icon-button:first-child");
         if (searchBtn) {
           searchBtn.click();
         }
@@ -234,7 +228,7 @@
       mobileNav.addEventListener("keydown", (e) => {
         if (e.key === "Tab" && !mobileNav.hidden) {
           const focusableElements = mobileNav.querySelectorAll(
-            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
           );
           const firstElement = focusableElements[0];
           const lastElement = focusableElements[focusableElements.length - 1];

@@ -13,7 +13,8 @@ Modern, accessible slide-out navigation menu with animated hamburger icon.
 - **Body Scroll Lock** - Prevents background scrolling when open
 - **Responsive** - Auto-hides on desktop (>1024px)
 - **Dark Mode** - Automatic dark theme support
-- **Accessibility** - ARIA labels, keyboard navigation, screen reader announcements
+- **Accessibility** - ARIA labels, keyboard navigation, screen reader
+  announcements
 
 ## 📁 Files Created
 
@@ -30,30 +31,26 @@ Modern, accessible slide-out navigation menu with animated hamburger icon.
 In `_layouts/default.html`, add to `<head>`:
 
 ```html
-<link
-  rel="stylesheet"
-  href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}"
-/>
+<link rel="stylesheet" href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}" />
 ```
 
 ### Step 2: Add JavaScript before `</body>`
 
 ```html
-<script
-  src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}"
-  defer
-></script>
+<script src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}" defer></script>
 ```
 
 ### Step 3: Include HTML component
 
-In your header (e.g., `_includes/header.html` or directly in `_layouts/default.html`):
+In your header (e.g., `_includes/header.html` or directly in
+`_layouts/default.html`):
 
 ```liquid
 {% include mobile-nav-drawer.html %}
 ```
 
-Or copy the HTML from `_includes/mobile-nav-drawer.html` directly into your layout.
+Or copy the HTML from `_includes/mobile-nav-drawer.html` directly into your
+layout.
 
 ## 🎨 Customization
 
@@ -240,7 +237,8 @@ If using a toggle, add to CSS:
 ### Drawer doesn't open
 
 1. Check console for JavaScript errors
-2. Verify elements exist: `.mobile-nav-hamburger`, `.mobile-nav-drawer`, `.mobile-nav-backdrop`
+2. Verify elements exist: `.mobile-nav-hamburger`, `.mobile-nav-drawer`,
+   `.mobile-nav-backdrop`
 3. Ensure JS file is loaded (check Network tab)
 
 ### Hamburger icon not visible
@@ -303,5 +301,5 @@ Part of Evident.info project - use freely within this project.
 
 ## 🙏 Credits
 
-Built for Evident Legal Technologies
-Modern design with accessibility and UX best practices
+Built for Evident Legal Technologies Modern design with accessibility and UX
+best practices

@@ -57,8 +57,7 @@ JavaScript:
 
 ```javascript
 togglePasswordBtn.addEventListener("click", function () {
-  const type =
-    passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
   passwordInput.setAttribute("type", type);
 
   // Toggle icons
@@ -162,7 +161,8 @@ The password is still:
 
 2. **templates/auth/signup.html**
    - Lines 605-721: Added password reveal buttons to both password fields
-   - Lines 808-832: Added JavaScript for toggle functionality (works on both fields)
+   - Lines 808-832: Added JavaScript for toggle functionality (works on both
+     fields)
 
 ## Status: COMPLETE ✅
 
@@ -180,4 +180,5 @@ The password is still:
 | **Admin** | admin@Evident.info | **Admin123!** | ENTERPRISE |
 | **Test**  | test@Evident.info  | Password123!  | FREE       |
 
-**Note:** Admin password has capital 'A' not 'P'! Use password reveal to double-check.
+**Note:** Admin password has capital 'A' not 'P'! Use password reveal to
+double-check.

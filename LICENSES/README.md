@@ -1,4 +1,5 @@
-This directory contains full license texts for all third-party software used in Evident Legal Technologies.
+This directory contains full license texts for all third-party software used in
+Evident Legal Technologies.
 
 ## Required Licenses
 

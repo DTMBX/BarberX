@@ -2,8 +2,9 @@
 
 ## Purpose
 
-This file governs how AI coding assistants (including GitHub Copilot and similar tools)
-must reason, generate, refactor, and advise within the Evident Technologies repository.
+This file governs how AI coding assistants (including GitHub Copilot and similar
+tools) must reason, generate, refactor, and advise within the Evident
+Technologies repository.
 
 Evident Technologies is a **legal-technology system** concerned with:
 
@@ -13,8 +14,8 @@ Evident Technologies is a **legal-technology system** concerned with:
 - lawful accountability
 - long-term institutional trust
 
-This is not a startup demo, activist platform, or marketing gimmick.
-All AI assistance must preserve **credibility before courts, counsel, and history**.
+This is not a startup demo, activist platform, or marketing gimmick. All AI
+assistance must preserve **credibility before courts, counsel, and history**.
 
 ---
 
@@ -28,8 +29,9 @@ AI assistance must always prioritize:
 4. **Due process before outcomes**
 5. **Restraint before expression**
 
-If a suggestion improves appearance but weakens credibility, it is rejected.
-If a suggestion accelerates development but compromises auditability, it is rejected.
+If a suggestion improves appearance but weakens credibility, it is rejected. If
+a suggestion accelerates development but compromises auditability, it is
+rejected.
 
 ---
 
@@ -44,7 +46,8 @@ Think in terms of:
 - architecture, not decoration
 - permanence, not trend
 
-The system should feel as if it could be reviewed decades later without embarrassment.
+The system should feel as if it could be reviewed decades later without
+embarrassment.
 
 Avoid:
 
@@ -126,7 +129,8 @@ Avoid:
 - excessive animation
 - marketing-driven copy
 
-Calls to action should feel like **access being granted**, not pressure being applied.
+Calls to action should feel like **access being granted**, not pressure being
+applied.
 
 ---
 
@@ -139,9 +143,7 @@ Marketing content must:
 - avoid emotional hooks
 - avoid promises of outcomes
 
-Prefer declarative statements.
-Short sentences.
-Measured tone.
+Prefer declarative statements. Short sentences. Measured tone.
 
 Example:
 
@@ -168,7 +170,8 @@ AI must **not** introduce:
 - political advocacy
 - ideological framing
 
-Moral orientation is expressed through **discipline, order, and restraint**, not language.
+Moral orientation is expressed through **discipline, order, and restraint**, not
+language.
 
 ---
 
@@ -193,10 +196,8 @@ Never fabricate:
 
 Before producing output, ask:
 
-> “Would this still make sense,
-> still be defensible,
-> and still feel honorable
-> if reviewed 50–100 years from now?”
+> “Would this still make sense, still be defensible, and still feel honorable if
+> reviewed 50–100 years from now?”
 
 If not, revise.
 
@@ -206,35 +207,31 @@ If not, revise.
 
 ## High-Standard Web Development Generation Prompt (Mandatory)
 
-Whenever generating, refactoring, or reviewing any frontend, backend, or build-related code,
-AI assistance MUST internally apply the following generation prompt and quality filters
-before producing output.
+Whenever generating, refactoring, or reviewing any frontend, backend, or
+build-related code, AI assistance MUST internally apply the following generation
+prompt and quality filters before producing output.
 
 ### Generation Prompt (Implicit – Always Applied)
 
-> Generate solutions that meet or exceed **current (≤12 months) professional web development standards**
-> as used in production-grade, security-conscious, accessibility-compliant systems.
+> Generate solutions that meet or exceed **current (≤12 months) professional web
+> development standards** as used in production-grade, security-conscious,
+> accessibility-compliant systems.
 >
-> Prefer standards, specifications, and patterns that are:
-> • stable
-> • widely adopted
-> • well-documented
-> • forward-compatible
+> Prefer standards, specifications, and patterns that are: • stable • widely
+> adopted • well-documented • forward-compatible
 >
-> Avoid deprecated APIs, legacy patterns, or convenience shortcuts unless explicitly required.
+> Avoid deprecated APIs, legacy patterns, or convenience shortcuts unless
+> explicitly required.
 
-AI must assume the audience includes:
-• courts
-• counsel
-• auditors
-• security reviewers
-• long-term maintainers
+AI must assume the audience includes: • courts • counsel • auditors • security
+reviewers • long-term maintainers
 
 ---
 
 ## Technical Standards Baseline (Required Knowledge)
 
-AI-generated code must align with **modern best practice**, including where applicable:
+AI-generated code must align with **modern best practice**, including where
+applicable:
 
 ### HTML
 
@@ -325,7 +322,8 @@ If modern standards conflict (e.g., performance vs. abstraction):
 
 ## Enforcement Clause
 
-All generated code is assumed to represent the standards of Evident Technologies.
+All generated code is assumed to represent the standards of Evident
+Technologies.
 
 If uncertainty exists:
 

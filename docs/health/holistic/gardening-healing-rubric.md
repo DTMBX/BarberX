@@ -1,11 +1,9 @@
 ---
 
-layout: default
-title: "Gardening as Healing: The Stewardship Rubric"
-permalink: /health/holistic/gardening-healing-rubric/
-description: "A practical rubric showing how gardening addresses root causes of chronic disease—demonstrating the natural healing power of soil, food, and community."
-show_breadcrumbs: true
---
+layout: default title: "Gardening as Healing: The Stewardship Rubric" permalink:
+/health/holistic/gardening-healing-rubric/ description: "A practical rubric
+showing how gardening addresses root causes of chronic disease—demonstrating the
+natural healing power of soil, food, and community." show_breadcrumbs: true --
 
 <section class="section-block">
   <div class="container">

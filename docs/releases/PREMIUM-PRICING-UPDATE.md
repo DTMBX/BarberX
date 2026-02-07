@@ -2,7 +2,8 @@
 
 ## Summary
 
-All instances of Premium tier pricing updated from $149 to $199 across the codebase.
+All instances of Premium tier pricing updated from $149 to $199 across the
+codebase.
 
 --
 
@@ -76,7 +77,8 @@ All instances of Premium tier pricing updated from $149 to $199 across the codeb
 
 **Status:** ⚠️ Intentionally left unchanged
 
-**Reason:** The Stripe payment service configuration appears to use different pricing tiers:
+**Reason:** The Stripe payment service configuration appears to use different
+pricing tiers:
 
 - Basic: $49/mo
 - Pro: $99/mo
@@ -89,7 +91,8 @@ This may be:
 2. A different product tier system
 3. Test pricing for Stripe integration
 
-**Action Required:** Verify with stakeholder whether Stripe Premium should be $199 or $299.
+**Action Required:** Verify with stakeholder whether Stripe Premium should be
+$199 or $299.
 
 --
 

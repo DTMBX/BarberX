@@ -1,0 +1,40 @@
+name: LHCI Report to PR
+
+on:
+  workflow_run:
+    workflows: ["Site CI"]
+    types: [completed]
+
+jobs:
+  comment:
+    if: ${{ github.event.workflow_run.event == 'pull_request' || github.event.workflow_run.head_branch }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Post LHCI summary to PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const run = context.payload.workflow_run;
+            const conclusion = run.conclusion;
+            const branch = run.head_branch;
+            // find PRs that match this branch
+            const prs = await github.rest.pulls.list({ owner: context.repo.owner, repo: context.repo.repo, head: `${context.repo.owner}:${branch}`, state: 'open' });
+            const header = `Site CI run for branch **${branch}** completed with status **${conclusion}**.`;
+            let body = `${header}\n\n`; 
+            body += `LHCI artifacts and reports are attached to the workflow run: ${run.html_url}\n\n`;
+            if (conclusion !== 'success') {
+              body += `Automated LHCI checks may have reported issues; review the published LHCI artifacts (artifact: \`lhci-results\`) and the site build artifact (artifact: \`site-build\`).`;
+            } else {
+              body += `LHCI checks passed (within configured thresholds). If you need stricter enforcement, we can tighten thresholds in .lighthouserc.json.`;
+            }
+            if (prs.data && prs.data.length) {
+              for (const pr of prs.data) {
+                await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: pr.number, body });
+              }
+            } else {
+              console.log('No open PRs found for branch', branch);
+            }

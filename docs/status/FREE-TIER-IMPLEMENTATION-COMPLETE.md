@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-Successfully implemented a **zero-cost FREE tier** that provides genuine value while maintaining profitability through smart limitations and upgrade paths.
+Successfully implemented a **zero-cost FREE tier** that provides genuine value
+while maintaining profitability through smart limitations and upgrade paths.
 
 **Cost per FREE user:** $0.55/month  
 **ROI:** 163% (with 5% conversion to STARTER)
@@ -98,10 +99,14 @@ one_time_upload_date = db.Column(db.DateTime, nullable=True)
 
 ### Upgrade Prompts Triggered By:
 
-- **Upload already used:** "You've used your one-time upload on [date]. Upgrade to upload more!"
-- **PDF too many pages:** "This PDF has 25 pages. FREE tier supports 10 pages. Upgrade to STARTER!"
-- **Video too long:** "This video is 8 minutes. FREE tier supports 5 minutes. Upgrade to STARTER!"
-- **Data expiring:** "Your data expires in 2 days! Upgrade to keep it permanently."
+- **Upload already used:** "You've used your one-time upload on [date]. Upgrade
+  to upload more!"
+- **PDF too many pages:** "This PDF has 25 pages. FREE tier supports 10 pages.
+  Upgrade to STARTER!"
+- **Video too long:** "This video is 8 minutes. FREE tier supports 5 minutes.
+  Upgrade to STARTER!"
+- **Data expiring:** "Your data expires in 2 days! Upgrade to keep it
+  permanently."
 - **Watermark on export:** Banner says "Remove watermarks - Upgrade to STARTER"
 
 --

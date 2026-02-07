@@ -1,0 +1,6 @@
+# CODEOWNERS
+# Add team or user handles to require reviews or auto-assign reviewers.
+# Example: /src/ @org/team-name
+# Replace placeholders below with your org/team/user names.
+
+* @your-org/your-team

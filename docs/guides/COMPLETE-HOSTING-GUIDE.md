@@ -419,11 +419,8 @@ git push origin main
 
 ### **What's Already Done:**
 
-? Code pushed to GitHub
-? Render.yaml configured
-? Database linked
-? Circular imports fixed
-? All files ready
+? Code pushed to GitHub ? Render.yaml configured ? Database linked ? Circular
+imports fixed ? All files ready
 
 ### **What Happens Next:**
 
@@ -496,4 +493,5 @@ git push origin main
 
 --
 
-**Both services work together perfectly! GitHub Pages for marketing, Render for the app! ??**
+**Both services work together perfectly! GitHub Pages for marketing, Render for
+the app! ??**

@@ -2,7 +2,8 @@
 
 ## Overview
 
-Comprehensive real-time usage tracking for every user action and resource consumption across the Evident platform.
+Comprehensive real-time usage tracking for every user action and resource
+consumption across the Evident platform.
 
 ## Features
 

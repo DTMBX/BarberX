@@ -9,9 +9,7 @@ Analyzes failed workflows, identifies issues, and applies fixes
 
 import json
 import subprocess
-import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 
 class WorkflowAnalyzer:
@@ -19,7 +17,7 @@ class WorkflowAnalyzer:
         self.repo_path = Path(repo_path)
         self.workflows_dir = self.repo_path / ".github" / "workflows"
 
-    def get_workflow_status(self) -> Dict[str, str]:
+    def get_workflow_status(self) -> dict[str, str]:
         """Get status of all workflows using gh CLI if available"""
         try:
             result = subprocess.run(
@@ -57,7 +55,7 @@ class WorkflowAnalyzer:
             print(f"⚠️  Error getting workflow status: {e}")
             return {}
 
-    def analyze_workflows(self) -> List[Dict]:
+    def analyze_workflows(self) -> list[dict]:
         """Analyze all workflow files for potential issues"""
         issues = []
 
@@ -71,11 +69,11 @@ class WorkflowAnalyzer:
 
         return issues
 
-    def check_workflow_file(self, filepath: Path) -> List[Dict]:
+    def check_workflow_file(self, filepath: Path) -> list[dict]:
         """Check a single workflow file for common issues"""
         issues = []
 
-        with open(filepath, "r") as f:
+        with open(filepath) as f:
             content = f.read()
 
         workflow_name = filepath.stem
@@ -110,7 +108,7 @@ class WorkflowAnalyzer:
 
         return issues
 
-    def run_local_build_test(self) -> Tuple[bool, str]:
+    def run_local_build_test(self) -> tuple[bool, str]:
         """Test if Jekyll builds successfully"""
         print("🔨 Testing Jekyll build locally...")
 
@@ -137,7 +135,7 @@ class WorkflowAnalyzer:
 
             return False, "\n".join(error_lines[:5]) if error_lines else "Unknown error"
 
-    def fix_common_issues(self) -> List[str]:
+    def fix_common_issues(self) -> list[str]:
         """Apply fixes for common workflow issues"""
         fixes_applied = []
 
@@ -145,7 +143,7 @@ class WorkflowAnalyzer:
         docket_dir = self.repo_path / "_data" / "docket"
         if docket_dir.exists():
             for yml_file in docket_dir.glob("*.yml"):
-                with open(yml_file, "r") as f:
+                with open(yml_file) as f:
                     content = f.read()
                 if "<<<<<<< HEAD" in content:
                     fixes_applied.append(f"⚠️  Conflict markers still in {yml_file.name}")
@@ -189,7 +187,7 @@ class WorkflowAnalyzer:
         if issues:
             report.append("🔍 Workflow Configuration Issues:\n")
             for issue in issues:
-                report.append(f'   ⚠️  {issue["workflow"]}: {issue["description"]}')
+                report.append(f"   ⚠️  {issue['workflow']}: {issue['description']}")
             report.append("")
         else:
             report.append("✅ No workflow configuration issues found\n")

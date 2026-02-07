@@ -6,14 +6,11 @@ Authentication API Endpoints
 Handles login, logout, registration, and JWT token management
 """
 
-import secrets
 from datetime import datetime, timedelta
 from functools import wraps
 
 import jwt
 from flask import current_app, jsonify, request
-from flask_login import current_user, login_user, logout_user
-from werkzeug.security import check_password_hash, generate_password_hash
 
 from api import auth_api
 from models_auth import TierLevel, User, db

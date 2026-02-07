@@ -8,7 +8,8 @@
 
 ## 🎯 Overview
 
-Modern, accessible, clean header and navigation system for Evident Legal Technologies platform.
+Modern, accessible, clean header and navigation system for Evident Legal
+Technologies platform.
 
 ### Key Features
 
@@ -78,12 +79,10 @@ Modern, accessible, clean header and navigation system for Evident Legal Technol
 ### Colors
 
 ```css
---color-primary: #c41e3a /* Brand red */ --color-primary-dark: #a01729
-  /* Hover state */ --color-secondary: #1e3a8a /* Brand blue */
-  --color-text: #1e293b /* Main text */ --color-text-light: #64748b
-  /* Secondary text */ --color-bg: #ffffff /* Background */
-  --color-border: #e2e8f0 /* Borders */ --color-hover: #f1f5f9
-  /* Hover states */;
+--color-primary: #c41e3a /* Brand red */ --color-primary-dark: #a01729 /* Hover state */
+  --color-secondary: #1e3a8a /* Brand blue */ --color-text: #1e293b /* Main text */
+  --color-text-light: #64748b /* Secondary text */ --color-bg: #ffffff /* Background */
+  --color-border: #e2e8f0 /* Borders */ --color-hover: #f1f5f9 /* Hover states */;
 ```
 
 ### Typography

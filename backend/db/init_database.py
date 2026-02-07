@@ -7,12 +7,11 @@ Create all missing database tables for Evident Legal Tech Platform
 Run this to initialize the database with all required tables
 """
 
-import os
 import sys
 from pathlib import Path
 
 # Import the Flask app and db
-from app import Analysis, APIKey, AuditLog, PDFUpload, User, app, db
+from app import app, db
 
 
 def create_tables():

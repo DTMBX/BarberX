@@ -3,7 +3,8 @@
 **Evident Legal Technologies → Barber Cam Evidence Platform**
 
 **Date:** January 28, 2026  
-**Mission:** Build trust, promote accountability, expand transparency through citizen-led evidence documentation
+**Mission:** Build trust, promote accountability, expand transparency through
+citizen-led evidence documentation
 
 --
 
@@ -504,19 +505,16 @@ Replace "Evident Legal Technologies" messaging with:
 
 > **"Record clean. Store safe. Share fair."**
 >
-> Barber Cam helps New Jersey residents lawfully document events,
-> preserve evidence with verifiable integrity, and share it credibly
-> with counsel—without confrontation.
+> Barber Cam helps New Jersey residents lawfully document events, preserve
+> evidence with verifiable integrity, and share it credibly with counsel—without
+> confrontation.
 
 ### 4. Add Safety Banner to BWC Upload
 
 **File:** `templates/bwc_upload.html`
 
 ```html
-<div
-  class="safety-banner"
-  style="background: #fff3cd; padding: 1rem; margin-bottom: 1rem;"
->
+<div class="safety-banner" style="background: #fff3cd; padding: 1rem; margin-bottom: 1rem;">
   <h4>⚠️ Before You Upload</h4>
   <ul>
     <li>Only upload recordings you made lawfully</li>

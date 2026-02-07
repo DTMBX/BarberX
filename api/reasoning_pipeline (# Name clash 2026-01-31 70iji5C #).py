@@ -18,13 +18,16 @@ from flask import Blueprint, jsonify, request
 
 # Import reasoning engines
 try:
-    from Evident_reasoning_core import (BurdenAwareBayesianInference,
-                                        EvidencePipeline, LegalStateLattice,
-                                        NarrativeDriftDetector,
-                                        OptimalTransportMatcher,
-                                        OriginalityAnalyzer,
-                                        SpectralPrecedentGraph,
-                                        TemporalLogicVerifier)
+    from Evident_reasoning_core import (
+        BurdenAwareBayesianInference,
+        EvidencePipeline,
+        LegalStateLattice,
+        NarrativeDriftDetector,
+        OptimalTransportMatcher,
+        OriginalityAnalyzer,
+        SpectralPrecedentGraph,
+        TemporalLogicVerifier,
+    )
 
     REASONING_AVAILABLE = True
 except ImportError as e:

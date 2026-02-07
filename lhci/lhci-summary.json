@@ -1,0 +1,20 @@
+{
+  "count": 1,
+  "averages": {
+    "performance": 0.85,
+    "accessibility": 0.93,
+    "best-practices": 0.88,
+    "seo": 0.91
+  },
+  "details": [
+    {
+      "file": "sample-lhci-1.json",
+      "scores": {
+        "performance": 0.85,
+        "accessibility": 0.93,
+        "best-practices": 0.88,
+        "seo": 0.91
+      }
+    }
+  ]
+}

@@ -176,12 +176,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-brass) 50%,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--accent-brass) 50%, transparent);
   opacity: 0.3;
 }
 
@@ -359,11 +354,7 @@
 /* U.S. Constitution Preamble callout */
 .preamble {
   padding: 3.5rem 1.25rem 3rem;
-  background: linear-gradient(
-    135deg,
-    rgb(212 165 116 / 8%) 0%,
-    rgb(15 118 110 / 12%) 100%
-  );
+  background: linear-gradient(135deg, rgb(212 165 116 / 8%) 0%, rgb(15 118 110 / 12%) 100%);
   border-top: 1px solid rgb(212 165 116 / 35%);
   border-bottom: 1px solid rgb(212 165 116 / 35%);
 }
@@ -502,12 +493,7 @@
   display: inline-block;
   width: 140px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-vintage-gold),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-vintage-gold), transparent);
   opacity: 0.5;
 }
 
@@ -664,11 +650,7 @@
 }
 
 .cta-panel {
-  background: linear-gradient(
-    135deg,
-    rgb(15 118 110 / 15%) 0%,
-    rgb(212 165 116 / 10%) 100%
-  );
+  background: linear-gradient(135deg, rgb(15 118 110 / 15%) 0%, rgb(212 165 116 / 10%) 100%);
   border: 2px solid var(--ff-vintage-gold);
   border-radius: 16px;
   padding: clamp(2rem, 4vw, 3rem);
@@ -1229,11 +1211,7 @@
   left: 0;
   width: 4px;
   height: 0;
-  background: linear-gradient(
-    180deg,
-    var(--accent-brass),
-    var(--accent-emerald)
-  );
+  background: linear-gradient(180deg, var(--accent-brass), var(--accent-emerald));
   transition: height 0.3s ease;
   border-radius: 8px 0 0 8px;
 }
@@ -1479,12 +1457,7 @@
   text-align: center;
   position: relative;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-brass) 50%,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--accent-brass) 50%, transparent);
   max-width: 200px;
 }
 

@@ -1,0 +1,141 @@
+/* Core base styles
+   - Minimal, accessible base: reset, typography, containers, reduced-motion, focus states
+   - Keep changes conservative; components continue to ship in `style.css`
+*/
+
+/* Box sizing */
+,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default body margin and set sensible defaults */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  font-size: var(--evident-type-base);
+  line-height: var(--evident-line-height);
+  color: rgb(var(--evident-color-foreground));
+  background-color: rgb(var(--evident-color-bg));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root app container */
+.evident-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive readable measure */
+main,
+.main-content {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--evident-space-md);
+  padding-right: var(--evident-space-md);
+}
+
+/* Typographic scale helpers */
+h1 {
+  font-size: clamp(1.5rem, 2.25vw + 1rem, 2.25rem);
+  margin: 0 0 var(--evident-space-md) 0;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 1.8vw + 0.9rem, 1.75rem);
+  margin: 0 0 var(--evident-space-sm) 0;
+}
+
+h3 {
+  font-size: 1.125rem;
+  margin: 0 0 var(--evident-space-sm) 0;
+}
+
+p {
+  margin: 0 0 var(--evident-space-md) 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(50%);
+}
+
+/* Focus visible for keyboard users */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid rgb(var(--evident-color-primary) / 16%);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: var(--evident-space-md);
+  top: var(--evident-space-md);
+  width: auto;
+  height: auto;
+  padding: var(--evident-space-xs) var(--evident-space-sm);
+  background: rgb(var(--evident-color-primary));
+  color: rgb(var(--evident-color-primary-contrast));
+  z-index: 9999;
+}
+
+/* Utility: visually hidden (for accessibility) */
+
+/* (old visually-hidden removed — using modern clip-path version above) */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Simple utility classes to encourage token usage */
+.container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--evident-space-md);
+  padding-right: var(--evident-space-md);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--evident-space-md);
+}

@@ -10,7 +10,8 @@
 
 ### 1. Welcome Screen (`templates/onboarding/welcome.html`)
 
-A beautiful, modern onboarding page that greets new users and guides them through initial setup.
+A beautiful, modern onboarding page that greets new users and guides them
+through initial setup.
 
 **Features:**
 

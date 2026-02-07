@@ -1,17 +1,15 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
 # Unified Integration Layer
 # Connects all Evident features: evidence analysis, AI agents, chat, scanning, and processing
 
-import json
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from .ai_suggestions import smart_suggest
-from .legal_ai_agents import AgentCapability, agent_manager
-from .legal_document_agents import (BriefWriterAgent, LegalLetterAgent,
-                                   MotionDrafterAgent)
+from .legal_ai_agents import agent_manager
 
 
 class UnifiedWorkflowOrchestrator:
@@ -21,7 +19,7 @@ class UnifiedWorkflowOrchestrator:
         self.user_id = user_id
         self.active_workflows = {}
 
-    def process_evidence_intake(self, evidence_data: Dict) -> Dict[str, Any]:
+    def process_evidence_intake(self, evidence_data: dict) -> dict[str, Any]:
         """
         Complete workflow:
         1. Evidence uploaded
@@ -124,7 +122,7 @@ class UnifiedWorkflowOrchestrator:
             },
         }
 
-    def process_ai_chat_query(self, workflow_id: str, query: str) -> Dict[str, Any]:
+    def process_ai_chat_query(self, workflow_id: str, query: str) -> dict[str, Any]:
         """
         Process AI chat query with full context from evidence analysis
         """
@@ -149,8 +147,8 @@ class UnifiedWorkflowOrchestrator:
         }
 
     def generate_document_from_analysis(
-        self, workflow_id: str, document_type: str, custom_inputs: Optional[Dict] = None
-    ) -> Dict[str, Any]:
+Optional[self, workflow_id: str, document_type: str, custom_inputs: dict] = None
+    ) -> dict[str, Any]:
         """
         Generate legal document based on evidence analysis
         """
@@ -214,7 +212,7 @@ class UnifiedWorkflowOrchestrator:
 
         return result
 
-    def scan_and_process_document(self, file_data: Dict) -> Dict[str, Any]:
+    def scan_and_process_document(self, file_data: dict) -> dict[str, Any]:
         """
         Scan document (OCR if needed) and process with AI
         """
@@ -254,7 +252,7 @@ class UnifiedWorkflowOrchestrator:
             "ready_for_analysis": True,
         }
 
-    def _prepare_chat_context(self, discovery: Dict, compliance: Dict, evidence: Dict) -> Dict:
+    def _prepare_chat_context(self, discovery: dict, compliance: dict, evidence: dict) -> dict:
         """Prepare context for AI chat"""
 
         return {
@@ -272,7 +270,7 @@ class UnifiedWorkflowOrchestrator:
             },
         }
 
-    def _suggest_next_actions(self, discovery: Dict, compliance: Dict) -> List[Dict]:
+    def _suggest_next_actions(self, discovery: dict, compliance: dict) -> list[dict]:
         """Suggest next actions based on analysis"""
 
         actions = []
@@ -334,7 +332,7 @@ class UnifiedWorkflowOrchestrator:
         return actions
 
     def _generate_ai_response(
-        self, query: str, context: Dict, discovery: Dict, compliance: Dict
+        self, query: str, context: dict, discovery: dict, compliance: dict
     ) -> str:
         """Generate AI response to chat query"""
 
@@ -375,7 +373,7 @@ class UnifiedWorkflowOrchestrator:
         # Generic helpful response
         return f"I have analyzed {context.get('evidence_count', 0)} pieces of evidence. I can help you with: reviewing documents, checking compliance, building timelines, or generating legal documents. What would you like to know?"
 
-    def _get_relevant_sources(self, query: str, discovery: Dict) -> List[Dict]:
+    def _get_relevant_sources(self, query: str, discovery: dict) -> list[dict]:
         """Get relevant source documents for query"""
 
         sources = []
@@ -394,7 +392,7 @@ class UnifiedWorkflowOrchestrator:
 
         return sources[:5]
 
-    def _generate_follow_up_questions(self, query: str, context: Dict) -> List[str]:
+    def _generate_follow_up_questions(self, query: str, context: dict) -> list[str]:
         """Generate suggested follow-up questions"""
 
         return [
@@ -406,8 +404,8 @@ class UnifiedWorkflowOrchestrator:
         ]
 
     def _prepare_document_input(
-        self, document_type: str, discovery: Dict, compliance: Dict, custom_inputs: Dict
-    ) -> Dict:
+        self, document_type: str, discovery: dict, compliance: dict, custom_inputs: dict
+    ) -> dict:
         """Prepare input for document generation"""
 
         # Extract facts from discovery
@@ -444,7 +442,7 @@ class UnifiedWorkflowOrchestrator:
 
         return input_data
 
-    def _check_if_ocr_needed(self, file_data: Dict) -> bool:
+    def _check_if_ocr_needed(self, file_data: dict) -> bool:
         """Check if document needs OCR"""
 
         filename = file_data.get("name", "").lower()
@@ -459,7 +457,7 @@ class UnifiedWorkflowOrchestrator:
 
         return False
 
-    def _perform_ocr(self, file_data: Dict) -> str:
+    def _perform_ocr(self, file_data: dict) -> str:
         """Perform OCR on document (placeholder for production OCR service)"""
 
         # In production, integrate with:
@@ -470,7 +468,7 @@ class UnifiedWorkflowOrchestrator:
 
         return "[OCR TEXT EXTRACTED] - In production, this would contain actual OCR results"
 
-    def _extract_structured_data(self, text: str) -> Dict:
+    def _extract_structured_data(self, text: str) -> dict:
         """Extract structured data from text"""
 
         import re
@@ -502,7 +500,7 @@ class UnifiedWorkflowOrchestrator:
 
         return structured
 
-    def _extract_entities_advanced(self, text: str) -> List[Dict]:
+    def _extract_entities_advanced(self, text: str) -> list[dict]:
         """Advanced entity extraction"""
 
         # In production, use spaCy or other NLP library
@@ -531,5 +529,3 @@ class UnifiedWorkflowOrchestrator:
 def get_orchestrator(user_id: str) -> UnifiedWorkflowOrchestrator:
     """Get or create orchestrator for user"""
     return UnifiedWorkflowOrchestrator(user_id)
-
-

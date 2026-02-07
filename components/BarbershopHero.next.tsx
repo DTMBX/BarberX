@@ -136,13 +136,7 @@ export default function EvidentHero({
             }}
           >
             <defs>
-              <linearGradient
-                id="poleGradient"
-                x1="0%"
-                y1="0%"
-                x2="0%"
-                y2="100%"
-              >
+              <linearGradient id="poleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="#ffffff" />
                 <stop offset="33%" stopColor="#ff0000" />
                 <stop offset="66%" stopColor="#0047ab" />
@@ -158,14 +152,7 @@ export default function EvidentHero({
                 patternUnits="userSpaceOnUse"
                 patternTransform="rotate(-45)"
               >
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="20"
-                  stroke="#d4af37"
-                  strokeWidth="3"
-                />
+                <line x1="0" y1="0" x2="0" y2="20" stroke="#d4af37" strokeWidth="3" />
               </pattern>
             </defs>
 
@@ -235,20 +222,14 @@ export default function EvidentHero({
 
         {/* Content: Heading, Tagline, CTA */}
         <div className={styles["hero-content"]}>
-          {showBadge && badgeText && (
-            <span className={styles["hero-badge"]}>{badgeText}</span>
-          )}
+          {showBadge && badgeText && <span className={styles["hero-badge"]}>{badgeText}</span>}
 
           {heading && <h1 className={styles["hero-title"]}>{heading}</h1>}
 
           {tagline && <p className={styles["hero-tagline"]}>{tagline}</p>}
 
           {ctaText && (
-            <button
-              className={styles["hero-cta"]}
-              onClick={handleCtaClick}
-              aria-label={ctaText}
-            >
+            <button className={styles["hero-cta"]} onClick={handleCtaClick} aria-label={ctaText}>
               {ctaText}
             </button>
           )}

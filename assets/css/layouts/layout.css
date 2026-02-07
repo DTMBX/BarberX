@@ -53,12 +53,7 @@
   display: inline-block;
   width: 140px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary), transparent);
   opacity: 0.5;
 }
 
@@ -247,11 +242,7 @@
 }
 
 .panel-highlight {
-  background: linear-gradient(
-    135deg,
-    rgb(212 165 116 / 15%) 0%,
-    rgb(15 118 110 / 10%) 100%
-  );
+  background: linear-gradient(135deg, rgb(212 165 116 / 15%) 0%, rgb(15 118 110 / 10%) 100%);
   border: 2px solid var(--ff-secondary);
 }
 
@@ -278,12 +269,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary) 50%,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary) 50%, transparent);
   opacity: 0.3;
 }
 

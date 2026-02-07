@@ -59,7 +59,7 @@ class ThemeManager {
     document.dispatchEvent(
       new CustomEvent("theme:ready", {
         detail: { currentTheme: this.getCurrentTheme() },
-      }),
+      })
     );
   }
 
@@ -90,10 +90,7 @@ class ThemeManager {
    * Get current theme
    */
   getCurrentTheme() {
-    return (
-      document.documentElement.getAttribute("data-theme") ||
-      this.config.themes.dark
-    );
+    return document.documentElement.getAttribute("data-theme") || this.config.themes.dark;
   }
 
   /**
@@ -135,7 +132,7 @@ class ThemeManager {
     document.dispatchEvent(
       new CustomEvent("theme:change", {
         detail: { theme, previousTheme: currentTheme },
-      }),
+      })
     );
   }
 
@@ -145,9 +142,7 @@ class ThemeManager {
   toggleTheme() {
     const current = this.getCurrentTheme();
     const next =
-      current === this.config.themes.light
-        ? this.config.themes.dark
-        : this.config.themes.light;
+      current === this.config.themes.light ? this.config.themes.dark : this.config.themes.light;
 
     this.applyTheme(next);
     this.announceThemeChange(next);
@@ -218,9 +213,7 @@ class ThemeManager {
 
     this.toggleButton.setAttribute(
       "aria-label",
-      theme === this.config.themes.light
-        ? "Switch to dark mode"
-        : "Switch to light mode",
+      theme === this.config.themes.light ? "Switch to dark mode" : "Switch to light mode"
     );
 
     this.toggleButton.setAttribute("data-theme", theme);
@@ -231,9 +224,7 @@ class ThemeManager {
    */
   announceThemeChange(theme) {
     const message =
-      theme === this.config.themes.light
-        ? "Light mode activated"
-        : "Dark mode activated";
+      theme === this.config.themes.light ? "Light mode activated" : "Dark mode activated";
 
     let announcer = document.getElementById("theme-announcer");
 
@@ -266,9 +257,7 @@ class ThemeManager {
     const handleChange = (e) => {
       // Only auto-switch if user hasn't manually set a preference
       if (!localStorage.getItem(this.config.storageKey)) {
-        const newTheme = e.matches
-          ? this.config.themes.dark
-          : this.config.themes.light;
+        const newTheme = e.matches ? this.config.themes.dark : this.config.themes.light;
         this.applyTheme(newTheme);
       }
     };

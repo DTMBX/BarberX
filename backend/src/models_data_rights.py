@@ -7,7 +7,6 @@ Database models for data rights and export compliance.
 Implements Pattern 2: Keep proprietary layers separate
 """
 
-import json
 from datetime import datetime
 
 from app import db

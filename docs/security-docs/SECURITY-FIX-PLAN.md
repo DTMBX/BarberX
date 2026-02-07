@@ -10,7 +10,8 @@
 
 ### **Phase A: Critical Python Vulnerabilities (3 alerts)**
 
-**Primary Issue**: PDF processing libraries (pypdf, PyPDF2) have DoS/infinite loop/RAM exhaustion vulnerabilities.
+**Primary Issue**: PDF processing libraries (pypdf, PyPDF2) have DoS/infinite
+loop/RAM exhaustion vulnerabilities.
 
 **Impact**:
 
@@ -22,7 +23,8 @@
 
 #### 1. **pypdf** (currently 5.1.0)
 
-- **Vulnerabilities**: Infinite loops, LZWDecode RAM exhaustion, DCT image parsing
+- **Vulnerabilities**: Infinite loops, LZWDecode RAM exhaustion, DCT image
+  parsing
 - **Action**: Update to latest patched version
 
 ```bash

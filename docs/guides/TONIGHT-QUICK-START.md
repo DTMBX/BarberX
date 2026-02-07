@@ -244,4 +244,5 @@ Use these for `document_type` field:
 
 **That's it! You're ready to process court documents. 📄⚖️**
 
-**Need Help?** Check [PRODUCTION-READY-REPORT.md](PRODUCTION-READY-REPORT.md) for full documentation.
+**Need Help?** Check [PRODUCTION-READY-REPORT.md](PRODUCTION-READY-REPORT.md)
+for full documentation.

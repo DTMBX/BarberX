@@ -23,19 +23,16 @@ import json
 import logging
 import time
 from datetime import datetime
-from typing import Dict, List
 
 from batch_import_foundation_cases import FOUNDATION_CASES
-from models_auth import db
-from verified_legal_sources import (SourceCredibilityTracker,
-                                    VerifiedLegalSources)
+from verified_legal_sources import SourceCredibilityTracker, VerifiedLegalSources
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler(f'logs/overnight_import_{datetime.now().strftime("%Y%m%d")}.log'),
+        logging.FileHandler(f"logs/overnight_import_{datetime.now().strftime('%Y%m%d')}.log"),
         logging.StreamHandler(),
     ],
 )
@@ -68,7 +65,7 @@ class OvernightLibraryBuilder:
             "errors": [],
         }
 
-    def build_library(self, practice_areas: List[str] = None, max_cases: int = None) -> Dict:
+    def build_library(self, practice_areas: list[str] = None, max_cases: int = None) -> dict:
         """
         Build library overnight from verified sources
 
@@ -121,8 +118,8 @@ class OvernightLibraryBuilder:
                 )
 
                 if not verification["authentic"]:
-                    logger.warning(f"  [WARN] Could not verify citation authenticity via API")
-                    logger.info(f"  [INFO] Attempting direct import anyway...")
+                    logger.warning("  [WARN] Could not verify citation authenticity via API")
+                    logger.info("  [INFO] Attempting direct import anyway...")
                 else:
                     logger.info(f"  [OK] Verified (confidence: {verification['confidence']})")
 
@@ -136,7 +133,7 @@ class OvernightLibraryBuilder:
                     # Log to database
                     self._log_import(doc, verification)
                 else:
-                    logger.error(f"  [FAIL] Import failed - not found on CourtListener")
+                    logger.error("  [FAIL] Import failed - not found on CourtListener")
                     self.stats["failed"] += 1
                     self.stats["errors"].append(
                         {"citation": citation, "reason": "Not found on CourtListener"}
@@ -158,7 +155,7 @@ class OvernightLibraryBuilder:
 
         return self.stats
 
-    def _get_cases_to_import(self, practice_areas: List[str] = None) -> List[tuple]:
+    def _get_cases_to_import(self, practice_areas: list[str] = None) -> list[tuple]:
         """Get list of cases to import"""
 
         if not practice_areas or "all" in practice_areas:
@@ -175,7 +172,7 @@ class OvernightLibraryBuilder:
                     cases.extend(FOUNDATION_CASES[area])
             return cases
 
-    def _log_import(self, doc, verification: Dict):
+    def _log_import(self, doc, verification: dict):
         """Log successful import to database"""
 
         # TODO: Create import_log table to track what was imported and when
@@ -192,7 +189,7 @@ class OvernightLibraryBuilder:
         logger.info("=" * 60)
         logger.info(f"Started:  {self.stats['start_time'].strftime('%Y-%m-%d %H:%M:%S')}")
         logger.info(f"Finished: {self.stats['end_time'].strftime('%Y-%m-%d %H:%M:%S')}")
-        logger.info(f"Duration: {duration:.1f} seconds ({duration/60:.1f} minutes)")
+        logger.info(f"Duration: {duration:.1f} seconds ({duration / 60:.1f} minutes)")
         logger.info("")
         logger.info(f"Total attempted: {self.stats['total_attempted']}")
         logger.info(f"[OK] Imported:      {self.stats['imported']}")
@@ -305,4 +302,3 @@ python overnight_library_builder.py --practice-area civil_rights criminal_defens
 # Add to crontab:
 # 0 2 * * * cd /path/to/Evident && python overnight_library_builder.py --practice-area all
 """
-

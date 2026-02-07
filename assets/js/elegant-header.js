@@ -58,7 +58,7 @@
           ticking = true;
         }
       },
-      { passive: true },
+      { passive: true }
     );
   }
 
@@ -67,9 +67,7 @@
    * Handles hover and keyboard navigation
    */
   function initDesktopDropdowns() {
-    const dropdownItems = document.querySelectorAll(
-      ".elegant-nav__item--dropdown",
-    );
+    const dropdownItems = document.querySelectorAll(".elegant-nav__item--dropdown");
 
     dropdownItems.forEach((item) => {
       const toggle = item.querySelector(".elegant-nav__link");
@@ -186,10 +184,7 @@
 
     // Escape key
     document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        drawer.getAttribute("aria-hidden") === "false"
-      ) {
+      if (e.key === "Escape" && drawer.getAttribute("aria-hidden") === "false") {
         closeDrawer();
         toggle.focus();
       }
@@ -197,7 +192,7 @@
 
     // Handle expandable submenus
     const expandableLinks = drawer.querySelectorAll(
-      ".drawer-nav__item--expandable .drawer-nav__link",
+      ".drawer-nav__item--expandable .drawer-nav__link"
     );
     expandableLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
@@ -218,7 +213,7 @@
 
     // Close drawer on link click (except expandable toggles)
     const drawerLinks = drawer.querySelectorAll(
-      ".drawer-nav__link:not(.drawer-nav__item--expandable .drawer-nav__link), .drawer-submenu__link",
+      ".drawer-nav__link:not(.drawer-nav__item--expandable .drawer-nav__link), .drawer-submenu__link"
     );
     drawerLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -262,7 +257,7 @@
      */
     function trapFocus(element) {
       const focusableElements = element.querySelectorAll(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
@@ -357,10 +352,7 @@
       const header = document.querySelector(".elegant-header");
       const headerHeight = header ? header.offsetHeight : 0;
       const targetPosition =
-        target.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerHeight -
-        20;
+        target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
 
       window.scrollTo({
         top: targetPosition,

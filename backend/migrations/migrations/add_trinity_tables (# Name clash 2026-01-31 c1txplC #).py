@@ -251,9 +251,9 @@ def verify_tables():
 
         # Check for FTS
         if "code360_fts" in tables:
-            print(f"  ✓ code360_fts (FTS5 enabled)")
+            print("  ✓ code360_fts (FTS5 enabled)")
         else:
-            print(f"  ⚠ code360_fts not present (FTS disabled)")
+            print("  ⚠ code360_fts not present (FTS disabled)")
 
         return all_present
 

@@ -34,13 +34,10 @@ async function analyzeDocument(file) {
   formData.append("extract_citations", "true");
 
   try {
-    const response = await fetch(
-      `${API_CONFIG.BACKEND_URL}/api/v1/ai/analyze-document`,
-      {
-        method: "POST",
-        body: formData,
-      },
-    );
+    const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/ai/analyze-document`, {
+      method: "POST",
+      body: formData,
+    });
 
     if (!response.ok) throw new Error("Analysis failed");
 
@@ -114,7 +111,7 @@ function displayAnalysisResults(analysis) {
                     : ""
                 }
               </div>
-            `,
+            `
               )
               .join("")}
           </div>
@@ -206,19 +203,16 @@ async function generateComplaint() {
   showToast("Generating verified complaint...", "info");
 
   try {
-    const response = await fetch(
-      `${API_CONFIG.BACKEND_URL}/api/v1/ai/generate-complaint`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          analysis: analysisResults,
-          include_exhibits: true,
-          include_damages: true,
-          format: "verified_complaint",
-        }),
-      },
-    );
+    const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/ai/generate-complaint`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        analysis: analysisResults,
+        include_exhibits: true,
+        include_damages: true,
+        format: "verified_complaint",
+      }),
+    });
 
     if (!response.ok) throw new Error("Generation failed");
 
@@ -258,14 +252,11 @@ async function exportAnalysis() {
   }
 
   try {
-    const response = await fetch(
-      `${API_CONFIG.BACKEND_URL}/api/v1/documents/export-analysis`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ analysis: analysisResults, format: "pdf" }),
-      },
-    );
+    const response = await fetch(`${API_CONFIG.BACKEND_URL}/api/v1/documents/export-analysis`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ analysis: analysisResults, format: "pdf" }),
+    });
 
     if (!response.ok) throw new Error("Export failed");
 
@@ -331,9 +322,7 @@ async function askAI() {
 
 // Utility functions
 function formatDocumentType(type) {
-  return (type || "unknown")
-    .replace(/_/g, " ")
-    .replace(/\b\w/g, (l) => l.toUpperCase());
+  return (type || "unknown").replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
 function formatViolationType(type) {

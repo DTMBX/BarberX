@@ -1,9 +1,6 @@
 ---
 
-layout: default
-title: Vision
-permalink: /docs/vision/
---
+layout: default title: Vision permalink: /docs/vision/ --
 
 <article class="md">
   <header class="md-header">
@@ -15,14 +12,15 @@ permalink: /docs/vision/
 
 ## My Mission
 
-I'm sharing my documented experiences to help others recognize bad actors and systemic
-dysfunction. Not to build a platform. Not to corner a market. Just to shine light on
-problems honestly and productively.
+I'm sharing my documented experiences to help others recognize bad actors and
+systemic dysfunction. Not to build a platform. Not to corner a market. Just to
+shine light on problems honestly and productively.
 
 ## Core Philosophy
 
-Documentation should expose truth, not obscure it. Every case shared must serve honesty,
-clarity, and helping good people make better decisions — never revenge, harassment, or manipulation.
+Documentation should expose truth, not obscure it. Every case shared must serve
+honesty, clarity, and helping good people make better decisions — never revenge,
+harassment, or manipulation.
 
 --
 
@@ -66,11 +64,12 @@ My approach emphasizes:
 
 ## Why Evident?
 
-Because cutting through bureaucratic spin requires precision. These are my documented
-experiences with bad actors who hide behind process, paperwork, and position.
+Because cutting through bureaucratic spin requires precision. These are my
+documented experiences with bad actors who hide behind process, paperwork, and
+position.
 
-**Truth is preserved through careful documentation.** The goal is protection, not retribution.
-Evidence exists to help good people recognize bad patterns.
+**Truth is preserved through careful documentation.** The goal is protection,
+not retribution. Evidence exists to help good people recognize bad patterns.
 
 --
 
@@ -115,64 +114,83 @@ Consult licensed attorneys for guidance on your specific situation.
 
 ### Phase 2: Citizen Empowerment _(Next 12-18 Months)_
 
-**Vision:**
-We will build tools that empower ordinary citizens to document truth with dignity and restraint—not as law enforcement or vigilantes, but as stewards of accuracy and public trust.
+**Vision:** We will build tools that empower ordinary citizens to document truth
+with dignity and restraint—not as law enforcement or vigilantes, but as stewards
+of accuracy and public trust.
 
 **Key Initiatives:**
 
 #### A. Local Documentation Networks
 
-- **Neighborhood accountability cooperatives** — Groups of citizens documenting events in their communities
-- **Transparent procedures** — Clear guidelines for what, when, and how to record
+- **Neighborhood accountability cooperatives** — Groups of citizens documenting
+  events in their communities
+- **Transparent procedures** — Clear guidelines for what, when, and how to
+  record
 - **Community oversight** — Peer review and accountability for documentation
-- **Educational workshops** — Teaching constitutional rights and recording ethics
+- **Educational workshops** — Teaching constitutional rights and recording
+  ethics
 
 #### B. Constitutional Literacy Programs
 
-- **Civic education** — Understanding due process, constitutional limits, property rights
-- **Government engagement** — How to participate in zoning boards, town meetings, public comment
-- **Legal resources** — Connecting citizens with attorneys for legitimate concerns
-- **Documentation education** — Training on contemporaneous note-taking and evidence preservation
+- **Civic education** — Understanding due process, constitutional limits,
+  property rights
+- **Government engagement** — How to participate in zoning boards, town
+  meetings, public comment
+- **Legal resources** — Connecting citizens with attorneys for legitimate
+  concerns
+- **Documentation education** — Training on contemporaneous note-taking and
+  evidence preservation
 
 #### C. Privacy-First Technology
 
 - **Local-only storage** — No cloud dependency, no data harvesting
-- **Cryptographic security** — Recording integrity verification without corporate servers
-- **Transparency tools** — Showing exactly what data is collected and where it goes
+- **Cryptographic security** — Recording integrity verification without
+  corporate servers
+- **Transparency tools** — Showing exactly what data is collected and where it
+  goes
 - **User control** — Complete control over recording, storage, and disclosure
 
 ### Phase 3: Systemic Accountability _(18-36 Months)_
 
-**Vision:**
-Extend Barber Cam principles to support broader community accountability through transparent, lawful documentation that strengthens due process rather than substituting for it.
+**Vision:** Extend Barber Cam principles to support broader community
+accountability through transparent, lawful documentation that strengthens due
+process rather than substituting for it.
 
 **Anticipated Capabilities:**
 
 #### A. Institutional Documentation
 
-- **Court proceedings** — Accurate records of public hearings and judicial processes
+- **Court proceedings** — Accurate records of public hearings and judicial
+  processes
 - **Board meetings** — Transparent documentation of government decision-making
 - **Public events** — Records that preserve community history and accountability
-- **Incident response** — Documenting events to support police transparency or civilian oversight
+- **Incident response** — Documenting events to support police transparency or
+  civilian oversight
 
 #### B. Due Process Support
 
 - **Evidence chains** — Maintaining verifiable custody of important recordings
-- **Timeline preservation** — Accurate timestamps preventing historical revisionism
-- **Witness documentation** — Supporting lawful fact-finding without substituting for professional investigation
-- **Legal support** — Enabling citizens to present evidence in courts and hearings
+- **Timeline preservation** — Accurate timestamps preventing historical
+  revisionism
+- **Witness documentation** — Supporting lawful fact-finding without
+  substituting for professional investigation
+- **Legal support** — Enabling citizens to present evidence in courts and
+  hearings
 
 #### C. Community Resilience
 
 - **Decentralized archives** — Community members curating historical records
-- **Knowledge preservation** — Documenting important community events and decisions
-- **Accountability records** — Making governmental and institutional records accessible
+- **Knowledge preservation** — Documenting important community events and
+  decisions
+- **Accountability records** — Making governmental and institutional records
+  accessible
 - **Public learning** — Using documentation to educate citizens about governance
 
 ### Phase 4: Scaled Impact _(3-5 Years)_
 
-**Vision:**
-Demonstrate that ethical, citizen-led documentation can strengthen constitutional governance, reduce institutional corruption, and increase public trust—without becoming surveillance or vigilantism.
+**Vision:** Demonstrate that ethical, citizen-led documentation can strengthen
+constitutional governance, reduce institutional corruption, and increase public
+trust—without becoming surveillance or vigilantism.
 
 **Long-Term Goals:**
 
@@ -203,8 +221,8 @@ Demonstrate that ethical, citizen-led documentation can strengthen constitutiona
 
 ### Principles That Guide Our Development
 
-**1. Restraint Over Expansion**
-We will systematically refuse temptations to add features that:
+**1. Restraint Over Expansion** We will systematically refuse temptations to add
+features that:
 
 - Track individuals or patterns
 - Enable mass monitoring
@@ -275,7 +293,8 @@ We will systematically refuse temptations to add features that:
 
 #### Risk: Tool Misuse for Harassment or Doxxing
 
-- Mitigation: Built-in consent management, data minimization, no personal data export
+- Mitigation: Built-in consent management, data minimization, no personal data
+  export
 - Response: Community moderation, user education, clear consequences
 - Design: Technical barriers to weaponizing documentation
 
@@ -309,34 +328,56 @@ We will systematically refuse temptations to add features that:
 
 ### Imagine Five Years From Now
 
-**A neighborhood in New Jersey has formed a documentation cooperative.** Members understand recording laws, consent requirements, and constitutional limits. They document town board meetings, preserve records of code enforcement interactions, and maintain accurate incident records.
+**A neighborhood in New Jersey has formed a documentation cooperative.** Members
+understand recording laws, consent requirements, and constitutional limits. They
+document town board meetings, preserve records of code enforcement interactions,
+and maintain accurate incident records.
 
-**When a landlord-tenant dispute arises**, both parties can access documentation that happened transparently. **When a police encounter occurs**, the neighborhood record supports professional investigation and accountability. **When zoning decisions are made**, the process is clear and the decision-making criteria are documented.
+**When a landlord-tenant dispute arises**, both parties can access documentation
+that happened transparently. **When a police encounter occurs**, the
+neighborhood record supports professional investigation and accountability.
+**When zoning decisions are made**, the process is clear and the decision-making
+criteria are documented.
 
-**Citizens understand the Constitution**—what they can do, what government can't do, and where lawful remedies exist. They engage in town meetings with confidence. They use Barber Cam tools to support their participation, not to replace it.
+**Citizens understand the Constitution**—what they can do, what government can't
+do, and where lawful remedies exist. They engage in town meetings with
+confidence. They use Barber Cam tools to support their participation, not to
+replace it.
 
-**Trust increases** because actions are documented, decisions are transparent, and evidence is available. Conflict resolution improves because people can verify what actually happened. Governance strengthens because institutions know they're accountable.
+**Trust increases** because actions are documented, decisions are transparent,
+and evidence is available. Conflict resolution improves because people can
+verify what actually happened. Governance strengthens because institutions know
+they're accountable.
 
 **This is the future Barber Cam enables:**
 
 - Not mass surveillance
 - Not vigilante justice
 - Not replacing law enforcement or courts
-- But **citizens who understand their rights, stewards of truth, and institutions accountable to constitutional limits**
+- But **citizens who understand their rights, stewards of truth, and
+  institutions accountable to constitutional limits**
 
 --
 
 ## Our Commitment
 
-Barber Cam exists in service of one fundamental conviction: **truth, transparently documented and honestly stewarded, serves justice better than secrecy, narrative, or force.**
+Barber Cam exists in service of one fundamental conviction: **truth,
+transparently documented and honestly stewarded, serves justice better than
+secrecy, narrative, or force.**
 
-We will build tools with restraint. We will operate with accountability. We will remain grounded in law and constitutional principle. And we will succeed or fail by whether citizens experience greater dignity, understanding, and power to shape their communities.
+We will build tools with restraint. We will operate with accountability. We will
+remain grounded in law and constitutional principle. And we will succeed or fail
+by whether citizens experience greater dignity, understanding, and power to
+shape their communities.
 
-**The future depends on trustworthy documentation. Barber Cam is here to make that possible.**
+**The future depends on trustworthy documentation. Barber Cam is here to make
+that possible.**
 
 --
 
-_This vision document reflects Barber Cam's commitment to ethical, lawful, and transparent operation. It is a living document, subject to refinement as we learn from experience and community feedback._
+_This vision document reflects Barber Cam's commitment to ethical, lawful, and
+transparent operation. It is a living document, subject to refinement as we
+learn from experience and community feedback._
 
   </section>
 

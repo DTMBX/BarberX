@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-This guide will help you deploy Evident Enterprise on your own infrastructure using Docker.
+This guide will help you deploy Evident Enterprise on your own infrastructure
+using Docker.
 
 **Requirements:**
 
@@ -101,8 +102,10 @@ http://your-server-ip:5000
 
 ### **How Licensing Works**
 
-1. **Phone Home:** Application contacts `license.Evident.info` daily to validate license
-2. **Machine Registration:** Your server is registered to your license (max machines enforced)
+1. **Phone Home:** Application contacts `license.Evident.info` daily to validate
+   license
+2. **Machine Registration:** Your server is registered to your license (max
+   machines enforced)
 3. **Grace Period:** Can run offline for 72 hours before requiring re-validation
 4. **Features:** License controls which features are enabled
 

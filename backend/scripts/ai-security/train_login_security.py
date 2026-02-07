@@ -8,7 +8,6 @@ Initialize and train the anomaly detection model on historical login data
 
 import os
 import sys
-from datetime import datetime, timedelta
 
 from dotenv import load_dotenv
 from flask import Flask
@@ -135,15 +134,14 @@ with app.app_context():
         print("=" * 70)
         print(f"\n✅ Model trained on {len(sample_events)} login events")
         print(f"✅ Model saved to: {login_security.model_path}")
-        print(f"✅ Contamination rate: 5% (anomaly threshold)")
-        print(f"\n[OK] Login security AI is now active!")
-        print(f"[OK] Suspicious logins will be automatically detected\n")
+        print("✅ Contamination rate: 5% (anomaly threshold)")
+        print("\n[OK] Login security AI is now active!")
+        print("[OK] Suspicious logins will be automatically detected\n")
 
     else:
         print("\n" + "=" * 70)
         print("  MODEL TRAINING FAILED")
         print("=" * 70)
-        print(f"\n❌ Failed to train model")
-        print(f"❌ Check logs for details\n")
+        print("\n❌ Failed to train model")
+        print("❌ Check logs for details\n")
         sys.exit(1)
-

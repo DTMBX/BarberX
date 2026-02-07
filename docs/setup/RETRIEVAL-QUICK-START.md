@@ -7,7 +7,8 @@
 python scripts/db/init_db.py
 ```
 
-This creates `instance/Evident_legal.db` with tables for documents, pages, FTS index, citations, and municipal codes.
+This creates `instance/Evident_legal.db` with tables for documents, pages, FTS
+index, citations, and municipal codes.
 
 ## 2. Ingest Documents
 
@@ -224,7 +225,8 @@ Citations Table
 
 ## Key Benefits
 
-1. **Single Retrieval Interface** - One `retrieve()` method for all document types
+1. **Single Retrieval Interface** - One `retrieve()` method for all document
+   types
 2. **Full Provenance** - Every passage tracked with doc_id/page/offsets
 3. **BM25 Ranking** - Production-quality relevance scoring
 4. **Citation Audit Trail** - Know which documents were used in each analysis

@@ -193,7 +193,8 @@ python app.py
 
 ### **This Week** (Phase C):
 
-1. Visit GitHub Dependabot: https://github.com/DTB396/Evident.info/security/dependabot
+1. Visit GitHub Dependabot:
+   https://github.com/DTB396/Evident.info/security/dependabot
 2. Review remaining high-severity alerts
 3. Update cryptography, Pillow, openai, SQLAlchemy, stripe
 4. Deploy and test
@@ -223,6 +224,7 @@ You've successfully:
 
 --
 
-**Next milestone**: Complete Phase C (high-severity) to achieve zero high-risk vulnerabilities.
+**Next milestone**: Complete Phase C (high-severity) to achieve zero high-risk
+vulnerabilities.
 
 See SECURITY-FIX-PLAN.md for complete roadmap.

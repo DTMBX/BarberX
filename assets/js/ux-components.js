@@ -63,9 +63,7 @@ class ToastManager {
 
     // Add close handler
     if (dismissible) {
-      toast
-        .querySelector(".toast-close")
-        .addEventListener("click", () => this.dismiss(id));
+      toast.querySelector(".toast-close").addEventListener("click", () => this.dismiss(id));
     }
 
     // Set progress bar duration
@@ -161,8 +159,7 @@ class FormValidator {
       maxLength: "Must be no more than {max} characters",
       pattern: "Please match the requested format",
       match: "Fields do not match",
-      password:
-        "Password must be at least 8 characters with uppercase, lowercase, and number",
+      password: "Password must be at least 8 characters with uppercase, lowercase, and number",
     };
 
     this.init();
@@ -199,8 +196,7 @@ class FormValidator {
       const validator = this.validators[rule];
       if (validator && !validator(input.value, param)) {
         isValid = false;
-        errorMessage =
-          this.messages[rule]?.replace(`{${rule}}`, param) || "Invalid value";
+        errorMessage = this.messages[rule]?.replace(`{${rule}}`, param) || "Invalid value";
         break;
       }
     }
@@ -233,8 +229,7 @@ class FormValidator {
     if (input.required) rules.required = true;
     if (input.type === "email") rules.email = true;
     if (input.minLength > 0) rules.minLength = input.minLength;
-    if (input.maxLength > 0 && input.maxLength < 524288)
-      rules.maxLength = input.maxLength;
+    if (input.maxLength > 0 && input.maxLength < 524288) rules.maxLength = input.maxLength;
     if (input.pattern) rules.pattern = input.pattern;
     if (input.dataset.match) rules.match = input.dataset.match;
     if (input.dataset.validate === "password") rules.password = true;
@@ -274,8 +269,7 @@ class FormValidator {
 // ===========================
 class PasswordStrength {
   constructor(input, options = {}) {
-    this.input =
-      typeof input === "string" ? document.querySelector(input) : input;
+    this.input = typeof input === "string" ? document.querySelector(input) : input;
     if (!this.input) return;
 
     this.options = {
@@ -348,7 +342,7 @@ class SkeletonLoader {
         <div class="skeleton skeleton-text medium"></div>
         <div class="skeleton skeleton-text short"></div>
       </div>
-    `,
+    `
       )
       .join("");
   }
@@ -363,7 +357,7 @@ class SkeletonLoader {
         <div class="skeleton skeleton-table-cell"></div>
         <div class="skeleton skeleton-table-cell" style="flex: 0.5"></div>
       </div>
-    `,
+    `
       )
       .join("");
   }
@@ -376,16 +370,13 @@ class SkeletonLoader {
         <div class="skeleton skeleton-stat" style="margin: 0 auto;"></div>
         <div class="skeleton skeleton-text short" style="margin: 0 auto;"></div>
       </div>
-    `,
+    `
       )
       .join("");
   }
 
   static show(container, type = "card", count = 3) {
-    const el =
-      typeof container === "string"
-        ? document.querySelector(container)
-        : container;
+    const el = typeof container === "string" ? document.querySelector(container) : container;
     if (!el) return;
 
     el.dataset.originalContent = el.innerHTML;
@@ -394,10 +385,7 @@ class SkeletonLoader {
   }
 
   static hide(container) {
-    const el =
-      typeof container === "string"
-        ? document.querySelector(container)
-        : container;
+    const el = typeof container === "string" ? document.querySelector(container) : container;
     if (!el) return;
 
     if (el.dataset.originalContent) {
@@ -415,10 +403,7 @@ window.SkeletonLoader = SkeletonLoader;
 // ===========================
 class ProcessingIndicator {
   constructor(container, options = {}) {
-    this.container =
-      typeof container === "string"
-        ? document.querySelector(container)
-        : container;
+    this.container = typeof container === "string" ? document.querySelector(container) : container;
     this.options = {
       title: "Processing",
       description: "Please wait while we process your request.",
@@ -436,7 +421,7 @@ class ProcessingIndicator {
         <div class="processing-step-icon">${i === 0 ? "●" : "○"}</div>
         <div class="processing-step-text">${step}</div>
       </div>
-    `,
+    `
       )
       .join("");
 
@@ -525,11 +510,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Auto-init password strength on inputs with data-password-strength
-  document
-    .querySelectorAll("input[data-password-strength]")
-    .forEach((input) => {
-      new PasswordStrength(input);
-    });
+  document.querySelectorAll("input[data-password-strength]").forEach((input) => {
+    new PasswordStrength(input);
+  });
 
   // Show toast on flash messages
   const flashMessages = document.querySelectorAll("[data-flash]");

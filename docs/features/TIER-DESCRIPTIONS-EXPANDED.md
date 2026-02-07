@@ -4,19 +4,23 @@
 
 ### FREE Tier - $0/month
 
-**Target:** Potential customers, evaluators, students, legal aid interns
-**Use Case:** Risk-free evaluation before committing to paid plan
+**Target:** Potential customers, evaluators, students, legal aid interns **Use
+Case:** Risk-free evaluation before committing to paid plan
 
 **Value Proposition:**
 
-- Test platform with 3 fully-analyzed demo cases (traffic stop, wellness check, search warrant)
-- Upload ONE file of your choice (PDF ≤10 pages OR video ≤5 minutes) to see results with YOUR data
+- Test platform with 3 fully-analyzed demo cases (traffic stop, wellness check,
+  search warrant)
+- Upload ONE file of your choice (PDF ≤10 pages OR video ≤5 minutes) to see
+  results with YOUR data
 - Access educational resources, templates, and legal guides
 - 7-day data retention creates urgency to upgrade
 
 **Marketing Copy:**
 
-> "See Evident in action with real cases. Explore 3 complete demo cases with full AI analysis, then upload 1 file to test with your own data. Try risk-free before you buy."
+> "See Evident in action with real cases. Explore 3 complete demo cases with
+> full AI analysis, then upload 1 file to test with your own data. Try risk-free
+> before you buy."
 
 **Perfect For:**
 
@@ -29,8 +33,8 @@
 
 ### STARTER Tier - $29/month
 
-**Target:** Part-time defense attorneys, solo practitioners with 1-3 BWC cases/month
-**Use Case:** Occasional BWC analysis, supplemental to main practice
+**Target:** Part-time defense attorneys, solo practitioners with 1-3 BWC
+cases/month **Use Case:** Occasional BWC analysis, supplemental to main practice
 
 **Value Proposition:**
 
@@ -42,7 +46,9 @@
 
 **Marketing Copy:**
 
-> "For solo practitioners handling BWC cases part-time. Process 10 videos and 5 PDFs monthly with AI-powered analysis and reports formatted for court submission (attorney review required). Perfect for 1-3 cases per month."
+> "For solo practitioners handling BWC cases part-time. Process 10 videos and 5
+> PDFs monthly with AI-powered analysis and reports formatted for court
+> submission (attorney review required). Perfect for 1-3 cases per month."
 
 **Perfect For:**
 
@@ -63,8 +69,9 @@
 
 ### PROFESSIONAL Tier - $79/month ⭐ MOST POPULAR
 
-**Target:** Full-time solo practitioners, small firms (2-3 attorneys) handling 5-10 BWC cases/month
-**Use Case:** Core BWC practice, full-time civil rights or criminal defense
+**Target:** Full-time solo practitioners, small firms (2-3 attorneys) handling
+5-10 BWC cases/month **Use Case:** Core BWC practice, full-time civil rights or
+criminal defense
 
 **Value Proposition:**
 
@@ -76,7 +83,9 @@
 
 **Marketing Copy:**
 
-> "For full-time solo practitioners and small firms. Handle 5-10 BWC cases monthly with advanced AI tools, timeline builder, and reports formatted for court submission (attorney review required). Try risk-free for 3 days."
+> "For full-time solo practitioners and small firms. Handle 5-10 BWC cases
+> monthly with advanced AI tools, timeline builder, and reports formatted for
+> court submission (attorney review required). Try risk-free for 3 days."
 
 **Perfect For:**
 
@@ -97,8 +106,9 @@
 
 ### PREMIUM Tier - $199/month
 
-**Target:** High-volume civil rights firms, busy public defenders handling 15-30 BWC cases/month
-**Use Case:** Heavy BWC caseload, complex multi-video cases, API integration
+**Target:** High-volume civil rights firms, busy public defenders handling 15-30
+BWC cases/month **Use Case:** Heavy BWC caseload, complex multi-video cases, API
+integration
 
 **Value Proposition:**
 
@@ -111,7 +121,9 @@
 
 **Marketing Copy:**
 
-> "High-volume civil rights firms and public defenders. Process 75+ videos monthly with flexible overage billing, forensic analysis, API access, and full AI assistant. Scales with your practice."
+> "High-volume civil rights firms and public defenders. Process 75+ videos
+> monthly with flexible overage billing, forensic analysis, API access, and full
+> AI assistant. Scales with your practice."
 
 **Perfect For:**
 
@@ -133,15 +145,17 @@
 **Overage Billing Example:**
 
 - Base: 75 videos, 50 PDFs, 40 cases = $199
-- Busy month: 90 videos (+15 × $2 = $30), 55 PDFs (+5 × $1 = $5), 42 cases (+2 × $5 = $10)
+- Busy month: 90 videos (+15 × $2 = $30), 55 PDFs (+5 × $1 = $5), 42 cases (+2 ×
+  $5 = $10)
 - Total bill: $244 (still cheaper than ENTERPRISE base rate)
 
 --
 
 ### ENTERPRISE Tier - $599/month
 
-**Target:** Public Defender offices, large civil rights firms, legal aid organizations (10+ attorneys)
-**Use Case:** Organizational BWC practice, team collaboration, white-label branding
+**Target:** Public Defender offices, large civil rights firms, legal aid
+organizations (10+ attorneys) **Use Case:** Organizational BWC practice, team
+collaboration, white-label branding
 
 **Value Proposition:**
 
@@ -155,7 +169,9 @@
 
 **Marketing Copy:**
 
-> "For Public Defender offices and large civil rights firms. Support 25 team members with private AI, firm-branded reports, and dedicated support. Includes on-premises data options and SLA."
+> "For Public Defender offices and large civil rights firms. Support 25 team
+> members with private AI, firm-branded reports, and dedicated support. Includes
+> on-premises data options and SLA."
 
 **Perfect For:**
 
@@ -178,7 +194,8 @@
 **Overage Billing Example:**
 
 - Base: 300 videos, 200 PDFs, 150 cases, 25 users = $599
-- Heavy month: 350 videos (+50 × $1 = $50), 220 PDFs (+20 × $0.50 = $10), 30 users (+5 × $15 = $75)
+- Heavy month: 350 videos (+50 × $1 = $50), 220 PDFs (+20 × $0.50 = $10), 30
+  users (+5 × $15 = $75)
 - Total bill: $734 (reasonable for 30-person team)
 
 --
@@ -213,8 +230,9 @@
 
 ### FREE → STARTER ($29/mo)
 
-**Trigger:** After 7-day retention period expires, or after using one-time upload
-**Message:** _"Your data expires in 3 days. Upgrade to STARTER for $29/mo to keep your case forever and process 10 videos monthly."_
+**Trigger:** After 7-day retention period expires, or after using one-time
+upload **Message:** _"Your data expires in 3 days. Upgrade to STARTER for $29/mo
+to keep your case forever and process 10 videos monthly."_
 
 **Value Prop:**
 
@@ -227,8 +245,9 @@
 
 ### STARTER → PROFESSIONAL ($79/mo, +$50)
 
-**Trigger:** Hitting 10 video limit, need for timeline builder
-**Message:** _"You've used 9/10 videos this month. Upgrade to PROFESSIONAL for 2.5× more capacity, timeline builder, and a 3-day free trial."_
+**Trigger:** Hitting 10 video limit, need for timeline builder **Message:**
+_"You've used 9/10 videos this month. Upgrade to PROFESSIONAL for 2.5× more
+capacity, timeline builder, and a 3-day free trial."_
 
 **Value Prop:**
 
@@ -243,8 +262,9 @@
 
 ### PROFESSIONAL → PREMIUM ($199/mo, +$120)
 
-**Trigger:** Hitting 25 video limit, need for API or forensic tools
-**Message:** _"You've used all 25 videos this month. Upgrade to PREMIUM for 3× capacity, forensic analysis, API access, and flexible overage billing."_
+**Trigger:** Hitting 25 video limit, need for API or forensic tools **Message:**
+_"You've used all 25 videos this month. Upgrade to PREMIUM for 3× capacity,
+forensic analysis, API access, and flexible overage billing."_
 
 **Value Prop:**
 
@@ -262,7 +282,8 @@
 ### PREMIUM → ENTERPRISE ($599/mo, +$400)
 
 **Trigger:** Team needs (2+ users), white-label requirements, data residency
-**Message:** _"Add your team members to ENTERPRISE for $599/mo. Includes 25 users, private AI, firm branding, and dedicated support."_
+**Message:** _"Add your team members to ENTERPRISE for $599/mo. Includes 25
+users, private AI, firm branding, and dedicated support."_
 
 **Value Prop:**
 
@@ -377,23 +398,23 @@
 
 1. FREE (1 month): Test with demo + 1 upload
 2. STARTER (3 months): Build practice, 1-3 cases/month
-3. PROFESSIONAL (12+ months): Full-time practice, 5-10 cases/month
-   **LTV:** $1,035 over 16 months
+3. PROFESSIONAL (12+ months): Full-time practice, 5-10 cases/month **LTV:**
+   $1,035 over 16 months
 
 **Journey 2: Civil Rights Firm**
 
 1. FREE (2 weeks): Firm-wide evaluation
 2. PROFESSIONAL with trial (1 week): Test with real cases
 3. PROFESSIONAL (6 months): Ramp up to 8-10 cases/month
-4. PREMIUM (24+ months): Sustained high volume, 20-30 cases/month
-   **LTV:** $5,250 over 30 months
+4. PREMIUM (24+ months): Sustained high volume, 20-30 cases/month **LTV:**
+   $5,250 over 30 months
 
 **Journey 3: Public Defender Office**
 
 1. FREE (1 month): Department head evaluates
 2. PREMIUM (3 months): Single attorney pilot program
-3. ENTERPRISE (36+ months): Office-wide deployment, 15 attorneys
-   **LTV:** $22,161 over 40 months
+3. ENTERPRISE (36+ months): Office-wide deployment, 15 attorneys **LTV:**
+   $22,161 over 40 months
 
 --
 
@@ -411,8 +432,10 @@
 ### Feature Validation
 
 - [x] FREE includes one-time upload (conversion driver)
-- [x] AI assistant progresses logically: none → basic → advanced → full → private
-- [x] Court reports progress: none → basic → professional → advanced → firm-branded
+- [x] AI assistant progresses logically: none → basic → advanced → full →
+      private
+- [x] Court reports progress: none → basic → professional → advanced →
+      firm-branded
 - [x] Timeline builder available at PROFESSIONAL+ (key differentiator)
 - [x] Forensic analysis at PREMIUM+ (advanced feature)
 - [x] API access at PREMIUM+ (integration capability)

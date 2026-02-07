@@ -4,7 +4,8 @@
 
 ### **All Tiers Are Currently WEB-BASED SaaS**
 
-**Critical Finding:** Your current implementation has NO downloadable/desktop app. Everything runs through the web interface at Evident.info.
+**Critical Finding:** Your current implementation has NO downloadable/desktop
+app. Everything runs through the web interface at Evident.info.
 
 --
 
@@ -209,22 +210,19 @@ async function analyzeVideo(videoPath) {
   const formData = new FormData();
   formData.append("video", fs.createReadStream(videoPath));
 
-  const response = await axios.post(
-    "https://api.Evident.info/analyze",
-    formData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "X-Tier": userTier, // Enforced server-side
-      },
+  const response = await axios.post("https://api.Evident.info/analyze", formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "X-Tier": userTier, // Enforced server-side
     },
-  );
+  });
 
   return response.data;
 }
 ```
 
-**Key Point:** Processing still happens on YOUR servers (they just upload via desktop app instead of web browser)
+**Key Point:** Processing still happens on YOUR servers (they just upload via
+desktop app instead of web browser)
 
 **Pros:**
 
@@ -572,4 +570,5 @@ Self-Hosted (Future): $1,999/mo with license validation
 - ✅ Higher pricing justified for self-hosted complexity
 - ✅ Annual contracts ($24k-60k/year per enterprise customer)
 
-**Want me to spec out the license validation system or Docker packaging strategy?**
+**Want me to spec out the license validation system or Docker packaging
+strategy?**

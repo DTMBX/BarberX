@@ -2,7 +2,8 @@
 
 ## 🎯 Easy Drag-and-Drop Interface
 
-Your BWC analyzer now has a **user-friendly web interface** - no command line needed!
+Your BWC analyzer now has a **user-friendly web interface** - no command line
+needed!
 
 --
 
@@ -42,7 +43,8 @@ Navigate to: **http://localhost:5000**
 
 ### Step 3: Upload & Analyze
 
-1. **Drag-and-drop** your BWC video file onto the upload area (or click to browse)
+1. **Drag-and-drop** your BWC video file onto the upload area (or click to
+   browse)
 2. **Fill in case details:**
    - Case Number (e.g., "ATL-L-002794-25")
    - Evidence Number (e.g., "EX-BWC-001")
@@ -163,7 +165,8 @@ TIME: 14:30, 15:45
 ### ✅ Interactive Results
 
 - **Summary Statistics:** Duration, speakers, segments, discrepancies
-- **Discrepancy Cards:** Color-coded by severity (critical=red, major=orange, minor=green)
+- **Discrepancy Cards:** Color-coded by severity (critical=red, major=orange,
+  minor=green)
 - **Entity Tags:** Visual badges for all extracted names, dates, locations
 - **Scrollable Transcript:** Full transcript with timestamps and speaker labels
 - **Download Buttons:** Export reports in JSON, TXT, or Markdown
@@ -177,7 +180,8 @@ All reports include:
 - Word-level timestamps
 - Speaker attribution
 - Legal significance annotations
-- Exported verification details to assist with authentication (consult counsel regarding FRE 901 application)
+- Exported verification details to assist with authentication (consult counsel
+  regarding FRE 901 application)
 
 --
 

@@ -13,10 +13,10 @@ from functools import wraps
 import jwt
 from flask import current_app, jsonify, request
 from flask_login import current_user, login_user, logout_user
+from models_auth import TierLevel, User, db
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from api import auth_api
-from models_auth import TierLevel, User, db
 
 
 def generate_jwt_token(user_id, expires_in=86400):

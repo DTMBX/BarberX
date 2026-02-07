@@ -116,9 +116,7 @@
 <section class="hero">
   <h1 class="slide-down" data-delay="0">Welcome</h1>
   <p class="fade-in" data-delay="200">Subtitle here</p>
-  <button class="zoom-in hover-lift" data-delay="400" data-ripple>
-    Get Started
-  </button>
+  <button class="zoom-in hover-lift" data-delay="400" data-ripple>Get Started</button>
 </section>
 ```
 
@@ -189,7 +187,7 @@ window.animationEngine;
 AnimationEngine.stagger(
   document.querySelector(".container"),
   ".item",
-  100, // delay in ms
+  100 // delay in ms
 );
 
 // Text reveal

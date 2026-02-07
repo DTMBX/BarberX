@@ -19,7 +19,8 @@ All 6 flags on the Honor Page are properly configured using:
 - ✅ Official sources verified (.gov/.mil links)
 - ✅ CSS syntax error fixed (duplicate closing brace removed)
 
-**⚠️ CRITICAL:** Placeholder files MUST be replaced with actual PNG images before production deployment.
+**⚠️ CRITICAL:** Placeholder files MUST be replaced with actual PNG images
+before production deployment.
 
 --
 
@@ -320,7 +321,8 @@ The Flag of the United States
 
 - Correct citation format: "4 U.S.C. §§ 1–10" (plural sections)
 - NOT "Title 4 USC § 1-10" (incorrect format)
-- Source verified: https://uscode.house.gov/view.xhtml?path=/prelim@title4/chapter1&edition=prelim
+- Source verified:
+  https://uscode.house.gov/view.xhtml?path=/prelim@title4/chapter1&edition=prelim
 
 **POW/MIA Flag Act**
 
@@ -343,8 +345,10 @@ Public Law 116-67 (2019)<br />
 
 **All 7 Sources Verified:**
 
-1. ✅ 4 U.S.C. Chapter 1 → https://uscode.house.gov/view.xhtml?path=/prelim@title4/chapter1&edition=prelim
-2. ✅ 36 U.S.C. § 902 → https://www.congress.gov/bill/116th-congress/senate-bill/693
+1. ✅ 4 U.S.C. Chapter 1 →
+   https://uscode.house.gov/view.xhtml?path=/prelim@title4/chapter1&edition=prelim
+2. ✅ 36 U.S.C. § 902 →
+   https://www.congress.gov/bill/116th-congress/senate-bill/693
 3. ✅ Defense POW/MIA Accounting Agency → https://www.dpaa.mil/
 4. ✅ Charleston Museum (Gadsden Flag) → https://www.charlestonmuseum.org/
 5. ✅ Naval History and Heritage Command → https://www.history.navy.mil/
@@ -356,9 +360,8 @@ Public Law 116-67 (2019)<br />
 ```html
 <p>
   <small
-    >All flag images displayed are from verified public domain sources or
-    official U.S. Government documentation. See sources above for verification
-    and licensing information.</small
+    >All flag images displayed are from verified public domain sources or official U.S. Government
+    documentation. See sources above for verification and licensing information.</small
   >
 </p>
 ```
@@ -388,7 +391,8 @@ assets/img/flags/
 
 - All 6 required placeholders exist
 - README.md provides download instructions
-- **Action required:** Download actual PNG images from official sources before deployment
+- **Action required:** Download actual PNG images from official sources before
+  deployment
 
 --
 
@@ -667,7 +671,8 @@ The Honor Page now displays all 6 flags using:
 - Verified sources (.gov/.mil links)
 - Performance optimizations
 
-**Only remaining task:** Download actual PNG images from official sources to replace placeholder files before production deployment.
+**Only remaining task:** Download actual PNG images from official sources to
+replace placeholder files before production deployment.
 
 **Next Steps:**
 
@@ -685,6 +690,8 @@ The Honor Page now displays all 6 flags using:
 **Status:** ✅ **READY FOR IMAGE ACQUISITION**  
 **Confidence Level:** 100%
 
-All flags are structurally sound, legally compliant, and ready to honor the 1.3+ million fallen American service members with dignity and constitutional precision.
+All flags are structurally sound, legally compliant, and ready to honor the 1.3+
+million fallen American service members with dignity and constitutional
+precision.
 
 **God Bless America. 🇺🇸**

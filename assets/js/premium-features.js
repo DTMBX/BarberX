@@ -28,7 +28,7 @@
           "/assets/js/service-worker.js",
           {
             scope: "/",
-          },
+          }
         );
 
         if (CONFIG.DEBUG) {
@@ -39,14 +39,8 @@
         registration.addEventListener("updatefound", () => {
           const newWorker = registration.installing;
           newWorker.addEventListener("statechange", () => {
-            if (
-              newWorker.state === "installed" &&
-              navigator.serviceWorker.controller
-            ) {
-              showToast(
-                "Update available! Refresh to get the latest version.",
-                "info",
-              );
+            if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+              showToast("Update available! Refresh to get the latest version.", "info");
             }
           });
         });
@@ -115,8 +109,7 @@
   // Toast Notifications
   // ============================================
   function showToast(message, type = "info", duration = 4000) {
-    const container =
-      document.getElementById("toast-container") || createToastContainer();
+    const container = document.getElementById("toast-container") || createToastContainer();
 
     const toast = document.createElement("div");
     toast.className = `toast toast-${type}`;
@@ -137,9 +130,7 @@
     container.appendChild(toast);
 
     // Close button
-    toast
-      .querySelector(".toast__close")
-      .addEventListener("click", () => removeToast(toast));
+    toast.querySelector(".toast__close").addEventListener("click", () => removeToast(toast));
 
     // Auto-dismiss
     setTimeout(() => removeToast(toast), duration);
@@ -192,7 +183,7 @@
         ${navItems
           .map((item) => {
             const isActive = item.paths.some(
-              (p) => currentPath === p || currentPath.startsWith(p + "/"),
+              (p) => currentPath === p || currentPath.startsWith(p + "/")
             );
             return `
             <li>
@@ -243,13 +234,11 @@
     });
 
     // Handle scroll to top
-    fab
-      .querySelector('[data-action="scroll-top"]')
-      .addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        fab.classList.remove("active");
-      });
+    fab.querySelector('[data-action="scroll-top"]').addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      fab.classList.remove("active");
+    });
 
     // Close on outside click
     document.addEventListener("click", (e) => {
@@ -283,15 +272,11 @@
       </div>
     `;
 
-    banner
-      .querySelector('[data-action="install"]')
-      .addEventListener("click", installApp);
-    banner
-      .querySelector('[data-action="dismiss"]')
-      .addEventListener("click", () => {
-        hideInstallBanner();
-        localStorage.setItem("pwa-install-dismissed", "true");
-      });
+    banner.querySelector('[data-action="install"]').addEventListener("click", installApp);
+    banner.querySelector('[data-action="dismiss"]').addEventListener("click", () => {
+      hideInstallBanner();
+      localStorage.setItem("pwa-install-dismissed", "true");
+    });
 
     document.body.appendChild(banner);
   }
@@ -311,7 +296,7 @@
       debounce((e) => {
         const query = e.target.value.toLowerCase().trim();
         filterCards(cards, query);
-      }, 200),
+      }, 200)
     );
 
     if (searchClear) {
@@ -327,9 +312,7 @@
     let visibleCount = 0;
 
     cards.forEach((card) => {
-      const searchText =
-        card.dataset.searchable?.toLowerCase() ||
-        card.textContent.toLowerCase();
+      const searchText = card.dataset.searchable?.toLowerCase() || card.textContent.toLowerCase();
       const matches = !query || searchText.includes(query);
 
       card.style.display = matches ? "" : "none";
@@ -396,7 +379,7 @@
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     document.querySelectorAll(".case-card, .opra-card").forEach((el) => {
@@ -426,7 +409,7 @@
           pulling = true;
         }
       },
-      { passive: true },
+      { passive: true }
     );
 
     document.addEventListener(
@@ -441,7 +424,7 @@
           indicator.classList.add("visible");
         }
       },
-      { passive: true },
+      { passive: true }
     );
 
     document.addEventListener("touchend", () => {
@@ -566,9 +549,7 @@
       keySequence += e.key + " ";
       keySequence = keySequence.slice(-4); // Keep last 4 chars
 
-      const matchedShortcut = Object.keys(shortcuts).find(
-        (s) => keySequence.trim() === s,
-      );
+      const matchedShortcut = Object.keys(shortcuts).find((s) => keySequence.trim() === s);
 
       if (matchedShortcut) {
         e.preventDefault();
@@ -655,11 +636,9 @@
         </div>
       `;
 
-      modal
-        .querySelector(".bottom-sheet__close")
-        .addEventListener("click", () => {
-          modal.classList.remove("open");
-        });
+      modal.querySelector(".bottom-sheet__close").addEventListener("click", () => {
+        modal.classList.remove("open");
+      });
 
       modal.addEventListener("click", (e) => {
         if (e.target === modal) {
@@ -690,7 +669,7 @@
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
       },
-      { passive: true },
+      { passive: true }
     );
 
     document.addEventListener(
@@ -700,7 +679,7 @@
         touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
       },
-      { passive: true },
+      { passive: true }
     );
 
     function handleSwipe() {
@@ -709,10 +688,7 @@
       const minSwipeDistance = 100;
 
       // Horizontal swipe
-      if (
-        Math.abs(deltaX) > Math.abs(deltaY) &&
-        Math.abs(deltaX) > minSwipeDistance
-      ) {
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
         if (deltaX > 0) {
           // Swipe right - go back
           if (window.history.length > 1) {

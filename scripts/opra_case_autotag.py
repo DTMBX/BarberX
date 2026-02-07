@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -87,7 +88,7 @@ def write_text(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
-def split_front_matter(md: str) -> Tuple[Dict, str]:
+def split_front_matter(md: str) -> tuple[dict, str]:
     """
     Returns (front_matter_dict, body).
     If no front matter exists, returns ({}, full_text_as_body).
@@ -102,7 +103,7 @@ def split_front_matter(md: str) -> Tuple[Dict, str]:
     return fm, body
 
 
-def join_front_matter(fm: Dict, body: str) -> str:
+def join_front_matter(fm: dict, body: str) -> str:
     fm_yaml = yaml.safe_dump(
         fm,
         sort_keys=False,
@@ -125,8 +126,8 @@ def normalize_docket_to_slug(prefix: str, letter: str, num: str, year2: str) -> 
     return f"{prefix.lower()}-{letter.lower()}-{num}-{year2}"
 
 
-def extract_tokens_from_text(text: str) -> Set[str]:
-    tokens: Set[str] = set()
+def extract_tokens_from_text(text: str) -> set[str]:
+    tokens: set[str] = set()
     for m in DOCKET_TOKEN_RE.finditer(text):
         tokens.add(normalize_docket_to_slug(m.group(1), m.group(2), m.group(3), m.group(4)))
     for m in SLUG_TOKEN_RE.finditer(text):
@@ -134,11 +135,11 @@ def extract_tokens_from_text(text: str) -> Set[str]:
     return tokens
 
 
-def list_markdown_files(root: Path) -> List[Path]:
+def list_markdown_files(root: Path) -> list[Path]:
     return [p for p in root.rglob("*.md") if p.is_file()]
 
 
-def list_opra_record_dirs(opra_root: Path) -> List[Path]:
+def list_opra_record_dirs(opra_root: Path) -> list[Path]:
     dirs = []
     if not opra_root.exists():
         return dirs
@@ -148,7 +149,7 @@ def list_opra_record_dirs(opra_root: Path) -> List[Path]:
     return sorted(dirs)
 
 
-def load_yaml_if_exists(path: Path) -> Optional[Dict]:
+Optional[def load_yaml_if_exists(path: Path) -> dict]:
     if not path.exists():
         return None
     data = yaml.safe_load(read_text(path)) or {}
@@ -165,7 +166,7 @@ def write_map_template(path: Path) -> None:
     write_text(path, content)
 
 
-def ensure_case_slug(case_file: Path) -> Optional[str]:
+Optional[def ensure_case_slug(case_file: Path) -> str]:
     md = read_text(case_file)
     fm, body = split_front_matter(md)
 
@@ -200,11 +201,11 @@ def ensure_case_slug(case_file: Path) -> Optional[str]:
     return slug
 
 
-def build_case_index(cases_dir: Path) -> Dict[str, Path]:
+def build_case_index(cases_dir: Path) -> dict[str, Path]:
     """
     Returns mapping: case_slug -> file path
     """
-    idx: Dict[str, Path] = {}
+    idx: dict[str, Path] = {}
     for md_file in list_markdown_files(cases_dir):
         slug = ensure_case_slug(md_file)
         if slug:
@@ -221,7 +222,7 @@ def gather_opra_text_blob(opra_record_dir: Path) -> str:
     Gather text from index.md + notes.md + timeline.yml (and any .md/.txt in the record dir),
     but avoids heavy binary.
     """
-    parts: List[str] = []
+    parts: list[str] = []
     for rel in ["index.md", "notes.md", "timeline.yml"]:
         p = opra_record_dir / rel
         if p.exists():
@@ -242,8 +243,8 @@ def gather_opra_text_blob(opra_record_dir: Path) -> str:
     return "\n\n".join(parts)
 
 
-def merge_unique_list(existing: Optional[List], add: List[str]) -> List[str]:
-    out: List[str] = []
+Optional[def merge_unique_list(existing: list], add: list[str]) -> list[str]:
+    out: list[str] = []
     seen = set()
     for x in existing or []:
         sx = str(x).strip().lower()
@@ -258,7 +259,7 @@ def merge_unique_list(existing: Optional[List], add: List[str]) -> List[str]:
     return out
 
 
-def update_opra_related_cases(opra_record_dir: Path, related_slugs: List[str]) -> bool:
+def update_opra_related_cases(opra_record_dir: Path, related_slugs: list[str]) -> bool:
     index_path = opra_record_dir / "index.md"
     if not index_path.exists():
         return False

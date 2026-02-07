@@ -18,9 +18,9 @@ Usage:
 """
 
 from __future__ import annotations
+from typing import Optional
 
 import argparse
-import os
 import re
 import shutil
 import sys
@@ -47,7 +47,7 @@ def is_white_color(v: str) -> bool:
     return norm(v) in {norm(x) for x in WHITE_VALUES}
 
 
-def get_attr(el: ET.Element, name: str) -> str | None:
+Optional[def get_attr(el: ET.Element, name: str) -> str]:
     return el.attrib.get(name)
 
 
@@ -75,7 +75,7 @@ def strip_root_white_background(svg: ET.Element) -> bool:
     return changed
 
 
-def parse_viewbox(svg: ET.Element) -> tuple[float, float, float, float] | None:
+Optional[def parse_viewbox(svg: ET.Element) -> tuple[float, float, float, float]]:
     vb = svg.attrib.get("viewBox") or svg.attrib.get("viewbox")
     if not vb:
         return None
@@ -88,7 +88,7 @@ def parse_viewbox(svg: ET.Element) -> tuple[float, float, float, float] | None:
         return None
 
 
-def to_float(v: str | None) -> float | None:
+Optional[def to_float(v: str]Optional[) -> float]:
     if v is None:
         return None
     v = v.strip()

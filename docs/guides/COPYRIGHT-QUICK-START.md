@@ -6,7 +6,8 @@
 
 ### ⚖️ RULE 1: POINTER, DON'T REPUBLISH
 
-**NEVER copy full copyrighted content from Westlaw, LexisNexis, Bloomberg Law, or police reports.**
+**NEVER copy full copyrighted content from Westlaw, LexisNexis, Bloomberg Law,
+or police reports.**
 
 ✅ **ALLOWED:**
 
@@ -32,9 +33,11 @@ case = {
 }
 ```
 
-**Why?** Westlaw and LexisNexis own copyrights to their editorial enhancements. Copying their content violates terms of service and copyright law.
+**Why?** Westlaw and LexisNexis own copyrights to their editorial enhancements.
+Copying their content violates terms of service and copyright law.
 
-**Consequences:** Up to $150,000 per violation + attorney fees + license termination
+**Consequences:** Up to $150,000 per violation + attorney fees + license
+termination
 
 --
 
@@ -59,8 +62,8 @@ proprietary_source_data:
     - export_allowed = False  # Forced
 ```
 
-❌ **DANGEROUS:**
-Mixing proprietary and public data in same table → Risk of accidental export
+❌ **DANGEROUS:** Mixing proprietary and public data in same table → Risk of
+accidental export
 
 --
 
@@ -92,10 +95,7 @@ Mixing proprietary and public data in same table → Risk of accidental export
       "reason": "Proprietary database content - internal use only"
     }
   ],
-  "attribution": [
-    "Whisper AI (OpenAI) - MIT License",
-    "CourtListener - CC0 Public Domain"
-  ]
+  "attribution": ["Whisper AI (OpenAI) - MIT License", "CourtListener - CC0 Public Domain"]
 }
 ```
 
@@ -192,7 +192,8 @@ legal@Evident.info
 Report immediately: compliance@Evident.info
 
 **Full Documentation:**  
-See [DATA-RIGHTS-COMPLIANCE.md](DATA-RIGHTS-COMPLIANCE.md) for complete framework
+See [DATA-RIGHTS-COMPLIANCE.md](DATA-RIGHTS-COMPLIANCE.md) for complete
+framework
 
 --
 
@@ -211,6 +212,7 @@ Before ANY court filing or discovery production:
 
 --
 
-**REMEMBER:** When in doubt, **EXCLUDE IT**. Better to be over-cautious than face a $150,000 copyright lawsuit.
+**REMEMBER:** When in doubt, **EXCLUDE IT**. Better to be over-cautious than
+face a $150,000 copyright lawsuit.
 
 **Last Updated:** January 22, 2026

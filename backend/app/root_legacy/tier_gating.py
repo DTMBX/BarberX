@@ -498,5 +498,3 @@ def get_user_tier(user=None):
         return TierLevel.FREE
 
     return user.tier
-
-

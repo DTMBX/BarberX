@@ -49,7 +49,7 @@ def slugify(text: str) -> str:
     return text
 
 
-def normalize_filename(filename: str) -> Tuple[str, bool]:
+def normalize_filename(filename: str) -> tuple[str, bool]:
     """
     Normalize a PDF filename to YYYYMMDD-slug.pdf format.
     Returns (normalized_filename, was_changed)
@@ -112,7 +112,7 @@ def process_case_directory(case_dir: Path, docket_file: Path, dry_run: bool = Fa
     yaml_entries = []
     if docket_file.exists():
         try:
-            with open(docket_file, "r", encoding="utf-8") as f:
+            with open(docket_file, encoding="utf-8") as f:
                 yaml_entries = yaml.safe_load(f) or []
         except Exception as e:
             result["errors"].append(f"Failed to load YAML: {e}")

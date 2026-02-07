@@ -2,13 +2,16 @@
 
 ## 🎯 Overview
 
-Process all evidence **locally on your machine** using 100% open-source AI tools. No cloud APIs, no subscriptions; features include full audit logs to support legal review.
+Process all evidence **locally on your machine** using 100% open-source AI
+tools. No cloud APIs, no subscriptions; features include full audit logs to
+support legal review.
 
 **Benefits:**
 
 - ✅ **No costs** - All tools are free and open-source
 - ✅ **Privacy** - Data never leaves your system
-- ✅ **Supports legal review** - Fully auditable open-source algorithms (final admissibility depends on counsel and jurisdiction)
+- ✅ **Supports legal review** - Fully auditable open-source algorithms (final
+  admissibility depends on counsel and jurisdiction)
 - ✅ **Offline** - Works without internet connection
 - ✅ **Control** - You own the models and processing pipeline
 
@@ -98,7 +101,8 @@ for segment in result["segments"]:
 
 ### 2. **pyannote.audio** (Speaker Diarization)
 
-**What it does:** Identifies who is speaking when ("SPEAKER_00" = Officer, "SPEAKER_01" = Civilian)
+**What it does:** Identifies who is speaking when ("SPEAKER_00" = Officer,
+"SPEAKER_01" = Civilian)
 
 **Setup:**
 
@@ -166,7 +170,8 @@ print(text)
 
 ### 4. **Real-ESRGAN** (AI Super-Resolution)
 
-**What it does:** Upscales images/video 4x with AI (make license plates readable)
+**What it does:** Upscales images/video 4x with AI (make license plates
+readable)
 
 **Models:**
 
@@ -210,7 +215,8 @@ upscaled.save("upscaled.jpg")
 
 ### 5. **YOLO** (Object/Scene Detection)
 
-**What it does:** Detects objects in images/video (handcuffs, vehicles, weapons, people)
+**What it does:** Detects objects in images/video (handcuffs, vehicles, weapons,
+people)
 
 **Models:**
 
@@ -342,7 +348,8 @@ for doc_idx, score in results:
 
 ## 🚀 Integration with eDiscovery Platform
 
-The local AI tools are **automatically integrated** with the eDiscovery platform services:
+The local AI tools are **automatically integrated** with the eDiscovery platform
+services:
 
 ### BWC Processing
 
@@ -484,7 +491,8 @@ which tesseract
 | **Court**   | ✅ Fully auditable  | ⚠️ Black box                                 |
 | **Scale**   | Limited by hardware | Unlimited                                    |
 
-**Recommendation:** Use local AI for all processing. Only use cloud as fallback if local fails.
+**Recommendation:** Use local AI for all processing. Only use cloud as fallback
+if local fails.
 
 --
 

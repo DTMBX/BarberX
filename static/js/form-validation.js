@@ -34,10 +34,7 @@ class FormValidator {
     if (this.options.validateOnInput) {
       this.form.querySelectorAll("input, textarea").forEach((field) => {
         field.addEventListener("input", () => {
-          if (
-            field.classList.contains("is-invalid") ||
-            field.classList.contains("is-valid")
-          ) {
+          if (field.classList.contains("is-invalid") || field.classList.contains("is-valid")) {
             this.validateField(field);
           }
         });
@@ -102,10 +99,7 @@ class FormValidator {
 
     // Check each validation rule
     for (const [rule, validator] of Object.entries(validators)) {
-      if (
-        field.hasAttribute(`data-${rule}`) ||
-        (rule === "required" && field.required)
-      ) {
+      if (field.hasAttribute(`data-${rule}`) || (rule === "required" && field.required)) {
         const result = validator();
         if (!result.valid) {
           isValid = false;
@@ -139,9 +133,7 @@ class FormValidator {
   }
 
   validateMinLength(field) {
-    const minLength = parseInt(
-      field.getAttribute("data-minlength") || field.minLength,
-    );
+    const minLength = parseInt(field.getAttribute("data-minlength") || field.minLength);
     const value = field.value;
 
     if (value.length > 0 && value.length < minLength) {
@@ -154,9 +146,7 @@ class FormValidator {
   }
 
   validateMaxLength(field) {
-    const maxLength = parseInt(
-      field.getAttribute("data-maxlength") || field.maxLength,
-    );
+    const maxLength = parseInt(field.getAttribute("data-maxlength") || field.maxLength);
     const value = field.value;
 
     if (maxLength > 0 && value.length > maxLength) {
@@ -177,8 +167,7 @@ class FormValidator {
 
     const regex = new RegExp(pattern);
     if (!regex.test(value)) {
-      const message =
-        field.getAttribute("data-pattern-message") || "Invalid format";
+      const message = field.getAttribute("data-pattern-message") || "Invalid format";
       return { valid: false, message };
     }
     return { valid: true };
@@ -192,8 +181,7 @@ class FormValidator {
     if (!matchElement) return { valid: true };
 
     if (field.value !== matchElement.value) {
-      const message =
-        field.getAttribute("data-match-message") || "Fields do not match";
+      const message = field.getAttribute("data-match-message") || "Fields do not match";
       return { valid: false, message };
     }
     return { valid: true };

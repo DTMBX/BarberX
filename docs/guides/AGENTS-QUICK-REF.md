@@ -92,11 +92,13 @@ python scripts/validate-agents.py
 ## 📖 Documentation
 
 - **Full Guide:** [COPILOT-AGENTS-GUIDE.md](COPILOT-AGENTS-GUIDE.md)
-- **Installation Summary:** [AGENTS-INSTALLATION-COMPLETE.md](AGENTS-INSTALLATION-COMPLETE.md)
+- **Installation Summary:**
+  [AGENTS-INSTALLATION-COMPLETE.md](AGENTS-INSTALLATION-COMPLETE.md)
 - **Agent Config:** [.github/copilot-agents.yml](.github/copilot-agents.yml)
 - **Validation:** `python scripts/validate-agents.py`
 - **Demo Workflows:** `python scripts/demo-agent-workflows.py`
 
 --
 
-**Quick Start:** Open GitHub Copilot Chat → Type `@` → Select agent → Ask question!
+**Quick Start:** Open GitHub Copilot Chat → Type `@` → Select agent → Ask
+question!

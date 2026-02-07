@@ -10,10 +10,10 @@ import os
 
 import stripe
 from flask import current_app, jsonify, request
+from models_auth import User, db
 
 from api import stripe_api
 from api.auth import jwt_required
-from models_auth import User, db
 
 # Initialize Stripe
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")

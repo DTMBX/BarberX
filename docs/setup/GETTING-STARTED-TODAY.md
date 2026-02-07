@@ -332,5 +332,5 @@ python scripts\db\init_db.py
 
 **You're ready to use Evident today!** 🚀
 
-Start with: `.\START.ps1` or `python app.py`
-Then login at: http://localhost:5000/auth/login
+Start with: `.\START.ps1` or `python app.py` Then login at:
+http://localhost:5000/auth/login

@@ -26,7 +26,8 @@
 
 ### Approach 1: Minimal Working App (RECOMMENDED)
 
-Deploy a minimal Flask app that DEFINITELY works, then add features incrementally.
+Deploy a minimal Flask app that DEFINITELY works, then add features
+incrementally.
 
 **Files Created:**
 
@@ -104,13 +105,11 @@ git push origin main
 - Commit: Will create below
 - Push and wait for deployment
 
-**If This Works:**
-✅ Main app will run  
+**If This Works:** ✅ Main app will run  
 ✅ All features available  
 ✅ Database connected
 
-**If This Fails:**
-❌ Need Render logs to diagnose  
+**If This Fails:** ❌ Need Render logs to diagnose  
 ❌ Should switch to Option A
 
 --
@@ -121,11 +120,9 @@ git push origin main
 
 **How to Access:**
 
-1. **Go to Render Dashboard:**
-   https://dashboard.render.com
+1. **Go to Render Dashboard:** https://dashboard.render.com
 
-2. **Click on your service:**
-   "evident-legal-tech"
+2. **Click on your service:** "evident-legal-tech"
 
 3. **View Logs:**
    - Click "Logs" tab
@@ -236,8 +233,7 @@ git push origin main
 If minimal app works but full app doesn't:
 
 **Step 1:** Minimal app deployed ✅  
-**Step 2:** Add database connection
-**Step 3:** Add user authentication  
+**Step 2:** Add database connection **Step 3:** Add user authentication  
 **Step 4:** Add file upload  
 **Step 5:** Add analysis features
 

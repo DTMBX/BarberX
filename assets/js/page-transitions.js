@@ -16,7 +16,7 @@
    */
   function initScrollReveal() {
     const revealElements = document.querySelectorAll(
-      ".reveal-on-scroll, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-up, .scale-reveal, .blur-reveal",
+      ".reveal-on-scroll, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-up, .scale-reveal, .blur-reveal"
     );
 
     if (revealElements.length === 0) return;
@@ -93,9 +93,7 @@
    */
   function initSmoothLinks(progressBar) {
     // Only for internal links
-    const internalLinks = document.querySelectorAll(
-      'a[href^="/"], a[href^="./"], a[href^="../"]',
-    );
+    const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]');
 
     internalLinks.forEach((link) => {
       // Skip if link has data-no-transition attribute
@@ -195,7 +193,7 @@
       },
       {
         threshold: 0.2,
-      },
+      }
     );
 
     elements.forEach((el) => observer.observe(el));

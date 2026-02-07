@@ -188,8 +188,8 @@ with app.app_context():
 
 ### Option B: Use Production Database from Start
 
-Just let Render/Railway create the database fresh.
-Run `create_admin.py` on production.
+Just let Render/Railway create the database fresh. Run `create_admin.py` on
+production.
 
 --
 

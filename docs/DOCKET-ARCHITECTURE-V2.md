@@ -489,8 +489,8 @@ jobs:
    diff -q _data/docket _data/docket_index
    ```
 
-2. **Verify canonical path format:**
-   All files should use: `/assets/cases/{case-id}/docket/{filename}.pdf`
+2. **Verify canonical path format:** All files should use:
+   `/assets/cases/{case-id}/docket/{filename}.pdf`
 
 3. **Create backup before changes:**
    ```bash

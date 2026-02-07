@@ -44,7 +44,7 @@
             <span>Usage: ${p.usage}</span><br>
             <span><strong>Caution:</strong> ${p.caution}</span>
           </li>
-        `,
+        `
           )
           .join("")}
       </ul>

@@ -39,9 +39,7 @@ def process_video_file(file, user_id=None):
 
 ### **1. Changes Committed:**
 
-? Fixed circular imports
-? Moved imports inside functions
-? Ready to deploy
+? Fixed circular imports ? Moved imports inside functions ? Ready to deploy
 
 ### **2. Push to Render:**
 

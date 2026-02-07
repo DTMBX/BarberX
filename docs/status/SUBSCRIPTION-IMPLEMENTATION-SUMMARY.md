@@ -137,9 +137,7 @@ Add checkout buttons to `pricing.html`:
   }
 </script>
 
-<button onclick="subscribeToPlan('PROFESSIONAL')">
-  Start 3-Day Free Trial
-</button>
+<button onclick="subscribeToPlan('PROFESSIONAL')">Start 3-Day Free Trial</button>
 
 <button onclick="subscribeToPlan('PREMIUM')">Upgrade to Premium</button>
 ```
@@ -325,10 +323,13 @@ All that remains:
 
 **Estimated time to launch:** 2-4 hours (mostly Stripe configuration)
 
-**Projected first month revenue:** $500-2,000 (conservative estimate with 10-20 early adopters)
+**Projected first month revenue:** $500-2,000 (conservative estimate with 10-20
+early adopters)
 
-**Break-even:** ~50 PRO subscribers OR 20 PREMIUM subscribers will cover all operating costs
+**Break-even:** ~50 PRO subscribers OR 20 PREMIUM subscribers will cover all
+operating costs
 
 --
 
-**🎊 Congratulations! You now have a complete, secure, scalable subscription system ready to generate revenue!**
+**🎊 Congratulations! You now have a complete, secure, scalable subscription
+system ready to generate revenue!**

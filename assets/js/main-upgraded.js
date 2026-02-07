@@ -75,7 +75,7 @@ class EvidentApp {
           ticking = true;
         }
       },
-      { passive: true },
+      { passive: true }
     );
 
     // Initial check
@@ -167,10 +167,7 @@ class EvidentApp {
     ];
 
     const controller = new AbortController();
-    const timeout = setTimeout(
-      () => controller.abort(),
-      this.config.verseAPI.timeout,
-    );
+    const timeout = setTimeout(() => controller.abort(), this.config.verseAPI.timeout);
 
     try {
       for (const api of apis) {
@@ -240,7 +237,7 @@ class EvidentApp {
       .map(
         (v) =>
           `<a href="https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=${encodeURIComponent(v.version)}" 
-         target="_blank" rel="noopener" class="verse-version-link">${v.label}</a>`,
+         target="_blank" rel="noopener" class="verse-version-link">${v.label}</a>`
       )
       .join(" · ");
   }
@@ -337,8 +334,7 @@ class EvidentApp {
 
         e.preventDefault();
 
-        const offsetTop =
-          target.getBoundingClientRect().top + window.pageYOffset;
+        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
         const offset = 80; // Header height
 
         window.scrollTo({
@@ -362,9 +358,7 @@ class EvidentApp {
     const forms = document.querySelectorAll("form[data-validate]");
 
     forms.forEach((form) => {
-      const inputs = form.querySelectorAll(
-        "input[required], textarea[required]",
-      );
+      const inputs = form.querySelectorAll("input[required], textarea[required]");
 
       inputs.forEach((input) => {
         input.addEventListener("blur", () => this.validateField(input));

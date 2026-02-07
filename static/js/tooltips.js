@@ -159,9 +159,7 @@ class TooltipManager {
 
   loadUserProgress() {
     const page = this.getCurrentPage();
-    const visitCount = parseInt(
-      localStorage.getItem("visitCount_" + page) || "0",
-    );
+    const visitCount = parseInt(localStorage.getItem("visitCount_" + page) || "0");
     localStorage.setItem("visitCount_" + page, (visitCount + 1).toString());
   }
 

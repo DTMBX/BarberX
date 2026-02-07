@@ -47,7 +47,8 @@ For step-by-step instructions with troubleshooting:
 
 **Short Answer:** iOS requires Mac + Xcode to build.
 
-**But we have a workaround!** GitHub Actions can build iOS apps for FREE using cloud Mac runners.
+**But we have a workaround!** GitHub Actions can build iOS apps for FREE using
+cloud Mac runners.
 
 ### iOS Options:
 
@@ -125,7 +126,8 @@ After installing on Android:
 
 ### Q: Why can't I build iOS on Windows?
 
-**A:** Apple requires macOS + Xcode (strict enforcement). But GitHub Actions provides free Mac runners in the cloud!
+**A:** Apple requires macOS + Xcode (strict enforcement). But GitHub Actions
+provides free Mac runners in the cloud!
 
 ### Q: Is this the same app for Android and iOS?
 

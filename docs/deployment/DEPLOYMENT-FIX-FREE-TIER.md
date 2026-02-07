@@ -166,8 +166,7 @@ git ls-files *.py | grep -E "(legal_library|citation|judge|optimizer)"
 - ⏳ Render auto-deploying now
 - ⏳ Expected completion: 2-3 minutes
 
-**Monitor deployment:**
-https://dashboard.render.com
+**Monitor deployment:** https://dashboard.render.com
 
 --
 
@@ -208,7 +207,8 @@ git ls-files -others -exclude-standard | grep "\.py$"
 
 ## 🚀 NEXT DEPLOYMENT WILL SUCCEED!
 
-All required files are now in the repository. The deployment should complete successfully.
+All required files are now in the repository. The deployment should complete
+successfully.
 
 **Watch the logs for:**
 

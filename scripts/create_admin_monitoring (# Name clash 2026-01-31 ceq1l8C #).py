@@ -19,9 +19,8 @@ def admin_monitoring():
         flash("Unauthorized access.", "danger")
         return redirect(url_for("index"))
 
-    from sqlalchemy import func
-
     from models_auth import User
+    from sqlalchemy import func
     from usage_meter import SmartMeterEvent, UsageQuota
 
     # Get all users with their quotas
@@ -41,7 +40,11 @@ def admin_monitoring():
         (
             19.0
             if (u.tier == "STARTER")
-            else 49.0 if (u.tier == "PROFESSIONAL") else 149.0 if (u.tier == "PREMIUM") else 0.0
+            else 49.0
+            if (u.tier == "PROFESSIONAL")
+            else 149.0
+            if (u.tier == "PREMIUM")
+            else 0.0
         )
         for u, q in users
     )

@@ -33,11 +33,7 @@ body {
 
   /* Subtle background texture for premium feel */
   background-image:
-    radial-gradient(
-      circle at 25% 25%,
-      rgb(212 165 116 / 3%) 0%,
-      transparent 50%
-    ),
+    radial-gradient(circle at 25% 25%, rgb(212 165 116 / 3%) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgb(15 118 110 / 2%) 0%, transparent 50%);
   background-attachment: fixed;
 }
@@ -148,12 +144,7 @@ blockquote {
 hr {
   border: none;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary), transparent);
   opacity: 0.5;
   margin: var(--space-2xl) 0;
 }

@@ -43,8 +43,7 @@
   --accent-hover: var(--evident-blue-dark);
 
   /* Typography */
-  --font-sans:
-    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+  --font-sans: "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   /* Font Sizes */
@@ -87,10 +86,8 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
-  --shadow-lg:
-    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
-  --shadow-xl:
-    0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -694,11 +691,7 @@ p {
 
 /* ===== CTA SECTION ===== */
 .cta-section {
-  background: linear-gradient(
-    135deg,
-    var(--evident-blue) 0%,
-    var(--evident-blue-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--evident-blue) 0%, var(--evident-blue-dark) 100%);
   padding: var(--space-16) 0;
   text-align: center;
   color: white;
@@ -779,11 +772,7 @@ p {
 }
 
 .section-dark {
-  background: linear-gradient(
-    135deg,
-    var(--slate-900) 0%,
-    var(--slate-800) 100%
-  );
+  background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
   color: white;
 }
 
@@ -879,11 +868,7 @@ p {
 }
 
 .pricing-card.enterprise {
-  background: linear-gradient(
-    135deg,
-    var(--slate-900) 0%,
-    var(--slate-800) 100%
-  );
+  background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
   border-color: rgb(212 175 55 / 30%);
   color: white;
 }

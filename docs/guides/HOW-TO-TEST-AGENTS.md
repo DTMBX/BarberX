@@ -69,7 +69,8 @@ python scripts/simulate-agents.py
 
 ### Example 1: Copyright Compliance Review
 
-**Scenario:** You've written an export function and need to ensure it doesn't violate Westlaw copyright.
+**Scenario:** You've written an export function and need to ensure it doesn't
+violate Westlaw copyright.
 
 **How to use:**
 
@@ -419,7 +420,8 @@ curl -X POST \
 
 ## 🔄 Multi-Agent Workflows
 
-The enhanced agents now suggest collaboration with other agents for complex tasks.
+The enhanced agents now suggest collaboration with other agents for complex
+tasks.
 
 ### Workflow Example: Copyright-Compliant Export Feature
 
@@ -429,7 +431,8 @@ The enhanced agents now suggest collaboration with other agents for complex task
 @legal-compliance What are the requirements for a compliant PDF export?
 ```
 
-→ Agent provides 3 compliance patterns and suggests collaborating with @flask-backend
+→ Agent provides 3 compliance patterns and suggests collaborating with
+@flask-backend
 
 **Step 2:** Switch to @flask-backend
 
@@ -437,7 +440,8 @@ The enhanced agents now suggest collaboration with other agents for complex task
 @flask-backend Implement export endpoint following the compliance patterns from @legal-compliance
 ```
 
-→ Agent creates secure API endpoint and suggests collaborating with @database-architect for schema
+→ Agent creates secure API endpoint and suggests collaborating with
+@database-architect for schema
 
 **Step 3:** Switch to @database-architect
 
@@ -445,7 +449,8 @@ The enhanced agents now suggest collaboration with other agents for complex task
 @database-architect Create ExportManifest table for attorney certification tracking
 ```
 
-→ Agent creates schema with indexes and suggests collaborating with @documentation
+→ Agent creates schema with indexes and suggests collaborating with
+@documentation
 
 **Step 4:** Switch to @documentation
 
@@ -455,7 +460,8 @@ The enhanced agents now suggest collaboration with other agents for complex task
 
 → Agent creates step-by-step user guide
 
-**Result:** Complete feature with compliance, API, database, and documentation all working together!
+**Result:** Complete feature with compliance, API, database, and documentation
+all working together!
 
 --
 
@@ -511,7 +517,8 @@ Monitor agent effectiveness:
 
 1. Ask for complete implementation (not just code snippet)
 2. Mention you're working on a complex feature
-3. Use v2.0 enhanced agents (check `copilot-agents.yml` has ~3,000 char instruction sets)
+3. Use v2.0 enhanced agents (check `copilot-agents.yml` has ~3,000 char
+   instruction sets)
 
 --
 
@@ -519,8 +526,10 @@ Monitor agent effectiveness:
 
 - **Interactive Demo:** [agents-demo-v2.html](agents-demo-v2.html)
 - **Cheat Sheet:** [agents-cheat-sheet.html](agents-cheat-sheet.html)
-- **Example Library:** [scripts/agent-examples.json](scripts/agent-examples.json)
-- **Enhancement Summary:** [AGENTS-V2-ENHANCEMENTS.md](AGENTS-V2-ENHANCEMENTS.md)
+- **Example Library:**
+  [scripts/agent-examples.json](scripts/agent-examples.json)
+- **Enhancement Summary:**
+  [AGENTS-V2-ENHANCEMENTS.md](AGENTS-V2-ENHANCEMENTS.md)
 
 --
 

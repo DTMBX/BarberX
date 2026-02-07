@@ -54,7 +54,7 @@ def check_stripe_connection():
 
         # Try to list products
         products = stripe.Product.list(limit=3)
-        print(f"✅ Connected to Stripe")
+        print("✅ Connected to Stripe")
         print(f"✅ Found {len(products.data)} products")
 
         for product in products.data:
@@ -87,7 +87,7 @@ def check_price_ids():
         # Check Pro price
         try:
             price = stripe.Price.retrieve(pro_price)
-            print(f"✅ Pro Plan: ${price.unit_amount/100}/month")
+            print(f"✅ Pro Plan: ${price.unit_amount / 100}/month")
         except:
             print(f"❌ Pro price ID not found: {pro_price}")
             return False
@@ -95,7 +95,7 @@ def check_price_ids():
         # Check Premium price
         try:
             price = stripe.Price.retrieve(premium_price)
-            print(f"✅ Premium Plan: ${price.unit_amount/100}/month")
+            print(f"✅ Premium Plan: ${price.unit_amount / 100}/month")
         except:
             print(f"❌ Premium price ID not found: {premium_price}")
             return False
@@ -134,7 +134,7 @@ def check_amplitude():
         )
 
         if response.status_code == 200:
-            print(f"✅ Amplitude connected")
+            print("✅ Amplitude connected")
             print()
             return True
         else:
@@ -214,4 +214,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-

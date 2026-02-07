@@ -17,9 +17,9 @@ Features:
 
 import re
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 
 class RuleSet(Enum):
@@ -51,7 +51,7 @@ class ComplianceIssue:
     description: str
     status: ComplianceStatus
     remedy: str
-    case_law: List[str]
+    case_law: list[str]
     confidence: float
 
 
@@ -61,7 +61,7 @@ class FederalRulesOfEvidenceChecker:
     def __init__(self):
         self.issues = []
 
-    def check_hearsay(self, statement: str, context: Dict) -> List[ComplianceIssue]:
+    def check_hearsay(self, statement: str, context: dict) -> list[ComplianceIssue]:
         """
         Analyze hearsay issues under FRE 801-807
 
@@ -129,7 +129,7 @@ class FederalRulesOfEvidenceChecker:
 
         return any(re.search(exc, context, re.IGNORECASE) for exc in exceptions)
 
-    def check_authentication(self, evidence_type: str, context: Dict) -> List[ComplianceIssue]:
+    def check_authentication(self, evidence_type: str, context: dict) -> list[ComplianceIssue]:
         """
         Check authentication requirements under FRE 901-902
 
@@ -170,7 +170,7 @@ class FederalRulesOfEvidenceChecker:
 
     def check_best_evidence_rule(
         self, evidence_type: str, is_original: bool
-    ) -> List[ComplianceIssue]:
+    ) -> list[ComplianceIssue]:
         """
         Check best evidence rule (FRE 1001-1008)
 
@@ -199,8 +199,8 @@ class FederalRulesOfEvidenceChecker:
         return issues
 
     def check_character_evidence(
-        self, evidence_purpose: str, context: Dict
-    ) -> List[ComplianceIssue]:
+        self, evidence_purpose: str, context: dict
+    ) -> list[ComplianceIssue]:
         """
         Check character evidence rules (FRE 404-406)
 
@@ -242,7 +242,7 @@ class ChainOfCustodyVerifier:
     def __init__(self):
         self.issues = []
 
-    def verify_chain(self, custody_log: List[Dict]) -> Dict[str, Any]:
+    def verify_chain(self, custody_log: list[dict]) -> dict[str, Any]:
         """
         Verify chain of custody is unbroken
 
@@ -308,7 +308,7 @@ class ChainOfCustodyVerifier:
             "recommendation": self._get_chain_recommendation(status, gaps, issues),
         }
 
-    def _get_chain_recommendation(self, status: str, gaps: List, issues: List) -> str:
+    def _get_chain_recommendation(self, status: str, gaps: list, issues: list) -> str:
         """Generate recommendation based on chain status"""
         if status == "PASSED":
             return "Chain of custody is intact and well-documented."
@@ -321,7 +321,7 @@ class ChainOfCustodyVerifier:
 class SpoliationDetector:
     """Detects evidence destruction or spoliation"""
 
-    def detect_spoliation(self, evidence_history: Dict) -> List[ComplianceIssue]:
+    def detect_spoliation(self, evidence_history: dict) -> list[ComplianceIssue]:
         """
         Detect spoliation (destruction or alteration of evidence)
 
@@ -398,7 +398,7 @@ class StatutoryComplianceChecker:
         self.chain_verifier = ChainOfCustodyVerifier()
         self.spoliation_detector = SpoliationDetector()
 
-    def comprehensive_check(self, evidence: Dict) -> Dict[str, Any]:
+    def comprehensive_check(self, evidence: dict) -> dict[str, Any]:
         """Run comprehensive compliance check on evidence"""
         all_issues = []
 
@@ -447,7 +447,7 @@ class StatutoryComplianceChecker:
             "summary": self._generate_compliance_summary(chain_result, all_issues),
         }
 
-    def _determine_overall_status(self, chain_result: Dict, issues: List) -> str:
+    def _determine_overall_status(self, chain_result: dict, issues: list) -> str:
         """Determine overall compliance status"""
         if chain_result["status"] == "FAILED":
             return "NON_COMPLIANT"
@@ -462,7 +462,7 @@ class StatutoryComplianceChecker:
 
         return "COMPLIANT"
 
-    def _issue_to_dict(self, issue: ComplianceIssue) -> Dict:
+    def _issue_to_dict(self, issue: ComplianceIssue) -> dict:
         """Convert issue to dictionary"""
         return {
             "rule_set": issue.rule_set.value,
@@ -475,7 +475,7 @@ class StatutoryComplianceChecker:
             "confidence": issue.confidence,
         }
 
-    def _generate_recommendations(self, chain_result: Dict, issues: List) -> List[str]:
+    def _generate_recommendations(self, chain_result: dict, issues: list) -> list[str]:
         """Generate actionable recommendations"""
         recommendations = []
 
@@ -488,7 +488,7 @@ class StatutoryComplianceChecker:
 
         return recommendations
 
-    def _generate_compliance_summary(self, chain_result: Dict, issues: List) -> str:
+    def _generate_compliance_summary(self, chain_result: dict, issues: list) -> str:
         """Generate executive summary"""
         status = self._determine_overall_status(chain_result, issues)
 

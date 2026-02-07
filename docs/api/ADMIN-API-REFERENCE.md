@@ -181,7 +181,8 @@ GET /admin/analyses?status=completed&limit=100
 
 **Query Parameters:**
 
-- `status` (optional): Filter by status (completed | analyzing | failed | uploaded)
+- `status` (optional): Filter by status (completed | analyzing | failed |
+  uploaded)
 - `limit` (optional): Max results (default 100)
 
 **Response:**

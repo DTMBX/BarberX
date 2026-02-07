@@ -35,8 +35,7 @@
         e.preventDefault();
         const headerOffset = 100;
         const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
           top: offsetPosition,
@@ -56,9 +55,7 @@
     const caseRecord = document.querySelector(".case-record");
     if (!caseRecord) return;
 
-    const sections = caseRecord.querySelectorAll(
-      ".case-section[id], section[id]",
-    );
+    const sections = caseRecord.querySelectorAll(".case-section[id], section[id]");
     if (sections.length < 3) return; // Only show for pages with multiple sections
 
     const nav = document.createElement("nav");
@@ -137,22 +134,20 @@
    * Add anchor links to docket entries for direct linking
    */
   function setupDocketAnchors() {
-    document
-      .querySelectorAll(".docket-card[data-id], .docket-entry[data-id]")
-      .forEach((entry) => {
-        const id = entry.dataset.id;
-        if (!id) return;
+    document.querySelectorAll(".docket-card[data-id], .docket-entry[data-id]").forEach((entry) => {
+      const id = entry.dataset.id;
+      if (!id) return;
 
-        entry.id = "docket-" + id;
+      entry.id = "docket-" + id;
 
-        // Check if navigated to via hash
-        if (window.location.hash === "#docket-" + id) {
-          entry.classList.add("is-highlighted");
-          setTimeout(() => {
-            entry.scrollIntoView({ behavior: "smooth", block: "center" });
-          }, 100);
-        }
-      });
+      // Check if navigated to via hash
+      if (window.location.hash === "#docket-" + id) {
+        entry.classList.add("is-highlighted");
+        setTimeout(() => {
+          entry.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 100);
+      }
+    });
   }
 
   // Initialize on DOM ready

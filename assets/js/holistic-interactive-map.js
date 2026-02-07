@@ -50,7 +50,7 @@
           ">": "&gt;",
           '"': "&quot;",
           "'": "&#039;",
-        })[m],
+        })[m]
     );
   }
 
@@ -62,7 +62,7 @@
   function getMedicationInfo(medName) {
     if (!overmedData?.top_medicines) return null;
     return overmedData.top_medicines.find((m) =>
-      m.name.toLowerCase().includes(medName.toLowerCase()),
+      m.name.toLowerCase().includes(medName.toLowerCase())
     );
   }
 
@@ -151,7 +151,7 @@
                                 <span class="plant-icon">🌿</span>
                                 <span class="plant-item-text">${escapeHtml(plant)}</span>
                             </div>
-                        `,
+                        `
                           )
                           .join("")}
                     </div>
@@ -201,17 +201,11 @@
 
   function getStateElements(mapRoot) {
     if (!mapRoot) return [];
-    return Array.from(
-      mapRoot.querySelectorAll("[data-state], .state, path[id]"),
-    );
+    return Array.from(mapRoot.querySelectorAll("[data-state], .state, path[id]"));
   }
 
   function getStateAbbr(el) {
-    return (
-      el.getAttribute("data-state") ||
-      el.getAttribute("id") ||
-      ""
-    ).toUpperCase();
+    return (el.getAttribute("data-state") || el.getAttribute("id") || "").toUpperCase();
   }
 
   function getMedicationColor(rxPercentage) {
@@ -279,7 +273,7 @@
     if (!selected.state) return;
 
     const sel = mapRoot.querySelector(
-      `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`,
+      `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`
     );
     if (sel) {
       sel.classList.add("state-selected");
@@ -371,12 +365,11 @@
 
   function renderPlants() {
     const filtered = plantsData.plants.filter(
-      (p) => matchesZone(p) && matchesConditions(p) && matchesQuery(p),
+      (p) => matchesZone(p) && matchesConditions(p) && matchesQuery(p)
     );
 
     if (filtered.length === 0) {
-      resultsGrid.innerHTML =
-        '<p class="no-results">No plants match your filters.</p>';
+      resultsGrid.innerHTML = '<p class="no-results">No plants match your filters.</p>';
       return;
     }
 
@@ -425,7 +418,7 @@
                     : ""
                 }
             </div>
-        `,
+        `
       )
       .join("");
   }

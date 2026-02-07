@@ -40,8 +40,7 @@ if (!form) {
 
       try {
         // TODO: Replace with your Cloudflare Worker URL
-        const workerUrl =
-          "https://your-worker.your-subdomain.workers.dev/docket-upload";
+        const workerUrl = "https://your-worker.your-subdomain.workers.dev/docket-upload";
 
         const response = await fetch(workerUrl, {
           method: "POST",
@@ -70,9 +69,7 @@ if (!form) {
             status.textContent = "";
             status.classList.remove("u-text-muted", "u-text-accent");
             status.classList.add("u-text-emerald");
-            const prefix = document.createTextNode(
-              "Success! Pull request created: ",
-            );
+            const prefix = document.createTextNode("Success! Pull request created: ");
             status.appendChild(prefix);
             if (result && result.pr_url) {
               const a = document.createElement("a");

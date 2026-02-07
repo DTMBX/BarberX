@@ -9,14 +9,15 @@ REST endpoints for managing API keys and usage tracking
 from datetime import datetime, timedelta
 from functools import wraps
 
-from flask import Blueprint, g, jsonify, request
+from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 
-from api_usage_metering import (APIUsageMeteringService, EncryptedAPIKey,
-                                UserAPIQuota, check_rate_limit,
-                                get_metering_service, require_api_key)
+from api_usage_metering import (
+    EncryptedAPIKey,
+    UserAPIQuota,
+    get_metering_service,
+)
 from models_auth import db
-from tier_gating import check_tier_access
 
 # Create blueprint
 metering_bp = Blueprint("metering", __name__, url_prefix="/api/v1/metering")

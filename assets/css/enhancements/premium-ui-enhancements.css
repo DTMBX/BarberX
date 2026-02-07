@@ -83,11 +83,7 @@
    ============================================ */
 .premium-card {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgb(255 255 255 / 8%) 0%,
-    rgb(255 255 255 / 3%) 100%
-  );
+  background: linear-gradient(135deg, rgb(255 255 255 / 8%) 0%, rgb(255 255 255 / 3%) 100%);
   backdrop-filter: blur(16px);
   border: 1px solid rgb(255 255 255 / 12%);
   border-radius: 20px;
@@ -103,12 +99,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(255 255 255 / 20%),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 20%), transparent);
   opacity: 0.5;
 }
 
@@ -236,12 +227,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(255 255 255 / 30%),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 30%), transparent);
   animation: progress-shine 2s ease-in-out infinite;
 }
 
@@ -364,22 +350,12 @@
    ============================================ */
 .divider {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(255 255 255 / 10%),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 10%), transparent);
   margin: 2rem 0;
 }
 
 .divider-brass {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(212 165 116 / 30%),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(212 165 116 / 30%), transparent);
 }
 
 .divider-thick {
@@ -403,12 +379,7 @@
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(255 255 255 / 10%),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 10%), transparent);
 }
 
 /* ============================================

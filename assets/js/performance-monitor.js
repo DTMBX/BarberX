@@ -32,8 +32,7 @@
     if (window.location.hostname === "localhost") return true;
 
     const html = document.documentElement;
-    if (html && html.getAttribute("data-performance-monitor") === "true")
-      return true;
+    if (html && html.getAttribute("data-performance-monitor") === "true") return true;
 
     return false;
   }
@@ -73,8 +72,7 @@
 
   function measureTTFB() {
     if (!window.performance || !performance.timing) return;
-    const ttfb =
-      performance.timing.responseStart - performance.timing.requestStart;
+    const ttfb = performance.timing.responseStart - performance.timing.requestStart;
     reportMetric("ttfb", ttfb, getRating("ttfb", ttfb));
   }
 
@@ -103,10 +101,7 @@
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1];
         const value = Math.round(
-          lastEntry.renderTime ||
-            lastEntry.loadTime ||
-            lastEntry.startTime ||
-            0,
+          lastEntry.renderTime || lastEntry.loadTime || lastEntry.startTime || 0
         );
         reportMetric("lcp", value, getRating("lcp", value));
       });
@@ -159,11 +154,7 @@
 
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "hidden") {
-        reportMetric(
-          "cls",
-          Number(clsValue.toFixed(3)),
-          getRating("cls", clsValue),
-        );
+        reportMetric("cls", Number(clsValue.toFixed(3)), getRating("cls", clsValue));
         if (observer) observer.disconnect();
         observer = null;
       }
@@ -173,8 +164,7 @@
   function measurePageLoad() {
     window.addEventListener("load", () => {
       if (!window.performance || !performance.timing) return;
-      const loadTime =
-        performance.timing.loadEventEnd - performance.timing.navigationStart;
+      const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
       console.log(`Page Load Time: ${loadTime}ms`);
 
       setTimeout(() => {
@@ -198,17 +188,13 @@
 
     if (slow.length) {
       console.group("Slow Resources (>500ms)");
-      slow.forEach((r) =>
-        console.log(`${r.name}: ${Math.round(r.duration)}ms`),
-      );
+      slow.forEach((r) => console.log(`${r.name}: ${Math.round(r.duration)}ms`));
       console.groupEnd();
     }
   }
 
   function init() {
-    console.log(
-      "Performance Monitoring Enabled (debug/localhost/data attribute).",
-    );
+    console.log("Performance Monitoring Enabled (debug/localhost/data attribute).");
     measureTTFB();
     measureFCP();
     measureLCP();

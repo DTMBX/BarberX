@@ -1,0 +1,49 @@
+name: Configure branch protection for main
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to protect'
+        required: true
+        default: 'main'
+
+jobs:
+  set-protection:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Require admin token
+        if: ${{ !secrets.ADMIN_GITHUB_TOKEN }}
+        run: |
+          echo 'This workflow requires a repository secret named ADMIN_GITHUB_TOKEN with a personal access token that has admin:repo scope.'
+          exit 1
+
+      - name: Configure branch protection
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+          script: |
+            const branch = core.getInput('branch') || 'main';
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            // Required status check contexts - these should match your workflow/run names
+            const contexts = ['build-and-lint', 'lighthouse'];
+            await github.rest.repos.updateBranchProtection({
+              owner,
+              repo,
+              branch,
+              required_status_checks: {
+                strict: true,
+                contexts
+              },
+              enforce_admins: true,
+              required_pull_request_reviews: {
+                dismiss_stale_reviews: true,
+                require_code_owner_reviews: false,
+                required_approving_review_count: 1
+              },
+              restrictions: null
+            });
+            core.info(`Branch protection applied to ${branch}`);

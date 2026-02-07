@@ -1,0 +1,30 @@
+name: Video Transcode
+
+on:
+  push:
+    paths:
+      - 'src/assets/media/**'
+
+jobs:
+  transcode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Create output dir
+        run: mkdir -p ./optimized/media
+      - name: Transcode flag to multiple renditions
+        run: |
+          if [ -f src/assets/media/flag.mp4 ]; then
+            ffmpeg -y -i src/assets/media/flag.mp4 -c:v libx264 -preset slow -crf 23 -c:a aac -b:a 128k -vf scale=-2:360 optimized/media/flag-360p.mp4
+            ffmpeg -y -i src/assets/media/flag.mp4 -c:v libx264 -preset slow -crf 23 -c:a aac -b:a 128k -vf scale=-2:720 optimized/media/flag-720p.mp4
+            ffmpeg -y -i src/assets/media/flag.mp4 -c:v libx264 -preset slow -crf 23 -c:a aac -b:a 128k -vf scale=-2:1080 optimized/media/flag-1080p.mp4
+          else
+            echo "No src/assets/media/flag.mp4 found, skipping transcode"
+          fi
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: flag-renditions
+          path: optimized/media/

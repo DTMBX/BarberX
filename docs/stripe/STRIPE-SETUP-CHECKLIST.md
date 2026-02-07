@@ -69,7 +69,8 @@ You mentioned Stripe API keys are already in Render. Verify these are set:
 4. ❌ **STRIPE_PRICE_PRO** - `price_xxxxx`
    - **What:** Price ID for Pro Plan ($199/month)
    - **How to get:**
-     1. Go to [Stripe Dashboard → Products](https://dashboard.stripe.com/products)
+     1. Go to
+        [Stripe Dashboard → Products](https://dashboard.stripe.com/products)
      2. Create product: "Evident Pro Plan"
      3. Add recurring price: $199/month
      4. Copy the Price ID (starts with `price_`)

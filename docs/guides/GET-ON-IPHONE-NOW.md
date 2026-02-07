@@ -1,12 +1,14 @@
 # 📱 Get Evident on Your iPhone - Practical Guide
 
-**Reality:** iOS apps require a Mac to build. Here are your **real options** with timelines.
+**Reality:** iOS apps require a Mac to build. Here are your **real options**
+with timelines.
 
 --
 
 ## 🚀 FASTEST: Test on Android RIGHT NOW (30 min)
 
-**Why:** Build Android APK on Windows, test full app today while iOS setup processes.
+**Why:** Build Android APK on Windows, test full app today while iOS setup
+processes.
 
 ### Steps
 
@@ -75,7 +77,8 @@ dotnet build -f net10.0-android34.0 -c Release
    ```bash
    dotnet build -f net10.0-ios -c Debug
    ```
-7. **Connect iPhone** to cloud Mac via USB tethering (complicated) or use development certificate
+7. **Connect iPhone** to cloud Mac via USB tethering (complicated) or use
+   development certificate
 
 **Drawback:** Complex iPhone connection over remote desktop.
 
@@ -154,13 +157,15 @@ jobs:
 5. **Trust developer** on iPhone: Settings → General → VPN & Device Management
 6. **Done!** ✅
 
-**Limitation:** Certificate expires in **7 days** (free account) - need to reinstall weekly.
+**Limitation:** Certificate expires in **7 days** (free account) - need to
+reinstall weekly.
 
 --
 
 ## 🏆 Option 4: Official TestFlight (2-4 weeks, $99/year)
 
-**Why:** Proper iOS distribution, 90-day certificates, up to 10,000 beta testers.
+**Why:** Proper iOS distribution, 90-day certificates, up to 10,000 beta
+testers.
 
 ### Timeline
 
@@ -318,13 +323,15 @@ dotnet build -f net10.0-android34.0 -c Release
 A: No. iOS builds require macOS and Xcode. No exceptions.
 
 **Q: What's the absolute fastest way to my iPhone?**  
-A: Use a friend's Mac + free Apple Developer account (2-3 hours total). Or GitHub Actions + Xcode install (1 day).
+A: Use a friend's Mac + free Apple Developer account (2-3 hours total). Or
+GitHub Actions + Xcode install (1 day).
 
 **Q: Is Android version identical to iOS?**  
 A: Yes! Same codebase, same features. Test on Android while iOS setup processes.
 
 **Q: Do I need to pay $99 AND use cloud Mac?**  
-A: No. $99 Apple Developer unlocks TestFlight. Cloud Mac is only if you don't own a Mac.
+A: No. $99 Apple Developer unlocks TestFlight. Cloud Mac is only if you don't
+own a Mac.
 
 **Q: Can GitHub build iOS for free?**  
 A: Yes! GitHub Actions includes free Mac runners. Perfect for testing builds.

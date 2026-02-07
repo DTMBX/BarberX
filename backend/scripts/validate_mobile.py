@@ -6,7 +6,6 @@ Mobile Experience Validation Script
 Checks that all mobile implementation files are in place and properly configured.
 """
 
-import os
 from pathlib import Path
 
 
@@ -179,4 +178,3 @@ def validate_mobile_implementation():
 if __name__ == "__main__":
     success = validate_mobile_implementation()
     exit(0 if success else 1)
-

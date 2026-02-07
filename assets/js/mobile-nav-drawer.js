@@ -216,8 +216,7 @@
 
   // Body scroll lock
   function lockBodyScroll() {
-    const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     body.style.overflow = "hidden";
     body.style.paddingRight = `${scrollbarWidth}px`;
   }

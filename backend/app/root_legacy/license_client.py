@@ -10,9 +10,8 @@ import hashlib
 import json
 import os
 import platform
-import socket
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 
 import requests
@@ -59,10 +58,9 @@ class LicenseClient:
             # Gather machine-specific identifiers
             hostname = platform.node()
             mac_address = ":".join(
-                [
-                    "{:02x}".format((uuid.getnode() >> elements) & 0xFF)
-                    for elements in range(0, 2 * 6, 2)
-                ][::-1]
+                [f"{(uuid.getnode() >> elements) & 0xFF:02x}" for elements in range(0, 2 * 6, 2)][
+                    ::-1
+                ]
             )
 
             # Combine and hash
@@ -76,7 +74,7 @@ class LicenseClient:
             fingerprint_str = "|".join(components)
             return hashlib.sha256(fingerprint_str.encode()).hexdigest()
 
-        except Exception as e:
+        except Exception:
             # Fallback to basic UUID
             return str(uuid.uuid4())
 
@@ -126,7 +124,7 @@ class LicenseClient:
 
             return result
 
-        except requests.RequestException as e:
+        except requests.RequestException:
             # Network error - check cache and grace period
             return self._handle_offline_validation()
 
@@ -179,7 +177,7 @@ class LicenseClient:
                 json.dump(cache_data, f, indent=2)
 
             self._cached_validation = cache_data
-        except Exception as e:
+        except Exception:
             # Non-critical - continue without caching
             pass
 
@@ -187,7 +185,7 @@ class LicenseClient:
         """Load cached validation"""
         try:
             if self.cache_file.exists():
-                with open(self.cache_file, "r") as f:
+                with open(self.cache_file) as f:
                     return json.load(f)
         except Exception:
             pass
@@ -213,26 +211,26 @@ class LicenseClient:
         error_msg = result.get("error", "Unknown error")
         code = result.get("code", "UNKNOWN")
 
-        print(f"\n{'='*60}")
-        print(f"LICENSE VALIDATION FAILED")
-        print(f"{'='*60}")
+        print(f"\n{'=' * 60}")
+        print("LICENSE VALIDATION FAILED")
+        print(f"{'=' * 60}")
         print(f"Error: {error_msg}")
         print(f"Code: {code}")
 
         if code == "NO_LICENSE":
-            print(f"\nPlease set your license key:")
-            print(f"  export Evident_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX'")
+            print("\nPlease set your license key:")
+            print("  export Evident_LICENSE_KEY='BX-XXXX-XXXX-XXXX-XXXX'")
         elif code in ["LICENSE_INACTIVE", "LICENSE_EXPIRED"]:
-            print(f"\nYour license has expired or been suspended.")
-            print(f"Please contact enterprise@Evident.info to renew.")
+            print("\nYour license has expired or been suspended.")
+            print("Please contact enterprise@Evident.info to renew.")
         elif code == "MACHINE_LIMIT":
-            print(f"\nLicense is installed on maximum allowed machines.")
-            print(f"Please contact enterprise@Evident.info to add more servers.")
+            print("\nLicense is installed on maximum allowed machines.")
+            print("Please contact enterprise@Evident.info to add more servers.")
         elif code == "GRACE_PERIOD_EXPIRED":
-            print(f"\nPlease connect to internet to validate license.")
+            print("\nPlease connect to internet to validate license.")
 
-        print(f"\nFor support: enterprise@Evident.info")
-        print(f"{'='*60}\n")
+        print("\nFor support: enterprise@Evident.info")
+        print(f"{'=' * 60}\n")
 
         return False
 
@@ -350,5 +348,3 @@ if __name__ == "__main__":
             print(f"Monthly Quota: {license_info.get('monthly_video_quota')}")
     else:
         print("❌ License validation FAILED")
-
-

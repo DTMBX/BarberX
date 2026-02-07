@@ -19,17 +19,18 @@ Usage in chat:
     print(usage)  # Formatted usage summary
 """
 
-import json
 import logging
 import time
-from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
 
-from .chat_output_formatter import (ChatOutput, Finding, OutputFormatter,
-                                   OutputType, Severity, extract_action_items,
-                                   format_for_chat, get_critical_findings,
-                                   quick_summary)
+from .chat_output_formatter import (
+    ChatOutput,
+    Finding,
+    OutputFormatter,
+    OutputType,
+    Severity,
+    format_for_chat,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -60,7 +61,7 @@ class ChatTools:
 
     def analyze_evidence(
         self,
-        file_path: Union[str, Path],
+        file_path: str | Path,
         evidence_type: str = "document",
         case_number: str = None,
         **kwargs,
@@ -79,8 +80,7 @@ class ChatTools:
         start_time = time.time()
 
         try:
-            from unified_evidence_service import (EvidenceType,
-                                                  UnifiedEvidenceProcessor)
+            from unified_evidence_service import EvidenceType, UnifiedEvidenceProcessor
 
             processor = UnifiedEvidenceProcessor()
 
@@ -113,11 +113,10 @@ class ChatTools:
             return self._format_error("Evidence Analysis", str(e))
 
     def analyze_evidence_raw(
-        self, file_path: Union[str, Path], evidence_type: str = "document", **kwargs
-    ) -> Dict:
+        self, file_path: str | Path, evidence_type: str = "document", **kwargs
+    ) -> dict:
         """Get raw evidence analysis results (for programmatic use)"""
-        from unified_evidence_service import (EvidenceType,
-                                              UnifiedEvidenceProcessor)
+        from unified_evidence_service import EvidenceType, UnifiedEvidenceProcessor
 
         processor = UnifiedEvidenceProcessor()
         type_map = {
@@ -141,7 +140,7 @@ class ChatTools:
 
     def transcribe(
         self,
-        audio_path: Union[str, Path],
+        audio_path: str | Path,
         language: str = None,
         include_timestamps: bool = True,
     ) -> str:
@@ -177,7 +176,7 @@ class ChatTools:
             logger.error(f"Transcription failed: {e}")
             return self._format_error("Transcription", str(e))
 
-    def transcribe_raw(self, audio_path: Union[str, Path], **kwargs) -> Dict:
+    def transcribe_raw(self, audio_path: str | Path, **kwargs) -> dict:
         """Get raw transcription results"""
         from whisper_transcription import WhisperTranscriptionService
 
@@ -191,7 +190,7 @@ class ChatTools:
     def scan_for_violations(
         self,
         text: str,
-        context: Dict = None,
+        context: dict = None,
     ) -> str:
         """
         Scan text for constitutional violations
@@ -220,7 +219,7 @@ class ChatTools:
             logger.error(f"Violation scan failed: {e}")
             return self._format_error("Violation Scan", str(e))
 
-    def scan_for_violations_raw(self, text: str, context: Dict = None) -> Dict:
+    def scan_for_violations_raw(self, text: str, context: dict = None) -> dict:
         """Get raw violation scan results"""
         from case_law_violation_scanner import ViolationScanner
 
@@ -233,7 +232,7 @@ class ChatTools:
 
     def check_compliance(
         self,
-        evidence_data: Dict,
+        evidence_data: dict,
     ) -> str:
         """
         Check evidence for statutory compliance
@@ -639,5 +638,3 @@ if __name__ == "__main__":
     print("=" * 60)
     print(tools.estimate_cost(1000, 500, model="gpt-4"))
     print(tools.estimate_cost(1000, 500, model="gpt-4o-mini"))
-
-

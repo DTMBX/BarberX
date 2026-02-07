@@ -55,9 +55,7 @@
         return y + "-" + m + "-" + d;
       } catch (_err) {
         var dt = new Date();
-        return (
-          dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate()
-        );
+        return dt.getFullYear() + "-" + (dt.getMonth() + 1) + "-" + dt.getDate();
       }
     }
 
@@ -264,13 +262,8 @@
         name: "OurManna",
         url: "https://beta.ourmanna.com/api/v1/get/?format=json",
         parse: function (data) {
-          var item =
-            data && data.verse && data.verse.details
-              ? data.verse.details
-              : null;
-          return item
-            ? { text: item.text || "", reference: item.reference || "" }
-            : null;
+          var item = data && data.verse && data.verse.details ? data.verse.details : null;
+          return item ? { text: item.text || "", reference: item.reference || "" } : null;
         },
       },
     ];

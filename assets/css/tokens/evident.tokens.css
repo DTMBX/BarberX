@@ -14,8 +14,7 @@
   --ff-radius: 16px;
   --ff-maxw: 1120px;
   --ff-shadow: 0 14px 40px rgb(15 23 42 / 16%);
-  --ff-font-sans:
-    ui-sans-serif, system-ui, -apple-system, segoe ui, roboto, arial, sans-serif;
+  --ff-font-sans: ui-sans-serif, system-ui, -apple-system, segoe ui, roboto, arial, sans-serif;
   --ff-font-serif: ui-serif, georgia, "times new roman", serif;
   --ff-motion-style: gentle-purposeful;
   --ff-motion-speed: medium;

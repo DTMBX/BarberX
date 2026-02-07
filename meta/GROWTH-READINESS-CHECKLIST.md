@@ -290,6 +290,9 @@
 
 **Status**: 🚀 **READY TO SHIP**
 
-The core pricing model is live, cost analysis is certified profitable, and smart meter infrastructure is deploying. Founding member program can launch as soon as database migration completes.
+The core pricing model is live, cost analysis is certified profitable, and smart
+meter infrastructure is deploying. Founding member program can launch as soon as
+database migration completes.
 
-**Recommendation**: Soft launch to first 10 users this week, full launch (100 users) by Feb 1, 2026.
+**Recommendation**: Soft launch to first 10 users this week, full launch (100
+users) by Feb 1, 2026.

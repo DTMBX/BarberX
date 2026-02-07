@@ -1,0 +1,15 @@
+---
+title: Home
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  {% set title = 'America by Design — Evident Technologies' %}
+  {% set description = 'The hospitality design for our nation: modern, accessible public interfaces that help citizens process information, access services, and preserve due process.' %}
+  {% include "hero.njk" %}
+  {% set title = undefined %}
+  {% set description = undefined %}
+  {% include "components/flag-video.njk" %}
+  {% include "components/services.njk" %}
+{% endblock %}

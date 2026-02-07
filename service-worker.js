@@ -30,7 +30,7 @@ self.addEventListener("install", (event) => {
         console.log("[ServiceWorker] Caching app shell");
         return cache.addAll(PRECACHE_URLS);
       })
-      .then(() => self.skipWaiting()),
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -50,10 +50,10 @@ self.addEventListener("activate", (event) => {
             .map((cacheName) => {
               console.log("[ServiceWorker] Deleting old cache:", cacheName);
               return caches.delete(cacheName);
-            }),
+            })
         );
       })
-      .then(() => self.clients.claim()),
+      .then(() => self.clients.claim())
   );
 });
 
@@ -92,19 +92,13 @@ self.addEventListener("fetch", (event) => {
   }
 
   // Document files - cache for offline viewing
-  if (
-    url.pathname.startsWith("/documents/") ||
-    url.pathname.match(/\.(pdf|doc|docx|txt)$/)
-  ) {
+  if (url.pathname.startsWith("/documents/") || url.pathname.match(/\.(pdf|doc|docx|txt)$/)) {
     event.respondWith(documentCache(request));
     return;
   }
 
   // Evidence files - network only (too large to cache)
-  if (
-    url.pathname.startsWith("/uploads/") ||
-    url.pathname.startsWith("/exports/")
-  ) {
+  if (url.pathname.startsWith("/uploads/") || url.pathname.startsWith("/exports/")) {
     event.respondWith(fetch(request));
     return;
   }
@@ -163,10 +157,7 @@ async function networkFirst(request) {
 
     return response;
   } catch (error) {
-    console.log(
-      "[ServiceWorker] Network failed, serving from cache:",
-      request.url,
-    );
+    console.log("[ServiceWorker] Network failed, serving from cache:", request.url);
 
     const cached = await cache.match(request);
     if (cached) {
@@ -182,7 +173,7 @@ async function networkFirst(request) {
       {
         status: 503,
         headers: { "Content-Type": "application/json" },
-      },
+      }
     );
   }
 }
@@ -219,13 +210,12 @@ async function staleWhileRevalidate(request, cacheName = AI_CACHE) {
   return new Response(
     JSON.stringify({
       error: "Offline",
-      message:
-        "AI assistant is unavailable offline. Please try again when connected.",
+      message: "AI assistant is unavailable offline. Please try again when connected.",
     }),
     {
       status: 503,
       headers: { "Content-Type": "application/json" },
-    },
+    }
   );
 }
 
@@ -246,17 +236,12 @@ async function documentCache(request) {
     if (response.status === 200) {
       const contentType = response.headers.get("content-type") || "";
       const isDocument =
-        contentType.includes("pdf") ||
-        contentType.includes("word") ||
-        contentType.includes("text");
+        contentType.includes("pdf") || contentType.includes("word") || contentType.includes("text");
 
       if (isDocument) {
         const responseClone = response.clone();
         cache.put(request, responseClone);
-        console.log(
-          "[ServiceWorker] Cached document for offline:",
-          request.url,
-        );
+        console.log("[ServiceWorker] Cached document for offline:", request.url);
       }
     }
 
@@ -308,10 +293,7 @@ async function handleFileOpen(request) {
 
     if (fileUrl) {
       // Redirect to workspace with file parameter
-      return Response.redirect(
-        `/workspace?open=${encodeURIComponent(fileUrl)}`,
-        303,
-      );
+      return Response.redirect(`/workspace?open=${encodeURIComponent(fileUrl)}`, 303);
     }
 
     return Response.redirect("/workspace", 303);
@@ -345,7 +327,7 @@ async function storeSharedData(metadata, files) {
           type: file.type,
           size: file.size,
           data: await file.arrayBuffer(),
-        })),
+        }))
       );
 
       store.put({ ...metadata, files: fileData });
@@ -411,21 +393,19 @@ self.addEventListener("notificationclick", (event) => {
   const urlToOpen = event.notification.data?.url || "/";
 
   event.waitUntil(
-    clients
-      .matchAll({ type: "window", includeUncontrolled: true })
-      .then((windowClients) => {
-        // Check if there's already a window open
-        for (let client of windowClients) {
-          if (client.url === urlToOpen && "focus" in client) {
-            return client.focus();
-          }
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((windowClients) => {
+      // Check if there's already a window open
+      for (let client of windowClients) {
+        if (client.url === urlToOpen && "focus" in client) {
+          return client.focus();
         }
+      }
 
-        // Open new window
-        if (clients.openWindow) {
-          return clients.openWindow(urlToOpen);
-        }
-      }),
+      // Open new window
+      if (clients.openWindow) {
+        return clients.openWindow(urlToOpen);
+      }
+    })
   );
 });
 
@@ -493,7 +473,7 @@ self.addEventListener("message", (event) => {
     event.waitUntil(
       caches.delete(CACHE_NAME).then(() => {
         return caches.delete(RUNTIME_CACHE);
-      }),
+      })
     );
   }
 });

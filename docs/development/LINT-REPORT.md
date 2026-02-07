@@ -20,7 +20,8 @@
 
 ### app.py - ErrorSanitizer & logger undefined (57 instances)
 
-**Problem:** 19 functions reference `ErrorSanitizer` and `logger` without importing them.
+**Problem:** 19 functions reference `ErrorSanitizer` and `logger` without
+importing them.
 
 **Affected Lines:**
 
@@ -30,7 +31,8 @@
 - 2148-2151, 2170-2173, 2192-2195, 2224-2227
 - 2252-2255, 2283-2286, 2323-2326
 
-**Impact:** Runtime errors in exception handlers (error handling fails gracefully, but logs are lost)
+**Impact:** Runtime errors in exception handlers (error handling fails
+gracefully, but logs are lost)
 
 **Fix Required:**
 

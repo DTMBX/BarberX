@@ -26,12 +26,8 @@ function setupTabs() {
       const targetTab = tab.dataset.tab;
 
       // Update tab states
-      document
-        .querySelectorAll(".tab")
-        .forEach((t) => t.classList.remove("active"));
-      document
-        .querySelectorAll(".tab-content")
-        .forEach((c) => c.classList.remove("active"));
+      document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
 
       tab.classList.add("active");
       document.getElementById(targetTab).classList.add("active");
@@ -78,10 +74,8 @@ async function loadOverviewData() {
     // Update stats
     document.getElementById("totalUsers").textContent = data.total_users || 0;
     document.getElementById("activeUsers").textContent = data.active_users || 0;
-    document.getElementById("totalAnalyses").textContent =
-      data.total_analyses || 0;
-    document.getElementById("successRate").textContent =
-      Math.round(data.success_rate || 0) + "%";
+    document.getElementById("totalAnalyses").textContent = data.total_analyses || 0;
+    document.getElementById("successRate").textContent = Math.round(data.success_rate || 0) + "%";
 
     // Create charts
     createSubscriptionChart(data.subscription_breakdown);
@@ -104,11 +98,7 @@ function createSubscriptionChart(breakdown) {
       labels: ["Free", "Professional", "Enterprise"],
       datasets: [
         {
-          data: [
-            breakdown?.free || 0,
-            breakdown?.professional || 0,
-            breakdown?.enterprise || 0,
-          ],
+          data: [breakdown?.free || 0, breakdown?.professional || 0, breakdown?.enterprise || 0],
           backgroundColor: ["#e2e8f0", "#3b82f6", "#8b5cf6"],
         },
       ],
@@ -223,7 +213,7 @@ function renderUsers(users) {
                 </div>
             </td>
         </tr>
-    `,
+    `
     )
     .join("");
 }
@@ -234,8 +224,7 @@ function filterUsers() {
     (user) =>
       (user.full_name && user.full_name.toLowerCase().includes(searchTerm)) ||
       (user.email && user.email.toLowerCase().includes(searchTerm)) ||
-      (user.organization &&
-        user.organization.toLowerCase().includes(searchTerm)),
+      (user.organization && user.organization.toLowerCase().includes(searchTerm))
   );
   renderUsers(filtered);
 }
@@ -263,42 +252,40 @@ function closeEditModal() {
   document.getElementById("editUserModal").classList.remove("active");
 }
 
-document
-  .getElementById("editUserForm")
-  ?.addEventListener("submit", async (e) => {
-    e.preventDefault();
+document.getElementById("editUserForm")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const userId = document.getElementById("editUserId").value;
-    const data = {
-      full_name: document.getElementById("editFullName").value,
-      organization: document.getElementById("editOrganization").value,
-      subscription_tier: document.getElementById("editTier").value,
-      role: document.getElementById("editRole").value,
-    };
+  const userId = document.getElementById("editUserId").value;
+  const data = {
+    full_name: document.getElementById("editFullName").value,
+    organization: document.getElementById("editOrganization").value,
+    subscription_tier: document.getElementById("editTier").value,
+    role: document.getElementById("editRole").value,
+  };
 
-    showLoading();
-    try {
-      const response = await fetch(`/admin/users/${userId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+  showLoading();
+  try {
+    const response = await fetch(`/admin/users/${userId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
 
-      if (response.ok) {
-        showToast("User updated successfully", "success");
-        closeEditModal();
-        await loadUsers();
-      } else {
-        const error = await response.json();
-        showToast(error.error || "Failed to update user", "error");
-      }
-    } catch (error) {
-      showToast("Error updating user", "error");
-      console.error(error);
-    } finally {
-      hideLoading();
+    if (response.ok) {
+      showToast("User updated successfully", "success");
+      closeEditModal();
+      await loadUsers();
+    } else {
+      const error = await response.json();
+      showToast(error.error || "Failed to update user", "error");
     }
-  });
+  } catch (error) {
+    showToast("Error updating user", "error");
+    console.error(error);
+  } finally {
+    hideLoading();
+  }
+});
 
 // Toggle User Status
 async function toggleUserStatus(userId) {
@@ -326,11 +313,7 @@ async function toggleUserStatus(userId) {
 
 // Delete User
 function confirmDeleteUser(userId, email) {
-  if (
-    confirm(
-      `Are you sure you want to delete user "${email}"? This action cannot be undone.`,
-    )
-  ) {
+  if (confirm(`Are you sure you want to delete user "${email}"? This action cannot be undone.`)) {
     deleteUser(userId);
   }
 }
@@ -365,9 +348,7 @@ async function loadAnalyses() {
   showLoading();
   try {
     const status = document.getElementById("analysisFilter")?.value || "";
-    const url = status
-      ? `/admin/analyses?status=${status}&limit=100`
-      : "/admin/analyses?limit=100";
+    const url = status ? `/admin/analyses?status=${status}&limit=100` : "/admin/analyses?limit=100";
 
     const response = await fetch(url);
     const data = await response.json();
@@ -422,7 +403,7 @@ function renderAnalyses(analyses) {
                 </div>
             </td>
         </tr>
-    `,
+    `
     )
     .join("");
 }
@@ -441,9 +422,7 @@ function viewAnalysis(analysisId) {
 
 function confirmDeleteAnalysis(analysisId, filename) {
   if (
-    confirm(
-      `Are you sure you want to delete analysis "${filename}"? This action cannot be undone.`,
-    )
+    confirm(`Are you sure you want to delete analysis "${filename}"? This action cannot be undone.`)
   ) {
     deleteAnalysis(analysisId);
   }
@@ -536,9 +515,7 @@ function renderSettings(settingsByCategory) {
             ? "number"
             : "text";
       const inputValue =
-        setting.value_type === "bool"
-          ? setting.value.toLowerCase() === "true"
-          : setting.value;
+        setting.value_type === "bool" ? setting.value.toLowerCase() === "true" : setting.value;
 
       html += `
                 <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 3px solid #3b82f6;">
@@ -646,7 +623,7 @@ async function deleteSetting(settingId, key) {
 async function initializeSettings() {
   if (
     !confirm(
-      "This will create all default settings. Existing settings will not be modified. Continue?",
+      "This will create all default settings. Existing settings will not be modified. Continue?"
     )
   ) {
     return;
@@ -663,7 +640,7 @@ async function initializeSettings() {
     if (response.ok) {
       showToast(
         `Settings initialized: ${data.created} created, ${data.skipped} skipped`,
-        "success",
+        "success"
       );
       await loadSettings();
     } else {
@@ -682,42 +659,40 @@ function refreshSettings() {
 }
 
 // Form submission for new setting
-document
-  .getElementById("newSettingForm")
-  ?.addEventListener("submit", async (e) => {
-    e.preventDefault();
+document.getElementById("newSettingForm")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const data = {
-      key: document.getElementById("newSettingKey").value,
-      value: document.getElementById("newSettingValue").value,
-      value_type: document.getElementById("newSettingType").value,
-      category: document.getElementById("newSettingCategory").value,
-      description: document.getElementById("newSettingDescription").value,
-    };
+  const data = {
+    key: document.getElementById("newSettingKey").value,
+    value: document.getElementById("newSettingValue").value,
+    value_type: document.getElementById("newSettingType").value,
+    category: document.getElementById("newSettingCategory").value,
+    description: document.getElementById("newSettingDescription").value,
+  };
 
-    showLoading();
-    try {
-      const response = await fetch("/admin/settings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+  showLoading();
+  try {
+    const response = await fetch("/admin/settings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
 
-      if (response.ok) {
-        showToast("Setting created successfully", "success");
-        document.getElementById("newSettingForm").reset();
-        await loadSettings();
-      } else {
-        const error = await response.json();
-        showToast(error.error || "Failed to create setting", "error");
-      }
-    } catch (error) {
-      showToast("Error creating setting", "error");
-      console.error(error);
-    } finally {
-      hideLoading();
+    if (response.ok) {
+      showToast("Setting created successfully", "success");
+      document.getElementById("newSettingForm").reset();
+      await loadSettings();
+    } else {
+      const error = await response.json();
+      showToast(error.error || "Failed to create setting", "error");
     }
-  });
+  } catch (error) {
+    showToast("Error creating setting", "error");
+    console.error(error);
+  } finally {
+    hideLoading();
+  }
+});
 
 // ========================================
 // SYSTEM TAB
@@ -729,14 +704,11 @@ async function loadSystemInfo() {
     const response = await fetch("/admin/system-info");
     const data = await response.json();
 
-    document.getElementById("dbSize").textContent =
-      data.database_size_mb.toFixed(2) + " MB";
+    document.getElementById("dbSize").textContent = data.database_size_mb.toFixed(2) + " MB";
     document.getElementById("uploadStorage").textContent =
       data.upload_storage_gb.toFixed(2) + " GB";
-    document.getElementById("cpuUsage").textContent =
-      data.cpu_percent.toFixed(1) + "%";
-    document.getElementById("memoryUsage").textContent =
-      data.memory_percent.toFixed(1) + "%";
+    document.getElementById("cpuUsage").textContent = data.cpu_percent.toFixed(1) + "%";
+    document.getElementById("memoryUsage").textContent = data.memory_percent.toFixed(1) + "%";
 
     // Render detailed system info
     const infoHtml = `
@@ -822,7 +794,7 @@ function renderAuditLogs(logs) {
             <td>${escapeHtml(log.ip_address || "N/A")}</td>
             <td>${formatDate(log.created_at)}</td>
         </tr>
-    `,
+    `
     )
     .join("");
 }

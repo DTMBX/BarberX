@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -21,7 +22,6 @@ import logging
 import time
 from collections import defaultdict
 from datetime import datetime
-from typing import Dict, Optional
 
 from flask import g, jsonify, request
 from werkzeug.exceptions import HTTPException
@@ -50,7 +50,7 @@ class RateLimiter:
         """Generate bucket key"""
         return f"{tier}:{identifier}"
 
-    def _refill_bucket(self, bucket_key: str, max_tokens: int) -> Dict:
+    def _refill_bucket(self, bucket_key: str, max_tokens: int) -> dict:
         """Refill bucket based on elapsed time"""
         bucket = self.buckets[bucket_key]
         now = time.time()
@@ -63,7 +63,7 @@ class RateLimiter:
 
         return bucket
 
-    def check_limit(self, identifier: str, tier: str = "free") -> tuple[bool, Optional[int]]:
+Optional[def check_limit(self, identifier: str, tier: str = "free") -> tuple[bool, int]]:
         """
         Check if request is allowed
 
@@ -97,7 +97,7 @@ class RateLimiter:
 rate_limiter = RateLimiter()
 
 
-def rate_limit(tier_override: Optional[str] = None):
+Optional[def rate_limit(tier_override: str] = None):
     """
     Rate limiting decorator
 
@@ -158,7 +158,7 @@ class APIKeyAuth:
         self.db = db
         self.logger = logging.getLogger(__name__)
 
-    def validate_api_key(self, api_key: str) -> Optional[Dict]:
+Optional[def validate_api_key(self, api_key: str) -> dict]:
         """
         Validate API key and return user info
 
@@ -281,7 +281,7 @@ def require_tier(min_tier: str):
     return decorator
 
 
-def validate_request(schema: Dict):
+def validate_request(schema: dict):
     """
     Request validation decorator
 
@@ -366,9 +366,7 @@ def log_request():
             user_id = g.user.id if hasattr(g, "user") else None
 
             logger.info(
-                f"{request.method} {request.path} | "
-                f"User: {user_id} | "
-                f"IP: {request.remote_addr}"
+                f"{request.method} {request.path} | User: {user_id} | IP: {request.remote_addr}"
             )
 
             # Execute request
@@ -393,9 +391,7 @@ def log_request():
             except Exception as e:
                 duration = time.time() - start_time
                 logger.error(
-                    f"{request.method} {request.path} | "
-                    f"Error: {str(e)} | "
-                    f"Duration: {duration:.3f}s"
+                    f"{request.method} {request.path} | Error: {str(e)} | Duration: {duration:.3f}s"
                 )
                 raise
 
@@ -445,8 +441,8 @@ def handle_errors():
 def api_endpoint(
     db,
     require_auth: bool = True,
-    min_tier: Optional[str] = None,
-    validation_schema: Optional[Dict] = None,
+Optional[min_tier: str] = None,
+Optional[validation_schema: dict] = None,
 ):
     """
     Combined decorator for API endpoints

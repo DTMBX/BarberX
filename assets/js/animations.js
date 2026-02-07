@@ -10,9 +10,7 @@
   "use strict";
 
   // Check for reduced motion preference
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (prefersReducedMotion) {
     // Skip animations for users who prefer reduced motion
@@ -54,11 +52,8 @@
   document.body.appendChild(scrollProgress);
 
   function updateScrollProgress() {
-    const winScroll =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
     scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
   }

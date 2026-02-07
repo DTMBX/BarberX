@@ -2,9 +2,12 @@
 
 ## 📋 Overview
 
-The Evident eDiscovery Platform is a comprehensive evidence management system with detailed provenance and audit trails designed to support legal review in civil rights litigation against law enforcement agencies.
+The Evident eDiscovery Platform is a comprehensive evidence management system
+with detailed provenance and audit trails designed to support legal review in
+civil rights litigation against law enforcement agencies.
 
-**Provides documentation and provenance to assist counsel and experts in addressing evidentiary standards and discovery requirements.**
+**Provides documentation and provenance to assist counsel and experts in
+addressing evidentiary standards and discovery requirements.**
 
 --
 
@@ -17,9 +20,11 @@ The Evident eDiscovery Platform is a comprehensive evidence management system wi
 - ✅ SHA-256 hashing at ingestion with verification
 - ✅ WORM (Write-Once-Read-Many) immutable storage
 - ✅ Complete chain-of-custody logging (every access, export, processing)
-- ✅ Role-based access control (Attorney, Paralegal, Investigator, Expert, Restricted)
+- ✅ Role-based access control (Attorney, Paralegal, Investigator, Expert,
+  Restricted)
 - ✅ Litigation hold management with audit trails
-- ✅ Provenance tracking (source system, export method, custodian, collection date)
+- ✅ Provenance tracking (source system, export method, custodian, collection
+  date)
 
 **Key Features:**
 
@@ -32,11 +37,13 @@ The Evident eDiscovery Platform is a comprehensive evidence management system wi
 
 **BWC Processor** (`bwc_processor_service.py`)
 
-- ✅ Native format support: Axon Evidence.com, WatchGuard 4RE, Motorola, Vievu, Panasonic
+- ✅ Native format support: Axon Evidence.com, WatchGuard 4RE, Motorola, Vievu,
+  Panasonic
 - ✅ Time-sync normalization (device clock drift correction)
 - ✅ Audio diarization (speaker separation: Officer vs Civilian)
 - ✅ ASR transcription with word-level timestamps and confidence scores
-- ✅ Scene/object detection: handcuffs, takedowns, flashlights, patrol car interior
+- ✅ Scene/object detection: handcuffs, takedowns, flashlights, patrol car
+  interior
 - ✅ GPS/telemetry extraction (where embedded)
 - ✅ Auto-chapter generation: arrival, commands, cuffing, transport, station
 
@@ -51,11 +58,14 @@ The Evident eDiscovery Platform is a comprehensive evidence management system wi
 
 **CAD Processor** (`cad_processor_service.py`)
 
-- ✅ Structured imports: Spillman, VersaTerm, TriTech, Tyler New World, CJIS, Motorola PremierOne
-- ✅ Event log parsing: call received, dispatched, en route, on scene, cleared, tow requested
+- ✅ Structured imports: Spillman, VersaTerm, TriTech, Tyler New World, CJIS,
+  Motorola PremierOne
+- ✅ Event log parsing: call received, dispatched, en route, on scene, cleared,
+  tow requested
 - ✅ MDT query extraction: NCIC, DMV, warrant checks, registration lookups
 - ✅ Timestamp cross-validation with BWC/tow invoices/station logs
-- ✅ **Negative evidence handling**: "no responsive records" tracking with OPRA response hashing
+- ✅ **Negative evidence handling**: "no responsive records" tracking with OPRA
+  response hashing
 - ✅ Discrepancy reporting: flags backdating, clock errors, falsification
 
 **Critical Feature: Negative Evidence Database**
@@ -65,7 +75,9 @@ Evidence_Type | Case_ID | Request_Date | Response_Date | Responding_Agency |
 Responding_Custodian | Request_Scope | Response_Text | Attached_File | Verification_Hash
 ```
 
-Example: ACPO OPRA response "possesses no responsive records for CAD/dispatch/call-for-service" → **stored as evidence** with SHA-256 hash of response letter.
+Example: ACPO OPRA response "possesses no responsive records for
+CAD/dispatch/call-for-service" → **stored as evidence** with SHA-256 hash of
+response letter.
 
 ### 4. Document Discovery Processing
 
@@ -78,8 +90,7 @@ Example: ACPO OPRA response "possesses no responsive records for CAD/dispatch/ca
 - ✅ Redaction management with persistent audit logs
 - ✅ PDF XMP metadata extraction
 
-**Redaction Audit Trail:**
-Every redaction logged with:
+**Redaction Audit Trail:** Every redaction logged with:
 
 - Page number
 - Coordinates (x, y, width, height)
@@ -92,7 +103,8 @@ Every redaction logged with:
 
 **Unified Search Service** (`ediscovery_platform_service.py`)
 
-- ✅ Cross-media queries: search transcripts, PDFs, CAD logs, emails in one query
+- ✅ Cross-media queries: search transcripts, PDFs, CAD logs, emails in one
+  query
 - ✅ Controlled vocabulary aligned to claims:
   - stop_initiation, stop_duration, arrest_announcement, force_escalation
   - tow_authorization, post_tow_notice, commands_contradictory
@@ -121,8 +133,7 @@ Timestamp | Event | Source | Evidence_ID | Citation | Actors | Significance
 - ✅ DAT/OPT load file production (standard eDiscovery format)
 - ✅ Protective order compliance (AEO/confidential segregation)
 
-**Clip Authentication:**
-Every clip includes:
+**Clip Authentication:** Every clip includes:
 
 - Source evidence ID
 - Source file SHA-256 hash
@@ -156,9 +167,12 @@ Every clip includes:
 
 **Quality Levels:**
 
-- **Minimal**: Subtle enhancement, maximum authenticity (may be admissible; final determination depends on jurisdiction and counsel review)
-- **Moderate**: Balanced enhancement/authenticity (may be admissible with disclosure; final determination depends on jurisdiction and counsel review)
-- **Aggressive**: Maximum enhancement (may affect admissibility; use caution and consult counsel)
+- **Minimal**: Subtle enhancement, maximum authenticity (may be admissible;
+  final determination depends on jurisdiction and counsel review)
+- **Moderate**: Balanced enhancement/authenticity (may be admissible with
+  disclosure; final determination depends on jurisdiction and counsel review)
+- **Aggressive**: Maximum enhancement (may affect admissibility; use caution and
+  consult counsel)
 
 **Quality Metrics Tracked:**
 
@@ -170,11 +184,13 @@ Every clip includes:
 
 - Original always preserved in immutable vault
 - Enhanced version created as separate derivative work
-- Complete processing settings logged (noise reduction dB, algorithms used, etc.)
+- Complete processing settings logged (noise reduction dB, algorithms used,
+  etc.)
 - Before/after quality metrics computed
 - SHA-256 hash of both original and enhanced versions
 - Enhancement logged in chain-of-custody
-- Notes on admissibility considerations set based on quality level; final determination by courts and counsel
+- Notes on admissibility considerations set based on quality level; final
+  determination by courts and counsel
 - Side-by-side comparison reports available
 
 ### 8. Automation & Monitoring
@@ -208,8 +224,10 @@ Every clip includes:
 
 **2. Chain of Custody Log** (`chain_of_custody.xlsx`)
 
-- **Chain_Of_Custody**: Every event (ingestion, access, export, verification, litigation hold)
-- Columns: Event_ID, Evidence_ID, Event_Type, Timestamp, User, User_Role, Action_Description, Hash_Before, Hash_After, IP_Address, Workstation, Notes
+- **Chain_Of_Custody**: Every event (ingestion, access, export, verification,
+  litigation hold)
+- Columns: Event_ID, Evidence_ID, Event_Type, Timestamp, User, User_Role,
+  Action_Description, Hash_Before, Hash_After, IP_Address, Workstation, Notes
 
 **3. CAD Processing Database** (auto-generated per export)
 
@@ -375,7 +393,8 @@ Every clip includes:
   ```
 - Returns: Enhancement ID, hashes, quality metrics
 
-**GET** `/api/v1/ediscovery/enhancement/compare/{enhancement_id}?original_evidence_id={evidence_id}`
+**GET**
+`/api/v1/ediscovery/enhancement/compare/{enhancement_id}?original_evidence_id={evidence_id}`
 
 - Compare original vs enhanced with side-by-side metrics
 - Returns: Quality comparison, improvements, court admissibility recommendation
@@ -563,7 +582,11 @@ When agency claims "no responsive records," the system:
 
 **Use in motion practice:**
 
-> "Defendant claims to have 'no responsive records' for CAD dispatch logs (Exhibit A, ACPO OPRA Response dated 12/15/2024, SHA-256: abc123...). However, discovery of radio logs (Exhibit B) references 'CAD Incident #25-001234' at 14:30:22 on the same date. This discrepancy suggests either incomplete search or spoliation."
+> "Defendant claims to have 'no responsive records' for CAD dispatch logs
+> (Exhibit A, ACPO OPRA Response dated 12/15/2024, SHA-256: abc123...). However,
+> discovery of radio logs (Exhibit B) references 'CAD Incident #25-001234' at
+> 14:30:22 on the same date. This discrepancy suggests either incomplete search
+> or spoliation."
 
 --
 
@@ -857,8 +880,7 @@ evidence.access_level = AccessLevel.RESTRICTED
 evidence.allowed_users = ["attorney1@firm.com", "attorney2@firm.com"]
 ```
 
-**Audit of AEO Access:**
-Every access logged in chain of custody.
+**Audit of AEO Access:** Every access logged in chain of custody.
 
 --
 

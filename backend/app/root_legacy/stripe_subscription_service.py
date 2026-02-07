@@ -7,7 +7,7 @@ Handles subscription creation, webhooks, and billing management
 """
 
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 from functools import wraps
 
 from dotenv import load_dotenv
@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load env vars before accessing them
 
 import stripe
-from flask import Blueprint, jsonify, redirect, request, session, url_for
+from flask import Blueprint, jsonify, request, session
 
 from .models_auth import TierLevel, User, db
 
@@ -725,5 +725,3 @@ def get_stripe_config():
             "prices": {"pro": STRIPE_PRICE_PRO, "premium": STRIPE_PRICE_PREMIUM},
         }
     )
-
-

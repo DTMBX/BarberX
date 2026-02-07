@@ -181,8 +181,7 @@ Create PDF form with fields:
 - Witness Information
 - Discovery Checklist
 
-**Quick Creation:**
-Use Google Docs or Microsoft Word, then export to PDF/DOCX.
+**Quick Creation:** Use Google Docs or Microsoft Word, then export to PDF/DOCX.
 
 --
 
@@ -231,9 +230,7 @@ Create simple HTML pages:
         <li>Were Miranda rights given?</li>
       </ul>
 
-      <a href="/free-dashboard" class="btn btn-primary mt-4"
-        >Back to Dashboard</a
-      >
+      <a href="/free-dashboard" class="btn btn-primary mt-4">Back to Dashboard</a>
     </div>
   </body>
 </html>
@@ -271,7 +268,8 @@ echo "Discovery Request Template - Coming Soon" > discovery_request.txt
 
 ### Option 3: Skip for Now
 
-Templates are optional for initial testing. You can add real files later when you have them ready.
+Templates are optional for initial testing. You can add real files later when
+you have them ready.
 
 --
 

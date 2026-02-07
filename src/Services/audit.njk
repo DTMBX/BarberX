@@ -1,0 +1,28 @@
+---
+title: Audit Trails
+description: Append-only audit trails and verifiable snapshots for evidentiary purposes.
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <header class="mb-4">
+      <h1 class="text-3xl md:text-4xl font-bold">Audit Trails</h1>
+      <p class="mt-2 text-lg text-gray-700 max-w-prose">Maintain immutable, append-only logs and verifiable snapshots designed for legal and administrative workflows.</p>
+    </header>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-4 md:p-6 border rounded bg-white prose">
+        <img src="/assets/images/logo-source.svg" alt="Audit icon" class="h-12 w-12"/>
+        <h3 class="mt-4 font-semibold">Tamper-evident logs</h3>
+        <p>Cryptographic hashing and append-only storage provide clear chains of custody.</p>
+      </div>
+      <div class="p-4 md:p-6 border rounded bg-white prose">
+        <img src="/assets/images/logo-source.svg" alt="Verify icon" class="h-12 w-12"/>
+        <h3 class="mt-4 font-semibold">Verifiable snapshots</h3>
+        <p>Create time-stamped snapshots for court-ready evidence packages.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

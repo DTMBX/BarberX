@@ -20,9 +20,7 @@ export class ContrastUtils {
    * @returns {Object} {r, g, b, a}
    */
   static parseRGBA(rgba) {
-    const match = rgba.match(
-      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/,
-    );
+    const match = rgba.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
     if (!match) {
       console.warn(`Unable to parse color: ${rgba}`);
       return { r: 0, g: 0, b: 0, a: 1 };
@@ -159,10 +157,7 @@ export class ContrastUtils {
    */
   static applyAccessibleColors(element, bgColor, options = {}) {
     const textColor = this.getAccessibleTextColor(bgColor, options);
-    const linkColors = this.getAccessibleLinkColors(
-      bgColor,
-      options.brandTokens,
-    );
+    const linkColors = this.getAccessibleLinkColors(bgColor, options.brandTokens);
 
     element.style.setProperty("-adaptive-text", textColor);
     element.style.setProperty("-adaptive-link", linkColors.primary);
@@ -205,11 +200,7 @@ export class ContrastUtils {
       const isLarge = fontSize >= 18 || (fontSize >= 14 && fontWeight >= 700);
 
       const meetsAA = this.meetsWCAG(ratio, "AA", isLarge ? "large" : "normal");
-      const meetsAAA = this.meetsWCAG(
-        ratio,
-        "AAA",
-        isLarge ? "large" : "normal",
-      );
+      const meetsAAA = this.meetsWCAG(ratio, "AAA", isLarge ? "large" : "normal");
 
       if (!meetsAA) {
         issues.push({
@@ -250,16 +241,13 @@ export class ContrastUtils {
    */
   static logAuditResults(issues) {
     if (issues.length === 0) {
-      console.log(
-        "%c✓ No contrast issues found!",
-        "color: #10b981; font-weight: bold;",
-      );
+      console.log("%c✓ No contrast issues found!", "color: #10b981; font-weight: bold;");
       return;
     }
 
     console.group(
       `%c⚠️ Found ${issues.length} contrast issues`,
-      "color: #f59e0b; font-weight: bold;",
+      "color: #f59e0b; font-weight: bold;"
     );
     issues.forEach((issue, i) => {
       console.group(`${i + 1}. ${issue.selector}`);
@@ -267,13 +255,13 @@ export class ContrastUtils {
         "Contrast Ratio:",
         issue.ratio,
         issue.meetsAA ? "✓ AA" : "✗ AA",
-        issue.meetsAAA ? "✓ AAA" : "✗ AAA",
+        issue.meetsAAA ? "✓ AAA" : "✗ AAA"
       );
       console.log("Colors:", issue.color, "on", issue.bgColor);
       console.log(
         "Font:",
         `${issue.fontSize}, weight ${issue.fontWeight}`,
-        issue.isLarge ? "(large)" : "(normal)",
+        issue.isLarge ? "(large)" : "(normal)"
       );
       console.log("Element:", issue.element);
       console.groupEnd();

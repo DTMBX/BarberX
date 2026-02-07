@@ -6,7 +6,6 @@ FREE Tier Integration Script
 Automatically integrates FREE tier functionality into main app
 """
 
-import os
 import sys
 
 
@@ -18,7 +17,7 @@ def integrate_free_tier():
     print("=" * 70)
 
     # Read current app.py
-    with open("app.py", "r", encoding="utf-8") as f:
+    with open("app.py", encoding="utf-8") as f:
         app_content = f.read()
 
     # Check if already integrated
@@ -365,4 +364,3 @@ def main():
 if __name__ == "__main__":
     success = main()
     sys.exit(0 if success else 1)
-

@@ -37,15 +37,7 @@ const API_CONFIG = {
   LIMITS: {
     MAX_FILE_SIZE_MB: 500,
     MAX_FILES_PER_BATCH: 50,
-    ALLOWED_DOCUMENT_TYPES: [
-      ".pdf",
-      ".doc",
-      ".docx",
-      ".txt",
-      ".jpg",
-      ".jpeg",
-      ".png",
-    ],
+    ALLOWED_DOCUMENT_TYPES: [".pdf", ".doc", ".docx", ".txt", ".jpg", ".jpeg", ".png"],
     ALLOWED_VIDEO_TYPES: [".mp4", ".mov", ".avi", ".mkv"],
   },
 

@@ -114,9 +114,8 @@ Evident.info/
 **Example:**
 
 ```html
--- layout: default title: "Evident Legal Technologies" description:
-"Professional AI-powered eDiscovery" -- {% include components/hero.html %} {%
-include components/features.html %}
+-- layout: default title: "Evident Legal Technologies" description: "Professional AI-powered
+eDiscovery" -- {% include components/hero.html %} {% include components/features.html %}
 ```
 
 --

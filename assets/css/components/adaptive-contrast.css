@@ -15,26 +15,16 @@
 
   /* Dark backgrounds (navy, ink) */
   --text-on-dark: rgb(248 250 252 / 100%); /* slate-50: 18.59:1 on navy-950 */
-  --text-on-dark-muted: rgb(
-    203 213 225 / 100%
-  ); /* muted-300: 13.09:1 on navy-950 */
+  --text-on-dark-muted: rgb(203 213 225 / 100%); /* muted-300: 13.09:1 on navy-950 */
 
-  --link-on-dark: rgb(
-    110 231 183 / 100%
-  ); /* emerald-300: 12.75:1 on navy-950 */
+  --link-on-dark: rgb(110 231 183 / 100%); /* emerald-300: 12.75:1 on navy-950 */
 
-  --link-on-dark-hover: rgb(
-    212 165 116 / 100%
-  ); /* brass-500: 8.73:1 on navy-950 */
+  --link-on-dark-hover: rgb(212 165 116 / 100%); /* brass-500: 8.73:1 on navy-950 */
 
   /* Emerald backgrounds */
-  --text-on-emerald: rgb(
-    249 250 251 / 100%
-  ); /* cream-50: 7.58:1 on emerald-600 */
+  --text-on-emerald: rgb(249 250 251 / 100%); /* cream-50: 7.58:1 on emerald-600 */
 
-  --link-on-emerald: rgb(
-    254 243 199 / 100%
-  ); /* cream-100: 7.11:1 on emerald-600 */
+  --link-on-emerald: rgb(254 243 199 / 100%); /* cream-100: 7.11:1 on emerald-600 */
 
   /* Brass backgrounds */
   --text-on-brass: rgb(28 27 25 / 100%); /* ink-900: 7.73:1 on brass-500 */

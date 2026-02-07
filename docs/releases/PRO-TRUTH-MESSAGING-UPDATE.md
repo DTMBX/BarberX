@@ -20,21 +20,27 @@ Devon requested messaging that shows:
 
 ### **Core Message:**
 
-> "We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants _and_ the good officers who serve with honor."
+> "We're not anti-police. **We're pro-truth.** Evident helps dig up the facts
+> that bad actors bury—protecting innocent defendants _and_ the good officers
+> who serve with honor."
 
 ### **Three-Part Framework:**
 
 #### ✓ **For Good Officers**
 
-When you follow procedure, give Miranda warnings, and respect constitutional rights—**the evidence proves it.** Truth protects officers who do their job right.
+When you follow procedure, give Miranda warnings, and respect constitutional
+rights—**the evidence proves it.** Truth protects officers who do their job
+right.
 
 #### ✗ **For Bad Actors**
 
-When someone violates the 4th Amendment, lies in reports, or uses excessive force—**the evidence exposes it.** Truth removes bad apples from the barrel.
+When someone violates the 4th Amendment, lies in reports, or uses excessive
+force—**the evidence exposes it.** Truth removes bad apples from the barrel.
 
 #### ⚖️ **Mutual Oath**
 
-Peace officers swear to _protect and serve._ Defense attorneys swear to _defend the Constitution._ Both oaths demand truth. We help you honor yours.
+Peace officers swear to _protect and serve._ Defense attorneys swear to _defend
+the Constitution._ Both oaths demand truth. We help you honor yours.
 
 --
 
@@ -49,7 +55,8 @@ Peace officers swear to _protect and serve._ Defense attorneys swear to _defend 
 "Sell Confidence, Not Conflict — Dig Up Truth, Protect Good Officers"
 
 **Sub-tagline now includes:**  
-"...protecting innocent defendants _and_ the good officers who honor their oath."
+"...protecting innocent defendants _and_ the good officers who honor their
+oath."
 
 --
 
@@ -59,7 +66,8 @@ Peace officers swear to _protect and serve._ Defense attorneys swear to _defend 
 "Defense Attorneys Need The Same Tools Prosecutors Have"
 
 **Subtitle emphasizes:**  
-"Truth-seeking technology shouldn't be exclusive to one side. Good evidence protects everyone—including good officers."
+"Truth-seeking technology shouldn't be exclusive to one side. Good evidence
+protects everyone—including good officers."
 
 **New bullet points added:**
 
@@ -72,13 +80,17 @@ Peace officers swear to _protect and serve._ Defense attorneys swear to _defend 
 
 ### **"We Sell Confidence, Not Conflict" Callout:**
 
-> "Evident gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. _That's how the system is supposed to work._"
+> "Evident gives you **confidence in the evidence**—that you found every Miranda
+> warning, every 4th Amendment issue, every contradiction. When defense
+> attorneys have the tools to uncover truth, good officers are protected and bad
+> actors are held accountable. _That's how the system is supposed to work._"
 
 --
 
 ### **Mission Statement Quote Added:**
 
-> "The truth doesn't take sides. It just is. Our job is to find it—no matter where it leads."  
+> "The truth doesn't take sides. It just is. Our job is to find it—no matter
+> where it leads."  
 > — Evident Mission Statement
 
 --
@@ -139,7 +151,8 @@ Peace officers swear to _protect and serve._ Defense attorneys swear to _defend 
 ### **After:**
 
 - **Confidence framing:** "I'm buying confidence in evidence"
-- **Moral high ground:** "I'm honoring my oath, just like good officers honor theirs"
+- **Moral high ground:** "I'm honoring my oath, just like good officers honor
+  theirs"
 - **Win-win:** "Truth protects everyone—including good cops"
 - **No guilt:** "I'm not attacking police, I'm exposing bad actors"
 
@@ -153,7 +166,8 @@ Peace officers swear to _protect and serve._ Defense attorneys swear to _defend 
 
 ### **New Addition (Complementary):**
 
-"Both peace officers and defense attorneys swear oaths to uphold justice. When we honor truth, we honor both oaths."
+"Both peace officers and defense attorneys swear oaths to uphold justice. When
+we honor truth, we honor both oaths."
 
 ### **Net Result:**
 
@@ -178,7 +192,8 @@ Truth-seeking technology shouldn't be exclusive to one side.
 
 ### **Proof Point:**
 
-When defense attorneys have tools to uncover truth, good officers are protected and bad actors are held accountable.
+When defense attorneys have tools to uncover truth, good officers are protected
+and bad actors are held accountable.
 
 ### **Call to Action:**
 
@@ -211,7 +226,8 @@ Join Founding Defenders — $19/month for first 100.
 
 1. **Hero:** Confidence + Truth + Protecting Good Officers
 2. **Problem/Solution:** Tools should be equal, truth protects everyone
-3. **Truth Protects Good Officers:** 3-part framework (good cops / bad actors / mutual oath)
+3. **Truth Protects Good Officers:** 3-part framework (good cops / bad actors /
+   mutual oath)
 4. **Founding Member:** $19/month offer
 5. **Pricing Tiers:** FREE / FOUNDING / PRO / FIRM
 6. **Footer:** Constitutional links + mission statement

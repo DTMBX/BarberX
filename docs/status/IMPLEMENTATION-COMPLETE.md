@@ -26,7 +26,8 @@
 **Files Created:**
 
 - `Dockerfile.enterprise` - Docker image for self-hosted version
-- `docker-compose.enterprise.yml` - Complete stack (app + database + redis + nginx)
+- `docker-compose.enterprise.yml` - Complete stack (app + database + redis +
+  nginx)
 - `.env.enterprise.template` - Configuration template
 
 **Features:**
@@ -292,7 +293,8 @@ docker-compose -f docker-compose.enterprise.yml up -d
 | **Enterprise Web**         | $999   | Web SaaS           | 300 videos (soft cap)    |
 | **Enterprise Self-Hosted** | $1,999 | Customer's servers | Unlimited\*              |
 
-\*Unlimited = runs on their hardware, their AI API keys, license validates monthly
+\*Unlimited = runs on their hardware, their AI API keys, license validates
+monthly
 
 ### **Why Two Enterprise Tiers?**
 

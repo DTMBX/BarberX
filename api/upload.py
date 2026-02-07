@@ -11,11 +11,11 @@ from datetime import datetime
 from pathlib import Path
 
 from flask import current_app, jsonify, request
+from tier_gating import check_tier_access, get_tier_limits
 from werkzeug.utils import secure_filename
 
 from api import upload_api
 from api.auth import jwt_required
-from tier_gating import check_tier_access, get_tier_limits
 
 # Allowed file extensions
 ALLOWED_PDF_EXTENSIONS = {"pdf"}

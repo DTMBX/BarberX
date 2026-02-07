@@ -140,7 +140,8 @@ $ python -m py_compile batch_upload_handler.py
 BWC Forensic Analyzer not available - AI dependencies not installed
 ```
 
-These are expected - the services gracefully degrade if optional dependencies aren't installed.
+These are expected - the services gracefully degrade if optional dependencies
+aren't installed.
 
 --
 
@@ -148,23 +149,23 @@ These are expected - the services gracefully degrade if optional dependencies ar
 
 ### If Deployment Still Fails
 
-**1. Check Import Errors:**
-If you see `ModuleNotFoundError`, check that module is in `requirements.txt`:
+**1. Check Import Errors:** If you see `ModuleNotFoundError`, check that module
+is in `requirements.txt`:
 
 ```bash
 # On Render, dependencies from requirements.txt are auto-installed
 grep "module-name" requirements.txt
 ```
 
-**2. Check Environment Variables:**
-Required variables should be set in Render dashboard:
+**2. Check Environment Variables:** Required variables should be set in Render
+dashboard:
 
 - `DATABASE_URL` (auto-set by Render)
 - `SECRET_KEY` (must be manually set)
 - `FLASK_ENV=production`
 
-**3. Check Port Binding:**
-Render expects app to bind to port from `PORT` environment variable:
+**3. Check Port Binding:** Render expects app to bind to port from `PORT`
+environment variable:
 
 ```python
 # In app.py (already correct):
@@ -173,8 +174,7 @@ if -name- == "-main-":
     app.run(host="0.0.0.0", port=port)
 ```
 
-**4. Database Migration Issues:**
-If database errors occur:
+**4. Database Migration Issues:** If database errors occur:
 
 ```bash
 # Render runs migrations automatically via build.sh
@@ -268,8 +268,8 @@ buildCommand: "pip install -r requirements-production.txt"
 - Build image with all dependencies once
 - Deploy just code changes (30 seconds!)
 
-**Recommendation for Evident:**
-Start with current setup (works), optimize later when deploy speed becomes a bottleneck.
+**Recommendation for Evident:** Start with current setup (works), optimize later
+when deploy speed becomes a bottleneck.
 
 --
 
@@ -392,8 +392,8 @@ git push origin main
 2. Use `python -m py_compile` to catch errors
 3. Render auto-deploys are convenient but need CI/CD for production
 
-**Next Deployment Will Be Faster:**
-We know the workflow now and can catch issues early!
+**Next Deployment Will Be Faster:** We know the workflow now and can catch
+issues early!
 
 --
 

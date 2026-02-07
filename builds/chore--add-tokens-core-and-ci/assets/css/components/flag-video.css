@@ -1,0 +1,5 @@
+/* Minimal helper styles; Tailwind utilities are preferred. */
+.flag-video video {
+  display: block;
+  max-height: 720px;
+}

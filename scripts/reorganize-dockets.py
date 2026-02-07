@@ -69,7 +69,7 @@ def update_docket_yaml():
         slug = yaml_file.stem
         print(f"\n📝 Updating YAML for {slug}...")
 
-        with open(yaml_file, "r", encoding="utf-8") as f:
+        with open(yaml_file, encoding="utf-8") as f:
             content = f.read()
 
         original_content = content
@@ -82,7 +82,7 @@ def update_docket_yaml():
             (rf'file: /cases/{slug}/pcr/([^"\n]+)', rf"file: /assets/cases/{slug}/docket/\1"),
             (rf'file: /cases/{slug}/docket/([^"\n]+)', rf"file: /assets/cases/{slug}/docket/\1"),
             (
-                rf'file: /cases/atl-24-001934/pcr/([^"\n]+)',
+                r'file: /cases/atl-24-001934/pcr/([^"\n]+)',
                 rf"file: /assets/cases/{slug}/docket/\1",
             ),  # Special case for old docket
         ]
@@ -114,7 +114,7 @@ def main():
     print("Step 1: Copying PDF files...")
     copy_stats = copy_pdf_files()
 
-    print(f"\n📊 Copy Summary:")
+    print("\n📊 Copy Summary:")
     print(f"  • Copied: {copy_stats['copied']}")
     print(f"  • Skipped (already exist): {copy_stats['skipped']}")
     print(f"  • Errors: {copy_stats['errors']}")
@@ -124,7 +124,7 @@ def main():
     print("Step 2: Updating YAML files...")
     yaml_stats = update_docket_yaml()
 
-    print(f"\n📊 YAML Update Summary:")
+    print("\n📊 YAML Update Summary:")
     print(f"  • Files updated: {yaml_stats['files_updated']}")
     print(f"  • Paths updated: {yaml_stats['paths_updated']}")
 

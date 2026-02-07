@@ -25,7 +25,8 @@ Cross-platform data models and service interfaces used by all platforms.
 - `Services/IApiClient.cs` - API client interface
 - `Services/ApiClient.cs` - HTTP-based API client implementation
 
-**Purpose**: Ensure consistent data structures and API contracts across all platforms.
+**Purpose**: Ensure consistent data structures and API contracts across all
+platforms.
 
 ### 2. **Mobile Layer** (`Evident.Mobile`)
 

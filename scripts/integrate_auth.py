@@ -23,10 +23,10 @@ def backup_existing():
         import shutil
 
         shutil.copy(app_path, backup_path)
-        print(f"✅ Backed up app.py to app.py.backup")
+        print("✅ Backed up app.py to app.py.backup")
         return True
     elif backup_path.exists():
-        print(f"⚠️  Backup already exists: app.py.backup")
+        print("⚠️  Backup already exists: app.py.backup")
         return False
     return False
 

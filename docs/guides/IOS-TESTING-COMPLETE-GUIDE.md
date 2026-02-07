@@ -57,7 +57,8 @@ bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 
 ## 📲 Path 2: TestFlight (Best for Teams)
 
-**Timeline:** 2-4 weeks initial setup | **Cost:** $99/year | **Complexity:** ⭐⭐⭐⭐
+**Timeline:** 2-4 weeks initial setup | **Cost:** $99/year | **Complexity:**
+⭐⭐⭐⭐
 
 Distribute to 10,000 testers (law firms, civic orgs).
 
@@ -262,8 +263,8 @@ xcrun altool -upload-app \
 
 **Step 3: Trust Developer (if needed)**
 
-1. If app won't open, go to:
-   **Settings** → **General** → **VPN & Device Management**
+1. If app won't open, go to: **Settings** → **General** → **VPN & Device
+   Management**
 2. Tap your developer profile
 3. Tap **Trust**
 
@@ -323,7 +324,8 @@ dotnet build -f net10.0-ios -c Debug \
 4. First time: Enter Apple ID credentials
 5. App deploys and launches
 
-**Limitation:** Certificate expires in **7 days** (free account) or **1 year** (paid account).
+**Limitation:** Certificate expires in **7 days** (free account) or **1 year**
+(paid account).
 
 --
 
@@ -398,9 +400,11 @@ jobs:
 1. Go to GitHub repo → **Settings** → **Secrets and variables** → **Actions**
 2. Add secrets:
    - `APPLE_ID`: Your Apple ID email
-   - `APPLE_APP_PASSWORD`: Generate at https://appleid.apple.com (App-Specific Password)
+   - `APPLE_APP_PASSWORD`: Generate at https://appleid.apple.com (App-Specific
+     Password)
 
-**Now:** Every push to `main` automatically builds iOS app and uploads to TestFlight!
+**Now:** Every push to `main` automatically builds iOS app and uploads to
+TestFlight!
 
 --
 

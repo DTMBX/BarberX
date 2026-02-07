@@ -20,7 +20,7 @@ def add_stripe_pricing_routes():
         print(f"❌ {app_py_path} not found!")
         return False
 
-    with open(app_py_path, "r", encoding="utf-8") as f:
+    with open(app_py_path, encoding="utf-8") as f:
         content = f.read()
 
     # Check if routes already exist
@@ -114,7 +114,7 @@ STRIPE_WEBHOOK_SECRET=whsec_YOUR_WEBHOOK_SECRET_HERE
         print(f"✅ Created {env_path} with Stripe configuration")
         return True
 
-    with open(env_path, "r", encoding="utf-8") as f:
+    with open(env_path, encoding="utf-8") as f:
         content = f.read()
 
     if "STRIPE_PRICING_TABLE_ID" in content:

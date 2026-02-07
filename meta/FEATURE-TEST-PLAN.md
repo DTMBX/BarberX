@@ -4,8 +4,7 @@
 
 ### 1. **FREE Tier (Explorer)** - $0/month
 
-**Access Level:** Demo & Educational
-**Limits:**
+**Access Level:** Demo & Educational **Limits:**
 
 - ✅ 1 BWC video per month (5 min max)
 - ✅ 1 PDF document per month (10 pages max)
@@ -24,8 +23,7 @@
 
 ### 2. **STARTER Tier (Practitioner)** - $29/month
 
-**Access Level:** Entry-tier professionals
-**Limits:**
+**Access Level:** Entry-tier professionals **Limits:**
 
 - ✅ 10 BWC videos/month (10 hours total) - HARD CAP
 - ✅ 5 PDF documents/month (250 pages) - HARD CAP
@@ -43,8 +41,7 @@
 
 ### 3. **PROFESSIONAL Tier (Counselor)** - $79/month
 
-**Access Level:** Solo practitioners & small firms
-**Limits:**
+**Access Level:** Solo practitioners & small firms **Limits:**
 
 - ✅ 25 BWC videos/month (3 hours max each) - SOFT CAP
 - ✅ 15 PDF documents/month (150 pages) - SOFT CAP
@@ -64,8 +61,7 @@
 
 ### 4. **PREMIUM Tier (Advocate)** - $199/month
 
-**Access Level:** Power users with advanced features
-**Limits:**
+**Access Level:** Power users with advanced features **Limits:**
 
 - ✅ 75 BWC videos/month - SOFT CAP
 - ✅ 10 video hours/month - SOFT CAP
@@ -88,8 +84,7 @@
 
 ### 5. **ENTERPRISE Tier** - $599/month
 
-**Access Level:** Organizations with unlimited usage
-**Limits:**
+**Access Level:** Organizations with unlimited usage **Limits:**
 
 - ✅ UNLIMITED BWC videos
 - ✅ UNLIMITED video hours
