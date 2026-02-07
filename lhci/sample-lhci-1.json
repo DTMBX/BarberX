@@ -1,0 +1,10 @@
+{
+  "lhr": {
+    "categories": {
+      "performance": { "score": 0.85 },
+      "accessibility": { "score": 0.93 },
+      "best-practices": { "score": 0.88 },
+      "seo": { "score": 0.91 }
+    }
+  }
+}

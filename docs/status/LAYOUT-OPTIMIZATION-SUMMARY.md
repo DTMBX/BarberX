@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-All 14 layouts have been comprehensively optimized with modern features, professional components, and enhanced user experience.
+All 14 layouts have been comprehensively optimized with modern features,
+professional components, and enhanced user experience.
 
 --
 
@@ -208,8 +209,7 @@ overview: "Challenge to state regulations affecting religious freedom..."
 --
 ```
 
-**Docket Integration**:
-Place YAML file at `_data/docket/[slug].yml`:
+**Docket Integration**: Place YAML file at `_data/docket/[slug].yml`:
 
 ```yaml
 - date: 2024-01-15
@@ -535,4 +535,5 @@ related_essays:
 
 --
 
-**All layouts are now production-ready with modern features, professional polish, and comprehensive accessibility!** 🎉
+**All layouts are now production-ready with modern features, professional
+polish, and comprehensive accessibility!** 🎉

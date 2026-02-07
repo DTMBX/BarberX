@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -20,7 +21,6 @@ import os
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional
 
 
 @dataclass
@@ -28,11 +28,11 @@ class DatabaseConfig:
     """Database configuration"""
 
     engine: str  # sqlite, postgresql, mysql
-    host: Optional[str] = None
-    port: Optional[int] = None
+Optional[host: str] = None
+Optional[port: int] = None
     database: str = "Evident.db"
-    username: Optional[str] = None
-    password: Optional[str] = None
+Optional[username: str] = None
+Optional[password: str] = None
     pool_size: int = 10
     max_overflow: int = 20
     pool_timeout: int = 30
@@ -45,8 +45,8 @@ class CacheConfig:
     """Cache configuration"""
 
     backend: str = "memory"  # memory, redis, memcached
-    host: Optional[str] = None
-    port: Optional[int] = None
+Optional[host: str] = None
+Optional[port: int] = None
     default_ttl: int = 3600
     max_size: int = 1000
 
@@ -60,7 +60,7 @@ class AppConfig:
     secret_key: str = os.urandom(24).hex()
     upload_folder: str = "uploads"
     max_upload_size: int = 100 * 1024 * 1024  # 100MB
-    allowed_extensions: List[str] = None
+    allowed_extensions: list[str] = None
 
     # Database
     database: DatabaseConfig = None
@@ -69,11 +69,11 @@ class AppConfig:
     cache: CacheConfig = None
 
     # External services
-    stripe_secret_key: Optional[str] = None
-    stripe_webhook_secret: Optional[str] = None
-    openai_api_key: Optional[str] = None
-    aws_access_key: Optional[str] = None
-    aws_secret_key: Optional[str] = None
+Optional[stripe_secret_key: str] = None
+Optional[stripe_webhook_secret: str] = None
+Optional[openai_api_key: str] = None
+Optional[aws_access_key: str] = None
+Optional[aws_secret_key: str] = None
 
     # Feature flags
     enable_2fa: bool = True
@@ -95,16 +95,16 @@ class AppConfig:
 class ConfigManager:
     """Centralized configuration management"""
 
-    def __init__(self, config_file: Optional[Path] = None):
+Optional[def __init__(self, config_file: Path] = None):
         self.logger = logging.getLogger(__name__)
         self.config = self._load_config(config_file)
 
-    def _load_config(self, config_file: Optional[Path]) -> AppConfig:
+Optional[def _load_config(self, config_file: Path]) -> AppConfig:
         """Load configuration from file or environment"""
 
         # Try to load from file
         if config_file and config_file.exists():
-            with open(config_file, "r") as f:
+            with open(config_file) as f:
                 data = json.load(f)
                 return self._dict_to_config(data)
 
@@ -162,7 +162,7 @@ class ConfigManager:
             password=parsed.password,
         )
 
-    def _dict_to_config(self, data: Dict) -> AppConfig:
+    def _dict_to_config(self, data: dict) -> AppConfig:
         """Convert dictionary to AppConfig"""
         # Simplified conversion
         return AppConfig(**data)
@@ -180,7 +180,7 @@ class ConfigManager:
 
         return f"{db.engine}://{auth}{db.host}{port}/{db.database}"
 
-    def get_sqlalchemy_config(self) -> Dict:
+    def get_sqlalchemy_config(self) -> dict:
         """Get SQLAlchemy configuration dict"""
         db = self.config.database
 
@@ -375,4 +375,3 @@ if __name__ == "__main__":
         print(f"  {key}: {value}")
 
     print("\nConfiguration system ready!")
-

@@ -10,7 +10,10 @@
 
 ### **Your Request:**
 
-> "Help show that we intend to sell confidence and to help dig up the truth that often gets buried deep by bad actors. We want to pluck the bad apples so the rest of the good ones sworn by oath are protected and remain good peace officers to protect and serve, which we have an oath to do the same."
+> "Help show that we intend to sell confidence and to help dig up the truth that
+> often gets buried deep by bad actors. We want to pluck the bad apples so the
+> rest of the good ones sworn by oath are protected and remain good peace
+> officers to protect and serve, which we have an oath to do the same."
 
 ### **What We Built:**
 
@@ -31,7 +34,9 @@
 > **"Defend the Constitution With Evidence That Speaks"**  
 > _Sell Confidence, Not Conflict — Dig Up Truth, Protect Good Officers_
 
-> "Professional BWC analysis for defense attorneys. When bad actors bury the truth, we help you find it—protecting innocent defendants _and_ the good officers who honor their oath."
+> "Professional BWC analysis for defense attorneys. When bad actors bury the
+> truth, we help you find it—protecting innocent defendants _and_ the good
+> officers who honor their oath."
 
 --
 
@@ -41,33 +46,43 @@
 🛡️ Truth Protects Good Officers, Too
 
 **Core Message:**  
-"We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants _and_ the good officers who serve with honor."
+"We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that
+bad actors bury—protecting innocent defendants _and_ the good officers who serve
+with honor."
 
 **Three-Part Framework:**
 
 #### ✓ For Good Officers
 
-When you follow procedure, give Miranda warnings, and respect constitutional rights—**the evidence proves it.** Truth protects officers who do their job right.
+When you follow procedure, give Miranda warnings, and respect constitutional
+rights—**the evidence proves it.** Truth protects officers who do their job
+right.
 
 #### ✗ For Bad Actors
 
-When someone violates the 4th Amendment, lies in reports, or uses excessive force—**the evidence exposes it.** Truth removes bad apples from the barrel.
+When someone violates the 4th Amendment, lies in reports, or uses excessive
+force—**the evidence exposes it.** Truth removes bad apples from the barrel.
 
 #### ⚖️ Mutual Oath
 
-Peace officers swear to _protect and serve._ Defense attorneys swear to _defend the Constitution._ Both oaths demand truth. We help you honor yours.
+Peace officers swear to _protect and serve._ Defense attorneys swear to _defend
+the Constitution._ Both oaths demand truth. We help you honor yours.
 
 --
 
 ### **"We Sell Confidence, Not Conflict"**
 
-> "Evident gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. **That's how the system is supposed to work.**"
+> "Evident gives you **confidence in the evidence**—that you found every Miranda
+> warning, every 4th Amendment issue, every contradiction. When defense
+> attorneys have the tools to uncover truth, good officers are protected and bad
+> actors are held accountable. **That's how the system is supposed to work.**"
 
 --
 
 ### **Mission Statement (New):**
 
-> "The truth doesn't take sides. It just is. Our job is to find it—no matter where it leads."  
+> "The truth doesn't take sides. It just is. Our job is to find it—no matter
+> where it leads."  
 > — Evident Mission Statement
 
 --

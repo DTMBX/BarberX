@@ -25,8 +25,7 @@ trinity_api = Blueprint("trinity_api", __name__, url_prefix=f"{API_PREFIX}/trini
 
 def register_api_blueprints(app):
     """Register all API blueprints with the Flask app"""
-    from . import (admin, analysis, auth, evidence, stripe_endpoints, trinity,
-                   upload, user)
+    from . import admin, analysis, auth, evidence, stripe_endpoints, trinity, upload, user
 
     # Register blueprints
     app.register_blueprint(auth_api)

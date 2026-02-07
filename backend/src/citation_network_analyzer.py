@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -15,13 +16,10 @@ Uses CourtListener v4 API: opinions-cited, visualizations
 """
 
 import os
-from datetime import datetime
-from typing import Dict, List, Optional
 
 import requests
 
-from legal_library import LegalDocument, LegalLibraryService
-from models_auth import db
+from legal_library import LegalLibraryService
 
 
 class CitationTreatment:
@@ -65,7 +63,7 @@ class CitationNetworkAnalyzer:
             headers["Authorization"] = f"Token {self.api_key}"
         return headers
 
-    def get_citing_cases(self, opinion_id: int, limit: int = 100) -> List[Dict]:
+    def get_citing_cases(self, opinion_id: int, limit: int = 100) -> list[dict]:
         """
         Get all cases that cite this opinion
 
@@ -84,7 +82,7 @@ class CitationNetworkAnalyzer:
         data = response.json()
         return data.get("results", [])
 
-    def get_cited_cases(self, opinion_id: int) -> List[Dict]:
+    def get_cited_cases(self, opinion_id: int) -> list[dict]:
         """
         Get all cases cited BY this opinion
 
@@ -99,7 +97,7 @@ class CitationNetworkAnalyzer:
         data = response.json()
         return data.get("results", [])
 
-    def analyze_treatment(self, opinion_id: int) -> Dict:
+    def analyze_treatment(self, opinion_id: int) -> dict:
         """
         Analyze how subsequent courts treated this case
 
@@ -164,7 +162,7 @@ class CitationNetworkAnalyzer:
             "authority_score": authority,
         }
 
-    def _determine_treatment(self, citation_data: Dict) -> str:
+    def _determine_treatment(self, citation_data: dict) -> str:
         """
         Determine treatment type from citation context
         Uses NLP on citation text (simplified version)
@@ -180,7 +178,7 @@ class CitationNetworkAnalyzer:
         else:
             return CitationTreatment.DISTINGUISHED  # Neutral default
 
-    def _get_shepards_signal(self, treatments: Dict, total: int) -> str:
+    def _get_shepards_signal(self, treatments: dict, total: int) -> str:
         """
         Determine Shepard's-style signal
 
@@ -203,7 +201,7 @@ class CitationNetworkAnalyzer:
 
         return CitationTreatment.BLUE_H  # Default
 
-    def build_citation_network(self, opinion_id: int, depth: int = 3) -> Dict:
+    def build_citation_network(self, opinion_id: int, depth: int = 3) -> dict:
         """
         Build multi-level citation network
 
@@ -271,7 +269,7 @@ class CitationNetworkAnalyzer:
             "total_edges": len(edges),
         }
 
-    def get_shepards_report(self, citation: str) -> Dict:
+    def get_shepards_report(self, citation: str) -> dict:
         """
         Generate comprehensive Shepard's-style report
 
@@ -351,7 +349,7 @@ class CitationNetworkAnalyzer:
             "recommendation": self._get_recommendation(good_law, treatment["signal"]),
         }
 
-    def _find_opinion_by_citation(self, citation: str) -> Optional[Dict]:
+Optional[def _find_opinion_by_citation(self, citation: str) -> dict]:
         """Find opinion by citation using CourtListener API"""
         url = f"{self.api_base}citation-lookup/"
         params = {"citation": citation}
@@ -383,7 +381,7 @@ class CitationNetworkAnalyzer:
 
 
 # API Integration for Evident
-def shepardize(citation: str) -> Dict:
+def shepardize(citation: str) -> dict:
     """
     Main function to Shepardize a case
 
@@ -394,4 +392,3 @@ def shepardize(citation: str) -> Dict:
     """
     analyzer = CitationNetworkAnalyzer()
     return analyzer.get_shepards_report(citation)
-

@@ -50,13 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        const headerHeight =
-          document.querySelector(".site-header")?.offsetHeight || 0;
+        const headerHeight = document.querySelector(".site-header")?.offsetHeight || 0;
         const targetPosition =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          20;
+          target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
 
         window.scrollTo({
           top: targetPosition,
@@ -84,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         lastScroll = currentScroll;
       },
-      { passive: true },
+      { passive: true }
     );
   }
 });

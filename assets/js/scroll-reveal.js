@@ -26,13 +26,10 @@ class ScrollReveal {
       return;
     }
 
-    this.observer = new IntersectionObserver(
-      (entries) => this.handleIntersect(entries),
-      {
-        threshold: this.options.threshold,
-        rootMargin: this.options.rootMargin,
-      },
-    );
+    this.observer = new IntersectionObserver((entries) => this.handleIntersect(entries), {
+      threshold: this.options.threshold,
+      rootMargin: this.options.rootMargin,
+    });
 
     this.observeElements();
   }

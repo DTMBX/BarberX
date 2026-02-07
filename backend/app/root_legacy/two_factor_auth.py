@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -9,7 +10,6 @@ Implements TOTP-based 2FA with QR codes for enhanced security
 import base64
 import io
 from datetime import datetime
-from typing import Dict, Optional, Tuple
 
 import pyotp
 import qrcode
@@ -145,7 +145,7 @@ class TwoFactorAuthService:
 
         return codes
 
-    def setup_2fa_for_user(self, user_email: str) -> Dict:
+    def setup_2fa_for_user(self, user_email: str) -> dict:
         """
         Complete 2FA setup for a user
 
@@ -183,7 +183,7 @@ class TwoFactorAuthService:
 
     def validate_backup_code(
         self, provided_code: str, valid_codes: list
-    ) -> Tuple[bool, Optional[str]]:
+Optional[) -> tuple[bool, str]]:
         """
         Validate backup code and return remaining code
 
@@ -250,9 +250,9 @@ if __name__ == "__main__":
     print(f"\nUser: {user_email}")
     print(f"Secret Key: {setup['secret']}")
     print(f"Manual Entry: {setup['manual_entry_key']}")
-    print(f"\nQR Code (scan with authenticator app):")
+    print("\nQR Code (scan with authenticator app):")
     print("  [Base64 image - display in <img> tag]")
-    print(f"\nBackup Codes (save these securely):")
+    print("\nBackup Codes (save these securely):")
     for i, code in enumerate(setup["backup_codes"], 1):
         print(f"  {i:2d}. {code}")
 
@@ -288,5 +288,3 @@ if __name__ == "__main__":
     print("✓ 2FA Service Ready!")
     print("  Install: pip install pyotp qrcode[pil]")
     print("=" * 80)
-
-

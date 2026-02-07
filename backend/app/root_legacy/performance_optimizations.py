@@ -9,10 +9,8 @@ Caching, compression, and request optimization utilities
 import gzip
 import hashlib
 import io
-import json
 import time
 from functools import wraps
-from typing import Any, Dict, Optional
 
 from flask import g, make_response, request
 
@@ -256,5 +254,3 @@ def jsonify_optimized(data, indent=None):
         return response
 
     return jsonify(data)
-
-

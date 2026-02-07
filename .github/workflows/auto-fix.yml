@@ -1,0 +1,58 @@
+name: Auto Fix CI Failures
+
+on:
+  workflow_run:
+    workflows: ["Site CI", "NodeJS with Webpack", "Web CI/CD"]
+    types:
+      - completed
+
+jobs:
+  autofix:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout branch from failed run
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run CI autofix script
+        run: node ./scripts/ci-autofix.js
+
+      - name: Post comment on PR
+        if: ${{ always() }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const run = context.payload.workflow_run;
+            const head_branch = run.head_branch;
+            // find any open PR matching the branch
+            const prs = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${head_branch}`,
+              state: 'open'
+            });
+            if (prs.data && prs.data.length) {
+              const pr = prs.data[0];
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: 'Automated CI autofix run completed. If changes were required they have been committed and pushed to this branch. Please review.'
+              });
+            } else {
+              console.log('No PR found for branch', head_branch);
+            }

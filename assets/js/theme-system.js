@@ -12,9 +12,7 @@
 
   // Apply theme based on system preference
   function applySystemTheme() {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const theme = prefersDark ? "dark" : "light";
 
     document.documentElement.setAttribute("data-theme", theme);
@@ -24,10 +22,7 @@
     // Update meta theme color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute(
-        "content",
-        prefersDark ? "#0a0a0a" : "#ffffff",
-      );
+      metaThemeColor.setAttribute("content", prefersDark ? "#0a0a0a" : "#ffffff");
     }
   }
 

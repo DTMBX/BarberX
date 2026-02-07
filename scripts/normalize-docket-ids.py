@@ -39,7 +39,7 @@ class Colors:
     BOLD = "\033[1m"
 
 
-def normalize_id(entry_id: str, entry_date: str) -> Tuple[str, bool]:
+def normalize_id(entry_id: str, entry_date: str) -> tuple[str, bool]:
     """
     Normalize an entry ID to YYYYMMDD-slug format.
     Returns (normalized_id, was_changed)
@@ -120,7 +120,7 @@ def process_docket_file(filepath: Path, dry_run: bool = False) -> dict:
     result = {"file": filepath.name, "case_id": filepath.stem, "changes": [], "errors": []}
 
     try:
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             content = f.read()
             entries = yaml.safe_load(content)
     except Exception as e:

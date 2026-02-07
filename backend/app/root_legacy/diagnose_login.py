@@ -33,7 +33,7 @@ def test_database_path():
         print(f"Database path: {db_path}")
 
         if os.path.exists(db_path):
-            print(f"✅ Database file exists")
+            print("✅ Database file exists")
             print(f"   Size: {os.path.getsize(db_path)} bytes")
         else:
             print(f"❌ Database file NOT found at: {db_path}")
@@ -58,7 +58,7 @@ def test_admin_user():
     print("=" * 70)
 
     from app import app
-    from models_auth import User, db
+    from models_auth import User
 
     with app.app_context():
         try:
@@ -106,7 +106,7 @@ def test_password_verification():
     print(f"✅ Environment variable set: {password[:10]}...")
 
     from app import app
-    from models_auth import User, db
+    from models_auth import User
 
     with app.app_context():
         admin = User.query.filter_by(email="admin@Evident.info").first()
@@ -163,7 +163,7 @@ def test_login_route():
         print(f"POST /auth/login: Status {response.status_code}")
 
         if response.status_code == 302:
-            print(f"✅ Redirect (login processed)")
+            print("✅ Redirect (login processed)")
             print(f"   Location: {response.location}")
         elif response.status_code == 200:
             print("⚠️  No redirect (check if login failed)")
@@ -268,5 +268,3 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-
-

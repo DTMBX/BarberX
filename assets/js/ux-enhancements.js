@@ -267,9 +267,7 @@
           Toast.error("Please fix the errors in the form");
 
           // Focus first error
-          const firstError = form.querySelector(
-            ".has-error input, .has-error textarea",
-          );
+          const firstError = form.querySelector(".has-error input, .has-error textarea");
           if (firstError) {
             firstError.focus();
           }
@@ -279,8 +277,7 @@
   }
 
   function validateField(input, field) {
-    const errorEl =
-      field.querySelector(".form-error") || createErrorElement(field);
+    const errorEl = field.querySelector(".form-error") || createErrorElement(field);
     let isValid = true;
     let message = "";
 
@@ -313,8 +310,7 @@
       const pattern = new RegExp(input.getAttribute("pattern"));
       if (!pattern.test(input.value)) {
         isValid = false;
-        message =
-          input.getAttribute("data-pattern-message") || "Invalid format";
+        message = input.getAttribute("data-pattern-message") || "Invalid format";
       }
     }
 
@@ -372,8 +368,7 @@
       e.preventDefault();
 
       const headerOffset = 80;
-      const targetPosition =
-        target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: targetPosition,
@@ -408,11 +403,9 @@
         });
       });
 
-      document
-        .querySelectorAll("img[data-src], img[data-srcset]")
-        .forEach((img) => {
-          imageObserver.observe(img);
-        });
+      document.querySelectorAll("img[data-src], img[data-srcset]").forEach((img) => {
+        imageObserver.observe(img);
+      });
     }
   }
 

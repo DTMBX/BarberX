@@ -132,7 +132,8 @@ crontab -e
 3. Trigger: Daily at 3:00 AM
 4. Action: Start a program
 5. Program: `python`
-6. Arguments: `-c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"`
+6. Arguments:
+   `-c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"`
 7. Start in: `C:\path\to\Evident`
 
 **Or skip for now** - manual cleanup works for testing

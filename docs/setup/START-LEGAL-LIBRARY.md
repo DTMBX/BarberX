@@ -163,7 +163,8 @@ python -c "from legal_library import LegalDocument; print(LegalDocument.query.co
 
 **You're 95% done!**
 
-Just add the CourtListener API key to Render and you'll have a professional legal research library powering your Evident platform.
+Just add the CourtListener API key to Render and you'll have a professional
+legal research library powering your Evident platform.
 
 **Time remaining:** 10 minutes  
 **Cost:** $0 (free tier)  

@@ -10,7 +10,6 @@ Tests real BWC footage analysis with Devon T. Barber case files
 import json
 import os
 import sys
-from datetime import datetime
 from pathlib import Path
 
 # Add project root to path
@@ -67,7 +66,7 @@ for i, file in enumerate(bwc_files, 1):
     print(f"    Size: {size_mb:,.1f} MB")
     print()
 
-print(f"?? Total footage: {total_size:,.1f} MB ({total_size/1024:.2f} GB)")
+print(f"?? Total footage: {total_size:,.1f} MB ({total_size / 1024:.2f} GB)")
 print(f"?? Total files: {len(bwc_files)}")
 
 # Group by officer
@@ -79,7 +78,7 @@ for file in bwc_files:
         officers[officer] = []
     officers[officer].append(file)
 
-print(f"\n?? Officers with BWC footage:")
+print("\n?? Officers with BWC footage:")
 print("-" * 60)
 for officer, files in sorted(officers.items()):
     total_officer_size = sum(f.stat().st_size / (1024 * 1024) for f in files)
@@ -97,13 +96,14 @@ if ANALYZER_AVAILABLE and bwc_files:
 
     print(f"\n?? Analyzing: {smallest_file.name}")
     print(f"   Size: {size_mb:.1f} MB")
-    print(f"   This may take 2-5 minutes...\n")
+    print("   This may take 2-5 minutes...\n")
 
     try:
         # Initialize analyzer
         print("?? Initializing BWC Analyzer...")
         analyzer = BWCForensicAnalyzer(
-            whisper_model_size="tiny", hf_token=os.getenv("HUGGINGFACE_TOKEN")  # Use tiny for speed
+            whisper_model_size="tiny",
+            hf_token=os.getenv("HUGGINGFACE_TOKEN"),  # Use tiny for speed
         )
 
         # Establish chain of custody
@@ -140,24 +140,24 @@ if ANALYZER_AVAILABLE and bwc_files:
 
         summary = report.generate_summary()
 
-        print(f"\n?? Audio Transcription:")
+        print("\n?? Audio Transcription:")
         print(f"   Total speakers: {summary['total_speakers']}")
         print(f"   Total segments: {summary['total_segments']}")
         print(f"   Total words: {summary['total_words']}")
 
         if report.transcript:
-            print(f"\n?? First 5 transcript segments:")
+            print("\n?? First 5 transcript segments:")
             for i, segment in enumerate(report.transcript[:5], 1):
                 speaker = segment.speaker_label or segment.speaker or "Unknown"
                 print(f"   {i}. [{segment.start_time:.1f}s] {speaker}: {segment.text[:80]}...")
 
         if report.speakers:
-            print(f"\n?? Identified speakers:")
+            print("\n?? Identified speakers:")
             for speaker_id, label in report.speakers.items():
                 print(f"   - {speaker_id}: {label}")
 
         if report.entities:
-            print(f"\n?? Entities found:")
+            print("\n?? Entities found:")
             for entity_type, values in report.entities.items():
                 print(f"   - {entity_type}: {len(values)} found")
                 if values:
@@ -202,7 +202,6 @@ print("=" * 60)
 print(f"BWC Videos: {len(bwc_files)}")
 print(f"Officers: {len(officers)}")
 print(f"PDFs: {len(pdf_files)}")
-print(f"Total BWC Size: {total_size:,.1f} MB ({total_size/1024:.2f} GB)")
+print(f"Total BWC Size: {total_size:,.1f} MB ({total_size / 1024:.2f} GB)")
 print("\n? Discovery files ready for analysis!")
 print("=" * 60)
-

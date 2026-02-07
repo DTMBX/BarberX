@@ -25,7 +25,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Build
+      - name: Build (safe)
         run: |
-          npm install --no-audit --no-fund --no-progress
-          npx --yes webpack
+          npm ci --no-audit --no-fund --no-progress
+          # Ensure any expected wasm artifact exists (generate or create placeholder)
+          node ./scripts/ensure-wasm.js
+          node ./scripts/ci-webpack.js

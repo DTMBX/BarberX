@@ -17,10 +17,9 @@ def run_migration():
     """Run the migration"""
     try:
         # Import after path is set
-        from sqlalchemy import inspect
-
         from app import app, db
         from models_auth import User
+        from sqlalchemy import inspect
 
         with app.app_context():
             try:

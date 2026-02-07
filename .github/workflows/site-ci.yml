@@ -1,0 +1,113 @@
+name: Site CI
+
+on:
+  push:
+    branches: [ main, chore/repo-layout ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+      - name: Build site
+        run: npm run build
+      - name: Verify build output
+        run: |
+          if [ -f _site/index.html ]; then echo "_site/index.html exists"; else echo "Build missing _site/index.html"; exit 1; fi
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: _site/**
+          retention-days: 7
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: build-and-lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build site (for LHCI)
+        run: npm run build
+      - name: Start static server
+        run: npx http-server _site -p 8080 --silent &
+      - name: Run LHCI
+        run: npx --yes @lhci/cli autorun --config=.lighthouserc.json
+      - name: Upload LHCI results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lhci-results
+          path: lhci/**
+          retention-days: 30
+      - name: Generate LHCI summary
+        run: |
+          node ./scripts/parse-lhci.js
+      - name: Post LHCI summary to PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const compactPath = 'lhci/lhci-compact.json';
+            const summaryPath = 'lhci/lhci-summary.json';
+            if (!fs.existsSync(compactPath) || !fs.existsSync(summaryPath)) {
+              console.log('No LHCI summary/compact files found to post.');
+              return;
+            }
+            const compact = JSON.parse(fs.readFileSync(compactPath, 'utf8'));
+            const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+            function fmt(n){ return (Math.round((n||0)*100)).toString() + '%'; }
+            function emojiFor(status){ if(status==='pass') return '✅'; if(status==='warn') return '⚠️'; if(status==='fail') return '❌'; return 'ℹ️'; }
+
+            let body = '## LHCI Summary\n\n';
+            body += '| Category | Score | Status |\n|---:|---:|---:|\n';
+            for (const cat of Object.keys(compact.averages||{})){
+              const score = compact.averages[cat];
+              const status = compact.status && compact.status[cat] ? compact.status[cat] : 'unknown';
+              body += `| ${cat.replace(/-/g,' ')} | ${fmt(score)} | ${emojiFor(status)} ${status.toUpperCase()} |\n`;
+            }
+            body += '\n**Details**\n\n';
+            if (Array.isArray(summary.details)) {
+              for (const d of summary.details.slice(0,10)) {
+                body += `- **${d.file}**: `;
+                const parts = [];
+                for (const k of Object.keys(d.scores||{})) parts.push(`${k}=${fmt(d.scores[k])}`);
+                body += parts.join(', ') + '\n';
+              }
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            let prNumber = undefined;
+            if (context.payload.pull_request && context.payload.pull_request.number) {
+              prNumber = context.payload.pull_request.number;
+            } else {
+              const branch = process.env.GITHUB_REF ? process.env.GITHUB_REF.replace('refs/heads/','') : undefined;
+              if (branch) {
+                const list = await github.rest.pulls.list({ owner, repo, state: 'open' });
+                const found = list.data.find(p => p.head && p.head.ref === branch);
+                if (found) prNumber = found.number;
+              }
+            }
+
+            if (!prNumber) {
+              console.log('No open PR found for branch; skipping PR comment.');
+              return;
+            }
+
+            await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });

@@ -83,11 +83,13 @@ curl "http://localhost:5000/api/legal-library/search?q=miranda+rights"
 
 ### ChatGPT Assistant
 
-When users ask legal questions, ChatGPT can now search YOUR library and cite cases you've imported.
+When users ask legal questions, ChatGPT can now search YOUR library and cite
+cases you've imported.
 
 ### Document Optimizer
 
-Auto-suggests relevant citations from your library when optimizing legal documents.
+Auto-suggests relevant citations from your library when optimizing legal
+documents.
 
 ### Violation Finder
 

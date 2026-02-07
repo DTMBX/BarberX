@@ -8,7 +8,8 @@
 
 ## 🎯 MISSION
 
-Transform Evident Legal Technologies from prototype to **enterprise-grade professional platform** by:
+Transform Evident Legal Technologies from prototype to **enterprise-grade
+professional platform** by:
 
 1. **Eliminating security vulnerabilities**
 2. **Modernizing code architecture**

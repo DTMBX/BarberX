@@ -10,7 +10,8 @@
 ### 1. CourtListener API Integration Added
 
 - ✅ Modified `verified_legal_sources.py` to call CourtListener API
-- ✅ Implemented actual HTTP requests to `https://www.courtlistener.com/api/rest/v3/search/`
+- ✅ Implemented actual HTTP requests to
+  `https://www.courtlistener.com/api/rest/v3/search/`
 - ✅ Added error handling and timeout logic
 - ✅ Verification now checks both CourtListener API and local database
 
@@ -25,7 +26,8 @@
 
 - ✅ Modified overnight builder to attempt import even if verification fails
 - ✅ Added better logging for verification steps
-- ✅ System now tries direct import with warning instead of rejecting immediately
+- ✅ System now tries direct import with warning instead of rejecting
+  immediately
 
 --
 
@@ -41,7 +43,8 @@ Response: {"detail":"Anonymous users don't have permission to access the API."}
 ```
 
 **Root Cause:**  
-The CourtListener REST API requires an API key or authentication token. Anonymous access is blocked.
+The CourtListener REST API requires an API key or authentication token.
+Anonymous access is blocked.
 
 **Impact:**
 
@@ -223,7 +226,8 @@ python batch_upload_handler.py -folder ./cases
 2. Add one line of code (1 min)
 3. Run import script (5 min)
 
-**Result:** 27 verified Supreme Court cases in your legal library, ready to power ChatGPT integration, document optimization, and violation finding.
+**Result:** 27 verified Supreme Court cases in your legal library, ready to
+power ChatGPT integration, document optimization, and violation finding.
 
 --
 

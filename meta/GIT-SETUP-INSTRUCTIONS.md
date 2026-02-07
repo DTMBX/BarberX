@@ -11,7 +11,8 @@ Your local repository has been successfully prepared with:
 - ✅ All sensitive files excluded from version control
 - ✅ No API keys, secrets, or credentials in commit
 
-**Latest Commit**: `d6b74e1b - feat: Add comprehensive multi-platform framework with security`
+**Latest Commit**:
+`d6b74e1b - feat: Add comprehensive multi-platform framework with security`
 
 ---
 
@@ -44,7 +45,8 @@ Your local repository has been successfully prepared with:
 1. **Go to GitHub**: https://github.com/new
 2. **Repository Name**: `Evident.info` (or your preferred name)
 3. **Visibility**: Choose Private or Public
-4. **DO NOT** initialize with README, .gitignore, or license (we already have these)
+4. **DO NOT** initialize with README, .gitignore, or license (we already have
+   these)
 5. **Click "Create repository"**
 
 6. **Copy the repository URL** (will look like):

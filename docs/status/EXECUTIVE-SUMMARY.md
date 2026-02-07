@@ -200,7 +200,9 @@ def export_pdf(analysis_id):
 
 - 📊 This document (executive summary)
 - 📋 [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md) - Critical blockers section
-- ✅ [COPYRIGHT-IMPLEMENTATION-SUMMARY.md](COPYRIGHT-IMPLEMENTATION-SUMMARY.md) - Full deliverable list
+- ✅
+  [COPYRIGHT-IMPLEMENTATION-SUMMARY.md](COPYRIGHT-IMPLEMENTATION-SUMMARY.md) -
+  Full deliverable list
 
 --
 

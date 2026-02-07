@@ -60,7 +60,7 @@ def test_admin_user():
     print("=" * 70)
 
     from app import app
-    from models_auth import User, db
+    from models_auth import User
 
     with app.app_context():
         try:
@@ -108,7 +108,7 @@ def test_password_verification():
     print(f"✅ Environment variable set: {password[:10]}...")
 
     from app import app
-    from models_auth import User, db
+    from models_auth import User
 
     with app.app_context():
         admin = User.query.filter_by(email=ADMIN_EMAIL).first()
@@ -275,4 +275,3 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-

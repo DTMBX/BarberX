@@ -166,17 +166,14 @@ const uploadResponse = await fetch("https://Evident.info/api/v1/upload/pdf", {
 const { file_id } = await uploadResponse.json();
 
 // Start analysis
-const analysisResponse = await fetch(
-  "https://Evident.info/api/v1/analysis/start",
-  {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ file_id, analysis_type: "full" }),
+const analysisResponse = await fetch("https://Evident.info/api/v1/analysis/start", {
+  method: "POST",
+  headers: {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
   },
-);
+  body: JSON.stringify({ file_id, analysis_type: "full" }),
+});
 const { analysis_id } = await analysisResponse.json();
 ```
 

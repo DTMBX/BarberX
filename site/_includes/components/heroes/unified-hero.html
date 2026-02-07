@@ -33,38 +33,10 @@
         <rect x="55" y="90" width="10" height="20" rx="3" fill="#2F5D9F" />
         <rect x="58" y="30" width="4" height="60" rx="2" fill="#2F5D9F" />
         <rect x="40" y="40" width="40" height="4" rx="2" fill="#2F5D9F" />
-        <line
-          x1="44"
-          y1="44"
-          x2="34"
-          y2="70"
-          stroke="#0B0D10"
-          stroke-width="2"
-        />
-        <line
-          x1="76"
-          y1="44"
-          x2="86"
-          y2="70"
-          stroke="#0B0D10"
-          stroke-width="2"
-        />
-        <ellipse
-          class="justice-pan-left"
-          cx="34"
-          cy="74"
-          rx="10"
-          ry="4"
-          fill="#E5E7EB"
-        />
-        <ellipse
-          class="justice-pan-right"
-          cx="86"
-          cy="74"
-          rx="10"
-          ry="4"
-          fill="#E5E7EB"
-        />
+        <line x1="44" y1="44" x2="34" y2="70" stroke="#0B0D10" stroke-width="2" />
+        <line x1="76" y1="44" x2="86" y2="70" stroke="#0B0D10" stroke-width="2" />
+        <ellipse class="justice-pan-left" cx="34" cy="74" rx="10" ry="4" fill="#E5E7EB" />
+        <ellipse class="justice-pan-right" cx="86" cy="74" rx="10" ry="4" fill="#E5E7EB" />
         <circle cx="60" cy="30" r="6" fill="#2F5D9F" />
       </svg>
     </div>
@@ -83,24 +55,13 @@
       </h1>
       <p
         class="hero-subtitle"
-        style="
-          font-size: 1.18rem;
-          color: var(--muted);
-          margin-bottom: 1.5em;
-          max-width: 32em;
-        "
+        style="font-size: 1.18rem; color: var(--muted); margin-bottom: 1.5em; max-width: 32em"
       >
         Evidence made legible. Truth made durable.<br />
-        Local-first, tamper-evident hashing, chain-of-custody, audit log, export
-        manifests.
+        Local-first, tamper-evident hashing, chain-of-custody, audit log, export manifests.
       </p>
-      <div
-        class="hero-actions"
-        style="display: flex; gap: 1em; flex-wrap: wrap"
-      >
-        <a
-          href="{{ page.cta_primary_url | default: '/register' }}"
-          class="btn btn-primary btn-lg"
+      <div class="hero-actions" style="display: flex; gap: 1em; flex-wrap: wrap">
+        <a href="{{ page.cta_primary_url | default: '/register' }}" class="btn btn-primary btn-lg"
           >{{ page.cta_primary | default: "Get Started Free" }}</a
         >
         <a

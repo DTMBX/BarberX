@@ -58,7 +58,7 @@ def migrate_add_role_column():
         )
 
         if cursor.rowcount > 0:
-            print(f"✅ Updated admin user with role='admin'")
+            print("✅ Updated admin user with role='admin'")
 
         conn.commit()
 

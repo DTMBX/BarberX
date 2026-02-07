@@ -134,40 +134,38 @@
 
 ### Homepage Hero - Make Honest
 
-**CURRENT:**
-"Professional-grade case law, citation analysis, and AI-powered research—at 1/10th the cost of Westlaw"
+**CURRENT:** "Professional-grade case law, citation analysis, and AI-powered
+research—at 1/10th the cost of Westlaw"
 
-**BETTER:**
-"Affordable Legal Research Powered by CourtListener. Access 10M+ federal opinions with AI-assisted analysis. Built for solo practitioners, legal aid, and public defenders."
+**BETTER:** "Affordable Legal Research Powered by CourtListener. Access 10M+
+federal opinions with AI-assisted analysis. Built for solo practitioners, legal
+aid, and public defenders."
 
 ### Mission Page - Ground in Reality
 
-**CURRENT:**
-"Evident provides research-grade tools at 1/10th the cost"
+**CURRENT:** "Evident provides research-grade tools at 1/10th the cost"
 
-**BETTER:**
-"Evident is building affordable legal research tools by integrating CourtListener's free legal data with AI, mobile apps, and professional support. We're in early beta."
+**BETTER:** "Evident is building affordable legal research tools by integrating
+CourtListener's free legal data with AI, mobile apps, and professional support.
+We're in early beta."
 
 ### Pricing Comparison - Add Context
 
-**CURRENT:**
-"Westlaw: $2,000/month"
+**CURRENT:** "Westlaw: $2,000/month"
 
-**BETTER:**
-"Westlaw Enterprise: $1,500-2,500/month | Entry-level: $500-800/month"
+**BETTER:** "Westlaw Enterprise: $1,500-2,500/month | Entry-level:
+$500-800/month"
 
-Add disclaimer:
-"Evident is in beta. Our Professional tier ($50/month) targets entry-level features. Enterprise features coming 2026-2027."
+Add disclaimer: "Evident is in beta. Our Professional tier ($50/month) targets
+entry-level features. Enterprise features coming 2026-2027."
 
 ### Timeline - Reframe as Roadmap
 
-**CURRENT:**
-"TODAY: Shepardizing functional, Judge intelligence operational"
+**CURRENT:** "TODAY: Shepardizing functional, Judge intelligence operational"
 
-**BETTER:**
-"TODAY (Jan 2026): Beta launch with case upload, AI analysis, CourtListener integration"
-"Q1 2026: Shepardizing UI, citation analysis dashboard"
-"Q2 2026: Judge intelligence interface, advanced search"
+**BETTER:** "TODAY (Jan 2026): Beta launch with case upload, AI analysis,
+CourtListener integration" "Q1 2026: Shepardizing UI, citation analysis
+dashboard" "Q2 2026: Judge intelligence interface, advanced search"
 
 --
 
@@ -230,8 +228,9 @@ Add disclaimer:
 - ✅ Add value (AI, mobile, support), not just repackage
 - ⏳ Donate 2-5% of revenue to Free Law Project
 
-**Our Positioning:**
-"Evident brings CourtListener's exceptional legal data to mobile devices with AI-powered research tools and professional support. The data is always free at CourtListener.com—we charge for our added value."
+**Our Positioning:** "Evident brings CourtListener's exceptional legal data to
+mobile devices with AI-powered research tools and professional support. The data
+is always free at CourtListener.com—we charge for our added value."
 
 --
 

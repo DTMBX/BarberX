@@ -317,7 +317,8 @@ Always build the API endpoint first, then consume it from all platforms.
 
 ### 2. Shared Models
 
-Keep data models synchronized across platforms. Consider code generation from OpenAPI spec.
+Keep data models synchronized across platforms. Consider code generation from
+OpenAPI spec.
 
 ### 3. Consistent Branding
 

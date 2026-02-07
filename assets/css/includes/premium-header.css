@@ -34,11 +34,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgb(212 165 116 / 3%) 0%,
-    transparent 100%
-  );
+  background: linear-gradient(180deg, rgb(212 165 116 / 3%) 0%, transparent 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -207,11 +203,7 @@
 
 /* Highlight link */
 .premium-nav-link-highlight {
-  background: linear-gradient(
-    135deg,
-    rgb(212 165 116 / 15%) 0%,
-    rgb(212 165 116 / 8%) 100%
-  );
+  background: linear-gradient(135deg, rgb(212 165 116 / 15%) 0%, rgb(212 165 116 / 8%) 100%);
   border: 1px solid rgb(212 165 116 / 25%);
   color: var(--accent-brass, #d4a574);
   font-weight: 600;
@@ -380,11 +372,7 @@
 
 .premium-nav-mobile .premium-nav-link-highlight {
   margin-top: 0.5rem;
-  background: linear-gradient(
-    135deg,
-    rgb(212 165 116 / 20%) 0%,
-    rgb(212 165 116 / 12%) 100%
-  );
+  background: linear-gradient(135deg, rgb(212 165 116 / 20%) 0%, rgb(212 165 116 / 12%) 100%);
 }
 
 /* Overlay for mobile nav */

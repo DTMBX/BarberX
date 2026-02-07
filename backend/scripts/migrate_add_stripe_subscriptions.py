@@ -9,7 +9,6 @@ Adds Stripe tracking fields to User model and updates UsageTracking
 from sqlalchemy import inspect
 
 from app import app, db
-from models_auth import UsageTracking, User
 
 
 def add_column_if_not_exists(table_name, column_name, column_type):
@@ -89,4 +88,3 @@ def migrate():
 
 if __name__ == "__main__":
     migrate()
-

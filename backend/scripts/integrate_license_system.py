@@ -26,7 +26,7 @@ def integrate_license_system():
         return False
 
     # Read current app.py
-    with open(app_py_path, "r", encoding="utf-8") as f:
+    with open(app_py_path, encoding="utf-8") as f:
         content = f.read()
 
     # Check if already integrated
@@ -328,4 +328,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -73,9 +73,7 @@
       }
 
       // Try fetching from embedded script
-      const scriptEl = this.container.querySelector(
-        'script[type="application/json"]',
-      );
+      const scriptEl = this.container.querySelector('script[type="application/json"]');
       if (scriptEl) {
         try {
           this.data = JSON.parse(scriptEl.textContent);
@@ -97,15 +95,11 @@
       this.typeFilter = this.container.querySelector('[data-filter="type"]');
       this.yearFilter = this.container.querySelector('[data-filter="year"]');
       this.sortSelect = this.container.querySelector('[data-filter="sort"]');
-      this.gridContainer = this.container.querySelector(
-        ".docket-nav-grid, .docket-nav-list",
-      );
+      this.gridContainer = this.container.querySelector(".docket-nav-grid, .docket-nav-list");
       this.viewToggle = this.container.querySelector(".docket-view-toggle");
       this.clearBtn = this.container.querySelector(".docket-clear-filters");
       this.statTotal = this.container.querySelector('[data-stat="total"]');
-      this.statFiltered = this.container.querySelector(
-        '[data-stat="filtered"]',
-      );
+      this.statFiltered = this.container.querySelector('[data-stat="filtered"]');
       this.chips = this.container.querySelectorAll(".docket-chip[data-type]");
     }
 
@@ -120,7 +114,7 @@
           this.debounce(() => {
             this.filters.search = this.searchInput.value.trim().toLowerCase();
             this.applyFilters();
-          }, 200),
+          }, 200)
         );
 
         this.searchInput.addEventListener("keydown", (e) => {
@@ -199,11 +193,7 @@
       this.filtered = this.data.filter((item) => {
         // Search filter
         if (this.filters.search) {
-          const searchable = [
-            item.title || "",
-            item.notes || "",
-            item.type || "",
-          ]
+          const searchable = [item.title || "", item.notes || "", item.type || ""]
             .join(" ")
             .toLowerCase();
           if (!searchable.includes(this.filters.search)) {
@@ -213,9 +203,7 @@
 
         // Type filter
         if (this.filters.type !== "all") {
-          if (
-            (item.type || "").toLowerCase() !== this.filters.type.toLowerCase()
-          ) {
+          if ((item.type || "").toLowerCase() !== this.filters.type.toLowerCase()) {
             return false;
           }
         }
@@ -253,14 +241,10 @@
           this.filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
           break;
         case "title":
-          this.filtered.sort((a, b) =>
-            (a.title || "").localeCompare(b.title || ""),
-          );
+          this.filtered.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
           break;
         case "type":
-          this.filtered.sort((a, b) =>
-            (a.type || "").localeCompare(b.type || ""),
-          );
+          this.filtered.sort((a, b) => (a.type || "").localeCompare(b.type || ""));
           break;
       }
     }
@@ -281,8 +265,7 @@
       this.gridContainer.innerHTML = html;
 
       // Update container class for view
-      this.gridContainer.className =
-        this.view === "list" ? "docket-nav-list" : "docket-nav-grid";
+      this.gridContainer.className = this.view === "list" ? "docket-nav-list" : "docket-nav-grid";
     }
 
     /**
@@ -320,7 +303,7 @@
             </button>
           </div>
         </article>
-      `,
+      `
         )
         .join("");
     }
@@ -350,7 +333,7 @@
               : ""
           }
         </article>
-      `,
+      `
         )
         .join("");
     }
@@ -360,9 +343,7 @@
      */
     renderEmpty() {
       const hasFilters =
-        this.filters.search ||
-        this.filters.type !== "all" ||
-        this.filters.year !== "all";
+        this.filters.search || this.filters.type !== "all" || this.filters.year !== "all";
 
       return `
         <div class="docket-empty">
@@ -447,8 +428,7 @@
       if (this.filters.search) params.set("q", this.filters.search);
       if (this.filters.type !== "all") params.set("type", this.filters.type);
       if (this.filters.year !== "all") params.set("year", this.filters.year);
-      if (this.filters.sort !== "date-desc")
-        params.set("sort", this.filters.sort);
+      if (this.filters.sort !== "date-desc") params.set("sort", this.filters.sort);
       if (this.view !== "grid") params.set("view", this.view);
 
       const newUrl = params.toString()

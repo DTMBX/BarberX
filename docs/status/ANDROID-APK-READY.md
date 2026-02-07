@@ -156,7 +156,8 @@ After installing, test these features:
 1. **iOS not included** - This is Android-only. iOS requires Mac to build.
 2. **First launch may be slow** - .NET MAUI apps take 3-5 seconds on first run
 3. **Large file size** - MAUI apps are 50-60 MB (includes full .NET runtime)
-4. **Nullability warnings** - 109 compiler warnings (safe to ignore, cosmetic only)
+4. **Nullability warnings** - 109 compiler warnings (safe to ignore, cosmetic
+   only)
 
 --
 
@@ -228,7 +229,8 @@ While you test Android, here's the iOS path:
 - `BUILD-SUCCESS.md` - MAUI integration complete
 - `IOS-TESTING-COMPLETE-GUIDE.md` - Full iOS deployment guide
 - `GET-ON-IPHONE-NOW.md` - iOS options and workarounds
-- `LEGAL-AI-TOOLS.md` - 15 legal-assistant tools documented (informational; not a substitute for counsel)
+- `LEGAL-AI-TOOLS.md` - 15 legal-assistant tools documented (informational; not
+  a substitute for counsel)
 - `CHATGPT-QUICK-START.md` - How to use ChatGPT features
 - `PROFILE-SETUP-GUIDE.md` - PowerShell developer tools
 

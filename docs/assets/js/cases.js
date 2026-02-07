@@ -32,10 +32,7 @@ function render(query) {
   const rows = data
     .map((item) => {
       const text = item.text || item.snippet || "";
-      const s = scoreMatch(
-        q,
-        `${item.title}\n${item.caseId}\n${item.tags?.join(" ")}\n${text}`,
-      );
+      const s = scoreMatch(q, `${item.title}\n${item.caseId}\n${item.tags?.join(" ")}\n${text}`);
       return { item, s };
     })
     .filter((x) => (q ? x.s > 0 : true))
@@ -51,9 +48,7 @@ function render(query) {
       const tags = (item.tags || []).slice(0, 6);
       const ocr = item.ocrNeeded ? `<span class="badge">OCR needed</span>` : "";
       const ok = item.ok ? "" : `<span class="badge">Index error</span>`;
-      const err = item.error
-        ? `<div class="snip">Index error: ${item.error}</div>`
-        : "";
+      const err = item.error ? `<div class="snip">Index error: ${item.error}</div>` : "";
       return `
       <div class="card">
         <h3>${escapeHtml(item.title || item.caseId || "Untitled")}</h3>
@@ -85,7 +80,7 @@ function escapeHtml(s) {
         ">": "&gt;",
         '"': "&quot;",
         "'": "&#039;",
-      })[c],
+      })[c]
   );
 }
 

@@ -18,13 +18,16 @@ from flask import Blueprint, jsonify, request
 
 # Import reasoning engines
 try:
-    from Evident_reasoning_core import (BurdenAwareBayesianInference,
-                                        EvidencePipeline, LegalStateLattice,
-                                        NarrativeDriftDetector,
-                                        OptimalTransportMatcher,
-                                        OriginalityAnalyzer,
-                                        SpectralPrecedentGraph,
-                                        TemporalLogicVerifier)
+    from Evident_reasoning_core import (
+        BurdenAwareBayesianInference,
+        EvidencePipeline,
+        LegalStateLattice,
+        NarrativeDriftDetector,
+        OptimalTransportMatcher,
+        OriginalityAnalyzer,
+        SpectralPrecedentGraph,
+        TemporalLogicVerifier,
+    )
 
     REASONING_AVAILABLE = True
 except ImportError as e:
@@ -466,4 +469,3 @@ def not_found(error):
 @reasoning_bp.errorhandler(500)
 def internal_error(error):
     return jsonify({"error": "Internal server error"}), 500
-

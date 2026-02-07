@@ -55,7 +55,8 @@ New dropdown menu items:
 - 🤖 **AI Tools** → `/LOCAL-AI-GUIDE.html`
 - 🎥 **BWC Analysis** → `/BWC-ANALYSIS-GUIDE.html`
 
-**Removed:** Old tool links (docket search, document analysis, deadline calculator)  
+**Removed:** Old tool links (docket search, document analysis, deadline
+calculator)  
 **Added:** Direct links to admin panel and platform features
 
 --

@@ -16,7 +16,8 @@
 
 **Problem**: `premium-header.js` is not being loaded on pages
 
-- The mobile nav toggle button exists in HTML but has no JavaScript functionality
+- The mobile nav toggle button exists in HTML but has no JavaScript
+  functionality
 - Users on mobile/tablet cannot access the navigation menu
 - The hamburger button does nothing when clicked
 
@@ -127,10 +128,7 @@ But the actual file is named **`premium-header.js`**, not `premium-nav.js`!
 **To this:**
 
 ```html
-<script
-  src="{{ '/assets/js/premium-header.js' | relative_url }}"
-  defer
-></script>
+<script src="{{ '/assets/js/premium-header.js' | relative_url }}" defer></script>
 ```
 
 ---
@@ -225,6 +223,4 @@ python app.py
 
 ---
 
-**Status**: READY TO FIX
-**Priority**: CRITICAL
-**Est. Time**: 5 minutes
+**Status**: READY TO FIX **Priority**: CRITICAL **Est. Time**: 5 minutes

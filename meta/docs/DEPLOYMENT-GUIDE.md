@@ -336,7 +336,8 @@ jobs:
         run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
 
       - name: Build Android
-        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-android -c Release
+        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f
+          net10.0-android -c Release
 
       - name: Sign APK
         if: github.ref == 'refs/heads/main'
@@ -371,11 +372,13 @@ jobs:
             ~/Library/MobileDevice/Provisioning\ Profiles/Evident.mobileprovision
 
       - name: Build iOS
-        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release
+        run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios
+          -c Release
 
       - name: Archive
         if: github.ref == 'refs/heads/main'
-        run: dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release -p:ArchiveOnBuild=true
+        run: dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios
+          -c Release -p:ArchiveOnBuild=true
 
       - name: Upload IPA
         uses: actions/upload-artifact@v3
@@ -450,7 +453,8 @@ jobs:
         run: dotnet test
 
       - name: Publish
-        run: dotnet publish src/Evident.Web/Evident.Web.csproj -c Release -o ./publish
+        run: dotnet publish src/Evident.Web/Evident.Web.csproj -c Release -o
+          ./publish
 
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2

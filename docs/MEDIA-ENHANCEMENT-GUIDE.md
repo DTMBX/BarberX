@@ -2,11 +2,14 @@
 
 ## 🎯 Overview
 
-The Media Enhancement Service provides enhanced audio, video, and image processing with detailed audit trails to support legal review, while **ALWAYS preserving original evidence** in the immutable vault.
+The Media Enhancement Service provides enhanced audio, video, and image
+processing with detailed audit trails to support legal review, while **ALWAYS
+preserving original evidence** in the immutable vault.
 
 **Key Principle: ORIGINALS ARE NEVER MODIFIED**
 
-Every enhancement creates a new derivative file with complete processing documentation, SHA-256 hashes, and quality metrics.
+Every enhancement creates a new derivative file with complete processing
+documentation, SHA-256 hashes, and quality metrics.
 
 --
 
@@ -37,10 +40,12 @@ Enhanced File (output): Separate directory, marked as derivative
 
 ### Capabilities
 
-- **Noise Reduction**: Remove background noise (traffic, wind, radio static, engine hum, HVAC)
+- **Noise Reduction**: Remove background noise (traffic, wind, radio static,
+  engine hum, HVAC)
 - **Normalization**: Balance volume levels to -20 dBFS target
 - **Voice Enhancement**: Boost speech frequencies (85 Hz - 8 kHz)
-- **Speaker Isolation**: Extract/enhance specific speaker from multi-person audio
+- **Speaker Isolation**: Extract/enhance specific speaker from multi-person
+  audio
 
 ### Noise Profiles
 
@@ -502,7 +507,8 @@ Settings: {
 }
 ```
 
-**This disclosure satisfies FRCP 26(a)(1) and Daubert requirements for court exhibits.**
+**This disclosure satisfies FRCP 26(a)(1) and Daubert requirements for court
+exhibits.**
 
 --
 
@@ -510,20 +516,17 @@ Settings: {
 
 ### DO
 
-✅ **Always preserve originals** in vault
-✅ **Disclose enhancements** in exhibit index
-✅ **Use Minimal/Moderate** for court exhibits
-✅ **Compare side-by-side** before/after
-✅ **Include processing settings** in discovery
-✅ **Provide expert testimony** if challenged
+✅ **Always preserve originals** in vault ✅ **Disclose enhancements** in
+exhibit index ✅ **Use Minimal/Moderate** for court exhibits ✅ **Compare
+side-by-side** before/after ✅ **Include processing settings** in discovery ✅
+**Provide expert testimony** if challenged
 
 ### DON'T
 
-❌ **Never use Aggressive** for court without disclosure
-❌ **Never claim enhanced = original**
-❌ **Never hide enhancement** from opposing counsel
-❌ **Never rely on AI upscaling** without expert validation
-❌ **Never delete original** after enhancement
+❌ **Never use Aggressive** for court without disclosure ❌ **Never claim
+enhanced = original** ❌ **Never hide enhancement** from opposing counsel ❌
+**Never rely on AI upscaling** without expert validation ❌ **Never delete
+original** after enhancement
 
 --
 
@@ -537,4 +540,5 @@ For questions about media enhancement:
 4. Consult with forensic audio/video expert if challenged
 5. Always provide original alongside enhanced version
 
-**Remember: When in doubt, use the original. Enhancement is for clarity, not to create evidence.**
+**Remember: When in doubt, use the original. Enhancement is for clarity, not to
+create evidence.**

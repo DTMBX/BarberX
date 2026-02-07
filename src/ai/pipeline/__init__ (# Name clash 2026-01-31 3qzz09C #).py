@@ -32,11 +32,21 @@ Usage:
     )
 """
 
-from .contracts import (AnalysisResult, CitationRecord, ExtractionMethod,
-                        ExtractResult, IndexResult, IngestResult,
-                        ManifestRecord, PageExtraction, Passage,
-                        RetrieveResult, SourceSystem, validate_citation,
-                        validate_passage)
+from .contracts import (
+    AnalysisResult,
+    CitationRecord,
+    ExtractionMethod,
+    ExtractResult,
+    IndexResult,
+    IngestResult,
+    ManifestRecord,
+    PageExtraction,
+    Passage,
+    RetrieveResult,
+    SourceSystem,
+    validate_citation,
+    validate_passage,
+)
 from .orchestrator import PipelineOrchestrator, get_orchestrator
 
 __all__ = [

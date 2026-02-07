@@ -59,7 +59,7 @@ class DarkMode {
     document.dispatchEvent(
       new CustomEvent("darkmodechange", {
         detail: { darkMode: isDark },
-      }),
+      })
     );
   }
 
@@ -99,10 +99,7 @@ class DarkMode {
       }
 
       // Otherwise, check system preference
-      return (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      );
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
     } catch (e) {
       return false;
     }
@@ -115,8 +112,7 @@ class DarkMode {
 
     mediaQuery.addEventListener("change", (e) => {
       // Only auto-switch if user hasn't manually set a preference
-      const hasManualPreference =
-        localStorage.getItem("evident-dark-mode") !== null;
+      const hasManualPreference = localStorage.getItem("evident-dark-mode") !== null;
 
       if (!hasManualPreference) {
         this.darkMode = e.matches;

@@ -1,0 +1,19 @@
+/* stylelint-disable value-keyword-case declaration-block-single-line-max-declarations */
+:root {
+  --color-primary: #0b5f73;
+  --color-accent: #e07a5f;
+  --color-neutral: #f6f7f9;
+  --font-sans:
+    "Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif";
+  --max-width: 1200px;
+  --spacing-base: 1rem;
+}
+
+/* Utility classes for legacy components */
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

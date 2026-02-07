@@ -2,7 +2,8 @@
 
 ## Known Vulnerabilities & Fixes
 
-Based on common CVEs and best practices, updating all dependencies to latest secure versions:
+Based on common CVEs and best practices, updating all dependencies to latest
+secure versions:
 
 ### Python Dependencies - Security Updates
 

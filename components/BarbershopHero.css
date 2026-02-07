@@ -13,8 +13,7 @@
 
   /* Typography */
   --font-sans:
-    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue",
-    arial, sans-serif;
+    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -255,11 +254,7 @@
 /* ===== Dark Mode Support ===== */
 @media (prefers-color-scheme: dark) {
   .evident-hero {
-    background: linear-gradient(
-      135deg,
-      var(--hero-bg-dark) 0%,
-      rgb(212 175 55 / 5%) 100%
-    );
+    background: linear-gradient(135deg, var(--hero-bg-dark) 0%, rgb(212 175 55 / 5%) 100%);
   }
 
   .hero-cta {

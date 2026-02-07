@@ -1,0 +1,30 @@
+{# SEO meta block converted from Jekyll include #}
+{%- set seo_title = page.title or site.title -%}
+{%- set seo_desc = page.description or site.description -%}
+{%- set seo_image = page.image or site.image -%}
+{%- set seo_type = page.og_type or 'website' -%}
+
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_desc | escape }}" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="{{ page.url or '/' }}" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ seo_type }}" />
+<meta property="og:site_name" content="{{ site.title or 'Evident Technologies' }}" />
+<meta property="og:title" content="{{ seo_title | escape }}" />
+<meta property="og:description" content="{{ seo_desc | escape }}" />
+<meta property="og:url" content="{{ page.url or '/' }}" />
+{% if seo_image %}
+<meta property="og:image" content="{{ seo_image }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{% endif %}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ seo_title | escape }}" />
+<meta name="twitter:description" content="{{ seo_desc | escape }}" />
+{% if seo_image %}
+<meta name="twitter:image" content="{{ seo_image }}" />
+{% endif %}

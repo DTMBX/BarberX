@@ -16,12 +16,15 @@ Provides endpoints for:
 import os
 from datetime import datetime
 
-from flask import Blueprint, jsonify, request, send_file
+from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 
-from legal_library import (Citation, CitationParser, DocumentAnnotation,
-                           LegalDocument, LegalLibraryService, LegalTopic)
-from models_auth import db
+from legal_library import (
+    CitationParser,
+    LegalDocument,
+    LegalLibraryService,
+    LegalTopic,
+)
 
 bp = Blueprint("legal_library", __name__, url_prefix="/api/legal-library")
 

@@ -8,7 +8,10 @@
 
 ## 🎯 Overview
 
-The Evident SDK Agents system provides **7 specialized GitHub Copilot agents** that accelerate development of the legal tech platform. Each agent is an expert in a specific domain, powered by Claude Sonnet 4.5, with deep knowledge of the Evident codebase.
+The Evident SDK Agents system provides **7 specialized GitHub Copilot agents**
+that accelerate development of the legal tech platform. Each agent is an expert
+in a specific domain, powered by Claude Sonnet 4.5, with deep knowledge of the
+Evident codebase.
 
 --
 
@@ -18,15 +21,20 @@ The Evident SDK Agents system provides **7 specialized GitHub Copilot agents** t
 
 - **Role:** Legal Compliance Expert
 - **Expertise:** Copyright compliance, data rights, OPRA, export validation
-- **Key Files:** `data_rights.py`, `models_data_rights.py`, `COPYRIGHT-QUICK-START.md`
-- **Critical For:** Preventing $150K copyright violations, attorney certification
+- **Key Files:** `data_rights.py`, `models_data_rights.py`,
+  `COPYRIGHT-QUICK-START.md`
+- **Critical For:** Preventing $150K copyright violations, attorney
+  certification
 
 ### 2. @bwc-forensics
 
 - **Role:** BWC Forensics Specialist
-- **Expertise:** Video analysis, AI transcription, chain of custody, timeline reconstruction
-- **Key Files:** `bwc_forensic_analyzer.py`, `bwc_web_app.py`, `BWC-ANALYSIS-GUIDE.md`
-- **Critical For:** Evidence preparation and forensic integrity; final admissibility is determined by courts and counsel.
+- **Expertise:** Video analysis, AI transcription, chain of custody, timeline
+  reconstruction
+- **Key Files:** `bwc_forensic_analyzer.py`, `bwc_web_app.py`,
+  `BWC-ANALYSIS-GUIDE.md`
+- **Critical For:** Evidence preparation and forensic integrity; final
+  admissibility is determined by courts and counsel.
 
 ### 3. @flask-backend
 
@@ -38,15 +46,18 @@ The Evident SDK Agents system provides **7 specialized GitHub Copilot agents** t
 ### 4. @frontend-dev
 
 - **Role:** Frontend Developer
-- **Expertise:** UI/UX, React components, responsive design, WCAG AA accessibility
-- **Key Files:** `index.html`, `assets/css/`, `components/`, `PROFESSIONAL-COMPONENTS-GUIDE.md`
+- **Expertise:** UI/UX, React components, responsive design, WCAG AA
+  accessibility
+- **Key Files:** `index.html`, `assets/css/`, `components/`,
+  `PROFESSIONAL-COMPONENTS-GUIDE.md`
 - **Critical For:** Attorney-friendly interfaces, mobile-first design
 
 ### 5. @database-architect
 
 - **Role:** Database Architect
 - **Expertise:** Schema design, migrations, query optimization, data integrity
-- **Key Files:** `models_auth.py`, `models_data_rights.py`, `add_missing_columns.py`
+- **Key Files:** `models_auth.py`, `models_data_rights.py`,
+  `add_missing_columns.py`
 - **Critical For:** Database schema, SQLite→PostgreSQL migration
 
 ### 6. @security-devops
@@ -187,7 +198,8 @@ Pass Rate: 100.0%
 @legal-compliance Review this export function for copyright violations
 ```
 
-**Agent Response:** Analyzes code, ensures 200-word limits, validates citation patterns, blocks proprietary content
+**Agent Response:** Analyzes code, ensures 200-word limits, validates citation
+patterns, blocks proprietary content
 
 ### BWC Forensics
 
@@ -195,7 +207,8 @@ Pass Rate: 100.0%
 @bwc-forensics Implement SHA-256 hashing for video file integrity
 ```
 
-**Agent Response:** Adds cryptographic hashing, stores in database, generates chain of custody report
+**Agent Response:** Adds cryptographic hashing, stores in database, generates
+chain of custody report
 
 ### Flask Backend
 
@@ -203,7 +216,8 @@ Pass Rate: 100.0%
 @flask-backend Add role-based access control to this API endpoint
 ```
 
-**Agent Response:** Implements @login_required + @role_required decorators, validates user permissions
+**Agent Response:** Implements @login_required + @role_required decorators,
+validates user permissions
 
 ### Frontend Dev
 
@@ -211,7 +225,8 @@ Pass Rate: 100.0%
 @frontend-dev Create responsive case list component with pagination
 ```
 
-**Agent Response:** Builds mobile-first React component with grid/list toggle, WCAG AA compliant
+**Agent Response:** Builds mobile-first React component with grid/list toggle,
+WCAG AA compliant
 
 ### Database Architect
 
@@ -219,7 +234,8 @@ Pass Rate: 100.0%
 @database-architect Design schema for multi-file BWC case management
 ```
 
-**Agent Response:** Creates normalized tables with foreign keys, indexes, cascade rules
+**Agent Response:** Creates normalized tables with foreign keys, indexes,
+cascade rules
 
 ### Security DevOps
 
@@ -227,7 +243,8 @@ Pass Rate: 100.0%
 @security-devops Configure SSL certificate for production deployment
 ```
 
-**Agent Response:** Sets up Let's Encrypt, nginx config, auto-renewal, SSL Labs A+ rating
+**Agent Response:** Sets up Let's Encrypt, nginx config, auto-renewal, SSL Labs
+A+ rating
 
 ### Documentation
 
@@ -235,7 +252,8 @@ Pass Rate: 100.0%
 @documentation Write 5-minute quick start guide for attorneys
 ```
 
-**Agent Response:** Creates step-by-step guide with screenshots, troubleshooting FAQ
+**Agent Response:** Creates step-by-step guide with screenshots, troubleshooting
+FAQ
 
 --
 
@@ -332,20 +350,25 @@ All agents use:
 
 ### For New Users
 
-1. **[AGENTS-QUICK-REF.md](AGENTS-QUICK-REF.md)** ← Start here (1-page cheat sheet)
+1. **[AGENTS-QUICK-REF.md](AGENTS-QUICK-REF.md)** ← Start here (1-page cheat
+   sheet)
 2. **[agents-cheat-sheet.html](agents-cheat-sheet.html)** ← Interactive web UI
-3. **[scripts/validate-agents.py](scripts/validate-agents.py)** ← Run to verify setup
+3. **[scripts/validate-agents.py](scripts/validate-agents.py)** ← Run to verify
+   setup
 
 ### For Deep Dive
 
 1. **[COPILOT-AGENTS-GUIDE.md](COPILOT-AGENTS-GUIDE.md)** ← Complete guide
-2. **[.github/copilot-agents.yml](.github/copilot-agents.yml)** ← Agent definitions
-3. **[scripts/agent-examples.json](scripts/agent-examples.json)** ← Example library
+2. **[.github/copilot-agents.yml](.github/copilot-agents.yml)** ← Agent
+   definitions
+3. **[scripts/agent-examples.json](scripts/agent-examples.json)** ← Example
+   library
 
 ### For Developers
 
 1. **[scripts/test-agents.py](scripts/test-agents.py)** ← Test suite
-2. **[scripts/demo-agent-workflows.py](scripts/demo-agent-workflows.py)** ← Demo workflows
+2. **[scripts/demo-agent-workflows.py](scripts/demo-agent-workflows.py)** ← Demo
+   workflows
 3. **[PROJECT-INDEX.md](PROJECT-INDEX.md)** ← Complete project index
 
 --
@@ -405,7 +428,8 @@ All agents use:
 
 --
 
-**🚀 Evident SDK Agents are fully operational and ready to accelerate development!**
+**🚀 Evident SDK Agents are fully operational and ready to accelerate
+development!**
 
 _Last Updated: January 23, 2026_  
 _Test Status: 21/21 PASSING (100%)_  

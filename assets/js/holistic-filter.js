@@ -44,7 +44,7 @@
           ">": "&gt;",
           '"': "&quot;",
           "'": "&#039;",
-        })[m],
+        })[m]
     );
   }
 
@@ -113,10 +113,7 @@
 
   function filterPlants() {
     return (data.plants || []).filter(
-      (p) =>
-        matchesZone(p, selected.zone) &&
-        matchesConditions(p) &&
-        matchesQuery(p),
+      (p) => matchesZone(p, selected.zone) && matchesConditions(p) && matchesQuery(p)
     );
   }
 
@@ -153,18 +150,13 @@
   function plantCard(p) {
     const tags = (p.tags || [])
       .map((t) => {
-        const label =
-          (data.conditions || []).find((c) => c.id === t)?.label || t;
+        const label = (data.conditions || []).find((c) => c.id === t)?.label || t;
         return `<span class="tag">${escapeHtml(label)}</span>`;
       })
       .join("");
 
-    const uses = (p.uses || [])
-      .map((u) => `<li>${escapeHtml(u)}</li>`)
-      .join("");
-    const cautions = (p.cautions || [])
-      .map((c) => `<li>${escapeHtml(c)}</li>`)
-      .join("");
+    const uses = (p.uses || []).map((u) => `<li>${escapeHtml(u)}</li>`).join("");
+    const cautions = (p.cautions || []).map((c) => `<li>${escapeHtml(c)}</li>`).join("");
 
     return `
       <article class="plant-card">
@@ -198,9 +190,7 @@
     resultsMeta.textContent =
       `${plants.length} plant(s) match` +
       (selected.zone ? ` • zone ${selected.zone}` : "") +
-      (selected.conditions.size
-        ? ` • ${selected.conditions.size} condition filter(s)`
-        : "") +
+      (selected.conditions.size ? ` • ${selected.conditions.size} condition filter(s)` : "") +
       (frostLine ? ` • ${frostLine}` : "");
 
     resultsGrid.innerHTML = plants.map(plantCard).join("");
@@ -227,9 +217,7 @@
 
   function getStateElements(mapRoot) {
     if (!mapRoot) return [];
-    return Array.from(
-      mapRoot.querySelectorAll("[data-state], .state, path[id]"),
-    );
+    return Array.from(mapRoot.querySelectorAll("[data-state], .state, path[id]"));
   }
 
   function getStateAbbr(el) {
@@ -282,7 +270,7 @@
     if (!selected.state) return;
 
     const sel = mapRoot.querySelector(
-      `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`,
+      `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`
     );
     if (sel) sel.classList.add("state-selected");
   }

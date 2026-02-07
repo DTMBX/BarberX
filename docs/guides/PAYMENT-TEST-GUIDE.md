@@ -261,7 +261,8 @@ Payment system is working correctly when:
 
 - **Stripe Test Cards:** https://stripe.com/docs/testing
 - **Stripe Dashboard:** https://dashboard.stripe.com/test/payments
-- **Render Logs:** https://dashboard.render.com/web/srv-cug5crbtq21c73dcuvcg/logs
+- **Render Logs:**
+  https://dashboard.render.com/web/srv-cug5crbtq21c73dcuvcg/logs
 - **Webhook Testing:** https://dashboard.stripe.com/test/webhooks
 
 --

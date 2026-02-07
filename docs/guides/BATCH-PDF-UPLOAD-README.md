@@ -2,14 +2,18 @@
 
 ## Overview
 
-The Batch PDF Upload feature allows users to upload multiple PDF files simultaneously through a drag-and-drop interface. This is useful for uploading case documents, legal briefs, motions, and other PDF files in bulk.
+The Batch PDF Upload feature allows users to upload multiple PDF files
+simultaneously through a drag-and-drop interface. This is useful for uploading
+case documents, legal briefs, motions, and other PDF files in bulk.
 
 ## Files Created
 
 ### 1. Frontend Pages
 
-- **`batch-pdf-upload.html`** - Main upload interface with drag-and-drop functionality
-- **`pdf-management.html`** - Admin/management interface to view and manage uploaded PDFs
+- **`batch-pdf-upload.html`** - Main upload interface with drag-and-drop
+  functionality
+- **`pdf-management.html`** - Admin/management interface to view and manage
+  uploaded PDFs
 
 ### 2. Backend Updates
 
@@ -199,8 +203,7 @@ DELETE /api/pdf/<id>
 
 ### File Size Limits
 
-Default: 50 MB per file
-Edit in `batch-pdf-upload.html`:
+Default: 50 MB per file Edit in `batch-pdf-upload.html`:
 
 ```javascript
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
@@ -208,8 +211,7 @@ const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
 
 ### Max Files
 
-Default: 100 files per batch
-Edit in `batch-pdf-upload.html`:
+Default: 100 files per batch Edit in `batch-pdf-upload.html`:
 
 ```javascript
 const MAX_FILES = 100;
@@ -217,8 +219,7 @@ const MAX_FILES = 100;
 
 ### Upload Directory
 
-Default: `./uploads/pdfs`
-Edit in `app.py` if needed:
+Default: `./uploads/pdfs` Edit in `app.py` if needed:
 
 ```python
 upload_dir = Path('./uploads/pdfs')
@@ -275,6 +276,5 @@ For issues or questions:
 
 --
 
-**Created**: January 23, 2026
-**Version**: 1.0
-**Author**: Evident Legal Technologies
+**Created**: January 23, 2026 **Version**: 1.0 **Author**: Evident Legal
+Technologies

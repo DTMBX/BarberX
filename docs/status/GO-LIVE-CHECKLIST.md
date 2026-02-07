@@ -271,8 +271,7 @@ Annual = $179,280/year
 - Env setup: 10 min
 - Stripe products: 10 min
 - Webhook: 5 min
-- Testing: 5 min
-  **TOTAL: 2 hours to revenue!** 🚀
+- Testing: 5 min **TOTAL: 2 hours to revenue!** 🚀
 
 --
 

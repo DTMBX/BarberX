@@ -31,4 +31,3 @@ def init_legal_db():
 
 if __name__ == "__main__":
     init_legal_db()
-

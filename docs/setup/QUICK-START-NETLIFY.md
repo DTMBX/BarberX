@@ -8,7 +8,8 @@
 
 I've set up everything you need:
 
-1. ✅ **netlify.toml** - Netlify configuration (build settings, headers, redirects)
+1. ✅ **netlify.toml** - Netlify configuration (build settings, headers,
+   redirects)
 2. ✅ **Gemfile** - Ruby dependencies for Jekyll
 3. ✅ **runtime.txt** - Ruby version (3.1.0)
 4. ✅ **.nvmrc** - Node version (18)
@@ -44,7 +45,8 @@ git push origin main
 3. Enter: **`Evident.info`**
 4. Follow DNS configuration instructions
 
-**Done! Your site will be live at https://Evident.info in 24-48 hours (DNS propagation time)**
+**Done! Your site will be live at https://Evident.info in 24-48 hours (DNS
+propagation time)**
 
 --
 
@@ -152,7 +154,8 @@ Add these records at your registrar:
 
 ### "Bundle install failed"
 
-**Fix:** Jekyll dependencies need to be installed by Netlify (not locally). The netlify.toml handles this.
+**Fix:** Jekyll dependencies need to be installed by Netlify (not locally). The
+netlify.toml handles this.
 
 ### "Build failed - Ruby version mismatch"
 
@@ -168,7 +171,8 @@ baseurl: "" # Must be empty for root domain
 
 ### "Custom domain not working"
 
-**Fix:** Wait 24-48 hours for DNS propagation. Check status at [whatsmydns.net](https://whatsmydns.net)
+**Fix:** Wait 24-48 hours for DNS propagation. Check status at
+[whatsmydns.net](https://whatsmydns.net)
 
 --
 
@@ -229,7 +233,8 @@ Once connected to GitHub:
 
 ## 📞 Need Help?
 
-1. **Complete Guide:** Read [NETLIFY-DEPLOYMENT-GUIDE.md](NETLIFY-DEPLOYMENT-GUIDE.md)
+1. **Complete Guide:** Read
+   [NETLIFY-DEPLOYMENT-GUIDE.md](NETLIFY-DEPLOYMENT-GUIDE.md)
 2. **Netlify Docs:** [docs.netlify.com](https://docs.netlify.com)
 3. **Netlify Support:** [answers.netlify.com](https://answers.netlify.com)
 

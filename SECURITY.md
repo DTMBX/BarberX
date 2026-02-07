@@ -4,7 +4,8 @@
 
 ### Sensitive Files - NEVER COMMIT
 
-The following files contain sensitive information and must NEVER be committed to Git:
+The following files contain sensitive information and must NEVER be committed to
+Git:
 
 #### Environment Variables
 
@@ -310,5 +311,5 @@ This repository has:
 - ✅ Build artifacts excluded
 - ✅ Database files excluded
 
-**Last Security Audit**: January 31, 2026
-**Next Scheduled Audit**: February 28, 2026
+**Last Security Audit**: January 31, 2026 **Next Scheduled Audit**: February 28,
+2026

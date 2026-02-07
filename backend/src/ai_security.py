@@ -6,17 +6,13 @@ AI-Powered Security Module for Evident
 Anomaly detection, fraud prevention, and intelligent session management
 """
 
-import json
 import os
 import pickle
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
-from flask import request
 from pyod.models.iforest import IForest
-from pyod.models.lof import LOF
 from redis import Redis
 
 # Initialize Redis for session management
@@ -307,7 +303,6 @@ def check_login_security(request_obj, user=None, email=None):
 
 def train_anomaly_detector_from_db():
     """Train anomaly detector using historical login data from database"""
-    from models_auth import User, db
     from usage_meter import SmartMeterEvent
 
     print("\n[AI] Training login anomaly detector...")
@@ -355,4 +350,3 @@ def train_anomaly_detector_from_db():
         print(f"[OK] Trained on {len(training_data)} historical login events")
 
     return success
-

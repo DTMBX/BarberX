@@ -2,7 +2,8 @@
 
 ## Overview
 
-Complete premium feature implementation including extracted styles, responsive breakpoints, toast notifications, dark mode, and skeleton loaders.
+Complete premium feature implementation including extracted styles, responsive
+breakpoints, toast notifications, dark mode, and skeleton loaders.
 
 --
 
@@ -11,7 +12,8 @@ Complete premium feature implementation including extracted styles, responsive b
 ### **Created: `/assets/css/landing-page.css`**
 
 - **Size**: ~9.3KB
-- **Extracted from**: `templates/landing.html` (removed ~400 lines of inline `<style>`)
+- **Extracted from**: `templates/landing.html` (removed ~400 lines of inline
+  `<style>`)
 - **Contents**:
   - Navigation system (fixed nav, dropdowns, mobile menu)
   - Pricing card layouts
@@ -326,7 +328,7 @@ container.innerHTML = `
         <div class="skeleton skeleton-heading"></div>
         <div class="skeleton skeleton-text"></div>
       </div>
-    `,
+    `
       )
       .join("")}
   </div>

@@ -7,7 +7,6 @@ Production Readiness Test - Verify all systems operational
 Run this to confirm Evident is ready for court document processing
 """
 
-import os
 import sqlite3
 import sys
 from pathlib import Path
@@ -71,7 +70,7 @@ def test_database():
         return False
 
     print(f"   ✅ Database has {len(tables)} tables")
-    print(f"   ✅ Admin user exists")
+    print("   ✅ Admin user exists")
 
     conn.close()
     return True
@@ -227,4 +226,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-

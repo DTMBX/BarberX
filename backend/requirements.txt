@@ -27,3 +27,4 @@ pyotp==2.9.0              # 2FA/TOTP authentication
 qrcode[pil]==8.0          # QR code generation for 2FA
 stripe==11.4.0            # Payment processing
 PyJWT==2.10.1             # JWT token authentication for mobile/desktop clients
+numpy==1.26.4  # Required for audio sync cross-correlation and tests

@@ -107,36 +107,26 @@ function performSearch() {
 
   // Apply court filter
   if (filters.court) {
-    results = results.filter((entry) =>
-      entry.caseDocket?.startsWith(filters.court),
-    );
+    results = results.filter((entry) => entry.caseDocket?.startsWith(filters.court));
   }
 
   // Apply case type filter
   if (filters.caseType) {
-    results = results.filter((entry) =>
-      entry.caseDocket?.includes(`-${filters.caseType}-`),
-    );
+    results = results.filter((entry) => entry.caseDocket?.includes(`-${filters.caseType}-`));
   }
 
   // Apply date range filters
   if (filters.dateFrom) {
-    results = results.filter(
-      (entry) => entry.date && entry.date >= filters.dateFrom,
-    );
+    results = results.filter((entry) => entry.date && entry.date >= filters.dateFrom);
   }
 
   if (filters.dateTo) {
-    results = results.filter(
-      (entry) => entry.date && entry.date <= filters.dateTo,
-    );
+    results = results.filter((entry) => entry.date && entry.date <= filters.dateTo);
   }
 
   // Apply status filter
   if (filters.status) {
-    results = results.filter(
-      (entry) => entry.status?.toLowerCase() === filters.status,
-    );
+    results = results.filter((entry) => entry.status?.toLowerCase() === filters.status);
   }
 
   displayResults(results, query);
@@ -224,7 +214,7 @@ function displayResults(results, query) {
                   ${entry.title || "Untitled Document"}
                 </a>
               </div>
-            `,
+            `
               )
               .join("")}
             ${
@@ -238,7 +228,7 @@ function displayResults(results, query) {
             }
           </div>
         </div>
-      `,
+      `
         )
         .join("")}
     </div>

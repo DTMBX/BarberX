@@ -155,7 +155,8 @@ Add these DNS records at your domain registrar:
 
 ## ⚡ Flask Backend Integration (Optional)
 
-Your site has Flask backend components (`app.py`, auth routes, etc.). Here are your options:
+Your site has Flask backend components (`app.py`, auth routes, etc.). Here are
+your options:
 
 ### Option 1: Netlify Functions (Serverless)
 

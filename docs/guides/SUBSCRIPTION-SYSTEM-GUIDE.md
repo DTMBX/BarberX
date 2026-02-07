@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-This guide covers the complete implementation of the **tiered subscription system** with Stripe integration, usage tracking, and access gating for Evident.
+This guide covers the complete implementation of the **tiered subscription
+system** with Stripe integration, usage tracking, and access gating for Evident.
 
 --
 
@@ -343,8 +344,8 @@ Show usage warnings in dashboard:
 {% if get_remaining_usage(current_user, 'pdf_documents_per_month') < 3 %}
 <div class="alert alert-warning">
   <i class="fas fa-exclamation-triangle"></i>
-  You have {{ get_remaining_usage(current_user, 'pdf_documents_per_month') }}
-  PDFs remaining this month!
+  You have {{ get_remaining_usage(current_user, 'pdf_documents_per_month') }} PDFs remaining this
+  month!
   <a href="/pricing">Upgrade for unlimited</a>
 </div>
 {% endif %}

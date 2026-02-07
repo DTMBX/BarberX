@@ -271,4 +271,5 @@ Case details...
 
 --
 
-**Pro Tip**: Start with minimal front matter and add features as needed. Every layout works great out of the box!
+**Pro Tip**: Start with minimal front matter and add features as needed. Every
+layout works great out of the box!

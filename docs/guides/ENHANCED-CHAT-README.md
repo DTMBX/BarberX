@@ -5,7 +5,8 @@
 The enhanced chat assistant provides comprehensive conversational AI with:
 
 - **Persistent Memory**: All conversations stored in database with full history
-- **Citation-Based Retrieval**: Answers grounded in document passages with provenance
+- **Citation-Based Retrieval**: Answers grounded in document passages with
+  provenance
 - **Reference Management**: Auto-detect citations, suggest relevant documents
 - **Accessibility**: Screen reader support, TTS-ready, ARIA labels
 - **Analytics**: Track conversation patterns, document usage, topics

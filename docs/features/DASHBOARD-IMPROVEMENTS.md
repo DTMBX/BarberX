@@ -2,7 +2,8 @@
 
 ## Overview
 
-Major enhancements to the BWC Analysis Dashboard with professional features, comprehensive reporting, and improved UX.
+Major enhancements to the BWC Analysis Dashboard with professional features,
+comprehensive reporting, and improved UX.
 
 ## New Features Implemented
 
@@ -225,7 +226,8 @@ pip install reportlab python-docx
 
 ## Conclusion
 
-The BWC Analysis Dashboard is now a professional-grade forensic analysis tool with:
+The BWC Analysis Dashboard is now a professional-grade forensic analysis tool
+with:
 
 - **Comprehensive visualization** of analysis results
 - **Multi-format export** capabilities

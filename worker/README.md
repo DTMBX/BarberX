@@ -1,6 +1,7 @@
 # Docket Upload Worker Setup
 
-This Cloudflare Worker enables PR-based docket uploads from the `/docket/submit/` form.
+This Cloudflare Worker enables PR-based docket uploads from the
+`/docket/submit/` form.
 
 ## Prerequisites
 
@@ -11,7 +12,8 @@ This Cloudflare Worker enables PR-based docket uploads from the `/docket/submit/
 
 ### 1. Create GitHub Personal Access Token
 
-1. Go to GitHub Settings > Developer settings > Personal access tokens > Tokens (classic)
+1. Go to GitHub Settings > Developer settings > Personal access tokens > Tokens
+   (classic)
 2. Click "Generate new token (classic)"
 3. Give it a descriptive name: "FaithFrontier Docket Worker"
 4. Select scopes:
@@ -67,20 +69,22 @@ This Cloudflare Worker enables PR-based docket uploads from the `/docket/submit/
    wrangler deploy
    ```
 
-8. Note the worker URL (e.g., `https://docket-upload.your-subdomain.workers.dev`)
+8. Note the worker URL (e.g.,
+   `https://docket-upload.your-subdomain.workers.dev`)
 
 ### 3. Update the Submit Form
 
-Edit `/assets/js/docket-submit.js` and replace the placeholder URL with your worker URL:
+Edit `/assets/js/docket-submit.js` and replace the placeholder URL with your
+worker URL:
 
 ```javascript
-const workerUrl =
-  "https://docket-upload.your-subdomain.workers.dev/docket-upload";
+const workerUrl = "https://docket-upload.your-subdomain.workers.dev/docket-upload";
 ```
 
 ### 4. Configure CORS (if needed)
 
-If your worker URL is different from `faithfrontier.org`, update the CORS origin in `worker.js`:
+If your worker URL is different from `faithfrontier.org`, update the CORS origin
+in `worker.js`:
 
 ```javascript
 'Access-Control-Allow-Origin': 'https://faithfrontier.org',
@@ -126,4 +130,5 @@ Test the worker locally:
 wrangler dev
 ```
 
-Then update `docket-submit.js` temporarily to use `http://localhost:8787` for testing.
+Then update `docket-submit.js` temporarily to use `http://localhost:8787` for
+testing.

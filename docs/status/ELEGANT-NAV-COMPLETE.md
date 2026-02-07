@@ -2,7 +2,8 @@
 
 ## 🎉 What Was Created
 
-A beautiful, modern, and fully accessible navigation system for Evident Legal Technologies featuring:
+A beautiful, modern, and fully accessible navigation system for Evident Legal
+Technologies featuring:
 
 ### 📁 Files Created
 
@@ -221,7 +222,8 @@ Edit the CSS variables in `elegant-header.css` to match your brand:
 
 ## 🎉 Ready to Use!
 
-The elegant navigation system is complete and ready for production use. It provides:
+The elegant navigation system is complete and ready for production use. It
+provides:
 
 - ✨ Beautiful, modern design
 - 🚀 Excellent performance

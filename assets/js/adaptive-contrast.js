@@ -40,10 +40,7 @@ class AdaptiveContrast {
     this.setupDebugCommands();
 
     this.initialized = true;
-    console.log(
-      "%c✓ Adaptive Contrast System Initialized",
-      "color: #10b981; font-weight: bold;",
-    );
+    console.log("%c✓ Adaptive Contrast System Initialized", "color: #10b981; font-weight: bold;");
   }
 
   /**
@@ -129,9 +126,7 @@ class AdaptiveContrast {
           return NodeFilter.FILTER_REJECT;
         }
         // Accept if has text content
-        return node.textContent.trim()
-          ? NodeFilter.FILTER_ACCEPT
-          : NodeFilter.FILTER_SKIP;
+        return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
       },
     });
 
@@ -178,10 +173,7 @@ class AdaptiveContrast {
     window.contrastDebug = (enable = true) => {
       if (enable) {
         document.body.classList.add("contrast-debug");
-        console.log(
-          "%c🔍 Contrast Debug Mode ON",
-          "color: #f59e0b; font-weight: bold;",
-        );
+        console.log("%c🔍 Contrast Debug Mode ON", "color: #f59e0b; font-weight: bold;");
         console.log("Contrast ratios will be displayed on elements.");
       } else {
         document.body.classList.remove("contrast-debug");

@@ -38,7 +38,7 @@ self.addEventListener("install", (event) => {
       })
       .catch((error) => {
         console.error("[ServiceWorker] Installation failed:", error);
-      }),
+      })
   );
 });
 
@@ -64,13 +64,13 @@ self.addEventListener("activate", (event) => {
             .map((cacheName) => {
               console.log("[ServiceWorker] Deleting old cache:", cacheName);
               return caches.delete(cacheName);
-            }),
+            })
         );
       })
       .then(() => {
         console.log("[ServiceWorker] Activation complete");
         return self.clients.claim(); // Take control immediately
-      }),
+      })
   );
 });
 
@@ -264,10 +264,8 @@ self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "CLEAR_CACHE") {
     event.waitUntil(
       caches.keys().then((cacheNames) => {
-        return Promise.all(
-          cacheNames.map((cacheName) => caches.delete(cacheName)),
-        );
-      }),
+        return Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
+      })
     );
   }
 });

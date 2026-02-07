@@ -38,8 +38,7 @@ function switchView(viewName) {
 
     // Update breadcrumb
     const breadcrumbActive = document.querySelector(".breadcrumb-item.active");
-    breadcrumbActive.textContent =
-      viewName.charAt(0).toUpperCase() + viewName.slice(1);
+    breadcrumbActive.textContent = viewName.charAt(0).toUpperCase() + viewName.slice(1);
   }
 
   // Update active nav item
@@ -113,10 +112,7 @@ function sendMessage() {
     })
     .catch((error) => {
       hideTypingIndicator();
-      addChatMessage(
-        "assistant",
-        "Sorry, I encountered an error. Please try again.",
-      );
+      addChatMessage("assistant", "Sorry, I encountered an error. Please try again.");
       console.error("Chat error:", error);
     });
 }
@@ -143,9 +139,7 @@ function addChatMessage(role, content) {
   const avatarDiv = document.createElement("div");
   avatarDiv.className = "message-avatar";
   avatarDiv.innerHTML =
-    role === "assistant"
-      ? '<i class="fas fa-robot"></i>'
-      : '<i class="fas fa-user"></i>';
+    role === "assistant" ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
 
   const contentDiv = document.createElement("div");
   contentDiv.className = "message-content";
@@ -208,10 +202,7 @@ document.addEventListener("keydown", (e) => {
     toggleCommandPalette();
   }
 
-  if (
-    e.key === "Escape" &&
-    commandPalette.getAttribute("aria-hidden") === "false"
-  ) {
+  if (e.key === "Escape" && commandPalette.getAttribute("aria-hidden") === "false") {
     closeCommandPalette();
   }
 });
@@ -397,8 +388,7 @@ function runAnalysis(tool) {
     })
     .catch((error) => {
       console.error("Analysis error:", error);
-      resultsEl.innerHTML =
-        '<div class="error">Analysis failed. Please try again.</div>';
+      resultsEl.innerHTML = '<div class="error">Analysis failed. Please try again.</div>';
     });
 }
 
@@ -473,7 +463,7 @@ function displayEvidence() {
       <div class="evidence-name">${item.name}</div>
       <div class="evidence-meta">${item.size} • ${item.date}</div>
     </div>
-  `,
+  `
     )
     .join("");
 }
@@ -503,10 +493,8 @@ async function loadUsageQuota() {
     if (data.period) {
       const start = new Date(data.period.start).toLocaleDateString();
       const end = new Date(data.period.end).toLocaleDateString();
-      document.getElementById("billingPeriod").textContent =
-        `${start} - ${end}`;
-      document.getElementById("daysRemaining").textContent =
-        data.period.days_remaining;
+      document.getElementById("billingPeriod").textContent = `${start} - ${end}`;
+      document.getElementById("daysRemaining").textContent = data.period.days_remaining;
     }
 
     // Update each quota meter
@@ -561,17 +549,14 @@ function updateQuotaMeter(type, quota) {
   if (type === "storage") {
     if (usedEl) usedEl.textContent = `${quota.used_mb.toFixed(2)} MB`;
     if (limitEl)
-      limitEl.textContent =
-        limit === -1 ? "Unlimited" : `${quota.limit_mb.toFixed(2)} MB`;
+      limitEl.textContent = limit === -1 ? "Unlimited" : `${quota.limit_mb.toFixed(2)} MB`;
   } else if (type === "cost") {
     if (usedEl) usedEl.textContent = `$${quota.used_usd.toFixed(2)}`;
     if (limitEl)
-      limitEl.textContent =
-        limit === -1 ? "Unlimited" : `$${quota.limit_usd.toFixed(2)}`;
+      limitEl.textContent = limit === -1 ? "Unlimited" : `$${quota.limit_usd.toFixed(2)}`;
   } else if (type === "tokens") {
     if (usedEl) usedEl.textContent = formatNumber(used);
-    if (limitEl)
-      limitEl.textContent = limit === -1 ? "Unlimited" : formatNumber(limit);
+    if (limitEl) limitEl.textContent = limit === -1 ? "Unlimited" : formatNumber(limit);
   } else {
     if (usedEl) usedEl.textContent = used;
     if (limitEl) limitEl.textContent = limit === -1 ? "Unlimited" : limit;

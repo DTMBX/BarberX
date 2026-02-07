@@ -41,17 +41,13 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
-  --shadow-lg:
-    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
-  --shadow-xl:
-    0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 
   /* Typography */
   --font-sans:
-    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue",
-    arial, sans-serif;
-  --font-mono:
-    "SF Mono", monaco, "Cascadia Code", "Roboto Mono", consolas, monospace;
+    -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
+  --font-mono: "SF Mono", monaco, "Cascadia Code", "Roboto Mono", consolas, monospace;
 
   /* Spacing Scale */
   --space-1: 0.25rem;
@@ -82,8 +78,7 @@
 
   /* Premium Depth Shadows */
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 15%);
-  --shadow-premium:
-    0 20px 40px -10px rgb(10 37 64 / 20%), 0 0 100px -20px rgb(59 130 246 / 10%);
+  --shadow-premium: 0 20px 40px -10px rgb(10 37 64 / 20%), 0 0 100px -20px rgb(59 130 246 / 10%);
   --shadow-glow: 0 0 30px -5px rgb(59 130 246 / 30%);
 
   /* Glass Morphism */
@@ -206,11 +201,7 @@ code {
 
 .hero-legal-tech {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    var(--primary-navy) 0%,
-    var(--primary-blue) 100%
-  );
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
   color: white;
   padding: var(--space-16) 0;
   overflow: hidden;
@@ -221,11 +212,7 @@ code {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(
-      circle at 20% 50%,
-      rgb(59 130 246 / 10%) 0%,
-      transparent 50%
-    ),
+    radial-gradient(circle at 20% 50%, rgb(59 130 246 / 10%) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgb(6 182 212 / 10%) 0%, transparent 50%);
   pointer-events: none;
 }
@@ -474,11 +461,7 @@ code {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgb(59 130 246 / 3%),
-    rgb(6 182 212 / 3%)
-  );
+  background: linear-gradient(135deg, rgb(59 130 246 / 3%), rgb(6 182 212 / 3%));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -587,11 +570,7 @@ code {
    ============================================================================= */
 
 .cta-section {
-  background: linear-gradient(
-    135deg,
-    var(--primary-navy) 0%,
-    var(--primary-blue) 100%
-  );
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
   color: white;
   padding: var(--space-16) 0;
   text-align: center;

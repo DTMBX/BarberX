@@ -1,9 +1,6 @@
 ---
 
-layout: default
-title: Governance & Ethics
-permalink: /docs/governance-ethics/
---
+## layout: default title: Governance & Ethics permalink: /docs/governance-ethics/
 
 <article class="md" role="article">
   <header class="md-header">
@@ -19,8 +16,10 @@ permalink: /docs/governance-ethics/
 - **Non-escalation:** recording must never be used to provoke conflict.
 - **Dignity:** avoid humiliation, harassment, or public shaming.
 - **Minimum necessary:** collect and retain as little as possible.
-- **Accountability:** publish standards, document decisions, and correct mistakes.
-- **Due process:** support fair outcomes; do not substitute for lawful procedures.
+- **Accountability:** publish standards, document decisions, and correct
+  mistakes.
+- **Due process:** support fair outcomes; do not substitute for lawful
+  procedures.
 
 ## Prohibited Uses
 
@@ -36,7 +35,8 @@ If recording increases immediate risk, de-escalation and safety come first.
 
 ## Status
 
-This document is a draft. Implementation details will be released after validation and review.
+This document is a draft. Implementation details will be released after
+validation and review.
 
   <footer class="md-footer">
     <p class="md-meta">Last updated: <time datetime="2026-01-04">Jan 4, 2026</time></p>

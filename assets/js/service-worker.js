@@ -29,7 +29,7 @@ self.addEventListener("install", (event) => {
         console.log("[SW] Precaching app shell...");
         return cache.addAll(PRECACHE_ASSETS);
       })
-      .then(() => self.skipWaiting()),
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -47,10 +47,10 @@ self.addEventListener("activate", (event) => {
             .map((name) => {
               console.log("[SW] Deleting old cache:", name);
               return caches.delete(name);
-            }),
+            })
         );
       })
-      .then(() => self.clients.claim()),
+      .then(() => self.clients.claim())
   );
 });
 
@@ -78,7 +78,7 @@ self.addEventListener("fetch", (event) => {
           return caches.match(request).then((cached) => {
             return cached || caches.match(OFFLINE_URL);
           });
-        }),
+        })
     );
     return;
   }
@@ -94,7 +94,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           return response;
         });
-      }),
+      })
     );
     return;
   }
@@ -133,9 +133,7 @@ self.addEventListener("push", (event) => {
     ],
   };
 
-  event.waitUntil(
-    self.registration.showNotification(data.title || "Evident", options),
-  );
+  event.waitUntil(self.registration.showNotification(data.title || "Evident", options));
 });
 
 // Notification click handler

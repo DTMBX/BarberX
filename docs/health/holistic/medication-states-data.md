@@ -1,12 +1,9 @@
 ---
 
-layout: default
-title: "U.S. Medication Statistics by State"
-permalink: /health/holistic/medication-states/
-description: "Evidence-based medication usage and overmedication data by state, paired with growing zones to show natural alternatives."
-status: "Living document"
-show_breadcrumbs: true
---
+layout: default title: "U.S. Medication Statistics by State" permalink:
+/health/holistic/medication-states/ description: "Evidence-based medication
+usage and overmedication data by state, paired with growing zones to show
+natural alternatives." status: "Living document" show_breadcrumbs: true --
 
 <section class="section-block">
   <div class="container">

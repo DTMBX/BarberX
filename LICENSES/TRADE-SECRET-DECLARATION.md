@@ -9,9 +9,11 @@
 
 ## 1. Statement of Intent
 
-Evident Technologies maintains certain non-public systems, methods, and workflows as protected trade secrets.
+Evident Technologies maintains certain non-public systems, methods, and
+workflows as protected trade secrets.
 
-This declaration establishes Evident’s intent to preserve confidentiality and satisfy applicable trade-secret protections under U.S. and state law.
+This declaration establishes Evident’s intent to preserve confidentiality and
+satisfy applicable trade-secret protections under U.S. and state law.
 
 ---
 
@@ -26,7 +28,8 @@ Trade-secret protected elements include, without limitation:
 - Internal orchestration logic governing evidence lifecycle
 - Security-sensitive implementation details not disclosed publicly
 
-These elements are not publicly documented in full and are not necessary for external use of the software.
+These elements are not publicly documented in full and are not necessary for
+external use of the software.
 
 ---
 
@@ -40,7 +43,8 @@ Evident takes reasonable measures to maintain secrecy, including:
 - Licensing controls and access boundaries
 - Documentation distinguishing public vs. non-public logic
 
-Disclosure of high-level functionality does not constitute disclosure of protected implementation details.
+Disclosure of high-level functionality does not constitute disclosure of
+protected implementation details.
 
 ---
 
@@ -58,4 +62,6 @@ Unauthorized use, disclosure, or misappropriation is prohibited.
 
 ## 5. Preservation
 
-This declaration is maintained as part of Evident’s internal governance record and may be relied upon in any dispute concerning ownership, misappropriation, or derivative use of Evident systems.
+This declaration is maintained as part of Evident’s internal governance record
+and may be relied upon in any dispute concerning ownership, misappropriation, or
+derivative use of Evident systems.

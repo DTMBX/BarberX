@@ -60,8 +60,7 @@ async function handleFiles(files) {
   files.forEach((file) => {
     const ext = "." + file.name.split(".").pop().toLowerCase();
     const isValid = API_CONFIG.LIMITS.ALLOWED_DOCUMENT_TYPES.includes(ext);
-    const sizeOk =
-      file.size <= API_CONFIG.LIMITS.MAX_FILE_SIZE_MB * 1024 * 1024;
+    const sizeOk = file.size <= API_CONFIG.LIMITS.MAX_FILE_SIZE_MB * 1024 * 1024;
 
     if (!isValid) {
       invalidFiles.push({ file, reason: `Invalid file type: ${ext}` });
@@ -77,9 +76,7 @@ async function handleFiles(files) {
 
   // Show validation errors
   if (invalidFiles.length > 0) {
-    const errors = invalidFiles
-      .map((f) => `${f.file.name}: ${f.reason}`)
-      .join("\n");
+    const errors = invalidFiles.map((f) => `${f.file.name}: ${f.reason}`).join("\n");
     showToast(`${invalidFiles.length} file(s) rejected:\n${errors}`, "error");
   }
 
@@ -112,17 +109,14 @@ async function uploadToBackend(files) {
       {
         method: "POST",
         body: formData,
-      },
+      }
     );
 
     if (!response.ok) throw new Error(`Upload failed: ${response.statusText}`);
 
     const result = await response.json();
 
-    showToast(
-      `Successfully uploaded ${result.uploaded || files.length} file(s)`,
-      "success",
-    );
+    showToast(`Successfully uploaded ${result.uploaded || files.length} file(s)`, "success");
     displayUploadResults(result);
   } catch (error) {
     console.error("Upload error:", error);
@@ -165,44 +159,86 @@ async function uploadToGitInbox(files) {
     </div>
   `;
 
-  const resultsContainer =
-    document.getElementById("uploadResults") || createResultsContainer();
+  const resultsContainer = document.getElementById("uploadResults") || createResultsContainer();
   resultsContainer.innerHTML = instructions;
   resultsContainer.style.display = "block";
 }
 
 function showUploadProgress(files) {
   const uploadZone = document.getElementById("uploadZone");
+  if (!uploadZone) return;
 
-  const progressHTML = `
-    <div class="upload-progress">
-      <svg class="upload-progress-spinner" viewBox="0 0 24 24" width="48" height="48">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.3"/>
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" 
-          stroke-dasharray="63" stroke-dashoffset="16" 
-          style="animation: spin 1s linear infinite; transform-origin: center;">
-        </circle>
-      </svg>
-      <h3>Processing ${files.length} file(s)...</h3>
-      <div class="file-list">
-        ${files
-          .map(
-            (f) => `
-          <div class="file-item">
-            <span>${f.name}</span>
-            <span>${formatFileSize(f.size)}</span>
-          </div>
-        `,
-          )
-          .join("")}
-      </div>
-    </div>
-  `;
+  // Remove any existing upload results container to avoid duplicates
+  const existingResults = document.getElementById("uploadResults");
+  if (existingResults && existingResults.parentNode) {
+    existingResults.parentNode.removeChild(existingResults);
+  }
 
-  uploadZone.insertAdjacentHTML(
-    "afterend",
-    `<div id="uploadResults">${progressHTML}</div>`,
+  const resultsWrapper = document.createElement("div");
+  resultsWrapper.id = "uploadResults";
+
+  const progressContainer = document.createElement("div");
+  progressContainer.className = "upload-progress";
+
+  const spinnerSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  spinnerSvg.setAttribute("class", "upload-progress-spinner");
+  spinnerSvg.setAttribute("viewBox", "0 0 24 24");
+  spinnerSvg.setAttribute("width", "48");
+  spinnerSvg.setAttribute("height", "48");
+
+  const staticCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  staticCircle.setAttribute("cx", "12");
+  staticCircle.setAttribute("cy", "12");
+  staticCircle.setAttribute("r", "10");
+  staticCircle.setAttribute("stroke", "currentColor");
+  staticCircle.setAttribute("stroke-width", "2");
+  staticCircle.setAttribute("fill", "none");
+  staticCircle.setAttribute("opacity", "0.3");
+  spinnerSvg.appendChild(staticCircle);
+
+  const animatedCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  animatedCircle.setAttribute("cx", "12");
+  animatedCircle.setAttribute("cy", "12");
+  animatedCircle.setAttribute("r", "10");
+  animatedCircle.setAttribute("stroke", "currentColor");
+  animatedCircle.setAttribute("stroke-width", "2");
+  animatedCircle.setAttribute("fill", "none");
+  animatedCircle.setAttribute("stroke-dasharray", "63");
+  animatedCircle.setAttribute("stroke-dashoffset", "16");
+  animatedCircle.setAttribute(
+    "style",
+    "animation: spin 1s linear infinite; transform-origin: center;"
   );
+  spinnerSvg.appendChild(animatedCircle);
+
+  const heading = document.createElement("h3");
+  heading.textContent = `Processing ${files.length} file(s)...`;
+
+  const fileList = document.createElement("div");
+  fileList.className = "file-list";
+
+  files.forEach((f) => {
+    const item = document.createElement("div");
+    item.className = "file-item";
+
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = f.name;
+
+    const sizeSpan = document.createElement("span");
+    sizeSpan.textContent = formatFileSize(f.size);
+
+    item.appendChild(nameSpan);
+    item.appendChild(sizeSpan);
+    fileList.appendChild(item);
+  });
+
+  progressContainer.appendChild(spinnerSvg);
+  progressContainer.appendChild(heading);
+  progressContainer.appendChild(fileList);
+
+  resultsWrapper.appendChild(progressContainer);
+
+  uploadZone.parentNode.insertBefore(resultsWrapper, uploadZone.nextSibling);
 }
 
 function displayUploadResults(result) {
@@ -234,7 +270,7 @@ function displayUploadResults(result) {
               <small>${file.message || formatFileSize(file.file_size)}</small>
             </div>
           </div>
-        `,
+        `
           )
           .join("")}
       </div>
@@ -249,9 +285,7 @@ function displayUploadResults(result) {
 function createResultsContainer() {
   const container = document.createElement("div");
   container.id = "uploadResults";
-  document
-    .getElementById("uploadZone")
-    .insertAdjacentElement("afterend", container);
+  document.getElementById("uploadZone").insertAdjacentElement("afterend", container);
   return container;
 }
 

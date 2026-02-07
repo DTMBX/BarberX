@@ -1,6 +1,7 @@
 # Evident Flask Bridge
 
-This directory contains the integration layer between the existing Python Flask app and the new .NET infrastructure.
+This directory contains the integration layer between the existing Python Flask
+app and the new .NET infrastructure.
 
 ## Current Flask App
 
@@ -10,7 +11,8 @@ This directory contains the integration layer between the existing Python Flask 
 ## Integration Strategy
 
 1. Keep existing Flask app for BWC analysis features
-2. Use .NET Web API for new scalable features (bookings, payments, user management)
+2. Use .NET Web API for new scalable features (bookings, payments, user
+   management)
 3. Share data via REST APIs or shared database
 
 ## Running Both Apps

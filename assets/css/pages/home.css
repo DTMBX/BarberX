@@ -106,11 +106,7 @@
 /* Side panel (home specific) */
 .ff-home .hero-side-panel,
 .evident-home .hero-side-panel {
-  background: linear-gradient(
-    135deg,
-    rgb(241 245 249 / 95%),
-    rgb(226 232 240 / 92%)
-  );
+  background: linear-gradient(135deg, rgb(241 245 249 / 95%), rgb(226 232 240 / 92%));
   color: var(--ink-900);
   display: flex;
   flex-direction: column;

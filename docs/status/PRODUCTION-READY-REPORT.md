@@ -8,7 +8,8 @@
 
 ## 🎯 Executive Summary
 
-Evident.info is **production-ready** for processing court documents and BWC video analysis tonight. All critical systems have been tested and verified.
+Evident.info is **production-ready** for processing court documents and BWC
+video analysis tonight. All critical systems have been tested and verified.
 
 --
 
@@ -90,7 +91,8 @@ Evident.info is **production-ready** for processing court documents and BWC vide
 - ✅ Speaker diarization (officer vs civilian)
 - ✅ Timeline synchronization
 - ✅ Discrepancy detection
-- ✅ Reporting formatted for court submission with citations (attorney review required)
+- ✅ Reporting formatted for court submission with citations (attorney review
+  required)
 
 **Upload Endpoint:** `/api/upload` (POST)
 

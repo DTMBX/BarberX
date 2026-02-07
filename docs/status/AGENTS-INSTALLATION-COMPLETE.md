@@ -24,7 +24,8 @@ Built with GitHub Copilot SDK to accelerate Evident development:
 2. **@bwc-forensics** - BWC video analysis specialist
    - Video processing & AI transcription
    - Evidence integrity verification
-   - Forensic reports prepared to assist court submissions; final admissibility determined by courts and counsel
+   - Forensic reports prepared to assist court submissions; final admissibility
+     determined by courts and counsel
 
 3. **@flask-backend** - Flask API & backend developer
    - REST API design
@@ -428,7 +429,8 @@ Step 5: @documentation Document the new API
 ### Created Guides
 
 - **[COPILOT-AGENTS-GUIDE.md](COPILOT-AGENTS-GUIDE.md)** - Complete usage guide
-- **[.github/copilot-agents.yml](.github/copilot-agents.yml)** - Agent configuration
+- **[.github/copilot-agents.yml](.github/copilot-agents.yml)** - Agent
+  configuration
 
 ### Existing Resources
 

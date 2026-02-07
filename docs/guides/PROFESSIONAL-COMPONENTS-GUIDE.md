@@ -1,6 +1,7 @@
 # Professional Components Configuration Guide
 
-This guide explains how to configure and use all the new professional components added to your site.
+This guide explains how to configure and use all the new professional components
+added to your site.
 
 ## 🎯 Quick Setup
 
@@ -40,7 +41,8 @@ newsletter_enabled: true
 newsletter_provider: "mailchimp" # Options: 'mailchimp', 'convertkit', 'custom'
 newsletter_action_url: "https://yoursite.us1.list-manage.com/subscribe/post?u=xxx&id=xxx"
 newsletter_title: "Stay Updated"
-newsletter_description: "Get the latest updates, insights, and case analysis delivered straight to your inbox."
+newsletter_description: "Get the latest updates, insights, and case analysis delivered straight to
+  your inbox."
 newsletter_honeypot_field: "b_xxx_xxx" # For Mailchimp bot protection
 page_newsletter_enabled: false # Set to true to show on all pages
 
@@ -258,7 +260,9 @@ All components are in: `_includes/components/`
 ## 🚀 Testing
 
 1. **Analytics**: Check browser console and network tab for tracking calls
-2. **SEO**: Use [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) and [Twitter Card Validator](https://cards-dev.twitter.com/validator)
+2. **SEO**: Use
+   [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) and
+   [Twitter Card Validator](https://cards-dev.twitter.com/validator)
 3. **Cookie Consent**: Clear localStorage and refresh to see banner again
 4. **Search**: Visit `/search.json` to ensure index is generating
 5. **Comments**: Test in production (most providers require live URLs)

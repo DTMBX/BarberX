@@ -11,7 +11,6 @@ import hashlib
 import random
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
 
 
 class MockAnalysisGenerator:
@@ -54,7 +53,7 @@ class MockAnalysisGenerator:
         "dates": ["January 15, 2024", "March 22, 2024", "February 10, 2024"],
     }
 
-    def generate_mock_transcript(self, duration_seconds: int = 180) -> List[Dict]:
+    def generate_mock_transcript(self, duration_seconds: int = 180) -> list[dict]:
         """Generate mock transcript segments"""
         segments = []
         current_time = 0.0
@@ -93,7 +92,7 @@ class MockAnalysisGenerator:
         }
         return labels.get(speaker, speaker)
 
-    def _generate_words(self, text: str, start_time: float, duration: float) -> List[Dict]:
+    def _generate_words(self, text: str, start_time: float, duration: float) -> list[dict]:
         """Generate word-level timestamps"""
         words = text.split()
         word_duration = duration / len(words) if words else 0
@@ -114,7 +113,7 @@ class MockAnalysisGenerator:
 
         return word_segments
 
-    def generate_mock_entities(self) -> Dict[str, List[Dict]]:
+    def generate_mock_entities(self) -> dict[str, list[dict]]:
         """Generate mock extracted entities"""
         entities = {}
 
@@ -134,7 +133,7 @@ class MockAnalysisGenerator:
 
         return entities
 
-    def generate_mock_discrepancies(self) -> List[Dict]:
+    def generate_mock_discrepancies(self) -> list[dict]:
         """Generate mock discrepancy reports"""
         discrepancies = [
             {
@@ -168,7 +167,7 @@ class MockAnalysisGenerator:
 
         return random.sample(discrepancies, random.randint(1, 3))
 
-    def generate_mock_timeline(self, duration: int) -> List[Dict]:
+    def generate_mock_timeline(self, duration: int) -> list[dict]:
         """Generate mock timeline events"""
         events = []
         timestamps = sorted([random.uniform(0, duration) for _ in range(random.randint(5, 12))])
@@ -203,7 +202,7 @@ class MockAnalysisGenerator:
 
     def generate_complete_analysis(
         self, video_path: str, case_number: str = None, evidence_number: str = None
-    ) -> Dict:
+    ) -> dict:
         """Generate a complete mock analysis report"""
 
         # Simulate file analysis
@@ -272,5 +271,3 @@ class MockAnalysisGenerator:
 
 # Global instance
 mock_generator = MockAnalysisGenerator()
-
-

@@ -8,7 +8,8 @@
 
 ## 🎯 WHY ANALYTICS?
 
-Track user behavior to optimize conversion, reduce churn, and improve product-market fit.
+Track user behavior to optimize conversion, reduce churn, and improve
+product-market fit.
 
 **Key Metrics to Monitor:**
 

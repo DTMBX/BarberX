@@ -24,7 +24,6 @@ def migrate_database():
 
         try:
             # Import the model to ensure it's registered
-            from app import PDFUpload
 
             # Create tables
             db.create_all()

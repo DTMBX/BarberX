@@ -66,10 +66,10 @@ def migrate_add_tier_column():
         cursor.execute("SELECT COUNT(*) FROM user")
         total_users = cursor.fetchone()[0]
 
-        print(f"\n📊 Migration Summary:")
+        print("\n📊 Migration Summary:")
         print(f"   • Total users in database: {total_users}")
-        print(f"   • Default tier set to: FREE (0)")
-        print(f"   • Admin users upgraded to: ADMIN (9999)")
+        print("   • Default tier set to: FREE (0)")
+        print("   • Admin users upgraded to: ADMIN (9999)")
 
         conn.close()
         return True

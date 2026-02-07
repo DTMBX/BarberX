@@ -18,7 +18,6 @@ Validation checks:
 
 import re
 from datetime import datetime
-from typing import Dict, List
 
 
 class CitationQualityValidator:
@@ -76,7 +75,7 @@ class CitationQualityValidator:
         "Fed. Cir.",
     }
 
-    def validate_citation(self, citation: str) -> Dict:
+    def validate_citation(self, citation: str) -> dict:
         """
         Validate a legal citation
 
@@ -161,7 +160,7 @@ class CitationQualityValidator:
 
         return False
 
-    def cross_verify_citation(self, citation: str, sources: List[str]) -> Dict:
+    def cross_verify_citation(self, citation: str, sources: list[str]) -> dict:
         """
         Cross-verify citation across multiple sources
 
@@ -195,7 +194,7 @@ class CitationQualityValidator:
             ),
         }
 
-    def validate_document_metadata(self, doc: Dict) -> Dict:
+    def validate_document_metadata(self, doc: dict) -> dict:
         """
         Validate document metadata for quality
 
@@ -260,7 +259,7 @@ class CitationQualityValidator:
             ),
         }
 
-    def generate_quality_report(self, documents: List[Dict]) -> Dict:
+    def generate_quality_report(self, documents: list[dict]) -> dict:
         """
         Generate quality report for multiple documents
 
@@ -323,5 +322,3 @@ class OvernightLibraryBuilder:
             # Import validated citation
             ...
 """
-
-

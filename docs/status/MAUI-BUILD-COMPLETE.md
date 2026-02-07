@@ -11,7 +11,8 @@
 
 ### What Was Broken
 
-When we started optimizing the MAUI build, the project had **50+ compilation errors** across multiple files:
+When we started optimizing the MAUI build, the project had **50+ compilation
+errors** across multiple files:
 
 - Missing model definitions (EvidenceItem, UserProfile, etc.)
 - Missing IApiService interface
@@ -125,7 +126,8 @@ Task<ApiResponse<UploadResponse>> UploadVideoAsync(...);
 
 #### 6. **Fixed ViewModel Issues**
 
-- **LoginViewModel**: Fixed RegisterAsync to pass 3 parameters (email, password, name)
+- **LoginViewModel**: Fixed RegisterAsync to pass 3 parameters (email, password,
+  name)
 - **UploadViewModel**: Fixed result.ErrorMessage → result.Error (2 instances)
 - **DashboardViewModel**: Already correct (using ApiResponse pattern)
 

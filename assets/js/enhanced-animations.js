@@ -18,9 +18,7 @@
 class AnimationEngine {
   constructor() {
     this.observers = new Map();
-    this.prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     this.init();
   }
 
@@ -62,7 +60,7 @@ class AnimationEngine {
               new CustomEvent("element-revealed", {
                 bubbles: true,
                 detail: { target: entry.target },
-              }),
+              })
             );
           }, delay);
 
@@ -143,7 +141,7 @@ class AnimationEngine {
           ticking = true;
         }
       },
-      { passive: true },
+      { passive: true }
     );
   }
 
@@ -169,7 +167,7 @@ class AnimationEngine {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.5 }
     );
 
     counters.forEach((counter) => counterObserver.observe(counter));
@@ -190,8 +188,7 @@ class AnimationEngine {
         clearInterval(timer);
       }
 
-      element.textContent =
-        prefix + Math.floor(current).toLocaleString() + suffix;
+      element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
     }, 16);
   }
 
@@ -247,26 +244,24 @@ class AnimationEngine {
     document.body.classList.add("page-loaded");
 
     // Smooth internal navigation
-    document
-      .querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]')
-      .forEach((link) => {
-        if (link.dataset.noTransition) return;
+    document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]').forEach((link) => {
+      if (link.dataset.noTransition) return;
 
-        link.addEventListener("click", (e) => {
-          if (e.ctrlKey || e.metaKey || e.shiftKey) return; // Allow opening in new tab
+      link.addEventListener("click", (e) => {
+        if (e.ctrlKey || e.metaKey || e.shiftKey) return; // Allow opening in new tab
 
-          const href = link.getAttribute("href");
-          if (!href || href === "#") return;
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
 
-          e.preventDefault();
+        e.preventDefault();
 
-          document.body.classList.add("page-transitioning");
+        document.body.classList.add("page-transitioning");
 
-          setTimeout(() => {
-            window.location.href = href;
-          }, 300);
-        });
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
       });
+    });
   }
 
   /**
@@ -284,8 +279,7 @@ class AnimationEngine {
 
         e.preventDefault();
 
-        const offsetTop =
-          target.getBoundingClientRect().top + window.pageYOffset;
+        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
         const offset = parseInt(anchor.dataset.scrollOffset) || 80;
 
         window.scrollTo({
@@ -347,11 +341,8 @@ class ScrollProgress {
     let ticking = false;
 
     const updateProgress = () => {
-      const winScroll =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
 
       const fill = this.progressBar.querySelector(".scroll-progress-fill");
@@ -368,7 +359,7 @@ class ScrollProgress {
           ticking = true;
         }
       },
-      { passive: true },
+      { passive: true }
     );
   }
 }

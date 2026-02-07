@@ -173,9 +173,9 @@ SUCCESS! Accept real money! 💰
 
 ## 📞 INSTANT HELP LINKS
 
-**Stripe Webhooks:** https://dashboard.stripe.com/test/webhooks
-**Render Dashboard:** https://dashboard.render.com/
-**Pricing Page:** https://Evident-backend.onrender.com/payments/pricing
+**Stripe Webhooks:** https://dashboard.stripe.com/test/webhooks **Render
+Dashboard:** https://dashboard.render.com/ **Pricing Page:**
+https://Evident-backend.onrender.com/payments/pricing
 
 --
 

@@ -3,7 +3,6 @@
 
 # AI Auto-Complete and Smart Suggestions
 import random
-import re
 from datetime import datetime
 
 
@@ -283,5 +282,3 @@ class SmartSuggestionEngine:
 
 # Export singleton instance
 smart_suggest = SmartSuggestionEngine()
-
-

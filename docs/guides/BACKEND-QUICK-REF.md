@@ -136,7 +136,8 @@ def endpoint():
 ### Database Indexes (11 total)
 
 - `idx_users_email`, `idx_users_username`, `idx_users_tier`
-- `idx_analyses_user_id`, `idx_analyses_created_at`, `idx_analyses_status`, `idx_analyses_case_number`
+- `idx_analyses_user_id`, `idx_analyses_created_at`, `idx_analyses_status`,
+  `idx_analyses_case_number`
 - `idx_api_keys_user_id`, `idx_api_keys_key`
 - `idx_usage_user_id`, `idx_usage_date`
 

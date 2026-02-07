@@ -471,7 +471,8 @@ dotnet publish -f net10.0-ios -c Release
 - Android testing: 30 minutes (today)
 - iOS setup: 2-4 weeks (background process)
 
-**Result:** Production-ready legal-assistant tools on all platforms (informational; not a substitute for counsel). 🎉
+**Result:** Production-ready legal-assistant tools on all platforms
+(informational; not a substitute for counsel). 🎉
 
 --
 

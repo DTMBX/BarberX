@@ -2,7 +2,8 @@
 
 ## Professional AI-Powered BWC Forensic Analysis Platform
 
-**Elite evidence processing for civil rights litigation, police accountability, and legal discovery.**
+**Elite evidence processing for civil rights litigation, police accountability,
+and legal discovery.**
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Version: 2.0](https://img.shields.io/badge/Version-2.0-blue.svg)]()
@@ -26,21 +27,27 @@
 
 ## ⚖️ CRITICAL: COPYRIGHT & DATA RIGHTS COMPLIANCE
 
-**⚠️ LEGAL WARNING:** This platform processes copyrighted legal materials (court filings, police reports, case law).
+**⚠️ LEGAL WARNING:** This platform processes copyrighted legal materials (court
+filings, police reports, case law).
 
 ### Required Reading Before Production Use:
 
-1. **[COPYRIGHT-QUICK-START.md](COPYRIGHT-QUICK-START.md)** - 3 critical rules to avoid $150k lawsuits
-2. **[DATA-RIGHTS-COMPLIANCE.md](DATA-RIGHTS-COMPLIANCE.md)** - Complete compliance framework
-3. **Implementation Patterns** - Citation-only storage, proprietary segregation, rights-aware exports
+1. **[COPYRIGHT-QUICK-START.md](COPYRIGHT-QUICK-START.md)** - 3 critical rules
+   to avoid $150k lawsuits
+2. **[DATA-RIGHTS-COMPLIANCE.md](DATA-RIGHTS-COMPLIANCE.md)** - Complete
+   compliance framework
+3. **Implementation Patterns** - Citation-only storage, proprietary segregation,
+   rights-aware exports
 
-**⚠️ Non-compliance may result in copyright infringement claims up to $150,000 per work under 17 U.S.C. § 504(c).**
+**⚠️ Non-compliance may result in copyright infringement claims up to $150,000
+per work under 17 U.S.C. § 504(c).**
 
 --
 
 ## 🤖 Custom AI Development Agents
 
-**NEW: 7 specialized GitHub Copilot agents** built for this platform - accelerate development by 50%!
+**NEW: 7 specialized GitHub Copilot agents** built for this platform -
+accelerate development by 50%!
 
 ```bash
 npm install
@@ -63,7 +70,8 @@ Then use in GitHub Copilot Chat:
 
 ## 🎯 What is Evident Legal Tech?
 
-Professional-grade AI forensic analysis platform for civil rights attorneys, legal discovery teams, law enforcement oversight, and forensic analysts.
+Professional-grade AI forensic analysis platform for civil rights attorneys,
+legal discovery teams, law enforcement oversight, and forensic analysts.
 
 ### Core Capabilities
 
@@ -73,13 +81,15 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 - ⚠️ **Discrepancy Detection** - Compare BWC vs. reports vs. CAD logs
 - ⏱️ **Timeline Builder** - Synchronized multi-source timelines
 - 🔗 **Chain of Custody** - SHA-256 checksums, tamper detection, audit trails
-- 📄 **Reports Prepared for Legal Review** - PDF, DOCX, JSON exports with metadata (attorney review required for admissibility)
+- 📄 **Reports Prepared for Legal Review** - PDF, DOCX, JSON exports with
+  metadata (attorney review required for admissibility)
 
 --
 
 ## 💼 SaaS Platform - No Downloads Required
 
-**🌐 100% Cloud-Based:** Your code stays on our secure servers. No installations, no updates, no IT hassle.
+**🌐 100% Cloud-Based:** Your code stays on our secure servers. No
+installations, no updates, no IT hassle.
 
 ### Subscription Tiers
 
@@ -90,7 +100,8 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 | **Enterprise**     | SaaS **OR** Self-Hosted\* | Custom      | $50,000+     |
 | **Gov/Non-Profit** | SaaS only                 | Custom      | 50% discount |
 
-**Self-Hosted License:** Only available with Enterprise tier. Requires separate licensing agreement.
+**Self-Hosted License:** Only available with Enterprise tier. Requires separate
+licensing agreement.
 
 ### What's Included (All Tiers)
 
@@ -125,7 +136,8 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 ✅ 99.9% uptime SLA
 
 **Traditional Download Option:**  
-\*Enterprise customers can choose self-hosted deployment with full source code license for additional $25,000/year minimum.
+\*Enterprise customers can choose self-hosted deployment with full source code
+license for additional $25,000/year minimum.
 
 ### Get a License
 
@@ -183,4 +195,5 @@ Include: use case, # users, organization
 
 --
 
-**Copyright © 2024-2026 Faith Frontier Ecclesiastical Trust. All rights reserved worldwide.**
+**Copyright © 2024-2026 Faith Frontier Ecclesiastical Trust. All rights reserved
+worldwide.**

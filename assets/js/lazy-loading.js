@@ -135,9 +135,7 @@
    */
   function init() {
     // Find all lazy images
-    const lazyImages = document.querySelectorAll(
-      'img[data-src], img[loading="lazy"]',
-    );
+    const lazyImages = document.querySelectorAll('img[data-src], img[loading="lazy"]');
 
     if (lazyImages.length === 0) return;
 

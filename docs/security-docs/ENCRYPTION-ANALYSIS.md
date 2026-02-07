@@ -7,11 +7,15 @@
 
 ## ⚠️ Critical Understanding: Jekyll + GitHub Pages
 
-**GitHub Pages is a STATIC site hosting service.** All files deployed must be readable by the server to serve them to browsers. This means:
+**GitHub Pages is a STATIC site hosting service.** All files deployed must be
+readable by the server to serve them to browsers. This means:
 
-- ❌ **Cannot encrypt:** Any file that browsers need to render (HTML, CSS, JS, images, fonts)
-- ❌ **Cannot encrypt:** Jekyll source files (\_config.yml, \_layouts, \_includes, Markdown pages)
-- ❌ **Cannot encrypt:** Build configuration (Gemfile, package.json, netlify.toml)
+- ❌ **Cannot encrypt:** Any file that browsers need to render (HTML, CSS, JS,
+  images, fonts)
+- ❌ **Cannot encrypt:** Jekyll source files (\_config.yml, \_layouts,
+  \_includes, Markdown pages)
+- ❌ **Cannot encrypt:** Build configuration (Gemfile, package.json,
+  netlify.toml)
 
 --
 
@@ -120,7 +124,8 @@ Store the base64-encoded key in GitHub Secrets as `GIT_CRYPT_KEY`
 
 ## 🚫 Files That Should NOT Be Encrypted
 
-The following files are sometimes mistakenly encrypted - **DO NOT encrypt these:**
+The following files are sometimes mistakenly encrypted - **DO NOT encrypt
+these:**
 
 - `_config.yml` - Jekyll will fail to build
 - `Gemfile` / `Gemfile.lock` - Dependency installation fails

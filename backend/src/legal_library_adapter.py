@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -11,7 +12,7 @@ import json
 import sqlite3
 import uuid
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 try:
     import PyPDF2
@@ -27,7 +28,7 @@ DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 class LegalLibraryAdapter:
     """Adapter to ingest legal documents into retrieval system"""
 
-    def __init__(self, db_path: Union[str, Path] = DB_PATH):
+    def __init__(self, db_path: str | Path = DB_PATH):
         self.db_path = Path(db_path)
 
     def _conn(self) -> sqlite3.Connection:
@@ -46,10 +47,10 @@ class LegalLibraryAdapter:
 
     def ingest_pdf(
         self,
-        filepath: Union[Path, str],
+        filepath: Path | str,
         source_system: str = "legal_library",
         document_type: str = "case_law",
-        metadata: Optional[Dict[str, Any]] = None,
+Optional[metadata: dict[str, Any]] = None,
     ) -> str:
         """
         Ingest PDF document and extract pages
@@ -115,7 +116,7 @@ class LegalLibraryAdapter:
 
         return document_id
 
-    def _extract_pdf_pages(self, filepath: Path) -> Dict[int, str]:
+    def _extract_pdf_pages(self, filepath: Path) -> dict[int, str]:
         """Extract text from each page of PDF"""
         pages = {}
 
@@ -148,7 +149,7 @@ class LegalLibraryAdapter:
         filename: str,
         source_system: str = "legal_library",
         document_type: str = "statute",
-        metadata: Optional[Dict[str, Any]] = None,
+Optional[metadata: dict[str, Any]] = None,
         page_size: int = 5000,  # Characters per "page"
     ) -> str:
         """
@@ -226,8 +227,8 @@ class LegalLibraryAdapter:
             return result.rowcount > 0
 
     def list_documents(
-        self, source_system: Optional[str] = None, limit: int = 100
-    ) -> List[Dict[str, Any]]:
+Optional[self, source_system: str] = None, limit: int = 100
+    ) -> list[dict[str, Any]]:
         """List ingested documents"""
         with self._conn() as conn:
             if source_system:
@@ -255,4 +256,3 @@ class LegalLibraryAdapter:
                 ).fetchall()
 
             return [dict(row) for row in rows]
-

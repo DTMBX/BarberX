@@ -45,9 +45,7 @@
       });
       a.appendChild(strong);
 
-      const docket = Array.isArray(c.docket)
-        ? c.docket.join(", ")
-        : c.docket || "";
+      const docket = Array.isArray(c.docket) ? c.docket.join(", ") : c.docket || "";
       const metaText = [
         (c.court || "").trim(),
         ("Docket: " + (docket || "")).trim(),
@@ -70,24 +68,13 @@
       items.filter((c) => {
         const title = c && c.title ? String(c.title) : "";
         const shortTitle = c && c.short_title ? String(c.short_title) : "";
-        const docketRaw =
-          c && c.docket !== null && c.docket !== undefined ? c.docket : "";
-        const docketStr = Array.isArray(docketRaw)
-          ? docketRaw.join(" ")
-          : String(docketRaw || "");
+        const docketRaw = c && c.docket !== null && c.docket !== undefined ? c.docket : "";
+        const docketStr = Array.isArray(docketRaw) ? docketRaw.join(" ") : String(docketRaw || "");
         const tags = c && Array.isArray(c.tags) ? c.tags.join(" ") : "";
-        const hay = (
-          title +
-          " " +
-          shortTitle +
-          " " +
-          docketStr +
-          " " +
-          tags
-        ).toLowerCase();
+        const hay = (title + " " + shortTitle + " " + docketStr + " " + tags).toLowerCase();
         const cStatus = c && c.status ? String(c.status).toLowerCase() : "";
         return (!term || hay.includes(term)) && (!st || cStatus === st);
-      }),
+      })
     );
   };
   q.addEventListener("input", filter);

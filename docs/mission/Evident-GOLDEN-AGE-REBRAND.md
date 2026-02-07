@@ -21,7 +21,8 @@
 - **Style:** Art Deco elegance, precision craftsmanship
 - **Values:** Precision. Excellence. Honor. Justice.
 - **Email:** contact@Evident.info
-- **Tagline:** "AI-Powered Civil Rights eDiscovery in the Tradition of America's Golden Age"
+- **Tagline:** "AI-Powered Civil Rights eDiscovery in the Tradition of America's
+  Golden Age"
 
 --
 
@@ -29,10 +30,13 @@
 
 ### 1920's Golden Age Inspiration
 
-The 1920s represented America's transition into modernity while maintaining traditional values of craftsmanship, precision, and honor. Our platform embodies this spirit:
+The 1920s represented America's transition into modernity while maintaining
+traditional values of craftsmanship, precision, and honor. Our platform embodies
+this spirit:
 
 - **Craftsmanship:** Hand-crafted code, attention to detail
-- **Precision:** Accurate AI processing with detailed audit trails to support legal review
+- **Precision:** Accurate AI processing with detailed audit trails to support
+  legal review
 - **Excellence:** Professional-grade tools, no compromises
 - **Honor:** Integrity in civil rights work
 - **Innovation:** Cutting-edge AI with timeless values
@@ -52,31 +56,24 @@ The 1920s represented America's transition into modernity while maintaining trad
 ### Primary Colors
 
 ```css
---Evident-gold: #d4af37 /* Main brand gold */ --Evident-dark-gold: #b8941c
-  /* Hover states */ --Evident-brass: #b5a642 /* Accents */
-  --Evident-crimson: #8b0000 /* "X" in Evident */ --Evident-deep-red: #c41e3a
-  /* Highlights */;
+--Evident-gold: #d4af37 /* Main brand gold */ --Evident-dark-gold: #b8941c /* Hover states */
+  --Evident-brass: #b5a642 /* Accents */ --Evident-crimson: #8b0000 /* "X" in Evident */
+  --Evident-deep-red: #c41e3a /* Highlights */;
 ```
 
 ### Neutrals
 
 ```css
---Evident-navy: #1a1a2e /* Primary dark */ --Evident-charcoal: #2d2d3a
-  /* Secondary dark */ --Evident-cream: #fff8dc /* Light backgrounds */
-  --Evident-ivory: #fffff0 /* Soft white */ --Evident-silver: #c0c0c0
-  /* Muted accents */;
+--Evident-navy: #1a1a2e /* Primary dark */ --Evident-charcoal: #2d2d3a /* Secondary dark */
+  --Evident-cream: #fff8dc /* Light backgrounds */ --Evident-ivory: #fffff0 /* Soft white */
+  --Evident-silver: #c0c0c0 /* Muted accents */;
 ```
 
 ### Gradients
 
 ```css
 --Evident-gold-gradient: linear-gradient(135deg, #d4af37 0%, #b8941c 100%);
---Evident-deco-gradient: linear-gradient(
-  135deg,
-  #1a1a2e 0%,
-  #2d2d3a 50%,
-  #1a1a2e 100%
-);
+--Evident-deco-gradient: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 50%, #1a1a2e 100%);
 ```
 
 --
@@ -190,8 +187,8 @@ email: "contact@Evident.info" (was BarberCamX@ProtonMail.com)
 ### Loading Order:
 
 ```html
-1. Evident-golden-age.css ← New! Art Deco styling 2. brand-tokens.css ← Existing
-3. barber-branding.css ← Existing 4. Google Fonts (Playfair + Montserrat)
+1. Evident-golden-age.css ← New! Art Deco styling 2. brand-tokens.css ← Existing 3.
+barber-branding.css ← Existing 4. Google Fonts (Playfair + Montserrat)
 ```
 
 --
@@ -376,14 +373,18 @@ built with the craftsmanship and integrity of the 1920s.
 
 ### Messaging Tone
 
-- **Professional:** Documentation designed to support legal review, precision, excellence
+- **Professional:** Documentation designed to support legal review, precision,
+  excellence
 - **Historical:** 1920's golden age, American tradition
 - **Innovative:** AI-powered, cutting-edge technology
 - **Ethical:** Honor, justice, civil rights
 
 ### Example Copy
 
-> "Evident Legal Technologies brings the precision and craftsmanship of America's Golden Age to modern civil rights eDiscovery. Built with the same attention to detail that defined the 1920s, our AI-powered platform processes evidence with honor and integrity."
+> "Evident Legal Technologies brings the precision and craftsmanship of
+> America's Golden Age to modern civil rights eDiscovery. Built with the same
+> attention to detail that defined the 1920s, our AI-powered platform processes
+> evidence with honor and integrity."
 
 --
 

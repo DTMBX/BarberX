@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -31,7 +32,6 @@ import subprocess
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
 
 import spacy
 import torch
@@ -57,7 +57,7 @@ class ChainOfCustody:
     source: str  # "OPRA request", "Discovery production", etc.
     verification_method: str = "SHA-256 cryptographic hash"
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "file_path": self.file_path,
             "sha256_hash": self.sha256_hash,
@@ -78,15 +78,15 @@ class TranscriptSegment:
     start_time: float
     end_time: float
     text: str
-    speaker: Optional[str] = None  # "SPEAKER_00", "SPEAKER_01", etc.
-    speaker_label: Optional[str] = None  # "Officer Smith", "Civilian", etc.
+Optional[speaker: str] = None  # "SPEAKER_00", "SPEAKER_01", etc.
+Optional[speaker_label: str] = None  # "Officer Smith", "Civilian", etc.
     confidence: float = 1.0
-    words: List[Dict] = field(default_factory=list)
+    words: list[dict] = field(default_factory=list)
 
     def duration(self) -> float:
         return self.end_time - self.start_time
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "start_time": self.start_time,
             "end_time": self.end_time,
@@ -108,11 +108,11 @@ class DiscrepancyReport:
     bwc_evidence: str
     conflicting_evidence: str
     conflicting_source: str  # "CAD log", "Police report", "Officer statement"
-    timestamp: Optional[float] = None
+Optional[timestamp: float] = None
     description: str = ""
     legal_significance: str = ""
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "type": self.discrepancy_type,
             "severity": self.severity,
@@ -138,28 +138,28 @@ class BWCAnalysisReport:
     chain_of_custody: ChainOfCustody
 
     # Audio analysis
-    transcript: List[TranscriptSegment] = field(default_factory=list)
-    speakers: Dict[str, str] = field(default_factory=dict)  # speaker_id -> label
+    transcript: list[TranscriptSegment] = field(default_factory=list)
+    speakers: dict[str, str] = field(default_factory=dict)  # speaker_id -> label
 
     # Video analysis
-    scenes: List[Dict] = field(default_factory=list)
-    objects_detected: List[Dict] = field(default_factory=list)
+    scenes: list[dict] = field(default_factory=list)
+    objects_detected: list[dict] = field(default_factory=list)
 
     # Metadata
-    metadata: Dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict)
 
     # Cross-reference analysis
-    timeline_events: List[Dict] = field(default_factory=list)
-    discrepancies: List[DiscrepancyReport] = field(default_factory=list)
+    timeline_events: list[dict] = field(default_factory=list)
+    discrepancies: list[DiscrepancyReport] = field(default_factory=list)
 
     # Entities extracted
-    entities: Dict[str, List[str]] = field(default_factory=dict)
+    entities: dict[str, list[str]] = field(default_factory=dict)
 
     # Court documentation
-    evidence_number: Optional[str] = None
-    case_number: Optional[str] = None
+Optional[evidence_number: str] = None
+Optional[case_number: str] = None
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "file_name": self.file_name,
             "file_hash": self.file_hash,
@@ -179,7 +179,7 @@ class BWCAnalysisReport:
             "analysis_summary": self.generate_summary(),
         }
 
-    def generate_summary(self) -> Dict:
+    def generate_summary(self) -> dict:
         """Generate executive summary of analysis"""
         return {
             "total_speakers": len(self.speakers),
@@ -205,8 +205,8 @@ class BWCForensicAnalyzer:
     def __init__(
         self,
         whisper_model_size: str = "base",
-        hf_token: Optional[str] = None,
-        device: Optional[str] = None,
+Optional[hf_token: str] = None,
+Optional[device: str] = None,
     ):
         """
         Initialize BWC analyzer with AI models
@@ -288,7 +288,7 @@ class BWCForensicAnalyzer:
             source=source,
         )
 
-    def extract_audio(self, video_path: str, output_path: Optional[str] = None) -> str:
+Optional[def extract_audio(self, video_path: str, output_path: str] = None) -> str:
         """
         Extract audio from video file using ffmpeg
 
@@ -327,7 +327,7 @@ class BWCForensicAnalyzer:
 
     def transcribe_audio(
         self, audio_path: str, language: str = "en", word_timestamps: bool = True
-    ) -> Dict:
+    ) -> dict:
         """
         Transcribe audio using Whisper
 
@@ -346,7 +346,7 @@ class BWCForensicAnalyzer:
         logger.info(f"✅ Transcription complete: {len(result['segments'])} segments")
         return result
 
-    def diarize_speakers(self, audio_path: str) -> Optional[List[Dict]]:
+Optional[def diarize_speakers(self, audio_path: str) -> list[dict]]:
         """
         Identify and separate speakers in audio
 
@@ -371,8 +371,8 @@ class BWCForensicAnalyzer:
         return segments
 
     def merge_transcription_with_speakers(
-        self, transcription: Dict, diarization: Optional[List[Dict]]
-    ) -> List[TranscriptSegment]:
+Optional[self, transcription: dict, diarization: list[dict]]
+    ) -> list[TranscriptSegment]:
         """
         Merge Whisper transcription with pyannote speaker diarization
 
@@ -421,7 +421,7 @@ class BWCForensicAnalyzer:
 
         return segments
 
-    def extract_entities(self, text: str) -> Dict[str, List[str]]:
+    def extract_entities(self, text: str) -> dict[str, list[str]]:
         """
         Extract named entities from text using spaCy
 
@@ -443,8 +443,8 @@ class BWCForensicAnalyzer:
         return entities
 
     def label_speakers(
-        self, segments: List[TranscriptSegment], known_officers: Optional[List[str]] = None
-    ) -> Dict[str, str]:
+Optional[self, segments: list[TranscriptSegment], known_officers: list[str]] = None
+    ) -> dict[str, str]:
         """
         Attempt to label speakers based on context and known information
 
@@ -485,10 +485,10 @@ class BWCForensicAnalyzer:
 
     def detect_discrepancies(
         self,
-        transcript: List[TranscriptSegment],
-        cad_log: Optional[Dict] = None,
-        police_report: Optional[str] = None,
-    ) -> List[DiscrepancyReport]:
+        transcript: list[TranscriptSegment],
+Optional[cad_log: dict] = None,
+Optional[police_report: str] = None,
+    ) -> list[DiscrepancyReport]:
         """
         Detect discrepancies between BWC footage and other evidence
 
@@ -524,7 +524,7 @@ class BWCForensicAnalyzer:
                             discrepancy_type="statement",
                             severity="major",
                             bwc_evidence=f"{entity_type}: {', '.join(missing_from_report)}",
-                            conflicting_evidence=f"Not mentioned in police report",
+                            conflicting_evidence="Not mentioned in police report",
                             conflicting_source="Police Report",
                             description=f"{entity_type} mentioned in BWC but not in police report",
                             legal_significance="Potential Brady material - exculpatory evidence omitted from official report",
@@ -567,11 +567,11 @@ class BWCForensicAnalyzer:
         video_path: str,
         acquired_by: str,
         source: str,
-        case_number: Optional[str] = None,
-        evidence_number: Optional[str] = None,
-        known_officers: Optional[List[str]] = None,
-        cad_log: Optional[Dict] = None,
-        police_report: Optional[str] = None,
+Optional[case_number: str] = None,
+Optional[evidence_number: str] = None,
+Optional[known_officers: list[str]] = None,
+Optional[cad_log: dict] = None,
+Optional[police_report: str] = None,
     ) -> BWCAnalysisReport:
         """
         Perform comprehensive forensic analysis of BWC file
@@ -669,7 +669,7 @@ class BWCForensicAnalyzer:
             logger.warning("Could not determine video duration")
             return 0.0
 
-    def extract_metadata(self, video_path: str) -> Dict:
+    def extract_metadata(self, video_path: str) -> dict:
         """Extract video metadata using ffprobe"""
         cmd = ["ffprobe", "-v", "error", "-show_format", "-show_streams", "-of", "json", video_path]
 
@@ -681,8 +681,8 @@ class BWCForensicAnalyzer:
             return {}
 
     def export_report(
-        self, report: BWCAnalysisReport, output_dir: str, formats: List[str] = ["json", "txt", "md"]
-    ) -> List[str]:
+        self, report: BWCAnalysisReport, output_dir: str, formats: list[str] = ["json", "txt", "md"]
+    ) -> list[str]:
         """
         Export analysis report in multiple formats
 
@@ -917,8 +917,6 @@ if __name__ == "__main__":
     files = analyzer.export_report(report, args.output_dir)
 
     print("\n✅ Analysis complete!")
-    print(f"📊 Reports generated:")
+    print("📊 Reports generated:")
     for f in files:
         print(f"   - {f}")
-
-

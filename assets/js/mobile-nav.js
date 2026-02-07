@@ -426,9 +426,7 @@ class EvidentMobileNav {
       overlay.classList.toggle("active");
 
       // Prevent body scroll when menu is open
-      document.body.style.overflow = menu.classList.contains("active")
-        ? "hidden"
-        : "";
+      document.body.style.overflow = menu.classList.contains("active") ? "hidden" : "";
     }
   }
 
@@ -534,7 +532,7 @@ class EvidentMobileNav {
       (e) => {
         touchStartY = e.touches[0].clientY;
       },
-      { passive: true },
+      { passive: true }
     );
 
     menu.addEventListener(
@@ -542,7 +540,7 @@ class EvidentMobileNav {
       (e) => {
         touchEndY = e.touches[0].clientY;
       },
-      { passive: true },
+      { passive: true }
     );
 
     menu.addEventListener("touchend", () => {

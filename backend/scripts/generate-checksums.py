@@ -58,7 +58,7 @@ def process_docket_file(docket_file: Path, repo_root: Path, dry_run: bool = Fals
     }
 
     try:
-        with open(docket_file, "r", encoding="utf-8") as f:
+        with open(docket_file, encoding="utf-8") as f:
             entries = yaml.safe_load(f)
     except Exception as e:
         result["errors"].append(f"Failed to read: {e}")
@@ -121,16 +121,16 @@ def create_manifest(docket_file: Path, repo_root: Path, manifest_dir: Path) -> d
     result = {"case_id": docket_file.stem, "entries": 0}
 
     try:
-        with open(docket_file, "r", encoding="utf-8") as f:
+        with open(docket_file, encoding="utf-8") as f:
             entries = yaml.safe_load(f) or []
     except Exception:
         return result
 
     manifest_lines = [
-        f"# SHA-256 Checksum Manifest",
+        "# SHA-256 Checksum Manifest",
         f"# Case: {docket_file.stem}",
         f"# Generated: {datetime.now().isoformat()}",
-        f"# Format: checksum *filepath",
+        "# Format: checksum *filepath",
         "",
     ]
 

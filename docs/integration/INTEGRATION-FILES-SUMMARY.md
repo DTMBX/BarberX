@@ -141,7 +141,8 @@ python batch_import_foundation_cases.py criminal_defense
 
 ### 6. MAUI Legal Library Page ✅
 
-**File:** `src/Evident.MatterDocket.MAUI/Views/LegalLibraryPage.cs` (6,752 chars)
+**File:** `src/Evident.MatterDocket.MAUI/Views/LegalLibraryPage.cs` (6,752
+chars)
 
 **Features:**
 

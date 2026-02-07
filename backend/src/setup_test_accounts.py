@@ -16,7 +16,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import app
-from models_auth import TierLevel, User, db, utc_now
+from models_auth import TierLevel, User, db
 
 
 def setup_test_accounts():
@@ -95,10 +95,12 @@ def setup_test_accounts():
 
         for account in test_accounts:
             user = User.query.filter_by(email=account["email"]).first()
-            tier_emoji = "👑" if user.is_admin else ("🏢" if user.tier == TierLevel.ENTERPRISE else "🆓")
+            tier_emoji = (
+                "👑" if user.is_admin else ("🏢" if user.tier == TierLevel.ENTERPRISE else "🆓")
+            )
 
             print(f"\n{tier_emoji} {account['email']}")
-            print(f"   Password: {account['password']}")
+            print("   Password: [HIDDEN]")
             print(f"   Tier:     {user.tier.name} ({user.tier_name})")
             print(f"   Admin:    {user.is_admin}")
             print(f"   Active:   {user.is_active}")
@@ -106,9 +108,9 @@ def setup_test_accounts():
 
             # Verify password works
             if user.check_password(account["password"]):
-                print(f"   Login:    ✅ Password verified")
+                print("   Login:    ✅ Password verified")
             else:
-                print(f"   Login:    ❌ PASSWORD VERIFICATION FAILED!")
+                print("   Login:    ❌ PASSWORD VERIFICATION FAILED!")
 
         print("\n" + "=" * 70)
         print(f"SUMMARY: Created {created}, Updated {updated}")
@@ -127,4 +129,3 @@ def setup_test_accounts():
 
 if __name__ == "__main__":
     setup_test_accounts()
-

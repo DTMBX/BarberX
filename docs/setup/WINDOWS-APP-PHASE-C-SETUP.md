@@ -7,7 +7,8 @@
 
 ## 🎯 Phase C Overview
 
-**Goal:** Set up complete development environment for .NET MAUI Windows 11 development  
+**Goal:** Set up complete development environment for .NET MAUI Windows 11
+development  
 **Duration:** 1-2 hours  
 **Prerequisites:** Windows 11, Administrator access
 

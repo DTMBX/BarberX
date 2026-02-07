@@ -211,8 +211,8 @@ def requires_feature(feature_name):
 
             if not current_user.can_access_feature(feature_name):
                 flash(
-                    f"This feature requires a higher tier. "
-                    f'<a href="/pricing">View upgrade options</a>',
+                    "This feature requires a higher tier. "
+                    '<a href="/pricing">View upgrade options</a>',
                     "warning",
                 )
                 return redirect(url_for("dashboard"))
@@ -263,5 +263,3 @@ def register_ux_filters(app):
             "contextual_help": contextual_help,
             "get_welcome_message": get_welcome_message,
         }
-
-

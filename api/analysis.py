@@ -9,10 +9,10 @@ Handles AI analysis requests, report generation, and status tracking
 from datetime import datetime
 
 from flask import jsonify, request
+from tier_gating import check_tier_access
 
 from api import analysis_api
 from api.auth import jwt_required
-from tier_gating import check_tier_access
 
 
 @analysis_api.route("/start", methods=["POST"])

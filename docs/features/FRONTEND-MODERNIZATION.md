@@ -2,7 +2,9 @@
 
 ## Overview
 
-Complete redesign of Evident.info homepage with professional legal tech branding, modern CSS/JS, and clear value proposition for the AI-powered eDiscovery platform.
+Complete redesign of Evident.info homepage with professional legal tech
+branding, modern CSS/JS, and clear value proposition for the AI-powered
+eDiscovery platform.
 
 --
 
@@ -167,14 +169,17 @@ window.EvidentPlatform = {
 
 **Structure:**
 
-- **Status Badge:** Pulsing green dot + "Local AI Processing • Audit Trails for Legal Review"
-- **Headline:** "Citizen Accountability Through Record Access" (with gradient accent)
+- **Status Badge:** Pulsing green dot + "Local AI Processing • Audit Trails for
+  Legal Review"
+- **Headline:** "Citizen Accountability Through Record Access" (with gradient
+  accent)
 - **Lead:** Value proposition (100% local, $0 costs)
 - **CTA Buttons:** "Start Processing Evidence" + "View Documentation"
 - **Features Grid:** 4 features with icons
   1. Video Enhancement (Whisper, super-resolution)
   2. Document Processing (OCR, entity recognition, semantic search)
-  3. Chain of Custody (SHA-256, audit logs, documented provenance to assist review)
+  3. Chain of Custody (SHA-256, audit logs, documented provenance to assist
+     review)
   4. Zero Cloud Costs ($36 saved per 100hrs)
 
 **Stats Banner:**
@@ -195,7 +200,8 @@ window.EvidentPlatform = {
 **Section Header:**
 
 - Badge: "Powered by Open-Source AI"
-- Headline: "Professional Evidence Processing Without the Professional Price Tag"
+- Headline: "Professional Evidence Processing Without the Professional Price
+  Tag"
 - Description: 7 tools, enterprise-grade, free, local
 
 **Feature Cards (6 total):**
@@ -230,7 +236,8 @@ window.EvidentPlatform = {
    - Original preservation (non-destructive)
    - Export packages (with chain of custody)
    - AES-256 encryption (optional)
-   - **Formatted For Court Submission:** Federal Rules of Evidence 901(b)(9) may be relevant; final admission depends on process and counsel
+   - **Formatted For Court Submission:** Federal Rules of Evidence 901(b)(9) may
+     be relevant; final admission depends on process and counsel
 
 5. **Forensic Media Enhancement**
    - Image super-resolution (Real-ESRGAN)
@@ -293,7 +300,8 @@ window.EvidentPlatform = {
 **Meta Tags:**
 
 - Title: "Evident Legal Tech | AI-Powered eDiscovery Platform"
-- Description: "Professional-grade evidence processing with 100% local AI tools..."
+- Description: "Professional-grade evidence processing with 100% local AI
+  tools..."
 
 **Structure:**
 
@@ -313,7 +321,8 @@ window.EvidentPlatform = {
    - Step 1: Upload Evidence (SHA-256 checksums)
    - Step 2: AI Processing (Whisper, pyannote, Tesseract, spaCy, YOLOv8)
    - Step 3: Search & Analyze (semantic search, timelines, cross-reference)
-   - Step 4: Export exhibits formatted for court submission (PDF, Word, JSON with checksums)
+   - Step 4: Export exhibits formatted for court submission (PDF, Word, JSON
+     with checksums)
 
    **c. Real Cases Section**
    - Case 1: ATL-L-002794-25 (Atlantic County - BWC transcription)
@@ -370,7 +379,8 @@ window.EvidentPlatform = {
 
 **Font Families:**
 
-- Sans: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`
+- Sans:
+  `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`
 - Mono: `'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace`
 
 **Type Scale (responsive with clamp):**
@@ -686,7 +696,8 @@ const validator = new EvidentPlatform.FormValidator(formElement);
 - 100% local processing (privacy, control)
 - $0 cloud API costs (save $36 per 100hrs)
 - 7 open-source AI tools (enterprise-grade, free)
-- Designed with SHA-256 and audit logs to assist authentication; consult counsel regarding FRE 901 application
+- Designed with SHA-256 and audit logs to assist authentication; consult counsel
+  regarding FRE 901 application
 
 **Level 3: Use Cases**
 
@@ -858,13 +869,19 @@ const validator = new EvidentPlatform.FormValidator(formElement);
 
 ## Summary
 
-This frontend modernization transforms Evident.info from a personal accountability journal into a **professional legal tech platform**. The new design:
+This frontend modernization transforms Evident.info from a personal
+accountability journal into a **professional legal tech platform**. The new
+design:
 
-1. **Clearly communicates value:** 100% local AI processing, zero costs, designed with audit trails to support legal review
+1. **Clearly communicates value:** 100% local AI processing, zero costs,
+   designed with audit trails to support legal review
 2. **Showcases capabilities:** 7 AI tools, 6 major features, real case examples
 3. **Guides users:** 4-step workflow, clear CTAs, detailed documentation
-4. **Builds trust:** Open-source licenses, technical specifications, performance metrics
+4. **Builds trust:** Open-source licenses, technical specifications, performance
+   metrics
 5. **Performs well:** Accessible, responsive, fast, monitoring Core Web Vitals
 6. **Scales easily:** Design system, component library, reusable patterns
 
-The platform is now positioned as a **serious alternative to expensive cloud-based eDiscovery services**, with professional branding and enterprise-grade capabilities—all completely free and open-source.
+The platform is now positioned as a **serious alternative to expensive
+cloud-based eDiscovery services**, with professional branding and
+enterprise-grade capabilities—all completely free and open-source.

@@ -2,7 +2,8 @@
 
 ## 🎯 Overview
 
-The Evident Legal Case Management Pro Suite now includes a **comprehensive automated legal research and AI analysis system** with infinite scalability.
+The Evident Legal Case Management Pro Suite now includes a **comprehensive
+automated legal research and AI analysis system** with infinite scalability.
 
 --
 
@@ -381,7 +382,8 @@ Cases are automatically tagged based on content analysis:
 
 **Every case entry must include:**
 
-1. **Official URL**: Link to verified source (SupremeCourt.gov, CourtListener, Cornell LII)
+1. **Official URL**: Link to verified source (SupremeCourt.gov, CourtListener,
+   Cornell LII)
 2. **Verification Date**: When the citation was verified
 3. **Source**: Manual / CourtListener / SCOTUS / 3d Circuit
 
@@ -438,7 +440,8 @@ Otherwise leave blank. This maintains integrity.
 
 ### Issue: Git publish fails
 
-**Solution**: Ensure git configured (`git config user.name`, `git config user.email`)
+**Solution**: Ensure git configured (`git config user.name`,
+`git config user.email`)
 
 ### Issue: HTML portal empty
 

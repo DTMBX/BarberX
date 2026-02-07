@@ -13,8 +13,9 @@ import os
 import threading
 from datetime import datetime
 from pathlib import Path
+import re
 
-from flask import Flask, jsonify, render_template_string, request, send_file
+from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -23,6 +24,26 @@ from bwc_forensic_analyzer import BWCForensicAnalyzer
 
 app = Flask(__name__)
 CORS(app)
+
+def _safe_report_path(upload_id: str) -> Path:
+    """
+    Resolve the path to report.json for a given upload_id, ensuring it stays
+    within the ANALYSIS_FOLDER directory to prevent path traversal.
+    """
+    base_dir = ANALYSIS_FOLDER.resolve()
+    candidate = base_dir / upload_id / "report.json"
+    try:
+        resolved = candidate.resolve()
+    except (OSError, RuntimeError):
+        # Any resolution error is treated as an invalid upload ID/path.
+        raise FileNotFoundError("Invalid report path")
+
+    # Ensure the resolved path is within the analysis base directory.
+    if base_dir not in resolved.parents:
+        raise FileNotFoundError("Report outside analysis directory")
+
+    return resolved
+
 
 # Configuration
 UPLOAD_FOLDER = Path("./uploads/bwc_videos")
@@ -101,7 +122,7 @@ def upload_file():
 
     if not allowed_file(file.filename):
         return (
-            jsonify({"error": f'Invalid file type. Allowed: {", ".join(ALLOWED_EXTENSIONS)}'}),
+            jsonify({"error": f"Invalid file type. Allowed: {', '.join(ALLOWED_EXTENSIONS)}"}),
             400,
         )
 
@@ -292,24 +313,42 @@ def get_transcript(upload_id):
     if status["status"] != "completed":
         return jsonify({"error": "Analysis not completed"}), 400
 
-    # Load JSON report
+    try:
+        report_file = _safe_report_path(upload_id)
+    except FileNotFoundError:
+        return jsonify({"error": "Report not found"}), 404
     report_file = ANALYSIS_FOLDER / upload_id / "report.json"
 
-    if not report_file.exists():
+    # Ensure the resolved path stays within the analysis folder to prevent directory traversal
+    analysis_root = ANALYSIS_FOLDER.resolve()
+    report_file_resolved = report_file.resolve()
+    try:
+        report_file_resolved.relative_to(analysis_root)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID"}), 400
+
+    if not report_file_resolved.exists():
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, "r", encoding="utf-8") as f:
+    with open(report_file_resolved, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(
         {
             "transcript": report_data.get("transcript", []),
             "speakers": report_data.get("speakers", {}),
+    # Validate upload_id to avoid path traversal via directory segments
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", upload_id or ""):
+        return jsonify({"error": "Invalid upload ID format"}), 400
+
             "duration": report_data.get("duration", 0),
         }
     )
 
-
+    try:
+        report_file = _safe_report_path(upload_id)
+    except FileNotFoundError:
+        return jsonify({"error": "Report not found"}), 404
 @app.route("/api/discrepancies/<upload_id>", methods=["GET"])
 def get_discrepancies(upload_id):
     """Get all discrepancies found"""
@@ -327,7 +366,7 @@ def get_discrepancies(upload_id):
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, "r", encoding="utf-8") as f:
+    with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
 
     discrepancies = report_data.get("discrepancies", [])
@@ -351,7 +390,10 @@ def get_discrepancies(upload_id):
         }
     )
 
-
+    try:
+        report_file = _safe_report_path(upload_id)
+    except FileNotFoundError:
+        return jsonify({"error": "Report not found"}), 404
 @app.route("/api/entities/<upload_id>", methods=["GET"])
 def get_entities(upload_id):
     """Get all extracted entities"""
@@ -369,7 +411,7 @@ def get_entities(upload_id):
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, "r", encoding="utf-8") as f:
+    with open(report_file, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(

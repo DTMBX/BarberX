@@ -9,7 +9,6 @@ Uses embeddings and vector similarity to find related cases
 import json
 from collections import defaultdict
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
@@ -50,7 +49,7 @@ class SimilarCaseFinder:
 
         return os.getenv("OPENAI_API_KEY", "")
 
-    def add_case_to_index(self, case_id: str, case_data: Dict):
+    def add_case_to_index(self, case_id: str, case_data: dict):
         """
         Add case to searchable index
 
@@ -86,8 +85,8 @@ class SimilarCaseFinder:
         print(f"✓ Indexed case: {case_data.get('title', case_id)}")
 
     def find_similar_cases(
-        self, query_case: Dict, top_k: int = 10, min_similarity: float = 0.7
-    ) -> List[Dict]:
+        self, query_case: dict, top_k: int = 10, min_similarity: float = 0.7
+    ) -> list[dict]:
         """
         Find similar cases to a query case
 
@@ -124,7 +123,7 @@ class SimilarCaseFinder:
 
         return similarities[:top_k]
 
-    def search_by_text(self, query: str, top_k: int = 10) -> List[Dict]:
+    def search_by_text(self, query: str, top_k: int = 10) -> list[dict]:
         """
         Search cases by natural language query
 
@@ -158,7 +157,7 @@ class SimilarCaseFinder:
 
         return results[:top_k]
 
-    def get_strategy_recommendations(self, current_case: Dict) -> Dict:
+    def get_strategy_recommendations(self, current_case: dict) -> dict:
         """
         Get strategic recommendations based on similar cases
 
@@ -223,7 +222,7 @@ class SimilarCaseFinder:
             "successful_cases": len(successful_cases),
         }
 
-    def _case_to_text(self, case_data: Dict) -> str:
+    def _case_to_text(self, case_data: dict) -> str:
         """Convert case data to searchable text"""
         parts = []
 
@@ -300,7 +299,7 @@ class SimilarCaseFinder:
 
         return float(dot_product / (norm1 * norm2))
 
-    def _explain_match(self, case1: Dict, case2: Dict, similarity: float) -> List[str]:
+    def _explain_match(self, case1: dict, case2: dict, similarity: float) -> list[str]:
         """Explain why cases match"""
         reasons = []
 
@@ -325,11 +324,11 @@ class SimilarCaseFinder:
             reasons.append(f"Same outcome: {case1.get('outcome')}")
 
         # Similarity score
-        reasons.append(f"Vector similarity: {similarity*100:.1f}%")
+        reasons.append(f"Vector similarity: {similarity * 100:.1f}%")
 
         return reasons
 
-    def _calculate_relevance(self, query: str, case_data: Dict) -> float:
+    def _calculate_relevance(self, query: str, case_data: dict) -> float:
         """Calculate relevance score (0-1)"""
         # Simple keyword matching + other factors
         query_lower = query.lower()
@@ -345,7 +344,7 @@ class SimilarCaseFinder:
 
         return min(1.0, overlap / len(query_words))
 
-    def _top_n_dict(self, d: dict, n: int) -> List[Tuple[str, int]]:
+    def _top_n_dict(self, d: dict, n: int) -> list[tuple[str, int]]:
         """Get top N items from dictionary"""
         return sorted(d.items(), key=lambda x: x[1], reverse=True)[:n]
 
@@ -373,7 +372,7 @@ class SimilarCaseFinder:
 
     def import_index(self, filepath: str):
         """Import case index from file"""
-        with open(filepath, "r") as f:
+        with open(filepath) as f:
             data = json.load(f)
 
         # Re-index all cases
@@ -436,13 +435,13 @@ if __name__ == "__main__":
     print(f"\nFound {len(similar)} similar cases:")
     for match in similar:
         print(f"\n{match['case_data']['title']}")
-        print(f"  Similarity: {match['similarity']*100:.1f}%")
+        print(f"  Similarity: {match['similarity'] * 100:.1f}%")
         print(f"  Reasons: {', '.join(match['match_reasons'])}")
 
     # Get strategy recommendations
     recommendations = finder.get_strategy_recommendations(query_case)
-    print(f"\nStrategy Recommendations:")
-    print(f"  Success Rate: {recommendations['success_rate']*100:.0f}%")
+    print("\nStrategy Recommendations:")
+    print(f"  Success Rate: {recommendations['success_rate'] * 100:.0f}%")
     print(f"  Recommended Motions: {recommendations['recommended_motions']}")
 
     print("\n✓ Similar Case Finder ready!")

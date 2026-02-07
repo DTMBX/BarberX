@@ -30,7 +30,8 @@
 
 ### 5. Documentation Organization
 
-**Folders:** `docs/mobile/`, `docs/security/`, `docs/stripe/`, `docs/analytics/`, `docs/day-summaries/`  
+**Folders:** `docs/mobile/`, `docs/security/`, `docs/stripe/`,
+`docs/analytics/`, `docs/day-summaries/`  
 **Impact:** Easy navigation, team onboarding
 
 --
@@ -142,15 +143,19 @@ curl -I http://localhost:5000
 ## 📖 Documentation Links
 
 - **Master Index:** [docs/README.md](../README.md)
-- **Optimization Details:** [docs/PRODUCTION-OPTIMIZATION-SUMMARY.md](PRODUCTION-OPTIMIZATION-SUMMARY.md)
-- **Deployment Checklist:** [docs/DEPLOYMENT-CHECKLIST.md](DEPLOYMENT-CHECKLIST.md)
-- **Final Status:** [docs/PRODUCTION-READY-STATUS.md](PRODUCTION-READY-STATUS.md)
+- **Optimization Details:**
+  [docs/PRODUCTION-OPTIMIZATION-SUMMARY.md](PRODUCTION-OPTIMIZATION-SUMMARY.md)
+- **Deployment Checklist:**
+  [docs/DEPLOYMENT-CHECKLIST.md](DEPLOYMENT-CHECKLIST.md)
+- **Final Status:**
+  [docs/PRODUCTION-READY-STATUS.md](PRODUCTION-READY-STATUS.md)
 
 --
 
 ## 🎯 Next Actions (Priority Order)
 
-1. **Generate PWA icons** (30 min) → Use https://www.pwabuilder.com/imageGenerator
+1. **Generate PWA icons** (30 min) → Use
+   https://www.pwabuilder.com/imageGenerator
 2. **Git commit** (10 min) → `git commit -m "Production optimization complete"`
 3. **Update main templates** (60 min) → Add structured data component
 4. **Real device testing** (90 min) → iPhone + Android

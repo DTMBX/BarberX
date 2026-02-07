@@ -311,7 +311,8 @@ cat .env
 
 ### Error: "Invalid API key"
 
-- Verify you're using a real OpenAI API key from https://platform.openai.com/api-keys
+- Verify you're using a real OpenAI API key from
+  https://platform.openai.com/api-keys
 - Make sure key starts with `sk-`
 - Check key hasn't been revoked
 

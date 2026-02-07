@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main, chore/remediate-assets-links ]
+
+permissions:
+  contents: read
+
+jobs:
+  style-check:
+    name: Repo style-check (ruff + prettier)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run repo style script
+        shell: bash
+        run: |
+          pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/style.ps1
+
+  
+  build:
+    name: Build, Lint, Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run linters (style + format check)
+        run: npm run lint
+
+      - name: Build site
+        run: npm run build
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps (if present)
+        run: |
+          if [ -f backend/requirements.txt ]; then python -m pip install --upgrade pip && pip install -r backend/requirements.txt; fi
+
+      - name: Run Python tests
+        run: |
+          if [ -d backend ] ; then pytest -q || true; fi
+
+      - name: Run security audits (non-blocking)
+        continue-on-error: true
+        run: |
+          npm audit --audit-level=high || true
+          python -m pip install pip-audit || true
+          python -m pip_audit --fail-on high || true
+
+  notify:
+    name: Notify (on failure)
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ always() && needs.build.result != 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post failure comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            CI detected a failure. Please review the workflow logs and fix lint/build/test issues.

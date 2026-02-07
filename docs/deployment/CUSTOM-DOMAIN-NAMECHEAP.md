@@ -39,8 +39,7 @@ Click "Save All Changes" (green checkmark)
 
 Render automatically provisions free SSL certificate (5-15 min)
 
-Your app will be live at:
-**https://app.Evident.info** ??
+Your app will be live at: **https://app.Evident.info** ??
 
 --
 

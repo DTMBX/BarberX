@@ -1,12 +1,15 @@
 # 🌾 Tillerstead Sanctuary Navigation System
 
-A beautiful, peaceful, and fully accessible navigation system designed specifically for **Tillerstead Sanctuary** with earthy, agricultural-inspired colors and sanctuary-focused design.
+A beautiful, peaceful, and fully accessible navigation system designed
+specifically for **Tillerstead Sanctuary** with earthy, agricultural-inspired
+colors and sanctuary-focused design.
 
 ## 🎨 Design Philosophy
 
 ### Color Palette
 
-The Tillerstead navigation uses a carefully selected earthy palette that reflects the sanctuary's mission of agriculture, recovery, and stewardship:
+The Tillerstead navigation uses a carefully selected earthy palette that
+reflects the sanctuary's mission of agriculture, recovery, and stewardship:
 
 - **Forest Greens**: #2D5016, #5B8A3C, #8FBC66 (Primary brand colors)
 - **Earth Tones**: #8B7355, #A0826D (Grounding, natural)
@@ -105,7 +108,8 @@ Open `tillerstead-nav-demo.html` to see the navigation in action!
 
 ### Update Navigation Links
 
-Edit `tillerstead-header.html` to add/remove menu items or change links to match your site structure.
+Edit `tillerstead-header.html` to add/remove menu items or change links to match
+your site structure.
 
 ### Adjust Colors
 
@@ -123,7 +127,8 @@ Modify CSS variables in `tillerstead-header.css`:
 
 ### Change CTAs
 
-Update the "Get Help" and "Prayer" buttons in the header HTML to link to your actual forms/pages.
+Update the "Get Help" and "Prayer" buttons in the header HTML to link to your
+actual forms/pages.
 
 ## 🌟 Design Details
 
@@ -211,7 +216,8 @@ Features to try:
 
 ## 🙏 Mission Statement
 
-_"Tillerstead Sanctuary: Where faith, work, and harvest meet in a haven of healing and hope."_
+_"Tillerstead Sanctuary: Where faith, work, and harvest meet in a haven of
+healing and hope."_
 
 This navigation system embodies that mission through:
 

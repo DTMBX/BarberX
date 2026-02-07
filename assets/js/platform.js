@@ -42,11 +42,9 @@
     }, observerOptions);
 
     // Observe feature cards, stats, and other animated elements
-    document
-      .querySelectorAll(".feature-card, .stat-card, .card")
-      .forEach((el) => {
-        observer.observe(el);
-      });
+    document.querySelectorAll(".feature-card, .stat-card, .card").forEach((el) => {
+      observer.observe(el);
+    });
   }
 
   /**
@@ -156,10 +154,7 @@
           element.textContent = formatStatValue(target, element.dataset.format);
           clearInterval(timer);
         } else {
-          element.textContent = formatStatValue(
-            Math.floor(current),
-            element.dataset.format,
-          );
+          element.textContent = formatStatValue(Math.floor(current), element.dataset.format);
         }
       }, 16);
     };
@@ -180,7 +175,7 @@
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.5 }
     );
 
     statValues.forEach((stat) => observer.observe(stat));
@@ -266,11 +261,9 @@
     document.addEventListener("keydown", (e) => {
       // ESC key closes modals/dropdowns
       if (e.key === "Escape") {
-        document
-          .querySelectorAll(".modal.active, .dropdown.active")
-          .forEach((el) => {
-            el.classList.remove("active");
-          });
+        document.querySelectorAll(".modal.active, .dropdown.active").forEach((el) => {
+          el.classList.remove("active");
+        });
       }
     });
 

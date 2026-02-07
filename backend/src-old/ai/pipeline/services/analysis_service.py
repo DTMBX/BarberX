@@ -17,7 +17,6 @@ CRITICAL: This ensures LLM outputs are grounded in retrieved passages.
 
 import logging
 import re
-from typing import List, Optional
 
 from ..contracts import AnalysisResult, CitationRecord, Passage
 
@@ -46,7 +45,7 @@ class AnalysisService:
         logger.info(f"AnalysisService initialized (smart_tools={SMART_TOOLS_AVAILABLE})")
 
     def analyze(
-        self, query: str, context: List[Passage], mode: str = "legal_research"
+        self, query: str, context: list[Passage], mode: str = "legal_research"
     ) -> AnalysisResult:
         """
         Perform analysis with grounded citations
@@ -93,7 +92,7 @@ class AnalysisService:
 
         return result
 
-    def _format_passages(self, passages: List[Passage]) -> str:
+    def _format_passages(self, passages: list[Passage]) -> str:
         """Format passages with citation markers"""
         if not passages:
             return "No relevant passages found."
@@ -106,7 +105,7 @@ class AnalysisService:
 
         return "\n\n".join(lines)
 
-    def _generate_local_response(self, query: str, context: List[Passage], mode: str) -> str:
+    def _generate_local_response(self, query: str, context: list[Passage], mode: str) -> str:
         """
         Generate a helpful response based on available passages
         This works without requiring an external LLM API
@@ -177,7 +176,7 @@ This appears to be a legal research question. For accurate legal information, pl
 
 Would you like me to help you search for something else?"""
 
-    def _extract_citations(self, response: str, context: List[Passage]) -> List[CitationRecord]:
+    def _extract_citations(self, response: str, context: list[Passage]) -> list[CitationRecord]:
         """
         Extract citation markers from response and validate
 
@@ -220,4 +219,3 @@ Would you like me to help you search for something else?"""
                 citations.append(citation)
 
         return citations
-

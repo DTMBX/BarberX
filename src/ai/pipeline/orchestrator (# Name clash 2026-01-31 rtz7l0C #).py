@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -14,8 +15,15 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from .contracts import (AnalysisResult, ExtractResult, IndexResult,
-                        IngestResult, Passage, RetrieveResult, SourceSystem)
+from .contracts import (
+    AnalysisResult,
+    ExtractResult,
+    IndexResult,
+    IngestResult,
+    Passage,
+    RetrieveResult,
+    SourceSystem,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +61,7 @@ class PipelineOrchestrator:
         )
     """
 
-    def __init__(self, config: Optional[Dict] = None):
+Optional[def __init__(self, config: dict] = None):
         """
         Initialize orchestrator with services and adapters
 
@@ -85,7 +93,7 @@ class PipelineOrchestrator:
     # =================================================================
 
     def ingest_document(
-        self, file_path: str, source_system: SourceSystem, metadata: Optional[Dict] = None
+Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = None
     ) -> IngestResult:
         """
         Ingest a document into the pipeline
@@ -196,7 +204,7 @@ class PipelineOrchestrator:
         return result
 
     def retrieve(
-        self, query: str, filters: Optional[Dict] = None, top_k: int = 10, method: str = "keyword"
+Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
@@ -232,7 +240,7 @@ class PipelineOrchestrator:
         return result
 
     def analyze(
-        self, query: str, context: Optional[List[Passage]] = None, mode: str = "legal_research"
+Optional[self, query: str, context: list[Passage]] = None, mode: str = "legal_research"
     ) -> AnalysisResult:
         """
         Perform LLM analysis with grounded citations
@@ -374,10 +382,10 @@ class PipelineOrchestrator:
 
 
 # Singleton instance for global access
-_orchestrator_instance: Optional[PipelineOrchestrator] = None
+Optional[_orchestrator_instance: PipelineOrchestrator] = None
 
 
-def get_orchestrator(config: Optional[Dict] = None) -> PipelineOrchestrator:
+Optional[def get_orchestrator(config: dict] = None) -> PipelineOrchestrator:
     """
     Get global orchestrator instance (singleton)
 

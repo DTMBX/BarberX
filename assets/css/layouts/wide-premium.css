@@ -36,30 +36,15 @@
     rgb(5 13 28 / 98%) 50%,
     rgb(16 92 74 / 15%) 100%
   );
-  --gradient-card: linear-gradient(
-    145deg,
-    rgb(15 23 42 / 80%) 0%,
-    rgb(10 27 50 / 90%) 100%
-  );
-  --gradient-accent: linear-gradient(
-    90deg,
-    var(--emerald-500),
-    var(--brass-500)
-  );
-  --gradient-glow: radial-gradient(
-    ellipse at center,
-    rgb(212 165 116 / 15%) 0%,
-    transparent 70%
-  );
+  --gradient-card: linear-gradient(145deg, rgb(15 23 42 / 80%) 0%, rgb(10 27 50 / 90%) 100%);
+  --gradient-accent: linear-gradient(90deg, var(--emerald-500), var(--brass-500));
+  --gradient-glow: radial-gradient(ellipse at center, rgb(212 165 116 / 15%) 0%, transparent 70%);
 
   /* Premium shadows */
   --shadow-premium:
-    0 4px 6px rgb(0 0 0 / 10%), 0 10px 20px rgb(0 0 0 / 15%),
-    0 20px 40px rgb(0 0 0 / 20%);
-  --shadow-glow-brass:
-    0 0 20px rgb(212 165 116 / 20%), 0 0 40px rgb(212 165 116 / 10%);
-  --shadow-glow-emerald:
-    0 0 20px rgb(16 92 74 / 25%), 0 0 40px rgb(16 92 74 / 15%);
+    0 4px 6px rgb(0 0 0 / 10%), 0 10px 20px rgb(0 0 0 / 15%), 0 20px 40px rgb(0 0 0 / 20%);
+  --shadow-glow-brass: 0 0 20px rgb(212 165 116 / 20%), 0 0 40px rgb(212 165 116 / 10%);
+  --shadow-glow-emerald: 0 0 20px rgb(16 92 74 / 25%), 0 0 40px rgb(16 92 74 / 15%);
 
   /* Animation timing */
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
@@ -317,12 +302,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgb(255 255 255 / 10%) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgb(255 255 255 / 10%) 50%, transparent 100%);
   animation: shimmer 2s infinite;
 }
 
@@ -437,11 +417,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-    circle at center,
-    rgb(212 165 116 / 8%) 0%,
-    transparent 40%
-  );
+  background: radial-gradient(circle at center, rgb(212 165 116 / 8%) 0%, transparent 40%);
   animation: rotate-bg 30s linear infinite;
 }
 
@@ -584,12 +560,7 @@
   transform: translateX(-50%);
   width: 80%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary), transparent);
 }
 
 /* Stats row in hero */

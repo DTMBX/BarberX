@@ -1,11 +1,7 @@
 /* Docs page styles: keep page-specific layout in one place. */
 
 .docs-hero {
-  background: linear-gradient(
-    135deg,
-    var(--evident-red-primary, #c41e3a) 0%,
-    #0f172a 100%
-  );
+  background: linear-gradient(135deg, var(--evident-red-primary, #c41e3a) 0%, #0f172a 100%);
   color: white;
   padding: 3rem 2rem;
   border-radius: 16px;

@@ -9,12 +9,16 @@ REST endpoints for managing API keys and usage tracking
 from datetime import datetime, timedelta
 from functools import wraps
 
+from api_usage_metering import (
+    APIUsageMeteringService,
+    EncryptedAPIKey,
+    UserAPIQuota,
+    check_rate_limit,
+    get_metering_service,
+    require_api_key,
+)
 from flask import Blueprint, g, jsonify, request
 from flask_login import current_user, login_required
-
-from api_usage_metering import (APIUsageMeteringService, EncryptedAPIKey,
-                                UserAPIQuota, check_rate_limit,
-                                get_metering_service, require_api_key)
 from models_auth import db
 from tier_gating import check_tier_access
 
@@ -516,9 +520,8 @@ def admin_get_all_usage():
         days: Number of days (default: 30)
         limit: Max users (default: 100)
     """
-    from sqlalchemy import func
-
     from api_usage_metering import APIUsageLog
+    from sqlalchemy import func
 
     days = request.args.get("days", 30, type=int)
     limit = request.args.get("limit", 100, type=int)

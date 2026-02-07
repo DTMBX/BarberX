@@ -28,9 +28,7 @@
   const navToggle = document.querySelector(".premium-nav-toggle");
   const nav = document.querySelector(".premium-nav--mobile");
   const navClose = document.querySelector(".premium-nav__close");
-  const navLinks = document.querySelectorAll(
-    ".premium-nav--mobile .premium-nav__link",
-  );
+  const navLinks = document.querySelectorAll(".premium-nav--mobile .premium-nav__link");
 
   // State
   let lastScroll = 0;
@@ -158,11 +156,7 @@
   }
 
   function handleResize() {
-    if (
-      window.innerWidth > MOBILE_BREAKPOINT &&
-      nav &&
-      nav.classList.contains("is-open")
-    ) {
+    if (window.innerWidth > MOBILE_BREAKPOINT && nav && nav.classList.contains("is-open")) {
       closeNav();
     }
   }
@@ -191,10 +185,7 @@
 
         const headerHeight = header ? header.offsetHeight : 0;
         const targetPosition =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          20;
+          target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
 
         window.scrollTo({
           top: targetPosition,
@@ -240,7 +231,7 @@
       let linkPath = "";
       try {
         linkPath = normalizePath(
-          new URL(link.getAttribute("href"), window.location.origin).pathname,
+          new URL(link.getAttribute("href"), window.location.origin).pathname
         );
       } catch {
         return;
@@ -259,9 +250,7 @@
 
   function init() {
     // Scroll state
-    updateHeaderState(
-      window.pageYOffset || document.documentElement.scrollTop || 0,
-    );
+    updateHeaderState(window.pageYOffset || document.documentElement.scrollTop || 0);
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Mobile nav controls

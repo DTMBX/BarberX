@@ -102,4 +102,3 @@ def add_settings_table():
 
 if __name__ == "__main__":
     add_settings_table()
-

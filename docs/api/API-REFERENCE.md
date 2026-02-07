@@ -6,7 +6,9 @@
 
 ## Overview
 
-The Evident REST API provides programmatic access to all platform features for cross-platform clients (Web, Windows, iOS, Android). All endpoints return JSON responses and use standard HTTP status codes.
+The Evident REST API provides programmatic access to all platform features for
+cross-platform clients (Web, Windows, iOS, Android). All endpoints return JSON
+responses and use standard HTTP status codes.
 
 ## Authentication
 

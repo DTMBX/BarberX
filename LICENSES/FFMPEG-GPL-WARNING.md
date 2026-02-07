@@ -4,7 +4,8 @@
 
 **Status:** GPL conflict successfully resolved on January 22, 2026
 
-**Previous Issue:** FFmpeg was GPL-licensed (`--enable-gpl`), incompatible with proprietary code
+**Previous Issue:** FFmpeg was GPL-licensed (`--enable-gpl`), incompatible with
+proprietary code
 
 **Current Status:** Using LGPL-only FFmpeg build (GPL-free)
 
@@ -33,9 +34,12 @@ configuration: --enable-version3 --disable-libx264 --disable-libx265 [...]
 ### What GPL Means:
 
 1. **GPL is "viral"** - Any software using GPL libraries must also be GPL
-2. **Incompatible with proprietary software** - Your "ALL RIGHTS RESERVED" license conflicts with GPL
-3. **Source code disclosure required** - GPL requires providing source code to users
-4. **License violation** - Using GPL FFmpeg in proprietary software violates GPL terms
+2. **Incompatible with proprietary software** - Your "ALL RIGHTS RESERVED"
+   license conflicts with GPL
+3. **Source code disclosure required** - GPL requires providing source code to
+   users
+4. **License violation** - Using GPL FFmpeg in proprietary software violates GPL
+   terms
 
 ### Your Current License:
 
@@ -136,8 +140,8 @@ ffmpeg -version
 ```markdown
 ### FFmpeg
 
-**License:** LGPL 2.1 (VERIFIED)
-**Build:** Essentials (LGPL-only, no GPL components)
+**License:** LGPL 2.1 (VERIFIED) **Build:** Essentials (LGPL-only, no GPL
+components)
 ```
 
 ### Step 3: Test Application
@@ -188,15 +192,18 @@ After replacing FFmpeg:
 
 **Why This Matters:**
 
-1. **License Integrity:** Your "ALL RIGHTS RESERVED" license is meaningless if GPL forces source disclosure
-2. **Copyright Violation:** Using GPL FFmpeg in proprietary software violates GPL terms
+1. **License Integrity:** Your "ALL RIGHTS RESERVED" license is meaningless if
+   GPL forces source disclosure
+2. **Copyright Violation:** Using GPL FFmpeg in proprietary software violates
+   GPL terms
 3. **Lawsuit Risk:** FFmpeg developers or users could sue for GPL violation
 4. **Business Risk:** Cannot sell proprietary software with GPL components
 5. **Client Trust:** Attorneys need assurance your licensing is legitimate
 
 **LGPL vs GPL:**
 
-- **LGPL:** "Lesser GPL" - allows use in proprietary software via dynamic linking
+- **LGPL:** "Lesser GPL" - allows use in proprietary software via dynamic
+  linking
 - **GPL:** "General Public License" - requires entire project to be GPL
 
 ---
@@ -222,7 +229,8 @@ compliance@Evident.info
 - [ ] Application tested
 - [ ] Export attributions updated
 
-**CRITICAL:** Do NOT launch until this is resolved. GPL violation could invalidate your entire licensing structure.
+**CRITICAL:** Do NOT launch until this is resolved. GPL violation could
+invalidate your entire licensing structure.
 
 ---
 

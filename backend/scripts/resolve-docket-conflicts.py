@@ -7,14 +7,13 @@ Resolve Git merge conflicts in docket YAML files
 Chooses the newer format and removes duplicate /assets/ prefix
 """
 
-import os
 import re
 from pathlib import Path
 
 
 def resolve_conflicts(file_path):
     """Resolve merge conflicts in a YAML file"""
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
 
     if "<<<<<<< HEAD" not in content:

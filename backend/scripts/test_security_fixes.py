@@ -22,7 +22,7 @@ def test_secret_key_validation():
     print("Testing SECRET_KEY validation...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         # Check that hardcoded secret is removed
@@ -54,7 +54,7 @@ def test_file_upload_validation():
     print("Testing file upload validation...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         checks = [
@@ -93,7 +93,7 @@ def test_password_validation():
     print("Testing password strength validation...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         # Check in register endpoint
@@ -128,7 +128,7 @@ def test_error_sanitization():
     print("Testing error message sanitization...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         # Check for exposed errors
@@ -140,7 +140,7 @@ def test_error_sanitization():
         sanitized_count = content.count(sanitized_pattern)
 
         if exposed_count == 0:
-            test_results.append(f"✓ PASS: No exposed error messages found")
+            test_results.append("✓ PASS: No exposed error messages found")
             test_results.append(f"  ✓ Error sanitization used in {sanitized_count} places")
             tests_passed += 1
             return True
@@ -163,7 +163,7 @@ def test_error_tickets():
     print("Testing error ticket generation...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         # Check for error ticket generation
@@ -190,7 +190,7 @@ def test_input_sanitization():
     print("Testing input sanitization...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         # Check for input sanitization
@@ -217,7 +217,7 @@ def test_security_logging():
     print("Testing security logging...")
 
     try:
-        with open("app.py", "r") as f:
+        with open("app.py") as f:
             content = f.read()
 
         # Check for logger usage
@@ -225,7 +225,7 @@ def test_security_logging():
             error_count = content.count("logger.error")
             info_count = content.count("logger.info")
             total = error_count + info_count
-            test_results.append(f"✓ PASS: Security logging implemented")
+            test_results.append("✓ PASS: Security logging implemented")
             test_results.append(f"  ✓ {error_count} error logs")
             test_results.append(f"  ✓ {info_count} info logs")
             tests_passed += 1
@@ -331,4 +331,3 @@ def run_all_tests():
 
 if __name__ == "__main__":
     sys.exit(run_all_tests())
-

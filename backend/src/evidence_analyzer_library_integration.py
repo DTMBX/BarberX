@@ -7,9 +7,6 @@ Evidence Analyzer Integration with Legal Reference Library
 References legal standards and evidentiary rules from case law
 """
 
-import json
-from typing import Dict, List
-
 from legal_library import LegalLibraryService
 
 
@@ -31,7 +28,7 @@ class EvidenceAnalyzerLibraryIntegration:
             "chain_of_custody": "chain of custody",
         }
 
-    def get_legal_standard_for_evidence(self, evidence_type: str) -> List[Dict]:
+    def get_legal_standard_for_evidence(self, evidence_type: str) -> list[dict]:
         """
         Get legal standard for evidence type
 
@@ -60,7 +57,7 @@ class EvidenceAnalyzerLibraryIntegration:
 
         return standards
 
-    def enhance_evidence_report(self, evidence_items: List[Dict]) -> Dict:
+    def enhance_evidence_report(self, evidence_items: list[dict]) -> dict:
         """
         Enhance evidence analysis with legal standards
 
@@ -98,7 +95,7 @@ class EvidenceAnalyzerLibraryIntegration:
             "total_items": len(enhanced_items),
         }
 
-    def generate_evidentiary_brief(self, evidence_items: List[Dict]) -> str:
+    def generate_evidentiary_brief(self, evidence_items: list[dict]) -> str:
         """
         Generate evidentiary brief with citations
 
@@ -135,7 +132,7 @@ class EvidenceAnalyzerLibraryIntegration:
 
         return brief
 
-    def _analyze_admissibility(self, evidence_item: Dict, standards: List[Dict]) -> Dict:
+    def _analyze_admissibility(self, evidence_item: dict, standards: list[dict]) -> dict:
         """
         Analyze admissibility based on legal standards
 

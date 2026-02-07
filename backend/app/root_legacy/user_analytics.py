@@ -7,7 +7,7 @@ PostHog integration, churn prediction, and engagement tracking
 """
 
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import posthog
 
@@ -209,5 +209,3 @@ def track_feature(user, feature_name, metadata=None):
 def check_churn_risk(user):
     """Check if user is at risk of churning"""
     return UserAnalytics.predict_churn_risk(user)
-
-

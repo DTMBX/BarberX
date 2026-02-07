@@ -2,7 +2,8 @@
 
 ## Overview
 
-Complete user experience improvements for Evident platform including sticky navigation, toast notifications, enhanced forms, and accessibility features.
+Complete user experience improvements for Evident platform including sticky
+navigation, toast notifications, enhanced forms, and accessibility features.
 
 --
 
@@ -343,8 +344,7 @@ All components use brand tokens from `brand-tokens.css`:
 **Colors:**
 
 ```css
---accent-blue: #1e40af --accent-red: #c41e3a --success: #10b981 --error: #ef4444
-  --warning: #f59e0b;
+--accent-blue: #1e40af --accent-red: #c41e3a --success: #10b981 --error: #ef4444 --warning: #f59e0b;
 ```
 
 **Spacing:**
@@ -486,9 +486,7 @@ form.addEventListener("submit", async function (e) {
 ### Custom Loading State
 
 ```html
-<button class="btn btn-primary" data-loading onclick="processData()">
-  Process Video
-</button>
+<button class="btn btn-primary" data-loading onclick="processData()">Process Video</button>
 
 <script>
   async function processData() {

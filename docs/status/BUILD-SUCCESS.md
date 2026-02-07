@@ -87,7 +87,8 @@ foreach (var msg in response.Data.Messages)
 ### Backend (Flask) ✅
 
 - ✅ ChatGPT blueprint registered in `app.py`
-- ✅ 4 database tables created (projects, conversations, messages, user_api_keys)
+- ✅ 4 database tables created (projects, conversations, messages,
+  user_api_keys)
 - ✅ 17 API endpoints ready
 - ✅ OpenAI & cryptography packages installed
 - ✅ Encryption key in `.env`
