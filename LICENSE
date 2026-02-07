@@ -1,180 +1,180 @@
-Evident Legal Technologies® Proprietary License
-ALL RIGHTS RESERVED — SaaS PLATFORM WITH RESTRICTED ENTERPRISE LICENSING
+# Evident Technologies LLC  
+## Source-Available Proprietary License
 
-Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust.
+**Copyright © 2024–2026 Evident Technologies LLC.**  
 All rights reserved worldwide.
 
-IMPORTANT NOTICE: This repository is publicly viewable for evaluation purposes only.
-Public availability does NOT grant any license, permission, or right to use, copy, modify,
-distribute, or deploy any portion of the Materials (defined below).
+This repository is made publicly accessible for evaluation and limited
+collaborative contribution under the terms set forth below.
 
-SaaS PLATFORM: Evident is offered as a Software-as-a-Service platform at https://app.Evident.info
-No code downloads are permitted except under Enterprise Self-Hosted License.
-
-ENTERPRISE SELF-HOSTED LICENSING: For traditional deployment with source code access,
-contact sales@Evident.info. Minimum $75,000/year. Unauthorized deployment will be prosecuted.
-
-1. Ownership and Comprehensive Reservation of Rights
-   This repository and all contents, including without limitation all source code, scripts,
-   pipelines, workflows, algorithms, processes, methods, build systems, documentation, comments,
-   schemas, UI/UX, designs, assets, naming conventions, architecture, trade secrets, know-how,
-   business methods, data structures, and any other tangible or intangible materials
-   (collectively, the "Materials"), are the exclusive proprietary property of Faith Frontier
-   Ecclesiastical Trust ("Licensor").
-
-All intellectual property rights, including copyrights, trade secrets, trademarks, patents,
-and patent applications (whether issued or pending), are exclusively owned by Licensor.
-
-NO RIGHTS ARE GRANTED except as expressly and explicitly stated in this License.
-ALL RIGHTS NOT EXPRESSLY GRANTED ARE RESERVED. Silence is not consent.
-
-2. No License Granted (No Use)
-   No license or right is granted under any copyright, trade secret, trademark, patent, or other
-   intellectual property right of Licensor—whether by implication, estoppel, or otherwise.
-
-You may not use the Materials for any purpose except the narrow “Permitted Viewing” in Section 3.
-
-3. Permitted Viewing (Narrow)
-   You may only:
-   (a) view the Materials in read-only form via GitHub’s standard web interface; and
-   (b) discuss high-level concepts without copying or reproducing code, text, or assets; and
-   (c) use the SaaS platform at https://app.Evident.info under the applicable Terms of Service.
-
-Any other activity is prohibited, including but not limited to cloning, forking, downloading,
-copying, mirroring, scraping, indexing, training AI models, compiling, executing, or deploying.
-
-SELF-HOSTED DEPLOYMENT requires an Enterprise Self-Hosted License (minimum $75,000/year).
-Unauthorized deployment is a material breach and will be prosecuted.
-
-4. Absolute Prohibitions (No Exceptions Without Written License)
-   You may NOT, directly or indirectly, under any circumstances:
-   (a) copy, reproduce, snapshot, scrape, archive, mirror, cache, or otherwise duplicate any Materials;
-   (b) clone, fork, download, or create local copies of this repository (or any portion thereof);
-   (c) modify, adapt, translate, refactor, annotate, enhance, or create derivative works;
-   (d) distribute, publish, sublicense, sell, assign, lease, rent, transfer, or convey the Materials;
-   (e) use the Materials to develop, provide, or support any product, service, or offering
-   (including SaaS, hosted solutions, consulting services, or internal business tools);
-   (f) use any part of the Materials for training, fine-tuning, benchmarking, testing, or evaluating
-   any machine learning, AI, or language models (including but not limited to LLMs, code completion,
-   or automated programming assistants);
-   (g) reverse engineer, decompile, disassemble, or attempt to derive source code, algorithms,
-   trade secrets, or proprietary methods from the Materials;
-   (h) use automated tools (bots, crawlers, scrapers, CI/CD systems, AI agents, or API clients)
-   to access, process, index, or extract the Materials beyond ordinary human reading via browser;
-   (i) remove, obscure, alter, or misrepresent copyright, trademark, patent, or proprietary notices;
-   (j) represent, imply, or suggest endorsement, partnership, sponsorship, or affiliation with Licensor;
-   (k) incorporate any Materials into open-source projects, public repositories, or shared codebases;
-   (l) use the Materials for competitive analysis, benchmarking competitors, or developing competing products;
-   (m) circumvent, disable, or interfere with any security, access control, or usage tracking mechanisms;
-   (n) sublicense, time-share, or provide third-party access to the Materials in any form.
-
-5. Trademarks and Branding
-   “Barber Cam” and any associated names, logos, slogans, and marks are proprietary to Licensor.
-   No trademark rights are granted. See TRADEMARKS.md for usage restrictions.
-
-6. Feedback
-   If you submit feedback, ideas, or suggestions (“Feedback”), you grant Licensor a perpetual,
-   irrevocable, royalty-free, worldwide right to use, modify, and incorporate the Feedback without
-   compensation or obligation.
-
-7. No Warranty
-   THE MATERIALS ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-   INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR SECURITY.
-
-8. Limitation of Liability
-   TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
-   SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING FROM OR RELATING TO THE MATERIALS.
-
-9. Enforcement and Remedies
-   Licensor takes unauthorized use seriously and will pursue all available legal remedies.
-
-9.1 Immediate Actions
-Unauthorized use will result in:
-
-- Immediate DMCA takedown notices to hosting providers
-- Automated detection and platform abuse reports (GitHub, GitLab, etc.)
-- Cease-and-desist demands with 48-hour compliance deadline
-- Public disclosure of violation to protect other users
-
-  9.2 Legal Remedies
-  Licensor reserves the right to seek:
-
-- Preliminary and permanent injunctive relief
-- Statutory damages up to $150,000 per work under 17 U.S.C. § 504(c)
-- Actual damages and Licensor's lost profits
-- Disgorgement of infringer's profits and unjust enrichment
-- Treble damages for willful violations
-- Costs, expenses, and reasonable attorneys' fees
-- Destruction of all unauthorized copies and derivatives
-
-  9.3 No Waiver
-  Failure to enforce any provision does not constitute waiver. Licensor may enforce at any time.
-
-  9.4 Cumulative Remedies
-  All remedies are cumulative and non-exclusive. Each violation is a separate offense.
-
-10. Governing Law and Venue
-    This License is governed by the laws of the State of New Jersey, excluding conflict-of-law rules.
-    Any dispute shall be brought exclusively in state or federal courts located in New Jersey, and you
-    consent to personal jurisdiction and venue there.
-
-11. SaaS Platform & Enterprise Self-Hosted Licensing
-
-11.1 SaaS Platform (Default)
-Evident is offered as a cloud-based SaaS platform at https://app.Evident.info
-
-Available Tiers:
-
-- Free Tier: $0/month (5 analyses, 500MB limit)
-- Professional Tier: $99/month (100 analyses, 2GB limit, API access)
-- Enterprise SaaS Tier: Custom pricing (unlimited, white-label, 24/7 support)
-
-No source code access. No downloads. No self-hosting.
-
-11.2 Enterprise Self-Hosted License (Source Code Access)
-For organizations requiring on-premises deployment with full source code access.
-
-Pricing: Minimum $75,000/year (includes 50 users)
-Additional users: $1,000/user/year
-
-Includes:
-
-- Full source code access (with restrictions on modification/redistribution)
-- Self-hosted deployment rights for licensed organization only
-- Priority support (24/7)
-- Security updates and patches
-- Legal indemnification
-- Annual security audits
-
-Restrictions:
-
-- Cannot sublicense, resell, or provide third-party access
-- Cannot create competing products or services
-- Must maintain all copyright and proprietary notices
-- Subject to annual compliance audit
-
-  11.3 License Inquiries
-  All licensing requests must be submitted in writing to:
-  **SaaS Sales:** sales@Evident.info (Free, Professional tiers)  
-  **Enterprise Self-Hosted:** enterprise@Evident.info
-
-Include:
-
-- Intended deployment model (SaaS or self-hosted)
-- Number of users
-- Organization details and use case
-- Compliance requirements (HIPAA, CJIS, etc.)
-
-12. Contact Information
-    **Licensing & Business Inquiries:** sales@Evident.info
-    **Legal/Compliance:** legal@Evident.info
-    **Enforcement/Violations:** enforcement@Evident.info
+**PUBLIC AVAILABILITY DOES NOT CONSTITUTE AN OPEN-SOURCE LICENSE.**  
+**NO RIGHTS ARE GRANTED EXCEPT AS EXPRESSLY STATED HEREIN.**
 
 ---
 
-**NOTICE TO DEVELOPERS:**
-If you are interested in using this technology, contact us for licensing.
-Unauthorized use WILL be detected and prosecuted. We invest heavily in protecting our IP.
+## 1. Ownership and Reservation of Rights
 
-LAST UPDATED: January 22, 2026
-VERSION: 2.0
+All software, source code, object code, workflows, pipelines, system
+architecture, processing logic, security mechanisms, documentation,
+schemas, designs, naming conventions, and related materials contained
+in this repository (collectively, the **“Materials”**) are the exclusive
+property of **Evident Technologies LLC** (“Licensor”).
+
+All intellectual property rights, whether arising under copyright,
+trade secret, trademark, patent, or other law, are fully and expressly
+reserved.
+
+---
+
+## 2. Limited License — Evaluation and Contribution Only
+
+Subject to strict compliance with this License and the accompanying
+`CONTRIBUTING.md`, Licensor grants a limited, revocable, non-exclusive,
+non-transferable, non-sublicensable license to:
+
+- view the Materials;
+- clone the repository **solely** to prepare proposed contributions; and
+- submit contributions to Licensor for review and possible inclusion.
+
+No other use is permitted.
+
+---
+
+## 3. Prohibited Uses
+
+Except as expressly permitted in Section 2, you may not:
+
+- use the Materials in production or operational systems;
+- deploy, host, or offer the Materials as software or services;
+- distribute, sublicense, publish, or disclose the Materials;
+- create derivative works outside the contribution process;
+- use the Materials to develop, support, or benchmark competing products
+  or services;
+- use the Materials for AI or machine-learning training, evaluation,
+  or benchmarking;
+- remove, alter, or obscure proprietary notices.
+
+---
+
+## 4. Contributions and Intellectual Property Assignment
+
+By submitting any contribution (including code, documentation, or
+design materials), you agree that:
+
+- the contribution is submitted voluntarily and in good faith;
+- you have the legal right to submit the contribution; and
+- the contribution is **intended to be a “work made for hire”** to the
+  maximum extent permitted under applicable law.
+
+To the extent any contribution does not qualify as a work made for hire,
+you **hereby irrevocably assign, transfer, and convey** to Evident
+Technologies LLC **all right, title, and interest worldwide** in and to
+the contribution, including all copyrights and other intellectual
+property rights.
+
+You further waive, to the extent permitted by law, any moral rights or
+similar rights of attribution or integrity.
+
+This assignment is effective **immediately upon submission**, whether
+or not the contribution is accepted.
+
+No equity, ownership interest, license, or compensation is granted by
+default. Attribution or alternative terms require a separate written
+agreement executed by Evident Technologies LLC.
+
+---
+
+## 5. Trademarks
+
+All trademarks, service marks, names, and branding associated with
+Evident Technologies, including **BarberCam** and **BarberX**, are
+proprietary. No trademark rights are granted under this License.
+
+---
+
+## 6. Feedback
+
+Any feedback, suggestions, or ideas may be used by Licensor for any
+purpose without obligation, restriction, or compensation.
+
+---
+
+## 7. Disclaimer of Warranty
+
+THE MATERIALS ARE PROVIDED **“AS IS”** AND **“AS AVAILABLE”** WITHOUT
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NON-INFRINGEMENT.
+
+---
+
+## 8. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE FOR
+ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR EXEMPLARY DAMAGES
+ARISING FROM OR RELATING TO THE MATERIALS.
+
+---
+
+## 9. Termination
+
+This License terminates automatically and immediately upon any breach.
+All rights granted hereunder cease upon termination.
+
+---
+
+## 10. Governing Law and Venue
+
+This License is governed by the laws of the **State of New Jersey**,
+without regard to conflict-of-law principles.
+
+All disputes shall be brought exclusively in state or federal courts
+located in New Jersey.
+
+---
+
+## 11. Commercial Licensing (Separate and Independent)
+
+Commercial SaaS access and enterprise self-hosted licensing are offered
+under separate written agreements and are **not granted** by this
+License.
+
+### 11.1 SaaS Platform (Default)
+
+Evident is offered as a cloud-based SaaS platform at:
+
+**https://app.evident.info**
+
+Indicative tiers (subject to change):
+
+- Free Tier — limited usage  
+- Professional Tier — subscription-based  
+- Enterprise SaaS — custom terms, support, and compliance options  
+
+No source code access. No downloads. No self-hosting.
+
+### 11.2 Enterprise Self-Hosted License
+
+Organizations requiring on-premises deployment with source code access
+must obtain a separate **Enterprise Self-Hosted License**.
+
+All terms, pricing, scope, and compliance obligations are governed
+exclusively by the executed enterprise agreement.
+
+---
+
+## 12. Contact Information
+
+- **Licensing & Business:** sales@evident.icu  
+- **Enterprise:** enterprise@evident.icu  
+- **Legal & Compliance:** legal@evident.icu  
+
+---
+
+**NOTICE TO DEVELOPERS**
+
+If you are interested in commercial use, deployment, or alternative
+licensing terms, contact Evident Technologies LLC **before use**.
+
+**LAST UPDATED:** February 6, 2026  
+**VERSION:** 3.0
