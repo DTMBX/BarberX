@@ -315,6 +315,9 @@ google-services.json
 launchSettings.json
 *.local.json
 
+# Local test virtualenv created during CI/test runs
+.venv_test/
+
 # --- build/caches ---
 _site/
 .jekyll-cache/
