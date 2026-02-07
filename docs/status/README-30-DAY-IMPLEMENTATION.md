@@ -1,6 +1,7 @@
 # 30-Day Implementation Guide - Quick Start
 
-This README provides quick access to all resources for executing the 30-day implementation roadmap.
+This README provides quick access to all resources for executing the 30-day
+implementation roadmap.
 
 ## 📁 File Structure
 

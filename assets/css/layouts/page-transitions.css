@@ -40,11 +40,7 @@ body {
   left: 0;
   width: 0;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-brass) 0%,
-    var(--emerald-600) 100%
-  );
+  background: linear-gradient(90deg, var(--accent-brass) 0%, var(--emerald-600) 100%);
   z-index: 10000;
   transition:
     width 0.3s cubic-bezier(0.4, 0, 0.2, 1),

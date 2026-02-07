@@ -136,7 +136,8 @@ Test error scenarios:
 
 ### Issue: Dashboard doesn't load
 
-**Solution:** Check if Flask server is running and accessible at http://localhost:5000
+**Solution:** Check if Flask server is running and accessible at
+http://localhost:5000
 
 ### Issue: No analyses show up
 
@@ -234,18 +235,12 @@ If you need test data, create a sample analysis:
 
 ## Success Criteria
 
-All features pass if:
-✅ Dashboard loads without errors
-✅ All visual elements render correctly
-✅ Filtering and sorting work instantly
-✅ Timeline visualizes properly
-✅ Insights generate accurately
-✅ Modal opens/closes smoothly
-✅ All 5 export formats download successfully
-✅ Real-time updates function
-✅ Responsive design adapts to screen sizes
-✅ No JavaScript errors in console
-✅ Performance meets targets (<2s load, instant filters)
+All features pass if: ✅ Dashboard loads without errors ✅ All visual elements
+render correctly ✅ Filtering and sorting work instantly ✅ Timeline visualizes
+properly ✅ Insights generate accurately ✅ Modal opens/closes smoothly ✅ All 5
+export formats download successfully ✅ Real-time updates function ✅ Responsive
+design adapts to screen sizes ✅ No JavaScript errors in console ✅ Performance
+meets targets (<2s load, instant filters)
 
 --
 

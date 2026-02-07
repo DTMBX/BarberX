@@ -7,8 +7,8 @@
 
 /* Base button styles */
 .btn,
-button[type="submit"],
-button[type="button"],
+button[type='submit'],
+button[type='button'],
 a.btn {
   /* Reset and base styles */
   appearance: none;
@@ -79,7 +79,7 @@ button:active {
 .btn-main,
 .btn-primary,
 .btn-primary,
-button[type="submit"] {
+button[type='submit'] {
   background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   color: #fff;
   border-color: #dc2626;
@@ -91,7 +91,7 @@ button[type="submit"] {
 .btn-main:hover,
 .btn-primary:hover,
 .btn-primary:hover,
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   border-color: #ef4444;
   box-shadow:
@@ -378,7 +378,7 @@ button:focus-visible {
 }
 
 .breadcrumbs-list li::after {
-  content: "/";
+  content: '/';
   color: var(--ff-text-muted);
   opacity: 0.5;
 }
@@ -406,11 +406,7 @@ button:focus-visible {
 /* ===== MAINTENANCE BANNER ===== */
 
 .maintenance-banner {
-  background: linear-gradient(
-    135deg,
-    rgb(212 165 116 / 18%) 0%,
-    rgb(15 118 110 / 30%) 100%
-  );
+  background: linear-gradient(135deg, rgb(212 165 116 / 18%) 0%, rgb(15 118 110 / 30%) 100%);
   color: var(--ff-text);
   border-bottom: 1px solid rgb(212 165 116 / 40%);
   box-shadow: 0 10px 30px rgb(0 0 0 / 25%);
@@ -418,7 +414,7 @@ button:focus-visible {
 }
 
 .maintenance-banner::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background:
@@ -507,18 +503,13 @@ button:focus-visible {
   text-align: center;
   position: relative;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary) 50%,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary) 50%, transparent);
   max-width: 200px;
 }
 
 .vintage-divider::before,
 .vintage-divider::after {
-  content: "❖";
+  content: '❖';
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -592,8 +583,8 @@ button:focus-visible {
 @media (width >= 1400px) {
   /* Larger buttons on wide screens */
   .btn,
-  button[type="submit"],
-  button[type="button"],
+  button[type='submit'],
+  button[type='button'],
   a.btn {
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -651,8 +642,8 @@ button:focus-visible {
 
 @media (width >= 1800px) {
   .btn,
-  button[type="submit"],
-  button[type="button"],
+  button[type='submit'],
+  button[type='button'],
   a.btn {
     padding: 1.125rem 2.25rem;
     font-size: 1.05rem;
@@ -717,7 +708,7 @@ button:focus-visible {
 }
 
 .card-gradient-border::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   padding: 2px;
@@ -811,7 +802,7 @@ button:focus-visible {
 }
 
 .btn-loading::after {
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
   border: 2px solid transparent;

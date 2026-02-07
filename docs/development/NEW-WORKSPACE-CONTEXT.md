@@ -1,21 +1,25 @@
 # Evident Matter Docket (DTMB) - Project Context for New Workspace
 
-**Copy and paste this entire prompt into your new VS Code workspace chat to continue development:**
+**Copy and paste this entire prompt into your new VS Code workspace chat to
+continue development:**
 
 --
 
 ## 🎯 PROJECT OVERVIEW
 
-I'm building **Evident Matter Docket (DTMB)**, a professional legal evidence platform across multiple platforms:
+I'm building **Evident Matter Docket (DTMB)**, a professional legal evidence
+platform across multiple platforms:
 
-- ✅ **Web Application** - LIVE at https://Evident.info (Flask + PostgreSQL + Stripe + OpenAI)
+- ✅ **Web Application** - LIVE at https://Evident.info (Flask + PostgreSQL +
+  Stripe + OpenAI)
 - ✅ **REST API** - LIVE at https://Evident.info/api (20+ endpoints, JWT auth)
 - ✅ **Windows 11 Desktop App** - Just completed login screen (.NET MAUI 10.0)
 - 🔜 **Android/iOS Apps** - Planned (same MAUI codebase, 80% code sharing)
 
 ## 📂 WORKSPACE STRUCTURE
 
-I just set up a **VS Code Multi-Root Workspace** with TWO separate Git repositories:
+I just set up a **VS Code Multi-Root Workspace** with TWO separate Git
+repositories:
 
 ```
 Evident-MultiPlatform.code-workspace
@@ -32,7 +36,8 @@ Evident-MultiPlatform.code-workspace
     └── Status: Login screen complete, ready to run
 ```
 
-**Each folder has its own .git**, so commits/pushes are completely separate. I can work on both simultaneously.
+**Each folder has its own .git**, so commits/pushes are completely separate. I
+can work on both simultaneously.
 
 ## ✅ WHAT WE JUST COMPLETED (Last Session)
 
@@ -85,7 +90,8 @@ Evident-MultiPlatform.code-workspace
 
 **Configuration Updated:**
 
-- `MauiProgram.cs` - Dependency injection configured (ApiService, AuthService, ViewModels, Pages)
+- `MauiProgram.cs` - Dependency injection configured (ApiService, AuthService,
+  ViewModels, Pages)
 - `AppShell.xaml` - Navigation routes for Login and Dashboard
 - `App.xaml` - Global resources and converters registered
 
@@ -372,7 +378,8 @@ System.Text.Json 10.0.1             # JSON serialization
 
 ## 🔐 ENVIRONMENT VARIABLES (for reference)
 
-The Windows app needs to connect to the Flask API. These are already configured in `Constants.cs`:
+The Windows app needs to connect to the Flask API. These are already configured
+in `Constants.cs`:
 
 ```csharp
 public const string ApiBaseUrl = "https://Evident.info/api";
@@ -432,5 +439,6 @@ Common commands:
 
 **Last Session Date:** January 27, 2026  
 **Time:** 3:49 AM UTC  
-**Workspace File:** `C:\web-dev\github-repos\Evident-MultiPlatform.code-workspace`  
+**Workspace File:**
+`C:\web-dev\github-repos\Evident-MultiPlatform.code-workspace`  
 **Ready to code!** 🚀

@@ -1,8 +1,6 @@
-"""
-Integration Guide - Add Enhanced Chat to app.py
+""" Integration Guide - Add Enhanced Chat to app.py
 
-Add this to your app.py to enable the enhanced chat system.
-"""
+Add this to your app.py to enable the enhanced chat system. """
 
 # ============================================================================
 
@@ -12,12 +10,9 @@ Add this to your app.py to enable the enhanced chat system.
 
 # Add after existing imports:
 
-try:
-from api.enhanced_chat import chat_bp
-ENHANCED_CHAT_AVAILABLE = True
-except ImportError as e:
-ENHANCED_CHAT_AVAILABLE = False
-print(f"[!] Enhanced chat not available: {e}")
+try: from api.enhanced_chat import chat_bp ENHANCED_CHAT_AVAILABLE = True except
+ImportError as e: ENHANCED_CHAT_AVAILABLE = False print(f"[!] Enhanced chat not
+available: {e}")
 
 # ============================================================================
 
@@ -27,9 +22,8 @@ print(f"[!] Enhanced chat not available: {e}")
 
 # Add after existing blueprint registrations:
 
-if ENHANCED_CHAT_AVAILABLE:
-app.register_blueprint(chat_bp)
-print("[✓] Enhanced chat API registered at /api/chat/\*")
+if ENHANCED_CHAT_AVAILABLE: app.register_blueprint(chat_bp) print("[✓] Enhanced
+chat API registered at /api/chat/\*")
 
 # ============================================================================
 
@@ -43,12 +37,9 @@ from src.ai.pipeline import get_orchestrator
 
 # Configure pipeline
 
-pipeline_config = {
-"db_path": "instance/Evident_legal.db",
-"storage_root": "./uploads",
-"manifest_root": "./manifest",
-"enable_vector_index": False, # Enable when ChromaDB is set up
-"ocr_threshold": 50, # Min chars/page before OCR
+pipeline_config = { "db_path": "instance/Evident_legal.db", "storage_root":
+"./uploads", "manifest_root": "./manifest", "enable_vector_index": False, #
+Enable when ChromaDB is set up "ocr_threshold": 50, # Min chars/page before OCR
 }
 
 # Initialize orchestrator (singleton)
@@ -63,15 +54,10 @@ print("[✓] AI Pipeline orchestrator initialized")
 
 # ============================================================================
 
-@app.route("/chat")
-@login_required
-def chat_interface():
-"""Enhanced chat interface with memory and references"""
-return render_template(
-"chat/interface.html",
-user=current_user,
-conversations=[] # TODO: Load from database
-)
+@app.route("/chat") @login_required def chat_interface(): """Enhanced chat
+interface with memory and references""" return render_template(
+"chat/interface.html", user=current_user, conversations=[] # TODO: Load from
+database )
 
 # ============================================================================
 
@@ -81,11 +67,9 @@ conversations=[] # TODO: Load from database
 
 # You can now use the enhanced chat in your existing routes:
 
-@app.route("/api/case/<int:case_id>/analyze", methods=["POST"])
-@login_required
-def analyze_case_with_chat(case_id):
-"""Analyze case using enhanced chat assistant"""
-from src.ai.chat import EnhancedChatAssistant
+@app.route("/api/case/<int:case_id>/analyze", methods=["POST"]) @login_required
+def analyze_case_with_chat(case_id): """Analyze case using enhanced chat
+assistant""" from src.ai.chat import EnhancedChatAssistant
 
     # Get case data
     case = Case.query.get_or_404(case_id)
@@ -119,8 +103,8 @@ from src.ai.chat import EnhancedChatAssistant
 
 # ============================================================================
 
-"""
-Full example showing how to integrate enhanced chat into an existing Flask app:
+""" Full example showing how to integrate enhanced chat into an existing Flask
+app:
 
 ```python
 # app.py
@@ -158,9 +142,9 @@ Then in your frontend (JavaScript):
 ```javascript
 // Ask a question
 async function askQuestion(query) {
-  const response = await fetch("/api/chat/ask", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+  const response = await fetch('/api/chat/ask', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: query,
       retrieve_references: true,
@@ -171,18 +155,18 @@ async function askQuestion(query) {
 
   const data = await response.json();
 
-  console.log("Answer:", data.answer);
-  console.log("Citations:", data.citations);
+  console.log('Answer:', data.answer);
+  console.log('Citations:', data.citations);
 
   return data;
 }
 
 // List conversations
 async function listConversations() {
-  const response = await fetch("/api/chat/conversations?limit=20");
+  const response = await fetch('/api/chat/conversations?limit=20');
   const data = await response.json();
 
-  console.log("Conversations:", data.conversations);
+  console.log('Conversations:', data.conversations);
 
   return data;
 }

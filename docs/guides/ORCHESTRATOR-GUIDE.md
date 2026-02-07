@@ -2,7 +2,10 @@
 
 ## 🎯 What is the Orchestrator?
 
-The **@orchestrator** agent is your master coordinator that automatically runs all specialized agents in the optimal order for complex tasks. Instead of manually invoking each agent, ask the orchestrator and it handles the coordination.
+The **@orchestrator** agent is your master coordinator that automatically runs
+all specialized agents in the optimal order for complex tasks. Instead of
+manually invoking each agent, ask the orchestrator and it handles the
+coordination.
 
 ## 🚀 Quick Start
 
@@ -177,14 +180,14 @@ Use **@orchestrator** for:
 
 ## 🔧 Troubleshooting
 
-**Q: Agent skipped a phase?**
-A: The orchestrator only invokes agents when their expertise is needed for the task.
+**Q: Agent skipped a phase?** A: The orchestrator only invokes agents when their
+expertise is needed for the task.
 
-**Q: Task failed mid-execution?**
-A: The orchestrator stops at the failure point. Fix the issue and ask it to continue from that phase.
+**Q: Task failed mid-execution?** A: The orchestrator stops at the failure
+point. Fix the issue and ask it to continue from that phase.
 
-**Q: Want to skip a phase?**
-A: Explicitly state it: "@orchestrator: Add feature X (skip documentation phase)"
+**Q: Want to skip a phase?** A: Explicitly state it: "@orchestrator: Add feature
+X (skip documentation phase)"
 
 ## 🎯 Best Practices
 
@@ -240,4 +243,6 @@ Phase 5: Documentation
 
 --
 
-**Remember**: The orchestrator is your AI project manager. Describe what you want to achieve, and it coordinates the specialist agents to make it happen professionally and compliantly.
+**Remember**: The orchestrator is your AI project manager. Describe what you
+want to achieve, and it coordinates the specialist agents to make it happen
+professionally and compliantly.

@@ -145,21 +145,21 @@ print(status_response.json())
 
 ```javascript
 // Login
-const loginResponse = await fetch("https://Evident.info/api/v1/auth/login", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
+const loginResponse = await fetch('https://Evident.info/api/v1/auth/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    email: "your@email.com",
-    password: "YourPassword123!",
+    email: 'your@email.com',
+    password: 'YourPassword123!',
   }),
 });
 const { token } = await loginResponse.json();
 
 // Upload PDF
 const formData = new FormData();
-formData.append("file", pdfFile);
-const uploadResponse = await fetch("https://Evident.info/api/v1/upload/pdf", {
-  method: "POST",
+formData.append('file', pdfFile);
+const uploadResponse = await fetch('https://Evident.info/api/v1/upload/pdf', {
+  method: 'POST',
   headers: { Authorization: `Bearer ${token}` },
   body: formData,
 });
@@ -167,15 +167,15 @@ const { file_id } = await uploadResponse.json();
 
 // Start analysis
 const analysisResponse = await fetch(
-  "https://Evident.info/api/v1/analysis/start",
+  'https://Evident.info/api/v1/analysis/start',
   {
-    method: "POST",
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ file_id, analysis_type: "full" }),
-  },
+    body: JSON.stringify({ file_id, analysis_type: 'full' }),
+  }
 );
 const { analysis_id } = await analysisResponse.json();
 ```

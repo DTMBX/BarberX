@@ -12,7 +12,8 @@ A comprehensive legal research database system that:
 
 ### ✅ Core Features Implemented
 
-- **Multi-source ingestion** - Import from CourtListener API, upload PDFs/DOCX/TXT
+- **Multi-source ingestion** - Import from CourtListener API, upload
+  PDFs/DOCX/TXT
 - **Full-text search** - Search across case names, full opinions, topics
 - **Citation linking** - Auto-detect citations and create case law networks
 - **Personal annotations** - Highlight passages, add notes, tag documents
@@ -505,17 +506,17 @@ http://localhost:5000/api/legal-library/topics
 
 ### Common Issues
 
-**Q: Import from CourtListener fails?**
-A: Check API rate limits. Use batch import with delays between requests.
+**Q: Import from CourtListener fails?** A: Check API rate limits. Use batch
+import with delays between requests.
 
-**Q: PDF text extraction poor quality?**
-A: For scanned PDFs, enable OCR in OCRService integration.
+**Q: PDF text extraction poor quality?** A: For scanned PDFs, enable OCR in
+OCRService integration.
 
-**Q: Search returns no results?**
-A: Ensure documents are actually in database. Check full_text column not null.
+**Q: Search returns no results?** A: Ensure documents are actually in database.
+Check full_text column not null.
 
-**Q: How do I delete a document?**
-A: DELETE endpoint coming soon. For now, use SQL: `DELETE FROM legal_documents WHERE id = ?`
+**Q: How do I delete a document?** A: DELETE endpoint coming soon. For now, use
+SQL: `DELETE FROM legal_documents WHERE id = ?`
 
 --
 

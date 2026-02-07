@@ -4,7 +4,8 @@
 
 ### 1. Database Path Mismatch ❌
 
-**Problem**: App configuration says to use `Evident_FRESH.db` but something is changing it to `Evident_test.db`
+**Problem**: App configuration says to use `Evident_FRESH.db` but something is
+changing it to `Evident_test.db`
 
 **File**: `app.py` Line 224
 

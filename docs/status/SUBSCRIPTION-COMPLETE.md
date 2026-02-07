@@ -2,7 +2,8 @@
 
 ## Executive Summary
 
-**✅ DELIVERED:** Production-ready subscription system with Stripe integration, tier-based access control, and usage tracking for Evident Legal Technologies.
+**✅ DELIVERED:** Production-ready subscription system with Stripe integration,
+tier-based access control, and usage tracking for Evident Legal Technologies.
 
 **💰 REVENUE POTENTIAL:** $118K-$3.1M+ ARR with proper marketing
 
@@ -123,7 +124,8 @@ cases_created              # Int: number of cases
 | **PREMIUM**    | $249/mo | ❌        | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline, Forensics, Priority support |
 | **ENTERPRISE** | Custom  | ❌        | Unlimited | Unlimited   | Unlimited | Self-hosted, White-label, Dedicated PM, SLA         |
 
-**Code Location:** `models_auth.py` - Lines 17-50 (TierLevel enum and tier limits)
+**Code Location:** `models_auth.py` - Lines 17-50 (TierLevel enum and tier
+limits)
 
 ### **6. Automation & Setup Scripts**
 
@@ -376,9 +378,9 @@ Add to `pricing.html`:
 
 <script>
   async function subscribeToPlan(tier) {
-    const res = await fetch("/api/stripe/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const res = await fetch('/api/stripe/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier }),
     });
     const { url } = await res.json();
@@ -631,7 +633,8 @@ Switch to live Stripe keys and you're live!
 **Phase 4:** Beta testing with select users (MONTH 4)  
 **Phase 5:** Desktop app launch (MONTH 5)
 
-**Rationale:** Validate web subscription market fit before investing in desktop version
+**Rationale:** Validate web subscription market fit before investing in desktop
+version
 
 --
 

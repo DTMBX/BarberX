@@ -58,12 +58,12 @@ Your repo needs a `_config.yml`:
 ```yaml
 title: Evident Legal Technologies
 description: Professional AI-powered eDiscovery platform
-url: "https://dtb396.github.io"
-baseurl: "/Evident.info"
+url: 'https://dtb396.github.io'
+baseurl: '/Evident.info'
 markdown: kramdown
 
 exclude:
-  - "*.py"
+  - '*.py'
   - requirements.txt
   - app.py
   - venv
@@ -419,11 +419,8 @@ git push origin main
 
 ### **What's Already Done:**
 
-? Code pushed to GitHub
-? Render.yaml configured
-? Database linked
-? Circular imports fixed
-? All files ready
+? Code pushed to GitHub ? Render.yaml configured ? Database linked ? Circular
+imports fixed ? All files ready
 
 ### **What Happens Next:**
 
@@ -496,4 +493,5 @@ git push origin main
 
 --
 
-**Both services work together perfectly! GitHub Pages for marketing, Render for the app! ??**
+**Both services work together perfectly! GitHub Pages for marketing, Render for
+the app! ??**

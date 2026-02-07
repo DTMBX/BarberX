@@ -33,11 +33,7 @@ body {
 
   /* Subtle background texture for premium feel */
   background-image:
-    radial-gradient(
-      circle at 25% 25%,
-      rgb(212 165 116 / 3%) 0%,
-      transparent 50%
-    ),
+    radial-gradient(circle at 25% 25%, rgb(212 165 116 / 3%) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgb(15 118 110 / 2%) 0%, transparent 50%);
   background-attachment: fixed;
 }
@@ -116,7 +112,7 @@ small {
 }
 
 code {
-  font-family: Monaco, "Courier New", monospace;
+  font-family: Monaco, 'Courier New', monospace;
   font-size: 0.9em;
   background: rgb(0 0 0 / 20%);
   padding: 0.2em 0.4em;
@@ -148,12 +144,7 @@ blockquote {
 hr {
   border: none;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ff-secondary),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--ff-secondary), transparent);
   opacity: 0.5;
   margin: var(--space-2xl) 0;
 }
@@ -248,12 +239,12 @@ button {
   line-height: inherit;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="url"],
-input[type="tel"],
-input[type="number"],
+input[type='text'],
+input[type='email'],
+input[type='search'],
+input[type='url'],
+input[type='tel'],
+input[type='number'],
 textarea,
 select {
   width: 100%;

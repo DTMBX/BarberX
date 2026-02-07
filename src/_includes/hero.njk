@@ -1,0 +1,12 @@
+<section class="hero relative bg-cover bg-center rounded-lg overflow-hidden" style="background-image:linear-gradient(rgba(11,95,115,0.5), rgba(11,95,115,0.3)), url('/assets/images/hero.svg');">
+  <div class="site-container py-16 md:py-20 text-white">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">{{ title or 'Evident Technologies' }}</h1>
+    {% if description %}
+      <p class="mt-4 text-lg md:text-xl max-w-3xl">{{ description }}</p>
+    {% endif %}
+    <div class="mt-6 md:mt-8 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="/contact/">Get Started</a>
+      <a class="btn btn-ghost" href="/docs/">Learn more</a>
+    </div>
+  </div>
+</section>

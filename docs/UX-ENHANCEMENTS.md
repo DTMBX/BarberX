@@ -2,7 +2,8 @@
 
 ## Overview
 
-Complete user experience improvements for Evident platform including sticky navigation, toast notifications, enhanced forms, and accessibility features.
+Complete user experience improvements for Evident platform including sticky
+navigation, toast notifications, enhanced forms, and accessibility features.
 
 --
 
@@ -87,16 +88,16 @@ Complete user experience improvements for Evident platform including sticky navi
 
 ```javascript
 // Show toast
-Toast.success("Account created successfully!");
-Toast.error("Invalid email address");
-Toast.warning("Approaching usage limit");
-Toast.info("Processing may take a few minutes");
+Toast.success('Account created successfully!');
+Toast.error('Invalid email address');
+Toast.warning('Approaching usage limit');
+Toast.info('Processing may take a few minutes');
 
 // Custom duration (default 5000ms)
-Toast.success("Saved!", 3000);
+Toast.success('Saved!', 3000);
 
 // Persistent (no auto-dismiss)
-Toast.error("Critical error occurred", 0);
+Toast.error('Critical error occurred', 0);
 ```
 
 --
@@ -457,28 +458,28 @@ Add to page layouts:
 ### Show Success Toast After Form Submit
 
 ```javascript
-form.addEventListener("submit", async function (e) {
+form.addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const button = form.querySelector('[type="submit"]');
-  button.classList.add("is-loading");
+  button.classList.add('is-loading');
 
   try {
-    const response = await fetch("/api/submit", {
-      method: "POST",
+    const response = await fetch('/api/submit', {
+      method: 'POST',
       body: new FormData(form),
     });
 
     if (response.ok) {
-      Toast.success("Form submitted successfully!");
+      Toast.success('Form submitted successfully!');
       form.reset();
     } else {
-      Toast.error("Submission failed. Please try again.");
+      Toast.error('Submission failed. Please try again.');
     }
   } catch (error) {
-    Toast.error("Network error. Please check your connection.");
+    Toast.error('Network error. Please check your connection.');
   } finally {
-    button.classList.remove("is-loading");
+    button.classList.remove('is-loading');
   }
 });
 ```
@@ -493,13 +494,13 @@ form.addEventListener("submit", async function (e) {
 <script>
   async function processData() {
     const button = event.target;
-    button.classList.add("is-loading");
+    button.classList.add('is-loading');
 
     try {
-      await fetch("/api/process", { method: "POST" });
-      Toast.success("Video processed successfully!");
+      await fetch('/api/process', { method: 'POST' });
+      Toast.success('Video processed successfully!');
     } finally {
-      button.classList.remove("is-loading");
+      button.classList.remove('is-loading');
     }
   }
 </script>

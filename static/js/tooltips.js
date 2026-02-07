@@ -16,7 +16,7 @@ class TooltipManager {
   }
 
   init() {
-    const onboardingComplete = localStorage.getItem("onboardingComplete");
+    const onboardingComplete = localStorage.getItem('onboardingComplete');
     if (!onboardingComplete) {
       this.createTooltipStyles();
       this.loadUserProgress();
@@ -24,7 +24,7 @@ class TooltipManager {
   }
 
   createTooltipStyles() {
-    const style = document.createElement("style");
+    const style = document.createElement('style');
     style.textContent = `
             .tooltip-overlay {
                 position: fixed;
@@ -148,29 +148,27 @@ class TooltipManager {
   }
 
   startTour(page) {
-    console.log("[Tooltip] Starting tour for:", page);
+    console.log('[Tooltip] Starting tour for:', page);
     // Tour can be started manually or automatically
   }
 
   endTour() {
-    localStorage.setItem("onboardingComplete", "true");
-    console.log("[Tooltip] Tour complete");
+    localStorage.setItem('onboardingComplete', 'true');
+    console.log('[Tooltip] Tour complete');
   }
 
   loadUserProgress() {
     const page = this.getCurrentPage();
-    const visitCount = parseInt(
-      localStorage.getItem("visitCount_" + page) || "0",
-    );
-    localStorage.setItem("visitCount_" + page, (visitCount + 1).toString());
+    const visitCount = parseInt(localStorage.getItem('visitCount_' + page) || '0');
+    localStorage.setItem('visitCount_' + page, (visitCount + 1).toString());
   }
 
   getCurrentPage() {
     const path = window.location.pathname;
-    if (path.includes("dashboard")) return "dashboard";
-    if (path.includes("evidence")) return "evidence-intake";
-    if (path.includes("analysis")) return "analysis";
-    return "unknown";
+    if (path.includes('dashboard')) return 'dashboard';
+    if (path.includes('evidence')) return 'evidence-intake';
+    if (path.includes('analysis')) return 'analysis';
+    return 'unknown';
   }
 }
 

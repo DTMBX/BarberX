@@ -1,26 +1,29 @@
 ---
 
-layout: default
-title: "Clinician Collaboration Appendix"
-permalink: /docs/health/holistic/appendix-clinicians/
---
+layout: default title: "Clinician Collaboration Appendix" permalink:
+/docs/health/holistic/appendix-clinicians/ --
 
 # Clinician Collaboration Appendix
 
 **A medically cautious, patient-responsibility framework**
 
-This appendix exists to support collaboration with licensed clinicians. It does not replace clinical judgment.
+This appendix exists to support collaboration with licensed clinicians. It does
+not replace clinical judgment.
 
 ## Principles
 
 - Medication can be lifesaving. The objective is not “anti-medicine.”
-- The objective is **risk reduction**, **informed consent**, and **functional improvement**.
-- Holistic interventions here are designed to be low-risk, food-first, and scalable.
+- The objective is **risk reduction**, **informed consent**, and **functional
+  improvement**.
+- Holistic interventions here are designed to be low-risk, food-first, and
+  scalable.
 
 ## What this project is
 
-- A structured, zone-aware repository of food-first practices, herbs, and topical supports
-- A way for patients to improve consistency (nutrition, movement, sleep), which often improves outcomes
+- A structured, zone-aware repository of food-first practices, herbs, and
+  topical supports
+- A way for patients to improve consistency (nutrition, movement, sleep), which
+  often improves outcomes
 
 ## What this project is not
 
@@ -49,5 +52,6 @@ This appendix exists to support collaboration with licensed clinicians. It does 
 
 ## Faith Frontier stance
 
-We support informed consent, accountability, and stewardship of health as a moral responsibility.
-We do not attribute illness to moral failure, nor do we replace clinical care with ideology.
+We support informed consent, accountability, and stewardship of health as a
+moral responsibility. We do not attribute illness to moral failure, nor do we
+replace clinical care with ideology.

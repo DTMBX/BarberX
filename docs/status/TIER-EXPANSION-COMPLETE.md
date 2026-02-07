@@ -12,11 +12,15 @@
 
 **Before:**
 
-> "Fair pricing that scales with your practice. All paid plans include priority support."
+> "Fair pricing that scales with your practice. All paid plans include priority
+> support."
 
 **After:**
 
-> "Fair, transparent pricing that scales with your practice. Start free with full demo access, upgrade when you're ready. All paid plans include reports formatted for court submission and priority support (attorney review required)."
+> "Fair, transparent pricing that scales with your practice. Start free with
+> full demo access, upgrade when you're ready. All paid plans include reports
+> formatted for court submission and priority support (attorney review
+> required)."
 
 --
 
@@ -28,7 +32,8 @@
 
 **After:**
 
-> "Test with real cases. Explore 3 full demo cases + upload 1 file to see results with your own data. Perfect for evaluation." (29 words)
+> "Test with real cases. Explore 3 full demo cases + upload 1 file to see
+> results with your own data. Perfect for evaluation." (29 words)
 
 **New Features List:**
 
@@ -46,7 +51,8 @@
 
 **After:**
 
-> "For solo practitioners, part-time defense attorneys, or handling 1-3 BWC cases monthly. Ideal for occasional use." (18 words)
+> "For solo practitioners, part-time defense attorneys, or handling 1-3 BWC
+> cases monthly. Ideal for occasional use." (18 words)
 
 **New Features List:**
 
@@ -66,7 +72,9 @@
 
 **After:**
 
-> "For full-time solo practitioners & small firms handling 5-10 BWC cases monthly. Includes timeline builder & advanced AI tools. Try risk-free for 3 days." (28 words)
+> "For full-time solo practitioners & small firms handling 5-10 BWC cases
+> monthly. Includes timeline builder & advanced AI tools. Try risk-free for 3
+> days." (28 words)
 
 **New Features List:**
 
@@ -89,7 +97,9 @@
 
 **After:**
 
-> "High-volume civil rights firms, public defenders handling 15-30 BWC cases/month. Includes full forensic analysis, API access, and flexible soft caps with overage billing." (28 words)
+> "High-volume civil rights firms, public defenders handling 15-30 BWC
+> cases/month. Includes full forensic analysis, API access, and flexible soft
+> caps with overage billing." (28 words)
 
 **New Features List:**
 
@@ -111,7 +121,9 @@
 
 **After:**
 
-> "Public Defender offices, large civil rights firms, legal aid organizations handling 50+ BWC cases/month. Includes team collaboration, private AI, white-label branding, and dedicated support with SLA." (31 words)
+> "Public Defender offices, large civil rights firms, legal aid organizations
+> handling 50+ BWC cases/month. Includes team collaboration, private AI,
+> white-label branding, and dedicated support with SLA." (31 words)
 
 **New Features List:**
 
@@ -184,8 +196,10 @@
 - ✅ Specific target personas (solo practitioners, PD offices, etc.)
 - ✅ Clear use case volumes (1-3 cases/month, 15-30 cases/month)
 - ✅ Detailed overage pricing ($2/video, $1/PDF, etc.)
-- ✅ Feature explanations (timeline builder = "synchronized to audio/video timestamps")
-- ✅ AI levels clarified (basic = lookups, full = multi-case context, private = dedicated instance)
+- ✅ Feature explanations (timeline builder = "synchronized to audio/video
+  timestamps")
+- ✅ AI levels clarified (basic = lookups, full = multi-case context, private =
+  dedicated instance)
 
 --
 
@@ -320,10 +334,12 @@ Created comprehensive 14KB guide including:
 ### What We Achieved
 
 - ✅ **Expanded all tier descriptions** from 2-6 words to 18-31 words
-- ✅ **Added target personas** for each tier (solo practitioner, PD office, etc.)
+- ✅ **Added target personas** for each tier (solo practitioner, PD office,
+  etc.)
 - ✅ **Specified use case volumes** (1-3 cases/month, 15-30 cases/month, etc.)
 - ✅ **Detailed all overage fees** ($2/video, $1/PDF, $15/user, etc.)
-- ✅ **Enhanced feature explanations** (timeline builder, forensic analysis, etc.)
+- ✅ **Enhanced feature explanations** (timeline builder, forensic analysis,
+  etc.)
 - ✅ **Improved header messaging** with value proposition
 - ✅ **Created comprehensive documentation** (14KB guide)
 - ✅ **Validated all content** against backend code
@@ -338,7 +354,8 @@ Created comprehensive 14KB guide including:
 
 ### Result
 
-**World-class pricing page** with clarity, transparency, and compelling value propositions that guide customers to the right tier while building trust.
+**World-class pricing page** with clarity, transparency, and compelling value
+propositions that guide customers to the right tier while building trust.
 
 --
 

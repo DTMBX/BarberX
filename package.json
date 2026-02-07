@@ -4,17 +4,36 @@
   "private": true,
   "scripts": {
     "lint": "npm run lint:css && npm run format:check:site",
-    "lint:css": "stylelint \"site/components/*.css\" \"site/assets/css/**/*.css\"",
+    "lint:css": "node ./scripts/run-stylelint.js",
     "format": "prettier --write \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
     "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
-    "format:check:site": "prettier --check \"site/**/*.{css,html,md,js,json}\" \"README.md\" \"package.json\"",
+    "format:check:site": "prettier --check \"src/**/*.{css,html,md,js,json}\" \"README.md\" \"package.json\"",
     "test": "node -e \"console.log('No JS tests configured.');\"",
-    "build": "node ./scripts/ci-webpack.js"
+    "build:images": "node ./scripts/optimize-images.js",
+    "build:css": "postcss src/assets/css/tailwind.css -o _site/assets/css/styles.css",
+    "build:eleventy": "eleventy",
+    "build:wasm": "node ./scripts/build-wasm.js",
+    "build": "npm run build:images && npm run build:css && npm run build:eleventy",
+    "dev": "npm run build:css && eleventy --serve",
+    "start": "eleventy --serve"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "@lhci/cli": "^0.10.0",
+    "autoprefixer": "^10.4.0",
+    "http-server": "^14.1.1",
+    "postcss": "^8.4.0",
     "prettier": "^3.0.0",
+    "sharp": "^0.32.0",
     "stylelint": "^17.1.1",
     "stylelint-config-standard": "^40.0.0",
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/forms": "^0.5.4",
+    "@tailwindcss/typography": "^0.5.9",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "nunjucks": "^3.2.4"
   }
 }

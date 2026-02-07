@@ -9,11 +9,11 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
-  const STORAGE_KEY = "faith-frontier-theme";
-  const THEME_LIGHT = "light";
-  const THEME_DARK = "dark";
+  const STORAGE_KEY = 'faith-frontier-theme';
+  const THEME_LIGHT = 'light';
+  const THEME_DARK = 'dark';
 
   /**
    * Get saved theme or system preference
@@ -26,10 +26,7 @@
     }
 
     // Check system preference
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches
-    ) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
       return THEME_LIGHT;
     }
 
@@ -41,24 +38,24 @@
    * Apply theme to document
    */
   function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute('data-theme', theme);
 
     // Update meta theme-color for mobile browsers
     let metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (!metaThemeColor) {
-      metaThemeColor = document.createElement("meta");
-      metaThemeColor.name = "theme-color";
+      metaThemeColor = document.createElement('meta');
+      metaThemeColor.name = 'theme-color';
       document.head.appendChild(metaThemeColor);
     }
 
-    metaThemeColor.content = theme === THEME_LIGHT ? "#dcd9d2" : "#050d1c";
+    metaThemeColor.content = theme === THEME_LIGHT ? '#dcd9d2' : '#050d1c';
   }
 
   /**
    * Toggle theme
    */
   function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === THEME_LIGHT ? THEME_DARK : THEME_LIGHT;
 
     applyTheme(newTheme);
@@ -72,20 +69,19 @@
    * Announce theme change to screen readers
    */
   function announceThemeChange(theme) {
-    const announcement =
-      theme === THEME_LIGHT ? "Light mode activated" : "Dark mode activated";
+    const announcement = theme === THEME_LIGHT ? 'Light mode activated' : 'Dark mode activated';
 
-    let announcer = document.getElementById("theme-announcer");
+    let announcer = document.getElementById('theme-announcer');
     if (!announcer) {
-      announcer = document.createElement("div");
-      announcer.id = "theme-announcer";
-      announcer.setAttribute("role", "status");
-      announcer.setAttribute("aria-live", "polite");
-      announcer.style.position = "absolute";
-      announcer.style.left = "-10000px";
-      announcer.style.width = "1px";
-      announcer.style.height = "1px";
-      announcer.style.overflow = "hidden";
+      announcer = document.createElement('div');
+      announcer.id = 'theme-announcer';
+      announcer.setAttribute('role', 'status');
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.style.position = 'absolute';
+      announcer.style.left = '-10000px';
+      announcer.style.width = '1px';
+      announcer.style.height = '1px';
+      announcer.style.overflow = 'hidden';
       document.body.appendChild(announcer);
     }
 
@@ -96,10 +92,10 @@
    * Create and append theme toggle button
    */
   function createToggleButton() {
-    const button = document.createElement("button");
-    button.className = "theme-toggle";
-    button.setAttribute("aria-label", "Toggle dark/light mode");
-    button.setAttribute("title", "Toggle theme");
+    const button = document.createElement('button');
+    button.className = 'theme-toggle';
+    button.setAttribute('aria-label', 'Toggle dark/light mode');
+    button.setAttribute('title', 'Toggle theme');
 
     // SVG icons
     const sunIcon = `
@@ -123,7 +119,7 @@
     `;
 
     button.innerHTML = sunIcon + moonIcon;
-    button.addEventListener("click", toggleTheme);
+    button.addEventListener('click', toggleTheme);
 
     document.body.appendChild(button);
   }
@@ -134,7 +130,7 @@
   function watchSystemTheme() {
     if (!window.matchMedia) return;
 
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
 
     const handleChange = (e) => {
       // Only auto-switch if user hasn't set a preference
@@ -145,7 +141,7 @@
 
     // Modern browsers
     if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener("change", handleChange);
+      mediaQuery.addEventListener('change', handleChange);
     } else if (mediaQuery.addListener) {
       // Legacy browsers
       mediaQuery.addListener(handleChange);
@@ -161,8 +157,8 @@
     applyTheme(initialTheme);
 
     // Create toggle button when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", createToggleButton);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', createToggleButton);
     } else {
       createToggleButton();
     }

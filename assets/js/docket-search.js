@@ -11,7 +11,7 @@ let docketIndex = [];
 let casesMap = {};
 
 // Initialize on page load
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   await loadDocketData();
   initializeSearchHandlers();
 });
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function loadDocketData() {
   try {
     // Load docket entries from all YAML files
-    const response = await fetch("/index.json");
+    const response = await fetch('/index.json');
     const siteData = await response.json();
 
     // Build docket index from site data
@@ -38,55 +38,55 @@ async function loadDocketData() {
 
     console.log(`Loaded ${docketIndex.length} docket entries`);
   } catch (error) {
-    console.error("Failed to load docket data:", error);
-    showToast("Failed to load docket data. Using offline mode.", "error");
+    console.error('Failed to load docket data:', error);
+    showToast('Failed to load docket data. Using offline mode.', 'error');
   }
 }
 
 function initializeSearchHandlers() {
-  const searchInput = document.getElementById("docketSearchInput");
-  const searchBtn = document.getElementById("searchBtn");
-  const clearBtn = document.getElementById("clearSearch");
-  const applyFiltersBtn = document.getElementById("applyFilters");
-  const resetFiltersBtn = document.getElementById("resetFilters");
+  const searchInput = document.getElementById('docketSearchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const clearBtn = document.getElementById('clearSearch');
+  const applyFiltersBtn = document.getElementById('applyFilters');
+  const resetFiltersBtn = document.getElementById('resetFilters');
 
   // Search on button click
-  searchBtn.addEventListener("click", performSearch);
+  searchBtn.addEventListener('click', performSearch);
 
   // Search on Enter key
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") performSearch();
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') performSearch();
   });
 
   // Clear search
-  clearBtn.addEventListener("click", () => {
-    searchInput.value = "";
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
     clearResults();
   });
 
   // Apply filters
-  applyFiltersBtn.addEventListener("click", performSearch);
+  applyFiltersBtn.addEventListener('click', performSearch);
 
   // Reset filters
-  resetFiltersBtn.addEventListener("click", resetFilters);
+  resetFiltersBtn.addEventListener('click', resetFilters);
 }
 
 function performSearch() {
-  const query = document.getElementById("docketSearchInput").value.trim();
+  const query = document.getElementById('docketSearchInput').value.trim();
 
   if (!query && !hasActiveFilters()) {
-    showToast("Please enter a search term or apply filters", "info");
+    showToast('Please enter a search term or apply filters', 'info');
     return;
   }
 
   // Get filter values
   const filters = {
-    court: document.getElementById("courtFilter").value,
-    caseType: document.getElementById("caseTypeFilter").value,
-    dateFrom: document.getElementById("dateFromFilter").value,
-    dateTo: document.getElementById("dateToFilter").value,
-    status: document.getElementById("statusFilter").value,
-    partyType: document.getElementById("partyTypeFilter").value,
+    court: document.getElementById('courtFilter').value,
+    caseType: document.getElementById('caseTypeFilter').value,
+    dateFrom: document.getElementById('dateFromFilter').value,
+    dateTo: document.getElementById('dateToFilter').value,
+    status: document.getElementById('statusFilter').value,
+    partyType: document.getElementById('partyTypeFilter').value,
   };
 
   // Search docket index
@@ -107,43 +107,33 @@ function performSearch() {
 
   // Apply court filter
   if (filters.court) {
-    results = results.filter((entry) =>
-      entry.caseDocket?.startsWith(filters.court),
-    );
+    results = results.filter((entry) => entry.caseDocket?.startsWith(filters.court));
   }
 
   // Apply case type filter
   if (filters.caseType) {
-    results = results.filter((entry) =>
-      entry.caseDocket?.includes(`-${filters.caseType}-`),
-    );
+    results = results.filter((entry) => entry.caseDocket?.includes(`-${filters.caseType}-`));
   }
 
   // Apply date range filters
   if (filters.dateFrom) {
-    results = results.filter(
-      (entry) => entry.date && entry.date >= filters.dateFrom,
-    );
+    results = results.filter((entry) => entry.date && entry.date >= filters.dateFrom);
   }
 
   if (filters.dateTo) {
-    results = results.filter(
-      (entry) => entry.date && entry.date <= filters.dateTo,
-    );
+    results = results.filter((entry) => entry.date && entry.date <= filters.dateTo);
   }
 
   // Apply status filter
   if (filters.status) {
-    results = results.filter(
-      (entry) => entry.status?.toLowerCase() === filters.status,
-    );
+    results = results.filter((entry) => entry.status?.toLowerCase() === filters.status);
   }
 
   displayResults(results, query);
 }
 
 function displayResults(results, query) {
-  const resultsContainer = document.getElementById("searchResults");
+  const resultsContainer = document.getElementById('searchResults');
 
   if (results.length === 0) {
     resultsContainer.innerHTML = `
@@ -177,7 +167,7 @@ function displayResults(results, query) {
 
   // Sort entries by date (newest first)
   Object.values(resultsByCase).forEach((caseData) => {
-    caseData.entries.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    caseData.entries.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   });
 
   // Render results
@@ -203,11 +193,11 @@ function displayResults(results, query) {
             <h4>
               <a href="/cases/${caseData.slug}/">${caseData.docket}</a>
             </h4>
-            <span class="badge badge-${getStatusColor(caseData.status)}">${caseData.status || "Active"}</span>
+            <span class="badge badge-${getStatusColor(caseData.status)}">${caseData.status || 'Active'}</span>
           </div>
-          <p class="result-card-title">${caseData.title || "Untitled Case"}</p>
+          <p class="result-card-title">${caseData.title || 'Untitled Case'}</p>
           <div class="result-card-meta">
-            <span>${caseData.court || "Court Unspecified"}</span>
+            <span>${caseData.court || 'Court Unspecified'}</span>
             <span>•</span>
             <span>${caseData.entries.length} filing(s)</span>
           </div>
@@ -219,14 +209,14 @@ function displayResults(results, query) {
                 (entry) => `
               <div class="docket-entry">
                 <span class="docket-entry-date">${formatDate(entry.date)}</span>
-                <span class="docket-entry-type">${entry.type || "Document"}</span>
+                <span class="docket-entry-type">${entry.type || 'Document'}</span>
                 <a href="${entry.file}" class="docket-entry-title" target="_blank">
-                  ${entry.title || "Untitled Document"}
+                  ${entry.title || 'Untitled Document'}
                 </a>
               </div>
-            `,
+            `
               )
-              .join("")}
+              .join('')}
             ${
               caseData.entries.length > 5
                 ? `
@@ -234,13 +224,13 @@ function displayResults(results, query) {
                 View all ${caseData.entries.length} entries →
               </a>
             `
-                : ""
+                : ''
             }
           </div>
         </div>
-      `,
+      `
         )
-        .join("")}
+        .join('')}
     </div>
   `;
 
@@ -248,7 +238,7 @@ function displayResults(results, query) {
 }
 
 function clearResults() {
-  const resultsContainer = document.getElementById("searchResults");
+  const resultsContainer = document.getElementById('searchResults');
   resultsContainer.innerHTML = `
     <div class="search-results-placeholder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
@@ -261,44 +251,44 @@ function clearResults() {
 }
 
 function resetFilters() {
-  document.getElementById("courtFilter").value = "";
-  document.getElementById("caseTypeFilter").value = "";
-  document.getElementById("dateFromFilter").value = "";
-  document.getElementById("dateToFilter").value = "";
-  document.getElementById("statusFilter").value = "";
-  document.getElementById("partyTypeFilter").value = "";
-  showToast("Filters reset", "info");
+  document.getElementById('courtFilter').value = '';
+  document.getElementById('caseTypeFilter').value = '';
+  document.getElementById('dateFromFilter').value = '';
+  document.getElementById('dateToFilter').value = '';
+  document.getElementById('statusFilter').value = '';
+  document.getElementById('partyTypeFilter').value = '';
+  showToast('Filters reset', 'info');
 }
 
 function hasActiveFilters() {
   return (
-    document.getElementById("courtFilter").value ||
-    document.getElementById("caseTypeFilter").value ||
-    document.getElementById("dateFromFilter").value ||
-    document.getElementById("dateToFilter").value ||
-    document.getElementById("statusFilter").value ||
-    document.getElementById("partyTypeFilter").value
+    document.getElementById('courtFilter').value ||
+    document.getElementById('caseTypeFilter').value ||
+    document.getElementById('dateFromFilter').value ||
+    document.getElementById('dateToFilter').value ||
+    document.getElementById('statusFilter').value ||
+    document.getElementById('partyTypeFilter').value
   );
 }
 
 function formatDate(dateStr) {
-  if (!dateStr) return "Date Unknown";
+  if (!dateStr) return 'Date Unknown';
   const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   });
 }
 
 function getStatusColor(status) {
-  const statusLower = (status || "").toLowerCase();
-  if (statusLower.includes("active")) return "success";
-  if (statusLower.includes("closed")) return "neutral";
-  if (statusLower.includes("pending")) return "warning";
-  return "info";
+  const statusLower = (status || '').toLowerCase();
+  if (statusLower.includes('active')) return 'success';
+  if (statusLower.includes('closed')) return 'neutral';
+  if (statusLower.includes('pending')) return 'warning';
+  return 'info';
 }
 
 function exportResults(format) {
-  showToast("Export feature coming soon in premium version", "info");
+  showToast('Export feature coming soon in premium version', 'info');
 }

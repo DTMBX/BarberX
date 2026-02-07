@@ -70,7 +70,7 @@ Evident.info/
 #### **Typography:**
 
 ```css
---font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+--font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
 --font-size-xs: 0.75rem; /* 12px */
 --font-size-sm: 0.875rem; /* 14px */
 --font-size-base: 1rem; /* 16px */

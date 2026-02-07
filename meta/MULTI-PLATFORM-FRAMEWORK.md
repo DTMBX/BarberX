@@ -25,7 +25,8 @@ Cross-platform data models and service interfaces used by all platforms.
 - `Services/IApiClient.cs` - API client interface
 - `Services/ApiClient.cs` - HTTP-based API client implementation
 
-**Purpose**: Ensure consistent data structures and API contracts across all platforms.
+**Purpose**: Ensure consistent data structures and API contracts across all
+platforms.
 
 ### 2. **Mobile Layer** (`Evident.Mobile`)
 
@@ -376,7 +377,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: '10.0.x'
       - run: dotnet build -f net10.0-android
 
   build-ios:
@@ -385,7 +386,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: '10.0.x'
       - run: dotnet build -f net10.0-ios
 ```
 
@@ -403,7 +404,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: '3.9'
       - run: pip install -r requirements.txt
       - run: pytest
       - run: # Deploy to production

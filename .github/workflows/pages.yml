@@ -1,7 +1,7 @@
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
-name: Build and Deploy Pages (Jekyll)
+name: Build and Deploy Pages (Eleventy)
 
 on:
   push:
@@ -24,32 +24,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          ruby-version: "3.3"
-          bundler-cache: true
+          node-version: '18'
 
-      - name: Install Jekyll deps
-        run: |
-          cd site
-          if [ -f ../Gemfile ]; then
-            cd ..
-            bundle install
-          else
-            gem install jekyll bundler
-          fi
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Build site
-        run: |
-          if [ -f Gemfile ]; then
-            bundle exec jekyll build --source site --destination _site
-          else
-            cd site
-            jekyll build
-          fi
+      - name: Build site (Eleventy)
+        run: npm run build
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site

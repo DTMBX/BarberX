@@ -5,7 +5,8 @@
 Your overnight library builder is failing because:
 
 1. **Wrong API version**: Code was using v3, but CourtListener now requires v4
-2. **Missing local API key**: The API key is in Render, but not in your local environment
+2. **Missing local API key**: The API key is in Render, but not in your local
+   environment
 
 ## ✅ Fixes Applied
 
@@ -44,7 +45,8 @@ python overnight_library_builder.py -practice-area all
 
 ### Option 2: Wait for Render Deploy
 
-The code fix will work automatically on Render since the API key is already there as a SECRET.
+The code fix will work automatically on Render since the API key is already
+there as a SECRET.
 
 After you push:
 

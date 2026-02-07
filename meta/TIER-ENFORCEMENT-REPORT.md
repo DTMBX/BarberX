@@ -2,7 +2,9 @@
 
 ## Executive Summary
 
-**Status: ✅ PARTIALLY ENFORCED** - Subscription tiers and user access limits are properly enforced across most platforms, but some gaps exist in mobile app validation.
+**Status: ✅ PARTIALLY ENFORCED** - Subscription tiers and user access limits
+are properly enforced across most platforms, but some gaps exist in mobile app
+validation.
 
 ---
 
@@ -88,7 +90,7 @@ TierLevel = profile.Tier;
 
 ```javascript
 if (errorPayload.upgrade_required) {
-  showOpenAiStatus(errorMessage, "warning");
+  showOpenAiStatus(errorMessage, 'warning');
 }
 ```
 
@@ -304,11 +306,14 @@ public async Task FreeTier_ShouldRejectExcessiveUploads()
 
 ## Conclusion
 
-Evident has **robust tier enforcement** on the backend and web frontend, but the mobile app needs enhancements to match this security level. The foundation is solid with proper API structures and backend validation, but client-side protection in the mobile app requires immediate attention.
+Evident has **robust tier enforcement** on the backend and web frontend, but the
+mobile app needs enhancements to match this security level. The foundation is
+solid with proper API structures and backend validation, but client-side
+protection in the mobile app requires immediate attention.
 
-**Priority:** Implement mobile app tier validation within 2 weeks to maintain security parity across platforms.
+**Priority:** Implement mobile app tier validation within 2 weeks to maintain
+security parity across platforms.
 
 ---
 
-_Report generated: January 31, 2026_
-_Next review: February 14, 2026_
+_Report generated: January 31, 2026_ _Next review: February 14, 2026_

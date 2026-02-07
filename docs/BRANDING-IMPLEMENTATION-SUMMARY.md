@@ -2,7 +2,8 @@
 
 ## What Was Done
 
-Successfully unified the classic 1920s barber pole branding across the entire Evident.info site with a clean NYC fade aesthetic — rounded, smooth, and crisp.
+Successfully unified the classic 1920s barber pole branding across the entire
+Evident.info site with a clean NYC fade aesthetic — rounded, smooth, and crisp.
 
 ## Files Created
 
@@ -58,7 +59,8 @@ Successfully unified the classic 1920s barber pole branding across the entire Ev
 8. **`_includes/layout/footer/footer.html`**
    - Added small pole to footer branding
    - Added "EST. 2024 | A CUT ABOVE" tagline
-   - Updated copy: "Built with precision in NYC. Like a fresh fade — clean, rounded, crisp."
+   - Updated copy: "Built with precision in NYC. Like a fresh fade — clean,
+     rounded, crisp."
 
 9. **`assets/css/style.css`**
    - Updated to reference brand tokens
@@ -69,7 +71,8 @@ Successfully unified the classic 1920s barber pole branding across the entire Ev
 ### Color Palette
 
 - **Barber Trio**: Red (#c41e3a), White (#ffffff), Blue (#1e40af)
-- **Brass Accents**: Light (#FFF8DC), Gold (#FFD700), Mid (#d4a574), Dark (#DAA520)
+- **Brass Accents**: Light (#FFF8DC), Gold (#FFD700), Mid (#d4a574), Dark
+  (#DAA520)
 - **Neutrals**: Ink (#0a0a0f), Muted (#6b7280), Background (#fafafa)
 
 ### Pole Size Variants
@@ -100,16 +103,19 @@ All using smooth easing: `cubic-bezier(0.4, 0, 0.2, 1)`
 
 ## Accessibility Features
 
-- ✅ **Reduced Motion**: All animations disabled when user prefers reduced motion
+- ✅ **Reduced Motion**: All animations disabled when user prefers reduced
+  motion
 - ✅ **Dark Mode**: Automatically adapts colors for dark color scheme
-- ✅ **Semantic HTML**: Proper ARIA labels (`aria-hidden="true"` for decorative poles)
+- ✅ **Semantic HTML**: Proper ARIA labels (`aria-hidden="true"` for decorative
+  poles)
 - ✅ **Keyboard Navigation**: All interactive elements keyboard accessible
 - ✅ **Print Friendly**: Decorative poles hidden in print stylesheets
 
 ## Responsive Design
 
 - **Desktop**: Full pole branding in header and footer
-- **Mobile**: Header pole hidden to save space (optional: footer pole also hidden)
+- **Mobile**: Header pole hidden to save space (optional: footer pole also
+  hidden)
 - **Fixed Pole**: Positioned bottom-right on all content pages
 - **Homepage Exception**: Fixed pole hidden (uses hero pole instead)
 
@@ -119,13 +125,15 @@ All using smooth easing: `cubic-bezier(0.4, 0, 0.2, 1)`
 
 - **"EST. 2024 | A CUT ABOVE"** - Brand establishment and quality promise
 - **"Precision. Patience. Virtue. Honor."** - Core values
-- **"Built with precision in NYC. Like a fresh fade — clean, rounded, crisp."** - NYC authenticity
+- **"Built with precision in NYC. Like a fresh fade — clean, rounded,
+  crisp."** - NYC authenticity
 
 ## How to Use
 
 ### Enable on New Pages
 
-The branding is automatically included on all pages via `default.html` layout. To customize:
+The branding is automatically included on all pages via `default.html` layout.
+To customize:
 
 ```yaml
 --
@@ -163,7 +171,10 @@ Open `branding-test.html` in any browser to see:
 
 ## Summary
 
-The Evident site now has a unified, professional branding system centered around the iconic 1920s barber pole. Every aspect follows the "NYC fade" aesthetic — clean, rounded corners, smooth transitions, and crisp execution. The implementation is:
+The Evident site now has a unified, professional branding system centered around
+the iconic 1920s barber pole. Every aspect follows the "NYC fade" aesthetic —
+clean, rounded corners, smooth transitions, and crisp execution. The
+implementation is:
 
 - ✅ Fully responsive
 - ✅ Accessible (WCAG compliant)

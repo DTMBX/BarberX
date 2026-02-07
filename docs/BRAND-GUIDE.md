@@ -75,8 +75,8 @@ The classic 1920s spinning barber pole is our primary brand symbol:
 
 ```css
 --font-display:
-  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
---font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 ```
 
 ### Weights
@@ -155,7 +155,8 @@ All spacing follows a 4px base unit:
 ### Consistent Copy
 
 - **Footer tagline**: "Precision. Patience. Virtue. Honor."
-- **Footer motto**: "Built with precision in NYC. Like a fresh fade — clean, rounded, crisp."
+- **Footer motto**: "Built with precision in NYC. Like a fresh fade — clean,
+  rounded, crisp."
 - **EST date**: "EST. 2024"
 - **Slogan**: "A CUT ABOVE"
 
@@ -229,6 +230,8 @@ When adding the barber pole to a new page:
 
 --
 
-**Remember**: Like a barber perfecting a fade, attention to detail makes the difference between good and great. Every pixel, every transition, every shadow should be intentional.
+**Remember**: Like a barber perfecting a fade, attention to detail makes the
+difference between good and great. Every pixel, every transition, every shadow
+should be intentional.
 
 **A CUT ABOVE** ✂️

@@ -1,0 +1,32 @@
+<header class="site-header bg-white border-b sticky top-0 z-50">
+  <div class="site-container flex items-center justify-between py-4">
+    <a href="/" class="header-brand flex items-center gap-3" aria-label="Evident Home">
+      <img src="/assets/img/brand/evident-wordmark-light-hd.svg" alt="Evident Technologies" class="brand-logo h-8" />
+    </a>
+
+    <div class="flex items-center gap-4">
+      <nav id="primary-nav" class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+        <div class="relative" data-nav-item>
+          <button class="nav-link inline-flex items-center gap-2" aria-haspopup="true" aria-expanded="false" data-dropdown-button>Services<span class="sr-only">Open Services menu</span></button>
+          <div class="dropdown hidden absolute bg-white shadow-md mt-2 rounded-md w-64 p-4" role="menu" aria-label="Services menu" data-dropdown>
+            <a href="/services/audit/" class="block p-2 hover:bg-gray-50" role="menuitem">Audit Trails</a>
+            <a href="/services/custody/" class="block p-2 hover:bg-gray-50" role="menuitem">Chain of Custody</a>
+            <a href="/services/compliance/" class="block p-2 hover:bg-gray-50" role="menuitem">Compliance</a>
+          </div>
+        </div>
+        <a href="/docs/" class="nav-link">Documentation</a>
+        <a href="/pricing/" class="nav-link">Pricing</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://app.evident.info/login" class="btn btn-ghost">Sign In</a>
+        <a href="https://app.evident.info/register" class="btn btn-primary">Get Started</a>
+      </div>
+
+      <button id="mobile-nav-toggle" class="md:hidden p-2" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>

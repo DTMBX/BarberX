@@ -1,6 +1,7 @@
 # 🎓 ELITE LEGAL LIBRARY - Quick Start
 
-**Goal:** Build a legal research platform that impresses Yale & Harvard law graduates
+**Goal:** Build a legal research platform that impresses Yale & Harvard law
+graduates
 
 --
 
@@ -409,6 +410,7 @@ def get_judge_profile(name):
 
 --
 
-**YOU NOW HAVE:** The foundation for a legal research platform that rivals Westlaw and LexisNexis at 1/10th the cost.
+**YOU NOW HAVE:** The foundation for a legal research platform that rivals
+Westlaw and LexisNexis at 1/10th the cost.
 
 **NEXT:** Add the API key and test the elite features! 🚀

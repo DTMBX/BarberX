@@ -7,7 +7,9 @@
 
 ## 🎯 What We Built
 
-A **professional-grade legal document optimization system** that transforms rough legal drafts into filings formatted for court submission (attorney review required).
+A **professional-grade legal document optimization system** that transforms
+rough legal drafts into filings formatted for court submission (attorney review
+required).
 
 --
 
@@ -197,7 +199,8 @@ Checks:
 - ✅ Cites medical records for damages support
 - ✅ Ensures proper verification language
 
-**Result:** Draft filing formatted for court submission in 45 minutes (vs. 6-8 hours manual); attorney review required.
+**Result:** Draft filing formatted for court submission in 45 minutes (vs. 6-8
+hours manual); attorney review required.
 
 --
 
@@ -482,7 +485,8 @@ guarantees about outcomes."
 
 --
 
-**This feature is production-ready and can immediately help legal professionals draft better court filings!** 🎯
+**This feature is production-ready and can immediately help legal professionals
+draft better court filings!** 🎯
 
 --
 

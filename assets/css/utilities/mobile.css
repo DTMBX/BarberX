@@ -17,8 +17,8 @@
   button,
   a.btn,
   .btn-nav,
-  input[type="submit"],
-  input[type="button"],
+  input[type='submit'],
+  input[type='button'],
   .touch-target {
     min-height: 48px;
     min-width: 48px;
@@ -65,9 +65,9 @@
   }
 
   /* Form elements */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
   textarea,
   select {
     font-size: 16px; /* Prevents zoom on iOS */
@@ -89,7 +89,7 @@
   }
 
   .col,
-  [class*="col-"] {
+  [class*='col-'] {
     width: 100%;
     margin-bottom: var(--mobile-gap);
   }
@@ -241,9 +241,9 @@
 /* iOS-specific Fixes */
 @supports (-webkit-touch-callout: none) {
   /* Fix iOS input zoom */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
   textarea,
   select {
     font-size: 16px;

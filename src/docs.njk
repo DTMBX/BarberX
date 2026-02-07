@@ -1,0 +1,26 @@
+---
+title: Documentation
+description: Developer and user documentation for Evident
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <header class="mb-6">
+      <h1 class="text-3xl md:text-4xl font-bold">Documentation</h1>
+      <p class="mt-2 text-lg text-gray-700">Find guides, API references, and developer notes here.</p>
+    </header>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <article class="p-6 border rounded prose">
+        <h3 class="font-semibold">Getting started</h3>
+        <p>Quickstart guides for installation and configuration.</p>
+      </article>
+      <article class="p-6 border rounded prose">
+        <h3 class="font-semibold">API Reference</h3>
+        <p>Endpoints, schemas, and usage examples.</p>
+      </article>
+    </div>
+  </section>
+{% endblock %}

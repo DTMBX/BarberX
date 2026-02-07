@@ -4,18 +4,21 @@
 
 ### 1. **Navigation Links Not Working**
 
-**Problem:** Only logout button worked, all other links (BWC, Chat, Upload, Account) failed  
+**Problem:** Only logout button worked, all other links (BWC, Chat, Upload,
+Account) failed  
 **Cause:** Routes exist but dashboard was using wrong template on error
 
 ### 2. **Raw Template Code Showing**
 
 **Problem:** Seeing `{{ current_user.full_name }}` instead of actual names  
-**Cause:** Error fallback was serving wrong dashboard template (`templates/dashboard.html` instead of `templates/auth/dashboard.html`)
+**Cause:** Error fallback was serving wrong dashboard template
+(`templates/dashboard.html` instead of `templates/auth/dashboard.html`)
 
 ### 3. **API Error 500**
 
 **Problem:** `/api/dashboard-stats` returning 500 error  
-**Cause:** Trying to access `current_user.subscription_tier` and `current_user.role` which don't exist
+**Cause:** Trying to access `current_user.subscription_tier` and
+`current_user.role` which don't exist
 
 ### 4. **CSP Violation**
 
@@ -93,7 +96,8 @@ All 4 quick access links now work:
 ### ✅ Document Upload
 
 - **URL:** `/batch-pdf-upload.html`
-- **Route:** `@app.route("/batch-pdf-upload.html")` + `@login_required` + tier check
+- **Route:** `@app.route("/batch-pdf-upload.html")` + `@login_required` + tier
+  check
 - **Status:** Working
 
 ### ✅ Account Settings

@@ -1,8 +1,11 @@
 # Evident FOUNDING DOCUMENTS ARCHIVE
 
-**Purpose:** Preserve the exact text of United States founding documents on Evident servers to maintain truth in case official .gov sources are altered, deleted, or become inaccessible.
+**Purpose:** Preserve the exact text of United States founding documents on
+Evident servers to maintain truth in case official .gov sources are altered,
+deleted, or become inaccessible.
 
-**Philosophy:** "Truth is the only subject" - These documents establish the supreme law of the land and must be preserved in their original form.
+**Philosophy:** "Truth is the only subject" - These documents establish the
+supreme law of the land and must be preserved in their original form.
 
 ---
 
@@ -20,11 +23,13 @@ documents/
 
 ## FOUNDING DOCUMENTS (Immutable)
 
-These documents are **frozen in time** - they cannot be changed without constitutional amendment process:
+These documents are **frozen in time** - they cannot be changed without
+constitutional amendment process:
 
 ### Primary Documents
 
-1. **constitution.md** - The Constitution for the United States of America (1787)
+1. **constitution.md** - The Constitution for the United States of America
+   (1787)
 2. **bill-of-rights.md** - First Ten Amendments (1791)
 3. **amendments-11-27.md** - Additional Amendments (1795-1992)
 4. **declaration.md** - Declaration of Independence (1776)
@@ -198,7 +203,8 @@ If checksums differ = document has been altered
 
 ## LEGAL NOTICE
 
-These documents are in the **public domain** as works of the United States Government. No copyright restrictions apply.
+These documents are in the **public domain** as works of the United States
+Government. No copyright restrictions apply.
 
 **Citation Format:**
 
@@ -207,8 +213,9 @@ U.S. Const. art. I, § 8
 (archived at Evident Legal Technologies, retrieved Jan. 27, 2026)
 ```
 
-**Disclaimer:**
-While every effort is made to ensure accuracy, users should verify against multiple sources for court filings. Evident provides this archive as a public service for truth preservation.
+**Disclaimer:** While every effort is made to ensure accuracy, users should
+verify against multiple sources for court filings. Evident provides this archive
+as a public service for truth preservation.
 
 ---
 
@@ -217,7 +224,8 @@ While every effort is made to ensure accuracy, users should verify against multi
 **Archive Maintained By:** Evident Legal Technologies  
 **Purpose:** Truth preservation and legal reference  
 **Philosophy:** "Truth is the only subject"  
-**Dedication:** For Devon Tyler (28, New Jersey, USA) and all who seek unaltered founding documents
+**Dedication:** For Devon Tyler (28, New Jersey, USA) and all who seek unaltered
+founding documents
 
 **Questions or Corrections:**
 

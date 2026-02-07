@@ -50,35 +50,45 @@
 
 ### 📱 Mobile Experience
 
-- **[mobile/MOBILE-EXPERIENCE-COMPLETE.md](mobile/MOBILE-EXPERIENCE-COMPLETE.md)** — Complete mobile implementation guide  
+- **[mobile/MOBILE-EXPERIENCE-COMPLETE.md](mobile/MOBILE-EXPERIENCE-COMPLETE.md)**
+  — Complete mobile implementation guide  
   _Mobile navigation, responsive CSS, touch optimization, iOS/Android fixes_
 
-- **[mobile/LIGHTHOUSE-MOBILE-AUDIT.md](mobile/LIGHTHOUSE-MOBILE-AUDIT.md)** — Performance audit results  
-  _Performance: 95/100, Accessibility: 100/100, Best Practices: 96/100, SEO: 92/100_
+- **[mobile/LIGHTHOUSE-MOBILE-AUDIT.md](mobile/LIGHTHOUSE-MOBILE-AUDIT.md)** —
+  Performance audit results  
+  _Performance: 95/100, Accessibility: 100/100, Best Practices: 96/100, SEO:
+  92/100_
 
 ### 🔒 Security
 
-- **[security/SECURITY-AUDIT-RESULTS.md](security/SECURITY-AUDIT-RESULTS.md)** — Comprehensive security audit  
-  _Vulnerability assessment, CSP headers, HSTS, file upload validation, remediation steps_
+- **[security/SECURITY-AUDIT-RESULTS.md](security/SECURITY-AUDIT-RESULTS.md)** —
+  Comprehensive security audit  
+  _Vulnerability assessment, CSP headers, HSTS, file upload validation,
+  remediation steps_
 
 ### 💳 Stripe Integration
 
-- **[stripe/STRIPE-SETUP-CHECKLIST.md](stripe/STRIPE-SETUP-CHECKLIST.md)** — Payment processing setup  
+- **[stripe/STRIPE-SETUP-CHECKLIST.md](stripe/STRIPE-SETUP-CHECKLIST.md)** —
+  Payment processing setup  
   _Stripe account config, webhook setup, product creation, testing checklist_
 
 ### 📊 Analytics
 
-- **[analytics/ANALYTICS-PLATFORM-DECISION.md](analytics/ANALYTICS-PLATFORM-DECISION.md)** — Platform selection  
-  _Amplitude vs Mixpanel comparison, recommendation: Amplitude for product analytics_
+- **[analytics/ANALYTICS-PLATFORM-DECISION.md](analytics/ANALYTICS-PLATFORM-DECISION.md)**
+  — Platform selection  
+  _Amplitude vs Mixpanel comparison, recommendation: Amplitude for product
+  analytics_
 
 ### 📅 Daily Summaries
 
-- **[day-summaries/DAY-2-EXECUTION-SUMMARY.md](day-summaries/DAY-2-EXECUTION-SUMMARY.md)** — Day 2 launch prep  
+- **[day-summaries/DAY-2-EXECUTION-SUMMARY.md](day-summaries/DAY-2-EXECUTION-SUMMARY.md)**
+  — Day 2 launch prep  
   _Security fixes, mobile implementation, PWA setup, Stripe configuration_
 
 ### 🎬 Marketing
 
-- **[DEMO-VIDEO-SCRIPT.md](DEMO-VIDEO-SCRIPT.md)** — Professional 2-minute demo walkthrough  
+- **[DEMO-VIDEO-SCRIPT.md](DEMO-VIDEO-SCRIPT.md)** — Professional 2-minute demo
+  walkthrough  
   _Scene-by-scene script with timing and talking points_
 
 --
@@ -91,10 +101,12 @@
 - **[404-FIX-REPORT.md](404-FIX-REPORT.md)** — Original report (9 KB)  
   _Initial analysis and missing pages list_
 
-- **[404-IMPLEMENTATION-SUMMARY.md](404-IMPLEMENTATION-SUMMARY.md)** — Implementation details (10 KB)  
+- **[404-IMPLEMENTATION-SUMMARY.md](404-IMPLEMENTATION-SUMMARY.md)** —
+  Implementation details (10 KB)  
   _Technical details of pages created_
 
-- **[FLASK-INTEGRATION-GUIDE.md](FLASK-INTEGRATION-GUIDE.md)** — Integration guide (9 KB)  
+- **[FLASK-INTEGRATION-GUIDE.md](FLASK-INTEGRATION-GUIDE.md)** — Integration
+  guide (9 KB)  
   _Step-by-step Flask authentication integration_
 
 ### Branding System
@@ -102,18 +114,22 @@
 - **[BRAND-GUIDE.md](BRAND-GUIDE.md)** — Brand guidelines (5.7 KB)  
   _Official Evident design system_
 
-- **[BRAND-QUICK-REFERENCE.md](BRAND-QUICK-REFERENCE.md)** — Quick reference (2.4 KB)  
+- **[BRAND-QUICK-REFERENCE.md](BRAND-QUICK-REFERENCE.md)** — Quick reference
+  (2.4 KB)  
   _Developer cheat sheet for brand tokens_
 
-- **[BRANDING-IMPLEMENTATION-SUMMARY.md](BRANDING-IMPLEMENTATION-SUMMARY.md)** — Implementation (5.7 KB)  
+- **[BRANDING-IMPLEMENTATION-SUMMARY.md](BRANDING-IMPLEMENTATION-SUMMARY.md)** —
+  Implementation (5.7 KB)  
   _How branding was applied site-wide_
 
 ### Authentication System
 
-- **[TIER-SYSTEM-COMPLETE.md](TIER-SYSTEM-COMPLETE.md)** — Tier documentation (8.3 KB)  
+- **[TIER-SYSTEM-COMPLETE.md](TIER-SYSTEM-COMPLETE.md)** — Tier documentation
+  (8.3 KB)  
   _User tiers, limits, and pricing_
 
-- **[AUTH-UI-OPTIMIZATION.md](AUTH-UI-OPTIMIZATION.md)** — UI optimization (7.3 KB)  
+- **[AUTH-UI-OPTIMIZATION.md](AUTH-UI-OPTIMIZATION.md)** — UI optimization (7.3
+  KB)  
   _Login, signup, and dashboard enhancements_
 
 --
@@ -175,7 +191,8 @@ assets/css/
 2. **Preload Main CSS** — Non-blocking with `rel="preload"`
 3. **Lazy Load Mobile** — Only on mobile breakpoints
 
-**Performance Gain:** 15KB reduction in initial load, ~300ms faster First Contentful Paint
+**Performance Gain:** 15KB reduction in initial load, ~300ms faster First
+Contentful Paint
 
 --
 
@@ -214,7 +231,8 @@ Includes:
 
 Implemented in `../app.py` via `@app.after_request` decorator:
 
-1. **Content-Security-Policy** — XSS prevention, allowed sources for Stripe/Amplitude/OpenAI
+1. **Content-Security-Policy** — XSS prevention, allowed sources for
+   Stripe/Amplitude/OpenAI
 2. **Strict-Transport-Security** — Force HTTPS (HSTS) with 1-year preload
 3. **X-Frame-Options** — Clickjacking prevention (DENY)
 4. **X-Content-Type-Options** — MIME sniffing prevention (nosniff)
@@ -228,7 +246,8 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 ### File Upload Validation
 
 - **Max size:** 100MB
-- **Allowed types:** Video (mp4, mov, avi), Images (jpg, png, gif), Documents (pdf, docx)
+- **Allowed types:** Video (mp4, mov, avi), Images (jpg, png, gif), Documents
+  (pdf, docx)
 - **Filename sanitization:** Remove dangerous characters
 - **MIME type verification:** Check actual file content
 
@@ -267,7 +286,8 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 ### For New Developers
 
 1. **Read Documentation**
-   - [MOBILE-EXPERIENCE-COMPLETE.md](mobile/MOBILE-EXPERIENCE-COMPLETE.md) — Mobile implementation
+   - [MOBILE-EXPERIENCE-COMPLETE.md](mobile/MOBILE-EXPERIENCE-COMPLETE.md) —
+     Mobile implementation
    - [BRAND-GUIDE.md](BRAND-GUIDE.md) — Design standards
    - [FLASK-INTEGRATION-GUIDE.md](FLASK-INTEGRATION-GUIDE.md) — Backend setup
 
@@ -314,7 +334,9 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 
 1. Read [BRAND-GUIDE.md](BRAND-GUIDE.md) for colors, typography, spacing
 2. Read [BRAND-QUICK-REFERENCE.md](BRAND-QUICK-REFERENCE.md) for CSS variables
-3. Reference [BRANDING-IMPLEMENTATION-SUMMARY.md](BRANDING-IMPLEMENTATION-SUMMARY.md) for examples
+3. Reference
+   [BRANDING-IMPLEMENTATION-SUMMARY.md](BRANDING-IMPLEMENTATION-SUMMARY.md) for
+   examples
 
 ### For Backend Developers
 
@@ -619,7 +641,8 @@ SENDGRID_API_KEY=...                # For transactional emails
 ### Usage Tracking
 
 - **Monthly reset:** 1st of month
-- **Tracked fields:** videos_processed, documents_analyzed, transcription_minutes, storage_used_gb
+- **Tracked fields:** videos_processed, documents_analyzed,
+  transcription_minutes, storage_used_gb
 - **Enforcement:** `@check_usage_limit('field_name')` decorator
 
 ### PWA Cache Strategy

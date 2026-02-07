@@ -2,7 +2,8 @@
 
 ## ✅ Form Configuration Complete
 
-The early access form at `_includes/connect.html` is properly configured for Netlify Forms with **zero server-side code or JavaScript required**.
+The early access form at `_includes/connect.html` is properly configured for
+Netlify Forms with **zero server-side code or JavaScript required**.
 
 ### Form Setup Checklist
 
@@ -15,7 +16,8 @@ The early access form at `_includes/connect.html` is properly configured for Net
 
 ✅ **Hidden Fields:**
 
-- `<input type="hidden" name="form-name" value="early-access" />` - Required for Netlify
+- `<input type="hidden" name="form-name" value="early-access" />` - Required for
+  Netlify
 
 ✅ **Spam Protection:**
 
@@ -78,15 +80,12 @@ The early access form at `_includes/connect.html` is properly configured for Net
 
 ## No Server Required
 
-✅ No backend code
-✅ No database
-✅ No API calls
-✅ No hosting costs for form processing
-✅ Automatic spam filtering
-✅ Instant notifications (optional)
+✅ No backend code ✅ No database ✅ No API calls ✅ No hosting costs for form
+processing ✅ Automatic spam filtering ✅ Instant notifications (optional)
 
 ## Form Detection Status
 
 Form detection is **ENABLED** in your Netlify site settings.
 
-The form will be automatically detected on the next deploy after any HTML changes.
+The form will be automatically detected on the next deploy after any HTML
+changes.

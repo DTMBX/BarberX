@@ -1,6 +1,7 @@
 # ChatGPT 5.2 Integration Plan - Evident MAUI
 
-**Integration Goal:** Enterprise-grade ChatGPT integration with custom project workspaces, user-provided API keys, and multi-platform support.
+**Integration Goal:** Enterprise-grade ChatGPT integration with custom project
+workspaces, user-provided API keys, and multi-platform support.
 
 --
 

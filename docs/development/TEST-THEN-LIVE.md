@@ -95,10 +95,8 @@ You're now accepting real payments! 🎉
 
 ## 💰 TOTAL COST:
 
-**Test mode:** $0 (fake money)
-**Live test:** $199 (you refund yourself)
-**Stripe refund fee:** ~$0.30
-**Net cost:** $0.30 to test safely
+**Test mode:** $0 (fake money) **Live test:** $199 (you refund yourself)
+**Stripe refund fee:** ~$0.30 **Net cost:** $0.30 to test safely
 
 **Worth it for confidence!**
 

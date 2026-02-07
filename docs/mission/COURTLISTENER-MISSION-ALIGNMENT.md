@@ -18,7 +18,8 @@
 
 ### **What They Believe:**
 
-> "The law belongs to the people, not private companies. Everyone should have free access to primary legal materials without paywalls or subscriptions."
+> "The law belongs to the people, not private companies. Everyone should have
+> free access to primary legal materials without paywalls or subscriptions."
 
 ### **Why They Built CourtListener:**
 
@@ -38,7 +39,8 @@
 
 - CourtListener: Free research platform (direct users)
 - Evident: Professional platform (solo practitioners, law firms, schools)
-- **Relationship:** We extend their reach to commercial users who need more features
+- **Relationship:** We extend their reach to commercial users who need more
+  features
 
 **2. We Share Values:**
 
@@ -231,13 +233,15 @@ def get_case(citation):
 
 **Use Webhooks for Real-time:**
 
-- Instead of polling, use webhooks: https://www.courtlistener.com/help/api/webhooks/
+- Instead of polling, use webhooks:
+  https://www.courtlistener.com/help/api/webhooks/
 - Get notified when new cases filed
 - Reduces server load
 
 **Use Bulk Data for Large Imports:**
 
-- For 1,000+ cases, use bulk files: https://www.courtlistener.com/help/api/bulk-data/
+- For 1,000+ cases, use bulk files:
+  https://www.courtlistener.com/help/api/bulk-data/
 - Download entire database once
 - Update incrementally via API
 
@@ -682,8 +686,7 @@ cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py -practice-area all
 ```
 
-**2. Add attribution:**
-Edit `templates/components/footer.html`:
+**2. Add attribution:** Edit `templates/components/footer.html`:
 
 ```html
 <footer>
@@ -695,14 +698,11 @@ Edit `templates/components/footer.html`:
 </footer>
 ```
 
-**3. Make first donation:**
-Go to: https://donate.free.law/
-Amount: $50 (or 2% of your first revenue)
+**3. Make first donation:** Go to: https://donate.free.law/ Amount: $50 (or 2%
+of your first revenue)
 
-**4. Email partnership proposal:**
-To: info@free.law
-Subject: "Partnership Proposal - Evident"
-Use template above
+**4. Email partnership proposal:** To: info@free.law Subject: "Partnership
+Proposal - Evident" Use template above
 
 --
 

@@ -2,11 +2,13 @@
 
 ## Problem
 
-Your C: drive is full, causing installation failures for Real-ESRGAN, basicsr, and ultralytics (YOLOv8).
+Your C: drive is full, causing installation failures for Real-ESRGAN, basicsr,
+and ultralytics (YOLOv8).
 
 ## Solution: Install Only Essential Tools
 
-This minimal installation gives you **core eDiscovery capabilities** with ~2GB instead of 10GB:
+This minimal installation gives you **core eDiscovery capabilities** with ~2GB
+instead of 10GB:
 
 ### What Gets Installed (Essential Only)
 
@@ -217,6 +219,8 @@ def detect_objects(self, image_or_video, confidence=0.25):
 - ✅ Entity extraction (spaCy)
 - ✅ Semantic search (sentence-transformers)
 
-This covers **80% of civil rights litigation needs** (BWC transcription, document processing, timeline construction) while using only **~2.5GB** instead of 8.5GB.
+This covers **80% of civil rights litigation needs** (BWC transcription,
+document processing, timeline construction) while using only **~2.5GB** instead
+of 8.5GB.
 
 Add video enhancement later when you have more disk space or an external drive.

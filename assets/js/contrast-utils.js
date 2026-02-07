@@ -20,9 +20,7 @@ export class ContrastUtils {
    * @returns {Object} {r, g, b, a}
    */
   static parseRGBA(rgba) {
-    const match = rgba.match(
-      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/,
-    );
+    const match = rgba.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
     if (!match) {
       console.warn(`Unable to parse color: ${rgba}`);
       return { r: 0, g: 0, b: 0, a: 1 };
@@ -31,7 +29,7 @@ export class ContrastUtils {
       r: parseInt(match[1]),
       g: parseInt(match[2]),
       b: parseInt(match[3]),
-      a: parseFloat(match[4] || "1"),
+      a: parseFloat(match[4] || '1'),
     };
   }
 
@@ -85,7 +83,7 @@ export class ContrastUtils {
    * @param {string} size - 'normal' or 'large' (18pt+ or 14pt+ bold)
    * @returns {boolean} Whether contrast meets standard
    */
-  static meetsWCAG(ratio, level = "AA", size = "normal") {
+  static meetsWCAG(ratio, level = 'AA', size = 'normal') {
     const requirements = {
       AA: { normal: 4.5, large: 3.0 },
       AAA: { normal: 7.0, large: 4.5 },
@@ -101,8 +99,8 @@ export class ContrastUtils {
    */
   static getAccessibleTextColor(bgColor, options = {}) {
     const {
-      lightText = "rgba(249, 250, 251, 1)", // cream-50
-      darkText = "rgba(28, 27, 25, 1)", // ink-900
+      lightText = 'rgba(249, 250, 251, 1)', // cream-50
+      darkText = 'rgba(28, 27, 25, 1)', // ink-900
       preferDark = false,
       minRatio = 4.5, // WCAG AA for normal text
     } = options;
@@ -127,10 +125,10 @@ export class ContrastUtils {
    */
   static getAccessibleLinkColors(bgColor, brandTokens = {}) {
     const {
-      emerald400 = "rgba(36, 181, 138, 1)",
-      emerald600 = "rgba(16, 92, 74, 1)",
-      brass500 = "rgba(212, 165, 116, 1)",
-      brass400 = "rgba(160, 122, 50, 1)",
+      emerald400 = 'rgba(36, 181, 138, 1)',
+      emerald600 = 'rgba(16, 92, 74, 1)',
+      brass500 = 'rgba(212, 165, 116, 1)',
+      brass400 = 'rgba(160, 122, 50, 1)',
     } = brandTokens;
 
     const bgLuminance = this.getLuminance(this.parseRGBA(bgColor));
@@ -159,14 +157,11 @@ export class ContrastUtils {
    */
   static applyAccessibleColors(element, bgColor, options = {}) {
     const textColor = this.getAccessibleTextColor(bgColor, options);
-    const linkColors = this.getAccessibleLinkColors(
-      bgColor,
-      options.brandTokens,
-    );
+    const linkColors = this.getAccessibleLinkColors(bgColor, options.brandTokens);
 
-    element.style.setProperty("-adaptive-text", textColor);
-    element.style.setProperty("-adaptive-link", linkColors.primary);
-    element.style.setProperty("-adaptive-link-hover", linkColors.primaryHover);
+    element.style.setProperty('-adaptive-text', textColor);
+    element.style.setProperty('-adaptive-link', linkColors.primary);
+    element.style.setProperty('-adaptive-link-hover', linkColors.primaryHover);
 
     // Store contrast ratios as data attributes for debugging
     const textContrast = this.getContrastRatio(textColor, bgColor);
@@ -189,7 +184,7 @@ export class ContrastUtils {
    */
   static auditContrast(root = document.body) {
     const issues = [];
-    const elements = root.querySelectorAll("*");
+    const elements = root.querySelectorAll('*');
 
     elements.forEach((element) => {
       const styles = window.getComputedStyle(element);
@@ -197,19 +192,15 @@ export class ContrastUtils {
       const bgColor = styles.backgroundColor;
 
       // Skip if transparent or no background
-      if (bgColor === "rgba(0, 0, 0, 0)" || !color) return;
+      if (bgColor === 'rgba(0, 0, 0, 0)' || !color) return;
 
       const ratio = this.getContrastRatio(color, bgColor);
       const fontSize = parseFloat(styles.fontSize);
       const fontWeight = parseInt(styles.fontWeight) || 400;
       const isLarge = fontSize >= 18 || (fontSize >= 14 && fontWeight >= 700);
 
-      const meetsAA = this.meetsWCAG(ratio, "AA", isLarge ? "large" : "normal");
-      const meetsAAA = this.meetsWCAG(
-        ratio,
-        "AAA",
-        isLarge ? "large" : "normal",
-      );
+      const meetsAA = this.meetsWCAG(ratio, 'AA', isLarge ? 'large' : 'normal');
+      const meetsAAA = this.meetsWCAG(ratio, 'AAA', isLarge ? 'large' : 'normal');
 
       if (!meetsAA) {
         issues.push({
@@ -217,7 +208,7 @@ export class ContrastUtils {
           color,
           bgColor,
           ratio: ratio.toFixed(2),
-          fontSize: fontSize.toFixed(1) + "px",
+          fontSize: fontSize.toFixed(1) + 'px',
           fontWeight,
           isLarge,
           meetsAA,
@@ -238,7 +229,7 @@ export class ContrastUtils {
   static getSelector(element) {
     if (element.id) return `#${element.id}`;
     if (element.className) {
-      const classes = Array.from(element.classList).slice(0, 2).join(".");
+      const classes = Array.from(element.classList).slice(0, 2).join('.');
       return `${element.tagName.toLowerCase()}.${classes}`;
     }
     return element.tagName.toLowerCase();
@@ -250,32 +241,29 @@ export class ContrastUtils {
    */
   static logAuditResults(issues) {
     if (issues.length === 0) {
-      console.log(
-        "%c✓ No contrast issues found!",
-        "color: #10b981; font-weight: bold;",
-      );
+      console.log('%c✓ No contrast issues found!', 'color: #10b981; font-weight: bold;');
       return;
     }
 
     console.group(
       `%c⚠️ Found ${issues.length} contrast issues`,
-      "color: #f59e0b; font-weight: bold;",
+      'color: #f59e0b; font-weight: bold;'
     );
     issues.forEach((issue, i) => {
       console.group(`${i + 1}. ${issue.selector}`);
       console.log(
-        "Contrast Ratio:",
+        'Contrast Ratio:',
         issue.ratio,
-        issue.meetsAA ? "✓ AA" : "✗ AA",
-        issue.meetsAAA ? "✓ AAA" : "✗ AAA",
+        issue.meetsAA ? '✓ AA' : '✗ AA',
+        issue.meetsAAA ? '✓ AAA' : '✗ AAA'
       );
-      console.log("Colors:", issue.color, "on", issue.bgColor);
+      console.log('Colors:', issue.color, 'on', issue.bgColor);
       console.log(
-        "Font:",
+        'Font:',
         `${issue.fontSize}, weight ${issue.fontWeight}`,
-        issue.isLarge ? "(large)" : "(normal)",
+        issue.isLarge ? '(large)' : '(normal)'
       );
-      console.log("Element:", issue.element);
+      console.log('Element:', issue.element);
       console.groupEnd();
     });
     console.groupEnd();
@@ -283,6 +271,6 @@ export class ContrastUtils {
 }
 
 // Make available globally
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   window.ContrastUtils = ContrastUtils;
 }

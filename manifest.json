@@ -133,13 +133,7 @@
       "files": [
         {
           "name": "documents",
-          "accept": [
-            "application/pdf",
-            "text/plain",
-            ".doc",
-            ".docx",
-            "application/msword"
-          ]
+          "accept": ["application/pdf", "text/plain", ".doc", ".docx", "application/msword"]
         }
       ]
     }
@@ -151,9 +145,7 @@
         "application/pdf": [".pdf"],
         "text/plain": [".txt"],
         "application/msword": [".doc"],
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [
-          ".docx"
-        ]
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"]
       }
     }
   ],

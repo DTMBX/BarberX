@@ -13,7 +13,8 @@ The payment code is **NOT deployed yet!**
 
 - https://Evident.info/payments/pricing ❌ 404 Not Found
 
-**Why?** The Stripe payment code is still in branch `payments-clean` - not merged to `main` yet!
+**Why?** The Stripe payment code is still in branch `payments-clean` - not
+merged to `main` yet!
 
 --
 

@@ -53,7 +53,8 @@
 5. Fill out registration form
 6. Submit form
 7. **Expected Result:**
-   - Success message: "Account created! Complete checkout to activate your Professional plan."
+   - Success message: "Account created! Complete checkout to activate your
+     Professional plan."
    - Session stores: `checkout_tier = 'professional'`
    - Redirects back to `/pricing` to complete payment
    - User tier: FREE (until payment)

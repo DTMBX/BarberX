@@ -1,9 +1,6 @@
 ---
 
-layout: default
-title: Development Status
-permalink: /docs/status/
---
+layout: default title: Development Status permalink: /docs/status/ --
 
 <article class="md" role="article">
   <header class="md-header">
@@ -19,7 +16,8 @@ permalink: /docs/status/
 
 ## Overview
 
-This project combines precision tools with principled governance to preserve accurate records and reduce harm through responsible recording practices.
+This project combines precision tools with principled governance to preserve
+accurate records and reduce harm through responsible recording practices.
 
 --
 
@@ -27,14 +25,18 @@ This project combines precision tools with principled governance to preserve acc
 
 ### Core Documentation Features
 
-- **Secure Recording** — End-to-end encrypted capture with tamper-evident timestamps
-- **Local Server Architecture** — Run entirely on your machine; your data stays with you
+- **Secure Recording** — End-to-end encrypted capture with tamper-evident
+  timestamps
+- **Local Server Architecture** — Run entirely on your machine; your data stays
+  with you
 - **Due Process Workflows** — Built-in governance for ethical evidence handling
-- **Privacy-First Design** — No tracking, no analytics harvesting, no third-party data sharing
+- **Privacy-First Design** — No tracking, no analytics harvesting, no
+  third-party data sharing
 
 ### Accountability Features
 
-- **Contemporaneous Documentation** — Real-time timestamping for accurate records
+- **Contemporaneous Documentation** — Real-time timestamping for accurate
+  records
 - **Chain of Custody** — Verifiable handling procedures for all recordings
 - **Transparent Audit Trail** — Every action documented and traceable
 - **Ethical Review Framework** — Built-in checks before any disclosure

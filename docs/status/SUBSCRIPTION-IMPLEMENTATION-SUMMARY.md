@@ -126,9 +126,9 @@ Add checkout buttons to `pricing.html`:
 ```html
 <script>
   async function subscribeToPlan(tier) {
-    const response = await fetch("/api/stripe/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const response = await fetch('/api/stripe/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier: tier }),
     });
 
@@ -325,10 +325,13 @@ All that remains:
 
 **Estimated time to launch:** 2-4 hours (mostly Stripe configuration)
 
-**Projected first month revenue:** $500-2,000 (conservative estimate with 10-20 early adopters)
+**Projected first month revenue:** $500-2,000 (conservative estimate with 10-20
+early adopters)
 
-**Break-even:** ~50 PRO subscribers OR 20 PREMIUM subscribers will cover all operating costs
+**Break-even:** ~50 PRO subscribers OR 20 PREMIUM subscribers will cover all
+operating costs
 
 --
 
-**🎊 Congratulations! You now have a complete, secure, scalable subscription system ready to generate revenue!**
+**🎊 Congratulations! You now have a complete, secure, scalable subscription
+system ready to generate revenue!**

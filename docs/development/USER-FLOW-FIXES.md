@@ -4,8 +4,8 @@
 
 ### 1. **Broken Registration Links** (CRITICAL)
 
-**Problem**: Pricing page links to `/auth/register` but route is `/register` or `/auth/signup`
-**Impact**: Users clicking "Start Free Trial" get 404 errors
+**Problem**: Pricing page links to `/auth/register` but route is `/register` or
+`/auth/signup` **Impact**: Users clicking "Start Free Trial" get 404 errors
 **Files Affected**:
 
 - `pricing.html` (lines 46, 71, 94, 263)
@@ -21,18 +21,17 @@
 
 ### 3. **Missing Tier Parameter Handling**
 
-**Problem**: Registration links include `?tier=professional` but signup doesn't use it
-**Impact**: Users can't start with paid tiers, always get FREE
-**Files Affected**:
+**Problem**: Registration links include `?tier=professional` but signup doesn't
+use it **Impact**: Users can't start with paid tiers, always get FREE **Files
+Affected**:
 
 - `auth_routes.py` signup function
 - `templates/auth/signup.html` (missing tier input)
 
 ### 4. **Checkout Button Not Wired**
 
-**Problem**: Pricing page has JavaScript `checkout(plan)` but function doesn't exist
-**Impact**: Payment flow broken
-**Files Affected**:
+**Problem**: Pricing page has JavaScript `checkout(plan)` but function doesn't
+exist **Impact**: Payment flow broken **Files Affected**:
 
 - `pricing.html` (missing script)
 

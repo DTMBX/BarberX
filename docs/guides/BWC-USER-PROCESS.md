@@ -3,7 +3,8 @@
 ## 1. Upload Your BWC Video
 
 - Go to the BWC Forensic Analyzer page.
-- **Drag and drop** your BWC video file into the upload area, or click to browse and select a file.
+- **Drag and drop** your BWC video file into the upload area, or click to browse
+  and select a file.
 - Supported formats: MP4, AVI, MOV, MKV, WMV, FLV, WebM (max 5GB).
 
 ## 2. Enter Case Metadata
@@ -20,7 +21,8 @@
 
 - The analyzer will process your video locally (no cloud upload).
 - Progress is shown with a bar and step indicator.
-- Note: Analysis may take 5–30 minutes depending on video length and your hardware. GPU is much faster than CPU.
+- Note: Analysis may take 5–30 minutes depending on video length and your
+  hardware. GPU is much faster than CPU.
 
 ## 4. Review Results
 
@@ -45,4 +47,5 @@
 
 --
 
-**All processing is 100% local for privacy and security. No data leaves your device.**
+**All processing is 100% local for privacy and security. No data leaves your
+device.**

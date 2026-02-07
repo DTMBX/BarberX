@@ -15,26 +15,16 @@
 
   /* Dark backgrounds (navy, ink) */
   --text-on-dark: rgb(248 250 252 / 100%); /* slate-50: 18.59:1 on navy-950 */
-  --text-on-dark-muted: rgb(
-    203 213 225 / 100%
-  ); /* muted-300: 13.09:1 on navy-950 */
+  --text-on-dark-muted: rgb(203 213 225 / 100%); /* muted-300: 13.09:1 on navy-950 */
 
-  --link-on-dark: rgb(
-    110 231 183 / 100%
-  ); /* emerald-300: 12.75:1 on navy-950 */
+  --link-on-dark: rgb(110 231 183 / 100%); /* emerald-300: 12.75:1 on navy-950 */
 
-  --link-on-dark-hover: rgb(
-    212 165 116 / 100%
-  ); /* brass-500: 8.73:1 on navy-950 */
+  --link-on-dark-hover: rgb(212 165 116 / 100%); /* brass-500: 8.73:1 on navy-950 */
 
   /* Emerald backgrounds */
-  --text-on-emerald: rgb(
-    249 250 251 / 100%
-  ); /* cream-50: 7.58:1 on emerald-600 */
+  --text-on-emerald: rgb(249 250 251 / 100%); /* cream-50: 7.58:1 on emerald-600 */
 
-  --link-on-emerald: rgb(
-    254 243 199 / 100%
-  ); /* cream-100: 7.11:1 on emerald-600 */
+  --link-on-emerald: rgb(254 243 199 / 100%); /* cream-100: 7.11:1 on emerald-600 */
 
   /* Brass backgrounds */
   --text-on-brass: rgb(28 27 25 / 100%); /* ink-900: 7.73:1 on brass-500 */
@@ -64,7 +54,7 @@
 
 .light-mode,
 .ff-home,
-[data-theme="light"],
+[data-theme='light'],
 .surface-light {
   --adaptive-text: var(--text-on-light);
   --adaptive-text-muted: var(--text-on-light-muted);
@@ -86,7 +76,7 @@
 
 .dark-mode,
 .ff-cases,
-[data-theme="dark"],
+[data-theme='dark'],
 .surface-dark {
   --adaptive-text: var(--text-on-dark);
   --adaptive-text-muted: var(--text-on-dark-muted);
@@ -151,8 +141,8 @@
 
 /* Dark hero specifically */
 .hero-dark,
-.hero[style*="background: var(--emerald"],
-.hero[style*="background: var(--navy"] {
+.hero[style*='background: var(--emerald'],
+.hero[style*='background: var(--navy'] {
   --adaptive-text: var(--text-on-dark);
   --adaptive-heading: var(--text-on-dark);
   --adaptive-link: var(--link-on-dark);
@@ -170,7 +160,7 @@
 /* Ensure buttons have proper contrast */
 .btn,
 button,
-[role="button"] {
+[role='button'] {
   /* Buttons set their own colors, but ensure contrast */
 }
 
@@ -307,19 +297,19 @@ button,
 }
 
 /* Color-code contrast ratios */
-.contrast-debug *[data-text-contrast^="1"]::after,
-.contrast-debug *[data-text-contrast^="2"]::after,
-.contrast-debug *[data-text-contrast^="3"]::after {
+.contrast-debug *[data-text-contrast^='1']::after,
+.contrast-debug *[data-text-contrast^='2']::after,
+.contrast-debug *[data-text-contrast^='3']::after {
   background: #ef4444; /* Red - fails */
 }
 
-.contrast-debug *[data-text-contrast^="4"]::after {
+.contrast-debug *[data-text-contrast^='4']::after {
   background: #f59e0b; /* Amber - AA only */
 }
 
-.contrast-debug *[data-text-contrast^="7"]::after,
-.contrast-debug *[data-text-contrast^="8"]::after,
-.contrast-debug *[data-text-contrast^="9"]::after,
-.contrast-debug *[data-text-contrast^="1"]::after {
+.contrast-debug *[data-text-contrast^='7']::after,
+.contrast-debug *[data-text-contrast^='8']::after,
+.contrast-debug *[data-text-contrast^='9']::after,
+.contrast-debug *[data-text-contrast^='1']::after {
   background: var(--success-green-bright); /* Green - AAA */
 }

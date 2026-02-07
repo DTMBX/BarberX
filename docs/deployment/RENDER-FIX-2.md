@@ -2,7 +2,8 @@
 
 ## ? Previous Issue:
 
-Render ignored `runtime.txt` with format `python-3.11.9` and used Python 3.13 anyway.
+Render ignored `runtime.txt` with format `python-3.11.9` and used Python 3.13
+anyway.
 
 Pillow 10.1.0 failed to build from source on Python 3.13.
 
@@ -31,7 +32,7 @@ Pillow 10.1.0 failed to build from source on Python 3.13.
 ```yaml
 envVars:
   - key: PYTHON_VERSION
-    value: "3.11.9"
+    value: '3.11.9'
 runtime: python
 ```
 

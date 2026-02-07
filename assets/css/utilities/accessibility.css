@@ -93,9 +93,9 @@ textarea:focus-visible {
   overflow: hidden;
 }
 
-[role="alert"],
-[aria-live="assertive"],
-[aria-live="polite"] {
+[role='alert'],
+[aria-live='assertive'],
+[aria-live='polite'] {
   /* Ensure live regions are announced */
 }
 
@@ -163,8 +163,8 @@ body {
 
 button,
 a,
-input[type="checkbox"],
-input[type="radio"],
+input[type='checkbox'],
+input[type='radio'],
 select {
   min-height: 44px;
   min-width: 44px;
@@ -209,7 +209,7 @@ select:invalid:not(:focus) {
 }
 
 .error-message::before {
-  content: "⚠";
+  content: '⚠';
   font-size: 1rem;
 }
 
@@ -265,7 +265,7 @@ select:invalid:not(:focus) {
 }
 
 .tooltip-content::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 100%;
   left: 50%;
@@ -294,7 +294,7 @@ select:invalid:not(:focus) {
   background: rgb(10 10 15 / 80%);
 }
 
-.modal[aria-hidden="true"] {
+.modal[aria-hidden='true'] {
   display: none;
 }
 
@@ -334,11 +334,11 @@ th {
   font-weight: 700;
 }
 
-th[scope="col"] {
+th[scope='col'] {
   background: #f9fafb;
 }
 
-th[scope="row"] {
+th[scope='row'] {
   font-weight: 600;
 }
 
@@ -375,12 +375,12 @@ h6 {
    LOADING STATES - Accessible announcements
    ========================================== */
 
-.loading-spinner[role="status"] {
+.loading-spinner[role='status'] {
   position: relative;
 }
 
-.loading-spinner[role="status"]::after {
-  content: "Loading...";
+.loading-spinner[role='status']::after {
+  content: 'Loading...';
   position: absolute;
   left: -10000px;
 }
@@ -431,11 +431,11 @@ h6 {
   }
 
   a[href]::after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
   }
 
   abbr[title]::after {
-    content: " (" attr(title) ")";
+    content: ' (' attr(title) ')';
   }
 
   /* Don't show skip links when printing */

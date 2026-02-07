@@ -19,18 +19,13 @@
 
   /* Professional Gradients */
   --evident-gold-gradient: linear-gradient(135deg, #d4af37 0%, #b8941c 100%);
-  --evident-deco-gradient: linear-gradient(
-    135deg,
-    #0a2540 0%,
-    #1f2937 50%,
-    #0a2540 100%
-  );
+  --evident-deco-gradient: linear-gradient(135deg, #0a2540 0%, #1f2937 50%, #0a2540 100%);
   --evident-hero-gradient: radial-gradient(ellipse at top, #1f2937, #0a2540);
 
   /* Typography - Golden Age Fonts */
-  --evident-font-display: "Playfair Display", georgia, serif;
-  --evident-font-sans: "Montserrat", "Helvetica Neue", arial, sans-serif;
-  --evident-font-mono: "Courier Prime", "Courier New", monospace;
+  --evident-font-display: 'Playfair Display', georgia, serif;
+  --evident-font-sans: 'Montserrat', 'Helvetica Neue', arial, sans-serif;
+  --evident-font-mono: 'Courier Prime', 'Courier New', monospace;
 }
 
 /* ============================================
@@ -38,29 +33,20 @@
    ============================================ */
 
 .evident-golden-header {
-  background: linear-gradient(
-    to bottom,
-    rgb(26 26 46 / 98%),
-    rgb(26 26 46 / 95%)
-  );
+  background: linear-gradient(to bottom, rgb(26 26 46 / 98%), rgb(26 26 46 / 95%));
   border-bottom: 3px solid var(--evident-gold);
   box-shadow: 0 2px 12px rgb(212 175 55 / 15%);
   position: relative;
 }
 
 .evident-golden-header::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--evident-gold) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, var(--evident-gold) 50%, transparent 100%);
 }
 
 .evident-brand {
@@ -85,7 +71,7 @@
 }
 
 .evident-logo-text::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -119,7 +105,7 @@
 }
 
 .premium-nav-link::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -2px;
   left: 50%;
@@ -198,7 +184,7 @@
 }
 
 .evident-footer-logo::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -291,7 +277,7 @@
 }
 
 .card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -328,7 +314,7 @@ h2 {
 }
 
 h2::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -350,7 +336,7 @@ h2::after {
 
 .hero::before,
 .cta-section::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background-image:

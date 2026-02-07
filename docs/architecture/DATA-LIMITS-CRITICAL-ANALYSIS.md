@@ -34,7 +34,8 @@ Based on code inspection of the Evident codebase:
 
 #### 1. **Decorators NOT Applied to Routes**
 
-**Problem:** The decorators exist but are NOT applied to actual upload routes in `app.py`
+**Problem:** The decorators exist but are NOT applied to actual upload routes in
+`app.py`
 
 **Evidence:** Search for `@check_usage_limit` in app.py returned **NO RESULTS**
 
@@ -47,7 +48,8 @@ Based on code inspection of the Evident codebase:
 
 #### 2. **Overage Billing Logic Missing**
 
-**Problem:** While overage fees are defined in tier limits, the actual billing logic doesn't exist
+**Problem:** While overage fees are defined in tier limits, the actual billing
+logic doesn't exist
 
 **Missing Components:**
 
@@ -398,7 +400,8 @@ if -name- == '-main-':
 - Exceed storage quotas without warnings
 - Not be charged for overages (PREMIUM/ENTERPRISE)
 
-**Immediate fix required:** Apply `@check_usage_limit` decorators to upload routes in `app.py`
+**Immediate fix required:** Apply `@check_usage_limit` decorators to upload
+routes in `app.py`
 
 --
 

@@ -56,18 +56,18 @@ Password: Password123!
 JavaScript:
 
 ```javascript
-togglePasswordBtn.addEventListener("click", function () {
+togglePasswordBtn.addEventListener('click', function () {
   const type =
-    passwordInput.getAttribute("type") === "password" ? "text" : "password";
-  passwordInput.setAttribute("type", type);
+    passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
 
   // Toggle icons
-  if (type === "text") {
-    eyeIcon.style.display = "none";
-    eyeOffIcon.style.display = "block";
+  if (type === 'text') {
+    eyeIcon.style.display = 'none';
+    eyeOffIcon.style.display = 'block';
   } else {
-    eyeIcon.style.display = "block";
-    eyeOffIcon.style.display = "none";
+    eyeIcon.style.display = 'block';
+    eyeOffIcon.style.display = 'none';
   }
 });
 ```
@@ -162,7 +162,8 @@ The password is still:
 
 2. **templates/auth/signup.html**
    - Lines 605-721: Added password reveal buttons to both password fields
-   - Lines 808-832: Added JavaScript for toggle functionality (works on both fields)
+   - Lines 808-832: Added JavaScript for toggle functionality (works on both
+     fields)
 
 ## Status: COMPLETE ✅
 
@@ -180,4 +181,5 @@ The password is still:
 | **Admin** | admin@Evident.info | **Admin123!** | ENTERPRISE |
 | **Test**  | test@Evident.info  | Password123!  | FREE       |
 
-**Note:** Admin password has capital 'A' not 'P'! Use password reveal to double-check.
+**Note:** Admin password has capital 'A' not 'P'! Use password reveal to
+double-check.

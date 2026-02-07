@@ -520,4 +520,5 @@ Mobile (≤768px): Off-canvas sidebar, single column
 
 **Status: COMPLETE and PRODUCTION-READY** ✅
 
-All systems optimized, tested, and ready for deployment at **https://app.Evident.info**!
+All systems optimized, tested, and ready for deployment at
+**https://app.Evident.info**!

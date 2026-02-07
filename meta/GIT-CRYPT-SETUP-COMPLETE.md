@@ -64,7 +64,8 @@
 
 ### Encrypted Key Backup
 
-- The git-crypt key is stored encrypted in the repository at `secure/Evident-git-crypt.key`
+- The git-crypt key is stored encrypted in the repository at
+  `secure/Evident-git-crypt.key`
 - This file appears as encrypted gibberish to anyone without access
 - Team members need this key to unlock the repository
 
@@ -193,7 +194,7 @@ The Jekyll build system is configured to work seamlessly with encrypted files:
 exclude:
   - barber-cam
   - venv
-  - "*.py"
+  - '*.py'
   - instance
   - logs
   - uploads
@@ -202,9 +203,13 @@ exclude:
 
 ## ✨ Summary
 
-Git encryption has been successfully configured for the Evident repository. All sensitive files matching the patterns in `.gitattributes` will be automatically encrypted when committed. The git-crypt key has been securely stored in the repository (encrypted) for team access.
+Git encryption has been successfully configured for the Evident repository. All
+sensitive files matching the patterns in `.gitattributes` will be automatically
+encrypted when committed. The git-crypt key has been securely stored in the
+repository (encrypted) for team access.
 
-Team members should follow the instructions in `GIT-ENCRYPTION-GUIDE.md` to set up their local environment.
+Team members should follow the instructions in `GIT-ENCRYPTION-GUIDE.md` to set
+up their local environment.
 
 ---
 

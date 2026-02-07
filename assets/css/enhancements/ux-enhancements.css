@@ -17,10 +17,8 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-  --shadow-lg:
-    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-  --shadow-xl:
-    0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
   --shadow-focus: 0 0 0 3px rgb(196 30 58 / 20%);
 
   /* Touch Target Minimum */
@@ -132,7 +130,7 @@ html {
 }
 
 .btn-loading::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,9 +154,9 @@ html {
    =========================== */
 .btn,
 button,
-[type="button"],
-[type="submit"],
-[type="reset"] {
+[type='button'],
+[type='submit'],
+[type='reset'] {
   min-height: var(--touch-target);
   min-width: var(--touch-target);
   cursor: pointer;
@@ -189,7 +187,7 @@ button:disabled {
 }
 
 .btn-ripple::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -254,7 +252,7 @@ select {
 }
 
 .checkbox-custom input:checked + .checkmark::after {
-  content: "\2713";
+  content: '\2713';
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -420,7 +418,7 @@ input:invalid:not(:placeholder-shown, :focus) {
 }
 
 [data-tooltip]::after {
-  content: "";
+  content: '';
   bottom: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%);
@@ -561,12 +559,9 @@ input:invalid:not(:placeholder-shown, :focus) {
    =========================== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --shadow-md:
-      0 4px 6px -1px rgb(0 0 0 / 30%), 0 2px 4px -1px rgb(0 0 0 / 20%);
-    --shadow-lg:
-      0 10px 15px -3px rgb(0 0 0 / 30%), 0 4px 6px -2px rgb(0 0 0 / 20%);
-    --shadow-xl:
-      0 20px 25px -5px rgb(0 0 0 / 40%), 0 10px 10px -5px rgb(0 0 0 / 20%);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 30%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 30%), 0 4px 6px -2px rgb(0 0 0 / 20%);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 40%), 0 10px 10px -5px rgb(0 0 0 / 20%);
   }
 }
 
@@ -831,7 +826,7 @@ input:invalid:not(:placeholder-shown, :focus) {
 }
 
 .form-label.required::after {
-  content: "*";
+  content: '*';
   color: #ef4444;
   margin-left: 0.25rem;
 }
@@ -924,21 +919,19 @@ input:invalid:not(:placeholder-shown, :focus) {
   transition: background 0.2s;
 }
 
-.password-strength[data-strength="1"] .password-strength-segment:nth-child(1) {
+.password-strength[data-strength='1'] .password-strength-segment:nth-child(1) {
   background: #ef4444;
 }
 
-.password-strength[data-strength="2"]
-  .password-strength-segment:nth-child(-n + 2) {
+.password-strength[data-strength='2'] .password-strength-segment:nth-child(-n + 2) {
   background: #f59e0b;
 }
 
-.password-strength[data-strength="3"]
-  .password-strength-segment:nth-child(-n + 3) {
+.password-strength[data-strength='3'] .password-strength-segment:nth-child(-n + 3) {
   background: #3b82f6;
 }
 
-.password-strength[data-strength="4"] .password-strength-segment {
+.password-strength[data-strength='4'] .password-strength-segment {
   background: #22c55e;
 }
 
@@ -1313,16 +1306,16 @@ input:invalid:not(:placeholder-shown, :focus) {
 }
 
 /* Dark Mode Overrides */
-body[data-theme="dark"] .skeleton {
+body[data-theme='dark'] .skeleton {
   background: linear-gradient(90deg, #2d3748 25%, #4a5568 50%, #2d3748 75%);
   background-size: 200% 100%;
 }
 
-body[data-theme="dark"] .card {
+body[data-theme='dark'] .card {
   background: #1f2937;
 }
 
-body[data-theme="dark"] .toast {
+body[data-theme='dark'] .toast {
   background: #1f2937;
 }
 
@@ -1345,7 +1338,7 @@ body[data-theme="dark"] .toast {
   }
 
   a[href]::after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
     font-size: 0.8em;
     color: #6b7280;
   }

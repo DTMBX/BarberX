@@ -28,11 +28,11 @@ body {
     ui-sans-serif,
     system-ui,
     -apple-system,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     Arial,
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
   background: var(--bg);
   color: var(--text);
 }

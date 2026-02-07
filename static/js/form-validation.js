@@ -23,21 +23,18 @@ class FormValidator {
 
     this.form.noValidate = true; // Disable browser validation
 
-    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+    this.form.addEventListener('submit', (e) => this.handleSubmit(e));
 
     if (this.options.validateOnBlur) {
-      this.form.querySelectorAll("input, textarea, select").forEach((field) => {
-        field.addEventListener("blur", () => this.validateField(field));
+      this.form.querySelectorAll('input, textarea, select').forEach((field) => {
+        field.addEventListener('blur', () => this.validateField(field));
       });
     }
 
     if (this.options.validateOnInput) {
-      this.form.querySelectorAll("input, textarea").forEach((field) => {
-        field.addEventListener("input", () => {
-          if (
-            field.classList.contains("is-invalid") ||
-            field.classList.contains("is-valid")
-          ) {
+      this.form.querySelectorAll('input, textarea').forEach((field) => {
+        field.addEventListener('input', () => {
+          if (field.classList.contains('is-invalid') || field.classList.contains('is-valid')) {
             this.validateField(field);
           }
         });
@@ -52,16 +49,16 @@ class FormValidator {
 
     if (isValid) {
       // Trigger custom event for form submission
-      const submitEvent = new CustomEvent("validSubmit", {
+      const submitEvent = new CustomEvent('validSubmit', {
         detail: { form: this.form },
       });
       this.form.dispatchEvent(submitEvent);
     } else {
       // Focus first invalid field
-      const firstInvalid = this.form.querySelector(".is-invalid");
+      const firstInvalid = this.form.querySelector('.is-invalid');
       if (firstInvalid) {
         firstInvalid.focus();
-        firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
 
@@ -70,7 +67,7 @@ class FormValidator {
 
   validateForm() {
     let isValid = true;
-    const fields = this.form.querySelectorAll("input, textarea, select");
+    const fields = this.form.querySelectorAll('input, textarea, select');
 
     fields.forEach((field) => {
       if (!this.validateField(field)) {
@@ -98,14 +95,11 @@ class FormValidator {
     };
 
     let isValid = true;
-    let errorMessage = "";
+    let errorMessage = '';
 
     // Check each validation rule
     for (const [rule, validator] of Object.entries(validators)) {
-      if (
-        field.hasAttribute(`data-${rule}`) ||
-        (rule === "required" && field.required)
-      ) {
+      if (field.hasAttribute(`data-${rule}`) || (rule === 'required' && field.required)) {
         const result = validator();
         if (!result.valid) {
           isValid = false;
@@ -122,7 +116,7 @@ class FormValidator {
   validateRequired(field) {
     const value = field.value.trim();
     if (!value) {
-      return { valid: false, message: "This field is required" };
+      return { valid: false, message: 'This field is required' };
     }
     return { valid: true };
   }
@@ -133,15 +127,13 @@ class FormValidator {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
-      return { valid: false, message: "Please enter a valid email address" };
+      return { valid: false, message: 'Please enter a valid email address' };
     }
     return { valid: true };
   }
 
   validateMinLength(field) {
-    const minLength = parseInt(
-      field.getAttribute("data-minlength") || field.minLength,
-    );
+    const minLength = parseInt(field.getAttribute('data-minlength') || field.minLength);
     const value = field.value;
 
     if (value.length > 0 && value.length < minLength) {
@@ -154,9 +146,7 @@ class FormValidator {
   }
 
   validateMaxLength(field) {
-    const maxLength = parseInt(
-      field.getAttribute("data-maxlength") || field.maxLength,
-    );
+    const maxLength = parseInt(field.getAttribute('data-maxlength') || field.maxLength);
     const value = field.value;
 
     if (maxLength > 0 && value.length > maxLength) {
@@ -169,7 +159,7 @@ class FormValidator {
   }
 
   validatePattern(field) {
-    const pattern = field.getAttribute("data-pattern") || field.pattern;
+    const pattern = field.getAttribute('data-pattern') || field.pattern;
     if (!pattern) return { valid: true };
 
     const value = field.value;
@@ -177,30 +167,28 @@ class FormValidator {
 
     const regex = new RegExp(pattern);
     if (!regex.test(value)) {
-      const message =
-        field.getAttribute("data-pattern-message") || "Invalid format";
+      const message = field.getAttribute('data-pattern-message') || 'Invalid format';
       return { valid: false, message };
     }
     return { valid: true };
   }
 
   validateMatch(field) {
-    const matchField = field.getAttribute("data-match");
+    const matchField = field.getAttribute('data-match');
     if (!matchField) return { valid: true };
 
     const matchElement = this.form.querySelector(`[name="${matchField}"]`);
     if (!matchElement) return { valid: true };
 
     if (field.value !== matchElement.value) {
-      const message =
-        field.getAttribute("data-match-message") || "Fields do not match";
+      const message = field.getAttribute('data-match-message') || 'Fields do not match';
       return { valid: false, message };
     }
     return { valid: true };
   }
 
   validateCustom(field) {
-    const customValidator = field.getAttribute("data-custom");
+    const customValidator = field.getAttribute('data-custom');
     if (!customValidator) return { valid: true };
 
     // Custom validators can be defined globally
@@ -211,52 +199,52 @@ class FormValidator {
   }
 
   showFieldFeedback(field, isValid, errorMessage) {
-    const fieldContainer = field.closest(".form-group") || field.parentElement;
+    const fieldContainer = field.closest('.form-group') || field.parentElement;
 
     // Remove existing feedback
-    field.classList.remove("is-valid", "is-invalid");
-    const existingFeedback = fieldContainer.querySelector(".field-feedback");
+    field.classList.remove('is-valid', 'is-invalid');
+    const existingFeedback = fieldContainer.querySelector('.field-feedback');
     if (existingFeedback) {
       existingFeedback.remove();
     }
 
     if (isValid && this.options.showSuccessIcons && field.value.trim()) {
-      field.classList.add("is-valid");
+      field.classList.add('is-valid');
     } else if (!isValid) {
-      field.classList.add("is-invalid");
+      field.classList.add('is-invalid');
 
-      const feedback = document.createElement("div");
-      feedback.className = "field-feedback invalid-feedback";
+      const feedback = document.createElement('div');
+      feedback.className = 'field-feedback invalid-feedback';
       feedback.textContent = errorMessage;
-      feedback.setAttribute("role", "alert");
+      feedback.setAttribute('role', 'alert');
 
       fieldContainer.appendChild(feedback);
 
       // Update ARIA
-      field.setAttribute("aria-invalid", "true");
-      field.setAttribute("aria-describedby", `${field.id || field.name}-error`);
+      field.setAttribute('aria-invalid', 'true');
+      field.setAttribute('aria-describedby', `${field.id || field.name}-error`);
       feedback.id = `${field.id || field.name}-error`;
     } else {
-      field.removeAttribute("aria-invalid");
-      field.removeAttribute("aria-describedby");
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
     }
   }
 
   reset() {
-    this.form.querySelectorAll(".is-valid, .is-invalid").forEach((field) => {
-      field.classList.remove("is-valid", "is-invalid");
-      field.removeAttribute("aria-invalid");
-      field.removeAttribute("aria-describedby");
+    this.form.querySelectorAll('.is-valid, .is-invalid').forEach((field) => {
+      field.classList.remove('is-valid', 'is-invalid');
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
     });
 
-    this.form.querySelectorAll(".field-feedback").forEach((feedback) => {
+    this.form.querySelectorAll('.field-feedback').forEach((feedback) => {
       feedback.remove();
     });
   }
 }
 
 // Add CSS for validation feedback
-const formValidationStyle = document.createElement("style");
+const formValidationStyle = document.createElement('style');
 formValidationStyle.textContent = `
   .form-group {
     position: relative;
@@ -336,19 +324,19 @@ window.customValidators = {
     if (value.length < 8) {
       return {
         valid: false,
-        message: "Password must be at least 8 characters",
+        message: 'Password must be at least 8 characters',
       };
     }
     if (!/[0-9]/.test(value)) {
       return {
         valid: false,
-        message: "Password must include at least one number",
+        message: 'Password must include at least one number',
       };
     }
     if (!/[!@#$%^&*]/.test(value)) {
       return {
         valid: false,
-        message: "Password must include a special character (!@#$%^&*)",
+        message: 'Password must include a special character (!@#$%^&*)',
       };
     }
     return { valid: true };
@@ -356,6 +344,6 @@ window.customValidators = {
 };
 
 // Export
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = FormValidator;
 }

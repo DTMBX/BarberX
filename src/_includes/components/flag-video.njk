@@ -1,0 +1,43 @@
+{# Accessible, responsive flag video component #}
+<figure class="flag-video mx-auto my-8 max-w-4xl">
+  <video id="flag-video" class="w-full h-auto rounded-lg shadow-md bg-black" controls playsinline muted loop preload="metadata" aria-describedby="flag-desc">
+    <!-- sources will be selected client-side to choose an appropriate rendition -->
+    <source data-src-mp4-1080="/assets/media/renditions/flag-1080p.mp4" type="video/mp4">
+    <source data-src-mp4-720="/assets/media/renditions/flag-720p.mp4" type="video/mp4">
+    <source data-src-mp4-360="/assets/media/renditions/flag-360p.mp4" type="video/mp4">
+    <source data-src-webm-1080="/assets/media/renditions/flag-1080p.webm" type="video/webm">
+    <source data-src-webm-720="/assets/media/renditions/flag-720p.webm" type="video/webm">
+    <source data-src-webm-360="/assets/media/renditions/flag-360p.webm" type="video/webm">
+    <p class="p-4">Your browser does not support HTML5 video. View the flag at <a href="/assets/media/flag.mp4">this link</a>.</p>
+  </video>
+  <figcaption id="flag-desc" class="text-sm text-gray-600 mt-2">A gently waving flag used for decorative and branding purposes. Provide a short descriptive caption; replace with authoritative description if used in evidence context.</figcaption>
+</figure>
+
+<script>
+  (function(){
+    const vid = document.getElementById('flag-video');
+    if (!vid) return;
+    const width = Math.max(window.innerWidth || 1024, 320);
+    // pick resolution target
+    const target = width >= 1000 ? '1080' : (width >= 600 ? '720' : '360');
+    // prefer WebM on supported browsers
+    const canPlayWebm = vid.canPlayType && vid.canPlayType('video/webm; codecs="vp9"');
+    const sources = vid.querySelectorAll('source');
+    sources.forEach(s => {
+      const attrs = s.getAttributeNames();
+      for (const a of attrs) {
+        if (a.startsWith('data-src-')) {
+          const parts = a.split('-');
+          const fmt = parts[1];
+          const res = parts[2];
+          if (res === target) {
+            if (fmt === 'webm' && canPlayWebm) s.src = s.getAttribute(a);
+            if (fmt === 'mp4' && !canPlayWebm) s.src = s.getAttribute(a);
+          }
+        }
+      }
+    });
+    // reload sources
+    try { vid.load(); } catch(e) {}
+  })();
+</script>

@@ -1,0 +1,73 @@
+name: Deploy Eleventy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+
+      - name: Wait for Pages to become available and smoke-test
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            // Poll Pages API for up to 60s
+            let url = null;
+            for (let i=0;i<12;i++){
+              try{
+                const resp = await github.rest.repos.getPages({ owner, repo });
+                if (resp && resp.data && resp.data.html_url) { url = resp.data.html_url; break; }
+              } catch(e){}
+              await new Promise(r=>setTimeout(r,5000));
+            }
+            if (!url) {
+              core.info('Pages URL not available yet; skipping smoke test.');
+              return;
+            }
+            const exec = require('@actions/exec');
+            // Perform a simple curl smoke-test
+            await exec.exec('curl', ['-fLsS', url]);

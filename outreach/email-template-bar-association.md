@@ -4,7 +4,8 @@
 
 ## Email #1: Initial Outreach
 
-**Subject:** Partnership Opportunity: AI-Powered BWC Analysis for [State Bar] Members
+**Subject:** Partnership Opportunity: AI-Powered BWC Analysis for [State Bar]
+Members
 
 **To:** [Bar Association Executive Director / CLE Coordinator]
 
@@ -12,19 +13,24 @@
 
 Dear [Name],
 
-I'm reaching out from Evident Legal Technologies with a partnership proposal that could benefit [State Bar Association]'s criminal defense and civil rights attorney members.
+I'm reaching out from Evident Legal Technologies with a partnership proposal
+that could benefit [State Bar Association]'s criminal defense and civil rights
+attorney members.
 
 **Who We Are:**
 
-Evident is an AI-powered platform that automates the analysis of body-worn camera (BWC) footage for criminal defense cases. We help attorneys reduce BWC analysis time by 85% (from 20 hours to 2 hours per case) through automated transcription, timeline reconstruction, and discrepancy detection.
+Evident is an AI-powered platform that automates the analysis of body-worn
+camera (BWC) footage for criminal defense cases. We help attorneys reduce BWC
+analysis time by 85% (from 20 hours to 2 hours per case) through automated
+transcription, timeline reconstruction, and discrepancy detection.
 
 **The Challenge Your Members Face:**
 
-With 72% of police departments now using BWCs, defense attorneys are drowning in video evidence:
-• Average case: 8-12 hours of footage to review
-• Manual analysis: 15-20 hours per hour of footage
-• Public defenders: 100+ cases simultaneously
-• Result: Critical 3-second discrepancies are missed → clients wrongly convicted
+With 72% of police departments now using BWCs, defense attorneys are drowning in
+video evidence: • Average case: 8-12 hours of footage to review • Manual
+analysis: 15-20 hours per hour of footage • Public defenders: 100+ cases
+simultaneously • Result: Critical 3-second discrepancies are missed → clients
+wrongly convicted
 
 **Partnership Proposal:**
 
@@ -43,7 +49,8 @@ We'd like to offer [State Bar] members:
 
 3. **Revenue Share for the Association**
    - 10% recurring commission on member subscriptions
-   - Example: 50 members subscribe (avg $99/month) = $495/month revenue for [State Bar]
+   - Example: 50 members subscribe (avg $99/month) = $495/month revenue for
+     [State Bar]
 
 **What We're Asking:**
 
@@ -53,22 +60,24 @@ We'd like to offer [State Bar] members:
 
 **Zero Financial Risk:**
 
-This is a revenue-generating partnership for [State Bar]. No upfront costs, no commitments—just value for your members and recurring revenue for the association.
+This is a revenue-generating partnership for [State Bar]. No upfront costs, no
+commitments—just value for your members and recurring revenue for the
+association.
 
 **Next Steps:**
 
 Would you be open to a 20-minute call to discuss this partnership?
 
-I'm available:
-• [Date/Time Option 1]
-• [Date/Time Option 2]
-• [Date/Time Option 3]
+I'm available: • [Date/Time Option 1] • [Date/Time Option 2] • [Date/Time Option
+3]
 
 Or feel free to suggest a time: [Insert Calendly link]
 
-I've attached a one-page partnership deck with more details. Happy to answer any questions.
+I've attached a one-page partnership deck with more details. Happy to answer any
+questions.
 
-Thank you for considering this opportunity to empower your members with cutting-edge legal technology.
+Thank you for considering this opportunity to empower your members with
+cutting-edge legal technology.
 
 Best regards,
 
@@ -86,7 +95,8 @@ Evident Legal Technologies
 
 ---
 
-P.S. Here's a 3-minute demo showing how Evident analyzes BWC footage: [Insert YouTube link]
+P.S. Here's a 3-minute demo showing how Evident analyzes BWC footage: [Insert
+YouTube link]
 
 ---
 
@@ -102,7 +112,8 @@ I wanted to follow up on my partnership proposal from last week.
 
 I know you're busy, so I'll keep this short:
 
-**Quick Question:** Would your members benefit from a tool that reduces BWC analysis time from 20 hours to 2 hours per case?
+**Quick Question:** Would your members benefit from a tool that reduces BWC
+analysis time from 20 hours to 2 hours per case?
 
 If yes, I'd love to discuss how Evident can:
 
@@ -112,8 +123,7 @@ If yes, I'd love to discuss how Evident can:
 
 **No pressure—just checking if this is worth 15 minutes of your time.**
 
-Available this week:
-• [Time slots]
+Available this week: • [Time slots]
 
 Or let me know if this isn't a fit, and I'll stop bothering you. 😊
 
@@ -131,9 +141,11 @@ Devon
 
 Hi [Name],
 
-Even if the partnership isn't the right fit right now, I wanted to share something useful for your members.
+Even if the partnership isn't the right fit right now, I wanted to share
+something useful for your members.
 
-I've created a **free BWC Analysis Checklist (PDF)** that defense attorneys can use to systematically review body camera footage:
+I've created a **free BWC Analysis Checklist (PDF)** that defense attorneys can
+use to systematically review body camera footage:
 
 ✓ 7-step analysis framework  
 ✓ Legal standards for admissibility  
@@ -144,7 +156,8 @@ I've created a **free BWC Analysis Checklist (PDF)** that defense attorneys can 
 
 Download here: [Link to free checklist]
 
-If you'd like to feature this in your newsletter or resource library, feel free to share it with members.
+If you'd like to feature this in your newsletter or resource library, feel free
+to share it with members.
 
 And if you ever want to revisit the partnership conversation, I'm here.
 
@@ -172,13 +185,17 @@ I wanted to share a success story that might interest your members.
 
 **The Challenge:** Prosecutor had 3 officer testimonies + 8 hours of BWC footage
 
-**The Outcome:** Charges dismissed after Evident analysis found a 3-second discrepancy proving the officer's injury was self-inflicted, not caused by the defendant.
+**The Outcome:** Charges dismissed after Evident analysis found a 3-second
+discrepancy proving the officer's injury was self-inflicted, not caused by the
+defendant.
 
-**Time saved:** Attorney spent 12 hours with Evident vs. 160+ hours manual review.
+**Time saved:** Attorney spent 12 hours with Evident vs. 160+ hours manual
+review.
 
 Full case study (anonymized): [Link]
 
-This is exactly the kind of outcome your members could achieve with the right tools.
+This is exactly the kind of outcome your members could achieve with the right
+tools.
 
 Still interested in exploring a partnership? Let me know.
 
@@ -196,16 +213,19 @@ Devon
 
 Hi [Name],
 
-I've reached out a few times about a partnership between Evident and [State Bar], but haven't heard back.
+I've reached out a few times about a partnership between Evident and [State
+Bar], but haven't heard back.
 
 I totally understand if it's not a priority right now—you're juggling a lot.
 
 **Before I close the loop, two quick questions:**
 
 1. Is this something you'd consider in the future (maybe Q3 or Q4 2026)?
-2. Is there someone else at [State Bar] I should connect with (e.g., CLE committee, technology committee)?
+2. Is there someone else at [State Bar] I should connect with (e.g., CLE
+   committee, technology committee)?
 
-If it's a hard pass, no worries—I'll stop reaching out. Just want to make sure I'm not pestering the wrong person. 😊
+If it's a hard pass, no worries—I'll stop reaching out. Just want to make sure
+I'm not pestering the wrong person. 😊
 
 Thanks for your time,
 

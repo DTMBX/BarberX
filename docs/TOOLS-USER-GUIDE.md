@@ -1,6 +1,7 @@
 # Evident Legal Tools - User Guide
 
-Welcome to the Evident Legal Case Management Pro Suite tools! This guide will help you use all the available tools effectively.
+Welcome to the Evident Legal Case Management Pro Suite tools! This guide will
+help you use all the available tools effectively.
 
 ## 🔧 Available Tools
 
@@ -8,7 +9,8 @@ Welcome to the Evident Legal Case Management Pro Suite tools! This guide will he
 
 **URL:** `/tools/docket-search/`
 
-Search and track court dockets, case filings, and party information across all Evident cases.
+Search and track court dockets, case filings, and party information across all
+Evident cases.
 
 **Features:**
 
@@ -263,7 +265,7 @@ Edit `assets/js/api-config.js`:
 
 ```javascript
 const API_CONFIG = {
-  BACKEND_URL: "http://localhost:8000", // Change if backend runs elsewhere
+  BACKEND_URL: 'http://localhost:8000', // Change if backend runs elsewhere
   LIMITS: {
     MAX_FILE_SIZE_MB: 500,
     MAX_FILES_PER_BATCH: 50,
@@ -288,7 +290,8 @@ Docket data loaded from:
 **Solution:**
 
 1. Check if backend server is running: `curl http://localhost:8000/health`
-2. Start server: `cd tillerstead-toolkit/backend && python -m uvicorn app.main:app -reload`
+2. Start server:
+   `cd tillerstead-toolkit/backend && python -m uvicorn app.main:app -reload`
 3. Or use Git inbox workflow instead
 
 ### No search results found
@@ -340,6 +343,5 @@ Docket data loaded from:
 
 --
 
-**Last Updated:** January 22, 2026
-**Version:** 1.0.0
-**Evident Legal Case Management Pro Suite**
+**Last Updated:** January 22, 2026 **Version:** 1.0.0 **Evident Legal Case
+Management Pro Suite**

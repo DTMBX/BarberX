@@ -169,7 +169,8 @@ dotnet build -f net10.0-ios -c Release
 dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 ```
 
-**Output:** `bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa`
+**Output:**
+`bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa`
 
 ### Step 6: Upload to TestFlight (5 min)
 
@@ -250,7 +251,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: '10.0.x'
 
       - name: Install MAUI workload
         run: dotnet workload install maui
@@ -354,8 +355,8 @@ security find-identity -p codesigning -v
 
 ### "iPhone is not trusted"
 
-**Solution:**
-On iPhone: Settings → General → Device Management → Trust "Your Name"
+**Solution:** On iPhone: Settings → General → Device Management → Trust "Your
+Name"
 
 ### "This app cannot be installed because its integrity could not be verified"
 

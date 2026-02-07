@@ -1,6 +1,7 @@
 # Professional Components Configuration Guide
 
-This guide explains how to configure and use all the new professional components added to your site.
+This guide explains how to configure and use all the new professional components
+added to your site.
 
 ## 🎯 Quick Setup
 
@@ -12,58 +13,60 @@ Add these configuration options to your `_config.yml` file:
 # ========================================
 
 # Analytics & Performance
-analytics_provider: "google" # Options: 'google', 'ga4', 'plausible', 'custom'
-analytics_id: "G-XXXXXXXXXX" # Your Google Analytics 4 ID
+analytics_provider: 'google' # Options: 'google', 'ga4', 'plausible', 'custom'
+analytics_id: 'G-XXXXXXXXXX' # Your Google Analytics 4 ID
 analytics_anonymize_ip: true
 enable_performance_monitoring: true
 
 # SEO & Social Media
-title: "Evident.info - Faith-Driven Legal Advocacy"
-description: "Legal advocacy rooted in constitutional principles and faith"
+title: 'Evident.info - Faith-Driven Legal Advocacy'
+description: 'Legal advocacy rooted in constitutional principles and faith'
 keywords:
   - legal advocacy
   - constitutional rights
   - faith freedom
-author: "Evident"
-og_image: "/assets/images/og-default.jpg"
-logo: "/assets/images/logo.png"
-theme_color: "#dc2626"
-twitter_username: "your_twitter"
+author: 'Evident'
+og_image: '/assets/images/og-default.jpg'
+logo: '/assets/images/logo.png'
+theme_color: '#dc2626'
+twitter_username: 'your_twitter'
 
 # Cookie Consent
 enable_cookie_consent: true
-privacy_policy_url: "/privacy-policy/"
-cookie_settings_url: "/privacy-policy/#cookies"
+privacy_policy_url: '/privacy-policy/'
+cookie_settings_url: '/privacy-policy/#cookies'
 
 # Newsletter
 newsletter_enabled: true
-newsletter_provider: "mailchimp" # Options: 'mailchimp', 'convertkit', 'custom'
-newsletter_action_url: "https://yoursite.us1.list-manage.com/subscribe/post?u=xxx&id=xxx"
-newsletter_title: "Stay Updated"
-newsletter_description: "Get the latest updates, insights, and case analysis delivered straight to your inbox."
-newsletter_honeypot_field: "b_xxx_xxx" # For Mailchimp bot protection
+newsletter_provider: 'mailchimp' # Options: 'mailchimp', 'convertkit', 'custom'
+newsletter_action_url: 'https://yoursite.us1.list-manage.com/subscribe/post?u=xxx&id=xxx'
+newsletter_title: 'Stay Updated'
+newsletter_description:
+  'Get the latest updates, insights, and case analysis delivered straight to
+  your inbox.'
+newsletter_honeypot_field: 'b_xxx_xxx' # For Mailchimp bot protection
 page_newsletter_enabled: false # Set to true to show on all pages
 
 # Comments System
 comments_enabled: true
-comments_provider: "utterances" # Options: 'disqus', 'utterances', 'giscus', 'custom'
+comments_provider: 'utterances' # Options: 'disqus', 'utterances', 'giscus', 'custom'
 
 # For Disqus:
-disqus_shortname: "your-disqus-shortname"
+disqus_shortname: 'your-disqus-shortname'
 
 # For Utterances (GitHub Issues):
-utterances_repo: "your-username/your-repo"
-utterances_issue_term: "pathname" # Options: 'pathname', 'url', 'title'
-utterances_label: "comment"
-utterances_theme: "github-dark"
+utterances_repo: 'your-username/your-repo'
+utterances_issue_term: 'pathname' # Options: 'pathname', 'url', 'title'
+utterances_label: 'comment'
+utterances_theme: 'github-dark'
 
 # For Giscus (GitHub Discussions):
-giscus_repo: "your-username/your-repo"
-giscus_repo_id: "R_xxxxx"
-giscus_category: "General"
-giscus_category_id: "DIC_xxxxx"
-giscus_mapping: "pathname"
-giscus_theme: "dark"
+giscus_repo: 'your-username/your-repo'
+giscus_repo_id: 'R_xxxxx'
+giscus_category: 'General'
+giscus_category_id: 'DIC_xxxxx'
+giscus_mapping: 'pathname'
+giscus_theme: 'dark'
 
 show_comment_guidelines: true
 ```
@@ -258,7 +261,9 @@ All components are in: `_includes/components/`
 ## 🚀 Testing
 
 1. **Analytics**: Check browser console and network tab for tracking calls
-2. **SEO**: Use [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) and [Twitter Card Validator](https://cards-dev.twitter.com/validator)
+2. **SEO**: Use
+   [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) and
+   [Twitter Card Validator](https://cards-dev.twitter.com/validator)
 3. **Cookie Consent**: Clear localStorage and refresh to see banner again
 4. **Search**: Visit `/search.json` to ensure index is generating
 5. **Comments**: Test in production (most providers require live URLs)

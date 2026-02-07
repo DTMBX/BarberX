@@ -1,6 +1,7 @@
 # 🔑 GET YOUR COURTLISTENER API KEY - VISUAL GUIDE
 
-**You're close! You're at the API root, but you need a different page to get your key.**
+**You're close! You're at the API root, but you need a different page to get
+your key.**
 
 --
 
@@ -8,7 +9,8 @@
 
 ### **Step 1: Make sure you're signed in**
 
-If you see your username in the top-right corner of CourtListener, you're signed in ✅
+If you see your username in the top-right corner of CourtListener, you're signed
+in ✅
 
 If not:
 
@@ -60,10 +62,8 @@ Your API token is: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
 1. Try: **https://www.courtlistener.com/api/rest-info/**
 2. If this page exists, your token should be displayed
 
-**Method 3: Contact Support**
-If neither works, email: **info@free.law**
-Subject: "Need my API token"
-They respond within 24 hours.
+**Method 3: Contact Support** If neither works, email: **info@free.law**
+Subject: "Need my API token" They respond within 24 hours.
 
 --
 
@@ -75,8 +75,7 @@ They respond within 24 hours.
 - Usually 40-64 characters
 - Example: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0`
 
-**NOT your password**
-**NOT the API root URL**
+**NOT your password** **NOT the API root URL**
 
 --
 
@@ -97,7 +96,8 @@ https://www.courtlistener.com/api/rest/v4/courts/?format=json
 
 **To authenticate in browser:**
 
-1. Install browser extension: "ModHeader" (Chrome) or "Modify Header Value" (Firefox)
+1. Install browser extension: "ModHeader" (Chrome) or "Modify Header Value"
+   (Firefox)
 2. Add header:
    - Name: `Authorization`
    - Value: `Token YOUR_API_KEY_HERE` (note the word "Token" before your key)
@@ -205,14 +205,16 @@ Look for:
 3. Scroll down to "Authentication" section
 4. If still nothing, email **info@free.law** with:
    - Subject: "Need my API token"
-   - Body: "I'm signed into CourtListener but can't find my API token. My username is [your username]. Can you help?"
+   - Body: "I'm signed into CourtListener but can't find my API token. My
+     username is [your username]. Can you help?"
 
 ### **Problem: "403 Forbidden when testing API"**
 
 **Solution:**
 
 1. Check your token is correct (no extra spaces)
-2. Verify header format: `Authorization: Token YOUR_KEY` (note "Token" with capital T)
+2. Verify header format: `Authorization: Token YOUR_KEY` (note "Token" with
+   capital T)
 3. Make sure token is added to Render as SECRET
 4. Wait 2-3 minutes after adding to Render for deploy to complete
 
@@ -224,7 +226,8 @@ Look for:
 2. Verify it's marked as SECRET
 3. Check logs: `cat logs/Evident.log`
 4. Try importing one case manually (Method 2 above)
-5. If still fails, check rate limit (100 requests/minute - wait 1 minute and retry)
+5. If still fails, check rate limit (100 requests/minute - wait 1 minute and
+   retry)
 
 --
 
@@ -257,7 +260,8 @@ Thank you!
 
 ### **Where to Find Token:**
 
-1. **Best:** https://www.courtlistener.com/help/api/rest/ (scroll to "Authentication")
+1. **Best:** https://www.courtlistener.com/help/api/rest/ (scroll to
+   "Authentication")
 2. **Alternative:** https://www.courtlistener.com/profile/settings/
 3. **Last resort:** Email info@free.law
 

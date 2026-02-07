@@ -260,14 +260,14 @@ Vulnerabilities: 0 high, 0 medium
 
 ```javascript
 // CSS, JS, fonts - cache immediately, fallback to network
-const STATIC_CACHE = "evident-static-v1";
+const STATIC_CACHE = 'evident-static-v1';
 const STATIC_ASSETS = [
-  "/",
-  "/assets/css/main.css",
-  "/assets/css/critical.css",
-  "/assets/css/mobile.css",
-  "/assets/js/main.js",
-  "/offline.html",
+  '/',
+  '/assets/css/main.css',
+  '/assets/css/critical.css',
+  '/assets/css/mobile.css',
+  '/assets/js/main.js',
+  '/offline.html',
 ];
 ```
 
@@ -283,7 +283,7 @@ async function networkFirstStrategy(request) {
     return response;
   } catch (error) {
     return (
-      (await caches.match(request)) || (await caches.match("/offline.html"))
+      (await caches.match(request)) || (await caches.match('/offline.html'))
     );
   }
 }
@@ -303,7 +303,7 @@ async function cacheFirstStrategy(request) {
     cache.put(request, networkResponse.clone());
     return networkResponse;
   } catch (error) {
-    return new Response("Image not available offline", { status: 503 });
+    return new Response('Image not available offline', { status: 503 });
   }
 }
 ```
@@ -311,8 +311,8 @@ async function cacheFirstStrategy(request) {
 ##### Background Sync
 
 ```javascript
-self.addEventListener("sync", (event) => {
-  if (event.tag === "sync-uploads") {
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'sync-uploads') {
     event.waitUntil(syncUploads());
   }
 });
@@ -321,8 +321,8 @@ async function syncUploads() {
   // Retry failed uploads when connection restored
   const uploads = await getFailedUploads();
   for (const upload of uploads) {
-    await fetch("/api/upload", {
-      method: "POST",
+    await fetch('/api/upload', {
+      method: 'POST',
       body: upload.data,
     });
   }
@@ -332,16 +332,16 @@ async function syncUploads() {
 ##### Push Notifications
 
 ```javascript
-self.addEventListener("push", (event) => {
+self.addEventListener('push', (event) => {
   const data = event.data.json();
 
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: "/assets/images/icon-192.png",
-    badge: "/assets/images/badge-72.png",
+    icon: '/assets/images/icon-192.png',
+    badge: '/assets/images/badge-72.png',
     actions: [
-      { action: "view", title: "View" },
-      { action: "dismiss", title: "Dismiss" },
+      { action: 'view', title: 'View' },
+      { action: 'dismiss', title: 'Dismiss' },
     ],
   });
 });
@@ -350,12 +350,12 @@ self.addEventListener("push", (event) => {
 ##### Message Handling
 
 ```javascript
-self.addEventListener("message", (event) => {
-  if (event.data.action === "SKIP_WAITING") {
+self.addEventListener('message', (event) => {
+  if (event.data.action === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 
-  if (event.data.action === "CLEAR_CACHE") {
+  if (event.data.action === 'CLEAR_CACHE') {
     caches.keys().then((keys) => {
       keys.forEach((key) => caches.delete(key));
     });
@@ -444,7 +444,7 @@ self.addEventListener("message", (event) => {
     <title>Offline - Evident</title>
     <style>
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         text-align: center;
@@ -495,7 +495,7 @@ self.addEventListener("message", (event) => {
 
     <script>
       // Auto-reload when connection restored
-      window.addEventListener("online", () => {
+      window.addEventListener('online', () => {
         location.reload();
       });
     </script>
@@ -509,24 +509,24 @@ self.addEventListener("message", (event) => {
 // In test_mobile.html and main templates
 let deferredPrompt;
 
-window.addEventListener("beforeinstallprompt", (e) => {
+window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
 
   // Show custom install button
-  const installButton = document.getElementById("install-button");
-  installButton.style.display = "block";
+  const installButton = document.getElementById('install-button');
+  installButton.style.display = 'block';
 
-  installButton.addEventListener("click", async () => {
+  installButton.addEventListener('click', async () => {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
 
-    if (outcome === "accepted") {
-      console.log("PWA installed successfully");
+    if (outcome === 'accepted') {
+      console.log('PWA installed successfully');
     }
 
     deferredPrompt = null;
-    installButton.style.display = "none";
+    installButton.style.display = 'none';
   });
 });
 ```

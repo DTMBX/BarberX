@@ -188,7 +188,8 @@ Evident.info/
 
 ### "BWC Forensic Analyzer not available"
 
-**Solution:** This is just a warning. The app works without AI analysis. To enable:
+**Solution:** This is just a warning. The app works without AI analysis. To
+enable:
 
 ```powershell
 .\scripts\install-ai-FIXED.ps1
@@ -260,9 +261,8 @@ Before deploying to production:
 
 ## ?? LICENSE:
 
-Evident Legal Technologies� Proprietary License
-Copyright � 2024-2026 Faith Frontier Ecclesiastical Trust
-All Rights Reserved
+Evident Legal Technologies� Proprietary License Copyright � 2024-2026 Faith
+Frontier Ecclesiastical Trust All Rights Reserved
 
 --
 

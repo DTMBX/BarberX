@@ -2,14 +2,16 @@
 
 ## ✨ What Was Created
 
-A beautiful, **sanctuary-inspired navigation system** specifically designed for Tillerstead with:
+A beautiful, **sanctuary-inspired navigation system** specifically designed for
+Tillerstead with:
 
 ### 🎨 Brand Identity
 
 - **Forest Green Palette**: #2D5016, #5B8A3C, #8FBC66 (primary)
 - **Earth Tones**: #8B7355, #A0826D (accent)
 - **Cream/Beige**: #F5F1E8, #EDE7D9 (peaceful backgrounds)
-- **Wheat Stalk Logo**: Agricultural symbolism representing harvest & stewardship
+- **Wheat Stalk Logo**: Agricultural symbolism representing harvest &
+  stewardship
 
 ### 📁 Files Created (4 files)
 
@@ -154,7 +156,8 @@ Both navigation systems are **production-ready** and fully functional:
 
 ### Tillerstead Navigation
 
-- **Files**: `tillerstead-header.html`, `tillerstead-header.css`, `tillerstead-header.js`
+- **Files**: `tillerstead-header.html`, `tillerstead-header.css`,
+  `tillerstead-header.js`
 - **Demo**: `tillerstead-nav-demo.html`
 - **Docs**: `TILLERSTEAD-NAV-SYSTEM.md`
 - **Best for**: Nonprofits, faith-based orgs, sanctuary/recovery centers

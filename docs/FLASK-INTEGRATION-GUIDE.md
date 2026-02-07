@@ -18,7 +18,8 @@
 - ✅ Enhanced User model with more fields
 - ✅ UsageTracking model for monthly stats
 - ✅ ApiKey model for tier-based access
-- ✅ Authorization decorators (@admin_required, @tier_required, @feature_required)
+- ✅ Authorization decorators (@admin_required, @tier_required,
+  @feature_required)
 - ✅ Rate limiting on routes
 - ✅ Optimized login/signup/dashboard templates
 - ✅ Password strength requirements

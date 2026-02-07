@@ -1,0 +1,38 @@
+/* stylelint-disable at-rule-no-unknown, at-rule-empty-line-before, declaration-block-single-line-max-declarations */
+@import url('tokens.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'components/flag-video.css';
+@import 'americabydesign.css';
+
+:root {
+  --color-primary: #0b5f73;
+  --color-accent: #e07a5f;
+  --color-neutral: #f6f7f9;
+}
+
+/* Basic accessibility helpers */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+/* Utility overrides for site container */
+.site-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

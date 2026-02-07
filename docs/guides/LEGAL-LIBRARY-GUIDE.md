@@ -6,7 +6,8 @@
 
 ## 🎯 Overview
 
-The Legal Reference Library is a comprehensive system for storing, searching, and annotating legal materials including:
+The Legal Reference Library is a comprehensive system for storing, searching,
+and annotating legal materials including:
 
 - **Case Law** - Supreme Court, Circuit Courts, State Courts
 - **Statutes** - Federal and State legislation
@@ -601,20 +602,20 @@ Related cases: Real-time
 
 ### Common Questions
 
-**Q: How do I import a case I found on Google?**
-A: Copy the citation, use "Import from Web" → CourtListener or upload PDF
+**Q: How do I import a case I found on Google?** A: Copy the citation, use
+"Import from Web" → CourtListener or upload PDF
 
-**Q: Can I share my library with colleagues?**
-A: Currently private per user. Team libraries coming soon.
+**Q: Can I share my library with colleagues?** A: Currently private per user.
+Team libraries coming soon.
 
-**Q: How do I cite cases in my documents?**
-A: Document Optimizer auto-suggests relevant cases from your library
+**Q: How do I cite cases in my documents?** A: Document Optimizer auto-suggests
+relevant cases from your library
 
-**Q: What if a case isn't on CourtListener?**
-A: Upload the PDF directly - system will parse and index it
+**Q: What if a case isn't on CourtListener?** A: Upload the PDF directly -
+system will parse and index it
 
-**Q: Can I delete cases?**
-A: Yes, your uploaded cases can be deleted. Public cases remain.
+**Q: Can I delete cases?** A: Yes, your uploaded cases can be deleted. Public
+cases remain.
 
 --
 

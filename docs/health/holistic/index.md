@@ -1,13 +1,9 @@
 ---
 
-layout: default
-title: "Holistic Independence Guide"
-permalink: /health/holistic/
-description: "Filter plants by USDA growing zone and health goals. Food-first, faith-forward, medically cautious."
-hero_panel: false
-hide_hero: true
-show_breadcrumbs: true
---
+layout: default title: "Holistic Independence Guide" permalink:
+/health/holistic/ description: "Filter plants by USDA growing zone and health
+goals. Food-first, faith-forward, medically cautious." hero_panel: false
+hide_hero: true show_breadcrumbs: true --
 
 <section class="section-block">
   <div class="container">

@@ -16,16 +16,16 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   // Configuration
   const CONFIG = {
     breakpoint: 1024,
-    drawerWidth: "85%",
-    maxDrawerWidth: "400px",
+    drawerWidth: '85%',
+    maxDrawerWidth: '400px',
     animationDuration: 300,
     swipeThreshold: 50,
-    backdropBlur: "8px",
+    backdropBlur: '8px',
   };
 
   // State
@@ -35,10 +35,10 @@
   let isDragging = false;
 
   // Elements
-  const hamburger = document.querySelector(".mobile-nav-hamburger");
-  const drawer = document.querySelector(".mobile-nav-drawer");
-  const backdrop = document.querySelector(".mobile-nav-backdrop");
-  const closeBtn = document.querySelector(".mobile-nav-close");
+  const hamburger = document.querySelector('.mobile-nav-hamburger');
+  const drawer = document.querySelector('.mobile-nav-drawer');
+  const backdrop = document.querySelector('.mobile-nav-backdrop');
+  const closeBtn = document.querySelector('.mobile-nav-close');
   const body = document.body;
 
   // Initialize if elements exist
@@ -48,19 +48,19 @@
 
   function init() {
     // Event listeners
-    hamburger.addEventListener("click", toggleDrawer);
-    backdrop.addEventListener("click", closeDrawer);
-    closeBtn?.addEventListener("click", closeDrawer);
-    document.addEventListener("keydown", handleKeyPress);
+    hamburger.addEventListener('click', toggleDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    closeBtn?.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', handleKeyPress);
 
     // Touch gestures
-    drawer.addEventListener("touchstart", handleTouchStart, { passive: true });
-    drawer.addEventListener("touchmove", handleTouchMove, { passive: false });
-    drawer.addEventListener("touchend", handleTouchEnd, { passive: true });
+    drawer.addEventListener('touchstart', handleTouchStart, { passive: true });
+    drawer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    drawer.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     // Window resize
     let resizeTimer;
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         if (window.innerWidth > CONFIG.breakpoint && isOpen) {
@@ -70,17 +70,17 @@
     });
 
     // Close on link click
-    const navLinks = drawer.querySelectorAll("a:not([data-submenu-toggle])");
+    const navLinks = drawer.querySelectorAll('a:not([data-submenu-toggle])');
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener('click', () => {
         setTimeout(closeDrawer, 100);
       });
     });
 
     // Submenu toggles
-    const submenuToggles = drawer.querySelectorAll("[data-submenu-toggle]");
+    const submenuToggles = drawer.querySelectorAll('[data-submenu-toggle]');
     submenuToggles.forEach((toggle) => {
-      toggle.addEventListener("click", handleSubmenuToggle);
+      toggle.addEventListener('click', handleSubmenuToggle);
     });
   }
 
@@ -93,26 +93,26 @@
     isOpen = true;
 
     // Update elements
-    hamburger.classList.add("is-active");
-    hamburger.setAttribute("aria-expanded", "true");
-    hamburger.setAttribute("aria-label", "Close navigation menu");
+    hamburger.classList.add('is-active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close navigation menu');
 
-    drawer.classList.add("is-open");
-    drawer.setAttribute("aria-hidden", "false");
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
 
-    backdrop.classList.add("is-visible");
+    backdrop.classList.add('is-visible');
 
     // Lock body scroll
     lockBodyScroll();
 
     // Focus first link for accessibility
     setTimeout(() => {
-      const firstLink = drawer.querySelector("a, button");
+      const firstLink = drawer.querySelector('a, button');
       firstLink?.focus();
     }, CONFIG.animationDuration);
 
     // Announce to screen readers
-    announceToScreenReader("Navigation menu opened");
+    announceToScreenReader('Navigation menu opened');
   }
 
   function closeDrawer() {
@@ -121,14 +121,14 @@
     isOpen = false;
 
     // Update elements
-    hamburger.classList.remove("is-active");
-    hamburger.setAttribute("aria-expanded", "false");
-    hamburger.setAttribute("aria-label", "Open navigation menu");
+    hamburger.classList.remove('is-active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open navigation menu');
 
-    drawer.classList.remove("is-open");
-    drawer.setAttribute("aria-hidden", "true");
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
 
-    backdrop.classList.remove("is-visible");
+    backdrop.classList.remove('is-visible');
 
     // Unlock body scroll
     unlockBodyScroll();
@@ -137,11 +137,11 @@
     hamburger.focus();
 
     // Announce to screen readers
-    announceToScreenReader("Navigation menu closed");
+    announceToScreenReader('Navigation menu closed');
   }
 
   function handleKeyPress(e) {
-    if (e.key === "Escape" && isOpen) {
+    if (e.key === 'Escape' && isOpen) {
       closeDrawer();
     }
   }
@@ -179,8 +179,8 @@
     const deltaX = touchCurrentX - touchStartX;
 
     // Reset styles
-    drawer.style.transform = "";
-    backdrop.style.opacity = "";
+    drawer.style.transform = '';
+    backdrop.style.opacity = '';
 
     // Close if swiped past threshold
     if (deltaX > CONFIG.swipeThreshold) {
@@ -196,43 +196,42 @@
     e.preventDefault();
     const toggle = e.currentTarget;
     const submenu = toggle.nextElementSibling;
-    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle state
-    toggle.setAttribute("aria-expanded", !isExpanded);
-    toggle.classList.toggle("is-active");
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    toggle.classList.toggle('is-active');
 
     if (submenu) {
-      submenu.classList.toggle("is-open");
+      submenu.classList.toggle('is-open');
 
       // Smooth height animation
       if (!isExpanded) {
-        submenu.style.maxHeight = submenu.scrollHeight + "px";
+        submenu.style.maxHeight = submenu.scrollHeight + 'px';
       } else {
-        submenu.style.maxHeight = "0";
+        submenu.style.maxHeight = '0';
       }
     }
   }
 
   // Body scroll lock
   function lockBodyScroll() {
-    const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
-    body.style.overflow = "hidden";
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    body.style.overflow = 'hidden';
     body.style.paddingRight = `${scrollbarWidth}px`;
   }
 
   function unlockBodyScroll() {
-    body.style.overflow = "";
-    body.style.paddingRight = "";
+    body.style.overflow = '';
+    body.style.paddingRight = '';
   }
 
   // Accessibility announcements
   function announceToScreenReader(message) {
-    const announcement = document.createElement("div");
-    announcement.setAttribute("role", "status");
-    announcement.setAttribute("aria-live", "polite");
-    announcement.className = "sr-only";
+    const announcement = document.createElement('div');
+    announcement.setAttribute('role', 'status');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.className = 'sr-only';
     announcement.textContent = message;
 
     body.appendChild(announcement);

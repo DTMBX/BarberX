@@ -10,11 +10,8 @@
 
 ## Development Setup
 
-\\\ash
-git clone https://github.com/DTB396/Evident.info
-cd Evident.info
-pip install -r requirements.txt
-\\\
+\\\ash git clone https://github.com/DTB396/Evident.info cd Evident.info pip
+install -r requirements.txt \\\
 
 ## Pull Request Process
 
@@ -26,6 +23,4 @@ pip install -r requirements.txt
 
 ## Testing
 
-\\\ash
-pytest
-\\\
+\\\ash pytest \\\

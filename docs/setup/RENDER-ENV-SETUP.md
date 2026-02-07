@@ -5,7 +5,8 @@
 
 ## Critical Action Required
 
-After the recent security fixes, the following environment variables **must be set** on Render.com before the app will work correctly.
+After the recent security fixes, the following environment variables **must be
+set** on Render.com before the app will work correctly.
 
 ## 🔐 Required Environment Variables
 
@@ -50,15 +51,21 @@ STRIPE_SECRET_KEY=sk_live_YOUR_ACTUAL_SECRET_KEY
 STRIPE_WEBHOOK_SECRET=whsec_YOUR_ACTUAL_WEBHOOK_SECRET
 ```
 
-**⚠️ SECURITY CRITICAL:** The example keys shown above in previous versions were LIVE production credentials and have been removed. You MUST use your own Stripe credentials from your Stripe Dashboard.
+**⚠️ SECURITY CRITICAL:** The example keys shown above in previous versions were
+LIVE production credentials and have been removed. You MUST use your own Stripe
+credentials from your Stripe Dashboard.
 
 **Where to find these:**
 
 1. Go to https://dashboard.stripe.com
-2. **STRIPE_PRICING_TABLE_ID**: Products → Pricing Tables → Create/Select Table → Copy Table ID (starts with `prctbl_`)
-3. **STRIPE_PUBLISHABLE_KEY**: Developers → API keys → Publishable key (starts with `pk_live_`)
-4. **STRIPE_SECRET_KEY**: Developers → API keys → Secret key → Reveal (starts with `sk_live_`)
-5. **STRIPE_WEBHOOK_SECRET**: Developers → Webhooks → Add endpoint → Copy signing secret (starts with `whsec_`)
+2. **STRIPE_PRICING_TABLE_ID**: Products → Pricing Tables → Create/Select Table
+   → Copy Table ID (starts with `prctbl_`)
+3. **STRIPE_PUBLISHABLE_KEY**: Developers → API keys → Publishable key (starts
+   with `pk_live_`)
+4. **STRIPE_SECRET_KEY**: Developers → API keys → Secret key → Reveal (starts
+   with `sk_live_`)
+5. **STRIPE_WEBHOOK_SECRET**: Developers → Webhooks → Add endpoint → Copy
+   signing secret (starts with `whsec_`)
 
 #### **Optional Services**
 
@@ -149,7 +156,8 @@ After setup, your Environment tab should show:
 
 ### Pricing table doesn't load
 
-**Fix:** Check browser console for errors. Verify STRIPE*PUBLISHABLE_KEY starts with `pk_live*`(not`pk*test*`)
+**Fix:** Check browser console for errors. Verify STRIPE*PUBLISHABLE_KEY starts
+with `pk_live*`(not`pk*test*`)
 
 ## 📞 Support
 

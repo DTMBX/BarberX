@@ -209,7 +209,7 @@ Gray: #f8f9fa (background)
 ### Get Dashboard Stats:
 
 ```javascript
-const response = await fetch("/api/dashboard-stats");
+const response = await fetch('/api/dashboard-stats');
 const data = await response.json();
 console.log(data.analyses_this_month); // 3
 console.log(data.tier_limits.max_analyses_per_month); // 5
@@ -218,7 +218,7 @@ console.log(data.tier_limits.max_analyses_per_month); // 5
 ### List Analyses:
 
 ```javascript
-const response = await fetch("/api/analyses?limit=10&offset=0");
+const response = await fetch('/api/analyses?limit=10&offset=0');
 const data = await response.json();
 console.log(data.total); // 15
 console.log(data.analyses); // Array of 10 analyses
@@ -227,10 +227,10 @@ console.log(data.analyses); // Array of 10 analyses
 ### Upgrade Subscription:
 
 ```javascript
-const response = await fetch("/api/subscription/upgrade", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ tier: "professional" }),
+const response = await fetch('/api/subscription/upgrade', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ tier: 'professional' }),
 });
 const data = await response.json();
 console.log(data.new_tier); // "professional"
@@ -239,10 +239,10 @@ console.log(data.new_tier); // "professional"
 ### Create API Key:
 
 ```javascript
-const response = await fetch("/api/api-keys", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ name: "Production Key" }),
+const response = await fetch('/api/api-keys', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Production Key' }),
 });
 const data = await response.json();
 console.log(data.key); // "bx_abc123..."
@@ -382,4 +382,5 @@ For issues or questions:
 
 **Status: ✅ COMPLETE - Dashboard & Backend Management Fully Optimized**
 
-All systems operational and ready for production deployment at **https://app.Evident.info**!
+All systems operational and ready for production deployment at
+**https://app.Evident.info**!
