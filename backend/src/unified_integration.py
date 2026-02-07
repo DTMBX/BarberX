@@ -146,7 +146,9 @@ class UnifiedWorkflowOrchestrator:
             "suggested_follow_ups": self._generate_follow_up_questions(query, context),
         }
 
-    def generate_document_from_analysis(self, workflow_id: str, document_type: str, custom_inputs: dict = None) -> dict[str, Any]:
+    def generate_document_from_analysis(
+        self, workflow_id: str, document_type: str, custom_inputs: dict = None
+    ) -> dict[str, Any]:
         """
         Generate legal document based on evidence analysis
         """

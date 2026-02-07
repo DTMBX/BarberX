@@ -11,6 +11,7 @@ Run from the repository root:
 
 Review changes before committing.
 """
+
 from __future__ import annotations
 
 import re

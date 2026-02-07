@@ -27,7 +27,11 @@ with app.test_client() as client:
     # Try login
     resp = client.post(
         "/auth/login",
-        data=( {"email": "admin@Evident", "password": "AdminTest2026!"} if csrf is None else {"email": "admin@Evident", "password": "AdminTest2026!", "csrf_token": csrf} ),
+        data=(
+            {"email": "admin@Evident", "password": "AdminTest2026!"}
+            if csrf is None
+            else {"email": "admin@Evident", "password": "AdminTest2026!", "csrf_token": csrf}
+        ),
         follow_redirects=False,
     )
 
