@@ -13,6 +13,7 @@ import os
 import threading
 from datetime import datetime
 from pathlib import Path
+import re
 
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
@@ -313,6 +314,10 @@ def get_transcript(upload_id):
         {
             "transcript": report_data.get("transcript", []),
             "speakers": report_data.get("speakers", {}),
+    # Validate upload_id to avoid path traversal via directory segments
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", upload_id or ""):
+        return jsonify({"error": "Invalid upload ID format"}), 400
+
             "duration": report_data.get("duration", 0),
         }
     )
