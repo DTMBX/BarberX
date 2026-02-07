@@ -293,12 +293,24 @@ def get_transcript(upload_id):
         return jsonify({"error": "Analysis not completed"}), 400
 
     # Load JSON report
-    report_file = ANALYSIS_FOLDER / upload_id / "report.json"
+    safe_upload_id = secure_filename(str(upload_id))
+    report_file = ANALYSIS_FOLDER / safe_upload_id / "report.json"
 
-    if not report_file.exists():
+    # Ensure the resolved path stays within the analysis folder
+    try:
+        report_file_resolved = report_file.resolve()
+        analysis_root_resolved = ANALYSIS_FOLDER.resolve()
+    except FileNotFoundError:
+        # If components in the path do not exist yet, treat as not found
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, encoding="utf-8") as f:
+    if analysis_root_resolved not in report_file_resolved.parents and report_file_resolved != analysis_root_resolved:
+        return jsonify({"error": "Invalid upload ID"}), 400
+
+    if not report_file_resolved.exists():
+        return jsonify({"error": "Report not found"}), 404
+
+    with open(report_file_resolved, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(
