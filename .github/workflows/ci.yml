@@ -54,8 +54,11 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Run linters (style + format check)
-        run: npm run lint
+      - name: Run stylelint (robust)
+        run: node ./scripts/run-stylelint.js
+
+      - name: Run format check
+        run: npm run format:check:site
 
       - name: Build site
         run: npm run build
