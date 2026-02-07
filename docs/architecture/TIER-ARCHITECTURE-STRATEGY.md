@@ -113,7 +113,7 @@ services:
     volumes:
       - /var/Evident/data:/app/data
     ports:
-      - '443:443'
+      - "443:443"
 ```
 
 **License Validation (Prevents Bypass):**
@@ -199,8 +199,8 @@ Volume tier: 1,000 videos/month = $2,999/month
 
 ```javascript
 // Electron app structure
-const { app, BrowserWindow } = require('electron');
-const axios = require('axios');
+const { app, BrowserWindow } = require("electron");
+const axios = require("axios");
 
 // User logs in, app stores auth token
 async function analyzeVideo(videoPath) {
@@ -208,18 +208,14 @@ async function analyzeVideo(videoPath) {
 
   // Upload to your API
   const formData = new FormData();
-  formData.append('video', fs.createReadStream(videoPath));
+  formData.append("video", fs.createReadStream(videoPath));
 
-  const response = await axios.post(
-    'https://api.Evident.info/analyze',
-    formData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'X-Tier': userTier, // Enforced server-side
-      },
-    }
-  );
+  const response = await axios.post("https://api.Evident.info/analyze", formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "X-Tier": userTier, // Enforced server-side
+    },
+  });
 
   return response.data;
 }

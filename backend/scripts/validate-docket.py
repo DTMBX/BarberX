@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -21,7 +22,6 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 try:
     import yaml
@@ -97,7 +97,7 @@ def get_builtin_schema() -> dict:
     }
 
 
-def validate_entry(entry: dict, schema: dict, index: int) -> Tuple[List[str], List[str]]:
+def validate_entry(entry: dict, schema: dict, index: int) -> tuple[list[str], list[str]]:
     """Validate a single docket entry. Returns (errors, warnings)."""
     errors = []
     warnings = []
@@ -150,7 +150,7 @@ def validate_entry(entry: dict, schema: dict, index: int) -> Tuple[List[str], Li
     return errors, warnings
 
 
-def validate_docket_file(filepath: Path, schema: dict) -> Dict:
+def validate_docket_file(filepath: Path, schema: dict) -> dict:
     """Validate all entries in a docket YAML file."""
     result = {
         "file": filepath.name,
@@ -197,7 +197,7 @@ def validate_docket_file(filepath: Path, schema: dict) -> Dict:
     return result
 
 
-def check_for_duplicates(docket_dir: Path) -> List[str]:
+def check_for_duplicates(docket_dir: Path) -> list[str]:
     """Check for duplicate file references across all docket files."""
     all_files = {}
     duplicates = []
@@ -227,7 +227,7 @@ def check_for_duplicates(docket_dir: Path) -> List[str]:
     return duplicates
 
 
-def generate_checksum(filepath: Path) -> Optional[str]:
+Optional[def generate_checksum(filepath: Path) -> str]:
     """Generate SHA-256 checksum for a file."""
     if not filepath.exists():
         return None
@@ -239,7 +239,7 @@ def generate_checksum(filepath: Path) -> Optional[str]:
     return f"sha256:{sha256.hexdigest()}"
 
 
-def print_results(results: List[Dict], duplicates: List[str], strict: bool = False):
+def print_results(results: list[dict], duplicates: list[str], strict: bool = False):
     """Print validation results."""
     total_errors = 0
     total_warnings = 0

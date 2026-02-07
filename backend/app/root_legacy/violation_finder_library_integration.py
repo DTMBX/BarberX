@@ -7,9 +7,6 @@ Violation Finder Integration with Legal Reference Library
 Links detected violations to precedent case law
 """
 
-import json
-from typing import Dict, List
-
 from .legal_library import LegalLibraryService
 
 
@@ -33,7 +30,7 @@ class ViolationFinderLibraryIntegration:
             "municipal_liability": "Monell v. Department of Social Services",
         }
 
-    def link_violation_to_precedent(self, violation_type: str) -> List[Dict]:
+    def link_violation_to_precedent(self, violation_type: str) -> list[dict]:
         """
         Find precedent cases for a violation type
 
@@ -67,7 +64,7 @@ class ViolationFinderLibraryIntegration:
 
         return precedents
 
-    def enhance_violation_report(self, violations: List[Dict]) -> Dict:
+    def enhance_violation_report(self, violations: list[dict]) -> dict:
         """
         Enhance violation report with case law citations
 
@@ -93,7 +90,8 @@ class ViolationFinderLibraryIntegration:
             # Generate legal summary
             if precedents:
                 enhanced_violation["legal_standard"] = self._generate_legal_standard(
-                    violation_type, precedents[0]  # Use top precedent
+                    violation_type,
+                    precedents[0],  # Use top precedent
                 )
 
             enhanced_violations.append(enhanced_violation)
@@ -121,7 +119,7 @@ class ViolationFinderLibraryIntegration:
         if not precedents:
             return ""
 
-        section = f"## Applicable Case Law\n\n"
+        section = "## Applicable Case Law\n\n"
 
         for i, case in enumerate(precedents, 1):
             section += f"{i}. **{case['title']}**, {case['citation']}\n"
@@ -131,7 +129,7 @@ class ViolationFinderLibraryIntegration:
 
         return section
 
-    def _generate_legal_standard(self, violation_type: str, precedent: Dict) -> str:
+    def _generate_legal_standard(self, violation_type: str, precedent: dict) -> str:
         """Generate legal standard text based on precedent"""
 
         standards = {
@@ -164,5 +162,3 @@ class ViolationScanner:
         
         return enhanced_report
 """
-
-

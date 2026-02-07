@@ -6,14 +6,12 @@ User API Endpoints
 Handles user profile management, preferences, and subscription info
 """
 
-from datetime import datetime
-
 from flask import jsonify, request
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from api import user_api
 from api.auth import jwt_required
-from models_auth import User, db
+from models_auth import db
 
 
 @user_api.route("/profile", methods=["GET"])

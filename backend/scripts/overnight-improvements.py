@@ -7,42 +7,43 @@ Evident Overnight Improvement Suite
 Automated background tasks for repository improvements
 """
 
-import os
-import sys
-import subprocess
 import json
-from pathlib import Path
+import os
+import subprocess
 from datetime import datetime
-import time
+from pathlib import Path
+
 
 # Colors for terminal output
 class Colors:
-    CYAN = '\033[96m'
-    YELLOW = '\033[93m'
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    GRAY = '\033[90m'
-    RESET = '\033[0m'
+    CYAN = "\033[96m"
+    YELLOW = "\033[93m"
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    GRAY = "\033[90m"
+    RESET = "\033[0m"
+
 
 def log(message, color=Colors.RESET):
     """Log message with timestamp"""
     timestamp = datetime.now().strftime("%H:%M:%S")
     print(f"{color}[{timestamp}] {message}{Colors.RESET}")
-    
+
     # Also write to log file
-    with open(log_file, 'a') as f:
+    with open(log_file, "a") as f:
         f.write(f"[{timestamp}] {message}\n")
+
 
 def run_command(cmd, shell=True, capture=True):
     """Run shell command and return output"""
     try:
         if capture:
             result = subprocess.run(
-                cmd, 
-                shell=shell, 
-                capture_output=True, 
+                cmd,
+                shell=shell,
+                capture_output=True,
                 text=True,
-                timeout=600  # 10 minute timeout
+                timeout=600,  # 10 minute timeout
             )
             return result.stdout if result.returncode == 0 else result.stderr
         else:
@@ -51,6 +52,7 @@ def run_command(cmd, shell=True, capture=True):
     except Exception as e:
         log(f"Error running command: {e}", Colors.RED)
         return None
+
 
 # Setup
 start_time = datetime.now()
@@ -88,20 +90,20 @@ run_command("pip install safety pip-audit --quiet")
 log("Checking for vulnerabilities with pip-audit...")
 vulnerabilities = run_command("pip-audit --format json")
 if vulnerabilities:
-    with open(output_dir / "vulnerabilities.json", 'w') as f:
+    with open(output_dir / "vulnerabilities.json", "w") as f:
         f.write(vulnerabilities)
     log("Vulnerabilities saved to vulnerabilities.json")
 
 # Update to safe versions
 safe_packages = [
     "Werkzeug>=3.0.3",
-    "Flask>=3.0.3", 
+    "Flask>=3.0.3",
     "cryptography>=42.0.0",
     "Pillow>=10.4.0",
     "requests>=2.32.0",
     "urllib3>=2.2.0",
     "Jinja2>=3.1.4",
-    "certifi>=2024.7.4"
+    "certifi>=2024.7.4",
 ]
 
 for package in safe_packages:
@@ -125,7 +127,9 @@ run_command("black . --exclude='/(venv|.venv|env|.git|node_modules)/' --line-len
 
 # Sort imports
 log("Running isort...")
-run_command("isort . --skip=venv --skip=.venv --skip=env --skip=.git --skip=node_modules --profile=black")
+run_command(
+    "isort . --skip=venv --skip=.venv --skip=env --skip=.git --skip=node_modules --profile=black"
+)
 
 log("? Code formatting complete", Colors.GREEN)
 
@@ -142,16 +146,20 @@ run_command("pip install pylint flake8 mypy bandit --quiet")
 log("Running pylint...")
 pylint_output = run_command("pylint *.py --output-format=json --exit-zero")
 if pylint_output:
-    with open(output_dir / "pylint-results.json", 'w') as f:
+    with open(output_dir / "pylint-results.json", "w") as f:
         f.write(pylint_output)
 
 # Run flake8
 log("Running flake8...")
-run_command(f"flake8 . --exclude=venv,.venv,env,.git,node_modules --output-file={output_dir}/flake8-results.txt")
+run_command(
+    f"flake8 . --exclude=venv,.venv,env,.git,node_modules --output-file={output_dir}/flake8-results.txt"
+)
 
 # Run bandit (security)
 log("Running bandit security analysis...")
-run_command(f"bandit -r . -f json -o {output_dir}/bandit-results.json -x venv,.venv,env,.git,node_modules")
+run_command(
+    f"bandit -r . -f json -o {output_dir}/bandit-results.json -x venv,.venv,env,.git,node_modules"
+)
 
 log("? Code quality analysis complete", Colors.GREEN)
 
@@ -162,9 +170,11 @@ print(f"\n{Colors.YELLOW}[4/12] ?? Type Checking...{Colors.RESET}")
 log("Task 4: Type checking")
 
 log("Running mypy...")
-mypy_output = run_command("mypy . --ignore-missing-imports --no-strict-optional --exclude='(venv|.venv|env|.git|node_modules)'")
+mypy_output = run_command(
+    "mypy . --ignore-missing-imports --no-strict-optional --exclude='(venv|.venv|env|.git|node_modules)'"
+)
 if mypy_output:
-    with open(output_dir / "mypy-results.txt", 'w') as f:
+    with open(output_dir / "mypy-results.txt", "w") as f:
         f.write(mypy_output)
 
 log("? Type checking complete", Colors.GREEN)
@@ -187,7 +197,7 @@ run_command(f"pip list --outdated > {output_dir}/outdated-packages.txt")
 run_command("pip install pipdeptree --quiet")
 tree = run_command("pipdeptree --json")
 if tree:
-    with open(output_dir / "dependency-tree.json", 'w') as f:
+    with open(output_dir / "dependency-tree.json", "w") as f:
         f.write(tree)
 
 log("? Dependency analysis complete", Colors.GREEN)
@@ -224,7 +234,10 @@ run_command("pip install pytest pytest-cov coverage --quiet")
 
 if Path("tests").exists():
     log("Running tests with coverage...")
-    run_command(f"pytest --cov=. --cov-report=html --cov-report=term > {output_dir}/test-coverage.txt 2>&1", capture=False)
+    run_command(
+        f"pytest --cov=. --cov-report=html --cov-report=term > {output_dir}/test-coverage.txt 2>&1",
+        capture=False,
+    )
 else:
     log("No tests directory found", Colors.YELLOW)
 
@@ -263,7 +276,7 @@ except Exception as e:
     print(f'Database optimization skipped: {e}')
 """
 
-with open(output_dir / "optimize-db.py", 'w') as f:
+with open(output_dir / "optimize-db.py", "w") as f:
     f.write(db_script)
 
 run_command(f"python {output_dir}/optimize-db.py > {output_dir}/db-optimization.txt 2>&1")
@@ -282,19 +295,19 @@ if static_path.exists():
     css_files = list(static_path.glob("**/*.css"))
     js_files = list(static_path.glob("**/*.js"))
     img_files = list(static_path.glob("**/*.{png,jpg,jpeg,gif}"))
-    
+
     log(f"Found {len(css_files)} CSS files")
     log(f"Found {len(js_files)} JS files")
     log(f"Found {len(img_files)} image files")
-    
+
     # Save asset inventory
     inventory = {
-        'css': [str(f) for f in css_files],
-        'js': [str(f) for f in js_files],
-        'images': [str(f) for f in img_files]
+        "css": [str(f) for f in css_files],
+        "js": [str(f) for f in js_files],
+        "images": [str(f) for f in img_files],
     }
-    
-    with open(output_dir / "asset-inventory.json", 'w') as f:
+
+    with open(output_dir / "asset-inventory.json", "w") as f:
         json.dump(inventory, f, indent=2)
 
 log("? Asset optimization complete", Colors.GREEN)
@@ -350,7 +363,7 @@ if __name__ == '__main__':
     print('Profile saved to app-profile.stats')
 """
 
-with open(output_dir / "profile-app.py", 'w') as f:
+with open(output_dir / "profile-app.py", "w") as f:
     f.write(profile_script)
 
 log("? Performance profiling complete", Colors.GREEN)
@@ -367,7 +380,7 @@ duration = end_time - start_time
 # Create summary report
 report = f"""
 # Evident Overnight Improvement Report
-Generated: {end_time.strftime('%Y-%m-%d %H:%M:%S')}
+Generated: {end_time.strftime("%Y-%m-%d %H:%M:%S")}
 Duration: {duration}
 
 ## Tasks Completed
@@ -423,7 +436,7 @@ git push origin main
 - Dependencies Checked: All packages
 """
 
-with open(output_dir / "IMPROVEMENT-REPORT.md", 'w') as f:
+with open(output_dir / "IMPROVEMENT-REPORT.md", "w") as f:
     f.write(report)
 
 log("? Improvement report generated", Colors.GREEN)
@@ -454,4 +467,3 @@ print(f"{Colors.RESET}  3. Commit improvements{Colors.RESET}")
 print(f"\n{Colors.GREEN}? Repository improved and optimized!{Colors.RESET}\n")
 
 log(f"Improvement suite completed in {duration}")
-

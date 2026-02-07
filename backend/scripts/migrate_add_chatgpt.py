@@ -15,7 +15,6 @@ def add_chatgpt_tables():
 
     with app.app_context():
         # Import the models to ensure they're registered
-        from api.chatgpt import Conversation, Message, Project, UserApiKey
 
         print("Creating ChatGPT integration tables...")
 

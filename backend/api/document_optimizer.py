@@ -16,14 +16,15 @@ import os
 import tempfile
 import zipfile
 from datetime import datetime
-from functools import wraps
-from typing import Dict, List
 
 from flask import Blueprint, jsonify, request, send_file
 
-from legal_document_optimizer import (EvidenceItem, LegalDocument,
-                                      LegalDocumentOptimizer,
-                                      OptimizationResult)
+from legal_document_optimizer import (
+    EvidenceItem,
+    LegalDocument,
+    LegalDocumentOptimizer,
+    OptimizationResult,
+)
 
 # Import auth if using authentication
 # from models_auth import User, db
@@ -377,7 +378,7 @@ def check_compliance():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
-def generate_filing_set_report(results: List[OptimizationResult], jurisdiction: str) -> str:
+def generate_filing_set_report(results: list[OptimizationResult], jurisdiction: str) -> str:
     """Generate comprehensive optimization report"""
 
     report_lines = []
@@ -466,4 +467,3 @@ def generate_filing_set_report(results: List[OptimizationResult], jurisdiction: 
     report_lines.append("=" * 80)
 
     return "\n".join(report_lines)
-

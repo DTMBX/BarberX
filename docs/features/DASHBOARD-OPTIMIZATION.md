@@ -47,16 +47,16 @@ comprehensive analytics, and full administrative controls.
 
 ```javascript
 // Real-time validation
-emailInput.addEventListener('blur', () => {
+emailInput.addEventListener("blur", () => {
   if (emailInput.value && !validateEmail(emailInput.value)) {
-    showError('email', true);
+    showError("email", true);
   }
 });
 
 // API Integration
-const response = await fetch('/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+const response = await fetch("/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ email, password, remember }),
 });
 ```
@@ -301,10 +301,9 @@ Static:
 ### Colors:
 
 ```css
---primary-navy: #1e293b --primary-navy-dark: #0f172a --accent-blue: #3b82f6
-  --accent-cyan: #06b6d4 --success: #10b981 --error: #ef4444
-  --text-primary: #1a202c --text-secondary: #64748b --border-color: #e2e8f0
-  --bg-color: #f8f9fa;
+--primary-navy: #1e293b --primary-navy-dark: #0f172a --accent-blue: #3b82f6 --accent-cyan: #06b6d4
+  --success: #10b981 --error: #ef4444 --text-primary: #1a202c --text-secondary: #64748b
+  --border-color: #e2e8f0 --bg-color: #f8f9fa;
 ```
 
 ### Typography:

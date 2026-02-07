@@ -48,7 +48,7 @@ def audit_docket_files(repo_root: Path) -> dict:
         results["by_case"][case_id] = {"missing": [], "found": [], "no_source": []}
 
         try:
-            with open(docket_file, "r", encoding="utf-8") as f:
+            with open(docket_file, encoding="utf-8") as f:
                 entries = yaml.safe_load(f) or []
         except Exception as e:
             print(f"{Colors.RED}✗ Failed to read {docket_file}: {e}{Colors.RESET}")
@@ -99,7 +99,7 @@ def add_default_source(repo_root: Path, default_source: str = "manual") -> int:
 
     for docket_file in sorted(docket_dir.glob("*.yml")):
         try:
-            with open(docket_file, "r", encoding="utf-8") as f:
+            with open(docket_file, encoding="utf-8") as f:
                 entries = yaml.safe_load(f) or []
         except Exception:
             continue
@@ -173,13 +173,13 @@ def generate_missing_files_list(results: dict, output_path: Path):
     lines = [
         "# MISSING DOCKET FILES REPORT",
         f"# Generated: {datetime.now().isoformat()}",
-        f'# Total missing: {len(results["missing"])}',
+        f"# Total missing: {len(results['missing'])}",
         "",
     ]
 
     for case_id, case_data in sorted(results["by_case"].items()):
         if case_data["missing"]:
-            lines.append(f'\n## {case_id} ({len(case_data["missing"])} missing)')
+            lines.append(f"\n## {case_id} ({len(case_data['missing'])} missing)")
             lines.append("-" * 60)
 
             for record in sorted(case_data["missing"], key=lambda r: r["date"]):

@@ -56,18 +56,17 @@ Password: Password123!
 JavaScript:
 
 ```javascript
-togglePasswordBtn.addEventListener('click', function () {
-  const type =
-    passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordInput.setAttribute('type', type);
+togglePasswordBtn.addEventListener("click", function () {
+  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
 
   // Toggle icons
-  if (type === 'text') {
-    eyeIcon.style.display = 'none';
-    eyeOffIcon.style.display = 'block';
+  if (type === "text") {
+    eyeIcon.style.display = "none";
+    eyeOffIcon.style.display = "block";
   } else {
-    eyeIcon.style.display = 'block';
-    eyeOffIcon.style.display = 'none';
+    eyeIcon.style.display = "block";
+    eyeOffIcon.style.display = "none";
   }
 });
 ```

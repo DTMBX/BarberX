@@ -20,7 +20,7 @@ services:
     startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers $WEB_CONCURRENCY --threads 4 --timeout 300 --log-level info --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
-        value: "3.11.9"
+        value: "3.12.0"
       - key: SECRET_KEY
         generateValue: true
       - key: FLASK_ENV

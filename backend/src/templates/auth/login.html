@@ -15,7 +15,11 @@
         Password:
         <input type="password" name="password" />
       </label>
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() if csrf_token is defined else '' }}" />
+      <input
+        type="hidden"
+        name="csrf_token"
+        value="{{ csrf_token() if csrf_token is defined else '' }}"
+      />
       <button type="submit">Log in</button>
     </form>
   </body>

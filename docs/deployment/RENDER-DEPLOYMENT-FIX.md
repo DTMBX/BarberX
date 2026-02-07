@@ -260,7 +260,7 @@ stripe==11.4.0
 Update `render.yaml`:
 
 ```yaml
-buildCommand: 'pip install -r requirements-production.txt'
+buildCommand: "pip install -r requirements-production.txt"
 ```
 
 **Option 3: Docker with Pre-built Image**

@@ -97,6 +97,7 @@ def process_video_file(file, user_id=None):
             "filename": original_filename,
             "file_size": file_size,
             "file_hash": file_hash,
+            "file_path": str(filepath),
         }
 
     except Exception as e:
@@ -296,11 +297,32 @@ def unified_batch_upload():
             "failed": len(results["failed"]),
         },
     )
+    # Optionally enqueue analysis job
+    analyze = request.args.get("analyze") or request.form.get("analyze")
+    job_id = None
+    if analyze and str(analyze) in ("1", "true", "True"):
+        # collect video file paths
+        video_results = results["successful"]["video"]
+        video_paths = [v.get("file_path") for v in video_results if v.get("file_path")]
+        upload_ids = [v.get("upload_id") for v in video_results]
+        try:
+            from .bwc_jobs import enqueue_batch
+
+            job_id = enqueue_batch(
+                case_id=request.form.get("case_id"),
+                user_id=user_id,
+                upload_ids=upload_ids,
+                video_paths=video_paths,
+                options={},
+            )
+        except Exception:
+            job_id = None
 
     return jsonify(
         {
             "success": True,
             "results": results,
+            "job_id": job_id,
             "summary": {
                 "total_files": results["total"],
                 "total_successful": (

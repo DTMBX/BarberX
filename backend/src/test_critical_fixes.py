@@ -108,7 +108,7 @@ def test_mobile_navigation():
     print(f"✅ Layout file found: {layout_file}")
 
     # Check for correct JavaScript reference
-    with open(layout_file, "r", encoding="utf-8") as f:
+    with open(layout_file, encoding="utf-8") as f:
         content = f.read()
 
     if "premium-header.js" in content:
@@ -128,7 +128,7 @@ def test_mobile_navigation():
     print(f"✅ JavaScript file exists: {js_file}")
 
     # Check JavaScript contains mobile nav functions
-    with open(js_file, "r", encoding="utf-8") as f:
+    with open(js_file, encoding="utf-8") as f:
         js_content = f.read()
 
     required_functions = ["openNav", "closeNav", "toggleNav"]
@@ -199,4 +199,3 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-

@@ -37,11 +37,11 @@ description: "SEO description (160 chars max)"
 
 ```yaml
 # Metadata
-author: 'Evident'
+author: "Evident"
 date: 2024-01-15
 last_updated: 2024-01-20
 tags: [tag1, tag2, tag3]
-category: 'Main Category'
+category: "Main Category"
 
 # Features
 show_breadcrumbs: true
@@ -53,9 +53,9 @@ hide_back_to_top: false
 comments: true
 
 # SEO Override
-og_image: '/assets/images/custom-og.jpg'
-twitter_card: 'summary_large_image'
-robots: 'index, follow'
+og_image: "/assets/images/custom-og.jpg"
+twitter_card: "summary_large_image"
+robots: "index, follow"
 ```
 
 --
@@ -66,7 +66,7 @@ robots: 'index, follow'
 
 ```yaml
 layout: article
-subcategory: 'Constitutional Narrative' # Default: Constitutional Narrative
+subcategory: "Constitutional Narrative" # Default: Constitutional Narrative
 ```
 
 ### Essay
@@ -75,9 +75,9 @@ subcategory: 'Constitutional Narrative' # Default: Constitutional Narrative
 layout: essay
 show_toc: true
 related_essays:
-  - title: 'Related Essay'
+  - title: "Related Essay"
     url: /path/
-    description: 'Brief description'
+    description: "Brief description"
 ```
 
 ### Post
@@ -87,7 +87,7 @@ layout: post
 categories: [News, Updates]
 show_toc: true
 related_posts:
-  - title: 'Related Post'
+  - title: "Related Post"
     url: /path/
 ```
 
@@ -95,29 +95,29 @@ related_posts:
 
 ```yaml
 layout: case
-court: 'U.S. District Court'
-venue: 'Trenton'
-primary_docket: '3:23-cv-12345'
-case_type: 'Civil Rights'
-status: 'active' # or "closed"
+court: "U.S. District Court"
+venue: "Trenton"
+primary_docket: "3:23-cv-12345"
+case_type: "Civil Rights"
+status: "active" # or "closed"
 filed_date: 2023-06-15
-forum_level: 'Federal District Court'
-role: 'Pro Se Plaintiff'
-judge: 'Hon. Jane Doe'
-overview: 'Brief case summary...'
+forum_level: "Federal District Court"
+role: "Pro Se Plaintiff"
+judge: "Hon. Jane Doe"
+overview: "Brief case summary..."
 ```
 
 ### Doc
 
 ```yaml
 layout: doc
-version: '1.0.0'
+version: "1.0.0"
 has_sidebar: true
 sidebar_items:
-  - title: 'Section 1'
-    url: '#section-1'
+  - title: "Section 1"
+    url: "#section-1"
 show_edit_link: true
-github_path: 'docs/filename.md'
+github_path: "docs/filename.md"
 ```
 
 ### OPRA Record
@@ -125,25 +125,25 @@ github_path: 'docs/filename.md'
 ```yaml
 layout: record
 request_date: 2024-01-10
-agency: 'Department Name'
-status: 'completed' # or "pending"
-request_number: '2024-001'
+agency: "Department Name"
+status: "completed" # or "pending"
+request_number: "2024-001"
 documents:
-  - title: 'Document Name'
-    url: '/path/to/doc.pdf'
-    size: '1.2 MB'
+  - title: "Document Name"
+    url: "/path/to/doc.pdf"
+    size: "1.2 MB"
 ```
 
 ### Trust Document
 
 ```yaml
 layout: trust_document
-doc_type: 'ecclesiastical_declaration'
-status: 'active'
-access_level: 'public'
-pdf_path: '/trust/doc.pdf'
+doc_type: "ecclesiastical_declaration"
+status: "active"
+access_level: "public"
+pdf_path: "/trust/doc.pdf"
 signature_date: 2024-01-01
-witness: 'Witness Name'
+witness: "Witness Name"
 ```
 
 --

@@ -360,9 +360,8 @@ Public Law 116-67 (2019)<br />
 ```html
 <p>
   <small
-    >All flag images displayed are from verified public domain sources or
-    official U.S. Government documentation. See sources above for verification
-    and licensing information.</small
+    >All flag images displayed are from verified public domain sources or official U.S. Government
+    documentation. See sources above for verification and licensing information.</small
   >
 </p>
 ```

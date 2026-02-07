@@ -43,9 +43,8 @@ try:
 
     load_dotenv()
 
-    from flask import Flask
-
     from auth_routes import auth_bp
+    from flask import Flask
     from models_auth import User, db
 
     app = Flask(__name__)
@@ -81,7 +80,7 @@ try:
     clf.fit(X_train)
     scores = clf.decision_function(X_test)
 
-    print(f"   ✓ IForest model created")
+    print("   ✓ IForest model created")
     print(f"   ✓ Trained on {len(X_train)} samples")
     print(f"   ✓ Anomaly scores: {scores[0]:.4f} - {scores[-1]:.4f}")
 except Exception as e:
@@ -99,7 +98,7 @@ try:
     # Test set/get
     r.set("test_key", "test_value", ex=60)
     value = r.get("test_key")
-    print(f"   ✓ Redis read/write working")
+    print("   ✓ Redis read/write working")
     r.delete("test_key")
 except redis.ConnectionError:
     print("   ⚠ Redis not running (optional - session management will use default)")
@@ -117,7 +116,7 @@ try:
     if api_key:
         posthog.api_key = api_key
         posthog.host = "https://app.posthog.com"
-        print(f"   ✓ PostHog configured with API key")
+        print("   ✓ PostHog configured with API key")
         print(f"   ✓ Endpoint: {posthog.host}")
     else:
         print("   ⚠ POSTHOG_API_KEY not set (analytics disabled)")
@@ -130,7 +129,7 @@ print("\n[6/6] Checking Database...")
 try:
     with app.app_context():
         user_count = User.query.count()
-        print(f"   ✓ Database connected")
+        print("   ✓ Database connected")
         print(f"   ✓ Total users: {user_count}")
 
         if user_count > 0:

@@ -194,7 +194,7 @@ The Jekyll build system is configured to work seamlessly with encrypted files:
 exclude:
   - barber-cam
   - venv
-  - '*.py'
+  - "*.py"
   - instance
   - logs
   - uploads

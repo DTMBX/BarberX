@@ -1,7 +1,7 @@
 ---
 name: Security report
 about: Do not disclose vulnerabilities publicly
-title: '[SECURITY] '
+title: "[SECURITY] "
 labels: security
 ---
 

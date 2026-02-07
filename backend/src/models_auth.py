@@ -6,7 +6,7 @@ Evident Authentication & Tier System
 Database models for users, tiers, and usage tracking
 """
 
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from enum import Enum
 
 from flask_bcrypt import Bcrypt
@@ -24,7 +24,7 @@ GREETING_WELCOME_BACK = "Welcome back"
 
 def utc_now():
     """Return current UTC datetime (timezone-aware)."""
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 class TierLevel(Enum):
@@ -530,4 +530,3 @@ class EmailVerificationToken(db.Model):
 
     def __repr__(self):
         return f"<EmailVerificationToken user:{self.user_id}>"
-

@@ -10,41 +10,41 @@ let uploadQueue = [];
 let isBackendAvailable = false;
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   isBackendAvailable = await checkBackendHealth();
-  console.log('Backend available:', isBackendAvailable);
+  console.log("Backend available:", isBackendAvailable);
 
   initializeUploadHandlers();
 });
 
 function initializeUploadHandlers() {
-  const uploadZone = document.getElementById('uploadZone');
-  const fileInput = document.getElementById('fileInput');
+  const uploadZone = document.getElementById("uploadZone");
+  const fileInput = document.getElementById("fileInput");
 
   if (!uploadZone || !fileInput) return;
 
   // Click to select files
-  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener("click", () => fileInput.click());
 
   // Drag and drop handlers
-  uploadZone.addEventListener('dragover', (e) => {
+  uploadZone.addEventListener("dragover", (e) => {
     e.preventDefault();
-    uploadZone.classList.add('upload-zone-active');
+    uploadZone.classList.add("upload-zone-active");
   });
 
-  uploadZone.addEventListener('dragleave', () => {
-    uploadZone.classList.remove('upload-zone-active');
+  uploadZone.addEventListener("dragleave", () => {
+    uploadZone.classList.remove("upload-zone-active");
   });
 
-  uploadZone.addEventListener('drop', (e) => {
+  uploadZone.addEventListener("drop", (e) => {
     e.preventDefault();
-    uploadZone.classList.remove('upload-zone-active');
+    uploadZone.classList.remove("upload-zone-active");
     const files = Array.from(e.dataTransfer.files);
     handleFiles(files);
   });
 
   // File input change
-  fileInput.addEventListener('change', (e) => {
+  fileInput.addEventListener("change", (e) => {
     const files = Array.from(e.target.files);
     handleFiles(files);
   });
@@ -58,7 +58,7 @@ async function handleFiles(files) {
   const invalidFiles = [];
 
   files.forEach((file) => {
-    const ext = '.' + file.name.split('.').pop().toLowerCase();
+    const ext = "." + file.name.split(".").pop().toLowerCase();
     const isValid = API_CONFIG.LIMITS.ALLOWED_DOCUMENT_TYPES.includes(ext);
     const sizeOk = file.size <= API_CONFIG.LIMITS.MAX_FILE_SIZE_MB * 1024 * 1024;
 
@@ -76,8 +76,8 @@ async function handleFiles(files) {
 
   // Show validation errors
   if (invalidFiles.length > 0) {
-    const errors = invalidFiles.map((f) => `${f.file.name}: ${f.reason}`).join('\n');
-    showToast(`${invalidFiles.length} file(s) rejected:\n${errors}`, 'error');
+    const errors = invalidFiles.map((f) => `${f.file.name}: ${f.reason}`).join("\n");
+    showToast(`${invalidFiles.length} file(s) rejected:\n${errors}`, "error");
   }
 
   if (validFiles.length === 0) return;
@@ -97,17 +97,17 @@ async function uploadToBackend(files) {
   const formData = new FormData();
 
   files.forEach((file) => {
-    formData.append('files', file);
+    formData.append("files", file);
   });
 
-  formData.append('auto_transcribe', 'false');
-  formData.append('case_id', ''); // Optional: link to case
+  formData.append("auto_transcribe", "false");
+  formData.append("case_id", ""); // Optional: link to case
 
   try {
     const response = await fetch(
       `${API_CONFIG.BACKEND_URL}${API_CONFIG.ENDPOINTS.UPLOAD_DOCUMENTS}`,
       {
-        method: 'POST',
+        method: "POST",
         body: formData,
       }
     );
@@ -116,11 +116,11 @@ async function uploadToBackend(files) {
 
     const result = await response.json();
 
-    showToast(`Successfully uploaded ${result.uploaded || files.length} file(s)`, 'success');
+    showToast(`Successfully uploaded ${result.uploaded || files.length} file(s)`, "success");
     displayUploadResults(result);
   } catch (error) {
-    console.error('Upload error:', error);
-    showToast('Upload failed. Falling back to Git inbox method.', 'error');
+    console.error("Upload error:", error);
+    showToast("Upload failed. Falling back to Git inbox method.", "error");
     await uploadToGitInbox(files);
   }
 }
@@ -144,7 +144,7 @@ async function uploadToGitInbox(files) {
       <div class="file-list">
         <h4>Files to upload:</h4>
         <ul>
-          ${files.map((f) => `<li>${f.name} (${formatFileSize(f.size)})</li>`).join('')}
+          ${files.map((f) => `<li>${f.name} (${formatFileSize(f.size)})</li>`).join("")}
         </ul>
       </div>
       
@@ -159,44 +159,90 @@ async function uploadToGitInbox(files) {
     </div>
   `;
 
-  const resultsContainer = document.getElementById('uploadResults') || createResultsContainer();
+  const resultsContainer = document.getElementById("uploadResults") || createResultsContainer();
   resultsContainer.innerHTML = instructions;
-  resultsContainer.style.display = 'block';
+  resultsContainer.style.display = "block";
 }
 
 function showUploadProgress(files) {
-  const uploadZone = document.getElementById('uploadZone');
+  const uploadZone = document.getElementById("uploadZone");
+  if (!uploadZone) return;
 
-  const progressHTML = `
-    <div class="upload-progress">
-      <svg class="upload-progress-spinner" viewBox="0 0 24 24" width="48" height="48">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.3"/>
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" 
-          stroke-dasharray="63" stroke-dashoffset="16" 
-          style="animation: spin 1s linear infinite; transform-origin: center;">
-        </circle>
-      </svg>
-      <h3>Processing ${files.length} file(s)...</h3>
-      <div class="file-list">
-        ${files
-          .map(
-            (f) => `
-          <div class="file-item">
-            <span>${f.name}</span>
-            <span>${formatFileSize(f.size)}</span>
-          </div>
-        `
-          )
-          .join('')}
-      </div>
-    </div>
-  `;
+  // Remove any existing upload results container to avoid duplicates
+  const existingResults = document.getElementById("uploadResults");
+  if (existingResults && existingResults.parentNode) {
+    existingResults.parentNode.removeChild(existingResults);
+  }
 
-  uploadZone.insertAdjacentHTML('afterend', `<div id="uploadResults">${progressHTML}</div>`);
+  const resultsWrapper = document.createElement("div");
+  resultsWrapper.id = "uploadResults";
+
+  const progressContainer = document.createElement("div");
+  progressContainer.className = "upload-progress";
+
+  const spinnerSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  spinnerSvg.setAttribute("class", "upload-progress-spinner");
+  spinnerSvg.setAttribute("viewBox", "0 0 24 24");
+  spinnerSvg.setAttribute("width", "48");
+  spinnerSvg.setAttribute("height", "48");
+
+  const staticCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  staticCircle.setAttribute("cx", "12");
+  staticCircle.setAttribute("cy", "12");
+  staticCircle.setAttribute("r", "10");
+  staticCircle.setAttribute("stroke", "currentColor");
+  staticCircle.setAttribute("stroke-width", "2");
+  staticCircle.setAttribute("fill", "none");
+  staticCircle.setAttribute("opacity", "0.3");
+  spinnerSvg.appendChild(staticCircle);
+
+  const animatedCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  animatedCircle.setAttribute("cx", "12");
+  animatedCircle.setAttribute("cy", "12");
+  animatedCircle.setAttribute("r", "10");
+  animatedCircle.setAttribute("stroke", "currentColor");
+  animatedCircle.setAttribute("stroke-width", "2");
+  animatedCircle.setAttribute("fill", "none");
+  animatedCircle.setAttribute("stroke-dasharray", "63");
+  animatedCircle.setAttribute("stroke-dashoffset", "16");
+  animatedCircle.setAttribute(
+    "style",
+    "animation: spin 1s linear infinite; transform-origin: center;"
+  );
+  spinnerSvg.appendChild(animatedCircle);
+
+  const heading = document.createElement("h3");
+  heading.textContent = `Processing ${files.length} file(s)...`;
+
+  const fileList = document.createElement("div");
+  fileList.className = "file-list";
+
+  files.forEach((f) => {
+    const item = document.createElement("div");
+    item.className = "file-item";
+
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = f.name;
+
+    const sizeSpan = document.createElement("span");
+    sizeSpan.textContent = formatFileSize(f.size);
+
+    item.appendChild(nameSpan);
+    item.appendChild(sizeSpan);
+    fileList.appendChild(item);
+  });
+
+  progressContainer.appendChild(spinnerSvg);
+  progressContainer.appendChild(heading);
+  progressContainer.appendChild(fileList);
+
+  resultsWrapper.appendChild(progressContainer);
+
+  uploadZone.parentNode.insertBefore(resultsWrapper, uploadZone.nextSibling);
 }
 
 function displayUploadResults(result) {
-  const resultsContainer = document.getElementById('uploadResults');
+  const resultsContainer = document.getElementById("uploadResults");
   if (!resultsContainer) return;
 
   const html = `
@@ -204,17 +250,17 @@ function displayUploadResults(result) {
       <div class="upload-results-summary">
         <h3>Upload Complete</h3>
         <p>${result.uploaded} file(s) uploaded successfully</p>
-        ${result.failed > 0 ? `<p class="error">${result.failed} file(s) failed</p>` : ''}
+        ${result.failed > 0 ? `<p class="error">${result.failed} file(s) failed</p>` : ""}
       </div>
       
       <div class="upload-results-files">
         ${(result.results || [])
           .map(
             (file) => `
-          <div class="result-file ${file.status === 'error' ? 'result-file-error' : 'result-file-success'}">
+          <div class="result-file ${file.status === "error" ? "result-file-error" : "result-file-success"}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
               ${
-                file.status === 'error'
+                file.status === "error"
                   ? '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>'
                   : '<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>'
               }
@@ -226,7 +272,7 @@ function displayUploadResults(result) {
           </div>
         `
           )
-          .join('')}
+          .join("")}
       </div>
       
       <button class="btn-premium" onclick="location.reload()">Upload More Files</button>
@@ -237,18 +283,18 @@ function displayUploadResults(result) {
 }
 
 function createResultsContainer() {
-  const container = document.createElement('div');
-  container.id = 'uploadResults';
-  document.getElementById('uploadZone').insertAdjacentElement('afterend', container);
+  const container = document.createElement("div");
+  container.id = "uploadResults";
+  document.getElementById("uploadZone").insertAdjacentElement("afterend", container);
   return container;
 }
 
 function downloadUploadScript() {
-  showToast('PowerShell script is located at: tools/upload_pdfs.ps1', 'info');
+  showToast("PowerShell script is located at: tools/upload_pdfs.ps1", "info");
 }
 
 // Add CSS for upload UI
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
   .upload-zone--active {
     border-color: rgb(212 165 116 / 70%) !important;

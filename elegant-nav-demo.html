@@ -1,5 +1,5 @@
---- layout: none title: "Elegant Navigation Demo - Evident Technologies" description: "Demo of the new elegant header
-navigation system with beautiful desktop menu and mobile drawer" --
+--- layout: none title: "Elegant Navigation Demo - Evident Technologies" description: "Demo of the
+new elegant header navigation system with beautiful desktop menu and mobile drawer" --
 
 <!doctype html>
 <html lang="en">
@@ -9,7 +9,10 @@ navigation system with beautiful desktop menu and mobile drawer" --
     <title>{{ page.title }}</title>
 
     <!-- Elegant Header Styles -->
-    <link rel="stylesheet" href="{{ '/assets/css/components/elegant-header.css' | relative_url }}" />
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/components/elegant-header.css' | relative_url }}"
+    />
 
     <!-- Demo Styles -->
     <style>
@@ -20,7 +23,8 @@ navigation system with beautiful desktop menu and mobile drawer" --
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         line-height: 1.6;
         color: #0f172a;
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -132,7 +136,7 @@ navigation system with beautiful desktop menu and mobile drawer" --
         border-radius: 0.75rem;
         overflow-x: auto;
         margin: 1rem 0;
-        font-family: 'Courier New', monospace;
+        font-family: "Courier New", monospace;
         font-size: 0.875rem;
         line-height: 1.6;
       }
@@ -180,8 +184,18 @@ navigation system with beautiful desktop menu and mobile drawer" --
         <!-- Hero Section -->
         <div class="demo-hero">
           <h1>✨ Elegant Navigation System</h1>
-          <p>A beautiful, accessible, and modern navigation system designed for Evident Technologies</p>
-          <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap">
+          <p>
+            A beautiful, accessible, and modern navigation system designed for Evident Technologies
+          </p>
+          <div
+            style="
+              margin-top: 2rem;
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
             <span class="badge">Fully Responsive</span>
             <span class="badge">WCAG 2.1 AA</span>
             <span class="badge">Keyboard Accessible</span>
@@ -196,32 +210,50 @@ navigation system with beautiful desktop menu and mobile drawer" --
             <div class="feature-card">
               <span class="feature-card-icon">💻</span>
               <h4>Desktop Navigation</h4>
-              <p>Elegant dropdown menus with icons, titles, and descriptions. Hover or click to reveal.</p>
+              <p>
+                Elegant dropdown menus with icons, titles, and descriptions. Hover or click to
+                reveal.
+              </p>
             </div>
             <div class="feature-card">
               <span class="feature-card-icon">📱</span>
               <h4>Mobile Drawer</h4>
-              <p>Smooth slide-in drawer from the right with expandable submenus and beautiful animations.</p>
+              <p>
+                Smooth slide-in drawer from the right with expandable submenus and beautiful
+                animations.
+              </p>
             </div>
             <div class="feature-card">
               <span class="feature-card-icon">🎭</span>
               <h4>Glassmorphism</h4>
-              <p>Modern backdrop blur effect creates a stunning semi-transparent header that adapts on scroll.</p>
+              <p>
+                Modern backdrop blur effect creates a stunning semi-transparent header that adapts
+                on scroll.
+              </p>
             </div>
             <div class="feature-card">
               <span class="feature-card-icon">⌨️</span>
               <h4>Keyboard Navigation</h4>
-              <p>Full keyboard support with arrow keys, Tab, Escape, and shortcuts (Ctrl+K for search).</p>
+              <p>
+                Full keyboard support with arrow keys, Tab, Escape, and shortcuts (Ctrl+K for
+                search).
+              </p>
             </div>
             <div class="feature-card">
               <span class="feature-card-icon">♿</span>
               <h4>Accessibility</h4>
-              <p>WCAG 2.1 AA compliant with proper ARIA labels, focus management, and screen reader support.</p>
+              <p>
+                WCAG 2.1 AA compliant with proper ARIA labels, focus management, and screen reader
+                support.
+              </p>
             </div>
             <div class="feature-card">
               <span class="feature-card-icon">🌙</span>
               <h4>Dark Mode Ready</h4>
-              <p>Automatically adapts to user's system preferences with prefers-color-scheme media query.</p>
+              <p>
+                Automatically adapts to user's system preferences with prefers-color-scheme media
+                query.
+              </p>
             </div>
           </div>
         </div>
@@ -231,17 +263,24 @@ navigation system with beautiful desktop menu and mobile drawer" --
           <h2>🚀 Implementation</h2>
 
           <h3>1. Include the HTML</h3>
-          <div class="code-block">{% raw %}{% include components/navigation/elegant-header.html %}{% endraw %}</div>
+          <div class="code-block">
+            {% raw %}{% include components/navigation/elegant-header.html %}{% endraw %}
+          </div>
 
           <h3>2. Add the CSS</h3>
-          <div class="code-block">&lt;link rel="stylesheet" href="/assets/css/components/elegant-header.css"&gt;</div>
+          <div class="code-block">
+            &lt;link rel="stylesheet" href="/assets/css/components/elegant-header.css"&gt;
+          </div>
 
           <h3>3. Add the JavaScript</h3>
-          <div class="code-block">&lt;script src="/assets/js/elegant-header.js"&gt;&lt;/script&gt;</div>
+          <div class="code-block">
+            &lt;script src="/assets/js/elegant-header.js"&gt;&lt;/script&gt;
+          </div>
 
           <h3>4. That's it! 🎉</h3>
           <p style="margin-top: 1rem; color: #64748b">
-            The navigation system is fully functional and ready to use. No additional configuration needed.
+            The navigation system is fully functional and ready to use. No additional configuration
+            needed.
           </p>
         </div>
 

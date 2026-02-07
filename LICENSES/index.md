@@ -1,8 +1,7 @@
 ---
-title: 'Licensing & IP Index'
-description:
-  'Single entry point for proprietary IP notices, third-party licenses, and
-  governance documents for Evident.'
+title: "Licensing & IP Index"
+description: "Single entry point for proprietary IP notices, third-party licenses, and
+  governance documents for Evident."
 permalink: /licenses/
 ---
 

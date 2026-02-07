@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -18,9 +19,6 @@ financial-disclosures, political-affiliations, aba-ratings
 """
 
 import os
-from collections import Counter
-from datetime import datetime
-from typing import Dict, List, Optional
 
 import requests
 
@@ -48,7 +46,7 @@ class JudgeIntelligence:
             headers["Authorization"] = f"Token {self.api_key}"
         return headers
 
-    def get_judge_profile(self, judge_name: str = None, judge_id: int = None) -> Dict:
+    def get_judge_profile(self, judge_name: str = None, judge_id: int = None) -> dict:
         """
         Get comprehensive judge profile
 
@@ -94,7 +92,7 @@ class JudgeIntelligence:
             "notable_opinions": self.get_notable_opinions(judge_id, limit=10),
         }
 
-    def _find_judge_by_name(self, name: str) -> Optional[Dict]:
+Optional[def _find_judge_by_name(self, name: str) -> dict]:
         """Search for judge by name"""
         url = f"{self.api_base}people/"
         params = {"name_last__icontains": name.split()[-1]}
@@ -112,14 +110,14 @@ class JudgeIntelligence:
 
         return results[0] if results else None
 
-    def _get_judge_by_id(self, judge_id: int) -> Dict:
+    def _get_judge_by_id(self, judge_id: int) -> dict:
         """Get judge by ID"""
         url = f"{self.api_base}people/{judge_id}/"
         response = requests.get(url, headers=self._get_headers())
         response.raise_for_status()
         return response.json()
 
-    def _get_basic_info(self, judge: Dict) -> Dict:
+    def _get_basic_info(self, judge: dict) -> dict:
         """Extract basic information"""
         return {
             "name": judge.get("name_full"),
@@ -132,7 +130,7 @@ class JudgeIntelligence:
             "bio": judge.get("bio"),
         }
 
-    def get_education_history(self, judge_id: int) -> List[Dict]:
+    def get_education_history(self, judge_id: int) -> list[dict]:
         """
         Get complete education history
 
@@ -195,7 +193,7 @@ class JudgeIntelligence:
         # Could expand to T25, T50, etc.
         return "Ranked"
 
-    def get_career_history(self, judge_id: int) -> List[Dict]:
+    def get_career_history(self, judge_id: int) -> list[dict]:
         """
         Get complete career path
 
@@ -230,7 +228,7 @@ class JudgeIntelligence:
             for pos in positions
         ]
 
-    def _get_position_prestige(self, position: Dict) -> str:
+    def _get_position_prestige(self, position: dict) -> str:
         """Rate position prestige"""
         position_type = position.get("position_type", "").lower()
 
@@ -245,7 +243,7 @@ class JudgeIntelligence:
         else:
             return "Standard"
 
-    def get_political_affiliation(self, judge_id: int) -> Dict:
+    def get_political_affiliation(self, judge_id: int) -> dict:
         """
         Get political background
 
@@ -277,7 +275,7 @@ class JudgeIntelligence:
             "ideological_score": self._calculate_ideological_score(judge_id),
         }
 
-    def _get_appointing_president(self, judge_id: int) -> Optional[str]:
+Optional[def _get_appointing_president(self, judge_id: int) -> str]:
         """Get which president appointed the judge"""
         positions = self.get_career_history(judge_id)
 
@@ -287,7 +285,7 @@ class JudgeIntelligence:
 
         return None
 
-    def _calculate_ideological_score(self, judge_id: int) -> Dict:
+    def _calculate_ideological_score(self, judge_id: int) -> dict:
         """
         Calculate ideological score (simplified)
         In production, use Martin-Quinn scores or similar
@@ -317,7 +315,7 @@ class JudgeIntelligence:
             "note": "Simplified score based on appointing president",
         }
 
-    def get_aba_rating(self, judge_id: int) -> Dict:
+    def get_aba_rating(self, judge_id: int) -> dict:
         """
         Get American Bar Association rating
 
@@ -344,7 +342,7 @@ class JudgeIntelligence:
 
         return {"rating": "Not Available"}
 
-    def get_financial_summary(self, judge_id: int) -> Dict:
+    def get_financial_summary(self, judge_id: int) -> dict:
         """
         Get financial disclosure summary
 
@@ -376,7 +374,7 @@ class JudgeIntelligence:
             "note": "Full financial disclosures available via API",
         }
 
-    def get_opinion_statistics(self, judge_id: int) -> Dict:
+    def get_opinion_statistics(self, judge_id: int) -> dict:
         """
         Calculate opinion statistics
 
@@ -397,7 +395,7 @@ class JudgeIntelligence:
             "note": "Full statistics require opinion corpus analysis",
         }
 
-    def get_notable_opinions(self, judge_id: int, limit: int = 10) -> List[Dict]:
+    def get_notable_opinions(self, judge_id: int, limit: int = 10) -> list[dict]:
         """
         Get most notable/cited opinions by this judge
 
@@ -412,7 +410,7 @@ class JudgeIntelligence:
 # Helper functions for strategic litigation
 
 
-def analyze_judge_for_case(judge_name: str, case_type: str) -> Dict:
+def analyze_judge_for_case(judge_name: str, case_type: str) -> dict:
     """
     Strategic analysis for litigation
 

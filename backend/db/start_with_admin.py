@@ -16,14 +16,10 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 
 
-
-
-
 from app import app
+
 # Import models and app
 from models_auth import TierLevel, User, db
-
-
 
 # Initialize database
 with app.app_context():

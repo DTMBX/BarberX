@@ -18,9 +18,15 @@ def test_imports():
     print("🔍 Testing imports...")
 
     try:
-        from ux_helpers import (format_duration, format_file_size,
-                                format_number, register_ux_filters,
-                                tier_features, tier_pricing, usage_percentage)
+        from ux_helpers import (
+            format_duration,
+            format_file_size,
+            format_number,
+            register_ux_filters,
+            tier_features,
+            tier_pricing,
+            usage_percentage,
+        )
 
         print("✅ ux_helpers imported successfully")
     except ImportError as e:
@@ -44,8 +50,14 @@ def test_helper_functions():
     """Test helper function outputs"""
     print("\n🧪 Testing helper functions...")
 
-    from ux_helpers import (format_duration, format_file_size, format_number,
-                            tier_pricing, usage_percentage, usage_status)
+    from ux_helpers import (
+        format_duration,
+        format_file_size,
+        format_number,
+        tier_pricing,
+        usage_percentage,
+        usage_status,
+    )
 
     tests = [
         (format_number(1500), "1,500", "format_number"),
@@ -143,7 +155,7 @@ def test_accessibility_features():
     print("\n♿ Testing accessibility features...")
 
     try:
-        with open("assets/css/accessibility.css", "r") as f:
+        with open("assets/css/accessibility.css") as f:
             css_content = f.read()
 
         required_features = [

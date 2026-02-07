@@ -9,7 +9,7 @@
 }
 
 .ff-logo-faq h2 {
-  font-family: Cinzel, 'Libre Baskerville', serif;
+  font-family: Cinzel, "Libre Baskerville", serif;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -25,7 +25,7 @@
 }
 
 .ff-faq-item h3 {
-  font-family: Inter, 'Source Sans Pro', system-ui, sans-serif;
+  font-family: Inter, "Source Sans Pro", system-ui, sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.04em;

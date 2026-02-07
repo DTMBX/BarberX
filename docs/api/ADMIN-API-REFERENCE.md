@@ -401,15 +401,15 @@ GET /admin/audit-logs?action=user_edit&limit=200
 
 ```javascript
 // 1. Get user details
-const user = await fetch('/admin/users/123');
+const user = await fetch("/admin/users/123");
 
 // 2. Update subscription tier
-const response = await fetch('/admin/users/123', {
-  method: 'PUT',
-  headers: { 'Content-Type': 'application/json' },
+const response = await fetch("/admin/users/123", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    subscription_tier: 'professional',
-    role: 'pro',
+    subscription_tier: "professional",
+    role: "pro",
   }),
 });
 
@@ -423,8 +423,8 @@ const response = await fetch('/admin/users/123', {
 
 ```javascript
 // Disable user account
-const response = await fetch('/admin/users/456/toggle-status', {
-  method: 'POST',
+const response = await fetch("/admin/users/456/toggle-status", {
+  method: "POST",
 });
 
 // Result: { "message": "User disabled successfully", "is_active": false }
@@ -435,11 +435,11 @@ const response = await fetch('/admin/users/456/toggle-status', {
 
 ```javascript
 // 1. Get all failed analyses
-const analyses = await fetch('/admin/analyses?status=failed');
+const analyses = await fetch("/admin/analyses?status=failed");
 
 // 2. Delete each one
 for (const analysis of analyses.analyses) {
-  await fetch(`/admin/analyses/${analysis.id}`, { method: 'DELETE' });
+  await fetch(`/admin/analyses/${analysis.id}`, { method: "DELETE" });
 }
 
 // Frees up storage space

@@ -1,11 +1,14 @@
-import importlib, traceback, sys
-print('sys.path (first 5):', sys.path[:5])
+import importlib
+import sys
+import traceback
 
-candidates = ['src.app', 'app']
+print("sys.path (first 5):", sys.path[:5])
+
+candidates = ["src.app", "app"]
 for modname in candidates:
     try:
         importlib.import_module(modname)
-        print('OK', modname)
+        print("OK", modname)
     except Exception:
-        print('FAILED', modname)
+        print("FAILED", modname)
         traceback.print_exc()

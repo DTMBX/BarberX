@@ -51,10 +51,13 @@ def main():
     # Test 2: Check imports
     print("\n2. Checking imports...")
     try:
-        from performance_optimizations import (SimpleCache, cached,
-                                               compress_response,
-                                               paginated_query,
-                                               stream_file_hash)
+        from performance_optimizations import (
+            SimpleCache,
+            cached,
+            compress_response,
+            paginated_query,
+            stream_file_hash,
+        )
 
         test_result("performance_optimizations imports", True)
     except ImportError as e:
@@ -79,7 +82,7 @@ def main():
     # Test 4: Check Flask-Compress in requirements
     print("\n4. Checking requirements.txt...")
     try:
-        with open("requirements.txt", "r") as f:
+        with open("requirements.txt") as f:
             content = f.read()
             has_compress = "Flask-Compress" in content
             test_result("Flask-Compress in requirements", has_compress)
@@ -91,7 +94,7 @@ def main():
     # Test 5: Check app.py modifications
     print("\n5. Checking app.py modifications...")
     try:
-        with open("app.py", "r", encoding="utf-8", errors="ignore") as f:
+        with open("app.py", encoding="utf-8", errors="ignore") as f:
             content = f.read()
 
             checks = {
@@ -112,7 +115,7 @@ def main():
     # Test 6: Check config_manager.py indexes
     print("\n6. Checking database indexes...")
     try:
-        with open("config_manager.py", "r", encoding="utf-8", errors="ignore") as f:
+        with open("config_manager.py", encoding="utf-8", errors="ignore") as f:
             content = f.read()
 
             # Count indexes

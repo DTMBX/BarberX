@@ -7,8 +7,6 @@ Pre-loaded sample cases with full reports for FREE tier users
 Cost: $0 (pre-generated, no processing)
 """
 
-from datetime import datetime, timedelta
-
 from models_auth import TierLevel
 
 DEMO_CASES = [

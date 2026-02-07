@@ -112,7 +112,7 @@ small {
 }
 
 code {
-  font-family: Monaco, 'Courier New', monospace;
+  font-family: Monaco, "Courier New", monospace;
   font-size: 0.9em;
   background: rgb(0 0 0 / 20%);
   padding: 0.2em 0.4em;
@@ -239,12 +239,12 @@ button {
   line-height: inherit;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='search'],
-input[type='url'],
-input[type='tel'],
-input[type='number'],
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
 textarea,
 select {
   width: 100%;

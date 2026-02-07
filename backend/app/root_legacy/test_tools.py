@@ -79,20 +79,17 @@ if optional_missing:
 # Test 3: Tesseract OCR binary
 print("\n[3/6] Testing Tesseract OCR Binary...")
 try:
-    import io
-
     import pytesseract
-    from PIL import Image
 
     # Try to get tesseract version
     try:
         version = pytesseract.get_tesseract_version()
         print(f"  ✓ Tesseract OCR binary found: v{version}")
     except Exception as e:
-        print(f"  ✗ Tesseract binary not found or not in PATH")
+        print("  ✗ Tesseract binary not found or not in PATH")
         print(f"    Error: {e}")
-        print(f"    Install from: https://github.com/UB-Mannheim/tesseract/wiki")
-        print(f"    Or via chocolatey: choco install tesseract")
+        print("    Install from: https://github.com/UB-Mannheim/tesseract/wiki")
+        print("    Or via chocolatey: choco install tesseract")
 except Exception as e:
     print(f"  ✗ Cannot test Tesseract: {e}")
 
@@ -104,16 +101,12 @@ try:
     # Test critical imports from app.py
     print("  Testing tier_gating module...")
     try:
-        from tier_gating import TierLevel, check_usage_limit, require_tier
-
         print("    ✓ tier_gating imports successful")
     except Exception as e:
         print(f"    ✗ tier_gating import failed: {e}")
 
     print("  Testing models_auth module...")
     try:
-        from models_auth import UsageTracking, User
-
         print("    ✓ models_auth imports successful")
     except Exception as e:
         print(f"    ⚠ models_auth import failed (may need database): {e}")
@@ -188,5 +181,3 @@ print("\n4. Access the tools hub at:")
 print("   http://localhost:5000/tools")
 
 print("\n" + "=" * 60)
-
-

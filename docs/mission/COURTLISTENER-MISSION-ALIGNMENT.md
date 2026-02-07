@@ -154,8 +154,8 @@ at CourtListener.com.
 ```html
 <footer>
   <p>
-    Case data: <a href="https://www.courtlistener.com">CourtListener</a> | A
-    project of <a href="https://free.law">Free Law Project</a>
+    Case data: <a href="https://www.courtlistener.com">CourtListener</a> | A project of
+    <a href="https://free.law">Free Law Project</a>
   </p>
 </footer>
 ```

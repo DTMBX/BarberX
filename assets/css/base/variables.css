@@ -59,8 +59,8 @@
   --text-on-emerald: var(--cream-50);
 
   /* ===== TYPOGRAPHY ===== */
-  --ff-sans: 'Inter', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
-  --ff-serif: 'Merriweather', 'Crimson Text', georgia, serif;
+  --ff-sans: "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  --ff-serif: "Merriweather", "Crimson Text", georgia, serif;
   --text-xs: 0.75rem;
   --text-sm: 0.85rem;
   --text-base: 1rem;
@@ -152,7 +152,7 @@
 
 .light-mode,
 .ff-home,
-[data-theme='light'] {
+[data-theme="light"] {
   --ff-surface: var(--stone-100);
   --ff-surface-alt: var(--stone-50);
   --ff-text: var(--ink-900); /* ✅ 17.21:1 contrast */
@@ -168,7 +168,7 @@
 }
 
 /* ===== DARK MODE OVERRIDES ===== */
-[data-theme='dark'],
+[data-theme="dark"],
 body:not(.light-mode, .ff-home) {
   --ff-text: var(--cream-50); /* ✅ 18.59:1 contrast */
   --ff-text-muted: var(--muted-300); /* ✅ 13.09:1 contrast */

@@ -78,8 +78,7 @@ Edit `/assets/js/docket-submit.js` and replace the placeholder URL with your
 worker URL:
 
 ```javascript
-const workerUrl =
-  'https://docket-upload.your-subdomain.workers.dev/docket-upload';
+const workerUrl = "https://docket-upload.your-subdomain.workers.dev/docket-upload";
 ```
 
 ### 4. Configure CORS (if needed)

@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -7,8 +8,7 @@ Handles OpenAI API interactions with user-provided API keys
 """
 
 import os
-from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import openai
 
@@ -16,7 +16,7 @@ import openai
 class ChatGPTService:
     """Service for interacting with OpenAI's ChatGPT API"""
 
-    def __init__(self, api_key: Optional[str] = None):
+Optional[def __init__(self, api_key: str] = None):
         """
         Initialize ChatGPT service
 
@@ -27,7 +27,7 @@ class ChatGPTService:
         if self.api_key:
             openai.api_key = self.api_key
 
-    def validate_api_key(self, api_key: str) -> Dict[str, Any]:
+    def validate_api_key(self, api_key: str) -> dict[str, Any]:
         """
         Validate an OpenAI API key
 
@@ -63,12 +63,12 @@ class ChatGPTService:
 
     def create_chat_completion(
         self,
-        messages: List[Dict[str, str]],
+        messages: list[dict[str, str]],
         model: str = "gpt-4",
         max_tokens: int = 4000,
         temperature: float = 0.7,
         stream: bool = False,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Create a chat completion
 
@@ -108,7 +108,7 @@ class ChatGPTService:
                 "finish_reason": response.choices[0].finish_reason,
             }
 
-        except openai.RateLimitError as e:
+        except openai.RateLimitError:
             return {
                 "success": False,
                 "error": "Rate limit exceeded. Please try again later.",
@@ -125,7 +125,7 @@ class ChatGPTService:
 
     def create_chat_completion_stream(
         self,
-        messages: List[Dict[str, str]],
+        messages: list[dict[str, str]],
         model: str = "gpt-4",
         max_tokens: int = 4000,
         temperature: float = 0.7,
@@ -155,7 +155,7 @@ class ChatGPTService:
         except Exception as e:
             yield {"success": False, "error": str(e)}
 
-    def build_legal_system_prompt(self, custom_instructions: Optional[str] = None) -> str:
+Optional[def build_legal_system_prompt(self, custom_instructions: str] = None) -> str:
         """
         Build system prompt for legal analysis
 
@@ -233,5 +233,3 @@ IMPORTANT: You are an AI assistant, not a licensed attorney. Always remind users
         # Truncate to approximate character count
         max_chars = max_tokens * 4
         return context[:max_chars] + "\n\n[Context truncated due to length...]"
-
-

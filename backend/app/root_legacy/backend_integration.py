@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -20,10 +21,11 @@ import json
 import logging
 import threading
 import time
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from enum import Enum
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any
 
 # ========================================
 # SERVICE REGISTRY
@@ -47,22 +49,22 @@ class ServiceInfo:
     instance: Any
     status: ServiceStatus = ServiceStatus.AVAILABLE
     version: str = "1.0.0"
-    dependencies: List[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
     initialized_at: datetime = field(default_factory=datetime.utcnow)
     error_count: int = 0
-    last_error: Optional[str] = None
+Optional[last_error: str] = None
 
 
 class ServiceRegistry:
     """Central registry for all platform services"""
 
     def __init__(self):
-        self._services: Dict[str, ServiceInfo] = {}
+        self._services: dict[str, ServiceInfo] = {}
         self._logger = logging.getLogger(__name__)
         self._lock = threading.Lock()
 
     def register(
-        self, name: str, service: Any, version: str = "1.0.0", dependencies: List[str] = None
+        self, name: str, service: Any, version: str = "1.0.0", dependencies: list[str] = None
     ) -> None:
         """Register a service"""
         with self._lock:
@@ -71,7 +73,7 @@ class ServiceRegistry:
             )
             self._logger.info(f"Service registered: {name} v{version}")
 
-    def get(self, name: str) -> Optional[Any]:
+Optional[def get(self, name: str) -> Any]:
         """Get service instance"""
         service_info = self._services.get(name)
         if not service_info:
@@ -101,7 +103,7 @@ class ServiceRegistry:
                     self._services[name].status = ServiceStatus.UNAVAILABLE
                     self._logger.error(f"Service disabled due to errors: {name}")
 
-    def get_status(self) -> Dict[str, Dict]:
+    def get_status(self) -> dict[str, dict]:
         """Get status of all services"""
         return {
             name: {
@@ -136,13 +138,13 @@ class Cache:
     """Simple in-memory cache with TTL support"""
 
     def __init__(self, default_ttl: int = 3600):
-        self._cache: Dict[str, tuple] = {}  # key -> (value, expiry)
+        self._cache: dict[str, tuple] = {}  # key -> (value, expiry)
         self._lock = threading.Lock()
         self._default_ttl = default_ttl
         self._hits = 0
         self._misses = 0
 
-    def get(self, key: str) -> Optional[Any]:
+Optional[def get(self, key: str) -> Any]:
         """Get value from cache"""
         with self._lock:
             if key in self._cache:
@@ -159,7 +161,7 @@ class Cache:
             self._misses += 1
             return None
 
-    def set(self, key: str, value: Any, ttl: Optional[int] = None) -> None:
+Optional[def set(self, key: str, value: Any, ttl: int] = None) -> None:
         """Set value in cache"""
         with self._lock:
             ttl = ttl or self._default_ttl
@@ -177,7 +179,7 @@ class Cache:
         with self._lock:
             self._cache.clear()
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> dict:
         """Get cache statistics"""
         with self._lock:
             total_requests = self._hits + self._misses
@@ -234,7 +236,7 @@ class PerformanceMonitor:
     """Monitor service performance"""
 
     def __init__(self):
-        self._metrics: Dict[str, List[float]] = {}
+        self._metrics: dict[str, list[float]] = {}
         self._lock = threading.Lock()
 
     def record(self, operation: str, duration: float) -> None:
@@ -249,7 +251,7 @@ class PerformanceMonitor:
             if len(self._metrics[operation]) > 1000:
                 self._metrics[operation] = self._metrics[operation][-1000:]
 
-    def get_stats(self, operation: str) -> Dict[str, float]:
+    def get_stats(self, operation: str) -> dict[str, float]:
         """Get performance statistics for operation"""
         with self._lock:
             if operation not in self._metrics or not self._metrics[operation]:
@@ -268,7 +270,7 @@ class PerformanceMonitor:
                 ),
             }
 
-    def get_all_stats(self) -> Dict[str, Dict]:
+    def get_all_stats(self) -> dict[str, dict]:
         """Get all performance statistics"""
         return {operation: self.get_stats(operation) for operation in self._metrics.keys()}
 
@@ -278,7 +280,7 @@ perf_monitor = PerformanceMonitor()
 performance_monitor = perf_monitor  # Alias for consistency
 
 
-def monitored(operation_name: Optional[str] = None):
+Optional[def monitored(operation_name: str] = None):
     """Decorator for monitoring function performance"""
 
     def decorator(func: Callable) -> Callable:
@@ -350,7 +352,7 @@ def handle_service_errors(service_name: str):
 class Event:
     """Event for inter-service communication"""
 
-    def __init__(self, event_type: str, data: Dict, source: str):
+    def __init__(self, event_type: str, data: dict, source: str):
         self.event_type = event_type
         self.data = data
         self.source = source
@@ -362,7 +364,7 @@ class EventBus:
     """Simple event bus for service communication"""
 
     def __init__(self):
-        self._handlers: Dict[str, List[Callable]] = {}
+        self._handlers: dict[str, list[Callable]] = {}
         self._lock = threading.Lock()
         self._logger = logging.getLogger(__name__)
 
@@ -394,7 +396,7 @@ event_bus = EventBus()
 # ========================================
 
 
-def success_response(data: Any, message: str = "Success", meta: Dict = None) -> Dict:
+def success_response(data: Any, message: str = "Success", meta: dict = None) -> dict:
     """Create standardized success response"""
     return {
         "success": True,
@@ -405,7 +407,7 @@ def success_response(data: Any, message: str = "Success", meta: Dict = None) -> 
     }
 
 
-def error_response(error: str, code: str = "ERROR", details: Dict = None) -> Dict:
+def error_response(error: str, code: str = "ERROR", details: dict = None) -> dict:
     """Create standardized error response"""
     return {
         "success": False,
@@ -421,14 +423,14 @@ def error_response(error: str, code: str = "ERROR", details: Dict = None) -> Dic
 # ========================================
 
 
-def validate_required_fields(data: Dict, required: List[str]) -> None:
+def validate_required_fields(data: dict, required: list[str]) -> None:
     """Validate required fields in data"""
     missing = [field for field in required if field not in data or not data[field]]
     if missing:
         raise ValidationError(f"Missing required fields: {', '.join(missing)}")
 
 
-def validate_file_type(filename: str, allowed_extensions: List[str]) -> bool:
+def validate_file_type(filename: str, allowed_extensions: list[str]) -> bool:
     """Validate file extension"""
     if "." not in filename:
         return False
@@ -465,10 +467,10 @@ class Task:
     kwargs: dict
     status: TaskStatus = TaskStatus.PENDING
     result: Any = None
-    error: Optional[str] = None
+Optional[error: str] = None
     created_at: datetime = field(default_factory=datetime.utcnow)
-    started_at: Optional[datetime] = None
-    completed_at: Optional[datetime] = None
+Optional[started_at: datetime] = None
+Optional[completed_at: datetime] = None
 
 
 class TaskQueue:
@@ -476,7 +478,7 @@ class TaskQueue:
 
     def __init__(self, num_workers: int = 4):
         self._queue = Queue()
-        self._tasks: Dict[str, Task] = {}
+        self._tasks: dict[str, Task] = {}
         self._lock = threading.Lock()
         self._workers = []
         self._running = True
@@ -527,7 +529,7 @@ class TaskQueue:
         self._queue.put(task)
         return task_id
 
-    def get_status(self, task_id: str) -> Optional[Dict]:
+Optional[def get_status(self, task_id: str) -> dict]:
         """Get task status"""
         with self._lock:
             task = self._tasks.get(task_id)
@@ -560,7 +562,7 @@ task_queue = TaskQueue(num_workers=4)
 # ========================================
 
 
-def get_system_status() -> Dict:
+def get_system_status() -> dict:
     """Get overall system status"""
     return {
         "services": service_registry.get_status(),
@@ -616,5 +618,3 @@ if __name__ == "__main__":
     print(json.dumps(get_system_status(), indent=2))
 
     task_queue.shutdown()
-
-

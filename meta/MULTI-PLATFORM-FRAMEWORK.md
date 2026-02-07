@@ -377,7 +377,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
       - run: dotnet build -f net10.0-android
 
   build-ios:
@@ -386,7 +386,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
       - run: dotnet build -f net10.0-ios
 ```
 
@@ -404,7 +404,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: "3.9"
       - run: pip install -r requirements.txt
       - run: pytest
       - run: # Deploy to production

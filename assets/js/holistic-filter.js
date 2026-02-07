@@ -7,28 +7,28 @@
 
   const frostData = window.HOLISTIC_FROST || null;
 
-  const zoneSelect = document.getElementById('zoneSelect');
-  const stateSelect = document.getElementById('stateSelect');
-  const searchInput = document.getElementById('searchInput');
-  const chipsWrap = document.getElementById('conditionChips');
-  const resultsGrid = document.getElementById('resultsGrid');
-  const resultsMeta = document.getElementById('resultsMeta');
+  const zoneSelect = document.getElementById("zoneSelect");
+  const stateSelect = document.getElementById("stateSelect");
+  const searchInput = document.getElementById("searchInput");
+  const chipsWrap = document.getElementById("conditionChips");
+  const resultsGrid = document.getElementById("resultsGrid");
+  const resultsMeta = document.getElementById("resultsMeta");
 
   if (!zoneSelect || !chipsWrap || !resultsGrid || !resultsMeta) return;
 
   // Optional: if you add a tooltip div in the page, this will use it.
   // <div id="mapTooltip" class="map-tooltip" hidden></div>
-  const tooltip = document.getElementById('mapTooltip') || null;
+  const tooltip = document.getElementById("mapTooltip") || null;
 
   // Optional: state→zone fallback (you can fill this progressively)
   // Prefer storing zones directly on SVG states via data-zone.
   const stateZoneFallback = window.HOLISTIC_STATE_ZONES || {}; // e.g., { "FL": 9, "NJ": 7 }
 
   const selected = {
-    zone: '',
+    zone: "",
     conditions: new Set(),
-    q: '',
-    state: '',
+    q: "",
+    state: "",
   };
 
   // ------------------------------
@@ -39,29 +39,29 @@
       /[&<>"']/g,
       (m) =>
         ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#039;',
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;",
         })[m]
     );
   }
 
   function getFrostLine(zone) {
-    if (!zone || !frostData?.zones) return '';
+    if (!zone || !frostData?.zones) return "";
     const frost = frostData.zones.find((x) => String(x.zone) === String(zone));
-    if (!frost) return '';
+    if (!frost) return "";
     return `Approx. frost window: last spring ${frost.last_spring_frost} • first fall ${frost.first_fall_frost} (verify locally)`;
   }
 
-  function setSelectedZone(zone, { stateAbbr = '' } = {}) {
+  function setSelectedZone(zone, { stateAbbr = "" } = {}) {
     if (zone) {
       zoneSelect.value = zone;
       selected.zone = String(zone);
     } else {
-      zoneSelect.value = '';
-      selected.zone = '';
+      zoneSelect.value = "";
+      selected.zone = "";
     }
 
     if (stateAbbr) {
@@ -92,7 +92,7 @@
   }
 
   function matchesQuery(plant) {
-    const q = (selected.q || '').trim().toLowerCase();
+    const q = (selected.q || "").trim().toLowerCase();
     if (!q) return true;
 
     const hay = [
@@ -105,7 +105,7 @@
       ...(plant.tags || []),
     ]
       .filter(Boolean)
-      .join(' ')
+      .join(" ")
       .toLowerCase();
 
     return hay.includes(q);
@@ -121,21 +121,21 @@
   // UI: Chips
   // ------------------------------
   function buildChips() {
-    chipsWrap.innerHTML = '';
+    chipsWrap.innerHTML = "";
     (data.conditions || []).forEach((c) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'chip';
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "chip";
       btn.dataset.cond = c.id;
       btn.textContent = c.label;
 
-      btn.addEventListener('click', () => {
+      btn.addEventListener("click", () => {
         if (selected.conditions.has(c.id)) {
           selected.conditions.delete(c.id);
-          btn.classList.remove('chip-on');
+          btn.classList.remove("chip-on");
         } else {
           selected.conditions.add(c.id);
-          btn.classList.add('chip-on');
+          btn.classList.add("chip-on");
         }
         render();
       });
@@ -153,28 +153,28 @@
         const label = (data.conditions || []).find((c) => c.id === t)?.label || t;
         return `<span class="tag">${escapeHtml(label)}</span>`;
       })
-      .join('');
+      .join("");
 
-    const uses = (p.uses || []).map((u) => `<li>${escapeHtml(u)}</li>`).join('');
-    const cautions = (p.cautions || []).map((c) => `<li>${escapeHtml(c)}</li>`).join('');
+    const uses = (p.uses || []).map((u) => `<li>${escapeHtml(u)}</li>`).join("");
+    const cautions = (p.cautions || []).map((c) => `<li>${escapeHtml(c)}</li>`).join("");
 
     return `
       <article class="plant-card">
         <header>
-          <h3>${escapeHtml(p.name)} <span class="latin">${escapeHtml(p.latin || '')}</span></h3>
+          <h3>${escapeHtml(p.name)} <span class="latin">${escapeHtml(p.latin || "")}</span></h3>
           <p class="meta">
-            <span class="pill">Type: ${escapeHtml(p.type || 'plant')}</span>
-            <span class="pill">Zones: ${p.zones?.min ?? '?'}–${p.zones?.max ?? '?'}</span>
+            <span class="pill">Type: ${escapeHtml(p.type || "plant")}</span>
+            <span class="pill">Zones: ${p.zones?.min ?? "?"}–${p.zones?.max ?? "?"}</span>
           </p>
         </header>
 
         <div class="tags">${tags}</div>
 
-        ${p.grow_notes ? `<p class="notes"><strong>Grow:</strong> ${escapeHtml(p.grow_notes)}</p>` : ''}
+        ${p.grow_notes ? `<p class="notes"><strong>Grow:</strong> ${escapeHtml(p.grow_notes)}</p>` : ""}
 
-        ${uses ? `<div><strong>Practical uses</strong><ul>${uses}</ul></div>` : ''}
+        ${uses ? `<div><strong>Practical uses</strong><ul>${uses}</ul></div>` : ""}
 
-        ${cautions ? `<div class="cautions"><strong>Cautions</strong><ul>${cautions}</ul></div>` : ''}
+        ${cautions ? `<div class="cautions"><strong>Cautions</strong><ul>${cautions}</ul></div>` : ""}
 
         <footer class="smallprint">
           Educational only. Medication changes require clinician collaboration.
@@ -189,11 +189,11 @@
 
     resultsMeta.textContent =
       `${plants.length} plant(s) match` +
-      (selected.zone ? ` • zone ${selected.zone}` : '') +
-      (selected.conditions.size ? ` • ${selected.conditions.size} condition filter(s)` : '') +
-      (frostLine ? ` • ${frostLine}` : '');
+      (selected.zone ? ` • zone ${selected.zone}` : "") +
+      (selected.conditions.size ? ` • ${selected.conditions.size} condition filter(s)` : "") +
+      (frostLine ? ` • ${frostLine}` : "");
 
-    resultsGrid.innerHTML = plants.map(plantCard).join('');
+    resultsGrid.innerHTML = plants.map(plantCard).join("");
 
     // Optional: keep the map colored with the currently selected zone scheme
     colorizeMapByZone();
@@ -204,43 +204,43 @@
   // ------------------------------
   function getMapRoot() {
     // Inline SVG case:
-    const inline = document.getElementById('usMapSvg');
+    const inline = document.getElementById("usMapSvg");
     if (inline) return inline;
 
     // <object> case:
-    const obj = document.getElementById('usMapObj');
+    const obj = document.getElementById("usMapObj");
     if (!obj) return null;
     const svgDoc = obj.contentDocument;
     if (!svgDoc) return null;
-    return svgDoc.querySelector('svg');
+    return svgDoc.querySelector("svg");
   }
 
   function getStateElements(mapRoot) {
     if (!mapRoot) return [];
-    return Array.from(mapRoot.querySelectorAll('[data-state], .state, path[id]'));
+    return Array.from(mapRoot.querySelectorAll("[data-state], .state, path[id]"));
   }
 
   function getStateAbbr(el) {
-    return el.getAttribute('data-state') || el.getAttribute('id') || '';
+    return el.getAttribute("data-state") || el.getAttribute("id") || "";
   }
 
   function getStateZone(el, abbr) {
-    const z = el.getAttribute('data-zone') || '';
+    const z = el.getAttribute("data-zone") || "";
     if (z) return z;
     if (abbr && stateZoneFallback[abbr]) return String(stateZoneFallback[abbr]);
-    return '';
+    return "";
   }
 
   // Simple, readable discrete zone palette.
   // (No hardcoded “brand colors” — you can theme these via CSS later if desired.)
   function zoneToFill(zone) {
     const z = Number(zone);
-    if (!Number.isFinite(z)) return '';
-    if (z <= 4) return '#dbeafe';
-    if (z <= 6) return '#bbf7d0';
-    if (z <= 8) return '#fde68a';
-    if (z <= 10) return '#fecaca';
-    return '#e9d5ff';
+    if (!Number.isFinite(z)) return "";
+    if (z <= 4) return "#dbeafe";
+    if (z <= 6) return "#bbf7d0";
+    if (z <= 8) return "#fde68a";
+    if (z <= 10) return "#fecaca";
+    return "#e9d5ff";
   }
 
   function colorizeMapByZone() {
@@ -254,7 +254,7 @@
       const zone = getStateZone(el, abbr);
       const fill = zoneToFill(zone);
       if (fill) el.style.fill = fill;
-      el.style.cursor = 'pointer';
+      el.style.cursor = "pointer";
     });
   }
 
@@ -264,22 +264,22 @@
 
     // Remove old selection
     mapRoot
-      .querySelectorAll('.state--selected')
-      .forEach((n) => n.classList.remove('state-selected'));
+      .querySelectorAll(".state--selected")
+      .forEach((n) => n.classList.remove("state-selected"));
 
     if (!selected.state) return;
 
     const sel = mapRoot.querySelector(
       `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`
     );
-    if (sel) sel.classList.add('state-selected');
+    if (sel) sel.classList.add("state-selected");
   }
 
   function wireMap() {
     // For <object> maps, wait for load
-    const obj = document.getElementById('usMapObj');
+    const obj = document.getElementById("usMapObj");
     if (obj) {
-      obj.addEventListener('load', () => {
+      obj.addEventListener("load", () => {
         attachMapHandlers();
       });
     } else {
@@ -299,7 +299,7 @@
       const abbr = getStateAbbr(el);
       if (!abbr || abbr.length > 3) return;
 
-      el.addEventListener('click', () => {
+      el.addEventListener("click", () => {
         const zone = getStateZone(el, abbr);
 
         // If the SVG doesn't provide a zone, we still select the state and render
@@ -314,18 +314,18 @@
       });
 
       if (tooltip) {
-        el.addEventListener('mousemove', (e) => {
+        el.addEventListener("mousemove", (e) => {
           const zone = getStateZone(el, abbr);
-          const frostLine = zone ? getFrostLine(zone) : '';
+          const frostLine = zone ? getFrostLine(zone) : "";
           tooltip.hidden = false;
           tooltip.innerHTML =
             `<strong>${escapeHtml(abbr)}</strong>` +
-            (zone ? `<div>Zone: ${escapeHtml(zone)}</div>` : '') +
-            (frostLine ? `<div>${escapeHtml(frostLine)}</div>` : '');
+            (zone ? `<div>Zone: ${escapeHtml(zone)}</div>` : "") +
+            (frostLine ? `<div>${escapeHtml(frostLine)}</div>` : "");
           tooltip.style.left = `${e.pageX + 12}px`;
           tooltip.style.top = `${e.pageY + 12}px`;
         });
-        el.addEventListener('mouseleave', () => {
+        el.addEventListener("mouseleave", () => {
           tooltip.hidden = true;
         });
       }
@@ -335,13 +335,13 @@
   // ------------------------------
   // Events
   // ------------------------------
-  zoneSelect.addEventListener('change', () => {
+  zoneSelect.addEventListener("change", () => {
     setSelectedZone(zoneSelect.value, { stateAbbr: selected.state });
   });
 
-  stateSelect?.addEventListener('change', () => {
+  stateSelect?.addEventListener("change", () => {
     const opt = stateSelect.selectedOptions?.[0];
-    const abbr = stateSelect.value || '';
+    const abbr = stateSelect.value || "";
     if (opt?.dataset?.zone) {
       setSelectedZone(opt.dataset.zone, { stateAbbr: abbr });
     } else {
@@ -351,7 +351,7 @@
     }
   });
 
-  searchInput?.addEventListener('input', () => {
+  searchInput?.addEventListener("input", () => {
     selected.q = searchInput.value;
     render();
   });

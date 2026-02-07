@@ -142,9 +142,9 @@ Then in your frontend (JavaScript):
 ```javascript
 // Ask a question
 async function askQuestion(query) {
-  const response = await fetch('/api/chat/ask', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  const response = await fetch("/api/chat/ask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: query,
       retrieve_references: true,
@@ -155,18 +155,18 @@ async function askQuestion(query) {
 
   const data = await response.json();
 
-  console.log('Answer:', data.answer);
-  console.log('Citations:', data.citations);
+  console.log("Answer:", data.answer);
+  console.log("Citations:", data.citations);
 
   return data;
 }
 
 // List conversations
 async function listConversations() {
-  const response = await fetch('/api/chat/conversations?limit=20');
+  const response = await fetch("/api/chat/conversations?limit=20");
   const data = await response.json();
 
-  console.log('Conversations:', data.conversations);
+  console.log("Conversations:", data.conversations);
 
   return data;
 }

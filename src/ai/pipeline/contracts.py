@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -22,7 +23,8 @@ NON-NEGOTIABLE FIELDS FOR PROVENANCE:
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Dict, List, Optional
+
+# typing imports not required; using PEP 585 builtin generic types
 
 
 class SourceSystem(Enum):
@@ -60,12 +62,12 @@ class IngestResult:
     storage_path_original: str  # Absolute path to saved original
     file_size_bytes: int
     source_system: SourceSystem
-    metadata: Dict[str, any] = field(default_factory=dict)  # User-provided metadata
+    metadata: dict[str, any] = field(default_factory=dict)  # User-provided metadata
     created_at: datetime = field(default_factory=datetime.utcnow)
 
     # Deduplication info
     is_duplicate: bool = False
-    duplicate_of_doc_id: Optional[int] = None
+Optional[duplicate_of_doc_id: int] = None
 
 
 @dataclass
@@ -75,9 +77,9 @@ class PageExtraction:
     page_number: int  # 1-indexed
     text: str
     char_count: int
-    storage_path: Optional[str] = None  # Path to cached page text file
+Optional[storage_path: str] = None  # Path to cached page text file
     extraction_method: ExtractionMethod = ExtractionMethod.TEXT
-    confidence_score: Optional[float] = None  # OCR confidence if applicable
+Optional[confidence_score: float] = None  # OCR confidence if applicable
 
 
 @dataclass
@@ -94,13 +96,13 @@ class ExtractResult:
     doc_id: int
     sha256: str
     total_pages: int
-    pages: List[PageExtraction]  # Page-level text with offsets
+    pages: list[PageExtraction]  # Page-level text with offsets
 
     # Extraction metadata
     text_layer_detected: bool  # Was native text present?
     extraction_method: ExtractionMethod  # How we got the text
     ocr_triggered: bool = False
-    storage_path_processed: Optional[str] = None  # Path to OCR'd PDF if created
+Optional[storage_path_processed: str] = None  # Path to OCR'd PDF if created
 
     # Quality metrics
     total_chars: int = 0
@@ -131,7 +133,7 @@ class IndexResult:
 
     # Quality metrics
     total_terms: int = 0  # Unique terms in keyword index
-    embedding_dimensions: Optional[int] = None
+Optional[embedding_dimensions: int] = None
 
     indexed_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -163,8 +165,8 @@ class Passage:
     match_type: str = "keyword"  # keyword, semantic, hybrid
 
     # Optional structured extraction
-    entities: List[Dict] = field(default_factory=list)  # NER results
-    metadata: Dict[str, any] = field(default_factory=dict)
+    entities: list[dict] = field(default_factory=list)  # NER results
+    metadata: dict[str, any] = field(default_factory=dict)
 
 
 @dataclass
@@ -179,7 +181,7 @@ class RetrieveResult:
     """
 
     query: str
-    passages: List[Passage]
+    passages: list[Passage]
     total_matches: int
 
     # Retrieval strategy
@@ -187,7 +189,7 @@ class RetrieveResult:
     index_used: str = "fts5"  # fts5, chromadb, hybrid
 
     # Authority records (if legal research query)
-    authority_citations: List[Dict] = field(default_factory=list)
+    authority_citations: list[dict] = field(default_factory=list)
 
     retrieved_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -208,8 +210,8 @@ class CitationRecord:
     snippet: str  # Cited text
 
     # Authority info (if legal citation)
-    authority_name: Optional[str] = None  # e.g., "Miranda v. Arizona"
-    authority_citation: Optional[str] = None  # e.g., "384 U.S. 436 (1966)"
+Optional[authority_name: str] = None  # e.g., "Miranda v. Arizona"
+Optional[authority_citation: str] = None  # e.g., "384 U.S. 436 (1966)"
 
     created_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -230,16 +232,16 @@ class AnalysisResult:
     response: str  # LLM output
 
     # Grounding data
-    passages_used: List[Passage]  # Input passages sent to LLM
-    citations: List[CitationRecord]  # Citations extracted from response
+    passages_used: list[Passage]  # Input passages sent to LLM
+    citations: list[CitationRecord]  # Citations extracted from response
 
     # Authority records referenced
-    authorities_cited: List[Dict] = field(default_factory=list)
+    authorities_cited: list[dict] = field(default_factory=list)
 
     # Metadata
     model: str = "gpt-4"
     tokens_used: int = 0
-    confidence_score: Optional[float] = None
+Optional[confidence_score: float] = None
 
     created_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -256,26 +258,26 @@ class ManifestRecord:
     sha256: str
 
     # Original file
-    original: Dict[str, any]  # {path, bytes, filename, uploaded_at}
+    original: dict[str, any]  # {path, bytes, filename, uploaded_at}
 
     # Processed artifacts
-    processed: Dict[str, any] = field(
+    processed: dict[str, any] = field(
         default_factory=dict
     )  # {repaired_pdf, ocr_pdf, page_text: [...]}
 
     # Extraction metadata
-    extraction: Dict[str, any] = field(
+    extraction: dict[str, any] = field(
         default_factory=dict
     )  # {method, text_layer_detected, ocr_triggered}
 
     # Timestamps
-    timestamps: Dict[str, str] = field(
+    timestamps: dict[str, str] = field(
         default_factory=dict
     )  # {ingested_at, extracted_at, indexed_at}
 
     # Provenance
     source_system: str = "app"
-    doc_id: Optional[int] = None  # DB primary key once inserted
+Optional[doc_id: int] = None  # DB primary key once inserted
 
 
 # Validation helpers

@@ -199,9 +199,7 @@ Charts data with daily breakdown
 
 ```json
 {
-  "daily": [
-    { "date": "2026-01-30", "events": 25, "tokens": 15000, "cost_usd": 3.25 }
-  ],
+  "daily": [{ "date": "2026-01-30", "events": 25, "tokens": 15000, "cost_usd": 3.25 }],
   "by_type": [{ "type": "ai_request", "count": 150, "cost_usd": 12.5 }]
 }
 ```

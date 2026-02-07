@@ -280,7 +280,7 @@ Agents are configured in `.github/copilot-agents.yml`:
 ```yaml
 agents:
   legal-compliance:
-    name: 'Evident Legal Compliance Expert'
+    name: "Evident Legal Compliance Expert"
     model: claude-sonnet-4.5
     tools: [view, edit, create, grep, glob, powershell]
     instructions: |

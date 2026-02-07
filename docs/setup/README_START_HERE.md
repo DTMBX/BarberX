@@ -39,7 +39,7 @@ cp components/EvidentHero.css src/components/
 **Usage:**
 
 ```jsx
-import EvidentHero from '@/components/EvidentHero';
+import EvidentHero from "@/components/EvidentHero";
 
 export default function Home() {
   return (
@@ -78,14 +78,14 @@ cp components/EvidentHero.css src/components/
 **Usage:**
 
 ```tsx
-import EvidentHero from '@/components/EvidentHero';
+import EvidentHero from "@/components/EvidentHero";
 
 export default function Home() {
   return (
     <EvidentHero
       heading="Welcome to Barber Cam"
       ctaText="Book Now"
-      onCtaClick={() => router.push('/booking')}
+      onCtaClick={() => router.push("/booking")}
     />
   );
 }
@@ -236,7 +236,7 @@ Everything should automatically switch colors.
 <EvidentHero
   onCtaClick={() => {
     // Your handler here
-    router.push('/booking');
+    router.push("/booking");
     // or: window.location.href = '/booking';
     // or: handleBookingModal();
   }}

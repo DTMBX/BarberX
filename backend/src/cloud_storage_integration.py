@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -6,10 +7,7 @@ Cloud Storage Integration Service
 Integrates with Dropbox, Google Drive, and OneDrive for seamless evidence management
 """
 
-import io
 import os
-from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 import requests
 
@@ -51,9 +49,7 @@ class CloudStorageService:
         else:
             raise ValueError(f"Unsupported provider: {provider}")
 
-    def list_files(
-        self, folder_path: str = "", file_types: Optional[List[str]] = None
-    ) -> List[Dict]:
+Optional[def list_files(self, folder_path: str = "", file_types: list[str]] = None) -> list[dict]:
         """
         List files in cloud folder
 
@@ -71,7 +67,7 @@ class CloudStorageService:
         elif self.provider == "onedrive":
             return self._onedrive_list_files(folder_path, file_types)
 
-    def download_file(self, file_id: str, local_path: str) -> Dict:
+    def download_file(self, file_id: str, local_path: str) -> dict:
         """
         Download file from cloud to local storage
 
@@ -89,7 +85,7 @@ class CloudStorageService:
         elif self.provider == "onedrive":
             return self._onedrive_download(file_id, local_path)
 
-    def upload_file(self, local_path: str, cloud_path: str) -> Dict:
+    def upload_file(self, local_path: str, cloud_path: str) -> dict:
         """
         Upload file from local to cloud
 
@@ -107,7 +103,7 @@ class CloudStorageService:
         elif self.provider == "onedrive":
             return self._onedrive_upload(local_path, cloud_path)
 
-    def setup_webhook(self, webhook_url: str, folder_path: str = "") -> Dict:
+    def setup_webhook(self, webhook_url: str, folder_path: str = "") -> dict:
         """
         Setup webhook for file changes
 

@@ -10,59 +10,59 @@
 /* Import the modular CSS system */
 
 /* Base styles - variables, tokens, theme */
-@import url('base/variables.css');
-@import url('base/tokens.css');
-@import url('base/theme.css');
-@import url('base/base.css');
-@import url('tokens/evident.tokens.css');
+@import url("base/variables.css");
+@import url("base/tokens.css");
+@import url("base/theme.css");
+@import url("base/base.css");
+@import url("tokens/evident.tokens.css");
 
 /* Layout styles */
-@import url('layouts/layout.css');
-@import url('layouts/page-transitions.css');
-@import url('layouts/responsive-enhancements.css');
-@import url('layouts/wide-premium.css');
+@import url("layouts/layout.css");
+@import url("layouts/page-transitions.css");
+@import url("layouts/responsive-enhancements.css");
+@import url("layouts/wide-premium.css");
 
 /* Component styles */
-@import url('components/components.css');
-@import url('components/adaptive-contrast.css');
-@import url('components/theme-toggle.css');
-@import url('components/premium-header.css');
-@import url('components/premium-hero.css');
-@import url('components/case-cards.css');
-@import url('components/docket-navigator.css');
-@import url('components/featured-essays.css');
-@import url('components/daily-verse-sanctuary.css');
-@import url('components/ff-ui.css');
+@import url("components/components.css");
+@import url("components/adaptive-contrast.css");
+@import url("components/theme-toggle.css");
+@import url("components/premium-header.css");
+@import url("components/premium-hero.css");
+@import url("components/case-cards.css");
+@import url("components/docket-navigator.css");
+@import url("components/featured-essays.css");
+@import url("components/daily-verse-sanctuary.css");
+@import url("components/ff-ui.css");
 
 /* Page-specific styles */
-@import url('pages/home.css');
-@import url('pages/cases.css');
-@import url('pages/cases-index.css');
-@import url('pages/case-enhanced.css');
-@import url('pages/case-analysis.css');
-@import url('pages/stewardship-resources.css');
-@import url('pages/holistic-map.css');
-@import url('pages/holistic-map-enhanced.css');
+@import url("pages/home.css");
+@import url("pages/cases.css");
+@import url("pages/cases-index.css");
+@import url("pages/case-enhanced.css");
+@import url("pages/case-analysis.css");
+@import url("pages/stewardship-resources.css");
+@import url("pages/holistic-map.css");
+@import url("pages/holistic-map-enhanced.css");
 
 /* Include-specific styles */
-@import url('includes/docket-section.css');
-@import url('includes/homepage-faq.css');
-@import url('includes/logo-faq.css');
+@import url("includes/docket-section.css");
+@import url("includes/homepage-faq.css");
+@import url("includes/logo-faq.css");
 
 /* Enhancements - micro-animations & progressive disclosure */
-@import url('enhancements/micro-animations.css');
-@import url('enhancements/progressive-disclosure.css');
+@import url("enhancements/micro-animations.css");
+@import url("enhancements/progressive-disclosure.css");
 
 /* Utilities */
-@import url('utilities/utilities.css');
-@import url('utilities/print.css');
+@import url("utilities/utilities.css");
+@import url("utilities/print.css");
 
 /* Mobile Experience */
-@import url('mobile.css');
+@import url("mobile.css");
 
 /* Holistic & Motion utilities */
-@import url('holistic.css');
-@import url('motion.css');
+@import url("holistic.css");
+@import url("motion.css");
 
 /* ======================================
    Page-specific & Legacy Styles
@@ -108,7 +108,7 @@
 }
 
 .breadcrumbs-list li:not(:last-child)::after {
-  content: '›';
+  content: "›";
   color: var(--accent-brass);
   opacity: 0.5;
 }
@@ -124,7 +124,7 @@
   text-decoration: none;
 }
 
-.breadcrumbs-list [aria-current='page'] {
+.breadcrumbs-list [aria-current="page"] {
   color: var(--color-muted);
   font-weight: 600;
 }
@@ -170,7 +170,7 @@
 }
 
 .hero-home::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -187,7 +187,7 @@
 }
 
 .hero-home-revival::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
@@ -337,7 +337,7 @@
 }
 
 .hero-checklist li::before {
-  content: '*';
+  content: "*";
   color: var(--ff-vintage-gold);
   font-size: 0.85rem;
   margin-top: 0.15rem;
@@ -526,7 +526,7 @@
   color: var(--ff-ink);
   line-height: 1.8;
   margin-bottom: 1rem;
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
 }
 
 .section-block p {
@@ -716,7 +716,7 @@
 
 .btn::before,
 .btn-ghost::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1205,7 +1205,7 @@
 
 .case-card::before,
 .essay-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1463,7 +1463,7 @@
 
 .vintage-divider::before,
 .vintage-divider::after {
-  content: '❖';
+  content: "❖";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1494,7 +1494,7 @@
 
 .section-intro h2::after,
 .section-content h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1549,7 +1549,7 @@
   align-items: center;
 }
 
-#case-filter input[type='search'],
+#case-filter input[type="search"],
 #case-filter select {
   padding: 0.75rem;
   border-radius: 0.5rem;
@@ -1561,13 +1561,13 @@
   transition: all 0.2s ease;
 }
 
-#case-filter input[type='search'] {
+#case-filter input[type="search"] {
   flex: 1;
   min-width: 200px;
   max-width: 400px;
 }
 
-#case-filter input[type='search']:focus,
+#case-filter input[type="search"]:focus,
 #case-filter select:focus {
   outline: none;
   border-color: var(--accent-emerald);
@@ -1648,7 +1648,7 @@
     align-items: stretch;
   }
 
-  #case-filter input[type='search'],
+  #case-filter input[type="search"],
   #case-filter select {
     max-width: 100%;
   }

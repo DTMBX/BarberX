@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -18,7 +19,6 @@ import logging
 import shutil
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Optional
 
 from ..contracts import IngestResult, ManifestRecord, SourceSystem
 
@@ -38,7 +38,7 @@ class ManifestService:
         manifest/{sha256}.json                  - Audit trail
     """
 
-    def __init__(self, config: Optional[Dict] = None):
+Optional[def __init__(self, config: dict] = None):
         self.config = config or {}
 
         # Base paths
@@ -55,7 +55,7 @@ class ManifestService:
         logger.info(f"ManifestService initialized: storage={self.storage_root}")
 
     def ingest(
-        self, file_path: str, source_system: SourceSystem, metadata: Optional[Dict] = None
+Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = None
     ) -> IngestResult:
         """
         Ingest file: hash, dedupe, save to canonical location, create manifest
@@ -144,7 +144,7 @@ class ManifestService:
             is_duplicate=False,
         )
 
-    def update_manifest(self, sha256: str, updates: Dict):
+    def update_manifest(self, sha256: str, updates: dict):
         """
         Update manifest with new processing artifacts
 
@@ -170,7 +170,7 @@ class ManifestService:
         self._save_manifest(sha256, manifest)
         logger.info(f"Updated manifest for {sha256}")
 
-    def get_manifest(self, sha256: str) -> Optional[ManifestRecord]:
+Optional[def get_manifest(self, sha256: str) -> ManifestRecord]:
         """Load manifest by SHA-256"""
         return self._load_manifest(sha256)
 
@@ -186,7 +186,7 @@ class ManifestService:
                 sha256.update(chunk)
         return sha256.hexdigest()
 
-    def _check_duplicate(self, sha256: str) -> tuple[bool, Optional[int]]:
+Optional[def _check_duplicate(self, sha256: str) -> tuple[bool, int]]:
         """
         Check if document with this hash already exists
 
@@ -207,7 +207,7 @@ class ManifestService:
         filename: str,
         storage_path: str,
         source_system: SourceSystem,
-        metadata: Dict,
+        metadata: dict,
     ) -> int:
         """
         Insert document record into database
@@ -240,14 +240,14 @@ class ManifestService:
 
         logger.debug(f"Saved manifest: {manifest_path}")
 
-    def _load_manifest(self, sha256: str) -> Optional[ManifestRecord]:
+Optional[def _load_manifest(self, sha256: str) -> ManifestRecord]:
         """Load manifest from disk"""
         manifest_path = self.manifest_root / f"{sha256}.json"
 
         if not manifest_path.exists():
             return None
 
-        with open(manifest_path, "r") as f:
+        with open(manifest_path) as f:
             data = json.load(f)
 
         return ManifestRecord(

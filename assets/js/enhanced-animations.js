@@ -18,13 +18,13 @@
 class AnimationEngine {
   constructor() {
     this.observers = new Map();
-    this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     this.init();
   }
 
   init() {
     if (this.prefersReducedMotion) {
-      document.documentElement.classList.add('reduced-motion');
+      document.documentElement.classList.add("reduced-motion");
       return;
     }
 
@@ -43,7 +43,7 @@ class AnimationEngine {
   setupScrollReveal() {
     const revealOptions = {
       root: null,
-      rootMargin: '0px 0px -100px 0px',
+      rootMargin: "0px 0px -100px 0px",
       threshold: [0, 0.1, 0.5, 1.0],
     };
 
@@ -53,11 +53,11 @@ class AnimationEngine {
           const delay = entry.target.dataset.delay || 0;
 
           setTimeout(() => {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add("revealed");
 
             // Trigger custom event for chaining
             entry.target.dispatchEvent(
-              new CustomEvent('element-revealed', {
+              new CustomEvent("element-revealed", {
                 bubbles: true,
                 detail: { target: entry.target },
               })
@@ -72,16 +72,16 @@ class AnimationEngine {
 
     // Observe all reveal elements
     const selectors = [
-      '.fade-in',
-      '.slide-up',
-      '.slide-down',
-      '.slide-left',
-      '.slide-right',
-      '.zoom-in',
-      '.zoom-out',
-      '.rotate-in',
-      '.flip-in',
-      '.blur-in',
+      ".fade-in",
+      ".slide-up",
+      ".slide-down",
+      ".slide-left",
+      ".slide-right",
+      ".zoom-in",
+      ".zoom-out",
+      ".rotate-in",
+      ".flip-in",
+      ".blur-in",
     ];
 
     selectors.forEach((selector) => {
@@ -90,7 +90,7 @@ class AnimationEngine {
       });
     });
 
-    this.observers.set('reveal', revealObserver);
+    this.observers.set("reveal", revealObserver);
   }
 
   /**
@@ -98,7 +98,7 @@ class AnimationEngine {
    * Create depth with scroll-based transforms
    */
   setupParallax() {
-    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    const parallaxElements = document.querySelectorAll("[data-parallax]");
     if (parallaxElements.length === 0) return;
 
     let ticking = false;
@@ -108,21 +108,21 @@ class AnimationEngine {
 
       parallaxElements.forEach((el) => {
         const speed = parseFloat(el.dataset.parallax) || 0.5;
-        const direction = el.dataset.parallaxDirection || 'up';
+        const direction = el.dataset.parallaxDirection || "up";
         const yPos = scrollY * speed;
 
-        let transform = '';
+        let transform = "";
         switch (direction) {
-          case 'up':
+          case "up":
             transform = `translate3d(0, ${-yPos}px, 0)`;
             break;
-          case 'down':
+          case "down":
             transform = `translate3d(0, ${yPos}px, 0)`;
             break;
-          case 'left':
+          case "left":
             transform = `translate3d(${-yPos}px, 0, 0)`;
             break;
-          case 'right':
+          case "right":
             transform = `translate3d(${yPos}px, 0, 0)`;
             break;
         }
@@ -134,7 +134,7 @@ class AnimationEngine {
     };
 
     window.addEventListener(
-      'scroll',
+      "scroll",
       () => {
         if (!ticking) {
           requestAnimationFrame(updateParallax);
@@ -150,7 +150,7 @@ class AnimationEngine {
    * Count up numbers when they become visible
    */
   setupCounters() {
-    const counters = document.querySelectorAll('[data-counter]');
+    const counters = document.querySelectorAll("[data-counter]");
     if (counters.length === 0) return;
 
     const counterObserver = new IntersectionObserver(
@@ -171,15 +171,15 @@ class AnimationEngine {
     );
 
     counters.forEach((counter) => counterObserver.observe(counter));
-    this.observers.set('counter', counterObserver);
+    this.observers.set("counter", counterObserver);
   }
 
   animateCounter(element, start, end, duration) {
     const range = end - start;
     const increment = range / (duration / 16); // 60fps
     let current = start;
-    const prefix = element.dataset.counterPrefix || '';
-    const suffix = element.dataset.counterSuffix || '';
+    const prefix = element.dataset.counterPrefix || "";
+    const suffix = element.dataset.counterSuffix || "";
 
     const timer = setInterval(() => {
       current += increment;
@@ -197,10 +197,10 @@ class AnimationEngine {
    * Elements follow cursor on hover
    */
   setupHoverEffects() {
-    const magneticElements = document.querySelectorAll('[data-magnetic]');
+    const magneticElements = document.querySelectorAll("[data-magnetic]");
 
     magneticElements.forEach((el) => {
-      el.addEventListener('mousemove', (e) => {
+      el.addEventListener("mousemove", (e) => {
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
@@ -209,22 +209,22 @@ class AnimationEngine {
         el.style.transform = `translate3d(${x * strength}px, ${y * strength}px, 0)`;
       });
 
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'translate3d(0, 0, 0)';
+      el.addEventListener("mouseleave", () => {
+        el.style.transform = "translate3d(0, 0, 0)";
       });
     });
 
     // Ripple effect on click
-    const rippleElements = document.querySelectorAll('[data-ripple]');
+    const rippleElements = document.querySelectorAll("[data-ripple]");
 
     rippleElements.forEach((el) => {
-      el.addEventListener('click', (e) => {
+      el.addEventListener("click", (e) => {
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const ripple = document.createElement('span');
-        ripple.className = 'ripple-effect';
+        const ripple = document.createElement("span");
+        ripple.className = "ripple-effect";
         ripple.style.left = `${x}px`;
         ripple.style.top = `${y}px`;
 
@@ -241,21 +241,21 @@ class AnimationEngine {
    */
   setupPageTransitions() {
     // Fade in on page load
-    document.body.classList.add('page-loaded');
+    document.body.classList.add("page-loaded");
 
     // Smooth internal navigation
     document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]').forEach((link) => {
       if (link.dataset.noTransition) return;
 
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         if (e.ctrlKey || e.metaKey || e.shiftKey) return; // Allow opening in new tab
 
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
 
         e.preventDefault();
 
-        document.body.classList.add('page-transitioning');
+        document.body.classList.add("page-transitioning");
 
         setTimeout(() => {
           window.location.href = href;
@@ -270,9 +270,9 @@ class AnimationEngine {
    */
   setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', (e) => {
-        const href = anchor.getAttribute('href');
-        if (href === '#') return;
+      anchor.addEventListener("click", (e) => {
+        const href = anchor.getAttribute("href");
+        if (href === "#") return;
 
         const target = document.querySelector(href);
         if (!target) return;
@@ -284,7 +284,7 @@ class AnimationEngine {
 
         window.scrollTo({
           top: offsetTop - offset,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
 
         // Update URL without triggering navigation
@@ -304,7 +304,7 @@ class AnimationEngine {
 
     elements.forEach((el, index) => {
       el.style.animationDelay = `${index * delay}ms`;
-      el.classList.add('stagger-item');
+      el.classList.add("stagger-item");
     });
   }
 
@@ -329,9 +329,9 @@ class ScrollProgress {
   }
 
   createProgressBar() {
-    const bar = document.createElement('div');
-    bar.className = 'scroll-progress-bar';
-    bar.setAttribute('aria-hidden', 'true');
+    const bar = document.createElement("div");
+    bar.className = "scroll-progress-bar";
+    bar.setAttribute("aria-hidden", "true");
     bar.innerHTML = '<div class="scroll-progress-fill"></div>';
     document.body.appendChild(bar);
     return bar;
@@ -345,14 +345,14 @@ class ScrollProgress {
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
 
-      const fill = this.progressBar.querySelector('.scroll-progress-fill');
+      const fill = this.progressBar.querySelector(".scroll-progress-fill");
       fill.style.width = `${scrolled}%`;
 
       ticking = false;
     };
 
     window.addEventListener(
-      'scroll',
+      "scroll",
       () => {
         if (!ticking) {
           requestAnimationFrame(updateProgress);
@@ -377,7 +377,7 @@ class FloatingAnimation {
       const animDelay = delay + index * 200;
 
       el.style.animation = `float ${duration}ms ease-in-out ${animDelay}ms infinite`;
-      el.style.setProperty('-float-distance', `${distance}px`);
+      el.style.setProperty("-float-distance", `${distance}px`);
     });
   }
 }
@@ -391,21 +391,21 @@ class TextReveal {
     const { duration = 50, delay = 0, stagger = true } = options;
 
     const text = element.textContent;
-    element.textContent = '';
-    element.style.opacity = '1';
+    element.textContent = "";
+    element.style.opacity = "1";
 
-    const chars = text.split('');
+    const chars = text.split("");
     const spans = chars.map((char, i) => {
-      const span = document.createElement('span');
-      span.textContent = char === ' ' ? '\u00A0' : char;
-      span.style.opacity = '0';
-      span.style.display = 'inline-block';
+      const span = document.createElement("span");
+      span.textContent = char === " " ? "\u00A0" : char;
+      span.style.opacity = "0";
+      span.style.display = "inline-block";
 
       if (stagger) {
         span.style.animationDelay = `${delay + i * duration}ms`;
       }
 
-      span.classList.add('char-reveal');
+      span.classList.add("char-reveal");
       element.appendChild(span);
       return span;
     });
@@ -413,15 +413,15 @@ class TextReveal {
     // Trigger animation
     setTimeout(() => {
       spans.forEach((span) => {
-        span.style.opacity = '1';
+        span.style.opacity = "1";
       });
     }, delay);
   }
 }
 
 // Initialize on DOM ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
     window.animationEngine = new AnimationEngine();
     window.scrollProgress = new ScrollProgress();
   });
@@ -431,7 +431,7 @@ if (document.readyState === 'loading') {
 }
 
 // Export for module systems
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     AnimationEngine,
     ScrollProgress,

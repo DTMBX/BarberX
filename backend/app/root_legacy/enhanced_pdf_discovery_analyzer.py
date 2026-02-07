@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -9,7 +10,7 @@ Extracts specific legal information: arrest details, tow records, citations, cha
 import json
 import re
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 class PDFDiscoveryAnalyzer:
@@ -18,7 +19,7 @@ class PDFDiscoveryAnalyzer:
     def __init__(self):
         self.patterns = self._initialize_patterns()
 
-    def _initialize_patterns(self) -> Dict:
+    def _initialize_patterns(self) -> dict:
         """Initialize regex patterns for information extraction"""
         return {
             # Arrest Information
@@ -179,7 +180,7 @@ class PDFDiscoveryAnalyzer:
             ],
         }
 
-    def analyze_document(self, content: str, filename: str = "") -> Dict[str, Any]:
+    def analyze_document(self, content: str, filename: str = "") -> dict[str, Any]:
         """
         Analyze PDF discovery document and extract all legal information
 
@@ -243,8 +244,8 @@ class PDFDiscoveryAnalyzer:
             return "Unknown Document Type"
 
     def _extract_with_patterns(
-        self, content: str, pattern_list: List[str], extract_all: bool = False
-    ) -> Optional[str] | List[str]:
+        self, content: str, pattern_list: list[str], extract_all: bool = False
+Optional[) -> str] | list[str]:
         """Extract information using list of regex patterns"""
         results = []
 
@@ -263,7 +264,7 @@ class PDFDiscoveryAnalyzer:
         else:
             return results[0]  # Return first match
 
-    def _extract_arrest_info(self, content: str) -> Dict:
+    def _extract_arrest_info(self, content: str) -> dict:
         """Extract arrest-specific information"""
         return {
             "arrest_date": self._extract_with_patterns(content, self.patterns["arrest_date"]),
@@ -278,7 +279,7 @@ class PDFDiscoveryAnalyzer:
             "was_arrested": bool(re.search(r"\barrest(?:ed)?\b", content, re.I)),
         }
 
-    def _extract_charges(self, content: str) -> Dict:
+    def _extract_charges(self, content: str) -> dict:
         """Extract criminal charges information"""
         charges_list = self._extract_with_patterns(
             content, self.patterns["charges"], extract_all=True
@@ -297,7 +298,7 @@ class PDFDiscoveryAnalyzer:
             "total_charges": len(charges_list) if charges_list else 0,
         }
 
-    def _extract_citation_info(self, content: str) -> Dict:
+    def _extract_citation_info(self, content: str) -> dict:
         """Extract citation/ticket information"""
         return {
             "citation_number": self._extract_with_patterns(
@@ -308,7 +309,7 @@ class PDFDiscoveryAnalyzer:
             "is_citation": bool(re.search(r"\b(?:citation|ticket|summons)\b", content, re.I)),
         }
 
-    def _extract_tow_info(self, content: str) -> Dict:
+    def _extract_tow_info(self, content: str) -> dict:
         """Extract tow/impound information"""
         return {
             "tow_date": self._extract_with_patterns(content, self.patterns["tow_date"]),
@@ -319,7 +320,7 @@ class PDFDiscoveryAnalyzer:
             "was_towed": bool(re.search(r"\b(?:tow(?:ed)?|impound(?:ed)?)\b", content, re.I)),
         }
 
-    def _extract_vehicle_info(self, content: str) -> Dict:
+    def _extract_vehicle_info(self, content: str) -> dict:
         """Extract vehicle information"""
         return {
             "make_model": self._extract_with_patterns(content, self.patterns["vehicle_make_model"]),
@@ -330,7 +331,7 @@ class PDFDiscoveryAnalyzer:
             ),
         }
 
-    def _extract_incident_info(self, content: str) -> Dict:
+    def _extract_incident_info(self, content: str) -> dict:
         """Extract incident/case information"""
         return {
             "incident_number": self._extract_with_patterns(
@@ -342,7 +343,7 @@ class PDFDiscoveryAnalyzer:
             ),
         }
 
-    def _extract_people_info(self, content: str) -> Dict:
+    def _extract_people_info(self, content: str) -> dict:
         """Extract information about people involved"""
         return {
             "suspect": {
@@ -359,7 +360,7 @@ class PDFDiscoveryAnalyzer:
             ),
         }
 
-    def _extract_court_info(self, content: str) -> Dict:
+    def _extract_court_info(self, content: str) -> dict:
         """Extract court-related information"""
         return {
             "court_date": self._extract_with_patterns(content, self.patterns["court_date"]),
@@ -370,7 +371,7 @@ class PDFDiscoveryAnalyzer:
             "bail_status": self._extract_with_patterns(content, self.patterns["bail_status"]),
         }
 
-    def _build_timeline(self, content: str) -> List[Dict]:
+    def _build_timeline(self, content: str) -> list[dict]:
         """Build chronological timeline of events"""
         timeline = []
 
@@ -395,7 +396,7 @@ class PDFDiscoveryAnalyzer:
         # Rough estimate: 3000 characters per page
         return max(1, len(content) // 3000)
 
-    def _generate_summary(self, results: Dict) -> str:
+    def _generate_summary(self, results: dict) -> str:
         """Generate human-readable summary of findings"""
         summary_parts = []
 
@@ -470,12 +471,12 @@ class PDFDiscoveryAnalyzer:
 
         return "\n".join(summary_parts) if summary_parts else "No significant information extracted"
 
-    def export_to_json(self, results: Dict, filepath: str):
+    def export_to_json(self, results: dict, filepath: str):
         """Export analysis results to JSON file"""
         with open(filepath, "w") as f:
             json.dump(results, f, indent=2, default=str)
 
-    def export_to_report(self, results: Dict) -> str:
+    def export_to_report(self, results: dict) -> str:
         """Generate formatted text report"""
         report = []
         report.append("=" * 80)
@@ -585,5 +586,3 @@ if __name__ == "__main__":
 
     # Save JSON
     # analyzer.export_to_json(results, "analysis_results.json")
-
-

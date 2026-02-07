@@ -9,15 +9,12 @@ Anomaly detection, device fingerprinting, and threat analysis
 import hashlib
 import json
 import pickle
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 
 import numpy as np
 from flask import request
 from pyod.models.iforest import IForest
-from pyod.models.lof import LOF
-
-from models_auth import db
 
 
 class LoginSecurityManager:

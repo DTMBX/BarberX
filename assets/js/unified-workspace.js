@@ -8,9 +8,9 @@
 
 // State Management
 const WorkspaceState = {
-  currentView: 'dashboard',
+  currentView: "dashboard",
   currentCase: null,
-  aiModel: 'gpt-4',
+  aiModel: "gpt-4",
   chatMessages: [],
   evidence: [],
   cases: [],
@@ -22,32 +22,32 @@ const WorkspaceState = {
 
 function switchView(viewName) {
   // Hide all views
-  document.querySelectorAll('.content-view').forEach((view) => {
-    view.classList.remove('active');
+  document.querySelectorAll(".content-view").forEach((view) => {
+    view.classList.remove("active");
   });
 
   // Show selected view
   const targetView = document.getElementById(`${viewName}-view`);
   if (targetView) {
-    targetView.classList.add('active');
+    targetView.classList.add("active");
     WorkspaceState.currentView = viewName;
 
     // Update title
-    const title = document.querySelector('.workspace-title');
+    const title = document.querySelector(".workspace-title");
     title.textContent = viewName.charAt(0).toUpperCase() + viewName.slice(1);
 
     // Update breadcrumb
-    const breadcrumbActive = document.querySelector('.breadcrumb-item.active');
+    const breadcrumbActive = document.querySelector(".breadcrumb-item.active");
     breadcrumbActive.textContent = viewName.charAt(0).toUpperCase() + viewName.slice(1);
   }
 
   // Update active nav item
-  document.querySelectorAll('.nav-item').forEach((item) => {
-    item.classList.remove('active');
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    item.classList.remove("active");
   });
   const activeNav = document.querySelector(`[data-view="${viewName}"]`);
   if (activeNav) {
-    activeNav.classList.add('active');
+    activeNav.classList.add("active");
   }
 }
 
@@ -55,10 +55,10 @@ function switchView(viewName) {
 // NAVIGATION
 // ========================================
 
-document.querySelectorAll('.nav-item[data-view]').forEach((item) => {
-  item.addEventListener('click', (e) => {
+document.querySelectorAll(".nav-item[data-view]").forEach((item) => {
+  item.addEventListener("click", (e) => {
     e.preventDefault();
-    const view = item.getAttribute('data-view');
+    const view = item.getAttribute("data-view");
     switchView(view);
   });
 });
@@ -67,15 +67,15 @@ document.querySelectorAll('.nav-item[data-view]').forEach((item) => {
 // CHAT INTERFACE
 // ========================================
 
-const chatInput = document.getElementById('chatInput');
-const sendBtn = document.getElementById('sendBtn');
-const chatMessages = document.getElementById('chatMessages');
-const aiModelSelect = document.getElementById('aiModel');
+const chatInput = document.getElementById("chatInput");
+const sendBtn = document.getElementById("sendBtn");
+const chatMessages = document.getElementById("chatMessages");
+const aiModelSelect = document.getElementById("aiModel");
 
 // Auto-resize textarea
-chatInput?.addEventListener('input', function () {
-  this.style.height = 'auto';
-  this.style.height = this.scrollHeight + 'px';
+chatInput?.addEventListener("input", function () {
+  this.style.height = "auto";
+  this.style.height = this.scrollHeight + "px";
 });
 
 // Send message
@@ -84,20 +84,20 @@ function sendMessage() {
   if (!message) return;
 
   // Add user message to UI
-  addChatMessage('user', message);
+  addChatMessage("user", message);
 
   // Clear input
-  chatInput.value = '';
-  chatInput.style.height = 'auto';
+  chatInput.value = "";
+  chatInput.style.height = "auto";
 
   // Show typing indicator
   showTypingIndicator();
 
   // Send to backend
-  fetch('/api/chat', {
-    method: 'POST',
+  fetch("/api/chat", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       message: message,
@@ -108,41 +108,41 @@ function sendMessage() {
     .then((response) => response.json())
     .then((data) => {
       hideTypingIndicator();
-      addChatMessage('assistant', data.response);
+      addChatMessage("assistant", data.response);
     })
     .catch((error) => {
       hideTypingIndicator();
-      addChatMessage('assistant', 'Sorry, I encountered an error. Please try again.');
-      console.error('Chat error:', error);
+      addChatMessage("assistant", "Sorry, I encountered an error. Please try again.");
+      console.error("Chat error:", error);
     });
 }
 
-sendBtn?.addEventListener('click', sendMessage);
+sendBtn?.addEventListener("click", sendMessage);
 
-chatInput?.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' && !e.shiftKey) {
+chatInput?.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
     sendMessage();
   }
 });
 
 // AI Model selection
-aiModelSelect?.addEventListener('change', (e) => {
+aiModelSelect?.addEventListener("change", (e) => {
   WorkspaceState.aiModel = e.target.value;
-  console.log('AI Model changed to:', e.target.value);
+  console.log("AI Model changed to:", e.target.value);
 });
 
 function addChatMessage(role, content) {
-  const messageDiv = document.createElement('div');
+  const messageDiv = document.createElement("div");
   messageDiv.className = `chat-message ${role}`;
 
-  const avatarDiv = document.createElement('div');
-  avatarDiv.className = 'message-avatar';
+  const avatarDiv = document.createElement("div");
+  avatarDiv.className = "message-avatar";
   avatarDiv.innerHTML =
-    role === 'assistant' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+    role === "assistant" ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
 
-  const contentDiv = document.createElement('div');
-  contentDiv.className = 'message-content';
+  const contentDiv = document.createElement("div");
+  contentDiv.className = "message-content";
   contentDiv.innerHTML = formatMessageContent(content);
 
   messageDiv.appendChild(avatarDiv);
@@ -158,15 +158,15 @@ function addChatMessage(role, content) {
 function formatMessageContent(content) {
   // Convert markdown-style formatting to HTML
   return content
-    .replace(/\n/g, '<br>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+    .replace(/\n/g, "<br>")
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.*?)\*/g, "<em>$1</em>");
 }
 
 function showTypingIndicator() {
-  const indicator = document.createElement('div');
-  indicator.className = 'chat-message assistant typing-indicator';
-  indicator.id = 'typingIndicator';
+  const indicator = document.createElement("div");
+  indicator.className = "chat-message assistant typing-indicator";
+  indicator.id = "typingIndicator";
   indicator.innerHTML = `
     <div class="message-avatar">
       <i class="fas fa-robot"></i>
@@ -182,7 +182,7 @@ function showTypingIndicator() {
 }
 
 function hideTypingIndicator() {
-  const indicator = document.getElementById('typingIndicator');
+  const indicator = document.getElementById("typingIndicator");
   if (indicator) {
     indicator.remove();
   }
@@ -192,27 +192,27 @@ function hideTypingIndicator() {
 // COMMAND PALETTE
 // ========================================
 
-const commandPalette = document.getElementById('commandPalette');
-const commandInput = document.getElementById('commandInput');
+const commandPalette = document.getElementById("commandPalette");
+const commandInput = document.getElementById("commandInput");
 
 // Keyboard shortcut (Ctrl/Cmd + K)
-document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === "k") {
     e.preventDefault();
     toggleCommandPalette();
   }
 
-  if (e.key === 'Escape' && commandPalette.getAttribute('aria-hidden') === 'false') {
+  if (e.key === "Escape" && commandPalette.getAttribute("aria-hidden") === "false") {
     closeCommandPalette();
   }
 });
 
 document.querySelectorAll('[data-action="command"]').forEach((btn) => {
-  btn.addEventListener('click', toggleCommandPalette);
+  btn.addEventListener("click", toggleCommandPalette);
 });
 
 function toggleCommandPalette() {
-  const isHidden = commandPalette.getAttribute('aria-hidden') === 'true';
+  const isHidden = commandPalette.getAttribute("aria-hidden") === "true";
   if (isHidden) {
     openCommandPalette();
   } else {
@@ -221,17 +221,17 @@ function toggleCommandPalette() {
 }
 
 function openCommandPalette() {
-  commandPalette.setAttribute('aria-hidden', 'false');
+  commandPalette.setAttribute("aria-hidden", "false");
   commandInput.focus();
 }
 
 function closeCommandPalette() {
-  commandPalette.setAttribute('aria-hidden', 'true');
-  commandInput.value = '';
+  commandPalette.setAttribute("aria-hidden", "true");
+  commandInput.value = "";
 }
 
 // Click outside to close
-commandPalette?.addEventListener('click', (e) => {
+commandPalette?.addEventListener("click", (e) => {
   if (e.target === commandPalette) {
     closeCommandPalette();
   }
@@ -242,39 +242,39 @@ commandPalette?.addEventListener('click', (e) => {
 // ========================================
 
 document.querySelectorAll('[data-action="new-case"]').forEach((btn) => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener("click", () => {
     // Open new case modal
-    console.log('Create new case');
+    console.log("Create new case");
   });
 });
 
 document.querySelectorAll('[data-action="upload"]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.getElementById('uploadModal').style.display = 'flex';
+  btn.addEventListener("click", () => {
+    document.getElementById("uploadModal").style.display = "flex";
   });
 });
 
 // Quick start cards
-document.querySelectorAll('.quick-start-card').forEach((card) => {
-  card.addEventListener('click', () => {
-    const action = card.getAttribute('data-action');
+document.querySelectorAll(".quick-start-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const action = card.getAttribute("data-action");
     handleQuickAction(action);
   });
 });
 
 function handleQuickAction(action) {
   switch (action) {
-    case 'new-case':
-      console.log('New case');
+    case "new-case":
+      console.log("New case");
       break;
-    case 'upload-evidence':
-      document.getElementById('uploadModal').style.display = 'flex';
+    case "upload-evidence":
+      document.getElementById("uploadModal").style.display = "flex";
       break;
-    case 'analyze-case':
-      switchView('analysis');
+    case "analyze-case":
+      switchView("analysis");
       break;
-    case 'ask-ai':
-      switchView('chat');
+    case "ask-ai":
+      switchView("chat");
       setTimeout(() => chatInput.focus(), 100);
       break;
   }
@@ -284,70 +284,70 @@ function handleQuickAction(action) {
 // FILE UPLOAD
 // ========================================
 
-const uploadZone = document.getElementById('uploadZone');
-const fileInput = document.getElementById('fileInput');
-const uploadModal = document.getElementById('uploadModal');
+const uploadZone = document.getElementById("uploadZone");
+const fileInput = document.getElementById("fileInput");
+const uploadModal = document.getElementById("uploadModal");
 
-uploadZone?.addEventListener('click', () => {
+uploadZone?.addEventListener("click", () => {
   fileInput.click();
 });
 
-uploadZone?.addEventListener('dragover', (e) => {
+uploadZone?.addEventListener("dragover", (e) => {
   e.preventDefault();
-  uploadZone.classList.add('drag-over');
+  uploadZone.classList.add("drag-over");
 });
 
-uploadZone?.addEventListener('dragleave', () => {
-  uploadZone.classList.remove('drag-over');
+uploadZone?.addEventListener("dragleave", () => {
+  uploadZone.classList.remove("drag-over");
 });
 
-uploadZone?.addEventListener('drop', (e) => {
+uploadZone?.addEventListener("drop", (e) => {
   e.preventDefault();
-  uploadZone.classList.remove('drag-over');
+  uploadZone.classList.remove("drag-over");
   handleFiles(e.dataTransfer.files);
 });
 
-fileInput?.addEventListener('change', (e) => {
+fileInput?.addEventListener("change", (e) => {
   handleFiles(e.target.files);
 });
 
 function handleFiles(files) {
   const formData = new FormData();
   Array.from(files).forEach((file) => {
-    formData.append('files[]', file);
+    formData.append("files[]", file);
   });
 
   if (WorkspaceState.currentCase) {
-    formData.append('case_id', WorkspaceState.currentCase);
+    formData.append("case_id", WorkspaceState.currentCase);
   }
 
   // Show progress
-  const progressEl = document.getElementById('uploadProgress');
-  progressEl.style.display = 'block';
+  const progressEl = document.getElementById("uploadProgress");
+  progressEl.style.display = "block";
 
-  fetch('/api/evidence/upload', {
-    method: 'POST',
+  fetch("/api/evidence/upload", {
+    method: "POST",
     body: formData,
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log('Upload success:', data);
-      progressEl.style.display = 'none';
-      uploadModal.style.display = 'none';
+      console.log("Upload success:", data);
+      progressEl.style.display = "none";
+      uploadModal.style.display = "none";
       // Refresh evidence list
       loadEvidence();
     })
     .catch((error) => {
-      console.error('Upload error:', error);
-      progressEl.style.display = 'none';
-      alert('Upload failed. Please try again.');
+      console.error("Upload error:", error);
+      progressEl.style.display = "none";
+      alert("Upload failed. Please try again.");
     });
 }
 
 // Modal close buttons
-document.querySelectorAll('.modal-close').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    btn.closest('.modal').style.display = 'none';
+document.querySelectorAll(".modal-close").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".modal").style.display = "none";
   });
 });
 
@@ -355,27 +355,27 @@ document.querySelectorAll('.modal-close').forEach((btn) => {
 // ANALYSIS TOOLS
 // ========================================
 
-document.querySelectorAll('.tool-btn[data-tool]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const tool = btn.getAttribute('data-tool');
+document.querySelectorAll(".tool-btn[data-tool]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const tool = btn.getAttribute("data-tool");
     runAnalysis(tool);
   });
 });
 
 function runAnalysis(tool) {
-  const caseId = document.getElementById('caseSelector')?.value;
+  const caseId = document.getElementById("caseSelector")?.value;
   if (!caseId) {
-    alert('Please select a case first');
+    alert("Please select a case first");
     return;
   }
 
-  const resultsEl = document.getElementById('analysisResults');
+  const resultsEl = document.getElementById("analysisResults");
   resultsEl.innerHTML = '<div class="loading">Analyzing...</div>';
 
-  fetch('/api/analysis/run', {
-    method: 'POST',
+  fetch("/api/analysis/run", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       case_id: caseId,
@@ -387,13 +387,13 @@ function runAnalysis(tool) {
       displayAnalysisResults(data);
     })
     .catch((error) => {
-      console.error('Analysis error:', error);
+      console.error("Analysis error:", error);
       resultsEl.innerHTML = '<div class="error">Analysis failed. Please try again.</div>';
     });
 }
 
 function displayAnalysisResults(data) {
-  const resultsEl = document.getElementById('analysisResults');
+  const resultsEl = document.getElementById("analysisResults");
   resultsEl.innerHTML = `
     <div class="analysis-result">
       <h3>${data.title}</h3>
@@ -407,22 +407,22 @@ function displayAnalysisResults(data) {
 // ========================================
 
 function loadCases() {
-  fetch('/api/cases')
+  fetch("/api/cases")
     .then((response) => response.json())
     .then((data) => {
       WorkspaceState.cases = data.cases;
       populateCaseSelector();
     })
-    .catch((error) => console.error('Error loading cases:', error));
+    .catch((error) => console.error("Error loading cases:", error));
 }
 
 function populateCaseSelector() {
-  const selector = document.getElementById('caseSelector');
+  const selector = document.getElementById("caseSelector");
   if (!selector) return;
 
   selector.innerHTML = '<option value="">Choose a case...</option>';
   WorkspaceState.cases.forEach((c) => {
-    const option = document.createElement('option');
+    const option = document.createElement("option");
     option.value = c.id;
     option.textContent = c.name;
     selector.appendChild(option);
@@ -434,17 +434,17 @@ function populateCaseSelector() {
 // ========================================
 
 function loadEvidence() {
-  fetch('/api/evidence')
+  fetch("/api/evidence")
     .then((response) => response.json())
     .then((data) => {
       WorkspaceState.evidence = data.evidence;
       displayEvidence();
     })
-    .catch((error) => console.error('Error loading evidence:', error));
+    .catch((error) => console.error("Error loading evidence:", error));
 }
 
 function displayEvidence() {
-  const grid = document.getElementById('evidenceGrid');
+  const grid = document.getElementById("evidenceGrid");
   if (!grid) return;
 
   if (WorkspaceState.evidence.length === 0) {
@@ -465,17 +465,17 @@ function displayEvidence() {
     </div>
   `
     )
-    .join('');
+    .join("");
 }
 
 function getEvidenceIcon(type) {
   const icons = {
-    document: 'file-alt',
-    video: 'video',
-    audio: 'microphone',
-    image: 'image',
+    document: "file-alt",
+    video: "video",
+    audio: "microphone",
+    image: "image",
   };
-  return icons[type] || 'file';
+  return icons[type] || "file";
 }
 
 // ========================================
@@ -486,26 +486,26 @@ function getEvidenceIcon(type) {
 
 async function loadUsageQuota() {
   try {
-    const response = await fetch('/api/usage/quota');
+    const response = await fetch("/api/usage/quota");
     const data = await response.json();
 
     // Update period info
     if (data.period) {
       const start = new Date(data.period.start).toLocaleDateString();
       const end = new Date(data.period.end).toLocaleDateString();
-      document.getElementById('billingPeriod').textContent = `${start} - ${end}`;
-      document.getElementById('daysRemaining').textContent = data.period.days_remaining;
+      document.getElementById("billingPeriod").textContent = `${start} - ${end}`;
+      document.getElementById("daysRemaining").textContent = data.period.days_remaining;
     }
 
     // Update each quota meter
-    updateQuotaMeter('tokens', data.quotas.ai_tokens);
-    updateQuotaMeter('requests', data.quotas.ai_requests);
-    updateQuotaMeter('storage', data.quotas.storage);
-    updateQuotaMeter('files', data.quotas.files);
-    updateQuotaMeter('analyses', data.quotas.analyses);
-    updateQuotaMeter('cost', data.quotas.cost);
+    updateQuotaMeter("tokens", data.quotas.ai_tokens);
+    updateQuotaMeter("requests", data.quotas.ai_requests);
+    updateQuotaMeter("storage", data.quotas.storage);
+    updateQuotaMeter("files", data.quotas.files);
+    updateQuotaMeter("analyses", data.quotas.analyses);
+    updateQuotaMeter("cost", data.quotas.cost);
   } catch (error) {
-    console.error('Error loading usage quota:', error);
+    console.error("Error loading usage quota:", error);
   }
 }
 
@@ -521,11 +521,11 @@ function updateQuotaMeter(type, quota) {
 
     // Color code based on usage
     if (percent >= 95) {
-      percentEl.style.color = '#ff6b6b';
+      percentEl.style.color = "#ff6b6b";
     } else if (percent >= 80) {
-      percentEl.style.color = '#ffd43b';
+      percentEl.style.color = "#ffd43b";
     } else {
-      percentEl.style.color = 'var(--text-secondary)';
+      percentEl.style.color = "var(--text-secondary)";
     }
   }
 
@@ -536,9 +536,9 @@ function updateQuotaMeter(type, quota) {
 
     // Change color if near limit
     if (percent >= 95) {
-      barEl.style.background = 'linear-gradient(90deg, #ff6b6b, #ff9e9e)';
+      barEl.style.background = "linear-gradient(90deg, #ff6b6b, #ff9e9e)";
     } else if (percent >= 80) {
-      barEl.style.background = 'linear-gradient(90deg, #ffd43b, #ffe066)';
+      barEl.style.background = "linear-gradient(90deg, #ffd43b, #ffe066)";
     }
   }
 
@@ -546,29 +546,29 @@ function updateQuotaMeter(type, quota) {
   const usedEl = document.getElementById(`${type}Used`);
   const limitEl = document.getElementById(`${type}Limit`);
 
-  if (type === 'storage') {
+  if (type === "storage") {
     if (usedEl) usedEl.textContent = `${quota.used_mb.toFixed(2)} MB`;
     if (limitEl)
-      limitEl.textContent = limit === -1 ? 'Unlimited' : `${quota.limit_mb.toFixed(2)} MB`;
-  } else if (type === 'cost') {
+      limitEl.textContent = limit === -1 ? "Unlimited" : `${quota.limit_mb.toFixed(2)} MB`;
+  } else if (type === "cost") {
     if (usedEl) usedEl.textContent = `$${quota.used_usd.toFixed(2)}`;
     if (limitEl)
-      limitEl.textContent = limit === -1 ? 'Unlimited' : `$${quota.limit_usd.toFixed(2)}`;
-  } else if (type === 'tokens') {
+      limitEl.textContent = limit === -1 ? "Unlimited" : `$${quota.limit_usd.toFixed(2)}`;
+  } else if (type === "tokens") {
     if (usedEl) usedEl.textContent = formatNumber(used);
-    if (limitEl) limitEl.textContent = limit === -1 ? 'Unlimited' : formatNumber(limit);
+    if (limitEl) limitEl.textContent = limit === -1 ? "Unlimited" : formatNumber(limit);
   } else {
     if (usedEl) usedEl.textContent = used;
-    if (limitEl) limitEl.textContent = limit === -1 ? 'Unlimited' : limit;
+    if (limitEl) limitEl.textContent = limit === -1 ? "Unlimited" : limit;
   }
 }
 
 async function loadRecentEvents() {
   try {
-    const response = await fetch('/api/usage/events?days=1&limit=20');
+    const response = await fetch("/api/usage/events?days=1&limit=20");
     const data = await response.json();
 
-    const container = document.getElementById('recentEvents');
+    const container = document.getElementById("recentEvents");
     if (!container) return;
 
     if (data.events.length === 0) {
@@ -581,7 +581,7 @@ async function loadRecentEvents() {
       .map((event) => {
         const time = new Date(event.timestamp).toLocaleTimeString();
         const icon = getEventIcon(event.event_type);
-        const color = event.status === 'success' ? '#51cf66' : '#ff6b6b';
+        const color = event.status === "success" ? "#51cf66" : "#ff6b6b";
 
         return `
         <div style="display: flex; align-items: center; padding: 0.75rem; border-bottom: 1px solid var(--border-color); gap: 1rem;">
@@ -591,9 +591,9 @@ async function loadRecentEvents() {
           <div style="flex: 1;">
             <div style="font-weight: 500; color: var(--text-primary);">${formatEventType(event.event_type)}</div>
             <div style="font-size: 0.8125rem; color: var(--text-secondary);">
-              ${event.resource_name || event.endpoint || ''}
-              ${event.tokens_input + event.tokens_output > 0 ? ` • ${formatNumber(event.tokens_input + event.tokens_output)} tokens` : ''}
-              ${event.cost_usd > 0 ? ` • $${event.cost_usd.toFixed(4)}` : ''}
+              ${event.resource_name || event.endpoint || ""}
+              ${event.tokens_input + event.tokens_output > 0 ? ` • ${formatNumber(event.tokens_input + event.tokens_output)} tokens` : ""}
+              ${event.cost_usd > 0 ? ` • $${event.cost_usd.toFixed(4)}` : ""}
             </div>
           </div>
           <div style="font-size: 0.8125rem; color: var(--text-secondary); white-space: nowrap;">
@@ -602,47 +602,47 @@ async function loadRecentEvents() {
         </div>
       `;
       })
-      .join('');
+      .join("");
   } catch (error) {
-    console.error('Error loading recent events:', error);
+    console.error("Error loading recent events:", error);
   }
 }
 
 function getEventIcon(eventType) {
   const icons = {
-    ai_request: 'robot',
-    file_upload: 'file-upload',
-    analysis: 'chart-line',
-    workflow: 'project-diagram',
-    api_call: 'code',
-    chat_message: 'comments',
+    ai_request: "robot",
+    file_upload: "file-upload",
+    analysis: "chart-line",
+    workflow: "project-diagram",
+    api_call: "code",
+    chat_message: "comments",
   };
-  return icons[eventType] || 'circle';
+  return icons[eventType] || "circle";
 }
 
 function formatEventType(eventType) {
   return eventType
-    .split('_')
+    .split("_")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .join(" ");
 }
 
 function formatNumber(num) {
   if (num >= 1000000) {
-    return (num / 1000000).toFixed(1) + 'M';
+    return (num / 1000000).toFixed(1) + "M";
   } else if (num >= 1000) {
-    return (num / 1000).toFixed(1) + 'K';
+    return (num / 1000).toFixed(1) + "K";
   }
   return num.toString();
 }
 
 // Track usage client-side
-async function trackUsage(eventType, eventCategory = 'feature', metadata = {}) {
+async function trackUsage(eventType, eventCategory = "feature", metadata = {}) {
   try {
-    await fetch('/api/usage/track', {
-      method: 'POST',
+    await fetch("/api/usage/track", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         event_type: eventType,
@@ -651,7 +651,7 @@ async function trackUsage(eventType, eventCategory = 'feature', metadata = {}) {
       }),
     });
   } catch (error) {
-    console.error('Error tracking usage:', error);
+    console.error("Error tracking usage:", error);
   }
 }
 
@@ -659,8 +659,8 @@ async function trackUsage(eventType, eventCategory = 'feature', metadata = {}) {
 // PAGE INITIALIZATION
 // ========================================
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Evident Unified Workspace initialized');
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Evident Unified Workspace initialized");
 
   // Load initial data
   loadCases();
@@ -677,8 +677,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 30000);
 
   // Set default view
-  switchView('dashboard');
+  switchView("dashboard");
 
   // Track page view
-  trackUsage('page_view', 'navigation', { page: 'workspace' });
+  trackUsage("page_view", "navigation", { page: "workspace" });
 });

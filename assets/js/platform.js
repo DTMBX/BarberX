@@ -7,7 +7,7 @@
  */
 
 (function () {
-  'use strict';
+  "use strict";
 
   /**
    * Initialize all platform features
@@ -29,20 +29,20 @@
   function initScrollAnimations() {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px',
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
+          entry.target.classList.add("animate-fade-in");
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
     // Observe feature cards, stats, and other animated elements
-    document.querySelectorAll('.feature-card, .stat-card, .card').forEach((el) => {
+    document.querySelectorAll(".feature-card, .stat-card, .card").forEach((el) => {
       observer.observe(el);
     });
   }
@@ -51,29 +51,29 @@
    * Highlight active navigation item based on scroll position
    */
   function initNavigationHighlight() {
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
     function highlightNavigation() {
-      let current = '';
+      let current = "";
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         if (window.pageYOffset >= sectionTop - 200) {
-          current = section.getAttribute('id');
+          current = section.getAttribute("id");
         }
       });
 
       navLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
         }
       });
     }
 
-    window.addEventListener('scroll', highlightNavigation);
+    window.addEventListener("scroll", highlightNavigation);
     highlightNavigation(); // Initial call
   }
 
@@ -82,16 +82,16 @@
    */
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        if (targetId === "#") return;
 
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           e.preventDefault();
           targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
+            behavior: "smooth",
+            block: "start",
           });
         }
       });
@@ -102,12 +102,12 @@
    * Enhanced tooltips for features
    */
   function initTooltips() {
-    const tooltipElements = document.querySelectorAll('[data-tooltip]');
+    const tooltipElements = document.querySelectorAll("[data-tooltip]");
 
     tooltipElements.forEach((element) => {
-      const tooltip = document.createElement('div');
-      tooltip.className = 'tooltip';
-      tooltip.textContent = element.getAttribute('data-tooltip');
+      const tooltip = document.createElement("div");
+      tooltip.className = "tooltip";
+      tooltip.textContent = element.getAttribute("data-tooltip");
       tooltip.style.cssText = `
         position: absolute;
         background: var(--gray-900);
@@ -122,15 +122,15 @@
         z-index: 1000;
       `;
 
-      element.style.position = 'relative';
+      element.style.position = "relative";
       element.appendChild(tooltip);
 
-      element.addEventListener('mouseenter', () => {
-        tooltip.style.opacity = '1';
+      element.addEventListener("mouseenter", () => {
+        tooltip.style.opacity = "1";
       });
 
-      element.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = '0';
+      element.addEventListener("mouseleave", () => {
+        tooltip.style.opacity = "0";
       });
     });
   }
@@ -139,10 +139,10 @@
    * Animated counter for statistics
    */
   function initStatsCounter() {
-    const statValues = document.querySelectorAll('.stat-value');
+    const statValues = document.querySelectorAll(".stat-value");
 
     const animateCounter = (element) => {
-      const target = parseInt(element.textContent.replace(/[^0-9]/g, ''));
+      const target = parseInt(element.textContent.replace(/[^0-9]/g, ""));
       const duration = 2000;
       const start = 0;
       const increment = target / (duration / 16);
@@ -160,9 +160,9 @@
     };
 
     const formatStatValue = (value, format) => {
-      if (format === 'percent') return value + '%';
-      if (format === 'currency') return '$' + value.toLocaleString();
-      if (format === 'hours') return value.toLocaleString() + 'hr';
+      if (format === "percent") return value + "%";
+      if (format === "currency") return "$" + value.toLocaleString();
+      if (format === "hours") return value.toLocaleString() + "hr";
       return value.toLocaleString();
     };
 
@@ -185,12 +185,12 @@
    * Enhanced search functionality
    */
   function initSearchEnhancement() {
-    const searchInput = document.querySelector('#platform-search');
+    const searchInput = document.querySelector("#platform-search");
     if (!searchInput) return;
 
     let searchTimeout;
 
-    searchInput.addEventListener('input', function (e) {
+    searchInput.addEventListener("input", function (e) {
       clearTimeout(searchTimeout);
 
       searchTimeout = setTimeout(() => {
@@ -202,7 +202,7 @@
     function performSearch(query) {
       if (query.length < 3) return;
 
-      const searchableElements = document.querySelectorAll('[data-searchable]');
+      const searchableElements = document.querySelectorAll("[data-searchable]");
       let matches = [];
 
       searchableElements.forEach((element) => {
@@ -220,7 +220,7 @@
 
     function calculateRelevance(content, query) {
       const index = content.indexOf(query);
-      const frequency = (content.match(new RegExp(query, 'g')) || []).length;
+      const frequency = (content.match(new RegExp(query, "g")) || []).length;
       return frequency * 100 - index;
     }
 
@@ -230,11 +230,11 @@
 
       // Highlight matches
       matches.forEach((match) => {
-        match.element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        match.element.classList.add('search-highlight');
+        match.element.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        match.element.classList.add("search-highlight");
 
         setTimeout(() => {
-          match.element.classList.remove('search-highlight');
+          match.element.classList.remove("search-highlight");
         }, 2000);
       });
     }
@@ -245,40 +245,40 @@
    */
   function initAccessibilityFeatures() {
     // Skip to main content link
-    const skipLink = document.querySelector('.skip-link');
+    const skipLink = document.querySelector(".skip-link");
     if (skipLink) {
-      skipLink.addEventListener('click', (e) => {
+      skipLink.addEventListener("click", (e) => {
         e.preventDefault();
-        const mainContent = document.querySelector('main');
+        const mainContent = document.querySelector("main");
         if (mainContent) {
-          mainContent.setAttribute('tabindex', '-1');
+          mainContent.setAttribute("tabindex", "-1");
           mainContent.focus();
         }
       });
     }
 
     // Keyboard navigation improvements
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("keydown", (e) => {
       // ESC key closes modals/dropdowns
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.active, .dropdown.active').forEach((el) => {
-          el.classList.remove('active');
+      if (e.key === "Escape") {
+        document.querySelectorAll(".modal.active, .dropdown.active").forEach((el) => {
+          el.classList.remove("active");
         });
       }
     });
 
     // ARIA live region for dynamic updates
-    const liveRegion = document.createElement('div');
-    liveRegion.setAttribute('aria-live', 'polite');
-    liveRegion.setAttribute('aria-atomic', 'true');
-    liveRegion.className = 'sr-only';
-    liveRegion.id = 'live-region';
+    const liveRegion = document.createElement("div");
+    liveRegion.setAttribute("aria-live", "polite");
+    liveRegion.setAttribute("aria-atomic", "true");
+    liveRegion.className = "sr-only";
+    liveRegion.id = "live-region";
     document.body.appendChild(liveRegion);
 
     window.announceToScreenReader = function (message) {
       liveRegion.textContent = message;
       setTimeout(() => {
-        liveRegion.textContent = '';
+        liveRegion.textContent = "";
       }, 1000);
     };
   }
@@ -287,24 +287,24 @@
    * Performance monitoring
    */
   function initPerformanceMonitoring() {
-    if ('PerformanceObserver' in window) {
+    if ("PerformanceObserver" in window) {
       // Monitor Largest Contentful Paint (LCP)
       const lcpObserver = new PerformanceObserver((list) => {
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1];
-        console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
+        console.log("LCP:", lastEntry.renderTime || lastEntry.loadTime);
       });
 
-      lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+      lcpObserver.observe({ entryTypes: ["largest-contentful-paint"] });
 
       // Monitor First Input Delay (FID)
       const fidObserver = new PerformanceObserver((list) => {
         list.getEntries().forEach((entry) => {
-          console.log('FID:', entry.processingStart - entry.startTime);
+          console.log("FID:", entry.processingStart - entry.startTime);
         });
       });
 
-      fidObserver.observe({ entryTypes: ['first-input'] });
+      fidObserver.observe({ entryTypes: ["first-input"] });
 
       // Monitor Cumulative Layout Shift (CLS)
       let clsScore = 0;
@@ -312,12 +312,12 @@
         list.getEntries().forEach((entry) => {
           if (!entry.hadRecentInput) {
             clsScore += entry.value;
-            console.log('CLS:', clsScore);
+            console.log("CLS:", clsScore);
           }
         });
       });
 
-      clsObserver.observe({ entryTypes: ['layout-shift'] });
+      clsObserver.observe({ entryTypes: ["layout-shift"] });
     }
   }
 
@@ -326,7 +326,7 @@
    */
   class FeatureCardEnhancer {
     constructor() {
-      this.cards = document.querySelectorAll('.feature-card');
+      this.cards = document.querySelectorAll(".feature-card");
       this.init();
     }
 
@@ -338,17 +338,17 @@
     }
 
     addHoverEffect(card) {
-      card.addEventListener('mouseenter', (e) => {
-        const icon = card.querySelector('.feature-icon');
+      card.addEventListener("mouseenter", (e) => {
+        const icon = card.querySelector(".feature-icon");
         if (icon) {
-          icon.style.transform = 'scale(1.1) rotate(5deg)';
+          icon.style.transform = "scale(1.1) rotate(5deg)";
         }
       });
 
-      card.addEventListener('mouseleave', (e) => {
-        const icon = card.querySelector('.feature-icon');
+      card.addEventListener("mouseleave", (e) => {
+        const icon = card.querySelector(".feature-icon");
         if (icon) {
-          icon.style.transform = 'scale(1) rotate(0deg)';
+          icon.style.transform = "scale(1) rotate(0deg)";
         }
       });
     }
@@ -357,14 +357,14 @@
       const moreInfo = card.dataset.moreInfo;
       if (!moreInfo) return;
 
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', () => {
-        const existingInfo = card.querySelector('.expanded-info');
+      card.style.cursor = "pointer";
+      card.addEventListener("click", () => {
+        const existingInfo = card.querySelector(".expanded-info");
         if (existingInfo) {
           existingInfo.remove();
         } else {
-          const infoDiv = document.createElement('div');
-          infoDiv.className = 'expanded-info';
+          const infoDiv = document.createElement("div");
+          infoDiv.className = "expanded-info";
           infoDiv.style.cssText = `
             margin-top: 1rem;
             padding-top: 1rem;
@@ -384,9 +384,9 @@
    * Loading State Manager
    */
   class LoadingStateManager {
-    static show(element, message = 'Loading...') {
-      const loader = document.createElement('div');
-      loader.className = 'loading-overlay';
+    static show(element, message = "Loading...") {
+      const loader = document.createElement("div");
+      loader.className = "loading-overlay";
       loader.innerHTML = `
         <div class="loading-spinner"></div>
         <p class="loading-message">${message}</p>
@@ -406,16 +406,16 @@
         border-radius: inherit;
       `;
 
-      element.style.position = 'relative';
+      element.style.position = "relative";
       element.appendChild(loader);
-      element.setAttribute('aria-busy', 'true');
+      element.setAttribute("aria-busy", "true");
     }
 
     static hide(element) {
-      const loader = element.querySelector('.loading-overlay');
+      const loader = element.querySelector(".loading-overlay");
       if (loader) {
         loader.remove();
-        element.removeAttribute('aria-busy');
+        element.removeAttribute("aria-busy");
       }
     }
   }
@@ -430,22 +430,22 @@
     }
 
     init() {
-      this.form.addEventListener('submit', (e) => {
+      this.form.addEventListener("submit", (e) => {
         if (!this.validate()) {
           e.preventDefault();
         }
       });
 
       // Real-time validation
-      this.form.querySelectorAll('input, textarea, select').forEach((field) => {
-        field.addEventListener('blur', () => this.validateField(field));
-        field.addEventListener('input', () => this.clearFieldError(field));
+      this.form.querySelectorAll("input, textarea, select").forEach((field) => {
+        field.addEventListener("blur", () => this.validateField(field));
+        field.addEventListener("input", () => this.clearFieldError(field));
       });
     }
 
     validate() {
       let isValid = true;
-      this.form.querySelectorAll('[required]').forEach((field) => {
+      this.form.querySelectorAll("[required]").forEach((field) => {
         if (!this.validateField(field)) {
           isValid = false;
         }
@@ -458,25 +458,25 @@
       const type = field.type;
 
       // Required check
-      if (field.hasAttribute('required') && !value) {
-        this.showError(field, 'This field is required');
+      if (field.hasAttribute("required") && !value) {
+        this.showError(field, "This field is required");
         return false;
       }
 
       // Email validation
-      if (type === 'email' && value) {
+      if (type === "email" && value) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
-          this.showError(field, 'Please enter a valid email address');
+          this.showError(field, "Please enter a valid email address");
           return false;
         }
       }
 
       // Phone validation
-      if (field.name === 'phone' && value) {
+      if (field.name === "phone" && value) {
         const phoneRegex = /^[\d\s\-\+\(\)]+$/;
         if (!phoneRegex.test(value)) {
-          this.showError(field, 'Please enter a valid phone number');
+          this.showError(field, "Please enter a valid phone number");
           return false;
         }
       }
@@ -488,11 +488,11 @@
     showError(field, message) {
       this.clearFieldError(field);
 
-      field.classList.add('error');
-      field.setAttribute('aria-invalid', 'true');
+      field.classList.add("error");
+      field.setAttribute("aria-invalid", "true");
 
-      const error = document.createElement('div');
-      error.className = 'field-error';
+      const error = document.createElement("div");
+      error.className = "field-error";
       error.textContent = message;
       error.style.cssText = `
         color: var(--error-red);
@@ -504,10 +504,10 @@
     }
 
     clearFieldError(field) {
-      field.classList.remove('error');
-      field.removeAttribute('aria-invalid');
+      field.classList.remove("error");
+      field.removeAttribute("aria-invalid");
 
-      const error = field.parentElement.querySelector('.field-error');
+      const error = field.parentElement.querySelector(".field-error");
       if (error) {
         error.remove();
       }
@@ -526,8 +526,8 @@
   /**
    * Initialize when DOM is ready
    */
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPlatform);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPlatform);
   } else {
     initPlatform();
   }
@@ -536,7 +536,7 @@
   new FeatureCardEnhancer();
 
   // Initialize form validators
-  document.querySelectorAll('form[data-validate]').forEach((form) => {
+  document.querySelectorAll("form[data-validate]").forEach((form) => {
     new FormValidator(form);
   });
 })();

@@ -8,8 +8,7 @@ Advanced audio/video analysis with realistic mock data
 
 import math
 import random
-from datetime import datetime, timedelta
-from typing import Dict, List, Tuple
+from datetime import datetime
 
 
 class EnhancedAnalysisTools:
@@ -35,7 +34,7 @@ class EnhancedAnalysisTools:
         "booking",
     ]
 
-    def generate_audio_waveform(self, duration: int, segments: List[Dict]) -> List[Dict]:
+    def generate_audio_waveform(self, duration: int, segments: list[dict]) -> list[dict]:
         """Generate audio waveform data for visualization"""
         sample_rate = 100  # samples per second
         total_samples = duration * sample_rate
@@ -60,7 +59,7 @@ class EnhancedAnalysisTools:
 
         return waveform
 
-    def generate_voice_stress_analysis(self, segments: List[Dict]) -> List[Dict]:
+    def generate_voice_stress_analysis(self, segments: list[dict]) -> list[dict]:
         """Analyze voice stress patterns"""
         stress_data = []
 
@@ -90,7 +89,7 @@ class EnhancedAnalysisTools:
 
         return stress_data
 
-    def detect_scenes(self, duration: int) -> List[Dict]:
+    def detect_scenes(self, duration: int) -> list[dict]:
         """Detect and segment different scenes in video"""
         scenes = []
         current_time = 0.0
@@ -127,7 +126,7 @@ class EnhancedAnalysisTools:
 
         return scenes
 
-    def _generate_scene_objects(self, scene_type: str) -> List[Dict]:
+    def _generate_scene_objects(self, scene_type: str) -> list[dict]:
         """Generate detected objects for a scene"""
         object_types = {
             "vehicle_stop": ["vehicle", "license_plate", "person", "roadway"],
@@ -160,7 +159,7 @@ class EnhancedAnalysisTools:
 
         return detected
 
-    def generate_audio_quality_metrics(self, duration: int) -> Dict:
+    def generate_audio_quality_metrics(self, duration: int) -> dict:
         """Generate audio quality assessment metrics"""
         return {
             "overall_quality": random.choice(["excellent", "good", "fair", "poor"]),
@@ -179,7 +178,7 @@ class EnhancedAnalysisTools:
             "duration_analyzed": duration,
         }
 
-    def _generate_audio_issues(self) -> List[Dict]:
+    def _generate_audio_issues(self) -> list[dict]:
         """Generate detected audio quality issues"""
         possible_issues = [
             {"type": "wind_noise", "severity": "low", "timestamp": None},
@@ -199,7 +198,7 @@ class EnhancedAnalysisTools:
 
         return selected
 
-    def generate_compliance_check(self, report_data: Dict) -> Dict:
+    def generate_compliance_check(self, report_data: dict) -> dict:
         """Check compliance with legal standards"""
         checks = {
             "chain_of_custody": {
@@ -254,7 +253,7 @@ class EnhancedAnalysisTools:
             "recommendations": self._generate_compliance_recommendations(checks),
         }
 
-    def _generate_compliance_recommendations(self, checks: Dict) -> List[str]:
+    def _generate_compliance_recommendations(self, checks: dict) -> list[str]:
         """Generate compliance recommendations"""
         recommendations = []
 
@@ -273,7 +272,7 @@ class EnhancedAnalysisTools:
 
         return recommendations
 
-    def generate_evidence_comparison(self, transcript_data: Dict) -> Dict:
+    def generate_evidence_comparison(self, transcript_data: dict) -> dict:
         """Compare BWC footage with other evidence sources"""
         return {
             "sources_compared": ["bwc_video", "police_report", "witness_statement", "cad_logs"],
@@ -311,7 +310,7 @@ class EnhancedAnalysisTools:
             },
         }
 
-    def generate_annotation_system(self) -> Dict:
+    def generate_annotation_system(self) -> dict:
         """Generate annotation capabilities"""
         return {
             "available_types": [
@@ -352,7 +351,7 @@ class AdvancedMockAnalyzer:
 
     def generate_complete_analysis(
         self, video_path: str, case_number: str = None, evidence_number: str = None
-    ) -> Dict:
+    ) -> dict:
         """Generate comprehensive analysis with all enhanced features"""
         from mock_analysis import mock_generator
 
@@ -412,5 +411,3 @@ class AdvancedMockAnalyzer:
 
 # Global instance
 advanced_analyzer = AdvancedMockAnalyzer()
-
-

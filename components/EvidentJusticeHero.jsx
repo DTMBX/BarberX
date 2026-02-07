@@ -1,14 +1,14 @@
 // Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 // PROPRIETARY — See LICENSE.
 
-import React from 'react';
-import './EvidentJusticeHero.css';
+import React from "react";
+import "./EvidentJusticeHero.css";
 
 /**
  * EvidentJusticeHero - Animated Scales of Justice for Login/Hero Section
  * Clean, modern, and smooth. Symbolizes balance and fairness.
  */
-export default function EvidentJusticeHero({ className = '' }) {
+export default function EvidentJusticeHero({ className = "" }) {
   return (
     <div className={`evident-justice-hero ${className}`} aria-label="Animated Scales of Justice">
       <svg

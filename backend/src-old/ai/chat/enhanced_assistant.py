@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -14,10 +15,9 @@ Integrates with unified AI pipeline for:
 import json
 import logging
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-from src.ai.pipeline import (AnalysisResult, CitationRecord, Passage,
-                             SourceSystem, get_orchestrator)
+from src.ai.pipeline import AnalysisResult, Passage, get_orchestrator
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ class EnhancedChatAssistant:
     - Multi-modal context (text, audio transcripts, evidence)
     """
 
-    def __init__(self, user_id: int, project_id: Optional[int] = None):
+Optional[def __init__(self, user_id: int, project_id: int] = None):
         """
         Initialize enhanced chat assistant
 
@@ -49,15 +49,15 @@ class EnhancedChatAssistant:
         self.orchestrator = get_orchestrator()
 
         # Conversation state
-        self.conversation_id: Optional[int] = None
-        self.message_history: List[Dict] = []
-        self.referenced_documents: List[int] = []  # Track doc_ids
+Optional[self.conversation_id: int] = None
+        self.message_history: list[dict] = []
+        self.referenced_documents: list[int] = []  # Track doc_ids
 
         logger.info(f"EnhancedChatAssistant initialized for user_id={user_id}")
 
     def start_conversation(
-        self, title: Optional[str] = None, context_documents: Optional[List[int]] = None
-    ) -> Dict[str, Any]:
+Optional[self, title: str]Optional[= None, context_documents: list[int]] = None
+    ) -> dict[str, Any]:
         """
         Start a new conversation with optional document context
 
@@ -99,7 +99,7 @@ class EnhancedChatAssistant:
         retrieve_references: bool = True,
         max_passages: int = 5,
         accessibility_mode: bool = False,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Ask a question with automatic reference retrieval
 
@@ -123,10 +123,12 @@ class EnhancedChatAssistant:
         self.message_history.append(user_message)
 
         # Retrieve relevant passages if enabled
-        passages: List[Passage] = []
+        passages: list[Passage] = []
         if retrieve_references:
             retrieve_result = self.orchestrator.retrieve(
-                query=query, top_k=max_passages, method="hybrid"  # Use keyword + semantic
+                query=query,
+                top_k=max_passages,
+                method="hybrid",  # Use keyword + semantic
             )
             passages = retrieve_result.passages
 
@@ -164,7 +166,7 @@ class EnhancedChatAssistant:
         return response
 
     def record_exchange(
-        self, user_message: Dict[str, Any], assistant_message: Dict[str, Any]
+        self, user_message: dict[str, Any], assistant_message: dict[str, Any]
     ) -> None:
         """
         Record a message exchange to memory and persistence hooks.
@@ -182,7 +184,7 @@ class EnhancedChatAssistant:
             if document_id and document_id not in self.referenced_documents:
                 self.referenced_documents.append(document_id)
 
-    def get_conversation_summary(self, include_citations: bool = True) -> Dict[str, Any]:
+    def get_conversation_summary(self, include_citations: bool = True) -> dict[str, Any]:
         """
         Get comprehensive conversation summary with memory
 
@@ -218,8 +220,8 @@ class EnhancedChatAssistant:
         }
 
     def search_conversation_history(
-        self, query: str, message_type: Optional[str] = None
-    ) -> List[Dict[str, Any]]:
+Optional[self, query: str, message_type: str] = None
+    ) -> list[dict[str, Any]]:
         """
         Search within conversation history
 
@@ -286,7 +288,7 @@ class EnhancedChatAssistant:
     # ACCESSIBILITY FEATURES
     # ================================================================
 
-    def get_accessible_response(self, response: Dict[str, Any]) -> Dict[str, Any]:
+    def get_accessible_response(self, response: dict[str, Any]) -> dict[str, Any]:
         """
         Enhance response with accessibility metadata
 
@@ -307,7 +309,7 @@ class EnhancedChatAssistant:
             },
         }
 
-    def generate_audio_summary(self, response: Dict[str, Any]) -> str:
+    def generate_audio_summary(self, response: dict[str, Any]) -> str:
         """
         Generate audio-optimized summary (for TTS)
 
@@ -336,7 +338,7 @@ class EnhancedChatAssistant:
     # INTERNAL HELPERS
     # ================================================================
 
-    def _generate_system_message(self) -> Dict[str, str]:
+    def _generate_system_message(self) -> dict[str, str]:
         """Generate system message with instructions"""
         return {
             "role": "system",
@@ -355,14 +357,14 @@ Always ground your answers in evidence and cite your sources.""",
             "timestamp": datetime.utcnow().isoformat(),
         }
 
-    def _load_context_documents(self, doc_ids: List[int]):
+    def _load_context_documents(self, doc_ids: list[int]):
         """Load documents into conversation context"""
         self.referenced_documents.extend(doc_ids)
         logger.info(f"Loaded {len(doc_ids)} context documents")
 
     def _format_response(
-        self, analysis_result: AnalysisResult, passages: List[Passage], accessibility_mode: bool
-    ) -> Dict[str, Any]:
+        self, analysis_result: AnalysisResult, passages: list[Passage], accessibility_mode: bool
+    ) -> dict[str, Any]:
         """Format analysis result as chat response"""
         # Extract citations with full metadata
         citations = []
@@ -394,7 +396,7 @@ Always ground your answers in evidence and cite your sources.""",
 
         return response
 
-    def _extract_topics(self, text: str) -> List[str]:
+    def _extract_topics(self, text: str) -> list[str]:
         """Extract key topics from text (simplified)"""
         # TODO: Use NER or topic modeling
         # For now, return placeholder
@@ -409,12 +411,12 @@ Always ground your answers in evidence and cite your sources.""",
         end = datetime.fromisoformat(self.message_history[-1]["timestamp"])
         return (end - start).total_seconds() / 60.0
 
-    def _generate_screen_reader_text(self, response: Dict) -> str:
+    def _generate_screen_reader_text(self, response: dict) -> str:
         """Generate screen reader optimized text"""
         citations = len(response.get("citations", []))
         return f"Answer with {citations} source citations. {response['answer']}"
 
-    def _generate_tts_text(self, response: Dict) -> str:
+    def _generate_tts_text(self, response: dict) -> str:
         """Generate text-to-speech optimized text"""
         return self.generate_audio_summary(response)
 
@@ -472,7 +474,7 @@ Always ground your answers in evidence and cite your sources.""",
                 html += "      <ul>\n"
                 for cit in msg["citations"]:
                     html += f'        <li><a href="/doc/{cit["document_id"]}#page-{cit["page_number"]}">'
-                    html += f'Doc {cit["document_id"]}, Page {cit["page_number"]}</a></li>\n'
+                    html += f"Doc {cit['document_id']}, Page {cit['page_number']}</a></li>\n"
                 html += "      </ul>\n"
                 html += "    </aside>\n"
 
@@ -481,7 +483,7 @@ Always ground your answers in evidence and cite your sources.""",
         html += "</article>\n"
         return html
 
-    def _create_conversation_record(self, title: str) -> Dict:
+    def _create_conversation_record(self, title: str) -> dict:
         """Create conversation record in database"""
         # TODO: Integrate with actual database
         return {
@@ -490,8 +492,7 @@ Always ground your answers in evidence and cite your sources.""",
             "created_at": datetime.utcnow().isoformat(),
         }
 
-    def _save_message_exchange(self, user_msg: Dict, assistant_msg: Dict):
+    def _save_message_exchange(self, user_msg: dict, assistant_msg: dict):
         """Persist message exchange to database"""
         # TODO: Integrate with actual database
         logger.debug(f"Saved message exchange to conversation {self.conversation_id}")
-

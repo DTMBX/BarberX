@@ -480,8 +480,8 @@ def upload_pdf():
 
    ```javascript
    // In your frontend forms
-   fetch('https://your-app.railway.app/api/upload/pdf', {
-     method: 'POST',
+   fetch("https://your-app.railway.app/api/upload/pdf", {
+     method: "POST",
      body: formData,
    });
    ```

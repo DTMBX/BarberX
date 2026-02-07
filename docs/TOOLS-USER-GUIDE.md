@@ -265,7 +265,7 @@ Edit `assets/js/api-config.js`:
 
 ```javascript
 const API_CONFIG = {
-  BACKEND_URL: 'http://localhost:8000', // Change if backend runs elsewhere
+  BACKEND_URL: "http://localhost:8000", // Change if backend runs elsewhere
   LIMITS: {
     MAX_FILE_SIZE_MB: 500,
     MAX_FILES_PER_BATCH: 50,

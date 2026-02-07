@@ -128,10 +128,7 @@ But the actual file is named **`premium-header.js`**, not `premium-nav.js`!
 **To this:**
 
 ```html
-<script
-  src="{{ '/assets/js/premium-header.js' | relative_url }}"
-  defer
-></script>
+<script src="{{ '/assets/js/premium-header.js' | relative_url }}" defer></script>
 ```
 
 ---

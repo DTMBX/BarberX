@@ -129,9 +129,7 @@ comprehensive animation system with GPU-acceleration and accessibility features.
 ### Animated Counters
 
 ```html
-<h3 data-counter="5000" data-counter-suffix="+" data-counter-duration="2000">
-  0
-</h3>
+<h3 data-counter="5000" data-counter-suffix="+" data-counter-duration="2000">0</h3>
 ```
 
 ### Interactive Effects
@@ -143,9 +141,7 @@ comprehensive animation system with GPU-acceleration and accessibility features.
 ### Parallax
 
 ```html
-<div data-parallax="0.5" data-parallax-direction="up">
-  Moves at 50% scroll speed
-</div>
+<div data-parallax="0.5" data-parallax-direction="up">Moves at 50% scroll speed</div>
 ```
 
 ## 🔧 Implementation
@@ -169,18 +165,18 @@ comprehensive animation system with GPU-acceleration and accessibility features.
 
 ```javascript
 // Listen for animation reveals
-document.addEventListener('element-revealed', (e) => {
-  console.log('Element:', e.detail.target);
+document.addEventListener("element-revealed", (e) => {
+  console.log("Element:", e.detail.target);
 });
 
 // Listen for theme changes
-document.addEventListener('theme:change', (e) => {
-  console.log('Theme:', e.detail.theme);
+document.addEventListener("theme:change", (e) => {
+  console.log("Theme:", e.detail.theme);
 });
 
 // App ready
-document.addEventListener('Evident:ready', () => {
-  console.log('App initialized');
+document.addEventListener("Evident:ready", () => {
+  console.log("App initialized");
 });
 ```
 

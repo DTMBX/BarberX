@@ -1,10 +1,10 @@
 // Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 // PROPRIETARY — See LICENSE.
 
-'use client';
+"use client";
 
-import { useEffect, useState, useCallback } from 'react';
-import styles from './EvidentHero.module.css';
+import { useEffect, useState, useCallback } from "react";
+import styles from "./EvidentHero.module.css";
 
 /**
  * EvidentHero.next.tsx
@@ -38,7 +38,7 @@ interface EvidentHeroProps {
   /** Descriptive text/tagline */
   tagline?: string;
   /** Layout variant: 'default' | 'minimal' | 'full' */
-  variant?: 'default' | 'minimal' | 'full';
+  variant?: "default" | "minimal" | "full";
   /** CTA button text */
   ctaText?: string;
   /** Callback when CTA is clicked */
@@ -56,44 +56,44 @@ interface EvidentHeroProps {
 }
 
 export default function EvidentHero({
-  heading = 'Welcome to Barber Cam',
-  tagline = 'Premium Evident experience',
-  variant = 'default',
-  ctaText = 'Get Started',
+  heading = "Welcome to Barber Cam",
+  tagline = "Premium Evident experience",
+  variant = "default",
+  ctaText = "Get Started",
   onCtaClick,
-  className = '',
+  className = "",
   svgSize = 200,
   animationDuration = 5.5,
   showBadge = false,
-  badgeText = 'Premium',
+  badgeText = "Premium",
 }: EvidentHeroProps) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     // Check motion preference
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(motionQuery.matches);
 
     const handleMotionChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
     };
 
-    motionQuery.addEventListener('change', handleMotionChange);
+    motionQuery.addEventListener("change", handleMotionChange);
 
     // Check dark mode preference
-    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDarkMode(darkModeQuery.matches);
 
     const handleDarkModeChange = (e: MediaQueryListEvent) => {
       setIsDarkMode(e.matches);
     };
 
-    darkModeQuery.addEventListener('change', handleDarkModeChange);
+    darkModeQuery.addEventListener("change", handleDarkModeChange);
 
     return () => {
-      motionQuery.removeEventListener('change', handleMotionChange);
-      darkModeQuery.removeEventListener('change', handleDarkModeChange);
+      motionQuery.removeEventListener("change", handleMotionChange);
+      darkModeQuery.removeEventListener("change", handleDarkModeChange);
     };
   }, []);
 
@@ -102,16 +102,16 @@ export default function EvidentHero({
   }, [onCtaClick]);
 
   const rootClass = [
-    styles['evident-hero'],
+    styles["evident-hero"],
     styles[`Evident-hero-${variant}`],
-    prefersReducedMotion && styles['no-animation'],
-    isDarkMode && styles['dark-mode'],
+    prefersReducedMotion && styles["no-animation"],
+    isDarkMode && styles["dark-mode"],
     className,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
-  const svgAnimationClass = prefersReducedMotion ? styles['paused'] : '';
+  const svgAnimationClass = prefersReducedMotion ? styles["paused"] : "";
 
   return (
     <section
@@ -119,9 +119,9 @@ export default function EvidentHero({
       aria-label="Evident hero section with animated barber pole"
       role="banner"
     >
-      <div className={styles['hero-inner']}>
+      <div className={styles["hero-inner"]}>
         {/* Visual: Barber Pole SVG */}
-        <div className={styles['hero-visual']}>
+        <div className={styles["hero-visual"]}>
           <svg
             width={svgSize}
             height={svgSize}
@@ -132,7 +132,7 @@ export default function EvidentHero({
             style={{
               animation: !prefersReducedMotion
                 ? `spin-pole ${animationDuration}s linear infinite`
-                : 'none',
+                : "none",
             }}
           >
             <defs>
@@ -221,15 +221,15 @@ export default function EvidentHero({
         </div>
 
         {/* Content: Heading, Tagline, CTA */}
-        <div className={styles['hero-content']}>
-          {showBadge && badgeText && <span className={styles['hero-badge']}>{badgeText}</span>}
+        <div className={styles["hero-content"]}>
+          {showBadge && badgeText && <span className={styles["hero-badge"]}>{badgeText}</span>}
 
-          {heading && <h1 className={styles['hero-title']}>{heading}</h1>}
+          {heading && <h1 className={styles["hero-title"]}>{heading}</h1>}
 
-          {tagline && <p className={styles['hero-tagline']}>{tagline}</p>}
+          {tagline && <p className={styles["hero-tagline"]}>{tagline}</p>}
 
           {ctaText && (
-            <button className={styles['hero-cta']} onClick={handleCtaClick} aria-label={ctaText}>
+            <button className={styles["hero-cta"]} onClick={handleCtaClick} aria-label={ctaText}>
               {ctaText}
             </button>
           )}

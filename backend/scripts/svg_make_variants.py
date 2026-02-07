@@ -19,15 +19,15 @@ This is intentionally conservative:
 """
 
 from __future__ import annotations
+from typing import Optional
 
 import argparse
 import csv
-import os
 import re
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 HEX_RE = re.compile(r"^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 RGB_RE = re.compile(r"^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$")
@@ -67,7 +67,7 @@ DARK = ThemeTokens(
 
 
 # Candidate palette used for "fix low contrast" substitutions
-def palette_for(theme: ThemeTokens) -> Tuple[str, ...]:
+def palette_for(theme: ThemeTokens) -> tuple[str, ...]:
     return (theme.ink, theme.ink_soft, theme.accent, theme.accent_blue, theme.accent_gold)
 
 
@@ -75,7 +75,7 @@ def clamp01(x: float) -> float:
     return max(0.0, min(1.0, x))
 
 
-def parse_color(s: str) -> Optional[Tuple[int, int, int, float]]:
+Optional[def parse_color(s: str) -> tuple[int, int, int, float]]:
     """Return (r,g,b,a) or None if unsupported."""
     s = s.strip()
     if s.lower() in ("none", "transparent"):
@@ -117,7 +117,7 @@ def parse_color(s: str) -> Optional[Tuple[int, int, int, float]]:
     return None
 
 
-def to_hex(rgb: Tuple[int, int, int]) -> str:
+def to_hex(rgb: tuple[int, int, int]) -> str:
     r, g, b = rgb
     return f"#{r:02x}{g:02x}{b:02x}"
 
@@ -127,7 +127,7 @@ def srgb_to_lin(c: float) -> float:
     return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
 
 
-def rel_luminance(rgb: Tuple[int, int, int]) -> float:
+def rel_luminance(rgb: tuple[int, int, int]) -> float:
     r, g, b = rgb
     R = srgb_to_lin(r)
     G = srgb_to_lin(g)
@@ -135,7 +135,7 @@ def rel_luminance(rgb: Tuple[int, int, int]) -> float:
     return 0.2126 * R + 0.7152 * G + 0.0722 * B
 
 
-def contrast_ratio(fg: Tuple[int, int, int], bg: Tuple[int, int, int]) -> float:
+def contrast_ratio(fg: tuple[int, int, int], bg: tuple[int, int, int]) -> float:
     L1 = rel_luminance(fg)
     L2 = rel_luminance(bg)
     lighter = max(L1, L2)
@@ -143,26 +143,26 @@ def contrast_ratio(fg: Tuple[int, int, int], bg: Tuple[int, int, int]) -> float:
     return (lighter + 0.05) / (darker + 0.05)
 
 
-def is_neutral(rgb: Tuple[int, int, int], tol: int = 18) -> bool:
+def is_neutral(rgb: tuple[int, int, int], tol: int = 18) -> bool:
     r, g, b = rgb
     return (max(r, g, b) - min(r, g, b)) <= tol
 
 
-def dist(rgb1: Tuple[int, int, int], rgb2: Tuple[int, int, int]) -> float:
+def dist(rgb1: tuple[int, int, int], rgb2: tuple[int, int, int]) -> float:
     return sum((a - b) ** 2 for a, b in zip(rgb1, rgb2)) ** 0.5
 
 
-def rgb_of_hex(h: str) -> Tuple[int, int, int]:
+def rgb_of_hex(h: str) -> tuple[int, int, int]:
     c = parse_color(h)
     assert c is not None
     return (c[0], c[1], c[2])
 
 
 def choose_best_color(
-    current: Tuple[int, int, int],
+    current: tuple[int, int, int],
     theme: ThemeTokens,
     min_ratio: float = 4.5,
-) -> Tuple[Tuple[int, int, int], float]:
+) -> tuple[tuple[int, int, int], float]:
     """Pick a palette token that maximizes contrast vs background; prefer close hue if already near a token."""
     bg = rgb_of_hex(theme.bg)
 
@@ -180,7 +180,7 @@ def choose_best_color(
     return best, best_ratio
 
 
-def theme_map_neutral(rgb: Tuple[int, int, int], theme: ThemeTokens) -> Tuple[int, int, int]:
+def theme_map_neutral(rgb: tuple[int, int, int], theme: ThemeTokens) -> tuple[int, int, int]:
     """
     Neutral mapping:
     - In light theme, neutrals go dark (ink/ink_soft)
@@ -206,7 +206,7 @@ def update_style_attr(style: str, key: str, new_value: str) -> str:
     Conservative: simple split by ; then rebuild.
     """
     parts = [p.strip() for p in style.split(";") if p.strip()]
-    kv: Dict[str, str] = {}
+    kv: dict[str, str] = {}
     for p in parts:
         if ":" in p:
             k, v = p.split(":", 1)
@@ -217,7 +217,7 @@ def update_style_attr(style: str, key: str, new_value: str) -> str:
 
 def process_svg(
     svg_path: Path, out_dir: Path, theme: ThemeTokens, min_ratio: float
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     ns = {"svg": "http://www.w3.org/2000/svg"}
     ET.register_namespace("", ns["svg"])
 

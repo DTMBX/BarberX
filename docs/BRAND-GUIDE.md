@@ -46,25 +46,23 @@ The classic 1920s spinning barber pole is our primary brand symbol:
 ### Primary Colors (The Barber Trio)
 
 ```css
---barber-red: #c41e3a /* Classic barber red */ --barber-white: #ffffff
-  /* Pure white */ --barber-blue: #1e40af /* Deep American blue */;
+--barber-red: #c41e3a /* Classic barber red */ --barber-white: #ffffff /* Pure white */
+  --barber-blue: #1e40af /* Deep American blue */;
 ```
 
 ### Brass Accents
 
 ```css
---brass-light: #fff8dc /* Cornsilk highlight */ --brass-gold: #ffd700
-  /* Gold shine */ --brass-mid: #d4a574 /* Vintage brass */
-  --brass-dark: #daa520 /* Goldenrod depth */ --brass-shadow: #b8860b
-  /* Dark goldenrod shadow */;
+--brass-light: #fff8dc /* Cornsilk highlight */ --brass-gold: #ffd700 /* Gold shine */
+  --brass-mid: #d4a574 /* Vintage brass */ --brass-dark: #daa520 /* Goldenrod depth */
+  --brass-shadow: #b8860b /* Dark goldenrod shadow */;
 ```
 
 ### Neutrals
 
 ```css
---ink: #0a0a0f /* Near black */ --ink-light: #1a1a2e /* Charcoal */
-  --muted: #6b7280 /* Gray */ --bg: #fafafa /* Off white */ --card: #ffffff
-  /* Pure white */;
+--ink: #0a0a0f /* Near black */ --ink-light: #1a1a2e /* Charcoal */ --muted: #6b7280 /* Gray */
+  --bg: #fafafa /* Off white */ --card: #ffffff /* Pure white */;
 ```
 
 --
@@ -74,9 +72,8 @@ The classic 1920s spinning barber pole is our primary brand symbol:
 ### Font Stack
 
 ```css
---font-display:
-  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
---font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+--font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 ```
 
 ### Weights
@@ -135,10 +132,9 @@ All spacing follows a 4px base unit:
 ### Elevation Levels
 
 ```css
---shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06) /* Subtle lift */ --shadow-md: 0 4px
-  8px rgba(0, 0, 0, 0.08) /* Card depth */ --shadow-lg: 0 8px 16px
-  rgba(0, 0, 0, 0.1) /* Modals */ --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12)
-  /* Overlays */;
+--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06) /* Subtle lift */ --shadow-md: 0 4px 8px
+  rgba(0, 0, 0, 0.08) /* Card depth */ --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1) /* Modals */
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12) /* Overlays */;
 ```
 
 ### Glows (Brand Accents)

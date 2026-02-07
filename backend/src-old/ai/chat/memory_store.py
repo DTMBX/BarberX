@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -14,7 +15,7 @@ Provides:
 import json
 import logging
 from datetime import datetime, timedelta
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +42,7 @@ class ConversationMemoryStore:
         logger.info("ConversationMemoryStore initialized")
 
     def store_conversation(
-        self, user_id: int, project_id: Optional[int], title: str, metadata: Optional[Dict] = None
+Optional[self, user_id: int, project_id: int]Optional[, title: str, metadata: dict] = None
     ) -> int:
         """
         Create new conversation record
@@ -66,8 +67,8 @@ class ConversationMemoryStore:
         conversation_id: int,
         role: str,
         content: str,
-        citations: Optional[List[Dict]] = None,
-        metadata: Optional[Dict] = None,
+Optional[citations: list[dict]] = None,
+Optional[metadata: dict] = None,
     ) -> int:
         """
         Store a message in conversation
@@ -95,7 +96,7 @@ class ConversationMemoryStore:
 
     def retrieve_conversation(
         self, conversation_id: int, include_messages: bool = True
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Retrieve full conversation with messages
 
@@ -117,13 +118,13 @@ class ConversationMemoryStore:
     def search_conversations(
         self,
         user_id: int,
-        query: Optional[str] = None,
-        date_from: Optional[datetime] = None,
-        date_to: Optional[datetime] = None,
+Optional[query: str] = None,
+Optional[date_from: datetime] = None,
+Optional[date_to: datetime] = None,
         has_citations: bool = False,
-        topics: Optional[List[str]] = None,
+Optional[topics: list[str]] = None,
         limit: int = 50,
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """
         Search conversations with advanced filters
 
@@ -145,7 +146,7 @@ class ConversationMemoryStore:
 
     def get_conversation_context(
         self, conversation_id: int, max_messages: int = 10
-    ) -> List[Dict[str, str]]:
+    ) -> list[dict[str, str]]:
         """
         Get recent conversation context for continuing chat
 
@@ -161,7 +162,7 @@ class ConversationMemoryStore:
         # Return most recent messages
         return messages[-max_messages:]
 
-    def get_citation_graph(self, conversation_id: int) -> Dict[str, Any]:
+    def get_citation_graph(self, conversation_id: int) -> dict[str, Any]:
         """
         Build citation graph showing document connections
 
@@ -193,8 +194,8 @@ class ConversationMemoryStore:
         return {"nodes": list(nodes.values()), "edges": edges, "total_citations": len(citations)}
 
     def get_conversation_analytics(
-        self, user_id: int, date_from: Optional[datetime] = None
-    ) -> Dict[str, Any]:
+Optional[self, user_id: int, date_from: datetime] = None
+    ) -> dict[str, Any]:
         """
         Get analytics for user's conversations
 
@@ -269,17 +270,17 @@ class ConversationMemoryStore:
     # INTERNAL HELPERS
     # ================================================================
 
-    def _get_messages(self, conversation_id: int) -> List[Dict]:
+    def _get_messages(self, conversation_id: int) -> list[dict]:
         """Retrieve messages for conversation"""
         # TODO: Query messages table
         return []
 
-    def _store_message_citation(self, message_id: int, citation: Dict):
+    def _store_message_citation(self, message_id: int, citation: dict):
         """Store citation link for message"""
         # TODO: Insert into message_citations table
         pass
 
-    def _get_all_citations(self, conversation_id: int) -> List[Dict]:
+    def _get_all_citations(self, conversation_id: int) -> list[dict]:
         """Get all citations from conversation"""
         # TODO: Query message_citations joined with messages
         return []

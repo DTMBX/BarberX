@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 
 # Ensure backend paths are importable when running tools directly
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -10,6 +10,6 @@ from app import app
 
 app.testing = True
 with app.test_client() as client:
-    resp = client.get('/auth/login')
-    print('STATUS', resp.status_code)
-    print(resp.data.decode('utf-8'))
+    resp = client.get("/auth/login")
+    print("STATUS", resp.status_code)
+    print(resp.data.decode("utf-8"))

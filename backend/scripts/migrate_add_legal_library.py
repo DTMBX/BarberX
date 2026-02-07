@@ -13,8 +13,7 @@ Creates tables for:
 
 import sys
 
-from legal_library import (Citation, DocumentAnnotation, LegalDocument,
-                           LegalTopic)
+from legal_library import LegalTopic
 from models_auth import db
 
 
@@ -53,10 +52,10 @@ def create_legal_library_tables():
         db.session.commit()
 
         print("✅ Legal library tables created successfully!")
-        print(f"   - legal_documents")
-        print(f"   - citations")
-        print(f"   - document_annotations")
-        print(f"   - legal_topics")
+        print("   - legal_documents")
+        print("   - citations")
+        print("   - document_annotations")
+        print("   - legal_topics")
         print(f"   - {len(initial_topics)} initial topics added")
 
         return True

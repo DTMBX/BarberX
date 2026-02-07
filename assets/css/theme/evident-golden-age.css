@@ -23,9 +23,9 @@
   --evident-hero-gradient: radial-gradient(ellipse at top, #1f2937, #0a2540);
 
   /* Typography - Golden Age Fonts */
-  --evident-font-display: 'Playfair Display', georgia, serif;
-  --evident-font-sans: 'Montserrat', 'Helvetica Neue', arial, sans-serif;
-  --evident-font-mono: 'Courier Prime', 'Courier New', monospace;
+  --evident-font-display: "Playfair Display", georgia, serif;
+  --evident-font-sans: "Montserrat", "Helvetica Neue", arial, sans-serif;
+  --evident-font-mono: "Courier Prime", "Courier New", monospace;
 }
 
 /* ============================================
@@ -40,7 +40,7 @@
 }
 
 .evident-golden-header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +71,7 @@
 }
 
 .evident-logo-text::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -105,7 +105,7 @@
 }
 
 .premium-nav-link::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 50%;
@@ -184,7 +184,7 @@
 }
 
 .evident-footer-logo::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -277,7 +277,7 @@
 }
 
 .card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -314,7 +314,7 @@ h2 {
 }
 
 h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -336,7 +336,7 @@ h2::after {
 
 .hero::before,
 .cta-section::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image:

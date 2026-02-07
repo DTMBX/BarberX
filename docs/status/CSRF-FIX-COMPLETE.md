@@ -27,12 +27,12 @@ Added CSRF token hidden fields + proper fetch configuration:
    const csrfToken = loginForm.querySelector('input[name="csrf_token"]')?.value;
 
    fetch(loginForm.action || window.location.href, {
-     method: 'POST',
+     method: "POST",
      body: formData,
-     credentials: 'same-origin',
+     credentials: "same-origin",
      headers: csrfToken
        ? {
-           'X-CSRFToken': csrfToken,
+           "X-CSRFToken": csrfToken,
          }
        : {},
    });

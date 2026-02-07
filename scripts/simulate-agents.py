@@ -38,7 +38,7 @@ class AgentSimulator:
         print(f"[AGENT] @{agent_name}")
         print(f"[PROMPT] {prompt}")
         print(f"[CONTEXT] {context}")
-        print(f"\n[EXPECTED ACTIONS]")
+        print("\n[EXPECTED ACTIONS]")
         for i, action in enumerate(expected_actions, 1):
             print(f"  {i}. {action}")
         print()
@@ -73,7 +73,7 @@ class AgentSimulator:
 
         # Simple validation: check file exists and has content
         if config_file.exists():
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 content = f.read()
 
             # Check if agent is mentioned
@@ -101,7 +101,7 @@ class AgentSimulator:
         # Check instruction length for each agent
         config_file = self.repo_root / ".github" / "copilot-agents.yml"
         if config_file.exists():
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 content = f.read()
 
             # Improvement 1: Add more concrete examples
@@ -305,7 +305,7 @@ def main():
     print("=" * 80)
     print("  Simulation Complete")
     print("=" * 80)
-    print(f"\nSimulations Run: 7")
+    print("\nSimulations Run: 7")
     print(f"Improvements Identified: {len(improvements)}")
     print("\n[NEXT] Review improvements and update agent configurations")
     print()

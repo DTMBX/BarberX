@@ -186,10 +186,10 @@ API Request → Flask Route → Business Logic → Database → Response (JSON)
 ```javascript
 // Frontend (bwc-dashboard.html) - Only UI logic
 async function deleteAnalysis(analysisId) {
-  if (!confirm('Delete this analysis?')) return;
+  if (!confirm("Delete this analysis?")) return;
 
   const response = await fetch(`/api/analysis/${analysisId}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
 
   if (response.ok) {
@@ -253,17 +253,17 @@ GET    /api/pdfs                  # List PDFs
 
 ```javascript
 // Correct - All via API
-fetch('/api/analyses'); // Load data
-fetch('/api/analysis/<id>'); // Get details
-fetch('/api/analysis/<id>', { method: 'DELETE' }); // Delete
-fetch('/api/analysis/<id>/report/pdf'); // Export
+fetch("/api/analyses"); // Load data
+fetch("/api/analysis/<id>"); // Get details
+fetch("/api/analysis/<id>", { method: "DELETE" }); // Delete
+fetch("/api/analysis/<id>/report/pdf"); // Export
 ```
 
 **No direct database access from frontend:**
 
 ```javascript
 // ❌ NEVER SEEN (Good!)
-db.query('SELECT * FROM analyses'); // Backend-only operation
+db.query("SELECT * FROM analyses"); // Backend-only operation
 ```
 
 ### ✅ PASS: Clear Responsibility Division
@@ -363,7 +363,7 @@ def protected_route():
 ```javascript
 // Frontend respects but doesn't enforce
 if (response.status === 401) {
-  window.location.href = '/login';
+  window.location.href = "/login";
 }
 ```
 

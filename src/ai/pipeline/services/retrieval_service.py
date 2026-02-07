@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -15,9 +16,8 @@ CRITICAL: Returns passages, NOT whole documents.
 """
 
 import logging
-from typing import Dict, List, Optional
 
-from ..contracts import Passage, RetrieveResult, SourceSystem
+from ..contracts import Passage, RetrieveResult
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 class RetrievalService:
     """Handles passage retrieval with citation metadata"""
 
-    def __init__(self, config: Optional[dict] = None):
+Optional[def __init__(self, config: dict] = None):
         self.config = config or {}
 
         # Passage extraction settings
@@ -34,7 +34,7 @@ class RetrievalService:
         logger.info("RetrievalService initialized")
 
     def retrieve(
-        self, query: str, filters: Optional[Dict] = None, top_k: int = 10, method: str = "keyword"
+Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
@@ -67,7 +67,7 @@ class RetrievalService:
 
         return RetrieveResult(passages=[], total_matches=0, query=query, retrieval_method=method)
 
-    def _search_fts5(self, query: str, filters: Dict, top_k: int) -> List[Dict]:
+    def _search_fts5(self, query: str, filters: dict, top_k: int) -> list[dict]:
         """
         Search FTS5 keyword index
 

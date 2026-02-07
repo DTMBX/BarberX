@@ -58,12 +58,12 @@ Your repo needs a `_config.yml`:
 ```yaml
 title: Evident Legal Technologies
 description: Professional AI-powered eDiscovery platform
-url: 'https://dtb396.github.io'
-baseurl: '/Evident.info'
+url: "https://dtb396.github.io"
+baseurl: "/Evident.info"
 markdown: kramdown
 
 exclude:
-  - '*.py'
+  - "*.py"
   - requirements.txt
   - app.py
   - venv

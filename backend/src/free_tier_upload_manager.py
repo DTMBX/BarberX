@@ -8,9 +8,9 @@ Tracks usage, validates limits, provides upgrade prompts
 """
 
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
-from flask import flash, jsonify
+from flask import jsonify
 from pypdf import PdfReader  # Migrated from PyPDF2 (deprecated)
 
 from models_auth import TierLevel, db
@@ -52,7 +52,6 @@ class OneTimeUploadManager:
         Returns:
             tuple: (is_valid: bool, error_message: str, details: dict)
         """
-        from werkzeug.utils import secure_filename
 
         # Get file size
         file.seek(0, os.SEEK_END)
@@ -164,7 +163,7 @@ class OneTimeUploadManager:
             "message": (
                 "You have one upload available"
                 if not user.one_time_upload_used
-                else f'Upload used on {user.one_time_upload_date.strftime("%B %d, %Y")}'
+                else f"Upload used on {user.one_time_upload_date.strftime('%B %d, %Y')}"
             ),
         }
 

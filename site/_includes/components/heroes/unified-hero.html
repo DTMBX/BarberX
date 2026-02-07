@@ -3,10 +3,24 @@
 <section class="hero bg-grid" style="padding: 3.5rem 0 2.5rem 0">
   <div
     class="container"
-    style="display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; justify-content: space-between"
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      justify-content: space-between;
+    "
   >
     <!-- Animated Mark Placeholder (SVG/CSS) -->
-    <div style="flex: 1 1 240px; display: flex; align-items: center; justify-content: center; min-width: 220px">
+    <div
+      style="
+        flex: 1 1 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 220px;
+      "
+    >
       <svg
         class="justice-svg"
         width="110"
@@ -39,7 +53,10 @@
       >
         Evident
       </h1>
-      <p class="hero-subtitle" style="font-size: 1.18rem; color: var(--muted); margin-bottom: 1.5em; max-width: 32em">
+      <p
+        class="hero-subtitle"
+        style="font-size: 1.18rem; color: var(--muted); margin-bottom: 1.5em; max-width: 32em"
+      >
         Evidence made legible. Truth made durable.<br />
         Local-first, tamper-evident hashing, chain-of-custody, audit log, export manifests.
       </p>
@@ -47,7 +64,9 @@
         <a href="{{ page.cta_primary_url | default: '/register' }}" class="btn btn-primary btn-lg"
           >{{ page.cta_primary | default: "Get Started Free" }}</a
         >
-        <a href="{{ page.cta_secondary_url | default: '#how-it-works' }}" class="btn btn-secondary btn-lg"
+        <a
+          href="{{ page.cta_secondary_url | default: '#how-it-works' }}"
+          class="btn btn-secondary btn-lg"
           >{{ page.cta_secondary | default: "See How It Works" }}</a
         >
       </div>

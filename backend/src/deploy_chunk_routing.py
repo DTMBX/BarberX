@@ -10,10 +10,12 @@ import os
 import sys
 from pathlib import Path
 
+
 def print_step(step, description):
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"STEP {step}: {description}")
-    print('='*80)
+    print("=" * 80)
+
 
 def check_file_exists(filepath):
     """Check if file exists"""
@@ -24,16 +26,17 @@ def check_file_exists(filepath):
         print(f"❌ Missing: {filepath}")
         return False
 
+
 def main():
-    print("\n" + "="*80)
+    print("\n" + "=" * 80)
     print("BWC CHUNK-LEVEL ROUTING - QUICK DEPLOY")
-    print("="*80)
-    
+    print("=" * 80)
+
     base_path = Path(__file__).parent
-    
+
     # Step 1: Verify all files are present
     print_step(1, "Verify Files")
-    
+
     required_files = [
         "barber-cam/py/bwc_chunk_analyzer.py",
         "barber-cam/py/bwc_enhanced_analyzer.py",
@@ -43,30 +46,30 @@ def main():
         "assets/js/bwc-chunk-ui.js",
         "app.py",
     ]
-    
+
     all_present = all(check_file_exists(base_path / f) for f in required_files)
-    
+
     if not all_present:
         print("\n❌ Missing required files. Please ensure all files are created.")
         return 1
-    
+
     # Step 2: Check if already integrated
     print_step(2, "Check Integration Status")
-    
-    with open(base_path / "app.py", 'r', encoding='utf-8', errors='ignore') as f:
+
+    with open(base_path / "app.py", encoding="utf-8", errors="ignore") as f:
         app_content = f.read()
-    
+
     if "bwc_api_routes" in app_content:
         print("✅ BWC API routes already integrated in app.py")
         integrated = True
     else:
         print("⚠️  BWC API routes NOT yet integrated in app.py")
         integrated = False
-    
+
     # Step 3: Show integration instructions
     if not integrated:
         print_step(3, "Integration Instructions")
-        
+
         print("\n📝 Add to app.py:")
         print("-" * 80)
         print("""
@@ -87,7 +90,7 @@ if BWC_ROUTES_AVAILABLE:
         logger.warning(f"⚠️  Could not register BWC routes: {e}")
 """)
         print("-" * 80)
-        
+
         print("\n📝 Add to barber-cam page template:")
         print("-" * 80)
         print("""
@@ -97,16 +100,16 @@ if BWC_ROUTES_AVAILABLE:
 </div>
 """)
         print("-" * 80)
-    
+
     # Step 4: Environment variables
     print_step(4, "Required Environment Variables")
-    
+
     env_vars = [
         ("DEEPGRAM_API_KEY", "Deepgram transcription API"),
         ("ASSEMBLYAI_API_KEY", "AssemblyAI transcription API"),
         ("ANTHROPIC_API_KEY", "Claude AI reasoning API"),
     ]
-    
+
     print("\n📋 Add these to your .env file:")
     print("-" * 80)
     for var, description in env_vars:
@@ -116,10 +119,10 @@ if BWC_ROUTES_AVAILABLE:
         else:
             print(f"❌ {var}=your_key_here # {description}")
     print("-" * 80)
-    
+
     # Step 5: Testing instructions
     print_step(5, "Testing Instructions")
-    
+
     print("""
 1. Start your Flask app:
    python app.py
@@ -143,10 +146,10 @@ if BWC_ROUTES_AVAILABLE:
    - Confirm margins are 45-90%
    - Validate savings vs single-model
 """)
-    
+
     # Step 6: Summary
     print_step(6, "Deployment Summary")
-    
+
     print("""
 ✅ All files are present (14 files, 230 KB)
 ✅ Python modules compile successfully
@@ -168,13 +171,13 @@ if BWC_ROUTES_AVAILABLE:
 🚀 Estimated integration time: 15 minutes
 🎯 Status: READY FOR PRODUCTION
 """)
-    
-    print("\n" + "="*80)
+
+    print("\n" + "=" * 80)
     print("For detailed instructions, see: INTEGRATION-TEST-RESULTS.md")
-    print("="*80 + "\n")
-    
+    print("=" * 80 + "\n")
+
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
-

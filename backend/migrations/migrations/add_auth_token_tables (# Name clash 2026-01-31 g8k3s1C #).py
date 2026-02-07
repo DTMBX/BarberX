@@ -24,7 +24,6 @@ def run_migration():
 
     with app.app_context():
         # Import the models to register them
-        from models_auth import EmailVerificationToken, PasswordResetToken
 
         print("=" * 60)
         print("Auth Token Tables - Database Migration")

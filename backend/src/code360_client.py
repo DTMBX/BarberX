@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -10,16 +11,15 @@ Enables Evident users to integrate ANY municipality's code into their legal rese
 
 import hashlib
 import logging
-import os
 import re
 import sqlite3
 import time
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
-from urllib.parse import urljoin, urlparse
+from typing import Any
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -42,16 +42,16 @@ class CodeProvider(Enum):
 class Municipality:
     """Represents a municipality with code integration"""
 
-    id: Optional[int] = None
+Optional[id: int] = None
     state: str = ""
     county: str = ""
     name: str = ""  # City/Township/Borough name
     provider: CodeProvider = CodeProvider.ECODE360
     base_url: str = ""
-    api_key: Optional[str] = None
+Optional[api_key: str] = None
     enabled: bool = True
-    last_sync: Optional[datetime] = None
-    code_version: Optional[str] = None
+Optional[last_sync: datetime] = None
+Optional[code_version: str] = None
 
     @property
     def full_name(self) -> str:
@@ -67,17 +67,17 @@ class Municipality:
 class CodeSection:
     """A section of municipal code"""
 
-    id: Optional[int] = None
+Optional[id: int] = None
     municipality_id: int = 0
     chapter: str = ""
     section_number: str = ""
     title: str = ""
     text: str = ""
-    effective_date: Optional[datetime] = None
+Optional[effective_date: datetime] = None
     source_url: str = ""
-    parent_section: Optional[str] = None
-    children: List[str] = field(default_factory=list)
-    last_updated: Optional[datetime] = None
+Optional[parent_section: str] = None
+    children: list[str] = field(default_factory=list)
+Optional[last_updated: datetime] = None
     sha256: str = ""
 
     def __post_init__(self):
@@ -113,7 +113,7 @@ class Code360Client:
         },
     }
 
-    def __init__(self, db_path: Optional[Path] = None):
+Optional[def __init__(self, db_path: Path] = None):
         self.db_path = db_path or Path(__file__).parent / "instance" / "Evident_legal.db"
         self.session = requests.Session()
         self.session.headers.update(
@@ -143,8 +143,8 @@ class Code360Client:
     # ═══════════════════════════════════════════════════════════════════════════
 
     def discover_municipality(
-        self, state: str, municipality_name: str, county: Optional[str] = None
-    ) -> Optional[Municipality]:
+Optional[self, state: str, municipality_name: str, county: str] = None
+Optional[) -> Municipality]:
         """
         Discover a municipality's code source automatically
 
@@ -182,7 +182,7 @@ class Code360Client:
         logger.warning(f"Could not discover code source for {municipality_name}, {state}")
         return None
 
-    def _discover_ecode360(self, state: str, name: str) -> Optional[Municipality]:
+Optional[def _discover_ecode360(self, state: str, name: str) -> Municipality]:
         """Search eCode360 for municipality"""
         self._rate_limit()
 
@@ -218,7 +218,7 @@ class Code360Client:
 
         return None
 
-    def _discover_municode(self, state: str, name: str) -> Optional[Municipality]:
+Optional[def _discover_municode(self, state: str, name: str) -> Municipality]:
         """Search Municode for municipality"""
         self._rate_limit()
 
@@ -244,7 +244,7 @@ class Code360Client:
 
         return None
 
-    def _discover_american_legal(self, state: str, name: str) -> Optional[Municipality]:
+Optional[def _discover_american_legal(self, state: str, name: str) -> Municipality]:
         """Search American Legal for municipality"""
         # Similar pattern to Municode
         return None  # TODO: Implement
@@ -253,7 +253,7 @@ class Code360Client:
     # CODE RETRIEVAL
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def fetch_table_of_contents(self, municipality: Municipality) -> List[Dict]:
+    def fetch_table_of_contents(self, municipality: Municipality) -> list[dict]:
         """
         Fetch the table of contents (chapter list) for a municipality's code
 
@@ -268,7 +268,7 @@ class Code360Client:
         else:
             return self._fetch_generic_toc(municipality)
 
-    def _fetch_ecode360_toc(self, municipality: Municipality) -> List[Dict]:
+    def _fetch_ecode360_toc(self, municipality: Municipality) -> list[dict]:
         """Fetch TOC from eCode360"""
         toc = []
 
@@ -308,18 +308,16 @@ class Code360Client:
 
         return toc
 
-    def _fetch_municode_toc(self, municipality: Municipality) -> List[Dict]:
+    def _fetch_municode_toc(self, municipality: Municipality) -> list[dict]:
         """Fetch TOC from Municode"""
         # Municode has an API endpoint
         return []  # TODO: Implement
 
-    def _fetch_generic_toc(self, municipality: Municipality) -> List[Dict]:
+    def _fetch_generic_toc(self, municipality: Municipality) -> list[dict]:
         """Generic TOC fetch via HTML scraping"""
         return []
 
-    def fetch_section(
-        self, municipality: Municipality, section_number: str
-    ) -> Optional[CodeSection]:
+Optional[def fetch_section(self, municipality: Municipality, section_number: str) -> CodeSection]:
         """
         Fetch a specific section of municipal code
 
@@ -339,7 +337,7 @@ class Code360Client:
 
     def _fetch_ecode360_section(
         self, municipality: Municipality, section_number: str
-    ) -> Optional[CodeSection]:
+Optional[) -> CodeSection]:
         """Fetch section from eCode360"""
 
         try:
@@ -372,13 +370,13 @@ class Code360Client:
 
     def _fetch_generic_section(
         self, municipality: Municipality, section_number: str
-    ) -> Optional[CodeSection]:
+Optional[) -> CodeSection]:
         """Generic section fetch"""
         return None
 
     def sync_municipality(
-        self, municipality: Municipality, chapters: Optional[List[str]] = None
-    ) -> Dict[str, Any]:
+Optional[self, municipality: Municipality, chapters: list[str]] = None
+    ) -> dict[str, Any]:
         """
         Sync all or selected chapters from a municipality's code
 
@@ -436,8 +434,8 @@ class Code360Client:
         return stats
 
     def _parse_section_element(
-        self, elem, municipality: Municipality, chapter: Dict
-    ) -> Optional[CodeSection]:
+        self, elem, municipality: Municipality, chapter: dict
+Optional[) -> CodeSection]:
         """Parse a section HTML element into CodeSection"""
 
         title_elem = elem.find(["h1", "h2", "h3", "h4", "h5"])
@@ -575,7 +573,7 @@ class Code360Client:
                 )
                 return "added"
 
-    def get_municipality(self, municipality_id: int) -> Optional[Municipality]:
+Optional[def get_municipality(self, municipality_id: int) -> Municipality]:
         """Get municipality by ID"""
         with self._get_conn() as conn:
             row = conn.execute(
@@ -599,8 +597,8 @@ class Code360Client:
         return None
 
     def list_municipalities(
-        self, state: Optional[str] = None, enabled_only: bool = True
-    ) -> List[Municipality]:
+Optional[self, state: str] = None, enabled_only: bool = True
+    ) -> list[Municipality]:
         """List all integrated municipalities"""
         with self._get_conn() as conn:
             sql = "SELECT * FROM code360_municipalities WHERE 1=1"
@@ -641,11 +639,11 @@ class Code360Client:
     def search(
         self,
         query: str,
-        state: Optional[str] = None,
-        municipality_id: Optional[int] = None,
-        chapter: Optional[str] = None,
+Optional[state: str] = None,
+Optional[municipality_id: int] = None,
+Optional[chapter: str] = None,
         limit: int = 25,
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """
         Search across all municipal codes
 
@@ -732,7 +730,7 @@ class Code360Client:
 
 def add_municipality(
     state: str, name: str, county: str = "", auto_discover: bool = True
-) -> Optional[Municipality]:
+Optional[) -> Municipality]:
     """
     Add a new municipality to Evident
 
@@ -761,8 +759,8 @@ def add_municipality(
 
 
 def search_municipal_codes(
-    query: str, state: Optional[str] = None, municipality: Optional[str] = None
-) -> List[Dict]:
+Optional[query: str, state: str]Optional[= None, municipality: str] = None
+) -> list[dict]:
     """
     Search all integrated municipal codes
 
@@ -783,4 +781,3 @@ def search_municipal_codes(
                 municipality_id = row["id"]
 
     return client.search(query, state=state, municipality_id=municipality_id)
-

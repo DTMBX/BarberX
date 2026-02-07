@@ -1,3 +1,4 @@
+from typing import Optional
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -7,8 +8,7 @@ Handles subscription billing, one-time payments, and usage-based pricing
 """
 
 import os
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from datetime import datetime
 
 import stripe
 
@@ -26,7 +26,7 @@ class StripePaymentService:
     - Trial periods
     """
 
-    def __init__(self, api_key: Optional[str] = None):
+Optional[def __init__(self, api_key: str] = None):
         """
         Initialize Stripe service
 
@@ -39,7 +39,7 @@ class StripePaymentService:
 
         self.webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
 
-    def create_customer(self, email: str, name: str, metadata: Optional[Dict] = None) -> Dict:
+Optional[def create_customer(self, email: str, name: str, metadata: dict] = None) -> dict:
         """
         Create Stripe customer
 
@@ -61,8 +61,8 @@ class StripePaymentService:
         }
 
     def create_subscription(
-        self, customer_id: str, price_id: str, trial_days: int = 14, metadata: Optional[Dict] = None
-    ) -> Dict:
+Optional[self, customer_id: str, price_id: str, trial_days: int = 14, metadata: dict] = None
+    ) -> dict:
         """
         Create subscription for customer
 
@@ -112,7 +112,7 @@ class StripePaymentService:
         success_url: str,
         cancel_url: str,
         trial_days: int = 14,
-    ) -> Dict:
+    ) -> dict:
         """
         Create Stripe Checkout session
 
@@ -143,7 +143,7 @@ class StripePaymentService:
 
         return {"session_id": session.id, "url": session.url, "status": session.status}
 
-    def cancel_subscription(self, subscription_id: str, immediately: bool = False) -> Dict:
+    def cancel_subscription(self, subscription_id: str, immediately: bool = False) -> dict:
         """
         Cancel subscription
 
@@ -172,7 +172,7 @@ class StripePaymentService:
 
     def add_payment_method(
         self, customer_id: str, payment_method_id: str, set_as_default: bool = True
-    ) -> Dict:
+    ) -> dict:
         """
         Attach payment method to customer
 
@@ -209,8 +209,8 @@ class StripePaymentService:
         }
 
     def create_usage_record(
-        self, subscription_item_id: str, quantity: int, timestamp: Optional[int] = None
-    ) -> Dict:
+Optional[self, subscription_item_id: str, quantity: int, timestamp: int] = None
+    ) -> dict:
         """
         Record usage for metered billing
 
@@ -235,7 +235,7 @@ class StripePaymentService:
             "timestamp": datetime.fromtimestamp(usage.timestamp).isoformat(),
         }
 
-    def get_upcoming_invoice(self, customer_id: str) -> Dict:
+    def get_upcoming_invoice(self, customer_id: str) -> dict:
         """Get next invoice preview"""
         invoice = stripe.Invoice.upcoming(customer=customer_id)
 
@@ -249,7 +249,7 @@ class StripePaymentService:
             "total": invoice.total / 100,
         }
 
-    def list_invoices(self, customer_id: str, limit: int = 10) -> List[Dict]:
+    def list_invoices(self, customer_id: str, limit: int = 10) -> list[dict]:
         """List customer invoices"""
         invoices = stripe.Invoice.list(customer=customer_id, limit=limit)
 
@@ -266,7 +266,7 @@ class StripePaymentService:
             for inv in invoices.data
         ]
 
-    def handle_webhook(self, payload: bytes, signature: str) -> Dict:
+    def handle_webhook(self, payload: bytes, signature: str) -> dict:
         """
         Process Stripe webhook events
 
@@ -456,5 +456,3 @@ if __name__ == "__main__":
     print("  Install: pip install stripe")
     print("  Set env: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET")
     print("=" * 80)
-
-

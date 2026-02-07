@@ -146,7 +146,7 @@ body {
 }
 
 .bottom-nav-item.active::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 50%;
@@ -651,7 +651,7 @@ body {
 }
 
 .premium-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;

@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Jekyll for Netlify deployment
-gem "jekyll", "~> 4.3.2"
+gem "jekyll", "~> 4.4.1"
 
 # Required for Ruby 3.4+
 gem "csv"
@@ -28,7 +28,7 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-gem "http_parser.rb", "~> 0.6.0"
+gem "http_parser.rb", "~> 0.8.1"
 
 # Minimal Gemfile for Jekyll and Webrick to enable local build and serve
 gem 'jekyll', '~> 4.3.2'

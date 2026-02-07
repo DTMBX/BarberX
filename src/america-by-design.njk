@@ -1,0 +1,45 @@
+---
+title: "America by Design — Evident Technologies"
+description: >-
+  The hospitality design for our nation: modern, accessible public interfaces
+  that help citizens process information and access services with dignity.
+image: "/assets/img/flags/us-flag-50.svg"
+eleventyExcludeFromCollections: true
+permalink: false
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  {% set title = page.title %}
+  {% set description = page.description %}
+  {% include "hero.njk" %}
+  {% set title = undefined %}
+  {% set description = undefined %}
+
+  <main class="site-container py-12">
+    <article class="prose max-w-none">
+      <h2>Our Mission</h2>
+      <p>We design interfaces that connect government and citizens with clarity, respect, and accountability. Like a thoughtful hotelier, we anticipate needs, remove friction, and preserve dignity.</p>
+
+      <h3>Principles</h3>
+      <ul>
+        <li><strong>Accessible:</strong> Interfaces that everyone can use, regardless of ability.</li>
+        <li><strong>Transparent:</strong> Clear paths, audit trails, and explainable interactions.</li>
+        <li><strong>Accountable:</strong> Evidence-preserving workflows that respect due process.</li>
+        <li><strong>Human-centered:</strong> Designed for real people with real needs.</li>
+      </ul>
+
+      <h3>How Evident Helps</h3>
+      <p>We build secure, auditable systems for evidence management, custody, and compliance that make it simple for agencies and citizens to process information reliably and fairly.</p>
+
+      <h3>Get Involved</h3>
+      <p>Contact our team to explore pilot programs, integration, or policy partnerships that modernize public-facing services.</p>
+
+      <div class="mt-6">
+        <a class="btn btn-primary" href="/contact/">Contact Evident</a>
+      </div>
+    </article>
+  </main>
+
+{% endblock %}

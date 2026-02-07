@@ -5,7 +5,7 @@
 // This worker maps /cases/<slug>/docket/<entry-id> to the correct PDF in /cases/<slug>/filings/...
 // Place this logic in your worker.js (or merge with existing logic)
 
-addEventListener('fetch', (event) => {
+addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event.request));
 });
 
@@ -24,15 +24,15 @@ async function handleRequest(request) {
     const docketUrl = `https://raw.githubusercontent.com/XTX33/FaithFrontier/main/_data/docket/${slug}.yml`;
     const docketResp = await fetch(docketUrl);
     if (!docketResp.ok) {
-      return new Response('Docket not found', { status: 404 });
+      return new Response("Docket not found", { status: 404 });
     }
     const docketText = await docketResp.text();
 
     // Find the entry with id == entryId
-    const entryRegex = new RegExp(`- id: ${entryId}\\n([\s\S]*?)file: (.+)`, 'm');
+    const entryRegex = new RegExp(`- id: ${entryId}\\n([\\s\\S]*?)file: (.+)`, "m");
     const entryMatch = docketText.match(entryRegex);
     if (!entryMatch) {
-      return new Response('Docket entry not found', { status: 404 });
+      return new Response("Docket entry not found", { status: 404 });
     }
     const pdfPath = entryMatch[2].trim();
     // Absolute URL to the PDF asset
@@ -43,5 +43,5 @@ async function handleRequest(request) {
   }
 
   // ...existing upload logic or other routes...
-  return new Response('Not found', { status: 404 });
+  return new Response("Not found", { status: 404 });
 }

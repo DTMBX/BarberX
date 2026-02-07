@@ -4,6 +4,7 @@
 import pytesseract
 from pdf2image import convert_from_path
 
+
 def extract_court_stamp(pdf_path):
     """
     Extract court stamp from the first page of a PDF using OCR.

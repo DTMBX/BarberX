@@ -10,6 +10,5 @@ compatibility with existing deploy scripts and Docker/Procfile setups.
 
 from app import app
 
-
 if __name__ == "__main__":
     app.run()
