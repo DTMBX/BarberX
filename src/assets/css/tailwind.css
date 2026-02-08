@@ -1,11 +1,11 @@
 /* stylelint-disable at-rule-no-unknown, at-rule-empty-line-before, declaration-block-single-line-max-declarations */
 @import url("tokens.css");
+@import url("./americabydesign.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* @import 'components/flag-video.css'; */
-@import "./americabydesign.css";
 
 :root {
   --color-primary: #0b5f73;
