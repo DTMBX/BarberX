@@ -2,8 +2,11 @@
 
 This runbook documents a deterministic, auditable process for consolidating all development
 branches into two canonical main branches, building the site, and deploying the build output to
-the `g8-pages` branch for GitHub Pages hosting. It is intended for maintainers or automation
-agents running locally or in CI with full repository permissions.
+the `g8-pages` branch for GitHub Pages hosting (this repository uses `g8-pages` intentionally
+rather than the conventional `gh-pages` because Pages is configured to read from that branch; do
+not rename unless the Pages configuration is updated). It is intended for maintainers or
+automation agents running locally or in CI with full repository permissions.
+permissions.
 
 ## Scope and safety posture
 
@@ -16,10 +19,12 @@ agents running locally or in CI with full repository permissions.
 
 - Git with push permission.
 - GitHub CLI (`gh`) for CI run collection (optional but recommended).
-- Ruby + Bundler (for Jekyll) or `jeco` if present.
+- Ruby + Bundler (for Jekyll); optional `jeco` wrapper if present.
 - Node.js if Eleventy build is required elsewhere.
 
-> If a `jeco` binary is available, it is preferred over Jekyll. Otherwise use Jekyll.
+> If a `jeco` binary is available (some environments provide Jeco as a wrapper that pins Jekyll and
+> Bundler versions for deterministic builds), it is preferred. If you do not have `jeco`, continue
+> with standard Jekyll commands; no public install is required for this runbook.
 
 ## Pre-flight checks (both shells)
 
@@ -27,7 +32,10 @@ agents running locally or in CI with full repository permissions.
 
 ```bash
 set -euo pipefail
-LOG_DIR="_logs/consolidation-$(date -u +%Y%m%dT%H%M%SZ)"
+CI_RUN_LIMIT="${CI_RUN_LIMIT:-20}"
+STALE_DAYS="${STALE_DAYS:-90}"
+REPO_ROOT="$(pwd)"
+LOG_DIR="${REPO_ROOT}/_logs/consolidation-$(date -u +%Y%m%dT%H%M%SZ)" # format uses no colons for Windows-safe paths
 mkdir -p "$LOG_DIR"
 exec > >(tee -a "$LOG_DIR/run.log") 2>&1
 
@@ -35,12 +43,12 @@ git remote show origin
 git status --porcelain
 git fetch --all --prune --tags
 
-git show-ref --heads --hash=8 --verify refs/heads/main || true
-git show-ref --heads --hash=8 --verify refs/heads/master || true
+git show-ref --heads --verify refs/heads/main || true
+git show-ref --heads --verify refs/heads/master || true
 git branch -r | grep -E 'origin/(main|master|develop)'
 
 if command -v gh >/dev/null 2>&1; then
-  gh run list --limit 20 --json databaseId,headBranch,status,conclusion,createdAt | tee "$LOG_DIR/ci-runs.json"
+  gh run list --limit "$CI_RUN_LIMIT" --json databaseId,headBranch,status,conclusion,createdAt | tee "$LOG_DIR/ci-runs.json"
 fi
 ```
 
@@ -48,7 +56,11 @@ fi
 
 ```powershell
 $ErrorActionPreference = "Stop"
-$logDir = "_logs\consolidation-{0:yyyyMMddTHHmmssZ}" -f (Get-Date).ToUniversalTime()
+$utcNow = (Get-Date).ToUniversalTime()
+$ciRunLimit = if ($env:CI_RUN_LIMIT) { [int]$env:CI_RUN_LIMIT } else { 20 }
+$staleDays = if ($env:STALE_DAYS) { [int]$env:STALE_DAYS } else { 90 }
+$repoRoot = (Get-Location).Path
+$logDir = Join-Path $repoRoot ("_logs\consolidation-{0}Z" -f $utcNow.ToString("yyyyMMddTHHmmss"))
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 Start-Transcript -Path (Join-Path $logDir "run.log") -Append
 
@@ -56,12 +68,12 @@ git remote show origin
 git status --porcelain
 git fetch --all --prune --tags
 
-git show-ref --heads --hash=8 --verify refs/heads/main; if ($LASTEXITCODE -ne 0) { $null }
-git show-ref --heads --hash=8 --verify refs/heads/master; if ($LASTEXITCODE -ne 0) { $null }
+git show-ref --heads --verify refs/heads/main 2>$null | Out-Null
+git show-ref --heads --verify refs/heads/master 2>$null | Out-Null
 git branch -r | Select-String -Pattern 'origin/(main|master|develop)'
 
 if (Get-Command gh -ErrorAction SilentlyContinue) {
-  gh run list --limit 20 --json databaseId,headBranch,status,conclusion,createdAt | Tee-Object -FilePath (Join-Path $logDir "ci-runs.json")
+  gh run list --limit $ciRunLimit --json databaseId,headBranch,status,conclusion,createdAt | Tee-Object -FilePath (Join-Path $logDir "ci-runs.json")
 }
 ```
 
@@ -85,7 +97,7 @@ reason** in the final report.
 ### Bash
 
 ```bash
-TS="$(date -u +%Y%m%dT%H%M%SZ)"
+TS="$(date -u +%Y%m%dT%H%M%SZ)" # format uses no colons for Windows-safe names
 git checkout -b "backup/pre-consolidation-${TS}"
 git push origin "backup/pre-consolidation-${TS}"
 git tag -a "pre-consolidation-${TS}" -m "Backup before automated consolidation"
@@ -95,7 +107,7 @@ git push origin --tags
 ### PowerShell
 
 ```powershell
-$ts = (Get-Date).ToUniversalTime().ToString("yyyyMMddTHHmmssZ")
+$ts = (Get-Date).ToUniversalTime().ToString("yyyyMMddTHHmmss") + "Z"
 git checkout -b "backup/pre-consolidation-$ts"
 git push origin "backup/pre-consolidation-$ts"
 git tag -a "pre-consolidation-$ts" -m "Backup before automated consolidation"
@@ -108,7 +120,7 @@ git push origin --tags
 git branch -r | sed 's|origin/||' | sort -u | tee "$LOG_DIR/branches.txt"
 ```
 
-Categorize branches as:
+Categorize branches as (adjust `STALE_DAYS`, default 90, to match your cadence):
 
 - **release/\*** and **hotfix/\*** (merge first)
 - **active feature branches** (recent commits; last activity ≤ 90 days)
@@ -119,9 +131,17 @@ Record the categorization in `"$LOG_DIR/branch-categories.md"`.
 ## Step 3: Create temporary consolidation branch
 
 ```bash
-git checkout -B "consolidation/temp-merge-${USER:-agent}-$(date -u +%Y%m%dT%H%M%SZ)"
+if [ -n "${GITHUB_RUN_ID:-}" ]; then
+  MERGE_ID="run-${GITHUB_RUN_ID}"
+else
+  MERGE_ID="user-${USER:-agent}"
+fi
+git checkout -B "consolidation/temp-merge-${MERGE_ID}-$(date -u +%Y%m%dT%H%M%SZ)"
 git reset --hard "origin/${TARGET_A}"
 ```
+
+If neither `GITHUB_RUN_ID` nor `USER` is set (common in CI), the branch will use `agent` as the
+identifier. Record the temporary branch name and clean it up after consolidation.
 
 ## Step 4: Deterministic merge order
 
@@ -130,10 +150,23 @@ git reset --hard "origin/${TARGET_A}"
 3. Active feature branches
 4. Stale branches (squash or archive)
 
-For each branch:
+For each branch (iterate over the categorized list from Step 2 and filter out special branches
+like `g8-pages`, `backup/*`, and the current consolidation branch, for example
+`for BRANCH in $(cat "$LOG_DIR/branches.txt"); do ...`):
 
 ```bash
-git merge --no-ff "origin/${BRANCH}" || true
+git merge --no-ff "origin/${BRANCH}"
+```
+
+If the merge reports conflicts, resolve them manually before continuing:
+
+```bash
+git status --porcelain
+# Resolve conflicts per policy (for example, `git checkout --ours -- path/to/file`).
+git diff --name-only --diff-filter=U
+# No output should remain before committing.
+git add -A
+git commit -m "Resolve merge conflicts for ${BRANCH}"
 ```
 
 ### Conflict resolution policy (deterministic)
@@ -180,6 +213,8 @@ if (Get-Command jeco -ErrorAction SilentlyContinue) {
 ```
 
 Record build output in the log. If the build fails, stop and include the error in the final report.
+If your build output path differs from `site/_site`, adjust the deployment step accordingly (for
+example, Eleventy builds may output to `_site` at the repository root).
 
 ## Step 7: Deploy build output to `g8-pages`
 
@@ -195,9 +230,28 @@ fi
 ### Publish build output
 
 ```bash
-git checkout --orphan g8-pages
+if ! git rev-parse --git-dir >/dev/null 2>&1; then
+  echo "Error: Git metadata not found; aborting destructive operations."
+  exit 1
+fi
+if git show-ref --verify --quiet refs/remotes/origin/g8-pages; then
+  git fetch origin g8-pages
+  git checkout -B g8-pages origin/g8-pages
+else
+  git checkout --orphan g8-pages
+fi
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$CURRENT_BRANCH" != "g8-pages" ]; then
+  echo "Error: expected g8-pages but on ${CURRENT_BRANCH}; aborting to protect repository history."
+  exit 1
+fi
 git rm -rf .
-cp -R site/_site/* .
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a --delete site/_site/ .
+else
+  cp -R site/_site/. .
+  # `git rm -rf .` already clears tracked files, so stale content is removed.
+fi
 touch .nojekyll
 git add -A
 git commit -m "Deploy build to g8-pages"
@@ -217,7 +271,7 @@ git push origin g8-pages
 
 ```bash
 if command -v gh >/dev/null 2>&1; then
-  gh run list --limit 20 --json databaseId,headBranch,status,conclusion,createdAt | tee "$LOG_DIR/ci-runs-post.json"
+  gh run list --limit "$CI_RUN_LIMIT" --json databaseId,headBranch,status,conclusion,createdAt | tee "$LOG_DIR/ci-runs-post.json"
 fi
 ```
 
