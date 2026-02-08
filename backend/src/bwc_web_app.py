@@ -284,6 +284,10 @@ def download_report(upload_id, format):
 @app.route("/api/transcript/<upload_id>", methods=["GET"])
 def get_transcript(upload_id):
     """Get full transcript with timestamps"""
+    # Ensure upload_id cannot be used for path traversal
+    if not upload_id or not all(c.isalnum() or c in "-_" for c in upload_id):
+        return jsonify({"error": "Invalid upload ID"}), 400
+
     if upload_id not in analysis_status:
         return jsonify({"error": "Invalid upload ID"}), 404
 
