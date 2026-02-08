@@ -7,7 +7,7 @@
     "lint:css": "node ./scripts/run-stylelint.js",
     "format": "prettier --write \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
     "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
-    "format:check:site": "prettier --check \"src/**/*.{css,html,md,js,json}\" \"README.md\" \"package.json\"",
+    "format:check:site": "npx --no-install prettier --check \"src/**/*.{css,html,md,js,json}\" README.md package.json",
     "format:all": "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/style.ps1",
     "lint:js": "eslint . --ext .js,.ts,.jsx,.tsx || true",
     "lint:prettier": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
