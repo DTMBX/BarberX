@@ -1,3 +1,5 @@
+# DISABLED: This workflow conflicts with pages.yml which is the primary deployment workflow
+# To re-enable, remove the .disabled extension and ensure no conflicts with pages.yml
 name: Deploy Eleventy to GitHub Pages
 
 on:

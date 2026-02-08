@@ -1,3 +1,5 @@
+# DISABLED: This workflow conflicts with pages.yml which is the primary deployment workflow
+# To re-enable, remove the .disabled extension and ensure no conflicts with pages.yml
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support

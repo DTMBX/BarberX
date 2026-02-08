@@ -1,3 +1,5 @@
+# DISABLED: This workflow conflicts with pages.yml which is the primary deployment workflow
+# To re-enable, remove the .disabled extension and ensure no conflicts with pages.yml
 name: Ruby Gem
 
 on:
@@ -29,7 +31,9 @@ jobs:
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          printf -- "---
+:github: ${GEM_HOST_API_KEY}
+" > $HOME/.gem/credentials
           gem build *.gemspec
           gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
         env:
@@ -41,7 +45,9 @@ jobs:
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          printf -- "---
+:rubygems_api_key: ${GEM_HOST_API_KEY}
+" > $HOME/.gem/credentials
           gem build *.gemspec
           gem push *.gem
         env:
