@@ -293,7 +293,23 @@ def get_transcript(upload_id):
         return jsonify({"error": "Analysis not completed"}), 400
 
     # Load JSON report
-    report_file = ANALYSIS_FOLDER / upload_id / "report.json"
+    analysis_root = ANALYSIS_FOLDER.resolve()
+    upload_dir = (ANALYSIS_FOLDER / upload_id).resolve()
+
+    # Ensure the resolved upload directory is within the analysis root
+    try:
+        # Path.is_relative_to is available in Python 3.9+; fall back to relative_to for safety
+        is_within_root = (
+            hasattr(upload_dir, "is_relative_to")
+            and upload_dir.is_relative_to(analysis_root)
+        )
+        if not is_within_root:
+            # relative_to will raise ValueError if upload_dir escapes analysis_root
+            upload_dir.relative_to(analysis_root)
+    except ValueError:
+        return jsonify({"error": "Invalid upload ID"}), 400
+
+    report_file = upload_dir / "report.json"
 
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
