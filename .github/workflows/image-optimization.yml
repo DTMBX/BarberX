@@ -2,7 +2,7 @@ name: Image Optimization
 
 on:
   push:
-    branches: [ main, chore/remediate-assets-links ]
+    branches: [main, chore/remediate-assets-links]
   workflow_dispatch:
 
 jobs:

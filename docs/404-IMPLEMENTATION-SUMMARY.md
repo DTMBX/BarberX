@@ -199,7 +199,7 @@ if -name- == '-main-':
 ### Created This Session:
 
 | Page         | File                     | Size        | Lines           |
-| ------ | ------------ | ------ | -------- |
+| ------------ | ------------------------ | ----------- | --------------- |
 | Pricing      | `_pages/pricing.md`      | 13.5 KB     | 399             |
 | Installation | `_pages/installation.md` | 8.7 KB      | 332             |
 | Docs Hub     | `_pages/docs-index.md`   | 6.1 KB      | 183             |
@@ -209,7 +209,7 @@ if -name- == '-main-':
 ### Authentication System:
 
 | Component | File                            | Size    | Status               |
-| ----- | ---------------- | ---- | ---------- |
+| --------- | ------------------------------- | ------- | -------------------- |
 | Login     | `templates/auth/login.html`     | 6.2 KB  | ✅ Ready             |
 | Signup    | `templates/auth/signup.html`    | 16.5 KB | ✅ Ready             |
 | Dashboard | `templates/auth/dashboard.html` | 13.1 KB | ✅ Ready             |

@@ -3,37 +3,38 @@
 
 """Test login flow"""
 
+import os
 import re
 
 from app import app
 
+"""Test login flow.
+
+Credentials are read from environment variables to avoid committing secrets in
+test code. Set `EVIDENT_TEST_ADMIN_EMAIL` and `EVIDENT_TEST_ADMIN_PASSWORD`
+in CI or your local environment. Defaults are provided for convenience in
+local development but should not be used for real credentials.
+"""
+
+ADMIN_EMAIL = os.environ.get("EVIDENT_TEST_ADMIN_EMAIL", "admin@Evident")
+ADMIN_PASSWORD = os.environ.get("EVIDENT_TEST_ADMIN_PASSWORD", "AdminTest2026!")
+
+
 print("Testing login flow...")
 
 with app.test_client() as client:
-    # Get login page
     resp = client.get("/auth/login")
     print(f"GET /auth/login: {resp.status_code}")
 
     html = resp.data.decode("utf-8")
     csrf_match = re.search(r'name="csrf_token" value="([^"]+)"', html)
+    csrf = csrf_match.group(1) if csrf_match else None
 
-    if not csrf_match:
-        print("WARN: No CSRF token found; continuing without token")
-        csrf = None
-    else:
-        csrf = csrf_match.group(1)
-        print(f"CSRF token: {csrf[:20]}...")
+    data = {"email": ADMIN_EMAIL, "password": ADMIN_PASSWORD}
+    if csrf:
+        data["csrf_token"] = csrf
 
-    # Try login
-    resp = client.post(
-        "/auth/login",
-        data=(
-            {"email": "admin@Evident", "password": "AdminTest2026!"}
-            if csrf is None
-            else {"email": "admin@Evident", "password": "AdminTest2026!", "csrf_token": csrf}
-        ),
-        follow_redirects=False,
-    )
+    resp = client.post("/auth/login", data=data, follow_redirects=False)
 
     print(f"POST /auth/login: {resp.status_code}")
     location = resp.headers.get("Location", "none")
@@ -43,7 +44,8 @@ with app.test_client() as client:
         print("\n✅ LOGIN SUCCESS!")
     else:
         print("\n❌ LOGIN FAILED")
-        if "Invalid" in resp.data.decode("utf-8"):
+        body = resp.data.decode("utf-8")
+        if "Invalid" in body:
             print("Reason: Invalid credentials")
-        elif "Suspicious" in resp.data.decode("utf-8"):
+        elif "Suspicious" in body:
             print("Reason: Blocked by security check")

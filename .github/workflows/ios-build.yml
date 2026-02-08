@@ -34,7 +34,6 @@ jobs:
           echo "To run iOS builds: use a runner with Xcode 26.2, or trigger this workflow manually on an appropriate self-hosted/macOS runner."
           exit 0
       - uses: actions/checkout@v4
-
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:

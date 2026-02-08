@@ -3,8 +3,8 @@ name: Media Optimize and PR
 on:
   push:
     paths:
-      - 'src/assets/media/**'
-      - 'src/assets/images/**'
+      - "src/assets/media/**"
+      - "src/assets/images/**"
 
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Create renditions dir
         run: mkdir -p src/assets/media/renditions

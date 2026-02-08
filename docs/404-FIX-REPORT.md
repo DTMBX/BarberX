@@ -309,11 +309,7 @@ _layouts/
 Create `404.html` in root:
 
 ```html
---
-layout: default
-permalink: /404.html
-title: "Page Not Found | Evident"
---
+-- layout: default permalink: /404.html title: "Page Not Found | Evident" --
 
 <div style="text-align: center; padding: 4rem 2rem;">
   <div style="font-size: 6rem; font-weight: 700; color: #c41e3a;">404</div>

@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   push:
-    branches: [ main, chore/remediate-assets-links ]
+    branches: [main, chore/remediate-assets-links]
 
 permissions:
   contents: read
@@ -19,12 +19,12 @@ jobs:
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install Node dependencies
         run: npm ci
@@ -34,7 +34,6 @@ jobs:
         run: |
           pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/style.ps1
 
-  
   build:
     name: Build, Lint, Test
     runs-on: ubuntu-latest
@@ -49,7 +48,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install Node dependencies
         run: npm ci
@@ -63,7 +62,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install Python deps (if present)
         run: |

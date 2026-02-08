@@ -28,9 +28,8 @@ reserved.
 
 ## 2. Limited License — Evaluation and Contribution Only
 
-Subject to strict compliance with this License and the accompanying
-`CONTRIBUTING.md`, Licensor grants a limited, revocable, non-exclusive,
-non-transferable, non-sublicensable license to:
+
+Subject to strict compliance with this License and the accompanying `CONTRIBUTING.md`, Licensor grants a limited, revocable, non-exclusive, non-transferable, non-sublicensable (not capable of being sublicensed) license to:
 
 - view the Materials;
 - clone the repository **solely** to prepare proposed contributions; and
@@ -42,17 +41,23 @@ No other use is permitted.
 
 ## 3. Prohibited Uses
 
-Except as expressly permitted in Section 2, you may not:
 
-- use the Materials in production or operational systems;
-- deploy, host, or offer the Materials as software or services;
-- distribute, sublicense, publish, or disclose the Materials;
+Except as expressly permitted in Section 2, you may not, directly or indirectly:
+
+- use the Materials, in whole or in part, in production or operational systems;
+- deploy, host, or offer the Materials as software or services, or as part of any platform, product, or service;
+- distribute, sublicense, publish, disclose, or otherwise make available the Materials to any third party;
 - create derivative works outside the contribution process;
-- use the Materials to develop, support, or benchmark competing products
-  or services;
-- use the Materials for AI or machine-learning training, evaluation,
-  or benchmarking;
-- remove, alter, or obscure proprietary notices.
+- use the Materials, or any portion thereof, to develop, support, benchmark, or enhance any competing or related products or services;
+- use the Materials, or any portion thereof, for AI or machine-learning training, evaluation, benchmarking, or data set creation;
+- use, analyze, or reference the Materials, or any portion thereof, to develop, train, or improve any large language model, generative AI, or similar technology;
+- use the Materials, or any portion thereof, to analyze, extract, or replicate proprietary algorithms, data, models, or workflows;
+- use the Materials, or any portion thereof, to reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code, structure, or underlying ideas of any proprietary component, dependency, or pipeline;
+- use the Materials, or any portion thereof, to circumvent, disable, or interfere with any security, licensing, or access control mechanisms;
+- remove, alter, or obscure proprietary notices, copyright statements, or other legal attributions;
+- use the Materials, or any portion thereof, to create, modify, or distribute any software, code, or content that is intended to compete with, replace, or replicate the functionality of the Materials or any proprietary dependency, pipeline, or program.
+
+ALL USE OF PROPRIETARY SOURCE CODE, DEPENDENCIES, AI PIPELINES, AND PROGRAMS IS STRICTLY PROHIBITED EXCEPT AS EXPRESSLY PERMITTED HEREIN. ANY ATTEMPT TO ACCESS, COPY, MODIFY, OR UTILIZE SUCH MATERIALS OUTSIDE THE SCOPE OF THIS LICENSE IS EXPRESSLY FORBIDDEN AND WILL BE PURSUED TO THE FULLEST EXTENT OF THE LAW.
 
 ---
 
@@ -86,9 +91,7 @@ agreement executed by Evident Technologies LLC.
 
 ## 5. Trademarks
 
-All trademarks, service marks, names, and branding associated with
-Evident Technologies, including **BarberCam** and **BarberX**, are
-proprietary. No trademark rights are granted under this License.
+All trademarks, service marks, names, and branding associated with **EVIDENT TECHNOLOGIES, LLC** (including **EVIDENT** and any related marks, logos, or stylizations [distinctive visual presentations]) are proprietary. No trademark rights are granted under this License.
 
 ---
 

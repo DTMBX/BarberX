@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Branch to protect'
+        description: "Branch to protect"
         required: true
-        default: 'main'
+        default: "main"
 
 jobs:
   set-protection:

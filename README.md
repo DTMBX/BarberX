@@ -115,4 +115,3 @@ npx stylelint "**/*.css"
 ```bash
 npx htmlhint "**/*.html"
 ```
-

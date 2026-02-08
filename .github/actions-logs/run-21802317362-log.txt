@@ -1,0 +1,344 @@
+build	Set up job	﻿2026-02-08T17:30:18.5209667Z Current runner version: '2.331.0'
+build	Set up job	2026-02-08T17:30:18.5233560Z ##[group]Runner Image Provisioner
+build	Set up job	2026-02-08T17:30:18.5234314Z Hosted Compute Agent
+build	Set up job	2026-02-08T17:30:18.5234859Z Version: 20260123.484
+build	Set up job	2026-02-08T17:30:18.5235393Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+build	Set up job	2026-02-08T17:30:18.5235970Z Build Date: 2026-01-23T19:41:17Z
+build	Set up job	2026-02-08T17:30:18.5236573Z Worker ID: {f2471c17-3338-4ec5-9cde-9f19f3234bb0}
+build	Set up job	2026-02-08T17:30:18.5237173Z Azure Region: westcentralus
+build	Set up job	2026-02-08T17:30:18.5237690Z ##[endgroup]
+build	Set up job	2026-02-08T17:30:18.5239150Z ##[group]Operating System
+build	Set up job	2026-02-08T17:30:18.5239696Z Ubuntu
+build	Set up job	2026-02-08T17:30:18.5240245Z 24.04.3
+build	Set up job	2026-02-08T17:30:18.5240633Z LTS
+build	Set up job	2026-02-08T17:30:18.5241054Z ##[endgroup]
+build	Set up job	2026-02-08T17:30:18.5241473Z ##[group]Runner Image
+build	Set up job	2026-02-08T17:30:18.5241995Z Image: ubuntu-24.04
+build	Set up job	2026-02-08T17:30:18.5242427Z Version: 20260201.15.1
+build	Set up job	2026-02-08T17:30:18.5243309Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+build	Set up job	2026-02-08T17:30:18.5244733Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+build	Set up job	2026-02-08T17:30:18.5245521Z ##[endgroup]
+build	Set up job	2026-02-08T17:30:18.5246431Z ##[group]GITHUB_TOKEN Permissions
+build	Set up job	2026-02-08T17:30:18.5248351Z Contents: read
+build	Set up job	2026-02-08T17:30:18.5248820Z Metadata: read
+build	Set up job	2026-02-08T17:30:18.5249312Z Pages: write
+build	Set up job	2026-02-08T17:30:18.5249745Z ##[endgroup]
+build	Set up job	2026-02-08T17:30:18.5252152Z Secret source: Actions
+build	Set up job	2026-02-08T17:30:18.5252823Z Prepare workflow directory
+build	Set up job	2026-02-08T17:30:18.5562782Z Prepare all required actions
+build	Set up job	2026-02-08T17:30:18.5600098Z Getting action download info
+build	Set up job	2026-02-08T17:30:18.9409210Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build	Set up job	2026-02-08T17:30:19.0270067Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build	Set up job	2026-02-08T17:30:19.0980963Z Download action repository 'actions/upload-pages-artifact@v4' (SHA:7b1f4a764d45c48632c6b24a0339c27f5614fb0b)
+build	Set up job	2026-02-08T17:30:19.8069725Z Getting action download info
+build	Set up job	2026-02-08T17:30:19.9691574Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+build	Set up job	2026-02-08T17:30:20.0777862Z Complete job name: build
+build	Checkout	﻿2026-02-08T17:30:20.1533510Z ##[group]Run actions/checkout@v4
+build	Checkout	2026-02-08T17:30:20.1534441Z with:
+build	Checkout	2026-02-08T17:30:20.1534860Z   repository: DTMBX/EVIDENT
+build	Checkout	2026-02-08T17:30:20.1535587Z   token: ***
+build	Checkout	2026-02-08T17:30:20.1535970Z   ssh-strict: true
+build	Checkout	2026-02-08T17:30:20.1536361Z   ssh-user: git
+build	Checkout	2026-02-08T17:30:20.1536753Z   persist-credentials: true
+build	Checkout	2026-02-08T17:30:20.1537189Z   clean: true
+build	Checkout	2026-02-08T17:30:20.1537581Z   sparse-checkout-cone-mode: true
+build	Checkout	2026-02-08T17:30:20.1538039Z   fetch-depth: 1
+build	Checkout	2026-02-08T17:30:20.1538414Z   fetch-tags: false
+build	Checkout	2026-02-08T17:30:20.1538805Z   show-progress: true
+build	Checkout	2026-02-08T17:30:20.1539218Z   lfs: false
+build	Checkout	2026-02-08T17:30:20.1539575Z   submodules: false
+build	Checkout	2026-02-08T17:30:20.1540207Z   set-safe-directory: true
+build	Checkout	2026-02-08T17:30:20.1540951Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:20.2575085Z Syncing repository: DTMBX/EVIDENT
+build	Checkout	2026-02-08T17:30:20.2576893Z ##[group]Getting Git version info
+build	Checkout	2026-02-08T17:30:20.2577609Z Working directory is '/home/runner/work/EVIDENT/EVIDENT'
+build	Checkout	2026-02-08T17:30:20.2578478Z [command]/usr/bin/git version
+build	Checkout	2026-02-08T17:30:20.2615547Z git version 2.52.0
+build	Checkout	2026-02-08T17:30:20.2639659Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:20.2654858Z Temporarily overriding HOME='/home/runner/work/_temp/afe27f82-3cdc-4d6b-ac33-8ee7131c1f77' before making global git config changes
+build	Checkout	2026-02-08T17:30:20.2657563Z Adding repository directory to the temporary git global config as a safe directory
+build	Checkout	2026-02-08T17:30:20.2670061Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/EVIDENT/EVIDENT
+build	Checkout	2026-02-08T17:30:20.2703724Z Deleting the contents of '/home/runner/work/EVIDENT/EVIDENT'
+build	Checkout	2026-02-08T17:30:20.2707415Z ##[group]Initializing the repository
+build	Checkout	2026-02-08T17:30:20.2712376Z [command]/usr/bin/git init /home/runner/work/EVIDENT/EVIDENT
+build	Checkout	2026-02-08T17:30:20.2783946Z hint: Using 'master' as the name for the initial branch. This default branch name
+build	Checkout	2026-02-08T17:30:20.2785455Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build	Checkout	2026-02-08T17:30:20.2787026Z hint: to use in all of your new repositories, which will suppress this warning,
+build	Checkout	2026-02-08T17:30:20.2788337Z hint: call:
+build	Checkout	2026-02-08T17:30:20.2788943Z hint:
+build	Checkout	2026-02-08T17:30:20.2789751Z hint: 	git config --global init.defaultBranch <name>
+build	Checkout	2026-02-08T17:30:20.2790913Z hint:
+build	Checkout	2026-02-08T17:30:20.2791807Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build	Checkout	2026-02-08T17:30:20.2793872Z hint: 'development'. The just-created branch can be renamed via this command:
+build	Checkout	2026-02-08T17:30:20.2795064Z hint:
+build	Checkout	2026-02-08T17:30:20.2795691Z hint: 	git branch -m <name>
+build	Checkout	2026-02-08T17:30:20.2796409Z hint:
+build	Checkout	2026-02-08T17:30:20.2797303Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build	Checkout	2026-02-08T17:30:20.2798833Z Initialized empty Git repository in /home/runner/work/EVIDENT/EVIDENT/.git/
+build	Checkout	2026-02-08T17:30:20.2801560Z [command]/usr/bin/git remote add origin https://github.com/DTMBX/EVIDENT
+build	Checkout	2026-02-08T17:30:20.2827997Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:20.2828729Z ##[group]Disabling automatic garbage collection
+build	Checkout	2026-02-08T17:30:20.2831335Z [command]/usr/bin/git config --local gc.auto 0
+build	Checkout	2026-02-08T17:30:20.2855226Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:20.2855871Z ##[group]Setting up auth
+build	Checkout	2026-02-08T17:30:20.2861739Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Checkout	2026-02-08T17:30:20.2886041Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Checkout	2026-02-08T17:30:20.3148532Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Checkout	2026-02-08T17:30:20.3173465Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Checkout	2026-02-08T17:30:20.3350420Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	Checkout	2026-02-08T17:30:20.3384190Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	Checkout	2026-02-08T17:30:20.3561961Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build	Checkout	2026-02-08T17:30:20.3591695Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:20.3592447Z ##[group]Fetching the repository
+build	Checkout	2026-02-08T17:30:20.3599572Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +710b94afd7a799a20cdc7322b8f19e915c28da3a:refs/remotes/origin/main
+build	Checkout	2026-02-08T17:30:21.6107126Z From https://github.com/DTMBX/EVIDENT
+build	Checkout	2026-02-08T17:30:21.6108411Z  * [new ref]         710b94afd7a799a20cdc7322b8f19e915c28da3a -> origin/main
+build	Checkout	2026-02-08T17:30:21.6133941Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:21.6134430Z ##[group]Determining the checkout info
+build	Checkout	2026-02-08T17:30:21.6136910Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:21.6141087Z [command]/usr/bin/git sparse-checkout disable
+build	Checkout	2026-02-08T17:30:21.6174071Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build	Checkout	2026-02-08T17:30:21.6194077Z ##[group]Checking out the ref
+build	Checkout	2026-02-08T17:30:21.6197988Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build	Checkout	2026-02-08T17:30:21.7786515Z Switched to a new branch 'main'
+build	Checkout	2026-02-08T17:30:21.7787260Z branch 'main' set up to track 'origin/main'.
+build	Checkout	2026-02-08T17:30:21.7796593Z ##[endgroup]
+build	Checkout	2026-02-08T17:30:21.7829469Z [command]/usr/bin/git log -1 --format=%H
+build	Checkout	2026-02-08T17:30:21.7848044Z 710b94afd7a799a20cdc7322b8f19e915c28da3a
+build	Setup Node.js	﻿2026-02-08T17:30:21.8065154Z ##[group]Run actions/setup-node@v4
+build	Setup Node.js	2026-02-08T17:30:21.8065524Z with:
+build	Setup Node.js	2026-02-08T17:30:21.8065741Z   node-version: 18
+build	Setup Node.js	2026-02-08T17:30:21.8065972Z   always-auth: false
+build	Setup Node.js	2026-02-08T17:30:21.8066375Z   check-latest: false
+build	Setup Node.js	2026-02-08T17:30:21.8066810Z   token: ***
+build	Setup Node.js	2026-02-08T17:30:21.8067020Z ##[endgroup]
+build	Setup Node.js	2026-02-08T17:30:21.9729145Z Attempting to download 18...
+build	Setup Node.js	2026-02-08T17:30:22.7761693Z Acquiring 18.20.8 - x64 from https://github.com/actions/node-versions/releases/download/18.20.8-14110393767/node-18.20.8-linux-x64.tar.gz
+build	Setup Node.js	2026-02-08T17:30:23.3333225Z Extracting ...
+build	Setup Node.js	2026-02-08T17:30:23.3423024Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/a74a1905-e3f8-4f92-b42d-0d6096e869da -f /home/runner/work/_temp/e73f7175-c404-4beb-b5a3-4380d2e744d7
+build	Setup Node.js	2026-02-08T17:30:24.2408743Z Adding to the cache ...
+build	Setup Node.js	2026-02-08T17:30:25.3955038Z ##[group]Environment details
+build	Setup Node.js	2026-02-08T17:30:25.6156490Z node: v18.20.8
+build	Setup Node.js	2026-02-08T17:30:25.6156918Z npm: 10.8.2
+build	Setup Node.js	2026-02-08T17:30:25.6157390Z yarn: 1.22.22
+build	Setup Node.js	2026-02-08T17:30:25.6158630Z ##[endgroup]
+build	Install dependencies	﻿2026-02-08T17:30:25.6275750Z ##[group]Run npm ci
+build	Install dependencies	2026-02-08T17:30:25.6276046Z [36;1mnpm ci[0m
+build	Install dependencies	2026-02-08T17:30:25.6302710Z shell: /usr/bin/bash -e {0}
+build	Install dependencies	2026-02-08T17:30:25.6302991Z ##[endgroup]
+build	Install dependencies	2026-02-08T17:30:26.8609214Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8609845Z npm warn EBADENGINE   package: '@csstools/css-parser-algorithms@4.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8610642Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8611386Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8611862Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8612145Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8612529Z npm warn EBADENGINE   package: '@csstools/css-tokenizer@4.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8612936Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8613341Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8613839Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8614243Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8614741Z npm warn EBADENGINE   package: '@csstools/media-query-list-parser@5.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8615176Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8615577Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8615873Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8616135Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8616531Z npm warn EBADENGINE   package: '@csstools/selector-resolve-nested@4.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8616959Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8617352Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8617654Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8617896Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8618293Z npm warn EBADENGINE   package: '@csstools/selector-specificity@6.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8618729Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8619434Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8619996Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8620250Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8620632Z npm warn EBADENGINE   package: '@eslint/config-array@0.23.1',
+build	Install dependencies	2026-02-08T17:30:26.8621067Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8621856Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8622231Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8622477Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8622798Z npm warn EBADENGINE   package: 'minimatch@10.1.2',
+build	Install dependencies	2026-02-08T17:30:26.8623157Z npm warn EBADENGINE   required: { node: '20 || >=22' },
+build	Install dependencies	2026-02-08T17:30:26.8623659Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8624024Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8625519Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8626035Z npm warn EBADENGINE   package: '@eslint/config-helpers@0.5.2',
+build	Install dependencies	2026-02-08T17:30:26.8626502Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8627217Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8627736Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8628124Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8628452Z npm warn EBADENGINE   package: '@eslint/core@1.1.0',
+build	Install dependencies	2026-02-08T17:30:26.8629041Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8629714Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8630310Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8630698Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8631077Z npm warn EBADENGINE   package: '@eslint/object-schema@3.0.1',
+build	Install dependencies	2026-02-08T17:30:26.8631507Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8631960Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8632580Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8633009Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8633602Z npm warn EBADENGINE   package: '@eslint/plugin-kit@0.6.0',
+build	Install dependencies	2026-02-08T17:30:26.8634266Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8634708Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8635013Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8635260Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8635624Z npm warn EBADENGINE   package: '@isaacs/balanced-match@4.0.1',
+build	Install dependencies	2026-02-08T17:30:26.8636018Z npm warn EBADENGINE   required: { node: '20 || >=22' },
+build	Install dependencies	2026-02-08T17:30:26.8636404Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8636710Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8636951Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8637312Z npm warn EBADENGINE   package: '@isaacs/brace-expansion@5.0.1',
+build	Install dependencies	2026-02-08T17:30:26.8637710Z npm warn EBADENGINE   required: { node: '20 || >=22' },
+build	Install dependencies	2026-02-08T17:30:26.8638116Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8638415Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8643294Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8643819Z npm warn EBADENGINE   package: 'cheerio@1.2.0',
+build	Install dependencies	2026-02-08T17:30:26.8644170Z npm warn EBADENGINE   required: { node: '>=20.18.1' },
+build	Install dependencies	2026-02-08T17:30:26.8644563Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8644861Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8651564Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8652232Z npm warn EBADENGINE   package: 'eslint@10.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8653058Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8653902Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8654488Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8654978Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8655696Z npm warn EBADENGINE   package: 'eslint-visitor-keys@5.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8656572Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8657413Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8658000Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8658437Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8659101Z npm warn EBADENGINE   package: 'eslint-scope@9.1.0',
+build	Install dependencies	2026-02-08T17:30:26.8660085Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8660995Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8661612Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8662089Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8662711Z npm warn EBADENGINE   package: 'minimatch@10.1.2',
+build	Install dependencies	2026-02-08T17:30:26.8663420Z npm warn EBADENGINE   required: { node: '20 || >=22' },
+build	Install dependencies	2026-02-08T17:30:26.8664171Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8664996Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8665488Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8666108Z npm warn EBADENGINE   package: 'espree@11.1.0',
+build	Install dependencies	2026-02-08T17:30:26.8666934Z npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+build	Install dependencies	2026-02-08T17:30:26.8667820Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8668422Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8668917Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8669523Z npm warn EBADENGINE   package: 'globby@16.1.0',
+build	Install dependencies	2026-02-08T17:30:26.8670399Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8671193Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8671783Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8672238Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8673061Z npm warn EBADENGINE   package: 'hashery@1.4.0',
+build	Install dependencies	2026-02-08T17:30:26.8673717Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8674502Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8675119Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8675539Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8676116Z npm warn EBADENGINE   package: 'html-tags@5.1.0',
+build	Install dependencies	2026-02-08T17:30:26.8676768Z npm warn EBADENGINE   required: { node: '>=20.10' },
+build	Install dependencies	2026-02-08T17:30:26.8677492Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8678075Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8678551Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8679150Z npm warn EBADENGINE   package: 'meow@14.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8679816Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8680771Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8681401Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8683118Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8683721Z npm warn EBADENGINE   package: 'qified@0.6.0',
+build	Install dependencies	2026-02-08T17:30:26.8684496Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8685210Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8685793Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8690972Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8691721Z npm warn EBADENGINE   package: 'stylelint@17.1.1',
+build	Install dependencies	2026-02-08T17:30:26.8692439Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8693273Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8693884Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8694377Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8695214Z npm warn EBADENGINE   package: 'stylelint-config-recommended@18.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8696055Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8696891Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8697529Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8698043Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8698786Z npm warn EBADENGINE   package: 'stylelint-config-standard@40.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8699569Z npm warn EBADENGINE   required: { node: '>=20.19.0' },
+build	Install dependencies	2026-02-08T17:30:26.8700516Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8701131Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8701615Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8702287Z npm warn EBADENGINE   package: 'string-width@8.1.1',
+build	Install dependencies	2026-02-08T17:30:26.8702963Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8703745Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8704342Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8704818Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8705539Z npm warn EBADENGINE   package: 'supports-hyperlinks@4.4.0',
+build	Install dependencies	2026-02-08T17:30:26.8706243Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8707239Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8707840Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8708327Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8708930Z npm warn EBADENGINE   package: 'undici@7.21.0',
+build	Install dependencies	2026-02-08T17:30:26.8709598Z npm warn EBADENGINE   required: { node: '>=20.18.1' },
+build	Install dependencies	2026-02-08T17:30:26.8710434Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8711031Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8711523Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8712171Z npm warn EBADENGINE   package: 'unicorn-magic@0.4.0',
+build	Install dependencies	2026-02-08T17:30:26.8712837Z npm warn EBADENGINE   required: { node: '>=20' },
+build	Install dependencies	2026-02-08T17:30:26.8713594Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8714338Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8714842Z npm warn EBADENGINE Unsupported engine {
+build	Install dependencies	2026-02-08T17:30:26.8715523Z npm warn EBADENGINE   package: 'write-file-atomic@7.0.0',
+build	Install dependencies	2026-02-08T17:30:26.8716367Z npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+build	Install dependencies	2026-02-08T17:30:26.8717262Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+build	Install dependencies	2026-02-08T17:30:26.8717840Z npm warn EBADENGINE }
+build	Install dependencies	2026-02-08T17:30:26.8799281Z npm error code EUSAGE
+build	Install dependencies	2026-02-08T17:30:26.8799790Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8800874Z npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+build	Install dependencies	2026-02-08T17:30:26.8801560Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8801871Z npm error Missing: markdownlint-cli@0.33.0 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8802248Z npm error Missing: commander@9.4.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8802584Z npm error Missing: glob@8.0.3 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8802935Z npm error Missing: ignore@5.2.4 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8803303Z npm error Missing: jsonc-parser@3.2.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8803681Z npm error Missing: markdownlint@0.27.0 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8804031Z npm error Missing: minimatch@5.1.6 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8804361Z npm error Missing: run-con@1.2.12 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8804706Z npm error Missing: markdown-it@13.0.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8805063Z npm error Missing: deep-extend@0.6.0 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8805388Z npm error Missing: ini@3.0.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8806036Z npm error Missing: strip-json-comments@3.1.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8806466Z npm error Missing: brace-expansion@2.0.2 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8806844Z npm error Missing: balanced-match@1.0.2 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8807264Z npm error Missing: linkify-it@4.0.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8807834Z npm error Missing: mdurl@1.0.1 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8808389Z npm error Missing: uc.micro@1.0.6 from lock file
+build	Install dependencies	2026-02-08T17:30:26.8808680Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8808899Z npm error Clean install a project
+build	Install dependencies	2026-02-08T17:30:26.8809123Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8809283Z npm error Usage:
+build	Install dependencies	2026-02-08T17:30:26.8809461Z npm error npm ci
+build	Install dependencies	2026-02-08T17:30:26.8809622Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8809960Z npm error Options:
+build	Install dependencies	2026-02-08T17:30:26.8810537Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+build	Install dependencies	2026-02-08T17:30:26.8811287Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+build	Install dependencies	2026-02-08T17:30:26.8812117Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+build	Install dependencies	2026-02-08T17:30:26.8812719Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+build	Install dependencies	2026-02-08T17:30:26.8813166Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+build	Install dependencies	2026-02-08T17:30:26.8813631Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+build	Install dependencies	2026-02-08T17:30:26.8814179Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+build	Install dependencies	2026-02-08T17:30:26.8814681Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8815014Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+build	Install dependencies	2026-02-08T17:30:26.8815321Z npm error
+build	Install dependencies	2026-02-08T17:30:26.8815557Z npm error Run "npm help ci" for more info
+build	Install dependencies	2026-02-08T17:30:26.8816129Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2026-02-08T17_30_25_697Z-debug-0.log
+build	Install dependencies	2026-02-08T17:30:26.8872448Z ##[error]Process completed with exit code 1.
+build	Post Checkout	﻿2026-02-08T17:30:26.8955934Z Post job cleanup.
+build	Post Checkout	2026-02-08T17:30:26.9827975Z [command]/usr/bin/git version
+build	Post Checkout	2026-02-08T17:30:26.9860549Z git version 2.52.0
+build	Post Checkout	2026-02-08T17:30:26.9899243Z Temporarily overriding HOME='/home/runner/work/_temp/1b5294dc-869d-45fe-8e21-15e6db39ce14' before making global git config changes
+build	Post Checkout	2026-02-08T17:30:26.9900864Z Adding repository directory to the temporary git global config as a safe directory
+build	Post Checkout	2026-02-08T17:30:26.9913024Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/EVIDENT/EVIDENT
+build	Post Checkout	2026-02-08T17:30:26.9944504Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Post Checkout	2026-02-08T17:30:26.9973810Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Post Checkout	2026-02-08T17:30:27.0156785Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Post Checkout	2026-02-08T17:30:27.0174745Z http.https://github.com/.extraheader
+build	Post Checkout	2026-02-08T17:30:27.0185232Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build	Post Checkout	2026-02-08T17:30:27.0212453Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Post Checkout	2026-02-08T17:30:27.0390848Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	Post Checkout	2026-02-08T17:30:27.0420030Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	Complete job	﻿2026-02-08T17:30:27.0699540Z Cleaning up orphan processes

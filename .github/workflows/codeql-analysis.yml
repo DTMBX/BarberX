@@ -2,9 +2,9 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ main, chore/remediate-assets-links ]
+    branches: [main, chore/remediate-assets-links]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   analyze:

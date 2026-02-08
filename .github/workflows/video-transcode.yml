@@ -3,7 +3,7 @@ name: Video Transcode
 on:
   push:
     paths:
-      - 'src/assets/media/**'
+      - "src/assets/media/**"
 
 jobs:
   transcode:

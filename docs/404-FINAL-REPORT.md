@@ -130,7 +130,7 @@
 ### Broken Links Identified & Status:
 
 | URL                   | Status           | Action Taken                 |
-| ----------- | -------- | -------------- |
+| --------------------- | ---------------- | ---------------------------- |
 | `/pricing/`           | ❌ Missing       | ✅ Created full page         |
 | `/docs/installation/` | ❌ Missing       | ✅ Created guide             |
 | `/docs/`              | ❌ Missing       | ✅ Created hub               |
