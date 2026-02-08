@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 class RetrievalService:
     """Handles passage retrieval with citation metadata"""
 
-Optional[def __init__(self, config: dict] = None):
+    def __init__(self, config: Optional[dict] = None):
         self.config = config or {}
 
         # Passage extraction settings
@@ -33,9 +33,7 @@ Optional[def __init__(self, config: dict] = None):
 
         logger.info("RetrievalService initialized")
 
-    def retrieve(
-Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
-    ) -> RetrieveResult:
+    def retrieve(self, query: str, filters: Optional[dict] = None, top_k: int = 10, method: str = "keyword") -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
 

@@ -36,6 +36,7 @@ exclude:
   - logs
   - uploads
   - backups
+  - "*.njk"
 
 # Collections
 collections:

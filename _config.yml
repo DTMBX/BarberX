@@ -11,7 +11,7 @@ baseurl: ""
 
 # Contact Information
 email: contact@evident.info
-support_email: support@evident.info
+support_email: dTb33@pm.me
 sales_email: sales@evident.info
 
 # Build settings
@@ -37,6 +37,7 @@ exclude:
 	- logs
 	- uploads
 	- backups
+ 	- "*.njk"
 
 # Collections
 collections:

@@ -1,0 +1,4 @@
+C:\web-dev\github-repos\Evident\backend\app\root_legacy\retrieval_service.py
+C:\web-dev\github-repos\Evident\backend\src\retrieval_service.py
+C:\web-dev\github-repos\Evident\backend\src-old\ai\pipeline\services\retrieval_service.py
+C:\web-dev\github-repos\Evident\src\ai\pipeline\services\retrieval_service.py

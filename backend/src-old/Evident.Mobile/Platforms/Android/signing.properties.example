@@ -1,5 +1,0 @@
-# Android Signing Configuration Example
-keystore.file=evident-release.keystore
-keystore.password=YOUR_KEYSTORE_PASSWORD
-key.alias=barberx
-key.password=YOUR_KEY_PASSWORD

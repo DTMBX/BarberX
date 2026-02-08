@@ -18,12 +18,12 @@
 <!-- Elegant Header Navigation for Evident Technologies -->
 <header class="elegant-header">
   <nav class="elegant-nav">
-    <a href="/" class="nav-logo">Evident</a>
+    <a href="{{ '/' | relative_url }}" class="nav-logo">Evident</a>
     <ul class="nav-menu">
-      <li><a href="/docs.html">Docs</a></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-      <li><a href="/about.html">About</a></li>
+      <li><a href="{{ '/docs.html' | relative_url }}">Docs</a></li>
+      <li><a href="{{ '/pricing.html' | relative_url }}">Pricing</a></li>
+      <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+      <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
     </ul>
     <button class="nav-mobile-toggle" aria-label="Open menu">
       <span class="icon-menu"></span>
@@ -31,10 +31,10 @@
   </nav>
   <div class="nav-mobile-drawer" aria-hidden="true">
     <ul class="nav-mobile-menu">
-      <li><a href="/docs.html">Docs</a></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-      <li><a href="/about.html">About</a></li>
+      <li><a href="{{ '/docs.html' | relative_url }}">Docs</a></li>
+      <li><a href="{{ '/pricing.html' | relative_url }}">Pricing</a></li>
+      <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+      <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
     </ul>
   </div>
 </header>

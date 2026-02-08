@@ -1,4 +1,0 @@
-pytest==7.4.0
-pip-audit==2.1.0
-cyclonedx-bom==0.14.0
-eyecite==0.17.0

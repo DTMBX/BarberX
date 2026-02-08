@@ -17,7 +17,7 @@ extra_css:
   <div class="docs-card">
     <h3>🌐 For All Users</h3>
     <p>Access Evident via the web at <a href="https://Evident.info">Evident.info</a>. No installation required for standard users — all features available securely through the web app.</p>
-    <a href="/register">Get Started Free →</a>
+    <a href="{{ '/register' | relative_url }}">Get Started Free →</a>
   </div>
   
   <div class="docs-card enterprise">
@@ -57,9 +57,9 @@ extra_css:
   
   <h3>🚀 Quick Start (15 minutes)</h3>
   <ol>
-    <li><strong>Create Account:</strong> <a href="/register">Sign up for free</a> (no credit card required)</li>
-    <li><strong>Install AI Tools:</strong> Follow our <a href="/docs/installation/">Installation Guide</a></li>
-    <li><strong>Upload Evidence:</strong> Drag & drop your first BWC video to the <a href="/analyzer">Analyzer</a></li>
+    <li><strong>Create Account:</strong> <a href="{{ '/register' | relative_url }}">Sign up for free</a> (no credit card required)</li>
+    <li><strong>Install AI Tools:</strong> Follow our <a href="{{ '/docs/installation/' | relative_url }}">Installation Guide</a></li>
+    <li><strong>Upload Evidence:</strong> Drag & drop your first BWC video to the <a href="{{ '/analyzer' | relative_url }}">Analyzer</a></li>
     <li><strong>Review Results:</strong> Get transcripts, entities, and discrepancy reports in minutes</li>
   </ol>
   
@@ -72,7 +72,7 @@ extra_css:
     <li>GPU optional (CUDA-enabled for faster processing)</li>
   </ul>
   
-  <p><a href="/docs/installation/">View Complete Installation Guide →</a></p>
+  <p><a href="{{ '/docs/installation/' | relative_url }}">View Complete Installation Guide →</a></p>
 </div>
 
 <div id="user-guide" class="docs-section">
@@ -94,13 +94,13 @@ extra_css:
 <div id="api-reference" class="docs-section">
   <h2>API Reference</h2>
   <p>RESTful endpoints for evidence upload, user management, and analysis. Available on Professional, Premium, and Enterprise tiers.</p>
-  <p><a href="/api">View Full API Documentation →</a></p>
+  <p><a href="{{ '/api' | relative_url }}">View Full API Documentation →</a></p>
 </div>
 
 <div id="faq" class="docs-section">
   <h2>FAQ</h2>
   <p>Common questions about Evident features, pricing, security, and technical requirements.</p>
-  <p><a href="/faq/">View FAQ →</a></p>
+  <p><a href="{{ '/faq/' | relative_url }}">View FAQ →</a></p>
 </div>
 
 <div id="troubleshooting" class="docs-section">
@@ -118,7 +118,7 @@ extra_css:
   <ul>
     <li><strong>Email:</strong> <a href="mailto:support@Evident.info">support@Evident.info</a></li>
     <li><strong>GitHub:</strong> <a href="https://github.com/DTB396/Evident.info/issues">Report Issues</a></li>
-    <li><strong>Documentation:</strong> <a href="/docs/">Full Docs</a></li>
+    <li><strong>Documentation:</strong> <a href="{{ '/docs/' | relative_url }}">Full Docs</a></li>
     <li><strong>Changelog:</strong> <a href="../CHANGELOG.md">View release notes</a></li>
   </ul>
 </div>

@@ -17,5 +17,8 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Dependency Review
+        # Use the official action repository path and supply the repo-token expected by v4
         uses: actions/dependency-review-action@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true

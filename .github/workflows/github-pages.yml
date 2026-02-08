@@ -17,11 +17,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
-      - name: Install dependencies
+      - name: Install dependencies (robust)
         run: |
           cd site
           gem install bundler
-          bundle install
+          # install into vendor/bundle for isolation, retry on transient failures
+          bundle config set path 'vendor/bundle'
+          bundle install --jobs 4 --retry 3
       - name: Build site
         run: |
           cd site
