@@ -31,8 +31,8 @@ class Passage:
     snippet: str
     score: float
     source_system: str  # 'legal_library', 'muni_code', 'bwc'
-Optional[document_type: str] = None
-Optional[metadata: dict[str, Any]] = None
+    document_type: Optional[str] = None
+    metadata: Optional[dict[str, Any]] = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -50,7 +50,7 @@ class RetrievalService:
         return conn
 
     def retrieve(
-Optional[self, query: str, filters: dict[str, Any]] = None, top_k: int = 5
+        self, query: str, filters: Optional[dict[str, Any]] = None, top_k: int = 5
     ) -> list[Passage]:
         """
         Retrieve passages using FTS5 BM25 ranking
@@ -189,7 +189,7 @@ Optional[self, query: str, filters: dict[str, Any]] = None, top_k: int = 5
 
         return snippet, start, end
 
-Optional[def get_document_info(self, document_id: str) -> dict[str, Any]]:
+    def get_document_info(self, document_id: str) -> dict[str, Any]:
         """Get full document metadata"""
         with self._conn() as conn:
             row = conn.execute(
@@ -218,7 +218,7 @@ Optional[def get_document_info(self, document_id: str) -> dict[str, Any]]:
                 "created_at": row["created_at"],
             }
 
-Optional[def get_page_content(self, document_id: str, page_number: int) -> str]:
+    def get_page_content(self, document_id: str, page_number: int) -> str:
         """Get full text of a specific page"""
         with self._conn() as conn:
             row = conn.execute(

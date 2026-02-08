@@ -34,7 +34,7 @@ Optional[def __init__(self, config: dict] = None):
         logger.info("RetrievalService initialized")
 
     def retrieve(
-Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
+        self, query: str, filters: Optional[dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
