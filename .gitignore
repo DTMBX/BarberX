@@ -1,3 +1,6 @@
+# build/diagnostic artifacts
+*_fail.json
+_legal_research_fail.json
 # Python
 __pycache__/
 *.py[cod]
