@@ -10,6 +10,7 @@
 }
 
 /* Button components */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -35,6 +36,7 @@
 }
 
 /* Headings */
+
 h1,
 h2,
 h3,
@@ -44,6 +46,7 @@ h4 {
 }
 
 /* Accessibility helpers */
+
 .visually-hidden {
   position: absolute !important;
   height: 1px;
