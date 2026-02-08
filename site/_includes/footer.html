@@ -5,9 +5,9 @@
     <div class="footer-grid">
       <!-- Brand Column -->
       <div class="footer-brand-col">
-        <a href="{{ '/' | relative_url }}" class="footer-brand">
+        <a href="{{ '/' | relative_url }}" class="footer-brand flex items-center mb-2">
           <img
-            src="/assets/img/logo/light-variant-logo.svg"
+            src="{{ '/assets/img/logo/light-variant-logo.svg' | relative_url }}"
             alt="Evident Trinity E Wordmark"
             style="height: 40px; width: auto; display: block; margin-right: 0"
           />
@@ -60,10 +60,10 @@
             color: var(--muted);
           "
         >
-          <li><a href="/contact.html">About</a></li>
-          <li><a href="/docs.html#faq">FAQ</a></li>
-          <li><a href="/docs.html">Docs</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="{{ '/about' | relative_url }}" class="hover:text-blue-700">About</a></li>
+          <li><a href="{{ '/faq' | relative_url }}" class="hover:text-blue-700">FAQ</a></li>
+          <li><a href="{{ '/docs' | relative_url }}" class="hover:text-blue-700">Docs</a></li>
+          <li><a href="{{ '/contact' | relative_url }}" class="hover:text-blue-700">Contact</a></li>
         </ul>
       </nav>
       <div
@@ -72,9 +72,9 @@
       >
         <span>&copy; 2024 Evident. All rights reserved.</span>
         <span class="footer-meta-links" style="margin-left: 1em">
-          <a href="/docs.html#privacy">Privacy</a>
-          <span style="margin: 0 0.5em">|</span>
-          <a href="/docs.html#terms">Terms</a>
+          <a href="{{ '/privacy' | relative_url }}" class="hover:text-blue-700">Privacy</a>
+          <span class="mx-1">|</span>
+          <a href="{{ '/terms' | relative_url }}" class="hover:text-blue-700">Terms</a>
         </span>
       </div>
     </div>

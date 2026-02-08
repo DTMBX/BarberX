@@ -293,9 +293,9 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 
 **Barber Cam:**
 
-- [Evidence Integrity Guide](/evidence-integrity)
-- [Safety Training Video](/training) (coming soon)
-- [Case Studies](/case-studies)
+- [Evidence Integrity Guide]({ '/evidence-integrity' | relative_url })
+- [Safety Training Video]({ '/training' | relative_url }) (coming soon)
+- [Case Studies]({ '/case-studies' | relative_url })
 
 --
 

@@ -43,7 +43,7 @@ Added comprehensive platform overview showcasing:
 
 --
 
-### 2. Header Navigation ([\_includes/header.html](/_includes/header.html))
+### 2. Header Navigation ([\_includes/header.html]({ '/_includes/header.html' | relative_url }))
 
 #### Renamed: "Legal Tools" → "Platform"
 
@@ -61,7 +61,7 @@ calculator)
 
 --
 
-### 3. Footer Navigation ([\_includes/footer-links.html](/_includes/footer-links.html))
+### 3. Footer Navigation ([\_includes/footer-links.html]({ '/_includes/footer-links.html' | relative_url }))
 
 #### Updated "Navigate" Section
 
