@@ -81,10 +81,11 @@ TierLevel = profile.Tier;
 
 **Template-Level Enforcement:**
 
+{% raw %}
 ```html
-{% if current_user.tier.name in ['FREE', 'STARTER'] %} {% include
-'components/tier-upgrade-card.html' %} {% endif %}
+{% if current_user.tier.name == 'FREE' or current_user.tier.name == 'STARTER' %} {% include 'components/tier-upgrade-card.html' %} {% endif %}
 ```
+{% endraw %}
 
 **JavaScript Tier Validation:**
 
