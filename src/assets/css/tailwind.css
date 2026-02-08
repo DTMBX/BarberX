@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* @import 'components/flag-video.css'; */
-@import "./americabydesign.css";
+@import url("./americabydesign.css");
 
 :root {
   --color-primary: #0b5f73;
@@ -22,6 +22,7 @@
   height: 1px;
   overflow: hidden;
 }
+
 .skip-link:focus {
   position: static;
   width: auto;
