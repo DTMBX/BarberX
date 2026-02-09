@@ -11,11 +11,11 @@
 
 class Navigation {
   constructor() {
-    this.mobileNavBtn = document.getElementById('mobile-nav-btn');
-    this.primaryNav = document.querySelector('.primary-nav');
+    this.mobileNavBtn = document.querySelector('[data-nav-toggle]');
+    this.mobileNav = document.getElementById('header-nav-mobile');
     this.isOpen = false;
 
-    if (this.mobileNavBtn && this.primaryNav) {
+    if (this.mobileNavBtn && this.mobileNav) {
       this.init();
     }
   }
@@ -25,7 +25,7 @@ class Navigation {
     this.mobileNavBtn.addEventListener('click', () => this.toggleMenu());
 
     // Close menu on link click
-    this.primaryNav.querySelectorAll('a').forEach((link) => {
+    this.mobileNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => this.closeMenu());
     });
 
@@ -39,7 +39,11 @@ class Navigation {
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (this.isOpen && !e.target.closest('.site-header') && !e.target.closest('.primary-nav')) {
+      if (
+        this.isOpen &&
+        !e.target.closest('.site-header') &&
+        !e.target.closest('.header-nav-mobile')
+      ) {
         this.closeMenu();
       }
     });
@@ -55,14 +59,16 @@ class Navigation {
 
   openMenu() {
     this.isOpen = true;
-    this.primaryNav.style.display = 'flex';
+    this.mobileNav.hidden = false;
     this.mobileNavBtn.setAttribute('aria-expanded', 'true');
+    this.mobileNavBtn.classList.add('active');
   }
 
   closeMenu() {
     this.isOpen = false;
-    this.primaryNav.style.display = 'none';
+    this.mobileNav.hidden = true;
     this.mobileNavBtn.setAttribute('aria-expanded', 'false');
+    this.mobileNavBtn.classList.remove('active');
   }
 }
 

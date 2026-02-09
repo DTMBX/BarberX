@@ -1,0 +1,42 @@
+/* stylelint-disable at-rule-no-unknown, at-rule-empty-line-before, declaration-block-single-line-max-declarations */
+@import url('tokens.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import 'components/flag-video.css'; */
+/* @import "./americabydesign.css"; -- Removed: America by Design was inspiration only; restored to Evident branding */
+
+:root {
+  /* Evident Technologies branding */
+  --color-primary: #0b73d2; /* Evident blue */
+  --color-accent: #e07a5f; /* Accent orange */
+  --color-neutral: #f6f7f9; /* Light neutral */
+  --color-bg: #ffffff; /* White background */
+  --color-text: #1a1a2e; /* Dark text */
+  --color-text-muted: #6b7280; /* Muted gray */
+}
+
+/* Basic accessibility helpers */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+/* Utility overrides for site container */
+.site-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
