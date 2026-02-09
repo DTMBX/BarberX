@@ -410,9 +410,178 @@
   }
 
   // ========================================
+  // Animated Counter (inspired by realfood.gov statistics)
+  // ========================================
+  function initAnimatedCounters() {
+    const counters = document.querySelectorAll('[data-counter]');
+    if (!counters || counters.length === 0) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      counters.forEach((counter) => {
+        counter.textContent = counter.getAttribute('data-counter');
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const counter = entry.target;
+          const target = parseFloat(counter.getAttribute('data-counter'));
+          const duration = parseInt(counter.getAttribute('data-duration') || '2000', 10);
+          const suffix = counter.getAttribute('data-suffix') || '';
+          const prefix = counter.getAttribute('data-prefix') || '';
+          
+          animateValue(counter, 0, target, duration, prefix, suffix);
+          observer.unobserve(counter);
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  function animateValue(element, start, end, duration, prefix, suffix) {
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+    const isDecimal = end % 1 !== 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      const displayValue = isDecimal ? current.toFixed(1) : Math.floor(current);
+      element.textContent = prefix + displayValue + suffix;
+    }, 16);
+  }
+
+  // ========================================
+  // Parallax Scrolling
+  // ========================================
+  function initParallax() {
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    if (!parallaxElements || parallaxElements.length === 0) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+
+      parallaxElements.forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax') || '0.5');
+        const rect = el.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+        const offset = (scrolled - centerY) * speed;
+        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      });
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+  }
+
+  // ========================================
+  // Scroll Progress Indicator
+  // ========================================
+  function initScrollProgress() {
+    let progressBar = document.querySelector('.scroll-progress-bar');
+    if (!progressBar) {
+      progressBar = document.createElement('div');
+      progressBar.className = 'scroll-progress-bar';
+      progressBar.innerHTML = '<div class="scroll-progress-fill"></div>';
+      document.body.appendChild(progressBar);
+    }
+
+    const progressFill = progressBar.querySelector('.scroll-progress-fill');
+    let ticking = false;
+
+    function updateProgress() {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressFill.style.width = scrolled + '%';
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    });
+  }
+
+  // ========================================
+  // Enhanced Card Interactions
+  // ========================================
+  function initCardInteractions() {
+    const cards = document.querySelectorAll('.card, [class*="card-"]');
+    if (!cards || cards.length === 0) return;
+
+    cards.forEach((card) => {
+      // Add magnetic effect on mouse move
+      card.addEventListener('mouseenter', function () {
+        this.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      });
+
+      card.addEventListener('mousemove', function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        this.style.transform = `perspective(1000px) rotateY(${deltaX * 5}deg) rotateX(${-deltaY * 5}deg) translateZ(10px)`;
+      });
+
+      card.addEventListener('mouseleave', function () {
+        this.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) translateZ(0)';
+      });
+    });
+  }
+
+  // ========================================
+  // Logo Micro-Animations
+  // ========================================
+  function initLogoAnimations() {
+    const logo = document.querySelector('.site-logo, .logo, [class*="logo"]');
+    if (!logo) return;
+
+    // Subtle pulse on scroll to top
+    let lastScroll = window.pageYOffset;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll < 100 && lastScroll >= 100) {
+        logo.style.animation = 'none';
+        setTimeout(() => {
+          logo.style.animation = 'subtle-pulse 0.6s ease-out';
+        }, 10);
+      }
+      lastScroll = currentScroll;
+    });
+  }
+
+  // ========================================
   // Scroll Reveal / Intersection Observer
-  // Adds `revealed` class to elements with `will-animate` when they enter viewport
-  // Supports optional `data-animation-delay` on elements and stagger containers
+  // Enhanced with multiple animation types
   // ========================================
   function initScrollReveal() {
     const els = document.querySelectorAll('.will-animate');
@@ -439,7 +608,7 @@
           const staggerChildren = el.querySelectorAll('.stagger-container > *');
           if (staggerChildren && staggerChildren.length) {
             staggerChildren.forEach((child, i) => {
-              const d = baseDelay + i * 80;
+              const d = baseDelay + i * 100;
               setTimeout(() => child.classList.add('revealed'), d);
             });
           }
@@ -452,18 +621,21 @@
       },
       {
         root: null,
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.15,
       }
     );
 
     els.forEach((el) => {
       // ensure initial hidden state for elements that rely on the reveal system
-      // many animation utility classes already set opacity/transform; this is a safe fallback
       if (
         !el.classList.contains('fade-in') &&
         !el.classList.contains('slide-up') &&
-        !el.classList.contains('zoom-in')
+        !el.classList.contains('slide-down') &&
+        !el.classList.contains('slide-left') &&
+        !el.classList.contains('slide-right') &&
+        !el.classList.contains('zoom-in') &&
+        !el.classList.contains('blur-in')
       ) {
         el.classList.add('fade-in');
       }
@@ -490,14 +662,21 @@
     initSmoothScroll();
     initLazyLoading();
     initScrollReveal();
+    initAnimatedCounters();
+    initParallax();
+    initScrollProgress();
+    initCardInteractions();
+    initLogoAnimations();
 
     // Mark page as loaded to trigger CSS page transition
-    // small timeout lets critical paint occur before fade-in
     window.requestAnimationFrame(() => {
-      setTimeout(() => document.body.classList.add('page-loaded'), 60);
+      setTimeout(() => {
+        document.body.classList.add('page-loaded');
+        document.body.classList.add('animations-ready');
+      }, 80);
     });
 
-    console.log('✨ Evident UX enhancements loaded');
+    console.log('✨ Evident UX enhancements loaded — wholesome & modern');
   }
 
   init();

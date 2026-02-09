@@ -82,7 +82,7 @@ hero_features:
 
   <section id="how-it-works" class="py-16 md:py-24 bg-gray-50">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
+      <div class="text-center mb-12 will-animate fade-in">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">
           From Upload to Court-Ready Exhibits in Minutes
         </h2>
@@ -91,9 +91,9 @@ hero_features:
           formatted for court submission.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded shadow p-6 flex flex-col items-center">
-          <div class="step-number text-2xl font-bold text-blue-600 mb-2">1</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-container will-animate">
+        <div class="bg-white rounded shadow p-6 flex flex-col items-center card">
+          <div class="step-number text-2xl font-bold text-blue-600 mb-2" aria-hidden="true">1</div>
           <h3 class="text-xl font-semibold mb-2">Upload Your Evidence</h3>
           <p class="text-gray-700">
             Drag and drop BWC videos, police reports, CAD logs, photos, or discovery documents.
@@ -101,8 +101,8 @@ hero_features:
             MOV, PDF, JPG, PNG, DOCX, and 20+ formats.
           </p>
         </div>
-        <div class="bg-white rounded shadow p-6 flex flex-col items-center">
-          <div class="step-number text-2xl font-bold text-blue-600 mb-2">2</div>
+        <div class="bg-white rounded shadow p-6 flex flex-col items-center card">
+          <div class="step-number text-2xl font-bold text-blue-600 mb-2" aria-hidden="true">2</div>
           <h3 class="text-xl font-semibold mb-2">AI Processes Automatically</h3>
           <p class="text-gray-700">
             Whisper transcribes audio with high accuracy. Speaker diarization identifies who said
@@ -110,8 +110,8 @@ hero_features:
             and locations. Everything runs locally—your data never touches external servers.
           </p>
         </div>
-        <div class="bg-white rounded shadow p-6 flex flex-col items-center">
-          <div class="step-number text-2xl font-bold text-blue-600 mb-2">3</div>
+        <div class="bg-white rounded shadow p-6 flex flex-col items-center card">
+          <div class="step-number text-2xl font-bold text-blue-600 mb-2" aria-hidden="true">3</div>
           <h3 class="text-xl font-semibold mb-2">Search &amp; Cross-Reference</h3>
           <p class="text-gray-700">
             Use natural language queries like "when did the officer arrive?" Build interactive
@@ -123,16 +123,16 @@ hero_features:
   </section>
 </main>
 
-<section id="use-cases-main" class="section section-alt">
-  <div class="container">
-    <div class="text-center mb-12">
-      <h2>Built for Legal Professionals</h2>
-      <p class="lead">
+<section id="use-cases-main" class="section section-alt py-16 md:py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 will-animate fade-in">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Built for Legal Professionals</h2>
+      <p class="lead text-lg text-gray-700">
         Whether you're a solo practitioner or a large firm, Evident scales to your needs.
       </p>
     </div>
 
-    <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-container will-animate">
       <article
         class="card bg-white rounded shadow p-6 flex flex-col items-center"
         aria-label="Defense Attorneys"
@@ -181,7 +181,7 @@ hero_features:
   </div>
 </section>
 
-<section class="cta-section fade-in will-animate">
+<section class="cta-section will-animate zoom-in">
   <div class="container">
     <h2>Ready to Transform Your Practice?</h2>
     <p>
@@ -191,11 +191,11 @@ hero_features:
     <div class="cta-buttons">
       <a
         href="{{ '/register' | relative_url }}"
-        class="btn btn-primary btn-lg"
+        class="btn btn-primary btn-lg hover-lift"
         style="background: white; color: var(--evident-blue)"
         >Start Free Trial</a
       >
-      <a href="{{ '/contact' | relative_url }}" class="btn btn-ghost btn-lg">Schedule a Demo</a>
+      <a href="{{ '/contact' | relative_url }}" class="btn btn-ghost btn-lg hover-lift">Schedule a Demo</a>
       <p>
         Contact us at:
         <a href="mailto:support@evident.icu">support@evident.icu</a>
