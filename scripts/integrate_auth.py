@@ -222,8 +222,8 @@ print("   /dashboard (enhanced)")
     print("   http://localhost:5000/auth/login")
     print("   http://localhost:5000/dashboard")
     print("\n3. Login with admin account:")
-    print("   Email: dTb33@pm.me")
-    print("   Password: LoveAll33!")
+    print("   Email: ADMIN_EMAIL (from .env)")
+    print("   Password: ADMIN_PASSWORD (from .env)")
 
     print("\n" + "=" * 70 + "\n")
 

@@ -9,9 +9,9 @@
 
 Sensitive credentials were committed to the public GitHub repository:
 
-- **Email:** dTb33@pm.me (ProtonMail)
-- **Password:** LoveAll33!
-- **Name:** Devon Tyler Barber
+- **Email:** [REDACTED_EMAIL]
+- **Password:** [REDACTED_PASSWORD]
+- **Name:** [REDACTED_NAME]
 - **Repository:** DTB396/Evident.info (public)
 
 ## Timeline
@@ -54,7 +54,7 @@ Sensitive credentials were committed to the public GitHub repository:
 
 ### Potentially Compromised
 
-- ProtonMail account (dTb33@pm.me)
+- Primary email account ([REDACTED_EMAIL])
 - Evident platform admin account
 - Any systems using the exposed password
 
@@ -62,7 +62,7 @@ Sensitive credentials were committed to the public GitHub repository:
 
 ### HIGH PRIORITY (Do First)
 
-- [ ] **ProtonMail Password** (dTb33@pm.me)
+- [ ] **Primary Email Password** ([REDACTED_EMAIL])
   - Change password immediately
   - Enable 2FA
   - Review access logs
@@ -101,8 +101,8 @@ Sensitive credentials were committed to the public GitHub repository:
 .\scrub-credentials.ps1
 
 # Verify credentials removed
-git log -all --grep="dTb33"  # Should return nothing
-git log -all --grep="LoveAll33"  # Should return nothing
+git log -all --grep="[REDACTED_EMAIL]"  # Should return nothing
+git log -all --grep="[REDACTED_PASSWORD]"  # Should return nothing
 ```
 
 ### 2. Force Push to Remote

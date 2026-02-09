@@ -5,8 +5,8 @@ Write-Host "`n⚠️  CREDENTIAL SCRUBBER - EMERGENCY SECURITY FIX ⚠️" -Fore
 Write-Host "=" * 70
 
 Write-Host "`n📋 This script will:" -ForegroundColor Cyan
-Write-Host "  1. Remove sensitive email (dTb33@pm.me) from ALL git history" -ForegroundColor White
-Write-Host "  2. Remove sensitive password (LoveAll33!) from ALL git history" -ForegroundColor White
+Write-Host "  1. Remove sensitive email (SENSITIVE_EMAIL) from ALL git history" -ForegroundColor White
+Write-Host "  2. Remove sensitive password (SENSITIVE_PASSWORD) from ALL git history" -ForegroundColor White
 Write-Host "  3. Force push to remote (rewrites history)" -ForegroundColor White
 
 Write-Host "`n⚠️  WARNING:" -ForegroundColor Yellow
@@ -41,9 +41,9 @@ if (-not (Get-Command "bfg" -ErrorAction SilentlyContinue)) {
 # Create replacement file for BFG
 $replacementFile = "credentials-to-scrub.txt"
 @"
-dTb33@pm.me==>REDACTED_EMAIL@example.com
-LoveAll33!==>REDACTED_PASSWORD
-Devon Tyler Barber==>Admin User
+SENSITIVE_EMAIL==>REDACTED_EMAIL@example.com
+SENSITIVE_PASSWORD==>REDACTED_PASSWORD
+SENSITIVE_NAME==>Admin User
 "@ | Set-Content $replacementFile
 
 Write-Host "`n🧹 Scrubbing credentials from Git history..." -ForegroundColor Cyan
@@ -59,7 +59,7 @@ if ($useBFG) {
     Write-Host "  • Using git-filter-branch (slow but works)" -ForegroundColor Yellow
     
     git filter-branch --force --index-filter `
-        "git ls-files -z | xargs -0 sed -i 's/dTb33@pm\.me/REDACTED@example.com/g; s/LoveAll33!/REDACTED_PASSWORD/g; s/Devon Tyler Barber/Admin User/g'" `
+        "git ls-files -z | xargs -0 sed -i 's/SENSITIVE_EMAIL/REDACTED@example.com/g; s/SENSITIVE_PASSWORD/REDACTED_PASSWORD/g; s/SENSITIVE_NAME/Admin User/g'" `
         --prune-empty --tag-name-filter cat -- --all
     
     # Clean up
@@ -83,7 +83,7 @@ Write-Host "  4. Update .env file with new ADMIN_PASSWORD" -ForegroundColor Whit
 Write-Host "  5. Rotate ALL exposed credentials immediately" -ForegroundColor White
 
 Write-Host "`n📧 Email Security Checklist:" -ForegroundColor Cyan
-Write-Host "  □ Change password for dTb33@pm.me" -ForegroundColor White
+Write-Host "  □ Change password for SENSITIVE_EMAIL" -ForegroundColor White
 Write-Host "  □ Enable 2FA on ProtonMail account" -ForegroundColor White
 Write-Host "  □ Review ProtonMail access logs" -ForegroundColor White
 Write-Host "  □ Check for unauthorized logins" -ForegroundColor White

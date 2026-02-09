@@ -254,7 +254,7 @@ Evident offers tiered licensing to support different organizational sizes and e-
 - **Cost**: Free
 - **Users**: Solo attorneys, pro se litigants, small civic organizations
 - **Limit**: Single case, up to 10 GB evidence, basic AI features
-- **Source**: [GitHub](https://github.com/yourorg/Evident)
+- **Source**: [GitHub](https://github.com/DTMBX/EVIDENT)
 
 ### Professional Tier
 - **Cost**: $499/month
@@ -303,7 +303,7 @@ For licensing inquiries or custom deployments: [contact@evidenttech.com](mailto:
 - 🌍 Multi-language support
 - 📡 Real-time collaboration (live annotation, conflict-aware hints)
 
-For discussion or feature requests, see [Issues](https://github.com/yourorg/Evident/issues).
+For discussion or feature requests, see [Issues](https://github.com/DTMBX/EVIDENT/issues).
 
 ---
 
@@ -332,7 +332,7 @@ We welcome contributions from developers, legal professionals, and security rese
 ## Support & Community
 
 - **Documentation**: See [docs/](docs/) for architecture, API, and deployment guides
-- **Issues & Bug Reports**: [GitHub Issues](https://github.com/yourorg/Evident/issues)
+- **Issues & Bug Reports**: [GitHub Issues](https://github.com/DTMBX/EVIDENT/issues)
 - **Email**: [support@evidenttech.com](mailto:support@evidenttech.com)
 - **Twitter**: [@EvidentTech](https://twitter.com/evidenttech)
 
@@ -351,4 +351,3 @@ Our mission: **Enable anyone to build a rigorous, auditable evidence record.**
 **License**: See [LICENSE](LICENSE) (proprietary with commercial and open-source options)
 
 **Last Updated**: 2025-01-31
-
