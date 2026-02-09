@@ -1,6 +1,6 @@
-# Evident Technologies LLC - E-Discovery Legal Platform
+# Evident Technologies, LLC (EVIDENT) — E-Discovery Legal Platform
 
-**Evident Technologies** is a comprehensive, **legal-grade e-discovery and evidence processing platform** for PDFs, video, audio, and digital media—built for lawyers, law firms, pro se litigants, civic organizations, law enforcement, and insurance companies.
+EVIDENT (Evident Technologies, LLC) is a legal-grade e-discovery and evidence processing platform for PDFs, video, audio, and digital media — built to help lawyers, clinics, and people drowning in discovery reclaim time and focus. We aim to reduce the friction of litigation and investigations so teams can pursue truth and due process. Because nobody became a lawyer to wrestle PDFs at 2 a.m.
 
 The system is designed to help legal professionals work with:
 

@@ -51,7 +51,7 @@
 - ✅ Basic AI assistant
 - ✅ 15 cases - SOFT CAP
 - ✅ Basic court-ready reports
-- ✅ 3-day FREE TRIAL
+- ✅ 14-day FREE TRIAL
 - ✅ **FLEXIBLE GROWTH** - Overage billing for busy months:
   - $1.50 per extra video (cheaper than PREMIUM)
   - $0.75 per extra PDF
@@ -225,7 +225,7 @@
 - [ ] STARTER tier: Soft cap with overage billing
 - [ ] STARTER tier: 10 video limit (soft)
 - [ ] PROFESSIONAL tier: Hard cap enforcement
-- [ ] PROFESSIONAL tier: 3-day trial
+- [ ] PROFESSIONAL tier: 14-day trial
 - [ ] PREMIUM tier: API access enabled
 - [ ] PREMIUM tier: Overage billing calculation
 - [ ] ENTERPRISE tier: Unlimited usage verification
@@ -286,7 +286,7 @@
 - [ ] Stripe pricing table display
 - [ ] Subscription upgrade flow
 - [ ] Subscription downgrade flow
-- [ ] Trial period activation (PRO: 3 days)
+ - [ ] Trial period activation (PRO: 14 days)
 - [ ] Overage billing calculation (STARTER, PREMIUM)
 - [ ] Payment method management
 - [ ] Subscription cancellation

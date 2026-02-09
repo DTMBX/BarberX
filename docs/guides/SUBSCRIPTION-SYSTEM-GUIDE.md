@@ -63,7 +63,7 @@ system** with Stripe integration, usage tracking, and access gating for Evident.
 | Tier           | Price   | Trial  | PDF Limit | Video Limit | Cases     | Features                 |
 | -------------- | ------- | ------ | --------- | ----------- | --------- | ------------------------ |
 | **FREE**       | $0      | —      | 1 doc     | ❌          | 1         | Basic                    |
-| **PRO**        | $49/mo  | 3 days | 10 docs   | 2 hrs/mo    | 10        | AI Assistant (Basic)     |
+| **PRO**        | $49/mo  | 14 days | 10 docs   | 2 hrs/mo    | 10        | AI Assistant (Basic)     |
 | **PREMIUM**    | $249/mo | ❌     | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline   |
 | **ENTERPRISE** | Custom  | ❌     | Unlimited | Unlimited   | Unlimited | Self-Hosted, White-Label |
 
@@ -143,7 +143,7 @@ python integrate_subscription_system.py
 - Name: `Evident Professional`
 - Price: `$49.00 USD`
 - Billing period: `Monthly`
-- Trial period: **3 days**
+- Trial period: **14 days**
 - Copy the **Price ID** (starts with `price_...`)
 
 **PREMIUM Product:**
@@ -238,7 +238,7 @@ python app.py
 4. **Complete checkout**
    - Should redirect back to `/dashboard?checkout=success`
    - User tier should be upgraded to PRO
-   - 3-day trial should be active
+   - 14-day trial should be active
 
 5. **Check usage dashboard:**
 
@@ -300,9 +300,9 @@ def premium_feature():
 Add Stripe checkout buttons to `pricing.html`:
 
 ```html
-<!-- PRO Tier ->
+   <!-- PRO Tier ->
 <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
-  Start 3-Day Free Trial
+   Start 14-Day Free Trial
 </button>
 
 <!-- PREMIUM Tier ->

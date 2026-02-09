@@ -53,8 +53,7 @@ growth
 upgrades  
 ✅ **ENTERPRISE ($599/mo):** UNLIMITED usage with overage billing  
 ✅ **Progressive Pricing:** PRO overage fees < PREMIUM overage fees  
-✅ **Trial Periods:** STARTER 7 days (longer evaluation), PRO 3 days (faster
-commitment)
+✅ **Trial Periods:** STARTER 7 days (longer evaluation), PRO 14 days (longer evaluation)
 
 ---
 
@@ -109,7 +108,7 @@ limiting, API keys) all validated successfully.
 
 ✅ **FREE:** $0/mo - Demo tier, 1 one-time upload, 7-day retention  
 ✅ **STARTER:** $29/mo - HARD CAP, 10 videos, 5 PDFs, 7-day trial  
-✅ **PROFESSIONAL:** $79/mo - SOFT CAP, 25 videos, 15 PDFs, 3-day trial,
+✅ **PROFESSIONAL:** $79/mo - SOFT CAP, 25 videos, 15 PDFs, 14-day trial,
 $1.50/video overage  
 ✅ **PREMIUM:** $199/mo - SOFT CAP, 75 videos, 50 PDFs, $2.00/video overage  
 ✅ **ENTERPRISE:** $599/mo - UNLIMITED, 300 videos, 200 PDFs, 25 team members

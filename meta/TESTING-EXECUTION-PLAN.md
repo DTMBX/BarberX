@@ -18,7 +18,7 @@
 ### **Free Trial Strategy**
 
 - **STARTER**: 7-day free trial (longer to prove value at lower price)
-- **PROFESSIONAL**: 3-day free trial (faster decision for growing firms)
+- **PROFESSIONAL**: 14-day free trial (longer evaluation for practitioners)
 - **PREMIUM**: No trial (enterprise sales cycle with demos)
 - **ENTERPRISE**: Custom onboarding with POC period
 
@@ -65,7 +65,7 @@ npx playwright show-report
 - [ ] Subscription checkout flow
 - [ ] Payment success/cancel redirects
 - [ ] Tier upgrade/downgrade UI
-- [ ] Trial activation (STARTER: 7 days, PRO: 3 days)
+  - [ ] Trial activation (STARTER: 7 days, PRO: 14 days)
 
 #### **Stripe COEP Integration** (18 tests)
 
@@ -211,10 +211,10 @@ npx playwright show-report
 
 **Test Scenario 4: Trial Period**
 
-- [ ] New PRO user gets 3-day trial
-- [ ] Trial countdown in dashboard
-- [ ] Full feature access during trial
-- [ ] Payment required after 3 days
+ - [ ] New PRO user gets 14-day trial
+ - [ ] Trial countdown in dashboard
+ - [ ] Full feature access during trial
+ - [ ] Payment required after 14 days
 
 #### **PREMIUM Tier ($199/mo - SOFT CAP)**
 
@@ -494,7 +494,7 @@ k6 run load-test.js
 3. **PROFESSIONAL Tier** (10 users)
    - Small law firms (2-5 attorneys)
    - Private defense attorneys
-   - **Goal**: Validate overage billing, 3-day trial
+  - **Goal**: Validate overage billing, 14-day trial
 
 4. **PREMIUM Tier** (5 users)
    - Medium firms (5-15 attorneys)
@@ -515,7 +515,7 @@ k6 run load-test.js
 - [ ] User receives invitation email
 - [ ] Completes registration
 - [ ] Verifies email
-- [ ] Activates trial (STARTER: 7 days, PRO: 3 days)
+- [ ] Activates trial (STARTER: 7 days, PRO: 14 days)
 - [ ] Explores dashboard
 
 **Day 3-5: File Upload & Analysis**
@@ -673,7 +673,7 @@ k6 run load-test.js
 - [ ] PROFESSIONAL overage billing accurate
 - [ ] PREMIUM API access functional
 - [ ] ENTERPRISE unlimited usage validated
-- [ ] Trial periods working (STARTER: 7 days, PRO: 3 days)
+- [ ] Trial periods working (STARTER: 7 days, PRO: 14 days)
 
 ### **Payment Integration**
 

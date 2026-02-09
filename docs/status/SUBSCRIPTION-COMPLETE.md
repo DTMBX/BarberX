@@ -22,7 +22,7 @@ tier-based access control, and usage tracking for Evident Legal Technologies.
 **Features:**
 
 - ✅ Subscription checkout sessions for PRO and PREMIUM tiers
-- ✅ 3-day free trial for PRO tier ($49/month)
+- ✅ 14-day free trial for PRO tier ($49/month)
 - ✅ Customer portal for self-service billing management
 - ✅ Webhook handling for automated tier upgrades/downgrades
 - ✅ Payment failure detection and handling
@@ -120,7 +120,7 @@ cases_created              # Int: number of cases
 | Tier           | Price   | Trial     | PDF/month | Video/month | Cases     | Key Features                                        |
 | -------------- | ------- | --------- | --------- | ----------- | --------- | --------------------------------------------------- |
 | **FREE**       | $0      | —         | 1 doc     | ❌ None     | 1         | Web access only                                     |
-| **PRO**        | $49/mo  | ✅ 3 days | 10 docs   | 2 hours     | 10        | AI Assistant (Basic), Email support                 |
+| **PRO**        | $49/mo  | ✅ 14 days | 10 docs   | 2 hours     | 10        | AI Assistant (Basic), Email support                 |
 | **PREMIUM**    | $249/mo | ❌        | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline, Forensics, Priority support |
 | **ENTERPRISE** | Custom  | ❌        | Unlimited | Unlimited   | Unlimited | Self-hosted, White-label, Dedicated PM, SLA         |
 
@@ -332,7 +332,7 @@ Go to https://dashboard.stripe.com/products
 
 Create two products:
 
-- **Evident Professional** - $49/month with 3-day trial
+- **Evident Professional** - $49/month with 14-day trial
 - **Evident Premium** - $249/month
 
 Copy price IDs to `.env`:
@@ -373,7 +373,7 @@ Add to `pricing.html`:
 
 ```html
 <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
-  Start 3-Day Free Trial
+   Start 14-Day Free Trial
 </button>
 
 <script>
@@ -395,7 +395,7 @@ Test checkout flow:
 
 1. Login as `free@Evident.test`
 2. Go to `/pricing`
-3. Click "Start 3-Day Free Trial"
+3. Click "Start 14-Day Free Trial"
 4. Use test card: `4242 4242 4242 4242`
 5. Complete checkout
 6. Verify upgrade at `/dashboard/usage`

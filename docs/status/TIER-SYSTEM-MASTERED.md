@@ -130,7 +130,7 @@ MARGIN:                81.9% ✅
 ### PROFESSIONAL ($79/mo)
 
 - 25 videos, 3 hours, 15 PDFs, 15 cases
-- 3-day free trial
+- 14-day free trial
 - Basic AI + court reports
 - Perfect for solo attorneys
 

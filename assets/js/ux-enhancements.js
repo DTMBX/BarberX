@@ -410,6 +410,64 @@
   }
 
   // ========================================
+  // Scroll Reveal / Intersection Observer
+  // Adds `revealed` class to elements with `will-animate` when they enter viewport
+  // Supports optional `data-animation-delay` on elements and stagger containers
+  // ========================================
+  function initScrollReveal() {
+    const els = document.querySelectorAll(".will-animate");
+    if (!els || els.length === 0) return;
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      els.forEach((el) => el.classList.add("revealed"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+
+          // per-element delay (ms)
+          const delayAttr = el.getAttribute("data-animation-delay") || el.dataset.animationDelay || 0;
+          const baseDelay = parseInt(delayAttr, 10) || 0;
+
+          // Stagger children if container uses .stagger-container
+          const staggerChildren = el.querySelectorAll(".stagger-container > *");
+          if (staggerChildren && staggerChildren.length) {
+            staggerChildren.forEach((child, i) => {
+              const d = baseDelay + i * 80;
+              setTimeout(() => child.classList.add("revealed"), d);
+            });
+          }
+
+          // reveal the element itself (after base delay)
+          setTimeout(() => el.classList.add("revealed"), baseDelay);
+
+          obs.unobserve(el);
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.12,
+      }
+    );
+
+    els.forEach((el) => {
+      // ensure initial hidden state for elements that rely on the reveal system
+      // many animation utility classes already set opacity/transform; this is a safe fallback
+      if (!el.classList.contains("fade-in") && !el.classList.contains("slide-up") && !el.classList.contains("zoom-in")) {
+        el.classList.add("fade-in");
+      }
+
+      observer.observe(el);
+    });
+  }
+
+  // ========================================
   // Initialize All UX Enhancements
   // ========================================
   function init() {
@@ -426,6 +484,13 @@
     initButtonLoading();
     initSmoothScroll();
     initLazyLoading();
+    initScrollReveal();
+
+    // Mark page as loaded to trigger CSS page transition
+    // small timeout lets critical paint occur before fade-in
+    window.requestAnimationFrame(() => {
+      setTimeout(() => document.body.classList.add("page-loaded"), 60);
+    });
 
     console.log("✨ Evident UX enhancements loaded");
   }

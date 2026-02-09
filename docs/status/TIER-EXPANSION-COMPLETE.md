@@ -72,9 +72,9 @@
 
 **After:**
 
-> "For full-time solo practitioners & small firms handling 5-10 BWC cases
-> monthly. Includes timeline builder & advanced AI tools. Try risk-free for 3
-> days." (28 words)
+ > "For full-time solo practitioners & small firms handling 5-10 BWC cases
+ > monthly. Includes timeline builder & advanced AI tools. Try risk-free for 14
+ > days." (28 words)
 
 **New Features List:**
 
@@ -230,7 +230,7 @@ Created comprehensive 14KB guide including:
 - [x] Overage fees explicitly stated in PREMIUM/ENTERPRISE
 - [x] Hard cap vs soft cap clearly differentiated
 - [x] Support response times specified (24hr, 4hr, 2hr, 1hr)
-- [x] Trial period prominently displayed (PROFESSIONAL: 3 days)
+ - [x] Trial period prominently displayed (PROFESSIONAL: 14 days)
 
 ### Marketing Effectiveness
 

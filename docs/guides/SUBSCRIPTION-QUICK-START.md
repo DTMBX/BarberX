@@ -40,7 +40,7 @@ Test credentials:
 
 1. Go to https://dashboard.stripe.com/test/products
 2. Create products:
-   - **Evident PRO:** $49/month, 3-day trial
+   - **Evident PRO:** $49/month, 14-day trial
    - **Evident Premium:** $249/month
 3. Copy price IDs to `.env`:
    ```bash
@@ -82,7 +82,7 @@ Test credentials:
 
    ```html
    <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
-     Start 3-Day Free Trial
+   Start 14-Day Free Trial
    </button>
 
    <script>
@@ -115,7 +115,7 @@ Test credentials:
 
 | Feature              | FREE  | PRO ($49) | PREMIUM ($249) | ENTERPRISE       |
 | -------------------- | ----- | --------- | -------------- | ---------------- |
-| **Trial**            | —     | ✅ 3 days | —              | —                |
+| **Trial**            | —     | ✅ 14 days | —              | —                |
 | **PDFs/month**       | 1 doc | 10 docs   | Unlimited      | Unlimited        |
 | **Video/month**      | ❌    | 2 hours   | Unlimited      | Unlimited        |
 | **Cases**            | 1     | 10        | Unlimited      | Unlimited        |

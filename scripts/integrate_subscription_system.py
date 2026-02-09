@@ -281,7 +281,7 @@ def main():
         print("   python create_test_subscription_accounts.py")
         print("\n3. Configure Stripe:")
         print("   a. Create products in Stripe Dashboard:")
-        print("      - PRO: $49/month with 3-day trial")
+        print("      - PRO: $49/month with 14-day trial")
         print("      - PREMIUM: $249/month")
         print("   b. Copy price IDs to .env:")
         print("      - STRIPE_PRICE_PRO=price_...")

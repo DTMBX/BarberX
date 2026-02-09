@@ -157,7 +157,7 @@ crontab -e
 - [ ] Login to Stripe Dashboard (Test Mode)
 - [ ] Create "Evident Starter" - $29/month
   - Copy Price ID: `STRIPE_PRICE_STARTER`
-- [ ] Create "Evident Professional" - $79/month (3-day trial)
+- [ ] Create "Evident Professional" - $79/month (14-day trial)
   - Copy Price ID: `STRIPE_PRICE_PROFESSIONAL`
 - [ ] Create "Evident Premium" - $199/month
   - Copy Price ID: `STRIPE_PRICE_PREMIUM`
@@ -207,7 +207,7 @@ python app.py
 #### 3f. Test Checkout (4 min)
 
 - [ ] Go to `/pricing`
-- [ ] Click "Try Free for 3 Days" (PROFESSIONAL)
+ - [ ] Click "Try Free for 14 Days" (PROFESSIONAL)
 - [ ] Enter test card: `4242 4242 4242 4242`
 - [ ] Complete checkout
 - [ ] Verify tier upgraded to PROFESSIONAL
@@ -237,7 +237,7 @@ python app.py
 
 #### 4c. PROFESSIONAL Tier Testing (3 min)
 
-- [ ] Start 3-day free trial
+- [ ] Start 14-day free trial
 - [ ] Verify trial badge shows
 - [ ] Check "Trial ends in X days"
 - [ ] Upload files within limits

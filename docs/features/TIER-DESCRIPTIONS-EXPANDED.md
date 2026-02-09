@@ -78,14 +78,14 @@ criminal defense
 - Sweet spot pricing ($2.72/day = cost of a coffee)
 - 25 videos (3 hours) supports full-time BWC practice
 - Timeline builder syncs video timestamps to events
-- 3-day free trial removes risk
+ - 14-day free trial removes risk
 - 83% profit margin, sustainable long-term
 
 **Marketing Copy:**
 
 > "For full-time solo practitioners and small firms. Handle 5-10 BWC cases
 > monthly with advanced AI tools, timeline builder, and reports formatted for
-> court submission (attorney review required). Try risk-free for 3 days."
+> court submission (attorney review required). Try risk-free for 14 days."
 
 **Perfect For:**
 
@@ -221,7 +221,7 @@ collaboration, white-label branding
 | **Data Retention**    | 7 days          | Forever      | Forever        | Forever               | Forever + On-Prem Option |
 | **Watermarks**        | Yes             | No           | No             | No                    | No                       |
 | **White-Label**       | ❌              | ❌           | ❌             | ❌                    | ✅                       |
-| **Trial Period**      | N/A             | None         | 3 days         | None                  | Custom                   |
+| **Trial Period**      | N/A             | None         | 14 days        | None                  | Custom                   |
 | **Overage Billing**   | ❌              | ❌           | ❌             | ✅ (High rates)       | ✅ (50% discount)        |
 
 --
@@ -246,8 +246,8 @@ to keep your case forever and process 10 videos monthly."_
 ### STARTER → PROFESSIONAL ($79/mo, +$50)
 
 **Trigger:** Hitting 10 video limit, need for timeline builder **Message:**
-_"You've used 9/10 videos this month. Upgrade to PROFESSIONAL for 2.5× more
-capacity, timeline builder, and a 3-day free trial."_
+_/"You've used 9/10 videos this month. Upgrade to PROFESSIONAL for 2.5× more
+capacity, timeline builder, and a 14-day free trial."_
 
 **Value Prop:**
 
@@ -255,7 +255,7 @@ capacity, timeline builder, and a 3-day free trial."_
 - 3× more PDFs (15 vs 5)
 - 3× more cases (15 vs 5)
 - Timeline builder for synchronized analysis
-- Try free for 3 days
+- Try free for 14 days
 - Only $1.67 more per day
 
 --
@@ -342,9 +342,9 @@ users, private AI, firm branding, and dedicated support."_
 - ✅ 25 Videos + 15 PDFs Monthly
 - ✅ Timeline Builder (Sync to video timestamps)
 - ✅ Advanced AI Assistant
-- ✅ Try Free for 3 Days
+-- ✅ Try Free for 14 Days
 
-**Call-to-Action:** "Start 3-Day Free Trial" → `/subscribe/professional`
+**Call-to-Action:** "Start 14-Day Free Trial" → `/subscribe/professional`
 
 --
 

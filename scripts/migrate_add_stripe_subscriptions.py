@@ -78,7 +78,7 @@ def migrate():
         print("   - STRIPE_PRICE_PRO=price_...")
         print("   - STRIPE_PRICE_PREMIUM=price_...")
         print("\n2. Create Stripe products:")
-        print("   - PRO: $49/month with 3-day trial")
+        print("   - PRO: $49/month with 14-day trial")
         print("   - PREMIUM: $249/month")
         print("\n3. Configure webhook endpoint:")
         print("   - URL: https://Evident.info/api/stripe/webhook")

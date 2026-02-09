@@ -15,7 +15,7 @@
 
 - **FREE** - $0 (demo + one upload, 163% ROI)
 - **STARTER** - $29/mo (entry tier, 84% margin)
-- **PROFESSIONAL** - $79/mo (3-day trial, 83% margin)
+- **PROFESSIONAL** - $79/mo (14-day trial, 83% margin)
 - **PREMIUM** - $199/mo (soft caps, 68% margin)
 - **ENTERPRISE** - $599/mo (organizations, 52% margin)
 
@@ -119,7 +119,7 @@ Steps:
 
 1. Create 4 products in Stripe (15 min)
    - STARTER: $29/month
-   - PROFESSIONAL: $79/month (3-day trial)
+   - PROFESSIONAL: $79/month (14-day trial)
    - PREMIUM: $199/month
    - ENTERPRISE: $599/month
 

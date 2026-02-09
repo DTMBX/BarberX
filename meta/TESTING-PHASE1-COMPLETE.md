@@ -39,7 +39,7 @@ EXECUTION**.
 3. **Progressive Pricing Strategy (3 tests)**
    - ✅ `test_overage_fee_progression` - PRO $1.50/video < PREMIUM $2.00/video
    - ✅ `test_hard_vs_soft_cap_strategy` - STARTER hard cap, PRO soft cap
-   - ✅ `test_trial_duration_by_tier` - STARTER 7 days, PRO 3 days
+   - ✅ `test_trial_duration_by_tier` - STARTER 7 days, PRO 14 days
 
 4. **Edge Cases (3 tests)**
    - ✅ `test_unlimited_tier_limits` - ENTERPRISE -1 for all limits
@@ -60,7 +60,7 @@ EXECUTION**.
 **Economic Incentives:**
 
 - ✅ PRO overage fees ($1.50/video) cheaper than PREMIUM overage ($2.00/video)
-- ✅ Trial periods: STARTER 7 days (longer for evaluation), PRO 3 days (faster
+- ✅ Trial periods: STARTER 7 days (longer for evaluation), PRO 14 days (longer
   commitment)
 - ✅ Capacity multipliers validated across all tiers
 

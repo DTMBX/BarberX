@@ -222,7 +222,7 @@ def validate_upgrade_paths():
         if next_tier == "STARTER":
             print("  💡 Value: Keep data forever + process 10 videos monthly for $0.97/day")
         elif next_tier == "PROFESSIONAL":
-            print("  💡 Value: 2.5x capacity + timeline builder + 3-day trial for +$1.67/day")
+            print("  💡 Value: 2.5x capacity + timeline builder + 14-day trial for +$1.67/day")
         elif next_tier == "PREMIUM":
             print("  💡 Value: 3x capacity + forensic tools + API + soft caps for +$4/day")
         elif next_tier == "ENTERPRISE":

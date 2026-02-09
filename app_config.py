@@ -47,6 +47,7 @@ class Config:
         'jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff',  # Images
         'pdf',  # PDF
         'docx', 'doc', 'xlsx', 'xls', 'pptx', 'ppt', 'txt', 'rtf'  # Documents
+    }
 
 
 class DevelopmentConfig(Config):

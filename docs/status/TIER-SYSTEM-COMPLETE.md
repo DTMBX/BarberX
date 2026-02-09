@@ -113,9 +113,9 @@ optimized FREE tier with 163%+ ROI, and clear upgrade paths.
 - **Who:** Solo attorneys, small firms (1-3 attorneys)
 - **Use Case:** Regular case work, defense attorneys
 - **Processing:** 25 videos, 15 PDFs, 15 cases
-- **Perfect For:** Full-time criminal defense practice
-- **Trial:** 3-day free trial
-- **Upgrade Path:** 10% → PREMIUM
+ - **Perfect For:** Full-time criminal defense practice
+ - **Trial:** 14-day free trial
+ - **Upgrade Path:** 10% → PREMIUM
 
 ### PREMIUM - $199/mo
 
@@ -160,7 +160,7 @@ optimized FREE tier with 163%+ ROI, and clear upgrade paths.
 - Wanting AI assistant
 - Processing time-sensitive cases
 
-**CTA:** "Upgrade to PROFESSIONAL - 3-Day Free Trial"
+ **CTA:** "Upgrade to PROFESSIONAL - 14-Day Free Trial"
 
 ### PROFESSIONAL → PREMIUM (Target: 10%)
 

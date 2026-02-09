@@ -6,7 +6,7 @@
 
 1. **Complete Stripe Integration**
    - Checkout session creation for PRO ($49) and PREMIUM ($249) tiers
-   - 3-day free trial for PRO tier
+   - 14-day free trial for PRO tier
    - Customer portal for subscription management
    - Webhook handling for automated tier updates
    - Payment failure handling
@@ -34,7 +34,7 @@
 5. **Updated Pricing Structure**
    ```
    FREE:        $0      - 1 PDF, no video, 1 case
-   PRO:         $49/mo  - 10 PDFs, 2hr video, 10 cases (3-day trial)
+   PRO:         $49/mo  - 10 PDFs, 2hr video, 10 cases (14-day trial)
    PREMIUM:     $249/mo - Unlimited everything + API + Timeline
    ENTERPRISE:  Custom  - Self-hosted, white-label, dedicated PM
    ```
@@ -96,7 +96,7 @@ Creates test accounts for each tier:
 
 1. **Create Products:**
    - Go to https://dashboard.stripe.com/products
-   - Create "Evident Professional" - $49/month with 3-day trial
+   - Create "Evident Professional" - $49/month with 14-day trial
    - Create "Evident Premium" - $249/month
    - Copy price IDs
 
@@ -137,7 +137,7 @@ Add checkout buttons to `pricing.html`:
   }
 </script>
 
-<button onclick="subscribeToPlan('PROFESSIONAL')">Start 3-Day Free Trial</button>
+<button onclick="subscribeToPlan('PROFESSIONAL')">Start 14-Day Free Trial</button>
 
 <button onclick="subscribeToPlan('PREMIUM')">Upgrade to Premium</button>
 ```
@@ -146,7 +146,7 @@ Add checkout buttons to `pricing.html`:
 
 1. Login as `free@Evident.test`
 2. Go to `/pricing`
-3. Click "Start 3-Day Free Trial"
+3. Click "Start 14-Day Free Trial"
 4. Use test card: `4242 4242 4242 4242`
 5. Complete checkout
 6. Check `/dashboard/usage` - should show PRO tier with trial badge
