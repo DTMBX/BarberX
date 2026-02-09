@@ -12,7 +12,10 @@
     <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+    <meta
+      property="og:type"
+      content="{% if page.layout == 'post' %}article{% else %}website{% endif %}"
+    />
     <meta property="og:site_name" content="{{ site.title }}" />
     <meta property="og:title" content="{{ page.title | default: site.title }}" />
     <meta property="og:description" content="{{ page.description | default: site.description }}" />
@@ -54,10 +57,7 @@
         "name": "{{ site.title }}",
         "url": "{{ site.url }}",
         "description": "{{ site.description }}",
-        "sameAs": [
-          "https://twitter.com/evident",
-          "https://github.com/evident"
-        ]
+        "sameAs": ["https://twitter.com/evident", "https://github.com/evident"]
       }
     </script>
     {% endif %}
@@ -70,30 +70,72 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icons -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
-    
+
     <!-- Manifest for PWA -->
     <link rel="manifest" href="/manifest.json" />
   </head>
 
-  <body class="antialiased" style="font-family: var(--font-family-sans); color: var(--color-text-primary); background-color: var(--color-bg);">
+  <body
+    class="antialiased"
+    style="
+      font-family: var(--font-family-sans);
+      color: var(--color-text-primary);
+      background-color: var(--color-bg);
+    "
+  >
     <!-- Skip to main content link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
 
     <!-- Site Header -->
-    <header class="site-header" style="background-color: var(--color-bg); border-bottom: 1px solid var(--color-border); position: sticky; top: 0; z-index: var(--z-sticky);">
-      <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-4) var(--spacing-6);">
-        <a href="/" class="site-logo" style="display: flex; align-items: center; gap: var(--spacing-3); text-decoration: none;" aria-label="Evident Technologies home">
-          <img src="/assets/img/logo/light-variant-logo.svg" alt="" style="height: 32px; width: auto;" />
-          <span style="font-weight: var(--font-weight-bold); display: none;" class="hidden sm:block">Evident</span>
+    <header
+      class="site-header"
+      style="
+        background-color: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        position: sticky;
+        top: 0;
+        z-index: var(--z-sticky);
+      "
+    >
+      <div
+        class="container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--spacing-4) var(--spacing-6);
+        "
+      >
+        <a
+          href="/"
+          class="site-logo"
+          style="display: flex; align-items: center; gap: var(--spacing-3); text-decoration: none"
+          aria-label="Evident Technologies home"
+        >
+          <img
+            src="/assets/img/logo/light-variant-logo.svg"
+            alt=""
+            style="height: 32px; width: auto"
+          />
+          <span style="font-weight: var(--font-weight-bold); display: none" class="hidden sm:block"
+            >Evident</span
+          >
         </a>
 
         <!-- Primary Navigation -->
-        <nav class="primary-nav" style="display: none; gap: var(--spacing-6);" aria-label="Main navigation">
+        <nav
+          class="primary-nav"
+          style="display: none; gap: var(--spacing-6)"
+          aria-label="Main navigation"
+        >
           <a href="/services/" class="nav-link">Services</a>
           <a href="/docs/" class="nav-link">Documentation</a>
           <a href="/pricing/" class="nav-link">Pricing</a>
@@ -101,11 +143,21 @@
         </nav>
 
         <!-- Actions -->
-        <div class="header-actions" style="display: flex; align-items: center; gap: var(--spacing-4);">
+        <div
+          class="header-actions"
+          style="display: flex; align-items: center; gap: var(--spacing-4)"
+        >
           <a href="https://app.evident.info/login" class="btn btn-ghost btn-sm">Sign In</a>
           <a href="https://app.evident.info/register" class="btn btn-primary btn-sm">Get Started</a>
           <button class="btn-icon btn-ghost" aria-label="Toggle navigation" id="mobile-nav-btn">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
               <path d="M3 6h18M3 12h18M3 18h18"></path>
             </svg>
           </button>
@@ -114,27 +166,55 @@
     </header>
 
     <!-- Main Content -->
-    <main id="main" role="main" style="min-height: 60vh;">
-      {{ content }}
-    </main>
+    <main id="main" role="main" style="min-height: 60vh">{{ content }}</main>
 
     <!-- Site Footer -->
-    <footer class="site-footer" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); margin-top: var(--spacing-20); padding: var(--spacing-16) var(--spacing-6);">
-      <div class="container" style="max-width: 1280px;">
-        <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-8); margin-bottom: var(--spacing-12);">
+    <footer
+      class="site-footer"
+      style="
+        background-color: var(--color-bg-secondary);
+        border-top: 1px solid var(--color-border);
+        margin-top: var(--spacing-20);
+        padding: var(--spacing-16) var(--spacing-6);
+      "
+    >
+      <div class="container" style="max-width: 1280px">
+        <div
+          class="footer-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+          "
+        >
           <!-- About Column -->
           <div>
-            <h3 style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-4);">Evident Technologies</h3>
-            <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-4);">{{ site.description }}</p>
-            <div style="display: flex; gap: var(--spacing-3);">
+            <h3
+              style="
+                font-size: var(--font-size-lg);
+                font-weight: var(--font-weight-bold);
+                margin-bottom: var(--spacing-4);
+              "
+            >
+              Evident Technologies
+            </h3>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-4)">
+              {{ site.description }}
+            </p>
+            <div style="display: flex; gap: var(--spacing-3)">
               <a href="https://twitter.com/evident" class="btn-icon btn-ghost" aria-label="Twitter">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"></path>
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"
+                  ></path>
                 </svg>
               </a>
               <a href="https://github.com/evident" class="btn-icon btn-ghost" aria-label="GitHub">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  ></path>
                 </svg>
               </a>
             </div>
@@ -142,40 +222,186 @@
 
           <!-- Product Links -->
           <div>
-            <h4 style="font-size: var(--font-size-base); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-3);">Product</h4>
-            <ul style="list-style: none; padding: 0;">
-              <li><a href="/services/audit/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Audit Trails</a></li>
-              <li><a href="/services/custody/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Chain of Custody</a></li>
-              <li><a href="/services/compliance/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Compliance</a></li>
-              <li><a href="/pricing/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Pricing</a></li>
+            <h4
+              style="
+                font-size: var(--font-size-base);
+                font-weight: var(--font-weight-bold);
+                margin-bottom: var(--spacing-3);
+              "
+            >
+              Product
+            </h4>
+            <ul style="list-style: none; padding: 0">
+              <li>
+                <a
+                  href="/services/audit/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Audit Trails</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/services/custody/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Chain of Custody</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/services/compliance/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Compliance</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pricing/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Pricing</a
+                >
+              </li>
             </ul>
           </div>
 
           <!-- Resources -->
           <div>
-            <h4 style="font-size: var(--font-size-base); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-3);">Resources</h4>
-            <ul style="list-style: none; padding: 0;">
-              <li><a href="/docs/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Documentation</a></li>
-              <li><a href="/faq/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">FAQ</a></li>
-              <li><a href="/contact/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Support</a></li>
+            <h4
+              style="
+                font-size: var(--font-size-base);
+                font-weight: var(--font-weight-bold);
+                margin-bottom: var(--spacing-3);
+              "
+            >
+              Resources
+            </h4>
+            <ul style="list-style: none; padding: 0">
+              <li>
+                <a
+                  href="/docs/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/faq/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/contact/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Support</a
+                >
+              </li>
             </ul>
           </div>
 
           <!-- Legal -->
           <div>
-            <h4 style="font-size: var(--font-size-base); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-3);">Legal</h4>
-            <ul style="list-style: none; padding: 0;">
-              <li><a href="/privacy/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Privacy Policy</a></li>
-              <li><a href="/terms/" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Terms of Service</a></li>
-              <li><a href="/SECURITY.md" style="color: var(--color-text-secondary); text-decoration: none; display: block; padding: var(--spacing-2) 0;">Security</a></li>
+            <h4
+              style="
+                font-size: var(--font-size-base);
+                font-weight: var(--font-weight-bold);
+                margin-bottom: var(--spacing-3);
+              "
+            >
+              Legal
+            </h4>
+            <ul style="list-style: none; padding: 0">
+              <li>
+                <a
+                  href="/privacy/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/terms/"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/SECURITY.md"
+                  style="
+                    color: var(--color-text-secondary);
+                    text-decoration: none;
+                    display: block;
+                    padding: var(--spacing-2) 0;
+                  "
+                  >Security</a
+                >
+              </li>
             </ul>
           </div>
         </div>
 
         <!-- Footer Bottom -->
-        <div style="border-top: 1px solid var(--color-border); padding-top: var(--spacing-8); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-4);">
-          <p style="color: var(--color-text-tertiary); margin: 0; font-size: var(--font-size-sm);">© 2024–2026 Evident Technologies LLC. All rights reserved.</p>
-          <div class="footer-badges" style="display: flex; gap: var(--spacing-3); flex-wrap: wrap;">
+        <div
+          style="
+            border-top: 1px solid var(--color-border);
+            padding-top: var(--spacing-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-4);
+          "
+        >
+          <p style="color: var(--color-text-tertiary); margin: 0; font-size: var(--font-size-sm)">
+            © 2024–2026 Evident Technologies LLC. All rights reserved.
+          </p>
+          <div class="footer-badges" style="display: flex; gap: var(--spacing-3); flex-wrap: wrap">
             <span class="badge badge-primary">SOC 2 Compliant</span>
             <span class="badge badge-primary">GDPR Ready</span>
           </div>

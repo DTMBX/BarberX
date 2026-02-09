@@ -47,16 +47,16 @@ comprehensive analytics, and full administrative controls.
 
 ```javascript
 // Real-time validation
-emailInput.addEventListener("blur", () => {
+emailInput.addEventListener('blur', () => {
   if (emailInput.value && !validateEmail(emailInput.value)) {
-    showError("email", true);
+    showError('email', true);
   }
 });
 
 // API Integration
-const response = await fetch("/login", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
+const response = await fetch('/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ email, password, remember }),
 });
 ```

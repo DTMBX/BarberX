@@ -1,4 +1,5 @@
 # Phase 9 Quick Start Guide
+
 ## Begin Testing Suite Implementation Immediately
 
 **Duration**: 2-3 weeks  
@@ -10,6 +11,7 @@
 ## 📋 What You're Building
 
 A comprehensive test suite ensuring:
+
 - ✅ 25 PDFs batch load in parallel (5-second concurrency)
 - ✅ OCR achieves 95%+ accuracy on scanned documents
 - ✅ Case facts extract correctly (parties, case #, violations)
@@ -21,6 +23,7 @@ A comprehensive test suite ensuring:
 ## 🚀 Starting Now: Day 1 Checklist
 
 ### 1. Setup Test Directory
+
 ```bash
 cd c:\web-dev\github-repos\Evident
 
@@ -35,18 +38,20 @@ cd tests/phase9
 ```
 
 ### 2. Create Test Fixtures (Sample Data)
+
 ```bash
 # Create sample PDFs for testing
 # Edit: tests/phase9/fixtures/generate_fixtures.py
 
 # Sample legal PDFs:
 # - complaint.pdf (10 pages)
-# - discovery_response.pdf (15 pages)  
+# - discovery_response.pdf (15 pages)
 # - motion.pdf (5 pages)
 # - dismissed_case_summary.pdf (8 pages)
 ```
 
 ### 3. Create Test Configuration
+
 ```python
 # tests/phase9/conftest.py
 import pytest
@@ -80,6 +85,7 @@ def pdf_loader():
 ## 📝 Phase 9 Test Files to Create
 
 ### File 1: Test Batch PDF Loading
+
 ```
 Path: tests/phase9/unit/batch_processing/test_pdf_batch_loader.py
 Lines: ~75 tests
@@ -94,6 +100,7 @@ Targets:
 ```
 
 ### File 2: Test OCR Extraction
+
 ```
 Path: tests/phase9/unit/batch_processing/test_ocr_extraction.py
 Lines: ~60 tests
@@ -109,6 +116,7 @@ Targets:
 ```
 
 ### File 3: Test Context Extraction
+
 ```
 Path: tests/phase9/unit/batch_processing/test_document_context_extraction.py
 Lines: ~50 tests
@@ -125,6 +133,7 @@ Targets:
 ```
 
 ### File 4: Test Knowledge Graph
+
 ```
 Path: tests/phase9/unit/batch_processing/test_case_knowledge_graph.py
 Lines: ~45 tests
@@ -139,6 +148,7 @@ Targets:
 ```
 
 ### File 5: Integration Tests
+
 ```
 Path: tests/phase9/integration/test_batch_workflow.py
 Lines: ~40 tests
@@ -152,6 +162,7 @@ Targets:
 ```
 
 ### File 6: Performance Benchmarks
+
 ```
 Path: tests/phase9/performance/test_batch_performance.py
 Lines: ~30 tests
@@ -170,19 +181,23 @@ Targets:
 ## 🔧 Implementation Order (Week-by-Week)
 
 ### Week 1: Setup + Batch Loading
+
 **Files**: `test_pdf_batch_loader.py`, `conftest.py`
 
 **Day 1**:
+
 - Create directory structure
 - Create `conftest.py` with fixtures
 - Create 10 sample PDFs (using `reportlab`)
 
 **Day 2-3**:
+
 - Implement `PDFBatchLoader` tests
 - Verify concurrent loading (4-8 workers)
 - Test error handling (corrupted PDFs)
 
 **Day 4-5**:
+
 - Create 25-PDF load scenario
 - Measure performance (target: 2-5 sec per PDF)
 - Debug and optimize
@@ -190,19 +205,23 @@ Targets:
 **Week 1 Goal**: ✅ 50+ passing tests, concurrent loading proven
 
 ### Week 2: OCR + Context
+
 **Files**: `test_ocr_extraction.py`, `test_document_context_extraction.py`
 
 **Day 1-2**:
+
 - Implement `OCREngine` tests
 - Setup Tesseract locally (Windows binary)
 - Test on sample scanned PDFs
 
 **Day 3-4**:
+
 - Implement fallback (EasyOCR) tests
 - Verify accuracy >= 95%
 - Measure per-page confidence
 
 **Day 5-6**:
+
 - Implement context extraction tests
 - Extract parties, case #, violations
 - Validate accuracy on 10 sample documents
@@ -210,19 +229,23 @@ Targets:
 **Week 2 Goal**: ✅ 100+ tests, OCR at 95%+, context extraction working
 
 ### Week 3: Knowledge Graph + Integration
+
 **Files**: `test_case_knowledge_graph.py`, `test_batch_workflow.py`
 
 **Day 1-2**:
+
 - Implement knowledge graph builder tests
 - Verify entity extraction (spaCy NER)
 - Verify relationship building
 
 **Day 3-4**:
+
 - Implement end-to-end workflow test
 - Load → OCR → Extract → Graph all in one
 - Measure total time (target: < 5 min for 25 PDFs)
 
 **Day 5-6**:
+
 - Performance benchmarking
 - Optimization (parallel processing, caching)
 - Final validation
@@ -234,11 +257,13 @@ Targets:
 ## 📊 How to Run Tests
 
 ### All Tests
+
 ```bash
 pytest tests/phase9/ -v --tb=short --cov=models/batch_document_processing
 ```
 
 ### By Category
+
 ```bash
 # Unit tests only
 pytest tests/phase9/unit/ -v
@@ -254,6 +279,7 @@ pytest tests/phase9/unit/batch_processing/test_pdf_batch_loader.py -v
 ```
 
 ### With Coverage Report
+
 ```bash
 pytest tests/phase9/ --cov=models/batch_document_processing --cov-report=html
 # Opens coverage/index.html
@@ -263,16 +289,16 @@ pytest tests/phase9/ --cov=models/batch_document_processing --cov-report=html
 
 ## 🎯 Success Criteria (Phase 9)
 
-| Metric | Target | Actual |
-|--------|--------|--------|
-| Total Tests | 1,000+ | |
-| Test Passing | 100% | |
-| Code Coverage | 90%+ | |
-| OCR Accuracy | 95%+ | |
-| Batch Load Time | < 10s for 25 PDFs | |
-| OCR Time | < 5 min for 100 pages | |
-| Context Accuracy | 95%+ extraction | |
-| End-to-End | < 6 min for 25 PDFs | |
+| Metric           | Target                | Actual |
+| ---------------- | --------------------- | ------ |
+| Total Tests      | 1,000+                |        |
+| Test Passing     | 100%                  |        |
+| Code Coverage    | 90%+                  |        |
+| OCR Accuracy     | 95%+                  |        |
+| Batch Load Time  | < 10s for 25 PDFs     |        |
+| OCR Time         | < 5 min for 100 pages |        |
+| Context Accuracy | 95%+ extraction       |        |
+| End-to-End       | < 6 min for 25 PDFs   |        |
 
 ---
 
@@ -303,7 +329,9 @@ pip install reportlab  # Create test PDFs
 ```
 
 ### Setup Tesseract (OCR)
+
 **Windows**:
+
 ```bash
 # Download from: https://github.com/UB-Mannheim/tesseract/wiki
 # Install to: C:\Program Files\Tesseract-OCR
@@ -317,6 +345,7 @@ os.environ['PYTESSERACT_PATH'] = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 ## 📚 Key Test Examples
 
 ### Test 1: Batch Load 25 PDFs
+
 ```python
 @pytest.mark.asyncio
 async def test_batch_load_25_pdfs(pdf_loader, sample_pdfs_dir):
@@ -325,9 +354,9 @@ async def test_batch_load_25_pdfs(pdf_loader, sample_pdfs_dir):
         os.path.join(sample_pdfs_dir, f'document_{i}.pdf')
         for i in range(25)
     ]
-    
+
     results = await pdf_loader.load_batch(pdf_files)
-    
+
     # Assertions
     assert len(results) == 25
     assert all(r['status'] == 'loaded' for r in results)
@@ -336,27 +365,29 @@ async def test_batch_load_25_pdfs(pdf_loader, sample_pdfs_dir):
 ```
 
 ### Test 2: OCR Accuracy
+
 ```python
 @pytest.mark.asyncio
 async def test_ocr_accuracy_95_percent(ocr_engine, sample_pdfs_dir):
     """Scanned PDF extraction >= 95% confidence"""
     pdf_path = os.path.join(sample_pdfs_dir, 'scanned_legal_doc.pdf')
-    
+
     result = await ocr_engine.extract_text(pdf_path)
-    
+
     assert result['confidence'] >= 0.95
     assert len(result['text']) > 1000
     assert 'defendant' in result['text'].lower() or 'plaintiff' in result['text'].lower()
 ```
 
 ### Test 3: Extract Case Facts
+
 ```python
 def test_extract_case_number(context_extractor):
     """Extract case number from text"""
     text = "CASE NO. 2023-CV-12345 Plaintiff v. Defendant"
-    
+
     context = context_extractor.extract(text)
-    
+
     assert context['case_number'] == '2023-CV-12345'
     assert context['parties']['plaintiff'] is not None
 ```
@@ -366,6 +397,7 @@ def test_extract_case_number(context_extractor):
 ## 🚨 Common Issues & Solutions
 
 ### Issue 1: Tesseract Not Found
+
 ```python
 # Solution: Install and add to PATH
 import pytesseract
@@ -373,6 +405,7 @@ pytesseract.pytesseract.pytesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesse
 ```
 
 ### Issue 2: CUDA/GPU Not Available
+
 ```python
 # Solution: Use CPU-only
 import os
@@ -380,6 +413,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Force CPU
 ```
 
 ### Issue 3: Async Timeout
+
 ```python
 # Solution: Increase timeout in pytest.ini
 [pytest]
@@ -406,6 +440,7 @@ TOTAL: 1,000+ tests
 ## ✅ Deliverables Checklist
 
 **Week 1**:
+
 - [ ] Test directory structure created
 - [ ] conftest.py with fixtures
 - [ ] 10 sample PDFs generated
@@ -413,6 +448,7 @@ TOTAL: 1,000+ tests
 - [ ] 50+ tests passing
 
 **Week 2**:
+
 - [ ] 25 sample PDFs for load testing
 - [ ] OCREngine tests (60 tests)
 - [ ] DocumentContextExtractor tests (50 tests)
@@ -420,6 +456,7 @@ TOTAL: 1,000+ tests
 - [ ] OCR accuracy verified >= 95%
 
 **Week 3**:
+
 - [ ] CaseKnowledgeGraphBuilder tests (45 tests)
 - [ ] BatchDocumentWorkflow tests (40 tests)
 - [ ] Performance benchmarks (30 tests)
@@ -428,6 +465,7 @@ TOTAL: 1,000+ tests
 - [ ] Performance targets met (< 5 min for 25 PDFs)
 
 **Documentation**:
+
 - [ ] TEST_GUIDE.md (how to run tests)
 - [ ] FIXTURES_GUIDE.md (how to create sample data)
 - [ ] COVERAGE_REPORT.md (test coverage details)
@@ -437,15 +475,18 @@ TOTAL: 1,000+ tests
 ## 🎓 Learning Resources
 
 ### Testing
+
 - pytest docs: https://docs.pytest.org/
 - pytest-asyncio: https://github.com/pytest-dev/pytest-asyncio
 - Factory Boy (fixtures): https://factoryboy.readthedocs.io/
 
 ### OCR
+
 - Tesseract: https://github.com/UB-Mannheim/tesseract/wiki
 - EasyOCR: https://github.com/JaidedAI/EasyOCR
 
 ### NLP
+
 - spaCy: https://spacy.io/
 - Transformers: https://huggingface.co/docs/transformers/
 
@@ -454,6 +495,7 @@ TOTAL: 1,000+ tests
 ## 🚦 Next Phase Entry Point
 
 **Phase 10 starts when**:
+
 - ✅ 300+ Phase 9 tests passing
 - ✅ 90%+ code coverage
 - ✅ OCR accuracy >= 95%
@@ -466,16 +508,19 @@ TOTAL: 1,000+ tests
 ## 👥 Team Assignments
 
 **QA Engineer 1** (Week 1-3):
+
 - `test_pdf_batch_loader.py`
 - `test_ocr_extraction.py`
 - Performance benchmarking
 
 **QA Engineer 2** (Week 1-3):
+
 - `test_document_context_extraction.py`
 - `test_case_knowledge_graph.py`
 - `conftest.py` + fixtures
 
 **Document Processing Specialist** (Week 1-3):
+
 - Generate 25 sample legal PDFs
 - Create test fixtures (dismissed cases, etc)
 - Validate extraction accuracy
@@ -485,6 +530,7 @@ TOTAL: 1,000+ tests
 ## 🎬 Start Now
 
 **This moment**:
+
 ```bash
 cd c:\web-dev\github-repos\Evident
 mkdir -p tests/phase9/{unit/batch_processing,integration,fixtures/{sample_pdfs,dismissed_cases}}
@@ -495,4 +541,3 @@ touch tests/phase9/unit/batch_processing/__init__.py
 ```
 
 **You have everything you need. Start this week.**
-

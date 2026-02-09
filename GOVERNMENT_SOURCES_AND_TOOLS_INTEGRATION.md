@@ -1,7 +1,7 @@
 ---
-title: "Government Legal Sources Integration & Tools Implementation"
+title: 'Government Legal Sources Integration & Tools Implementation'
 date: 2026-02-08
-author: "Evident Technologies"
+author: 'Evident Technologies'
 ---
 
 # Government Legal Sources Integration & Complete Tools Implementation
@@ -9,6 +9,7 @@ author: "Evident Technologies"
 ## Executive Summary
 
 Integrated all 12 chat tools with real backend implementations and US government legal sources. The chat interface now connects to:
+
 - **Supreme Court cases** and precedent database
 - **Constitutional documents** from Archives.gov
 - **Bills and legislation** from Congress.gov
@@ -106,6 +107,7 @@ GovernmentSources.get_legal_definitions()                 # Legal terms dict
 ```
 
 **Official APIs Used**:
+
 - `api.congress.gov/v3` - Congress.gov (bills, resolutions, votes)
 - `www.federalregister.gov/api/v1` - Federal Register (regulations)
 - `www.loc.gov/api` - Library of Congress
@@ -150,16 +152,16 @@ GovernmentSources.get_legal_definitions()                 # Legal terms dict
 
 ```python
 @staticmethod
-def search_legal_documents(query: str, category: str = "all", 
-                          limit: int = 10, year_from: int = None, 
+def search_legal_documents(query: str, category: str = "all",
+                          limit: int = 10, year_from: int = None,
                           year_to: int = None) -> Dict[str, Any]:
     """Search legal documents with filters"""
     results = LegalLibraryService.search_documents(query, category, limit)
-    
+
     # Apply filters
     if year_from or year_to:
         results = [doc for doc in results if _matches_year_range(doc)]
-    
+
     # Format for chat
     return {
         "status": "success",
@@ -245,8 +247,9 @@ result = execute_tool(tool_name, tool_args)
 **URL**: https://www.archives.gov/founding-docs/
 
 **Documents**:
+
 - Constitution of the United States
-- Declaration of Independence  
+- Declaration of Independence
 - Articles of Confederation
 - Bill of Rights
 - Amendments XI-XXVII
@@ -257,12 +260,14 @@ result = execute_tool(tool_name, tool_args)
 ### Congress.gov API (http://api.congress.gov/v3)
 
 **Features**:
+
 - Search bills, resolutions, amendments
 - Get bill text, status, sponsors
 - Track committee actions
 - Access voting records
 
 **Example**:
+
 ```bash
 curl "https://api.congress.gov/v3/bills?q=privacy+rights&limit=10&api_key=YOUR_KEY"
 ```
@@ -270,12 +275,14 @@ curl "https://api.congress.gov/v3/bills?q=privacy+rights&limit=10&api_key=YOUR_K
 ### Federal Register (federalregister.gov/api/v1)
 
 **Features**:
+
 - Search regulations and notices
 - Executive orders
 - Agency documents
 - Public comments
 
 **Example**:
+
 ```bash
 curl "https://www.federalregister.gov/api/v1/documents/search?q=data+privacy"
 ```
@@ -285,6 +292,7 @@ curl "https://www.federalregister.gov/api/v1/documents/search?q=data+privacy"
 **Access**: loc.gov/api/search
 
 **Features**:
+
 - Legislative history
 - Legal research materials
 - Historical documents
@@ -295,6 +303,7 @@ curl "https://www.federalregister.gov/api/v1/documents/search?q=data+privacy"
 **URL**: supremecourt.gov/opinions
 
 **Features**:
+
 - Official opinions (PDF)
 - Slip opinions (current term)
 - Docket information
@@ -355,7 +364,7 @@ Chat: I'll search for relevant cases...
     limit=10
 )
 
-→ Results: 
+→ Results:
 - Trump v. Twitter (hypothetical)
 - First Amendment cases about platform moderation
 - Citations and summaries
@@ -516,6 +525,7 @@ results = LegalDocument.query.filter(
 ### Common Issues
 
 **Issue**: Government API timeout
+
 ```python
 # Solution: Implement exponential backoff
 import requests
@@ -530,6 +540,7 @@ session.mount('https://', adapter)
 ```
 
 **Issue**: Rate limiting on government APIs
+
 ```python
 # Solution: Respect rate limits and cache
 # Congress.gov: 1000 requests/hour
@@ -537,6 +548,7 @@ session.mount('https://', adapter)
 ```
 
 **Issue**: Document parsing errors
+
 ```python
 # Solution: Fallback to simple text extraction
 try:
@@ -568,6 +580,7 @@ Government sources include standard legal definitions for:
 ```
 
 Access via:
+
 ```python
 from auth.government_sources import GovernmentSources
 definitions = GovernmentSources.get_legal_definitions()
@@ -578,30 +591,35 @@ definitions = GovernmentSources.get_legal_definitions()
 ## 12. Next Phase Enhancements
 
 ### Phase 5.1: Advanced Government Data Integration
+
 - Real-time bill tracking (Congress.gov webhooks)
 - Regulatory change alerts
 - Court calendar integration
 - Oral argument notifications
 
 ### Phase 5.2: Enhanced Document Analysis
+
 - AI-powered document classification
 - Automatic entity extraction
 - Privilege workflow automation
 - Redaction suggestion engine
 
 ### Phase 5.3: Legal Research Dashboard
+
 - Government document dashboard
 - Trending cases and legislation
 - Legal topic tracking
 - Citation analysis
 
 ### Phase 5.4: Compliance & Regulatory
+
 - State law database integration
 - Regulatory timeline tracking
 - Compliance checklist automation
 - Audit trail generation
 
 ### Phase 5.5: Advanced Analytics
+
 - Pattern recognition in case law
 - Precedent prediction
 - Outcome analysis
@@ -613,17 +631,17 @@ definitions = GovernmentSources.get_legal_definitions()
 
 ### Government Sources by Category
 
-| Category | Source | URL | API |
-|----------|--------|-----|-----|
-| Constitution | National Archives | archives.gov | ✗ |
-| Bill of Rights | National Archives | archives.gov | ✗ |
-| Amendments | National Archives | archives.gov | ✗ |
-| Bills | Congress | congress.gov | ✓ |
-| Supreme Court | SCOTUS | supremecourt.gov | ✗ |
-| Regulations | Federal Register | federalregister.gov | ✓ |
-| Legislative History | Library of Congress | loc.gov | ✓ |
-| Court Opinions | Google Scholar | scholar.google.com | ✓ |
-| Justia | Justia | justia.com | ✓ |
+| Category            | Source              | URL                 | API |
+| ------------------- | ------------------- | ------------------- | --- |
+| Constitution        | National Archives   | archives.gov        | ✗   |
+| Bill of Rights      | National Archives   | archives.gov        | ✗   |
+| Amendments          | National Archives   | archives.gov        | ✗   |
+| Bills               | Congress            | congress.gov        | ✓   |
+| Supreme Court       | SCOTUS              | supremecourt.gov    | ✗   |
+| Regulations         | Federal Register    | federalregister.gov | ✓   |
+| Legislative History | Library of Congress | loc.gov             | ✓   |
+| Court Opinions      | Google Scholar      | scholar.google.com  | ✓   |
+| Justia              | Justia              | justia.com          | ✓   |
 
 ---
 
@@ -661,6 +679,7 @@ official_domains = [
 ## 15. Contact & Support
 
 For issues with:
+
 - **Chat tool integration**: See `services/tool_implementations.py`
 - **Government sources**: See `auth/government_sources.py`
 - **Tool execution**: See `services/chat_service.py` execute_tool method

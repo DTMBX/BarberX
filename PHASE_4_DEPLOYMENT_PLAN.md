@@ -7,6 +7,7 @@ After device testing completes successfully, Phase 4 focuses on deploying to pro
 ## 📋 Phase 4 Milestones
 
 ### Week 1: Final Testing & Submission
+
 - [x] Device testing complete (iOS & Android)
 - [ ] Create TestFlight build for iOS internal testers
 - [ ] Create Play Store closed beta for Android testers
@@ -15,6 +16,7 @@ After device testing completes successfully, Phase 4 focuses on deploying to pro
 - [ ] Submission ready
 
 ### Week 2: App Store Submission
+
 - [ ] Submit iOS to App Store
 - [ ] Submit Android to Google Play
 - [ ] Monitoring Review feedback from stores
@@ -22,6 +24,7 @@ After device testing completes successfully, Phase 4 focuses on deploying to pro
 - [ ] Monitor App Store & Play Store approval status
 
 ### Week 3: Launch & Monitoring
+
 - [ ] Apps live in both stores
 - [ ] Monitor crash rates (Firebase/Sentry)
 - [ ] Monitor user reviews
@@ -35,11 +38,12 @@ After device testing completes successfully, Phase 4 focuses on deploying to pro
 ### Immediate (This Week)
 
 **Finalize Submission Package**
+
 ```bash
 # 1. Create iOS release build
 npm run mobile:build:ios
 
-# 2. Create Android release build  
+# 2. Create Android release build
 cd android && ./gradlew assembleRelease && cd ..
 
 # 3. Verify builds on devices
@@ -52,6 +56,7 @@ npm run lint
 ```
 
 **Prepare Store Listings**
+
 ```
 iOS App Store Connect:
 - Add app icon, screenshots
@@ -72,6 +77,7 @@ Google Play Console:
 ### Short-Term (This Month)
 
 **Infrastructure Scaling**
+
 ```bash
 # 1. Monitor backend metrics
 # Check API response times, database queries, Celery task queue
@@ -86,6 +92,7 @@ Google Play Console:
 ```
 
 **Analytics & Monitoring**
+
 ```bash
 # 1. Add error tracking
 # Firebase Crashlytics for both platforms
@@ -107,6 +114,7 @@ Google Play Console:
 ### A. TestFlight Beta (iOS)
 
 **Steps:**
+
 1. Build archive in Xcode
 2. Validate app signature
 3. Upload to App Store Connect
@@ -116,6 +124,7 @@ Google Play Console:
 7. Iterate on critical issues
 
 **Expected:**
+
 - 2-3 testers
 - 2-3 feedback cycles
 - Zero critical issues before submission
@@ -123,6 +132,7 @@ Google Play Console:
 ### B. Play Store Closed Beta (Android)
 
 **Steps:**
+
 1. Build release APK
 2. Sign with release keystore
 3. Upload to Play Console (Internal Testing track)
@@ -132,6 +142,7 @@ Google Play Console:
 7. Iterate on critical issues
 
 **Expected:**
+
 - 2-3 testers
 - 2-3 feedback cycles
 - Zero critical issues before submission
@@ -139,6 +150,7 @@ Google Play Console:
 ### C. App Store Submission (iOS)
 
 **Submission Process:**
+
 ```
 1. Final version number (e.g., 1.0.0)
 2. Archive build in Xcode
@@ -162,6 +174,7 @@ Google Play Console:
 ```
 
 **Expected Timeline:**
+
 - Submission: <1 hour
 - Review: 24-48 hours
 - Approval: Usually approved after first review
@@ -170,6 +183,7 @@ Google Play Console:
 ### D. Play Store Submission (Android)
 
 **Submission Process:**
+
 ```
 1. Final version code (increment from previous)
 2. Build release APK
@@ -192,6 +206,7 @@ Google Play Console:
 ```
 
 **Expected Timeline:**
+
 - Submission: <30 minutes
 - Automated review: 2-4 hours
 - Manual review (if needed): 24-48 hours
@@ -205,6 +220,7 @@ Google Play Console:
 Before going live in production:
 
 ### API & Backend
+
 - [ ] API responds to all endpoints within 200ms
 - [ ] Database queries optimized (< 100ms)
 - [ ] Error rates < 0.1%
@@ -214,6 +230,7 @@ Before going live in production:
 - [ ] Backup procedures tested
 
 ### Web App
+
 - [ ] Bundle size < 50KB gzipped
 - [ ] Lighthouse score > 90
 - [ ] 0 console errors in production
@@ -223,6 +240,7 @@ Before going live in production:
 - [ ] Analytics tracking functional
 
 ### Mobile Apps
+
 - [ ] No crash reports in first 24 hours
 - [ ] Rating > 3.5 stars (if released before)
 - [ ] Download size < 100MB
@@ -231,6 +249,7 @@ Before going live in production:
 - [ ] Network connectivity handled
 
 ### Website & Docs
+
 - [ ] Support page accessible
 - [ ] Contact form works
 - [ ] Privacy policy up-to-date
@@ -244,30 +263,35 @@ Before going live in production:
 Track these metrics to measure Phase 4 success:
 
 ### User Acquisition
+
 - [ ] Total downloads (target: 1000+)
 - [ ] Installs by platform (iOS vs Android ratio)
 - [ ] Geographic distribution
 - [ ] Device breakdown
 
 ### Engagement
+
 - [ ] Daily active users (DAU)
 - [ ] Session length (target: > 5 min)
 - [ ] Feature usage (which features most popular?)
 - [ ] Retention rate (% who return after 24h)
 
 ### Quality
+
 - [ ] Crash rate (target: < 0.5%)
 - [ ] ANRs/Hangs (target: 0)
 - [ ] App rating (target: 4.0+)
 - [ ] User reviews (qualitative feedback)
 
 ### Performance
+
 - [ ] API response time (target: < 200ms)
 - [ ] Upload success rate (target: > 99%)
 - [ ] Average upload size (insights)
 - [ ] Average transcription quality
 
 ### Business
+
 - [ ] Cost per user (infrastructure)
 - [ ] Revenue (if monetized)
 - [ ] Support tickets (target: < 10/day)
@@ -280,6 +304,7 @@ Track these metrics to measure Phase 4 success:
 ### If High Load (1000+ concurrent users):
 
 **Kubernetes Scaling**
+
 ```bash
 # Scale API horizontally
 kubectl scale deployment/evident-api --replicas=5
@@ -296,6 +321,7 @@ kubectl logs -f pod-name      # Real-time logs
 ```
 
 **Database Scaling**
+
 ```bash
 # Read replicas for scaling reads
 # RDS: Enable Multi-AZ for high availability
@@ -307,6 +333,7 @@ kubectl logs -f pod-name      # Real-time logs
 ```
 
 **Content Delivery**
+
 ```bash
 # CDN: CloudFront, Cloudflare
 # Cache static assets (CSS, JS, images)
@@ -350,6 +377,7 @@ DELETE FROM batches WHERE created_at < NOW() - INTERVAL '1 year';
 ### Monitoring (24/7)
 
 **Automated Alerts**
+
 ```
 - App crash rate > 0.5% → Immediate notification
 - API error rate > 1% → Immediate notification
@@ -359,6 +387,7 @@ DELETE FROM batches WHERE created_at < NOW() - INTERVAL '1 year';
 ```
 
 **On-Call Schedule**
+
 ```
 Week 1 (Launch): 24/7 coverage
 Week 2-4: Business hours + on-call nights
@@ -367,12 +396,12 @@ Month 2+: Business hours + weekend rotation
 
 ### Issue Response SLA
 
-| Severity | Response Time | Resolution Time |
-|----------|---------------|-----------------|
-| Critical (crashes) | < 5 minutes | < 1 hour |
-| High (features broken) | < 15 minutes | < 4 hours |
-| Medium (degraded) | < 30 minutes | < 8 hours |
-| Low (minor bugs) | < 1 hour | < 1 day |
+| Severity               | Response Time | Resolution Time |
+| ---------------------- | ------------- | --------------- |
+| Critical (crashes)     | < 5 minutes   | < 1 hour        |
+| High (features broken) | < 15 minutes  | < 4 hours       |
+| Medium (degraded)      | < 30 minutes  | < 8 hours       |
+| Low (minor bugs)       | < 1 hour      | < 1 day         |
 
 ### Rollback Plan
 
@@ -421,12 +450,14 @@ When Phase 4 complete, handoff to Operations:
 Based on user feedback and metrics, plan Phase 5:
 
 ### Quick Wins (2-4 weeks)
+
 - [ ] Bug fixes from user feedback
 - [ ] UI/UX improvements
 - [ ] Performance optimizations
 - [ ] Missing features identified by users
 
 ### Medium Features (1-2 months)
+
 - [ ] Admin dashboard
 - [ ] Analytics reports
 - [ ] User preferences/settings
@@ -434,6 +465,7 @@ Based on user feedback and metrics, plan Phase 5:
 - [ ] API webhooks
 
 ### Major Features (3+ months)
+
 - [ ] Multi-language support
 - [ ] AI-powered features
 - [ ] Integration marketplace
@@ -444,14 +476,14 @@ Based on user feedback and metrics, plan Phase 5:
 
 ## 📚 Key Documentation for Phase 4
 
-| Document | Location | Owner |
-|----------|----------|-------|
-| Deployment Guide | `ops/DEPLOYMENT.md` | DevOps |
-| Monitoring Guide | `ops/MONITORING.md` | DevOps |
-| Incident Response | `ops/INCIDENT_RESPONSE.md` | On-call |
-| Scaling Guide | `ops/SCALING.md` | DevOps |
-| Release Notes | `RELEASE_NOTES.md` | PM |
-| User Documentation | `docs/USER_GUIDE.md` | PM |
+| Document           | Location                   | Owner   |
+| ------------------ | -------------------------- | ------- |
+| Deployment Guide   | `ops/DEPLOYMENT.md`        | DevOps  |
+| Monitoring Guide   | `ops/MONITORING.md`        | DevOps  |
+| Incident Response  | `ops/INCIDENT_RESPONSE.md` | On-call |
+| Scaling Guide      | `ops/SCALING.md`           | DevOps  |
+| Release Notes      | `RELEASE_NOTES.md`         | PM      |
+| User Documentation | `docs/USER_GUIDE.md`       | PM      |
 
 ---
 
@@ -473,6 +505,7 @@ Phase 4 is complete when:
 ## 🚀 Ready for Phase 4?
 
 Check:
+
 - [ ] All device testing complete and passed
 - [ ] No open critical or major issues
 - [ ] Documentation complete

@@ -76,6 +76,7 @@ All recommendations and tracking follow these principles (from `copilot-instruct
    - ❌ **Rejected**: Proprietary, unclear license, abandoned projects
 
 4. Run security scan:
+
    ```bash
    pip-audit <package>==<version>
    ```
@@ -99,6 +100,7 @@ GitHub Actions workflow (`.github/workflows/security-scan.yml`) runs:
 - **On demand**: Manual trigger via GitHub Actions UI
 
 Scan results appear in:
+
 - Pull request comments (if vulnerabilities found)
 - GitHub Actions artifacts (90-day retention)
 - This directory (sbom-backend.json, vulnerabilities-backend.json)
@@ -114,6 +116,7 @@ The primary recommendation document (`EVIDENCE-PROCESSING-OSS-RECOMMENDATIONS.md
 5. **Implementation Roadmap** - 3-phase deployment plan with acceptance criteria
 
 **Intended audience:**
+
 - Legal counsel (license review)
 - Security auditors (CVE/SBOM verification)
 - Engineering managers (implementation planning)
@@ -123,17 +126,18 @@ The primary recommendation document (`EVIDENCE-PROCESSING-OSS-RECOMMENDATIONS.md
 
 All dependencies must be compatible with Evident's proprietary codebase. Approved licenses:
 
-| License | Use Case | Obligation |
-|---------|----------|-----------|
-| MIT, BSD, Apache-2.0 | Permissive | Attribution only |
-| LGPL-2.1+ | Dynamic linking (subprocess) | No source disclosure |
-| Dual-licensed (Artistic/GPL) | Choose non-copyleft option | Attribution only |
+| License                      | Use Case                     | Obligation           |
+| ---------------------------- | ---------------------------- | -------------------- |
+| MIT, BSD, Apache-2.0         | Permissive                   | Attribution only     |
+| LGPL-2.1+                    | Dynamic linking (subprocess) | No source disclosure |
+| Dual-licensed (Artistic/GPL) | Choose non-copyleft option   | Attribution only     |
 
 **Rejected**: GPL/AGPL (copyleft propagation), Proprietary (no source code)
 
 ## Security Posture
 
 ### Current Status
+
 - ✅ 30+ dependencies tracked
 - ✅ All licenses documented
 - ✅ CVE-2026-21860 (Werkzeug) patched
@@ -141,6 +145,7 @@ All dependencies must be compatible with Evident's proprietary codebase. Approve
 - ✅ Weekly automated scans enabled
 
 ### Gaps Addressed
+
 - 🔴 **High**: SBOM generation (added CycloneDX)
 - 🔴 **High**: Vulnerability scanning (added pip-audit)
 - ⚠️ **Medium**: FFmpeg proxy generation (proposed)
@@ -149,6 +154,7 @@ All dependencies must be compatible with Evident's proprietary codebase. Approve
 ## Maintenance
 
 **This directory must be updated**:
+
 - On every dependency add/update/remove
 - Weekly (automated SBOM/vulnerability scan)
 - Quarterly (full security audit)
@@ -172,6 +178,7 @@ All dependencies must be compatible with Evident's proprietary codebase. Approve
 **Questions?**
 
 For questions about:
+
 - **License compliance**: Contact legal counsel
 - **Security vulnerabilities**: Open GitHub Security Advisory
 - **Dependency approval**: Tag @engineering-leads in PR
@@ -179,4 +186,4 @@ For questions about:
 
 ---
 
-*This governance framework ensures court-defensible provenance tracking and supply-chain transparency for the Evident Technologies legal-technology platform.*
+_This governance framework ensures court-defensible provenance tracking and supply-chain transparency for the Evident Technologies legal-technology platform._

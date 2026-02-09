@@ -189,7 +189,7 @@ html {
     Inter,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     sans-serif
   );
@@ -323,7 +323,7 @@ a:hover {
     0 2px 16px rgb(212 175 55 / 10%),
     0 1px 0 rgb(255 255 255 / 5%) inset;
   background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   font-weight: 500;
   color: #23233a;
   transition:
@@ -341,7 +341,7 @@ a:hover {
 }
 .case-card h2,
 .system-card h3 {
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #c41e3a;
@@ -550,7 +550,7 @@ a:hover {
 }
 
 .system-card li::before {
-  content: "•";
+  content: '•';
   color: #d4af37;
   position: absolute;
   left: 0;
@@ -593,7 +593,7 @@ a:hover {
 
 /* Universal button styling for contrast and accessibility */
 
-@import url("./tokens.css");
+@import url('./tokens.css');
 /* --- EVIDENT MODERN BUTTON SYSTEM --- */
 .btn {
   display: inline-flex;
@@ -810,7 +810,7 @@ body {
     Inter,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     sans-serif;
   color: var(--ink);
@@ -852,7 +852,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Bebas Neue", Inter, sans-serif;
+  font-family: 'Bebas Neue', Inter, sans-serif;
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: 0.02em;
@@ -881,7 +881,7 @@ h6 {
 }
 
 .section-tag::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
@@ -902,7 +902,7 @@ h6 {
 }
 
 .section-tag::after {
-  content: "▸";
+  content: '▸';
   font-size: 0.8em;
   opacity: 0.8;
 }
@@ -1083,7 +1083,7 @@ html {
     Inter,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     sans-serif
   );
@@ -1216,7 +1216,7 @@ html {
       0 2px 16px rgb(212 175 55 / 10%),
       0 1px 0 rgb(255 255 255 / 5%) inset;
     background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     font-weight: 500;
     color: #23233a;
     transition:
@@ -1234,7 +1234,7 @@ html {
   }
   .case-card h2,
   .system-card h3 {
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     font-weight: 700;
     letter-spacing: 0.02em;
     color: #c41e3a;
@@ -1443,7 +1443,7 @@ html {
   }
 
   .system-card li::before {
-    content: "•";
+    content: '•';
     color: #d4af37;
     position: absolute;
     left: 0;
@@ -1486,7 +1486,7 @@ html {
 
   /* Universal button styling for contrast and accessibility */
 
-  @import url("./tokens.css");
+  @import url('./tokens.css');
   /* --- EVIDENT MODERN BUTTON SYSTEM --- */
   .btn {
     display: inline-flex;
@@ -1703,7 +1703,7 @@ html {
       Inter,
       -apple-system,
       BlinkMacSystemFont,
-      "Segoe UI",
+      'Segoe UI',
       Roboto,
       sans-serif;
     color: var(--ink);
@@ -1745,7 +1745,7 @@ html {
   h4,
   h5,
   h6 {
-    font-family: "Bebas Neue", Inter, sans-serif;
+    font-family: 'Bebas Neue', Inter, sans-serif;
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: 0.02em;
@@ -1774,7 +1774,7 @@ html {
   }
 
   .section-tag::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -100%;
@@ -1795,7 +1795,7 @@ html {
   }
 
   .section-tag::after {
-    content: "▸";
+    content: '▸';
     font-size: 0.8em;
     opacity: 0.8;
   }
@@ -1976,7 +1976,7 @@ html {
       Inter,
       -apple-system,
       BlinkMacSystemFont,
-      "Segoe UI",
+      'Segoe UI',
       Roboto,
       sans-serif
     );
@@ -2109,7 +2109,7 @@ html {
         0 2px 16px rgb(212 175 55 / 10%),
         0 1px 0 rgb(255 255 255 / 5%) inset;
       background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
       font-weight: 500;
       color: #23233a;
       transition:
@@ -2127,7 +2127,7 @@ html {
     }
     .case-card h2,
     .system-card h3 {
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
       font-weight: 700;
       letter-spacing: 0.02em;
       color: #c41e3a;
@@ -2336,7 +2336,7 @@ html {
     }
 
     .system-card li::before {
-      content: "•";
+      content: '•';
       color: #d4af37;
       position: absolute;
       left: 0;
@@ -2379,7 +2379,7 @@ html {
 
     /* Universal button styling for contrast and accessibility */
 
-    @import url("./tokens.css");
+    @import url('./tokens.css');
     /* --- EVIDENT MODERN BUTTON SYSTEM --- */
     .btn {
       display: inline-flex;
@@ -2596,7 +2596,7 @@ html {
         Inter,
         -apple-system,
         BlinkMacSystemFont,
-        "Segoe UI",
+        'Segoe UI',
         Roboto,
         sans-serif;
       color: var(--ink);
@@ -2638,7 +2638,7 @@ html {
     h4,
     h5,
     h6 {
-      font-family: "Bebas Neue", Inter, sans-serif;
+      font-family: 'Bebas Neue', Inter, sans-serif;
       font-weight: 400;
       line-height: 1.1;
       letter-spacing: 0.02em;
@@ -2667,7 +2667,7 @@ html {
     }
 
     .section-tag::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: -100%;
@@ -2688,7 +2688,7 @@ html {
     }
 
     .section-tag::after {
-      content: "▸";
+      content: '▸';
       font-size: 0.8em;
       opacity: 0.8;
     }
@@ -2869,7 +2869,7 @@ html {
         Inter,
         -apple-system,
         BlinkMacSystemFont,
-        "Segoe UI",
+        'Segoe UI',
         Roboto,
         sans-serif
       );
@@ -3002,7 +3002,7 @@ html {
           0 2px 16px rgb(212 175 55 / 10%),
           0 1px 0 rgb(255 255 255 / 5%) inset;
         background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
         font-weight: 500;
         color: #23233a;
         transition:
@@ -3020,7 +3020,7 @@ html {
       }
       .case-card h2,
       .system-card h3 {
-        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
         font-weight: 700;
         letter-spacing: 0.02em;
         color: #c41e3a;
@@ -3229,7 +3229,7 @@ html {
       }
 
       .system-card li::before {
-        content: "•";
+        content: '•';
         color: #d4af37;
         position: absolute;
         left: 0;
@@ -3272,7 +3272,7 @@ html {
 
       /* Universal button styling for contrast and accessibility */
 
-      @import url("./tokens.css");
+      @import url('./tokens.css');
       /* --- EVIDENT MODERN BUTTON SYSTEM --- */
       .btn {
         display: inline-flex;
@@ -3489,7 +3489,7 @@ html {
           Inter,
           -apple-system,
           BlinkMacSystemFont,
-          "Segoe UI",
+          'Segoe UI',
           Roboto,
           sans-serif;
         color: var(--ink);
@@ -3531,7 +3531,7 @@ html {
       h4,
       h5,
       h6 {
-        font-family: "Bebas Neue", Inter, sans-serif;
+        font-family: 'Bebas Neue', Inter, sans-serif;
         font-weight: 400;
         line-height: 1.1;
         letter-spacing: 0.02em;
@@ -3560,7 +3560,7 @@ html {
       }
 
       .section-tag::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: -100%;
@@ -3581,7 +3581,7 @@ html {
       }
 
       .section-tag::after {
-        content: "▸";
+        content: '▸';
         font-size: 0.8em;
         opacity: 0.8;
       }
@@ -3762,7 +3762,7 @@ html {
           Inter,
           -apple-system,
           BlinkMacSystemFont,
-          "Segoe UI",
+          'Segoe UI',
           Roboto,
           sans-serif
         );
@@ -3895,7 +3895,7 @@ html {
             0 2px 16px rgb(212 175 55 / 10%),
             0 1px 0 rgb(255 255 255 / 5%) inset;
           background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-          font-family: "Inter", "Segoe UI", Arial, sans-serif;
+          font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
           font-weight: 500;
           color: #23233a;
           transition:
@@ -3913,7 +3913,7 @@ html {
         }
         .case-card h2,
         .system-card h3 {
-          font-family: "Inter", "Segoe UI", Arial, sans-serif;
+          font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
           font-weight: 700;
           letter-spacing: 0.02em;
           color: #c41e3a;
@@ -4122,7 +4122,7 @@ html {
         }
 
         .system-card li::before {
-          content: "•";
+          content: '•';
           color: #d4af37;
           position: absolute;
           left: 0;
@@ -4165,7 +4165,7 @@ html {
 
         /* Universal button styling for contrast and accessibility */
 
-        @import url("./tokens.css");
+        @import url('./tokens.css');
         /* --- EVIDENT MODERN BUTTON SYSTEM --- */
         .btn {
           display: inline-flex;
@@ -4382,7 +4382,7 @@ html {
             Inter,
             -apple-system,
             BlinkMacSystemFont,
-            "Segoe UI",
+            'Segoe UI',
             Roboto,
             sans-serif;
           color: var(--ink);
@@ -4424,7 +4424,7 @@ html {
         h4,
         h5,
         h6 {
-          font-family: "Bebas Neue", Inter, sans-serif;
+          font-family: 'Bebas Neue', Inter, sans-serif;
           font-weight: 400;
           line-height: 1.1;
           letter-spacing: 0.02em;
@@ -4453,7 +4453,7 @@ html {
         }
 
         .section-tag::before {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: -100%;
@@ -4474,7 +4474,7 @@ html {
         }
 
         .section-tag::after {
-          content: "▸";
+          content: '▸';
           font-size: 0.8em;
           opacity: 0.8;
         }
@@ -4655,7 +4655,7 @@ html {
             Inter,
             -apple-system,
             BlinkMacSystemFont,
-            "Segoe UI",
+            'Segoe UI',
             Roboto,
             sans-serif
           );
@@ -4788,7 +4788,7 @@ html {
               0 2px 16px rgb(212 175 55 / 10%),
               0 1px 0 rgb(255 255 255 / 5%) inset;
             background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             font-weight: 500;
             color: #23233a;
             transition:
@@ -4806,7 +4806,7 @@ html {
           }
           .case-card h2,
           .system-card h3 {
-            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             font-weight: 700;
             letter-spacing: 0.02em;
             color: #c41e3a;
@@ -5015,7 +5015,7 @@ html {
           }
 
           .system-card li::before {
-            content: "•";
+            content: '•';
             color: #d4af37;
             position: absolute;
             left: 0;
@@ -5058,7 +5058,7 @@ html {
 
           /* Universal button styling for contrast and accessibility */
 
-          @import url("./tokens.css");
+          @import url('./tokens.css');
           /* --- EVIDENT MODERN BUTTON SYSTEM --- */
           .btn {
             display: inline-flex;
@@ -5275,7 +5275,7 @@ html {
               Inter,
               -apple-system,
               BlinkMacSystemFont,
-              "Segoe UI",
+              'Segoe UI',
               Roboto,
               sans-serif;
             color: var(--ink);
@@ -5317,7 +5317,7 @@ html {
           h4,
           h5,
           h6 {
-            font-family: "Bebas Neue", Inter, sans-serif;
+            font-family: 'Bebas Neue', Inter, sans-serif;
             font-weight: 400;
             line-height: 1.1;
             letter-spacing: 0.02em;
@@ -5346,7 +5346,7 @@ html {
           }
 
           .section-tag::before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: -100%;
@@ -5367,7 +5367,7 @@ html {
           }
 
           .section-tag::after {
-            content: "▸";
+            content: '▸';
             font-size: 0.8em;
             opacity: 0.8;
           }
@@ -5548,7 +5548,7 @@ html {
               Inter,
               -apple-system,
               BlinkMacSystemFont,
-              "Segoe UI",
+              'Segoe UI',
               Roboto,
               sans-serif
             );
@@ -5681,7 +5681,7 @@ html {
                 0 2px 16px rgb(212 175 55 / 10%),
                 0 1px 0 rgb(255 255 255 / 5%) inset;
               background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-              font-family: "Inter", "Segoe UI", Arial, sans-serif;
+              font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
               font-weight: 500;
               color: #23233a;
               transition:
@@ -5699,7 +5699,7 @@ html {
             }
             .case-card h2,
             .system-card h3 {
-              font-family: "Inter", "Segoe UI", Arial, sans-serif;
+              font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
               font-weight: 700;
               letter-spacing: 0.02em;
               color: #c41e3a;
@@ -5908,7 +5908,7 @@ html {
             }
 
             .system-card li::before {
-              content: "•";
+              content: '•';
               color: #d4af37;
               position: absolute;
               left: 0;
@@ -5951,7 +5951,7 @@ html {
 
             /* Universal button styling for contrast and accessibility */
 
-            @import url("./tokens.css");
+            @import url('./tokens.css');
             /* --- EVIDENT MODERN BUTTON SYSTEM --- */
             .btn {
               display: inline-flex;
@@ -6168,7 +6168,7 @@ html {
                 Inter,
                 -apple-system,
                 BlinkMacSystemFont,
-                "Segoe UI",
+                'Segoe UI',
                 Roboto,
                 sans-serif;
               color: var(--ink);
@@ -6210,7 +6210,7 @@ html {
             h4,
             h5,
             h6 {
-              font-family: "Bebas Neue", Inter, sans-serif;
+              font-family: 'Bebas Neue', Inter, sans-serif;
               font-weight: 400;
               line-height: 1.1;
               letter-spacing: 0.02em;
@@ -6239,7 +6239,7 @@ html {
             }
 
             .section-tag::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 0;
               left: -100%;
@@ -6260,7 +6260,7 @@ html {
             }
 
             .section-tag::after {
-              content: "▸";
+              content: '▸';
               font-size: 0.8em;
               opacity: 0.8;
             }
@@ -6441,7 +6441,7 @@ html {
                 Inter,
                 -apple-system,
                 BlinkMacSystemFont,
-                "Segoe UI",
+                'Segoe UI',
                 Roboto,
                 sans-serif
               );
@@ -6574,7 +6574,7 @@ html {
                   0 2px 16px rgb(212 175 55 / 10%),
                   0 1px 0 rgb(255 255 255 / 5%) inset;
                 background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
-                font-family: "Inter", "Segoe UI", Arial, sans-serif;
+                font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
                 font-weight: 500;
                 color: #23233a;
                 transition:
@@ -6592,7 +6592,7 @@ html {
               }
               .case-card h2,
               .system-card h3 {
-                font-family: "Inter", "Segoe UI", Arial, sans-serif;
+                font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
                 font-weight: 700;
                 letter-spacing: 0.02em;
                 color: #c41e3a;
@@ -6801,7 +6801,7 @@ html {
               }
 
               .system-card li::before {
-                content: "•";
+                content: '•';
                 color: #d4af37;
                 position: absolute;
                 left: 0;
@@ -6844,7 +6844,7 @@ html {
 
               /* Universal button styling for contrast and accessibility */
 
-              @import url("./tokens.css");
+              @import url('./tokens.css');
               /* --- EVIDENT MODERN BUTTON SYSTEM --- */
               .btn {
                 display: inline-flex;

@@ -39,6 +39,7 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 ### iOS Device Testing
 
 **Setup (Mac only)**
+
 - [ ] Xcode 14+ installed
 - [ ] Apple ID added to Xcode (Preferences → Accounts)
 - [ ] Provisioning profile created
@@ -47,12 +48,14 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] iPhone has iOS 14+ installed
 
 **Deployment**
+
 - [ ] App deployed to device successfully: `react-native run-ios --device "Device Name"`
 - [ ] App launches without crashing
 - [ ] Permissions granted (Storage, Camera, Network)
 - [ ] No crash on initial load
 
 **Feature Testing (iOS)**
+
 - [ ] login works (if auth required)
 - [ ] File picker opens and displays videos
 - [ ] Can select single file
@@ -71,6 +74,7 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] No memory leaks (app doesn't slow down)
 
 **Edge Cases (iOS)**
+
 - [ ] Backgrounding app pauses upload gracefully
 - [ ] Returning to app resumes progress
 - [ ] Screen rotation preserves UI state
@@ -82,6 +86,7 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] App doesn't crash under low memory (Android warns before iOS crashes)
 
 **Performance (iOS)**
+
 - [ ] App launches in <5 seconds
 - [ ] File picker opens in <2 seconds
 - [ ] Selecting 50 files takes <3 seconds
@@ -90,23 +95,26 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] No jank during animations
 
 **Security (iOS)**
+
 - [ ] Token stored securely (check with Instruments)
 - [ ] No API keys in console logs
 - [ ] No sensitive data in error messages
 - [ ] HTTPS enforced (if deployed)
 
 **Test Results (iOS)**
-- [ ] Critical issues: _____ (should be 0)
-- [ ] Major issues: _____ (should be 0)
-- [ ] Minor issues: _____ (acceptable if documented)
-- [ ] Tester: _______
-- [ ] Date: _______
-- [ ] Device: _______ (model, OS version)
+
+- [ ] Critical issues: **\_** (should be 0)
+- [ ] Major issues: **\_** (should be 0)
+- [ ] Minor issues: **\_** (acceptable if documented)
+- [ ] Tester: **\_\_\_**
+- [ ] Date: **\_\_\_**
+- [ ] Device: **\_\_\_** (model, OS version)
 - [ ] Status: ✅ Ready / ⚠️ Needs Fixes
 
 ### Android Device Testing
 
 **Setup (Windows/Mac/Linux)**
+
 - [ ] Android Studio installed
 - [ ] Android SDK 31+ installed
 - [ ] Android phone connected via USB
@@ -115,12 +123,14 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] Connection verified: `adb devices` shows device
 
 **Deployment**
+
 - [ ] App deployed successfully: `react-native run-android`
 - [ ] App launches without crashing
 - [ ] Permissions granted (Storage, Camera, Network)
 - [ ] No crash on initial load
 
 **Feature Testing (Android)**
+
 - [ ] Login works
 - [ ] File picker opens and displays videos
 - [ ] Can select single file
@@ -139,6 +149,7 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] No memory leaks (use Android Profiler)
 
 **Edge Cases (Android)**
+
 - [ ] Backgrounding app pauses upload gracefully
 - [ ] Returning to app resumes progress
 - [ ] Screen rotation preserves UI state
@@ -150,6 +161,7 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] App doesn't crash under low memory
 
 **Performance (Android)**
+
 - [ ] App launches in <5 seconds
 - [ ] File picker opens in <2 seconds
 - [ ] Selecting 50 files takes <3 seconds
@@ -158,18 +170,20 @@ Complete this checklist before submitting to iOS App Store and Google Play Store
 - [ ] 60fps animations (no jank)
 
 **Security (Android)**
+
 - [ ] Token stored securely (use Android Studio debugger)
 - [ ] No API keys in logcat
 - [ ] No sensitive data in error messages
 - [ ] HTTPS enforced
 
 **Test Results (Android)**
-- [ ] Critical issues: _____ (should be 0)
-- [ ] Major issues: _____ (should be 0)
-- [ ] Minor issues: _____ (acceptable if documented)
-- [ ] Tester: _______
-- [ ] Date: _______
-- [ ] Device: _______ (model, OS version, API level)
+
+- [ ] Critical issues: **\_** (should be 0)
+- [ ] Major issues: **\_** (should be 0)
+- [ ] Minor issues: **\_** (acceptable if documented)
+- [ ] Tester: **\_\_\_**
+- [ ] Date: **\_\_\_**
+- [ ] Device: **\_\_\_** (model, OS version, API level)
 - [ ] Status: ✅ Ready / ⚠️ Needs Fixes
 
 ### Device Testing Issues Log
@@ -331,16 +345,17 @@ Status: Open / In Progress / Fixed
 
 ## 📊 Sign-Off
 
-| Role | Name | Date | Status |
-|------|------|------|--------|
-| Developer | | | ✅ / ❌ |
-| QA Lead | | | ✅ / ❌ |
-| Product Manager | | | ✅ / ❌ |
-| Security Lead | | | ✅ / ❌ |
+| Role            | Name | Date | Status  |
+| --------------- | ---- | ---- | ------- |
+| Developer       |      |      | ✅ / ❌ |
+| QA Lead         |      |      | ✅ / ❌ |
+| Product Manager |      |      | ✅ / ❌ |
+| Security Lead   |      |      | ✅ / ❌ |
 
 **Overall Submission Status:** ✅ Ready / ⚠️ Conditional / ❌ Not Ready
 
 **Conditional Issues:**
+
 - [ ] (if applicable)
 - [ ] (if applicable)
 
@@ -350,15 +365,15 @@ Status: Open / In Progress / Fixed
 
 ## 🎯 Key Dates
 
-| Event | Actual | Target |
-|-------|--------|--------|
-| Device Testing Complete | | Week of Feb 17 |
-| Build for Distribution | | Feb 20 |
-| Submit to iOS | | Feb 23 |
-| Submit to Android | | Feb 23 |
-| iOS Review Complete | | Feb 25 |
-| Android Review Complete | | Feb 25 |
-| Live in Both Stores | | Feb 26 |
+| Event                   | Actual | Target         |
+| ----------------------- | ------ | -------------- |
+| Device Testing Complete |        | Week of Feb 17 |
+| Build for Distribution  |        | Feb 20         |
+| Submit to iOS           |        | Feb 23         |
+| Submit to Android       |        | Feb 23         |
+| iOS Review Complete     |        | Feb 25         |
+| Android Review Complete |        | Feb 25         |
+| Live in Both Stores     |        | Feb 26         |
 
 ---
 

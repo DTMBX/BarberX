@@ -92,7 +92,7 @@ a.btn {
 
 /* Ripple effect on click */
 .btn::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -128,7 +128,7 @@ a:not(.btn) {
 }
 
 a:not(.btn)::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -203,7 +203,7 @@ a:not(.btn):focus::after {
   border-radius: 4px;
 }
 
-[data-theme="dark"] .skeleton {
+[data-theme='dark'] .skeleton {
   background: linear-gradient(
     90deg,
     var(--stone-800) 0%,
@@ -248,8 +248,8 @@ a:not(.btn):focus::after {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.disclosure-trigger[aria-expanded="true"] svg,
-.disclosure-trigger[aria-expanded="true"] .icon {
+.disclosure-trigger[aria-expanded='true'] svg,
+.disclosure-trigger[aria-expanded='true'] .icon {
   transform: rotate(180deg);
 }
 
@@ -361,7 +361,7 @@ dialog[open] > div,
 }
 
 .nav-item::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -4px;
   left: 50%;
@@ -388,7 +388,7 @@ dialog[open] > div,
   }
 }
 
-.mobile-menu[data-open="true"] {
+.mobile-menu[data-open='true'] {
   animation: slide-in-from-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

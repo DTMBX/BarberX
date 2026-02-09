@@ -16,11 +16,13 @@
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
+
 ```bash
 pip install flask-login flask-sqlalchemy email-validator python-dotenv
 ```
 
 ### 2. Setup Flask App
+
 ```python
 from app_config import create_app
 
@@ -31,16 +33,19 @@ if __name__ == '__main__':
 ```
 
 ### 3. Initialize Database
+
 ```bash
 flask init-db
 ```
 
 ### 4. Create Admin User
+
 ```bash
 flask create-admin
 ```
 
 ### 5. Run Application
+
 ```bash
 flask run
 ```
@@ -79,6 +84,7 @@ app_config.py                           # Flask app configuration
 ## 🔐 Routes
 
 ### Authentication
+
 - `GET/POST /auth/register` - Register new account
 - `GET/POST /auth/login` - Login
 - `GET /auth/logout` - Logout
@@ -88,9 +94,11 @@ app_config.py                           # Flask app configuration
 - `GET/POST /auth/reset-password/<token>` - Reset password
 
 ### User
+
 - `GET /dashboard` - User dashboard
 
 ### Admin
+
 - `GET /admin/` - Admin dashboard
 - `GET /admin/users` - User management
 - `GET/POST /admin/users/<id>` - Edit user
@@ -100,12 +108,14 @@ app_config.py                           # Flask app configuration
 ## 🔑 API Endpoints
 
 ### Authentication API
+
 ```
 GET  /auth/api/me              # Get current user
 POST /auth/api/logout          # Logout via API
 ```
 
 ### Admin API
+
 ```
 GET  /admin/api/stats          # Get statistics
 GET  /admin/api/users/<id>     # Get user
@@ -123,13 +133,13 @@ GET  /admin/api/audit-logs     # Get audit logs
 
 ## 💰 Subscription Tiers
 
-| Feature | Free | Pro | Enterprise | Admin |
-|---------|------|-----|------------|-------|
-| API Calls/Month | 1K | 100K | Unlimited | Unlimited |
-| Storage | 1 GB | 100 GB | Unlimited | Unlimited |
-| Uploads | 1 | 5 | Unlimited | Unlimited |
-| Batch Processing | ✗ | ✓ | ✓ | ✓ |
-| Custom Models | ✗ | ✗ | ✓ | ✓ |
+| Feature          | Free | Pro    | Enterprise | Admin     |
+| ---------------- | ---- | ------ | ---------- | --------- |
+| API Calls/Month  | 1K   | 100K   | Unlimited  | Unlimited |
+| Storage          | 1 GB | 100 GB | Unlimited  | Unlimited |
+| Uploads          | 1    | 5      | Unlimited  | Unlimited |
+| Batch Processing | ✗    | ✓      | ✓          | ✓         |
+| Custom Models    | ✗    | ✗      | ✓          | ✓         |
 
 ## 🔐 Security Features
 
@@ -146,6 +156,7 @@ GET  /admin/api/audit-logs     # Get audit logs
 ## 📊 Admin Features
 
 ### Dashboard
+
 - Real-time user statistics
 - Tier distribution breakdown
 - Registration trends (7-day)
@@ -153,6 +164,7 @@ GET  /admin/api/audit-logs     # Get audit logs
 - Verification rate tracking
 
 ### User Management
+
 - Search and filter users
 - Edit user information
 - Change subscription tier
@@ -163,6 +175,7 @@ GET  /admin/api/audit-logs     # Get audit logs
 - Delete users (soft delete)
 
 ### Audit Logs
+
 - Complete action history
 - Searchable by action type
 - Filterable by user
@@ -172,6 +185,7 @@ GET  /admin/api/audit-logs     # Get audit logs
 ## 🛠️ Configuration
 
 ### Environment Variables
+
 ```bash
 # .env
 SECRET_KEY=your-secret-key-here-change-in-production
@@ -181,6 +195,7 @@ DEBUG=False
 ```
 
 ### Database
+
 - SQLite for development
 - PostgreSQL for production (recommended)
 - SQLAlchemy ORM

@@ -207,7 +207,7 @@ python app.py
 #### 3f. Test Checkout (4 min)
 
 - [ ] Go to `/pricing`
- - [ ] Click "Try Free for 14 Days" (PROFESSIONAL)
+- [ ] Click "Try Free for 14 Days" (PROFESSIONAL)
 - [ ] Enter test card: `4242 4242 4242 4242`
 - [ ] Complete checkout
 - [ ] Verify tier upgraded to PROFESSIONAL

@@ -3,8 +3,9 @@
 ## Overview
 
 You now have a complete, production-ready authentication system with:
+
 - ✅ User registration & login
-- ✅ Admin dashboard & user management  
+- ✅ Admin dashboard & user management
 - ✅ Role-based access control
 - ✅ Subscription tier system
 - ✅ Audit logging
@@ -17,20 +18,25 @@ This guide gets you running in **5 minutes**.
 ## 1️⃣ Initial Setup (1 minute)
 
 ### Windows CMD Users
+
 ```bash
 setup.bat
 ```
+
 Or with admin creation:
+
 ```bash
 setup.bat -create-admin
 ```
 
 ### Windows PowerShell Users
+
 ```bash
 .\setup.ps1
 ```
 
 ### macOS / Linux Users
+
 ```bash
 chmod +x setup.sh
 ./setup.sh
@@ -41,12 +47,15 @@ chmod +x setup.sh
 ## 2️⃣ Manual Setup (if scripts don't work)
 
 ### Step 1: Install Dependencies
+
 ```bash
 pip install flask-login flask-sqlalchemy email-validator python-dotenv
 ```
 
 ### Step 2: Create .env File
+
 Create `.env` in the root directory:
+
 ```env
 # Flask Configuration
 FLASK_APP=app.py
@@ -61,15 +70,19 @@ SECRET_KEY=dev-secret-key-change-in-production
 ```
 
 ### Step 3: Initialize Database
+
 ```bash
 flask init-db
 ```
 
 ### Step 4: Create Admin User
+
 ```bash
 flask create-admin
 ```
+
 You'll be prompted for:
+
 - Email
 - Username
 - Full Name
@@ -84,6 +97,7 @@ python app.py
 ```
 
 You should see:
+
 ```
 ========================================================
 🚀 EVIDENT PLATFORM - Starting...
@@ -108,6 +122,7 @@ Press CTRL+C to stop the server
 ## 🔐 Test the System
 
 ### 1. First Time Setup
+
 1. Visit `http://localhost:5000/`
 2. Click **"Create Account"** (or go to `/auth/register`)
 3. Fill in the registration form:
@@ -119,16 +134,19 @@ Press CTRL+C to stop the server
 4. Click **Register**
 
 ### 2. Login
+
 1. Go to `http://localhost:5000/auth/login`
 2. Use your email and password
 3. Check "Remember me" to stay logged in
 4. Click **Login**
 
 ### 3. View Your Dashboard
+
 - You'll be redirected to `http://localhost:5000/dashboard`
 - See your profile info, account tier, limits
 
 ### 4. Access Admin Panel (Admin Only)
+
 1. Login as the admin user you created
 2. Visit `http://localhost:5000/admin/`
 3. Explore admin features:
@@ -163,37 +181,41 @@ flask init-db
 ## 📍 URL Reference
 
 ### Public Pages
-| URL | Description |
-|-----|-------------|
-| `/` | Homepage |
-| `/auth/login` | User login |
-| `/auth/register` | User registration |
+
+| URL                     | Description            |
+| ----------------------- | ---------------------- |
+| `/`                     | Homepage               |
+| `/auth/login`           | User login             |
+| `/auth/register`        | User registration      |
 | `/auth/forgot-password` | Password reset request |
 
 ### Authenticated User Pages
-| URL | Description |
-|-----|-------------|
-| `/dashboard` | User dashboard |
-| `/auth/profile` | Profile management |
-| `/auth/change-password` | Change password |
+
+| URL                     | Description        |
+| ----------------------- | ------------------ |
+| `/dashboard`            | User dashboard     |
+| `/auth/profile`         | Profile management |
+| `/auth/change-password` | Change password    |
 
 ### Admin Pages (Admin Only)
-| URL | Description |
-|-----|-------------|
-| `/admin/` | Admin dashboard |
-| `/admin/users` | User management |
-| `/admin/users/<id>` | Edit user |
+
+| URL                 | Description     |
+| ------------------- | --------------- |
+| `/admin/`           | Admin dashboard |
+| `/admin/users`      | User management |
+| `/admin/users/<id>` | Edit user       |
 
 ### API Endpoints
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/auth/api/me` | GET | Get current user info |
-| `/auth/api/logout` | POST | Logout current user |
-| `/admin/api/stats` | GET | Get admin statistics |
-| `/admin/api/users/<id>` | GET | Get user details |
-| `/admin/api/users/<id>` | PUT | Update user |
-| `/admin/api/users/<id>` | DELETE | Delete user |
-| `/admin/api/audit-logs` | GET | Get audit logs |
+
+| Endpoint                | Method | Description           |
+| ----------------------- | ------ | --------------------- |
+| `/auth/api/me`          | GET    | Get current user info |
+| `/auth/api/logout`      | POST   | Logout current user   |
+| `/admin/api/stats`      | GET    | Get admin statistics  |
+| `/admin/api/users/<id>` | GET    | Get user details      |
+| `/admin/api/users/<id>` | PUT    | Update user           |
+| `/admin/api/users/<id>` | DELETE | Delete user           |
+| `/admin/api/audit-logs` | GET    | Get audit logs        |
 
 ---
 
@@ -218,9 +240,11 @@ flask init-db
 ## 🐛 Troubleshooting
 
 ### "Could not locate a Flask application"
+
 ✅ **Fixed** - `app.py` is now present for Flask auto-discovery
 
 ### "Database error"
+
 ```bash
 # Reset the database
 rm Evident.db
@@ -228,19 +252,23 @@ flask init-db
 ```
 
 ### Port 5000 already in use
+
 ```bash
 # Use different port
 flask run --port 5001
 ```
 
 ### Dependency errors
+
 ```bash
 # Reinstall all dependencies
 pip install -r requirements.txt
 ```
 
 ### .env file not found
+
 The setup script creates it automatically. If manual setup:
+
 ```bash
 # Copy the .env template
 cp .env.example .env
@@ -254,7 +282,7 @@ cp .env.example .env
 For detailed information, see:
 
 - **[AUTH_SYSTEM.md](docs/AUTH_SYSTEM.md)** - Complete authentication system documentation
-- **[API_REFERENCE.md](docs/API_REFERENCE.md)** - API endpoints reference  
+- **[API_REFERENCE.md](docs/API_REFERENCE.md)** - API endpoints reference
 - **[DASHBOARD_AUTH_UPGRADE_SUMMARY.md](docs/DASHBOARD_AUTH_UPGRADE_SUMMARY.md)** - Implementation summary
 - **[INTEGRATION_GUIDE.py](auth/INTEGRATION_GUIDE.py)** - Integration instructions
 
@@ -263,12 +291,14 @@ For detailed information, see:
 ## 🚀 Production Deployment
 
 ### Using Gunicorn
+
 ```bash
 pip install gunicorn
 gunicorn wsgi:app
 ```
 
 ### Environment Variables for Production
+
 ```env
 FLASK_ENV=production
 DEBUG=False
@@ -277,6 +307,7 @@ SQLALCHEMY_DATABASE_URI=postgresql://user:pass@localhost/evident
 ```
 
 ### Before Deploying
+
 1. Change `SECRET_KEY` to a secure random value
 2. Use PostgreSQL instead of SQLite
 3. Enable HTTPS

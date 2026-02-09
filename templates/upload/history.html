@@ -1,486 +1,491 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload History - Evident</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f6f7f9;
-            min-height: 100vh;
-            padding: 2rem;
-        }
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        background: #f6f7f9;
+        min-height: 100vh;
+        padding: 2rem;
+      }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
 
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        color: #1a202c;
+        font-size: 2rem;
+      }
+
+      .btn {
+        background: linear-gradient(135deg, #0b73d2 0%, #0956a1 100%);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(11, 115, 210, 0.3);
+      }
+
+      /* Statistics */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0b73d2;
+      }
+
+      .stat-label {
+        color: #718096;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Batches */
+      .batches-section {
+        background: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        padding: 1.5rem;
+        border-bottom: 1px solid #e2e8f0;
+        font-weight: 600;
+        color: #1a202c;
+      }
+
+      .empty-state {
+        padding: 3rem;
+        text-align: center;
+        color: #718096;
+      }
+
+      .empty-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+
+      .batch-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .batch-item {
+        padding: 1.5rem;
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .batch-item:hover {
+        background: #f7fafc;
+      }
+
+      .batch-item:last-child {
+        border-bottom: none;
+      }
+
+      .batch-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+
+      .batch-id {
+        font-weight: 600;
+        color: #1a202c;
+        font-family: monospace;
+      }
+
+      .batch-date {
+        color: #718096;
+        font-size: 0.875rem;
+      }
+
+      .batch-stats {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .batch-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+      }
+
+      .stat-icon {
+        font-size: 1rem;
+      }
+
+      .stat-success {
+        color: #10b981;
+      }
+
+      .stat-error {
+        color: #ef4444;
+      }
+
+      .stat-info {
+        color: #718096;
+      }
+
+      .batch-files {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e2e8f0;
+        display: none;
+      }
+
+      .batch-item.expanded .batch-files {
+        display: block;
+      }
+
+      .expand-icon {
+        transition: transform 0.2s ease;
+      }
+
+      .batch-item.expanded .expand-icon {
+        transform: rotate(180deg);
+      }
+
+      .file-item {
+        background: #f7fafc;
+        padding: 1rem;
+        border-radius: 0.375rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .file-icon {
+        font-size: 1.5rem;
+      }
+
+      .file-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .file-name {
+        font-weight: 600;
+        color: #1a202c;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .file-details {
+        color: #718096;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+      }
+
+      .file-status {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+
+      .file-status.success {
+        background: #ecfdf5;
+        color: #10b981;
+      }
+
+      .file-status.error {
+        background: #fef2f2;
+        color: #ef4444;
+      }
+
+      .filter-bar {
+        padding: 1rem 1.5rem;
+        background: #f7fafc;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        background: white;
+        border: 1px solid #cbd5e0;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+      }
+
+      .filter-btn.active {
+        background: #0b73d2;
+        color: white;
+        border-color: #0b73d2;
+      }
+
+      .filter-btn:hover:not(.active) {
+        border-color: #0b73d2;
+      }
+
+      @media (max-width: 768px) {
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2rem;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
         }
 
-        h1 {
-            color: #1a202c;
-            font-size: 2rem;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #0b73d2 0%, #0956a1 100%);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(11, 115, 210, 0.3);
-        }
-
-        /* Statistics */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0b73d2;
-        }
-
-        .stat-label {
-            color: #718096;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Batches */
-        .batches-section {
-            background: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-title {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            font-weight: 600;
-            color: #1a202c;
-        }
-
-        .empty-state {
-            padding: 3rem;
-            text-align: center;
-            color: #718096;
-        }
-
-        .empty-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        .batch-list {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .batch-item {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .batch-item:hover {
-            background: #f7fafc;
-        }
-
-        .batch-item:last-child {
-            border-bottom: none;
-        }
-
-        .batch-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .batch-id {
-            font-weight: 600;
-            color: #1a202c;
-            font-family: monospace;
-        }
-
-        .batch-date {
-            color: #718096;
-            font-size: 0.875rem;
+          grid-template-columns: 1fr;
         }
 
         .batch-stats {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .batch-stat {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-        }
-
-        .stat-icon {
-            font-size: 1rem;
-        }
-
-        .stat-success {
-            color: #10b981;
-        }
-
-        .stat-error {
-            color: #ef4444;
-        }
-
-        .stat-info {
-            color: #718096;
-        }
-
-        .batch-files {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-            display: none;
-        }
-
-        .batch-item.expanded .batch-files {
-            display: block;
-        }
-
-        .expand-icon {
-            transition: transform 0.2s ease;
-        }
-
-        .batch-item.expanded .expand-icon {
-            transform: rotate(180deg);
+          flex-direction: column;
+          gap: 0.5rem;
         }
 
         .file-item {
-            background: #f7fafc;
-            padding: 1rem;
-            border-radius: 0.375rem;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+          flex-direction: column;
+          align-items: flex-start;
         }
-
-        .file-icon {
-            font-size: 1.5rem;
-        }
-
-        .file-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .file-name {
-            font-weight: 600;
-            color: #1a202c;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .file-details {
-            color: #718096;
-            font-size: 0.75rem;
-            margin-top: 0.25rem;
-        }
-
-        .file-status {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .file-status.success {
-            background: #ecfdf5;
-            color: #10b981;
-        }
-
-        .file-status.error {
-            background: #fef2f2;
-            color: #ef4444;
-        }
-
-        .filter-bar {
-            padding: 1rem 1.5rem;
-            background: #f7fafc;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            background: white;
-            border: 1px solid #cbd5e0;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            font-size: 0.875rem;
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn.active {
-            background: #0b73d2;
-            color: white;
-            border-color: #0b73d2;
-        }
-
-        .filter-btn:hover:not(.active) {
-            border-color: #0b73d2;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .batch-stats {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .file-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>📋 Upload History</h1>
-            <a href="/upload/batch" class="btn">📤 Upload New</a>
-        </div>
+      <!-- Header -->
+      <div class="header">
+        <h1>📋 Upload History</h1>
+        <a href="/upload/batch" class="btn">📤 Upload New</a>
+      </div>
 
-        <!-- Statistics -->
-        <div class="stats-grid" id="statsGrid"></div>
+      <!-- Statistics -->
+      <div class="stats-grid" id="statsGrid"></div>
 
-        <!-- Batches -->
-        <div class="batches-section">
-            <div class="section-title">Recent Uploads</div>
-            <div class="filter-bar">
-                <button class="filter-btn active" onclick="filterByStatus('all')">All</button>
-                <button class="filter-btn" onclick="filterByStatus('success')">✅ Successful</button>
-                <button class="filter-btn" onclick="filterByStatus('error')">❌ Failed</button>
-            </div>
-            <div id="batchList" class="batch-list">
-                <div class="empty-state">
-                    <div class="empty-icon">📁</div>
-                    <p>No uploads yet</p>
-                    <p style="font-size: 0.875rem; margin-top: 0.5rem;">
-                        <a href="/upload/batch" style="color: #0b73d2;">Start uploading files</a>
-                    </p>
-                </div>
-            </div>
+      <!-- Batches -->
+      <div class="batches-section">
+        <div class="section-title">Recent Uploads</div>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterByStatus('all')">All</button>
+          <button class="filter-btn" onclick="filterByStatus('success')">✅ Successful</button>
+          <button class="filter-btn" onclick="filterByStatus('error')">❌ Failed</button>
         </div>
+        <div id="batchList" class="batch-list">
+          <div class="empty-state">
+            <div class="empty-icon">📁</div>
+            <p>No uploads yet</p>
+            <p style="font-size: 0.875rem; margin-top: 0.5rem">
+              <a href="/upload/batch" style="color: #0b73d2">Start uploading files</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        let allBatches = [];
-        let filteredBatches = [];
+      let allBatches = [];
+      let filteredBatches = [];
 
-        async function loadData() {
-            try {
-                // Load stats
-                const statsResponse = await fetch('/upload/api/stats');
-                const stats = await statsResponse.json();
+      async function loadData() {
+          try {
+              // Load stats
+              const statsResponse = await fetch('/upload/api/stats');
+              const stats = await statsResponse.json();
 
-                const statsGrid = document.getElementById('statsGrid');
-                statsGrid.innerHTML = `
-                    <div class="stat-card">
-                        <div class="stat-value">${stats.total_uploads}</div>
-                        <div class="stat-label">Total Uploads</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">${stats.total_batches}</div>
-                        <div class="stat-label">Batches</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">${stats.total_size_mb.toFixed(1)} MB</div>
-                        <div class="stat-label">Storage Used</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">${Math.round(stats.quota_usage_percent)}%</div>
-                        <div class="stat-label">Quota Usage</div>
-                    </div>
-                `;
+              const statsGrid = document.getElementById('statsGrid');
+              statsGrid.innerHTML = `
+                  <div class="stat-card">
+                      <div class="stat-value">${stats.total_uploads}</div>
+                      <div class="stat-label">Total Uploads</div>
+                  </div>
+                  <div class="stat-card">
+                      <div class="stat-value">${stats.total_batches}</div>
+                      <div class="stat-label">Batches</div>
+                  </div>
+                  <div class="stat-card">
+                      <div class="stat-value">${stats.total_size_mb.toFixed(1)} MB</div>
+                      <div class="stat-label">Storage Used</div>
+                  </div>
+                  <div class="stat-card">
+                      <div class="stat-value">${Math.round(stats.quota_usage_percent)}%</div>
+                      <div class="stat-label">Quota Usage</div>
+                  </div>
+              `;
 
-            } catch (error) {
-                console.error('Error loading stats:', error);
-            }
+          } catch (error) {
+              console.error('Error loading stats:', error);
+          }
 
-            // Load history (done server-side via template)
-            displayBatches();
-        }
+          // Load history (done server-side via template)
+          displayBatches();
+      }
 
-        function displayBatches() {
-            const batchList = document.getElementById('batchList');
+      function displayBatches() {
+          const batchList = document.getElementById('batchList');
 
-            if (!batchesData || batchesData.length === 0) {
-                batchList.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📁</div>
-                        <p>No uploads yet</p>
-                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">
-                            <a href="/upload/batch" style="color: #0b73d2;">Start uploading files</a>
-                        </p>
-                    </div>
-                `;
-                return;
-            }
+          if (!batchesData || batchesData.length === 0) {
+              batchList.innerHTML = `
+                  <div class="empty-state">
+                      <div class="empty-icon">📁</div>
+                      <p>No uploads yet</p>
+                      <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+                          <a href="/upload/batch" style="color: #0b73d2;">Start uploading files</a>
+                      </p>
+                  </div>
+              `;
+              return;
+          }
 
-            batchList.innerHTML = '';
+          batchList.innerHTML = '';
 
-            batchesData.forEach(batch => {
-                const batchEl = document.createElement('div');
-                batchEl.className = 'batch-item';
-                batchEl.onclick = () => toggleBatch(batchEl);
+          batchesData.forEach(batch => {
+              const batchEl = document.createElement('div');
+              batchEl.className = 'batch-item';
+              batchEl.onclick = () => toggleBatch(batchEl);
 
-                const timestamp = new Date(batch.timestamp).toLocaleString();
-                const successful = batch.results.filter(r => r.status === 'completed').length;
-                const failed = batch.results.filter(r => r.status === 'failed').length;
+              const timestamp = new Date(batch.timestamp).toLocaleString();
+              const successful = batch.results.filter(r => r.status === 'completed').length;
+              const failed = batch.results.filter(r => r.status === 'failed').length;
 
-                let filesHtml = '';
-                batch.results.forEach(result => {
-                    const icon = getFileIcon(result.media_type);
-                    const status = result.status === 'completed' ? 'success' : 'error';
-                    filesHtml += `
-                        <div class="file-item">
-                            <div class="file-icon">${icon}</div>
-                            <div class="file-info">
-                                <div class="file-name">${result.filename}</div>
-                                <div class="file-details">
-                                    ${(result.file_size / 1024 / 1024).toFixed(2)} MB • ${result.processing_time.toFixed(2)}s
-                                </div>
-                            </div>
-                            <div class="file-status ${status}">
-                                ${status === 'success' ? '✓' : '✕'}
-                            </div>
-                        </div>
-                    `;
-                });
+              let filesHtml = '';
+              batch.results.forEach(result => {
+                  const icon = getFileIcon(result.media_type);
+                  const status = result.status === 'completed' ? 'success' : 'error';
+                  filesHtml += `
+                      <div class="file-item">
+                          <div class="file-icon">${icon}</div>
+                          <div class="file-info">
+                              <div class="file-name">${result.filename}</div>
+                              <div class="file-details">
+                                  ${(result.file_size / 1024 / 1024).toFixed(2)} MB • ${result.processing_time.toFixed(2)}s
+                              </div>
+                          </div>
+                          <div class="file-status ${status}">
+                              ${status === 'success' ? '✓' : '✕'}
+                          </div>
+                      </div>
+                  `;
+              });
 
-                batchEl.innerHTML = `
-                    <div class="batch-header">
-                        <div>
-                            <div class="batch-id">Batch ${batch.batch_id.split('_').slice(-1)[0]}</div>
-                            <div class="batch-date">${timestamp}</div>
-                        </div>
-                        <div class="expand-icon">▼</div>
-                    </div>
-                    <div class="batch-stats">
-                        <div class="batch-stat stat-success">
-                            <span class="stat-icon">✓</span>
-                            <span>${successful} successful</span>
-                        </div>
-                        <div class="batch-stat stat-error">
-                            <span class="stat-icon">✕</span>
-                            <span>${failed} failed</span>
-                        </div>
-                        <div class="batch-stat stat-info">
-                            <span class="stat-icon">📦</span>
-                            <span>${batch.file_count} files</span>
-                        </div>
-                    </div>
-                    <div class="batch-files">
-                        ${filesHtml}
-                    </div>
-                `;
+              batchEl.innerHTML = `
+                  <div class="batch-header">
+                      <div>
+                          <div class="batch-id">Batch ${batch.batch_id.split('_').slice(-1)[0]}</div>
+                          <div class="batch-date">${timestamp}</div>
+                      </div>
+                      <div class="expand-icon">▼</div>
+                  </div>
+                  <div class="batch-stats">
+                      <div class="batch-stat stat-success">
+                          <span class="stat-icon">✓</span>
+                          <span>${successful} successful</span>
+                      </div>
+                      <div class="batch-stat stat-error">
+                          <span class="stat-icon">✕</span>
+                          <span>${failed} failed</span>
+                      </div>
+                      <div class="batch-stat stat-info">
+                          <span class="stat-icon">📦</span>
+                          <span>${batch.file_count} files</span>
+                      </div>
+                  </div>
+                  <div class="batch-files">
+                      ${filesHtml}
+                  </div>
+              `;
 
-                batchList.appendChild(batchEl);
-            });
-        }
+              batchList.appendChild(batchEl);
+          });
+      }
 
-        function toggleBatch(el) {
-            el.classList.toggle('expanded');
-        }
+      function toggleBatch(el) {
+          el.classList.toggle('expanded');
+      }
 
-        function filterByStatus(status) {
-            // Update active button
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+      function filterByStatus(status) {
+          // Update active button
+          document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+          event.target.classList.add('active');
 
-            // Filter and display
-            if (status === 'all') {
-                displayBatches();
-            } else {
-                // Implement filtering logic if needed
-                displayBatches();
-            }
-        }
+          // Filter and display
+          if (status === 'all') {
+              displayBatches();
+          } else {
+              // Implement filtering logic if needed
+              displayBatches();
+          }
+      }
 
-        function getFileIcon(mediaType) {
-            const icons = {
-                'video': '🎬',
-                'audio': '🎵',
-                'image': '🖼️',
-                'pdf': '📕',
-                'document': '📄',
-                'unknown': '❓'
-            };
-            return icons[mediaType] || icons['unknown'];
-        }
+      function getFileIcon(mediaType) {
+          const icons = {
+              'video': '🎬',
+              'audio': '🎵',
+              'image': '🖼️',
+              'pdf': '📕',
+              'document': '📄',
+              'unknown': '❓'
+          };
+          return icons[mediaType] || icons['unknown'];
+      }
 
-        // Injected from template
-        let batchesData = {{ batches | tojson }};
+      // Injected from template
+      let batchesData = {{ batches | tojson }};
 
-        // Load on page load
-        window.addEventListener('load', loadData);
+      // Load on page load
+      window.addEventListener('load', loadData);
     </script>
-</body>
+  </body>
 </html>

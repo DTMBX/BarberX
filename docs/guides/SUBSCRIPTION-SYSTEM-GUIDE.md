@@ -60,12 +60,12 @@ system** with Stripe integration, usage tracking, and access gating for Evident.
 
 ### **Tier Structure**
 
-| Tier           | Price   | Trial  | PDF Limit | Video Limit | Cases     | Features                 |
-| -------------- | ------- | ------ | --------- | ----------- | --------- | ------------------------ |
-| **FREE**       | $0      | —      | 1 doc     | ❌          | 1         | Basic                    |
+| Tier           | Price   | Trial   | PDF Limit | Video Limit | Cases     | Features                 |
+| -------------- | ------- | ------- | --------- | ----------- | --------- | ------------------------ |
+| **FREE**       | $0      | —       | 1 doc     | ❌          | 1         | Basic                    |
 | **PRO**        | $49/mo  | 14 days | 10 docs   | 2 hrs/mo    | 10        | AI Assistant (Basic)     |
-| **PREMIUM**    | $249/mo | ❌     | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline   |
-| **ENTERPRISE** | Custom  | ❌     | Unlimited | Unlimited   | Unlimited | Self-Hosted, White-Label |
+| **PREMIUM**    | $249/mo | ❌      | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline   |
+| **ENTERPRISE** | Custom  | ❌      | Unlimited | Unlimited   | Unlimited | Self-Hosted, White-Label |
 
 ### **Usage Tracking**
 

@@ -60,6 +60,7 @@ curl http://localhost:5000/health  # Backend running ✓
 ## ✅ What to Test on Device
 
 ### Must Work
+
 - [ ] App launches
 - [ ] Login works
 - [ ] Select files (tap button)
@@ -72,6 +73,7 @@ curl http://localhost:5000/health  # Backend running ✓
 - [ ] App doesn't crash
 
 ### Nice to Test
+
 - [ ] Orientation change (rotate phone)
 - [ ] Background/foreground (press home, return)
 - [ ] Slow network (toggle WiFi)
@@ -83,6 +85,7 @@ curl http://localhost:5000/health  # Backend running ✓
 ## 🐛 Debug If Something Breaks
 
 ### iOS
+
 ```bash
 # View logs in Xcode
 # Window → Devices and Simulators → Your iPhone → Console
@@ -92,6 +95,7 @@ log stream --device-id <UDID> | grep -i error
 ```
 
 ### Android
+
 ```bash
 # View logs
 adb logcat | grep "VideoUpload\|RN"
@@ -105,6 +109,7 @@ adb logcat *:E
 ## 📝 Report Issues
 
 When testing, note down:
+
 - **What happened** - "App crashed when selecting 50 files"
 - **Expected** - "Should select 50 files without crashing"
 - **Device** - "iPhone 14 Pro, iOS 17.2"
@@ -116,6 +121,7 @@ When testing, note down:
 ## ✨ Success = Ready for App Store
 
 When these are all true:
+
 - ✅ No crashes
 - ✅ All features work
 - ✅ Performance is good (app starts in <5 seconds)
@@ -128,14 +134,14 @@ When these are all true:
 
 ## 🆘 Common Problems
 
-| Problem | Fix |
-|---------|-----|
-| "Device not found" | Reconnect USB, restart `adb devices` |
-| "Permission denied" | Tap "Trust" on iPhone, or `adb revoke` on Android |
-| "WebSocket connection failed" | Check backend is running: `curl localhost:5000` |
-| "API 404 Not Found" | Verify `REACT_APP_API_URL` matches your backend IP |
-| "Out of memory" | Close other apps, restart phone |
-| "Build failed" | Run `npm install` again in mobile folder |
+| Problem                       | Fix                                                |
+| ----------------------------- | -------------------------------------------------- |
+| "Device not found"            | Reconnect USB, restart `adb devices`               |
+| "Permission denied"           | Tap "Trust" on iPhone, or `adb revoke` on Android  |
+| "WebSocket connection failed" | Check backend is running: `curl localhost:5000`    |
+| "API 404 Not Found"           | Verify `REACT_APP_API_URL` matches your backend IP |
+| "Out of memory"               | Close other apps, restart phone                    |
+| "Build failed"                | Run `npm install` again in mobile folder           |
 
 ---
 

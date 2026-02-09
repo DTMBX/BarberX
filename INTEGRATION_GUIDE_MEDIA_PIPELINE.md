@@ -20,20 +20,20 @@ The Evident platform now includes a **complete media processing pipeline** with:
 
 ### New Modules
 
-| File | Purpose | Status |
-|------|---------|--------|
-| `requirements-media-ai.txt` | Complete dependency list (proper install order) | ✅ Ready |
-| `services/media_processor.py` | Media processing engine | ✅ Complete |
-| `routes/upload_routes.py` | Flask upload endpoints | ✅ Complete |
-| `templates/upload/single.html` | Single file UI | ✅ Complete |
-| `templates/upload/batch.html` | Batch upload UI | ✅ Complete |
-| `templates/upload/history.html` | Upload history viewer | ✅ Complete |
-| `MEDIA_PROCESSING_SETUP.md` | Setup documentation | ✅ Complete |
+| File                            | Purpose                                         | Status      |
+| ------------------------------- | ----------------------------------------------- | ----------- |
+| `requirements-media-ai.txt`     | Complete dependency list (proper install order) | ✅ Ready    |
+| `services/media_processor.py`   | Media processing engine                         | ✅ Complete |
+| `routes/upload_routes.py`       | Flask upload endpoints                          | ✅ Complete |
+| `templates/upload/single.html`  | Single file UI                                  | ✅ Complete |
+| `templates/upload/batch.html`   | Batch upload UI                                 | ✅ Complete |
+| `templates/upload/history.html` | Upload history viewer                           | ✅ Complete |
+| `MEDIA_PROCESSING_SETUP.md`     | Setup documentation                             | ✅ Complete |
 
 ### Updated Modules
 
-| File | Changes | Status |
-|------|---------|--------|
+| File            | Changes                                                             | Status     |
+| --------------- | ------------------------------------------------------------------- | ---------- |
 | `app_config.py` | Register upload blog, increase upload limits, configure media types | ✅ Updated |
 
 ---
@@ -43,21 +43,25 @@ The Evident platform now includes a **complete media processing pipeline** with:
 ### Phase 1: Install Dependencies
 
 **Step 1: Update pip**
+
 ```bash
 python -m pip install --upgrade pip
 ```
 
 **Step 2: Install core framework** (required first)
+
 ```bash
 pip install Flask==3.1.2 Flask-SQLAlchemy==3.1.1 SQLAlchemy==2.0.36
 ```
 
 **Step 3: Install media processing libraries**
+
 ```bash
 pip install Pillow==11.0.0 pypdf==6.6.2 pdf2image==1.17.0
 ```
 
 **Step 4: Optional - Install AI/ML libraries** (if needed)
+
 ```bash
 # Audio transcription
 pip install openai-whisper==20231117
@@ -70,6 +74,7 @@ pip install ffmpeg-python==0.2.1 moviepy==1.0.3
 ```
 
 **Or: Install all at once**
+
 ```bash
 pip install -r requirements-media-ai.txt
 ```
@@ -81,6 +86,7 @@ python verify-system.py
 ```
 
 Should show:
+
 ```
 ✅ Python 3.9+
 ✅ Flask installed
@@ -97,6 +103,7 @@ flask init-db
 ```
 
 Creates all tables including:
+
 - User accounts
 - Upload metadata
 - Batch processing logs
@@ -109,6 +116,7 @@ flask create-admin
 ```
 
 Prompts for:
+
 - Email: `admin@Evident.info`
 - Username: `admin`
 - Password: (secure password)
@@ -124,6 +132,7 @@ python app.py
 ```
 
 Output:
+
 ```
 ================================================================================
 🚀 EVIDENT PLATFORM - STARTING
@@ -180,6 +189,7 @@ uploads/
 ```
 
 Each batch file contains:
+
 ```json
 {
   "batch_id": "batch_20250208_143022",
@@ -210,6 +220,7 @@ Each batch file contains:
 **URL**: `http://localhost:5000/upload/single`
 
 **Features**:
+
 - Drag & drop interface
 - Real-time file validation
 - Progress tracking
@@ -217,6 +228,7 @@ Each batch file contains:
 - Error handling
 
 **Flow**:
+
 1. User selects file or drags/drops
 2. File validated (size, type)
 3. Uploaded to `uploads/user_{id}/{date}/`
@@ -229,6 +241,7 @@ Each batch file contains:
 **URL**: `http://localhost:5000/upload/batch`
 
 **Features**:
+
 - Upload 1-50 files simultaneously
 - Per-file progress tracking
 - Batch summary
@@ -236,6 +249,7 @@ Each batch file contains:
 - Processing analytics
 
 **Flow**:
+
 1. User selects multiple files
 2. All files validated in parallel
 3. Files uploaded and queued
@@ -248,6 +262,7 @@ Each batch file contains:
 **URL**: `http://localhost:5000/upload/history`
 
 **Features**:
+
 - View all uploads and batches
 - Storage usage tracking
 - Expandable batch details
@@ -261,6 +276,7 @@ Each batch file contains:
 ### Upload Operations
 
 #### Upload Single File
+
 ```http
 POST /upload/single
 Content-Type: multipart/form-data
@@ -283,6 +299,7 @@ Content-Type: multipart/form-data
 ```
 
 #### Upload Batch
+
 ```http
 POST /upload/batch
 Content-Type: multipart/form-data
@@ -320,26 +337,31 @@ files: [video.mp4, image.jpg, document.pdf, ...]
 ### Management Endpoints
 
 #### Get Upload Status
+
 ```bash
 curl -X GET http://localhost:5000/upload/api/status/{file_id}
 ```
 
 #### Delete Upload
+
 ```bash
 curl -X DELETE http://localhost:5000/upload/api/delete/{file_id}
 ```
 
 #### Get Batch History
+
 ```bash
 curl -X GET http://localhost:5000/upload/history
 ```
 
 #### Get Statistics
+
 ```bash
 curl -X GET http://localhost:5000/upload/api/stats
 ```
 
 Returns:
+
 ```json
 {
   "total_uploads": 42,
@@ -355,26 +377,31 @@ Returns:
 ## 🧠 Media Type Handling
 
 ### Image Processing
+
 - **Formats**: JPEG, PNG, GIF, BMP, WebP, TIFF
 - **Max Size**: 10 MB
 - **Extraction**: Dimensions, format, colorspace
 
 ### PDF Processing
+
 - **Format**: PDF
 - **Max Size**: 50 MB
 - **Extraction**: Page count, title, author, text (first page)
 
 ### Video Processing
+
 - **Formats**: MP4, AVI, MOV, MKV, WebM, FLV
 - **Max Size**: 500 MB
 - **Extraction**: Duration, resolution, framerate (framework ready)
 
 ### Audio Processing
+
 - **Formats**: MP3, WAV, FLAC, AAC, WMA, M4A
 - **Max Size**: 100 MB
 - **Extraction**: Duration, bitrate, sample rate (framework ready)
 
 ### Document Processing
+
 - **Formats**: DOCX, XLSX, PPTX, TXT, RTF
 - **Max Size**: 25 MB
 - **Extraction**: Type, encoding (framework ready)
@@ -432,16 +459,16 @@ def extract_video_frames(file_path, num_frames=5):
     cap = cv2.VideoCapture(file_path)
     frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = cap.get(cv2.CAP_PROP_FPS)
-    
+
     frames = []
     interval = frame_count // num_frames
-    
+
     for i in range(num_frames):
         cap.set(cv2.CAP_PROP_POS_FRAMES, i * interval)
         ret, frame = cap.read()
         if ret:
             frames.append(frame)
-    
+
     cap.release()
     return frames
 
@@ -613,14 +640,14 @@ gunicorn -w 4 \
 
 ## 📚 Quick Reference
 
-| Task | Command |
-|------|---------|
+| Task         | Command                                    |
+| ------------ | ------------------------------------------ |
 | Install deps | `pip install -r requirements-media-ai.txt` |
-| Start server | `python app.py` |
-| View uploads | `http://localhost:5000/upload/history` |
-| Check stats | `GET /upload/api/stats` |
-| Create admin | `flask create-admin` |
-| List users | `flask list-users` |
+| Start server | `python app.py`                            |
+| View uploads | `http://localhost:5000/upload/history`     |
+| Check stats  | `GET /upload/api/stats`                    |
+| Create admin | `flask create-admin`                       |
+| List users   | `flask list-users`                         |
 
 ---
 
@@ -629,6 +656,7 @@ gunicorn -w 4 \
 ### Manual Test
 
 1. **Start Server**
+
    ```bash
    python app.py
    ```

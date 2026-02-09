@@ -71,8 +71,8 @@ Change drawer width in `mobile-nav-drawer.js`:
 
 ```javascript
 const CONFIG = {
-  drawerWidth: "85%", // Mobile width
-  maxDrawerWidth: "400px", // Desktop max width
+  drawerWidth: '85%', // Mobile width
+  maxDrawerWidth: '400px', // Desktop max width
   // ...
 };
 ```
@@ -157,7 +157,7 @@ MobileNav.toggle();
 
 // Check if open
 if (MobileNav.isOpen()) {
-  console.log("Drawer is open");
+  console.log('Drawer is open');
 }
 ```
 

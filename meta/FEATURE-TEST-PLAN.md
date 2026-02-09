@@ -286,7 +286,7 @@
 - [ ] Stripe pricing table display
 - [ ] Subscription upgrade flow
 - [ ] Subscription downgrade flow
- - [ ] Trial period activation (PRO: 14 days)
+- [ ] Trial period activation (PRO: 14 days)
 - [ ] Overage billing calculation (STARTER, PREMIUM)
 - [ ] Payment method management
 - [ ] Subscription cancellation

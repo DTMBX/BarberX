@@ -9,6 +9,7 @@ This project adheres to a Code of Conduct to ensure a welcoming and inclusive en
 ## Getting Started
 
 ### Prerequisites
+
 - Git
 - Python 3.12+
 - Node.js 20+
@@ -18,11 +19,13 @@ This project adheres to a Code of Conduct to ensure a welcoming and inclusive en
 ### Setup Development Environment
 
 **Windows:**
+
 ```powershell
 .\infrastructure\scripts\setup.ps1
 ```
 
 **macOS/Linux:**
+
 ```bash
 ./infrastructure/scripts/setup.sh
 ```
@@ -51,6 +54,7 @@ git checkout -b feature/your-feature-name g8-pages
 ```
 
 Branch naming conventions:
+
 - `feature/` - New features
 - `fix/` - Bug fixes
 - `docs/` - Documentation
@@ -61,6 +65,7 @@ Branch naming conventions:
 ### 2. Make Your Changes
 
 **Backend changes:**
+
 ```bash
 cd src/backend
 # Edit files, add tests
@@ -68,6 +73,7 @@ pytest tests/unit/backend/
 ```
 
 **Frontend changes:**
+
 ```bash
 cd src/frontend/web
 # Edit files, add tests
@@ -75,6 +81,7 @@ npm test
 ```
 
 **Documentation:**
+
 ```bash
 # Edit docs in docs/ directory
 # Use markdown format
@@ -83,6 +90,7 @@ npm test
 ### 3. Follow Code Standards
 
 #### Python (Backend)
+
 ```bash
 # Run linting
 pylint src/backend/**/*.py
@@ -95,6 +103,7 @@ mypy src/backend/
 ```
 
 #### JavaScript/TypeScript (Frontend)
+
 ```bash
 # Run linting
 npm run lint
@@ -107,7 +116,9 @@ npm run type-check
 ```
 
 #### Configuration Files
+
 All tool configurations are in `.config/`:
+
 - `.config/.eslintrc.cjs` - ESLint rules
 - `.config/.prettierrc.json` - Formatting
 - `.config/.stylelintrc.cjs` - CSS linting
@@ -130,6 +141,7 @@ tests/e2e/test_workflows.py
 ```
 
 Run all tests:
+
 ```bash
 pytest tests/ -v
 ```
@@ -148,6 +160,7 @@ git commit -m "type(scope): description
 ```
 
 **Commit types:**
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `docs:` - Documentation
@@ -163,6 +176,7 @@ git push origin feature/your-feature-name
 ```
 
 Then create a Pull Request on GitHub with:
+
 - Clear title describing the change
 - Description of what was changed and why
 - Reference to related issues (#123)
@@ -186,25 +200,32 @@ Your PR should:
 
 ```markdown
 ## Description
+
 Brief description of changes
 
 ## Related Issues
+
 Fixes #123
 
 ## Changes
+
 - Change 1
 - Change 2
 - Change 3
 
 ## Testing
+
 How to test these changes:
+
 1. Step 1
 2. Step 2
 
 ## Screenshots (if applicable)
+
 [Add screenshots if UI changes]
 
 ## Checklist
+
 - [ ] Tests added/updated
 - [ ] Documentation updated
 - [ ] No breaking changes
@@ -222,18 +243,21 @@ How to test these changes:
 ## Performance Guidelines
 
 ### Backend (Python)
+
 - Optimize database queries
 - Cache frequently accessed data
 - Use async patterns for I/O operations
 - Profile code for bottlenecks
 
 ### Frontend (JavaScript)
+
 - Minimize bundle size
 - Optimize images
 - Lazy load components
 - Use performance budgets
 
 ### General
+
 - Monitor build time impact
 - Test on target hardware
 - Document performance implications
@@ -249,6 +273,7 @@ How to test these changes:
 ## Documentation
 
 When adding features:
+
 - Add docstrings to functions/classes
 - Update relevant documentation files
 - Add examples if applicable
@@ -265,6 +290,7 @@ When adding features:
 ## Recognition
 
 Contributors are recognized in:
+
 - CONTRIBUTORS.md
 - Release notes for significant contributions
 - GitHub contributors page

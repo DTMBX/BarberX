@@ -9,6 +9,7 @@
 ## Overview
 
 This repository has been fully consolidated with:
+
 - ✅ Automated branch conflict detection and resolution system
 - ✅ Jekyll build and deployment pipeline
 - ✅ Ready-to-deploy site on `g8-pages` branch
@@ -20,6 +21,7 @@ This repository has been fully consolidated with:
 ## What Was Done
 
 ### 1. Automated Infrastructure
+
 - **Created:** `.github/workflows/consolidate-deploy.yml`
   - Triggered via `workflow_dispatch` (manual) or scheduled weekly
   - Fetches all branches, runs dry-run merges, detects conflicts
@@ -32,12 +34,14 @@ This repository has been fully consolidated with:
   - `.github/scripts/generate_report.sh` — Aggregates all data into unified report
 
 ### 2. Repository Repair & Initialization
+
 - ✅ Removed corrupted git refs that were blocking operations
 - ✅ Initialized clean commit history
 - ✅ Configured git user and email for CI
 - ✅ Created production-ready branch structure
 
 ### 3. Site Deployment
+
 - ✅ Found pre-built `_site` directory (74 files)
 - ✅ Created `g8-pages` orphan branch with pure static content
 - ✅ Deployment commit: `fc3bc4f9` (319 files, ready for GitHub Pages)
@@ -47,6 +51,7 @@ This repository has been fully consolidated with:
 ## How to Deploy Now
 
 ### Option A: Deploy Immediately (Fastest)
+
 ```bash
 # 1. Ensure you're on g8-pages branch
 git checkout g8-pages
@@ -61,6 +66,7 @@ git push -u origin g8-pages
 ```
 
 ### Option B: Run Full Automated Workflow (Recommended)
+
 ```bash
 # Trigger the consolidation workflow manually
 gh workflow run consolidate-deploy.yml --ref main
@@ -69,6 +75,7 @@ gh workflow run consolidate-deploy.yml --ref main
 ```
 
 ### Option C: Production-Ready Commands
+
 ```powershell
 # On Windows for a clean deployment:
 cd C:\web-dev\github-repos\Evident
@@ -85,6 +92,7 @@ git push -f origin g8-pages  # Force push if needed
 Full details available in: `.github/consolidation-report.json`
 
 Contains:
+
 - Deployment state and commit hashes
 - CI run metadata and logs
 - Conflict detection results
@@ -96,7 +104,9 @@ Contains:
 ## Automation Features
 
 ### Weekly Scheduled Consolidation
+
 The workflow runs automatically every Monday at 06:00 UTC to:
+
 1. Fetch all remote branches
 2. Attempt to merge all branches into main
 3. Auto-detect conflicts and create PRs for manual review
@@ -104,12 +114,15 @@ The workflow runs automatically every Monday at 06:00 UTC to:
 5. Generate audit trail and reports
 
 ### Manual Conflict Resolution
+
 - Any merge conflicts create branches at `consolidation/conflicts/{branch-name}`
 - Automated PRs are opened for human review
 - Resolved PRs are automatically deployed
 
 ### CI Log Collection
+
 All GitHub Actions runs are collected to:
+
 - `.github/ci/ci-runs.json` — Metadata for all workflow runs
 - `.github/ci/logs/{run-id}.log` — Full logs for each run
 
@@ -144,21 +157,25 @@ g8-pages (deployment) ← Pure static site content (orphan branch)
 ## Troubleshooting
 
 ### "g8-pages not pushed yet"
+
 ```bash
 git push -u origin g8-pages
 ```
 
 ### "Build failed with dependency error"
+
 - Windows requires C++ compiler for native extensions
 - Solution: Use GitHub Actions (Linux runner) which includes build tools
 - Pre-built `_site` works without compilation
 
 ### "Conflicts detected in consolidated merge"
+
 - Automation creates `consolidation/conflicts/{branch}` branches
 - Review and resolve in PR comments
 - Merged PRs auto-deploy after approval
 
 ### "Need to view CI logs"
+
 ```bash
 open .github/ci/ci-runs.json      # See all runs
 cat .github/ci/logs/run-ID.log    # View specific run details
@@ -168,10 +185,10 @@ cat .github/ci/logs/run-ID.log    # View specific run details
 
 ## Key Commits
 
-| Commit | Branch | Message | Files |
-|--------|--------|---------|-------|
-| `0a51f5e1` | main-init | Initial commit: consolidate and prepare | All |
-| `fc3bc4f9` | g8-pages | Deploy site: 2026-02-08 18:44:28 UTC | 319 |
+| Commit     | Branch    | Message                                 | Files |
+| ---------- | --------- | --------------------------------------- | ----- |
+| `0a51f5e1` | main-init | Initial commit: consolidate and prepare | All   |
+| `fc3bc4f9` | g8-pages  | Deploy site: 2026-02-08 18:44:28 UTC    | 319   |
 
 ---
 
@@ -188,6 +205,7 @@ cat .github/ci/logs/run-ID.log    # View specific run details
 ## Next Steps
 
 1. **Push branches to GitHub:**
+
    ```bash
    git push origin g8-pages
    ```
@@ -208,16 +226,21 @@ cat .github/ci/logs/run-ID.log    # View specific run details
 ## Support & Configuration
 
 ### Modify Scheduled Run
+
 Edit `.github/workflows/consolidate-deploy.yml`, line 6:
+
 ```yaml
-cron: '0 6 * * 1'  # Change to your preferred schedule
+cron: '0 6 * * 1' # Change to your preferred schedule
 ```
 
 ### Change Deployment Branch
+
 Currently deploys to `g8-pages`. To use different branch, edit:
+
 - `.github/workflows/consolidate-deploy.yml` line 63: `publish_branch: g8-pages`
 
 ### Add Custom Domain (CNAME)
+
 ```bash
 echo "evident.icu" > CNAME
 git add CNAME && git commit -m "Add CNAME for custom domain"

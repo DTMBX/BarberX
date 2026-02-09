@@ -16,11 +16,7 @@
       "Multi-camera sync status",
       "Quality preset selection"
     ],
-    "dependencies": [
-      "socket.io-client",
-      "React 18+",
-      "React Hooks"
-    ],
+    "dependencies": ["socket.io-client", "React 18+", "React Hooks"],
     "created_at": "2026-02-08T22:28:12.772924",
     "updated_at": "2026-02-08T22:28:12.772924",
     "metrics": {
@@ -47,12 +43,7 @@
       "Device storage integration",
       "Offline queue support"
     ],
-    "dependencies": [
-      "flutter",
-      "video_player",
-      "file_picker",
-      "socket_io_client"
-    ],
+    "dependencies": ["flutter", "video_player", "file_picker", "socket_io_client"],
     "created_at": "2026-02-08T22:28:12.774935",
     "updated_at": "2026-02-08T22:28:12.774935",
     "metrics": {
@@ -79,12 +70,7 @@
       "Advanced metadata editing",
       "System tray integration"
     ],
-    "dependencies": [
-      ".NET 8.0",
-      "WPF",
-      "MVVM pattern",
-      "SocketIOClient"
-    ],
+    "dependencies": [".NET 8.0", "WPF", "MVVM pattern", "SocketIOClient"],
     "created_at": "2026-02-08T22:28:12.776937",
     "updated_at": "2026-02-08T22:28:12.776937",
     "metrics": {

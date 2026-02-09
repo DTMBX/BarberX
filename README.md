@@ -4,7 +4,7 @@ EVIDENT (Evident Technologies, LLC) is a legal-grade e-discovery and evidence pr
 
 The system is designed to help legal professionals work with:
 
-- 📄 **PDF Documents** (contracts, depositions, discovery materials)  
+- 📄 **PDF Documents** (contracts, depositions, discovery materials)
 - 🎥 **Video Evidence** (body-worn camera, surveillance, interviews, demos)
 - 🎙️ **Audio Evidence** (interrogations, interviews, recordings)
 - 📷 **Digital Media** (images, exhibits, documents)
@@ -19,9 +19,10 @@ All while preserving **evidentiary integrity, chain of custody, legal privileges
 **For Attorneys, Paralegals, Investigators, Insurance Adjusters & Law Enforcement**
 
 This repository implements Evident's multi-platform architecture:
+
 - 🌐 **Web Application** - Case management & document review
 - 📱 **Mobile App** (MAUI) - Field evidence capture & case access
-- 💻 **Desktop App** (WPF) - Heavy-duty evidence processing  
+- 💻 **Desktop App** (WPF) - Heavy-duty evidence processing
 - ⚙️ **Flask Backend** - AI-powered evidence analysis & transcription
 
 Note: This repository includes governance guidance for AI assistants in
@@ -59,12 +60,14 @@ Evident is built around core legal and operational principles:
 ## Core Capabilities
 
 ### 📋 Case & Matter Management
+
 - Multi-case workspaces with full collaboration tools
 - Party management (attorneys, witnesses, judges, adjusters)
 - Legal holds and retention policies
 - Privilege logs and confidentiality controls
 
 ### 📥 Evidence Ingestion & Processing
+
 - ✅ PDF documents (OCR + text extraction)
 - ✅ Video files (BWC, surveillance, interviews, demos)
 - ✅ Audio files (transcription + speaker identification)
@@ -72,6 +75,7 @@ Evident is built around core legal and operational principles:
 - ✅ Metadata preservation (dates, locations, chain of custody)
 
 ### 🔍 AI-Powered Analysis
+
 - **Privilege Detection** - Identifies attorney-client communications
 - **Responsiveness Assessment** - Classifies documents for discovery
 - **Transcription** - Accurate, timestamped transcripts for video/audio
@@ -80,6 +84,7 @@ Evident is built around core legal and operational principles:
 - **Timeline Construction** - Build chronologies across evidence sources
 
 ### ✅ Legal Compliance & Integrity
+
 - ✅ Chain of custody tracking (immutable audit logs)
 - ✅ Forensic hash verification (SHA-256)
 - ✅ Privilege assertion management
@@ -94,24 +99,28 @@ Evident is built around core legal and operational principles:
 Evident is engineered for:
 
 ### Legal Professionals
+
 - 👨‍⚖️ **Attorneys & Law Firms** - Document review, discovery management, case strategy
 - 🏢 **Pro Se Litigants** - Self-represented parties managing their own evidence
 - 📑 **Paralegals & Document Reviewers** - Evidence organization, tagging, initial review
 - 🔎 **Investigators** - Field evidence capture, chain of custody documentation
 
 ### Law Enforcement & Government
+
 - 🚔 **Police Departments** - BWC footage management, evidence handling, prosecution support
 - 👮 **Police Chiefs** - Department compliance, policy enforcement, audit oversight
 - 🏛️ **Courts & Arbitrators** - Evidence presentation, ruling support
 
 ###
 
- Insurance & Business
+Insurance & Business
+
 - 🏦 **Insurance Companies** - Claims investigation, liability assessment, adjuster tools
 - 📊 **Corporate Legal** - Internal investigation, litigation support
 - 🏢 **Government Agencies** - Records management, FOIA response, public investigations
 
 ### Civic & Non-Profit
+
 - 🤝 **Civic Organizations** - Community advocacy, public records analysis
 - 📢 **Advocacy Groups** - Documentation of evidence for public campaigns
 - 🎥 **Journalists & Media** - Evidence verification, interview management, story development
@@ -120,15 +129,15 @@ Evident is engineered for:
 
 ## Use Cases
 
-| Use Case | User | Workflow |
-|----------|------|----------|
-| **Civil Litigation** | Attorney | Upload discovery PDFs → OCR → Tag responsive items → Generate production set |
-| **Police Investigation** | Officer | Ingest BWC footage → Transcribe → Extract timeline → Export for case file |
-| **Insurance Claims** | Adjuster | Review video evidence → Assess liability → Generate report with redactions |
-| **Pro Se Lawsuit** | Self-represented | Organize evidence from multiple sources → Create privilege log → DIY discovery review |
-| **Public Records** | Advocate | Collect FOIA documents → OCR → Analyze for patterns → Public reporting |
-| **Custody Case** | Paralegal | Organize evidence from both parties → Apply legal holds → Prepare exhibits |
-| **Police Reform** | NGO | Compile BWC incidents → Create timeline dataset → Publish accountability report |
+| Use Case                 | User             | Workflow                                                                              |
+| ------------------------ | ---------------- | ------------------------------------------------------------------------------------- |
+| **Civil Litigation**     | Attorney         | Upload discovery PDFs → OCR → Tag responsive items → Generate production set          |
+| **Police Investigation** | Officer          | Ingest BWC footage → Transcribe → Extract timeline → Export for case file             |
+| **Insurance Claims**     | Adjuster         | Review video evidence → Assess liability → Generate report with redactions            |
+| **Pro Se Lawsuit**       | Self-represented | Organize evidence from multiple sources → Create privilege log → DIY discovery review |
+| **Public Records**       | Advocate         | Collect FOIA documents → OCR → Analyze for patterns → Public reporting                |
+| **Custody Case**         | Paralegal        | Organize evidence from both parties → Apply legal holds → Prepare exhibits            |
+| **Police Reform**        | NGO              | Compile BWC incidents → Create timeline dataset → Publish accountability report       |
 
 ---
 
@@ -156,12 +165,14 @@ python app.py
 Evident implements security and compliance controls required by legal e-discovery and law enforcement standards:
 
 ### Evidence Integrity & Chain of Custody
+
 - 🔒 **Immutable Audit Logs** - Every access, download, modification tracked with timestamp, user, action
 - 🔐 **Forensic Hashing** - SHA-256 hash verification of all evidence items to prove integrity
 - ✅ **Chain of Custody Metadata** - Custody holder, transfer timestamps, reason codes for every transition
 - 📋 **Legal Hold Enforcement** - Prevents deletion/modification of held evidence with automatic alerts
 
 ### Data Protection & Access Control
+
 - **Encryption**: Evidence at rest (AES-256) and in transit (TLS 1.3)
 - **Authentication**: JWT tokens, OAuth2, multi-factor authentication support
 - **Role-Based Access Control (RBAC)**: Per-role permissions (Attorney, Paralegal, Investigator, Judge, Police Officer, Adjuster, NGO)
@@ -169,6 +180,7 @@ Evident implements security and compliance controls required by legal e-discover
 - **Redaction Tracking**: Audit log captures who redacted what and when
 
 ### Legal & Regulatory Compliance
+
 - 📜 **Federal Rules of Civil Procedure (FRCP)** - Discovery rules, proportionality, privilege log
 - 🏛️ **State Discovery Rules** - Jurisdiction-specific evidence handling standards
 - 🏥 **HIPAA** - Health information protected; HIPAA business associate agreements supported
@@ -177,6 +189,7 @@ Evident implements security and compliance controls required by legal e-discover
 - 📊 **Audit Trail Compliance** - Full audit log accessible to opposing counsel on demand
 
 ### Data Residency & Deployment
+
 - 🌐 **On-Premises Deployment** - Law firms may deploy on internal servers for sensitive cases
 - ☁️ **Cloud Options** - Render.com, AWS, Azure with regional data residency
 - 🔐 **Data Isolation** - Multi-tenant architecture with cryptographic separation per case
@@ -190,11 +203,13 @@ For detailed security architecture, see [SECURITY.md](SECURITY.md).
 ### Core Technology Stack
 
 **Frontend & UI**
+
 - React / TypeScript (Web application)
 - .NET MAUI (Mobile: iOS/Android + Desktop: Windows)
 - Jekyll (Marketing/documentation site)
 
 **Backend & Processing**
+
 - Python Flask (RESTful API service)
 - OpenAI APIs (GPT-4 analysis, Whisper transcription, image understanding)
 - PostgreSQL (relational database with encryption at rest)
@@ -202,6 +217,7 @@ For detailed security architecture, see [SECURITY.md](SECURITY.md).
 - Tesseract OCR (PDF and image text extraction)
 
 **Legal E-Discovery Features**
+
 - 🔐 **Chain-of-Custody Tracking** - Immutable logs of all evidence access and modifications
 - 🎯 **AI-Powered Analysis** - OCR confidence scoring, entity extraction (people, dates, sensitive data), privilege detection
 - 📊 **Privilege Log Generation** - Automated or manual attorney-client/work product assertions with PDF export
@@ -212,13 +228,13 @@ For detailed security architecture, see [SECURITY.md](SECURITY.md).
 
 ### Deployment Architectures
 
-| Deployment | Users | Compute | Database | Storage | Use Case |
-|------------|-------|---------|----------|---------|----------|
-| **Solo/Pro Se** | 1-5 | Local Docker (minimum) | SQLite/PostgreSQL | Local filesystem | Individual litigants, small cases |
-| **Law Firm** | 50-500 | Linux server or Kubernetes | PostgreSQL (HA) | S3-compatible + local vault | Mid-size firms, multi-case discovery |
-| **Police Dept** | 200-2000 | On-premises or cloud VPC | PostgreSQL (encrypted) | Police evidence locker integration | BWC management, evidence custody |
-| **Insurance Company** | 1000+ | Cloud (AWS/Azure multi-region) | PostgreSQL + data warehouse | S3 + archival | Claims at scale, liability assessment |
-| **Civic/NGO** | 10-100 | Managed cloud (Render) | PostgreSQL | Cloud storage | Public records analysis, advocacy |
+| Deployment            | Users    | Compute                        | Database                    | Storage                            | Use Case                              |
+| --------------------- | -------- | ------------------------------ | --------------------------- | ---------------------------------- | ------------------------------------- |
+| **Solo/Pro Se**       | 1-5      | Local Docker (minimum)         | SQLite/PostgreSQL           | Local filesystem                   | Individual litigants, small cases     |
+| **Law Firm**          | 50-500   | Linux server or Kubernetes     | PostgreSQL (HA)             | S3-compatible + local vault        | Mid-size firms, multi-case discovery  |
+| **Police Dept**       | 200-2000 | On-premises or cloud VPC       | PostgreSQL (encrypted)      | Police evidence locker integration | BWC management, evidence custody      |
+| **Insurance Company** | 1000+    | Cloud (AWS/Azure multi-region) | PostgreSQL + data warehouse | S3 + archival                      | Claims at scale, liability assessment |
+| **Civic/NGO**         | 10-100   | Managed cloud (Render)         | PostgreSQL                  | Cloud storage                      | Public records analysis, advocacy     |
 
 ---
 
@@ -251,18 +267,21 @@ npx htmlhint "**/*.html"
 Evident offers tiered licensing to support different organizational sizes and e-discovery needs:
 
 ### Community Tier (Open Source)
+
 - **Cost**: Free
 - **Users**: Solo attorneys, pro se litigants, small civic organizations
 - **Limit**: Single case, up to 10 GB evidence, basic AI features
 - **Source**: [GitHub](https://github.com/yourorg/Evident)
 
 ### Professional Tier
+
 - **Cost**: $499/month
 - **Users**: Law firms (1-50 users), standalone investigators
 - **Features**: Unlimited cases, 500 GB storage, full transcription, privilege detection, legal holds
 - **Support**: Email support
 
 ### Enterprise Tier
+
 - **Cost**: Custom pricing
 - **Users**: Large law firms, police departments, insurance companies (500+ users)
 - **Features**: On-premises or cloud deployment, unlimited storage, advanced analytics, dedicated API, SSO, compliance audits
@@ -275,6 +294,7 @@ For licensing inquiries or custom deployments: [contact@evidenttech.com](mailto:
 ## Development Roadmap
 
 ### Phase 1: Foundation (Current)
+
 - ✅ Core evidence ingestion (PDF, video, audio)
 - ✅ Basic OCR and transcription
 - ✅ Case and party management
@@ -283,6 +303,7 @@ For licensing inquiries or custom deployments: [contact@evidenttech.com](mailto:
 - 🚧 Immutable audit logs
 
 ### Phase 2: Legal Workflows (Q2 2025)
+
 - 📋 Advanced document review interface with privilege protection
 - 🔍 Full-text search across all evidence
 - 📊 Production set builder with Bates numbering
@@ -290,6 +311,7 @@ For licensing inquiries or custom deployments: [contact@evidenttech.com](mailto:
 - ✍️ Deposition summary generation
 
 ### Phase 3: Enterprise & Compliance (Q3 2025)
+
 - 🏢 Multi-office law firm support with office-level access controls
 - 📜 FRCP compliance automation
 - 🚔 Police department integration (evidence locker APIs)
@@ -297,6 +319,7 @@ For licensing inquiries or custom deployments: [contact@evidenttech.com](mailto:
 - ☁️ Fully managed cloud option (self-service sign-up)
 
 ### Phase 4: Scalability & Specialization (Q4 2025)
+
 - 🤖 Advanced AI features (entity relationships, predictive analytics)
 - 👥 Witness deposition tools
 - 🏛️ Courtroom presentation features
@@ -312,17 +335,20 @@ For discussion or feature requests, see [Issues](https://github.com/yourorg/Evid
 We welcome contributions from developers, legal professionals, and security researchers:
 
 ### For Developers
+
 - Follow the architecture in [EDISCOVERY-LEGAL-SYSTEM-ARCHITECTURE.md](docs/EDISCOVERY-LEGAL-SYSTEM-ARCHITECTURE.md)
 - Ensure all changes maintain immutable audit logs
 - Add tests for new evidence processing pipelines
 - See [CONTRIBUTING.md](CONTRIBUTING.md) for PR guidelines
 
 ### For Legal Professionals
+
 - Report edge cases in evidence handling (e.g., specific privilege types)
 - Suggest workflows missing from the platform
 - Provide feedback on compliance alignment
 
 ### For Security Researchers
+
 - See [SECURITY.md](SECURITY.md) for vulnerability reporting
 - Test chain-of-custody integrity
 - Review audit log immutability
@@ -351,4 +377,3 @@ Our mission: **Enable anyone to build a rigorous, auditable evidence record.**
 **License**: See [LICENSE](LICENSE) (proprietary with commercial and open-source options)
 
 **Last Updated**: 2025-01-31
-

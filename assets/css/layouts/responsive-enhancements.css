@@ -115,9 +115,9 @@
   }
 
   /* Forms */
-  input[type="text"],
-  input[type="email"],
-  input[type="search"],
+  input[type='text'],
+  input[type='email'],
+  input[type='search'],
   textarea {
     font-size: 1rem;
     padding: 0.75rem;
@@ -293,10 +293,10 @@
   }
 
   /* Forms - full width, touch friendly */
-  input[type="text"],
-  input[type="email"],
-  input[type="search"],
-  input[type="tel"],
+  input[type='text'],
+  input[type='email'],
+  input[type='search'],
+  input[type='tel'],
   textarea,
   select {
     width: 100%;
@@ -360,7 +360,7 @@
   }
 
   /* Search bars */
-  input[type="search"] {
+  input[type='search'] {
     width: 100%;
     max-width: 100%;
   }
@@ -515,8 +515,8 @@
   /* Ensure all interactive elements are touch-friendly */
   a,
   button,
-  input[type="submit"],
-  input[type="button"],
+  input[type='submit'],
+  input[type='button'],
   .btn,
   .nav-toggle,
   .clickable {
@@ -615,7 +615,7 @@
 
   /* Show URLs for links */
   a[href]::after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
     font-size: 0.8em;
   }
 

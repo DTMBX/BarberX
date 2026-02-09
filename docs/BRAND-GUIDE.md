@@ -72,8 +72,8 @@ The classic 1920s spinning barber pole is our primary brand symbol:
 ### Font Stack
 
 ```css
---font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
---font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+--font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 ```
 
 ### Weights

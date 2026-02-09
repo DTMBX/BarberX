@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Report a bug (no secrets)
-title: "[BUG] "
+title: '[BUG] '
 labels: bug
 ---
 

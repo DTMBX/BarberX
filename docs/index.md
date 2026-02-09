@@ -1,5 +1,5 @@
 ---
-title: "Evident Legal Technologies Documentation"
+title: 'Evident Legal Technologies Documentation'
 layout: default
 permalink: /docs/
 description: "Documentation for Evident's evidence processing, verification, and eDiscovery

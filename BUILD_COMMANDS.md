@@ -5,6 +5,7 @@ Complete reference for building and running the Evident application across all p
 ## Web App (React)
 
 ### Development
+
 ```bash
 # Start dev server
 npm run dev
@@ -17,6 +18,7 @@ REACT_APP_API_URL=http://localhost:5000 npm run dev
 ```
 
 ### Build
+
 ```bash
 # Create production build
 npm run build
@@ -29,6 +31,7 @@ npm run build && npm run serve
 ```
 
 ### Testing
+
 ```bash
 # Run all tests
 npm test
@@ -46,6 +49,7 @@ npm test -- --watch
 ## Mobile App (React Native)
 
 ### iOS
+
 ```bash
 # Install dependencies
 cd mobile && npm install && cd ..
@@ -61,6 +65,7 @@ npm run mobile:run:ios -- --device
 ```
 
 ### Android
+
 ```bash
 # Start Android dev server
 npm run mobile:android
@@ -73,6 +78,7 @@ npm run mobile:run:android
 ```
 
 ### Test
+
 ```bash
 # Run mobile tests
 npm run mobile:test
@@ -217,6 +223,7 @@ adb pull /sdcard/screenshot.png
 ## Desktop App (Electron)
 
 ### Development
+
 ```bash
 # Start Electron dev environment
 npm run electron:dev
@@ -226,6 +233,7 @@ npm run electron:dev:watch
 ```
 
 ### Build
+
 ```bash
 # Build for current platform
 npm run electron:build
@@ -240,6 +248,7 @@ npm run electron:build:linux    # Linux
 ```
 
 ### Package
+
 ```bash
 # Create installer
 npm run electron:pack
@@ -251,6 +260,7 @@ npm run electron:pack:all
 ## Backend (Python/Flask)
 
 ### Development
+
 ```bash
 # Install dependencies
 pip install -r _backend/requirements-dev.txt
@@ -266,6 +276,7 @@ flask --app _backend/app.py run --reload
 ```
 
 ### Run Async Tasks (Celery)
+
 ```bash
 # Start Celery worker
 celery -A _backend.app.celery worker --loglevel=info
@@ -281,6 +292,7 @@ celery -A _backend.app.celery purge
 ```
 
 ### Database
+
 ```bash
 # Run migrations
 cd _backend && flask db upgrade && cd ..
@@ -295,6 +307,7 @@ cd _backend && flask db downgrade && cd ..
 ## Docker
 
 ### Build Images
+
 ```bash
 # Build backend
 docker build -f Dockerfile.backend -t evident-backend:latest .
@@ -307,6 +320,7 @@ docker-compose build
 ```
 
 ### Run Containers
+
 ```bash
 # Start all services
 docker-compose up -d
@@ -327,6 +341,7 @@ docker-compose down -v
 ## Linting & Code Quality
 
 ### Format Code
+
 ```bash
 # Format all files
 npm run format
@@ -339,6 +354,7 @@ npm run format:check
 ```
 
 ### Lint
+
 ```bash
 # Run ESLint
 npm run lint
@@ -354,6 +370,7 @@ npm run sonarqube
 ```
 
 ### Pre-commit
+
 ```bash
 # Install pre-commit hooks
 npx husky install
@@ -365,6 +382,7 @@ npx husky install
 ## Continuous Integration
 
 ### GitHub Actions
+
 ```bash
 # View workflow status
 # Visit: https://github.com/your-repo/actions
@@ -375,6 +393,7 @@ gh workflow run tests.yml
 ```
 
 ### Local CI Simulation
+
 ```bash
 # Run all CI checks locally
 npm run ci
@@ -389,6 +408,7 @@ npm run ci
 ## Deployment
 
 ### Staging
+
 ```bash
 # Build for staging
 npm run build:staging
@@ -398,6 +418,7 @@ npm run deploy:staging
 ```
 
 ### Production
+
 ```bash
 # Build for production
 npm run build:production
@@ -410,6 +431,7 @@ npm run verify:production
 ```
 
 ### Kubernetes
+
 ```bash
 # Apply manifests
 kubectl apply -f k8s/
@@ -424,6 +446,7 @@ kubectl logs -f deployment/evident-web
 ## Useful Commands
 
 ### Clean & Reset
+
 ```bash
 # Remove all dependencies
 npm run clean
@@ -437,6 +460,7 @@ git reset --hard
 ```
 
 ### Performance
+
 ```bash
 # Measure build time
 npm run build -- --time
@@ -449,6 +473,7 @@ npm run audit:lighthouse
 ```
 
 ### Documentation
+
 ```bash
 # Generate API docs
 npm run docs:generate
@@ -467,6 +492,7 @@ All commands respect `.env.local` and environment-specific files:
 - `.env.local` - Personal overrides (never commit)
 
 Example:
+
 ```bash
 # Set for single command
 REACT_APP_API_URL=https://api.prod npm run build
@@ -480,6 +506,7 @@ npm run tests
 ## Troubleshooting
 
 ### Port Already in Use
+
 ```bash
 # Find process on port 3000
 lsof -i :3000
@@ -492,6 +519,7 @@ PORT=3001 npm run dev
 ```
 
 ### Module Not Found
+
 ```bash
 # Clean install
 rm -rf node_modules
@@ -502,6 +530,7 @@ npm cache clean --force
 ```
 
 ### CORS Issues
+
 ```bash
 # Ensure REACT_APP_API_URL matches backend
 REACT_APP_API_URL=http://localhost:5000 npm run dev
@@ -511,6 +540,7 @@ REACT_APP_API_URL=http://localhost:5000 npm run dev
 ```
 
 ### WebSocket Connection Failed
+
 ```bash
 # Verify backend is running
 curl http://localhost:5000/health

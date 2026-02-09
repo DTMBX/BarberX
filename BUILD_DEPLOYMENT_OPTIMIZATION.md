@@ -12,6 +12,7 @@ This document summarizes the modern, production-ready build and deployment optim
 **After:** GitHub Pages now uses **GitHub Actions workflow** as the deployment source
 
 **Benefits:**
+
 - ✅ Single source of truth (main branch + pages.yml workflow)
 - ✅ Full CI/CD pipeline (lint → build → test → deploy)
 - ✅ Environment variable support for staging/production
@@ -20,6 +21,7 @@ This document summarizes the modern, production-ready build and deployment optim
 ### 2. Workflow Optimizations
 
 #### pages.yml (Production Deployment)
+
 - ✅ Added npm caching for 3x faster builds
 - ✅ Improved dependency installation with `--prefer-offline`
 - ✅ Production environment variable support
@@ -28,6 +30,7 @@ This document summarizes the modern, production-ready build and deployment optim
 - ✅ Reduced artifact retention to 1 day (cost savings)
 
 #### site-ci.yml (Continuous Integration)
+
 - ✅ Fixed branch configuration (removed non-existent branch)
 - ✅ Added npm caching for performance
 - ✅ Added environment variable support for different stages
@@ -38,6 +41,7 @@ This document summarizes the modern, production-ready build and deployment optim
 ### 3. Build Configuration (.eleventy.js)
 
 **Updated to:**
+
 - ✅ Environment-aware incremental builds (fast dev, full prod)
 - ✅ Improved BrowserSync configuration for local development
 - ✅ Collections API for template organization
@@ -48,6 +52,7 @@ This document summarizes the modern, production-ready build and deployment optim
 ### 4. Ruby/Gem Configuration (Gemfile)
 
 **Updated to:**
+
 - ✅ Explicit Ruby version requirement (>= 3.3.0)
 - ✅ Organized grouped dependencies
 - ✅ Development dependencies separated with `group :development`
@@ -57,12 +62,14 @@ This document summarizes the modern, production-ready build and deployment optim
 ### 5. Code Quality & Formatting
 
 #### .prettierrc.json
+
 - ✅ Single quotes (modern convention)
 - ✅ Arrow function parentheses always
 - ✅ HTML whitespace sensitivity for proper formatting
 - ✅ Bracket spacing enabled
 
 #### lint-staged.config.cjs
+
 - ✅ Per-filetype formatters and linters
 - ✅ CSS files: prettier + stylelint --fix
 - ✅ JavaScript: prettier + eslint --fix
@@ -71,16 +78,19 @@ This document summarizes the modern, production-ready build and deployment optim
 - ✅ JSON: prettier
 
 #### .husky/pre-commit
+
 - ✅ Improved with sequential linting (no concurrent issues)
 - ✅ Better error handling
 
 #### .husky/pre-push (NEW)
+
 - ✅ Prevents accidental pushes to protected branches (main, gh-pages)
 - ✅ Encourages proper Pull Request workflow
 
 ### 6. Package.json Scripts (Existing - No Changes)
 
 Already well-configured:
+
 - ✅ `npm run build` - Full build pipeline
 - ✅ `npm run lint` - CSS + Prettier validation
 - ✅ `npm run dev` - Local development with BrowserSync
@@ -89,22 +99,24 @@ Already well-configured:
 ## Environment Variables
 
 ### NODE_VERSION (Workflows)
+
 - Primary: 18 (stable, widely supported)
 - CI jobs will use `npm ci` for deterministic installs
 
 ### ELEVENTY_ENV
+
 - `development` - Incremental builds, full source maps
 - `production` - Optimized builds, quiet mode, no incremental
 - `staging` - Used in site-ci workflow for testing
 
 ## Performance Improvements
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| Npm install time | ~60s | ~15-20s | **66% faster** (with cache) |
-| Build artifacts retention | 7 days | 1 day | **85% storage savings** |
-| Lighthouse CI integration | Manual | Automated | **Auto PR comments** |
-| Build verification | Basic | Strict | **Fail on missing index.html** |
+| Metric                    | Before | After     | Improvement                    |
+| ------------------------- | ------ | --------- | ------------------------------ |
+| Npm install time          | ~60s   | ~15-20s   | **66% faster** (with cache)    |
+| Build artifacts retention | 7 days | 1 day     | **85% storage savings**        |
+| Lighthouse CI integration | Manual | Automated | **Auto PR comments**           |
+| Build verification        | Basic  | Strict    | **Fail on missing index.html** |
 
 ## Security Improvements
 
@@ -116,6 +128,7 @@ Already well-configured:
 ## Local Development
 
 ### First-time setup:
+
 ```bash
 # Set up Ruby version
 rbenv install 3.3.0
@@ -134,6 +147,7 @@ npm run dev
 ```
 
 ### Build locally:
+
 ```bash
 # Development (incremental, faster)
 ELEVENTY_ENV=development npm run build
@@ -151,23 +165,26 @@ ELEVENTY_ENV=production npm run build
    - Install dependencies
    - Lint site
    - Build with Eleventy
-   - Verify _site/index.html exists
+   - Verify \_site/index.html exists
    - Upload artifact to GitHub Pages
    - Deploy to www.evident.icu
 
 ## Monitoring & Troubleshooting
 
 ### Check workflow status:
+
 ```bash
 gh run list -w pages.yml --limit 10
 ```
 
 ### View detailed logs:
+
 ```bash
 gh run view <run-id> --log
 ```
 
 ### Manual trigger:
+
 ```bash
 gh workflow run pages.yml
 ```

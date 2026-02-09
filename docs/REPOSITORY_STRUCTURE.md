@@ -3,6 +3,7 @@
 ## Quick Navigation
 
 ### For Backend Development
+
 - **Main App**: `src/backend/app.py`
 - **Configuration**: `src/backend/app_config.py`
 - **Routes**: `src/backend/routes/`
@@ -11,6 +12,7 @@
 - **Tests**: `tests/unit/backend/`
 
 ### For Frontend Development
+
 - **Web App**: `src/frontend/web/`
 - **Windows App**: `src/frontend/windows/`
 - **Mobile App**: `src/frontend/mobile/`
@@ -18,6 +20,7 @@
 - **Templates**: `src/templates/`
 
 ### For Infrastructure
+
 - **Docker**: `infrastructure/docker/`
 - **Kubernetes**: `infrastructure/kubernetes/`
 - **Terraform**: `infrastructure/terraform/`
@@ -25,6 +28,7 @@
 - **Configs**: `infrastructure/config/`
 
 ### For Documentation
+
 - **Architecture**: `docs/architecture/`
 - **API Docs**: `docs/api/`
 - **Deployment Guide**: `docs/deployment/`
@@ -32,7 +36,9 @@
 - **User Guide**: `docs/user-guide/`
 
 ### Configuration Files
+
 All config files organized in `.config/`:
+
 - 💅 `.config/.eslintrc.cjs` - JavaScript linting
 - 🎨 `.config/.prettierrc.json` - Code formatting
 - 📋 `.config/.stylelintrc.cjs` - CSS linting
@@ -109,21 +115,24 @@ infrastructure/
 ## Development Workflow
 
 1. **Clone Repository**
+
    ```bash
    git clone https://github.com/DTMBX/EVIDENT.git
    cd EVIDENT
    ```
 
 2. **Setup Environment**
+
    ```bash
    # Windows
    .\infrastructure\scripts\setup.ps1
-   
+
    # Unix
    ./infrastructure/scripts/setup.sh
    ```
 
 3. **Backend Development**
+
    ```bash
    cd src/backend
    pip install -r ../../requirements.txt
@@ -131,6 +140,7 @@ infrastructure/
    ```
 
 4. **Frontend Development**
+
    ```bash
    cd src/frontend/web
    npm install
@@ -138,22 +148,24 @@ infrastructure/
    ```
 
 5. **Running Tests**
+
    ```bash
    # Unit tests
    pytest tests/unit/
-   
+
    # Integration tests
    pytest tests/integration/
-   
+
    # All tests
    pytest tests/
    ```
 
 6. **Building**
+
    ```bash
    # Using provided script
    .\infrastructure\scripts\build.ps1
-   
+
    # Or manually
    npm run build
    ```
@@ -176,6 +188,7 @@ infrastructure/
 ## Git Workflow
 
 1. **Create feature branch**
+
    ```bash
    git checkout -b feature/description g8-pages
    ```
@@ -186,6 +199,7 @@ infrastructure/
    - Update documentation in `docs/`
 
 3. **Commit and push**
+
    ```bash
    git add .
    git commit -m "type: description"

@@ -11,6 +11,7 @@ This document provides a complete implementation guide for the Evident e-discove
 Core models for discovery management:
 
 #### Discovery Request Management
+
 - **DiscoveryRequest**: Tracks incoming discovery requests (interrogatories, requests for production, etc.)
   - Stores request text, received date, response deadline
   - Tracks status (pending, responded, objected, etc.)
@@ -18,6 +19,7 @@ Core models for discovery management:
   - Links to assigned attorneys
 
 #### Responsive Document Tracking
+
 - **ResponsiveDocument**: Links evidence to discovery requests
   - Tracks whether documents are responsive
   - Manages Bates numbering for production
@@ -25,6 +27,7 @@ Core models for discovery management:
   - Documents production status
 
 #### Production Management
+
 - **ProductionSet**: Represents a production of documents
   - Tracks production number, date, and delivery method
   - Maintains document counts and size metrics
@@ -38,6 +41,7 @@ Core models for discovery management:
   - Production notes
 
 #### Privilege Protection
+
 - **PrivilegeLog**: Maintains privilege log for withheld documents
   - Documents claimed privilege basis
   - Records parties (from/to/cc)
@@ -45,11 +49,13 @@ Core models for discovery management:
   - Tracks attorney involvement
 
 #### Litigation Holds
+
 - **LitigationHold**: Legal holds across organization
 - **Custodian**: Individual custodians under hold
 - **HoldNotice**: Notices sent to custodians
 
 #### Document Metadata
+
 - **DocumentMetadata**: Extracted metadata from documents
   - File creation/modification dates
   - Email metadata (from, to, cc, subject, dates)
@@ -58,6 +64,7 @@ Core models for discovery management:
   - Language detection
 
 #### Search & ESI
+
 - **DocumentSearchQuery**: Saved discovery search queries
 - **ESIProtocol**: ESI protocol agreements defining how parties handle ESI
 
@@ -66,6 +73,7 @@ Core models for discovery management:
 Advanced processing and QA models:
 
 #### Task Management
+
 - **DocumentProcessingTask**: Tracks processing jobs
   - Task type (OCR, transcription, entity extraction, etc.)
   - Status tracking (queued, processing, completed, failed)
@@ -73,6 +81,7 @@ Advanced processing and QA models:
   - Processing engine and model information
 
 #### OCR Processing
+
 - **OCRResult**: Stores OCR results
   - Extracted text with confidence scores
   - Page processing status
@@ -80,6 +89,7 @@ Advanced processing and QA models:
   - Quality metrics (accuracy, word accuracy)
 
 #### Transcription
+
 - **TranscriptionResult**: Audio/video transcription
   - Full transcript with optional timecoding
   - Speaker identification and diarization
@@ -87,6 +97,7 @@ Advanced processing and QA models:
   - QA review workflow
 
 #### Redaction Management
+
 - **RedactionRule**: Automated redaction rules
   - Pattern-based or entity-based rules
   - Applies to specific document types
@@ -100,6 +111,7 @@ Advanced processing and QA models:
   - Justification tracking
 
 #### Quality Assurance
+
 - **ComplianceReview**: QA reviews of processed documents
   - Review type (OCR quality, transcription accuracy, redaction, etc.)
   - Quality scores (accuracy, completeness, compliance)
@@ -107,6 +119,7 @@ Advanced processing and QA models:
   - Reprocessing requirements
 
 #### Content Indexing
+
 - **ContentExtractionIndex**: Full-text search index
   - Extracted content for searching
   - Entity information (NER results)
@@ -114,6 +127,7 @@ Advanced processing and QA models:
   - Key phrase extraction
 
 #### Batch Processing
+
 - **BatchProcessingQueue**: Batch processing jobs
   - Document selection and counting
   - Progress tracking
@@ -125,6 +139,7 @@ Advanced processing and QA models:
 Compliance and regulatory tracking:
 
 #### Compliance Tracking
+
 - **ComplianceObligation**: Specific case obligations
   - Obligation type (disclosure, preservation, production, certification)
   - Deadlines and extensions
@@ -138,6 +153,7 @@ Compliance and regulatory tracking:
   - Alert notifications
 
 #### Audit & Documentation
+
 - **AuditLog**: Comprehensive audit trail
   - All system activities (view, edit, delete, export)
   - User information and IP addressed
@@ -157,6 +173,7 @@ Compliance and regulatory tracking:
   - Filing status
 
 #### Reporting
+
 - **ComplianceReport**: Automated compliance reports
   - Report type (discovery, production, privilege log, hold, etc.)
   - Compliance assessment and status
@@ -170,6 +187,7 @@ Compliance and regulatory tracking:
   - Mitigation strategy and monitoring
 
 #### Record Retention
+
 - **DocumentRetention**: Document retention and destruction
   - Retention policy and period
   - Legal hold status
@@ -186,6 +204,7 @@ Compliance and regulatory tracking:
 ### EDiscoveryService (`ediscovery_service.py`)
 
 **DiscoveryService**
+
 ```python
 # Create discovery request
 request = DiscoveryService.create_discovery_request(case_id, request_data, user)
@@ -201,6 +220,7 @@ stats = DiscoveryService.get_discovery_stats(case_id)
 ```
 
 **ProductionService**
+
 ```python
 # Create production set
 production = ProductionService.create_production(case_id, production_data, user)
@@ -216,6 +236,7 @@ load_file = ProductionService.export_production_load_file(production_id, format=
 ```
 
 **PrivilegeService**
+
 ```python
 # Create privilege log entry
 entry = PrivilegeService.create_privilege_log_entry(case_id, evidence_id, privilege_data, user)
@@ -228,6 +249,7 @@ validation = PrivilegeService.validate_privilege_log(case_id)
 ```
 
 **LitigationHoldService**
+
 ```python
 # Create litigation hold
 hold = LitigationHoldService.create_litigation_hold(case_id, hold_data, user)
@@ -251,6 +273,7 @@ status = LitigationHoldService.get_hold_status(hold_id)
 ### Document Processing Service (`document_processing_service.py`)
 
 **ProcessingTaskService**
+
 ```python
 # Create processing task
 task = ProcessingTaskService.create_processing_task(
@@ -264,6 +287,7 @@ tasks = ProcessingTaskService.get_task_queue(case_id, limit=50)
 ```
 
 **OCRService**
+
 ```python
 # Process OCR result
 result = OCRService.process_ocr_result(evidence_id, task_id, extracted_text, confidence)
@@ -273,6 +297,7 @@ results = OCRService.get_ocr_results(evidence_id)
 ```
 
 **TranscriptionService**
+
 ```python
 # Create transcription result
 transcript = TranscriptionService.create_transcription_result(
@@ -289,6 +314,7 @@ transcript = TranscriptionService.get_transcription(evidence_id)
 ```
 
 **RedactionService**
+
 ```python
 # Create redaction rule
 rule = RedactionService.create_redaction_rule(case_id, rule_data, user)
@@ -305,6 +331,7 @@ redactions = RedactionService.get_redactions_for_evidence(evidence_id, approved_
 ```
 
 **ComplianceReviewService**
+
 ```python
 # Create compliance review
 review = ComplianceReviewService.create_compliance_review(
@@ -317,6 +344,7 @@ summary = ComplianceReviewService.get_case_compliance_summary(case_id)
 ### Compliance Service (`compliance_service.py`)
 
 **ComplianceService**
+
 ```python
 # Create compliance obligation
 obligation = ComplianceService.create_compliance_obligation(case_id, data, user)
@@ -332,6 +360,7 @@ dashboard = ComplianceService.get_compliance_dashboard(case_id)
 ```
 
 **DeadlineService**
+
 ```python
 # Create deadline
 deadline = DeadlineService.create_deadline(case_id, deadline_data, user)
@@ -341,6 +370,7 @@ alerts = DeadlineService.check_deadline_alerts(case_id)
 ```
 
 **AuditLogService**
+
 ```python
 # Log action
 AuditLogService.log_action(
@@ -356,6 +386,7 @@ logs = AuditLogService.get_case_audit_log(case_id)
 ```
 
 **CustodyService**
+
 ```python
 # Create affidavit
 affidavit = CustodyService.create_custody_affidavit(case_id, affidavit_data)
@@ -365,6 +396,7 @@ cert = CustodyService.create_certification_of_custody(case_id, cert_data, user)
 ```
 
 **ComplianceReportingService**
+
 ```python
 # Generate report
 report = ComplianceReportingService.generate_compliance_report(
@@ -378,6 +410,7 @@ reports = ComplianceReportingService.get_case_reports(case_id)
 ```
 
 **RiskAssessmentService**
+
 ```python
 # Create assessment
 assessment = RiskAssessmentService.create_risk_assessment(
@@ -391,6 +424,7 @@ risks = RiskAssessmentService.get_open_risks(case_id)
 ```
 
 **RetentionService**
+
 ```python
 # Create retention plan
 retention = RetentionService.create_retention_plan(evidence_id, case_id, data)
@@ -573,7 +607,7 @@ for cust_data in custodians:
 
 # 3. Send hold notices to custodians
 hold_notice_text = """
-You are required to immediately place a legal hold on all documents 
+You are required to immediately place a legal hold on all documents
 and communications related to Product X...
 """
 
@@ -699,12 +733,14 @@ print(f"Average compliance: {summary['average_compliance']:.1f}%")
 All models integrate with Flask-SQLAlchemy ORM. To use:
 
 1. **Initialize database:**
+
 ```python
 from auth.models import db
 db.create_all()
 ```
 
 2. **Query examples:**
+
 ```python
 # Find all discovery requests for a case
 requests = DiscoveryRequest.query.filter_by(case_id=1).all()
@@ -747,4 +783,3 @@ productions = ProductionSet.query.filter_by(
 - Advanced search and analytics
 - Integration with video/audio processing APIs
 - Multi-jurisdiction compliance rules engine
-

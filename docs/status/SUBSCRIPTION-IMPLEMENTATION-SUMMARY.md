@@ -126,9 +126,9 @@ Add checkout buttons to `pricing.html`:
 ```html
 <script>
   async function subscribeToPlan(tier) {
-    const response = await fetch("/api/stripe/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const response = await fetch('/api/stripe/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier: tier }),
     });
 

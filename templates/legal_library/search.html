@@ -1,509 +1,514 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Legal Library - Supreme Court Cases & Founding Documents</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #0b73d2 0%, #1a5ba0 100%);
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 3rem;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .search-section {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .search-box {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 0.875rem 1.25rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #0b73d2;
+        box-shadow: 0 0 0 3px rgba(11, 115, 210, 0.1);
+      }
+
+      button {
+        padding: 0.875rem 2rem;
+        background: #0b73d2;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: #0a5da8;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(11, 115, 210, 0.3);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .filters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .filter-group label {
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .filter-group select {
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        background: white;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+      }
+
+      .filter-group select:focus {
+        outline: none;
+        border-color: #0b73d2;
+      }
+
+      .results-section {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .results-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #e5e7eb;
+      }
+
+      .results-count {
+        color: #6b7280;
+        font-weight: 500;
+      }
+
+      .sort-options {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .sort-btn {
+        padding: 0.5rem 1rem;
+        background: #f3f4f6;
+        color: #374151;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .sort-btn.active {
+        background: #0b73d2;
+        color: white;
+        border-color: #0b73d2;
+      }
+
+      .sort-btn:hover:not(.active) {
+        background: #e5e7eb;
+      }
+
+      .document-list {
+        list-style: none;
+      }
+
+      .document-item {
+        padding: 1.5rem;
+        border-left: 4px solid #0b73d2;
+        background: #f9fafb;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .document-item:hover {
+        background: #f3f4f6;
+        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .document-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 0.5rem;
+      }
+
+      .document-case-number {
+        font-family: 'Monaco', 'Courier New', monospace;
+        color: #6b7280;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .document-summary {
+        color: #4b5563;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+
+      .document-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: #6b7280;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .category-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #dbeafe;
+        color: #0369a1;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .category-badge.supreme-court {
+        background: #e0e7ff;
+        color: #4f46e5;
+      }
+
+      .category-badge.amendment {
+        background: #fef3c7;
+        color: #d97706;
+      }
+
+      .category-badge.founding {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+
+      .category-badge.constitution {
+        background: #f3e8ff;
+        color: #9333ea;
+      }
+
+      .view-btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.625rem 1.25rem;
+        background: #0b73d2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .view-btn:hover {
+        background: #0a5da8;
+        transform: translateY(-1px);
+      }
+
+      .loading {
+        text-align: center;
+        padding: 2rem;
+        color: #6b7280;
+      }
+
+      .spinner {
+        border: 3px solid #e5e7eb;
+        border-top: 3px solid #0b73d2;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #0b73d2 0%, #1a5ba0 100%);
-            min-height: 100vh;
-            padding: 2rem 1rem;
+        100% {
+          transform: rotate(360deg);
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-        }
-        
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #6b7280;
+      }
+
+      .empty-state-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .pagination button {
+        padding: 0.5rem 0.75rem;
+        min-width: auto;
+        background: #f3f4f6;
+        color: #374151;
+        border: 1px solid #d1d5db;
+      }
+
+      .pagination button.active {
+        background: #0b73d2;
+        color: white;
+        border-color: #0b73d2;
+      }
+
+      .pagination button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 768px) {
         .header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+          font-size: 2rem;
         }
-        
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-        
-        .search-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
+
         .search-box {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+          flex-direction: column;
         }
-        
-        .search-input {
-            flex: 1;
-            padding: 0.875rem 1.25rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: #0b73d2;
-            box-shadow: 0 0 0 3px rgba(11, 115, 210, 0.1);
-        }
-        
-        button {
-            padding: 0.875rem 2rem;
-            background: #0b73d2;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        button:hover {
-            background: #0a5da8;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(11, 115, 210, 0.3);
-        }
-        
-        button:active {
-            transform: translateY(0);
-        }
-        
+
         .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+          grid-template-columns: 1fr;
         }
-        
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .filter-group label {
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .filter-group select {
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            background: white;
-            cursor: pointer;
-            transition: border-color 0.3s ease;
-        }
-        
-        .filter-group select:focus {
-            outline: none;
-            border-color: #0b73d2;
-        }
-        
-        .results-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-        
+
         .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
         }
-        
-        .results-count {
-            color: #6b7280;
-            font-weight: 500;
-        }
-        
-        .sort-options {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .sort-btn {
-            padding: 0.5rem 1rem;
-            background: #f3f4f6;
-            color: #374151;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .sort-btn.active {
-            background: #0b73d2;
-            color: white;
-            border-color: #0b73d2;
-        }
-        
-        .sort-btn:hover:not(.active) {
-            background: #e5e7eb;
-        }
-        
-        .document-list {
-            list-style: none;
-        }
-        
-        .document-item {
-            padding: 1.5rem;
-            border-left: 4px solid #0b73d2;
-            background: #f9fafb;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .document-item:hover {
-            background: #f3f4f6;
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .document-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0.5rem;
-        }
-        
-        .document-case-number {
-            font-family: 'Monaco', 'Courier New', monospace;
-            color: #6b7280;
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .document-summary {
-            color: #4b5563;
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
-        }
-        
-        .document-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-        
-        .category-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #dbeafe;
-            color: #0369a1;
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .category-badge.supreme-court {
-            background: #e0e7ff;
-            color: #4f46e5;
-        }
-        
-        .category-badge.amendment {
-            background: #fef3c7;
-            color: #d97706;
-        }
-        
-        .category-badge.founding {
-            background: #dcfce7;
-            color: #16a34a;
-        }
-        
-        .category-badge.constitution {
-            background: #f3e8ff;
-            color: #9333ea;
-        }
-        
-        .view-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.625rem 1.25rem;
-            background: #0b73d2;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-        
-        .view-btn:hover {
-            background: #0a5da8;
-            transform: translateY(-1px);
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #6b7280;
-        }
-        
-        .spinner {
-            border: 3px solid #e5e7eb;
-            border-top: 3px solid #0b73d2;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #6b7280;
-        }
-        
-        .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .pagination button {
-            padding: 0.5rem 0.75rem;
-            min-width: auto;
-            background: #f3f4f6;
-            color: #374151;
-            border: 1px solid #d1d5db;
-        }
-        
-        .pagination button.active {
-            background: #0b73d2;
-            color: white;
-            border-color: #0b73d2;
-        }
-        
-        .pagination button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .search-box {
-                flex-direction: column;
-            }
-            
-            .filters {
-                grid-template-columns: 1fr;
-            }
-            
-            .results-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>⚖️ Legal Library</h1>
-            <p>Search Supreme Court Cases, Founding Documents, Amendments & More</p>
+      <!-- Header -->
+      <div class="header">
+        <h1>⚖️ Legal Library</h1>
+        <p>Search Supreme Court Cases, Founding Documents, Amendments & More</p>
+      </div>
+
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search by case name, topic, or keywords..."
+          />
+          <button onclick="performSearch()">Search</button>
         </div>
-        
-        <!-- Search Section -->
-        <div class="search-section">
-            <div class="search-box">
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    class="search-input" 
-                    placeholder="Search by case name, topic, or keywords..."
-                >
-                <button onclick="performSearch()">Search</button>
-            </div>
-            
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="categoryFilter">Category:</label>
-                    <select id="categoryFilter" onchange="updateFilters()">
-                        <option value="">All Categories</option>
-                        <option value="supreme_court">Supreme Court Cases</option>
-                        <option value="amendment">Amendments</option>
-                        <option value="founding_document">Founding Documents</option>
-                        <option value="bill_of_rights">Bill of Rights</option>
-                        <option value="constitution">Constitution</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="justiceFilter">Justice/Author:</label>
-                    <select id="justiceFilter" onchange="updateFilters()">
-                        <option value="">All Justices</option>
-                        <option value="john-marshall">John Marshall</option>
-                        <option value="earl-warren">Earl Warren</option>
-                        <option value="john-paul-stevens">John Paul Stevens</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="yearFilter">Year Range:</label>
-                    <select id="yearFilter" onchange="updateFilters()">
-                        <option value="">Any Year</option>
-                        <option value="1787-1850">1787-1850</option>
-                        <option value="1851-1950">1851-1950</option>
-                        <option value="1951-2000">1951-2000</option>
-                        <option value="2001-present">2001-Present</option>
-                    </select>
-                </div>
-            </div>
+
+        <div class="filters">
+          <div class="filter-group">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter" onchange="updateFilters()">
+              <option value="">All Categories</option>
+              <option value="supreme_court">Supreme Court Cases</option>
+              <option value="amendment">Amendments</option>
+              <option value="founding_document">Founding Documents</option>
+              <option value="bill_of_rights">Bill of Rights</option>
+              <option value="constitution">Constitution</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="justiceFilter">Justice/Author:</label>
+            <select id="justiceFilter" onchange="updateFilters()">
+              <option value="">All Justices</option>
+              <option value="john-marshall">John Marshall</option>
+              <option value="earl-warren">Earl Warren</option>
+              <option value="john-paul-stevens">John Paul Stevens</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="yearFilter">Year Range:</label>
+            <select id="yearFilter" onchange="updateFilters()">
+              <option value="">Any Year</option>
+              <option value="1787-1850">1787-1850</option>
+              <option value="1851-1950">1851-1950</option>
+              <option value="1951-2000">1951-2000</option>
+              <option value="2001-present">2001-Present</option>
+            </select>
+          </div>
         </div>
-        
-        <!-- Results Section -->
-        <div class="results-section">
-            <div class="results-header">
-                <span class="results-count">
-                    <span id="resultCount">0</span> results found
-                </span>
-                <div class="sort-options">
-                    <button class="sort-btn active" onclick="setSortBy('relevance')">Relevance</button>
-                    <button class="sort-btn" onclick="setSortBy('date-newest')">Newest</button>
-                    <button class="sort-btn" onclick="setSortBy('date-oldest')">Oldest</button>
-                    <button class="sort-btn" onclick="setSortBy('citations')">Most Cited</button>
-                </div>
-            </div>
-            
-            <div id="resultsContainer">
-                <div class="empty-state">
-                    <div class="empty-state-icon">📚</div>
-                    <p>Enter a search term to begin exploring the legal library</p>
-                </div>
-            </div>
-            
-            <div class="pagination" id="pagination"></div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="results-section">
+        <div class="results-header">
+          <span class="results-count"> <span id="resultCount">0</span> results found </span>
+          <div class="sort-options">
+            <button class="sort-btn active" onclick="setSortBy('relevance')">Relevance</button>
+            <button class="sort-btn" onclick="setSortBy('date-newest')">Newest</button>
+            <button class="sort-btn" onclick="setSortBy('date-oldest')">Oldest</button>
+            <button class="sort-btn" onclick="setSortBy('citations')">Most Cited</button>
+          </div>
         </div>
+
+        <div id="resultsContainer">
+          <div class="empty-state">
+            <div class="empty-state-icon">📚</div>
+            <p>Enter a search term to begin exploring the legal library</p>
+          </div>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
     </div>
-    
+
     <script>
-        let currentPage = 1;
-        let currentSort = 'relevance';
-        const RESULTS_PER_PAGE = 10;
-        
-        async function performSearch() {
-            const query = document.getElementById('searchInput').value;
-            const category = document.getElementById('categoryFilter').value;
-            const justice = document.getElementById('justiceFilter').value;
-            const year = document.getElementById('yearFilter').value;
-            
-            if (!query.trim()) {
-                alert('Please enter a search term');
-                return;
-            }
-            
-            currentPage = 1;
-            await fetchResults(query, category, justice, year);
+      let currentPage = 1;
+      let currentSort = 'relevance';
+      const RESULTS_PER_PAGE = 10;
+
+      async function performSearch() {
+        const query = document.getElementById('searchInput').value;
+        const category = document.getElementById('categoryFilter').value;
+        const justice = document.getElementById('justiceFilter').value;
+        const year = document.getElementById('yearFilter').value;
+
+        if (!query.trim()) {
+          alert('Please enter a search term');
+          return;
         }
-        
-        async function fetchResults(query, category, justice, year) {
-            const container = document.getElementById('resultsContainer');
-            container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Searching...</p></div>';
-            
-            try {
-                let url = `/api/legal/documents/search?q=${encodeURIComponent(query)}`;
-                url += `&limit=${RESULTS_PER_PAGE}&offset=${(currentPage - 1) * RESULTS_PER_PAGE}`;
-                
-                if (category) url += `&category=${category}`;
-                if (justice) url += `&justice=${justice}`;
-                if (currentSort !== 'relevance') url += `&sort=${currentSort}`;
-                
-                const response = await fetch(url);
-                const data = await response.json();
-                
-                if (data.documents && data.documents.length > 0) {
-                    const results = data.documents.map(doc => createDocumentElement(doc)).join('');
-                    container.innerHTML = `<ul class="document-list">${results}</ul>`;
-                    
-                    document.getElementById('resultCount').textContent = data.total || data.documents.length;
-                    
-                    // Update pagination
-                    updatePagination(Math.ceil((data.total || data.documents.length) / RESULTS_PER_PAGE));
-                } else {
-                    container.innerHTML = `
+
+        currentPage = 1;
+        await fetchResults(query, category, justice, year);
+      }
+
+      async function fetchResults(query, category, justice, year) {
+        const container = document.getElementById('resultsContainer');
+        container.innerHTML =
+          '<div class="loading"><div class="spinner"></div><p>Searching...</p></div>';
+
+        try {
+          let url = `/api/legal/documents/search?q=${encodeURIComponent(query)}`;
+          url += `&limit=${RESULTS_PER_PAGE}&offset=${(currentPage - 1) * RESULTS_PER_PAGE}`;
+
+          if (category) url += `&category=${category}`;
+          if (justice) url += `&justice=${justice}`;
+          if (currentSort !== 'relevance') url += `&sort=${currentSort}`;
+
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.documents && data.documents.length > 0) {
+            const results = data.documents.map((doc) => createDocumentElement(doc)).join('');
+            container.innerHTML = `<ul class="document-list">${results}</ul>`;
+
+            document.getElementById('resultCount').textContent =
+              data.total || data.documents.length;
+
+            // Update pagination
+            updatePagination(Math.ceil((data.total || data.documents.length) / RESULTS_PER_PAGE));
+          } else {
+            container.innerHTML = `
                         <div class="empty-state">
                             <div class="empty-state-icon">🔍</div>
                             <p>No documents found matching your search</p>
                         </div>
                     `;
-                    document.getElementById('resultCount').textContent = '0';
-                }
-            } catch (error) {
-                console.error('Search error:', error);
-                container.innerHTML = `
+            document.getElementById('resultCount').textContent = '0';
+          }
+        } catch (error) {
+          console.error('Search error:', error);
+          container.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">⚠️</div>
                         <p>Error searching documents. Please try again.</p>
                     </div>
                 `;
-            }
         }
-        
-        function createDocumentElement(doc) {
-            const categoryClass = `category-badge ${doc.category || 'supreme-court'}`;
-            const date = new Date(doc.date_decided).getFullYear();
-            
-            return `
+      }
+
+      function createDocumentElement(doc) {
+        const categoryClass = `category-badge ${doc.category || 'supreme-court'}`;
+        const date = new Date(doc.date_decided).getFullYear();
+
+        return `
                 <li class="document-item">
                     <div class="document-title">${escapeHtml(doc.title)}</div>
                     ${doc.case_number ? `<div class="document-case-number">${escapeHtml(doc.case_number)}</div>` : ''}
@@ -517,73 +522,73 @@
                     <button class="view-btn" onclick="viewDocument('${doc.id}')">View Full Document →</button>
                 </li>
             `;
+      }
+
+      function viewDocument(docId) {
+        window.location.href = `/api/legal/documents/${docId}`;
+      }
+
+      function updateFilters() {
+        const searchInput = document.getElementById('searchInput').value;
+        if (searchInput.trim()) {
+          performSearch();
         }
-        
-        function viewDocument(docId) {
-            window.location.href = `/api/legal/documents/${docId}`;
+      }
+
+      function setSortBy(sort) {
+        currentSort = sort;
+        document.querySelectorAll('.sort-btn').forEach((btn) => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        performSearch();
+      }
+
+      function updatePagination(totalPages) {
+        const paginationDiv = document.getElementById('pagination');
+        paginationDiv.innerHTML = '';
+
+        if (totalPages <= 1) return;
+
+        // Previous button
+        if (currentPage > 1) {
+          const btn = document.createElement('button');
+          btn.textContent = '← Previous';
+          btn.onclick = () => goToPage(currentPage - 1);
+          paginationDiv.appendChild(btn);
         }
-        
-        function updateFilters() {
-            const searchInput = document.getElementById('searchInput').value;
-            if (searchInput.trim()) {
-                performSearch();
-            }
+
+        // Page numbers
+        for (let i = 1; i <= Math.min(totalPages, 10); i++) {
+          const btn = document.createElement('button');
+          btn.textContent = i;
+          if (i === currentPage) btn.classList.add('active');
+          btn.onclick = () => goToPage(i);
+          paginationDiv.appendChild(btn);
         }
-        
-        function setSortBy(sort) {
-            currentSort = sort;
-            document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            performSearch();
+
+        // Next button
+        if (currentPage < totalPages) {
+          const btn = document.createElement('button');
+          btn.textContent = 'Next →';
+          btn.onclick = () => goToPage(currentPage + 1);
+          paginationDiv.appendChild(btn);
         }
-        
-        function updatePagination(totalPages) {
-            const paginationDiv = document.getElementById('pagination');
-            paginationDiv.innerHTML = '';
-            
-            if (totalPages <= 1) return;
-            
-            // Previous button
-            if (currentPage > 1) {
-                const btn = document.createElement('button');
-                btn.textContent = '← Previous';
-                btn.onclick = () => goToPage(currentPage - 1);
-                paginationDiv.appendChild(btn);
-            }
-            
-            // Page numbers
-            for (let i = 1; i <= Math.min(totalPages, 10); i++) {
-                const btn = document.createElement('button');
-                btn.textContent = i;
-                if (i === currentPage) btn.classList.add('active');
-                btn.onclick = () => goToPage(i);
-                paginationDiv.appendChild(btn);
-            }
-            
-            // Next button
-            if (currentPage < totalPages) {
-                const btn = document.createElement('button');
-                btn.textContent = 'Next →';
-                btn.onclick = () => goToPage(currentPage + 1);
-                paginationDiv.appendChild(btn);
-            }
-        }
-        
-        function goToPage(page) {
-            currentPage = page;
-            performSearch();
-        }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        // Allow Enter key to search
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') performSearch();
-        });
+      }
+
+      function goToPage(page) {
+        currentPage = page;
+        performSearch();
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Allow Enter key to search
+      document.getElementById('searchInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') performSearch();
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -1,5 +1,5 @@
 /* stylelint-disable at-rule-no-unknown, at-rule-empty-line-before, declaration-block-single-line-max-declarations */
-@import url("tokens.css");
+@import url('tokens.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,12 +9,12 @@
 
 :root {
   /* Evident Technologies branding */
-  --color-primary: #0b73d2;     /* Evident blue */
-  --color-accent: #e07a5f;      /* Accent orange */
-  --color-neutral: #f6f7f9;     /* Light neutral */
-  --color-bg: #ffffff;          /* White background */
-  --color-text: #1a1a2e;        /* Dark text */
-  --color-text-muted: #6b7280;  /* Muted gray */
+  --color-primary: #0b73d2; /* Evident blue */
+  --color-accent: #e07a5f; /* Accent orange */
+  --color-neutral: #f6f7f9; /* Light neutral */
+  --color-bg: #ffffff; /* White background */
+  --color-text: #1a1a2e; /* Dark text */
+  --color-text-muted: #6b7280; /* Muted gray */
 }
 
 /* Basic accessibility helpers */

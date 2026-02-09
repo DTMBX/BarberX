@@ -29,6 +29,7 @@
 ## Design Token System (Universal)
 
 ### Color Palette
+
 ```
 Primary:   #0b73d2 (Evident Blue)   ← Brand identity
 Accent:    #e07a5f (Orange)         ← Secondary actions
@@ -40,6 +41,7 @@ Error:     #f44336 (Red)            ← Errors
 ```
 
 ### Spacing Scale (Base = 8px)
+
 ```
 xs = 4px   (half unit)
 sm = 8px   (1 unit)
@@ -49,6 +51,7 @@ xl = 32px  (4 units)
 ```
 
 ### Typography
+
 ```
 Body:    14px (regular text)
 Heading: 20px (component titles)
@@ -61,8 +64,9 @@ Font:    System fonts (platform-native)
 ## Component Patterns (Cross-Platform)
 
 ### 1. FileUploadForm Pattern
+
 **Used**: Web | Mobile | Windows  
-**Reuse Score**: 92%  
+**Reuse Score**: 92%
 
 ```
 Input Elements:
@@ -82,6 +86,7 @@ Features:
 ```
 
 ### 2. ProgressMonitor Pattern
+
 **Used**: Web | Mobile | Windows  
 **Reuse Score**: 95%
 
@@ -102,6 +107,7 @@ State Updates:
 ```
 
 ### 3. DesignTokenizedUI Pattern
+
 **Used**: Web | Mobile | Windows  
 **Reuse Score**: 98%
 
@@ -127,6 +133,7 @@ Usage:
 **File**: `frontend/web/components/VideoBatchProcessor.jsx`
 
 **Component Tree**:
+
 ```
 VideoBatchProcessor (Main)
 ├── Header (Title + Description)
@@ -145,17 +152,19 @@ VideoBatchProcessor (Main)
 ```
 
 **State Management**:
+
 ```javascript
-const [currentBatch, setCurrentBatch] = useState(null)     // Active batch
-const [batches, setBatches] = useState([])                 // History
-const [viewingTranscription, setViewingTranscription] = null // Modal
+const [currentBatch, setCurrentBatch] = useState(null); // Active batch
+const [batches, setBatches] = useState([]); // History
+const [viewingTranscription, setViewingTranscription] = null; // Modal
 
 // WebSocket connection
-socketRef.current = io(API_URL)
-socketRef.on('batch_progress', updateProgress)
+socketRef.current = io(API_URL);
+socketRef.on('batch_progress', updateProgress);
 ```
 
 **Key Features**:
+
 - ✅ Real-time updates via socket.io
 - ✅ Drag-drop + click file upload
 - ✅ Responsive grid layout
@@ -168,6 +177,7 @@ socketRef.on('batch_progress', updateProgress)
 **File**: `frontend/mobile/lib/screens/video_batch_processor.dart`
 
 **Widget Tree**:
+
 ```
 VideoBatchProcessorScreen (StatefulWidget)
 ├── Scaffold
@@ -191,6 +201,7 @@ VideoBatchProcessorScreen (StatefulWidget)
 ```
 
 **State Management**:
+
 ```dart
 String? currentBatchId;
 List<String> batchHistory;
@@ -201,6 +212,7 @@ socket.emit('subscribe_batch', {'batch_id': batchId})
 ```
 
 **Mobile Optimizations**:
+
 - ✅ 48x48 dp touch targets
 - ✅ Responsive layout (portrait/landscape)
 - ✅ Card-based UI for mobile feel
@@ -214,6 +226,7 @@ socket.emit('subscribe_batch', {'batch_id': batchId})
 **File**: `frontend/windows/VideoBatchProcessor.cs`
 
 **MVVM Architecture**:
+
 ```
 MainWindow (View)
 ├── Grid (2 columns: Upload | Progress)
@@ -235,13 +248,14 @@ MainWindow (View)
 ```
 
 **ViewModel Pattern**:
+
 ```csharp
 public class FileUploadViewModel : ViewModelBase {
     // MVVM Properties (INotifyPropertyChanged)
     public string CaseId { get; set; }
     public bool CanSubmit { get; }
     public ICommand SelectFilesCommand { get; }
-    
+
     // Logic (no UI references)
     private void SelectFiles() { /* logic */ }
     private void SubmitUpload() { /* async */ }
@@ -249,6 +263,7 @@ public class FileUploadViewModel : ViewModelBase {
 ```
 
 **Key Benefits**:
+
 - ✅ MVVM enables testability
 - ✅ Data binding reduces boilerplate
 - ✅ RelayCommand pattern for ICommand
@@ -355,6 +370,7 @@ WebSocket Events (subscribe_batch → batch_id)
 ## Memory System: Learn & Persist
 
 ### Governance Files
+
 ```
 governance/
 ├── ui_implementations.json      # All component records
@@ -366,6 +382,7 @@ governance/
 ```
 
 ### How It Works
+
 ```python
 tracker = GovernanceTracker()
 
@@ -400,34 +417,38 @@ print(summary['total_lines_of_code'])    # 1900
 
 ## Performance Targets
 
-| Metric | Web | Mobile | Windows | Target |
-|--------|-----|--------|---------|--------|
-| Initial Load | <500ms | <2s | <1s | ✅ |
-| WebSocket Connect | <100ms | <1s | <500ms | ✅ |
-| Progress Update Latency | <500ms | <1s | <500ms | ✅ |
-| File Selection | <1s | <500ms | <300ms | ✅ |
-| Accessibility Score | 0.85 | 0.85 | 0.85 | ⚠️ 0.90 |
+| Metric                  | Web    | Mobile | Windows | Target  |
+| ----------------------- | ------ | ------ | ------- | ------- |
+| Initial Load            | <500ms | <2s    | <1s     | ✅      |
+| WebSocket Connect       | <100ms | <1s    | <500ms  | ✅      |
+| Progress Update Latency | <500ms | <1s    | <500ms  | ✅      |
+| File Selection          | <1s    | <500ms | <300ms  | ✅      |
+| Accessibility Score     | 0.85   | 0.85   | 0.85    | ⚠️ 0.90 |
 
 ---
 
 ## Testing Checklist
 
 ### Unit Tests
+
 - [ ] FileUploadForm validation
 - [ ] Progress calculation
 - [ ] State transitions
 
 ### Integration Tests
+
 - [ ] Upload → Backend → WebSocket → UI
 - [ ] Real-time progress updates
 - [ ] Error handling and retries
 
 ### E2E Tests
+
 - [ ] Complete upload workflow
 - [ ] All platforms (Web browser, mobile device, Windows app)
 - [ ] Transcription viewer functionality
 
 ### Performance Tests
+
 - [ ] Load time measurement
 - [ ] WebSocket latency
 - [ ] Memory usage (50+ file batches)
@@ -437,18 +458,21 @@ print(summary['total_lines_of_code'])    # 1900
 ## Deployment
 
 ### Web
+
 ```bash
 npm run build
 npm start  # or deploy to CDN/vercel
 ```
 
 ### Mobile
+
 ```bash
 flutter build apk   # Android
 flutter build ios   # iOS
 ```
 
 ### Windows
+
 ```bash
 dotnet publish -c Release -r win-x64
 # Deploy .exe to Windows machines

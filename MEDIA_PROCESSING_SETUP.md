@@ -10,9 +10,10 @@
 ✅ **Media Processing Pipeline** - Intelligent processing for MP4, PDF, JPEG, and more  
 ✅ **AI Integration Ready** - Foundation for Whisper, OCR, and advanced AI  
 ✅ **Modern UI** - Beautiful, responsive upload interfaces  
-✅ **Usage Analytics** - Track uploads, storage, and quotas  
+✅ **Usage Analytics** - Track uploads, storage, and quotas
 
 **Supported Formats:**
+
 - 🎬 **Video**: MP4, AVI, MOV, MKV, WebM, FLV (500MB max)
 - 🎵 **Audio**: MP3, WAV, FLAC, AAC, WMA, M4A (100MB max)
 - 🖼️ **Images**: JPEG, PNG, GIF, BMP, WebP, TIFF (10MB max)
@@ -61,6 +62,7 @@ ALLOWED_EXTENSIONS = {
 ```
 
 User uploads are organized by date:
+
 ```
 uploads/
 └── user_{user_id}/
@@ -81,6 +83,7 @@ python app.py
 ```
 
 The Flask app now includes:
+
 - ✅ Upload routes registered (`/upload/*`)
 - ✅ Media processor initialized
 - ✅ Database configured
@@ -89,16 +92,19 @@ The Flask app now includes:
 ### Step 4: Access Upload Interface
 
 **Single Upload:**
+
 ```
 http://localhost:5000/upload/single
 ```
 
 **Batch Upload:**
+
 ```
 http://localhost:5000/upload/batch
 ```
 
 **Upload History:**
+
 ```
 http://localhost:5000/upload/history
 ```
@@ -144,6 +150,7 @@ Evident/
 ### Upload Endpoints
 
 #### Single File Upload
+
 ```http
 POST /upload/single
 Content-Type: multipart/form-data
@@ -164,6 +171,7 @@ Response: {
 ```
 
 #### Batch Upload
+
 ```http
 POST /upload/batch
 Content-Type: multipart/form-data
@@ -185,6 +193,7 @@ Response: {
 ### Management Endpoints
 
 #### Get Upload Status
+
 ```http
 GET /upload/api/status/<file_id>
 
@@ -198,6 +207,7 @@ Response: {
 ```
 
 #### Delete Upload
+
 ```http
 DELETE /upload/api/delete/<file_id>
 
@@ -205,6 +215,7 @@ Response: { "success": true }
 ```
 
 #### Get Statistics
+
 ```http
 GET /upload/api/stats
 
@@ -287,6 +298,7 @@ class ProcessingResult:
 The pipeline is ready for:
 
 #### 1. Audio Transcription (Whisper)
+
 ```python
 from services.media_processor import MediaType
 
@@ -298,6 +310,7 @@ if result.media_type == MediaType.AUDIO:
 ```
 
 #### 2. OCR Processing (Tesseract)
+
 ```python
 from services.media_processor import MediaType
 
@@ -308,6 +321,7 @@ if result.media_type == MediaType.PDF:
 ```
 
 #### 3. Video Analysis
+
 ```python
 from services.media_processor import MediaType
 
@@ -343,16 +357,19 @@ result = process_batch_async.delay(file_paths)
 ## 🔒 Security Features
 
 ✅ **File Validation**
+
 - Whitelist-based file type checking
 - Size limits per media type
 - Malware scanning ready
 
 ✅ **Storage Isolation**
+
 - Users upload to separate directories
 - Metadata stored in JSON (encrypted in production)
 - Timestamps track all operations
 
 ✅ **Access Control**
+
 - Login required for uploads
 - Per-user quota system
 - Audit logging integrated
@@ -362,14 +379,18 @@ result = process_batch_async.delay(file_paths)
 ## 📊 Monitoring & Analytics
 
 ### Upload Statistics
+
 Every user can see:
+
 - Total files uploaded
 - Total batches processed
 - Storage used vs. quota
 - Upload speed metrics
 
 ### Batch Metadata
+
 Each batch is logged with:
+
 ```json
 {
   "batch_id": "batch_20250208_143022",
@@ -386,25 +407,33 @@ Each batch is logged with:
 ## 🐛 Troubleshooting
 
 ### Error: "File too large"
+
 **Solution**: Increase `MAX_CONTENT_LENGTH` in `app_config.py`:
+
 ```python
 MAX_CONTENT_LENGTH = 1000 * 1024 * 1024  # 1GB
 ```
 
 ### Error: "Module not found"
+
 **Solution**: Reinstall dependencies:
+
 ```bash
 pip install -r requirements-media-ai.txt --force-reinstall
 ```
 
 ### Error: "Upload directory permission denied"
+
 **Solution**: Verify permissions:
+
 ```bash
 chmod -R 755 uploads/
 ```
 
 ### Uploads slow
+
 **Solution**: Enable compression in `app_config.py`:
+
 ```python
 from flask_compress import Compress
 Compress(app)
@@ -417,6 +446,7 @@ Compress(app)
 ### Before Going Live
 
 1. **Configure Environment Variables**
+
 ```bash
 export FLASK_ENV=production
 export SECRET_KEY=<generate-strong-key>
@@ -425,26 +455,31 @@ export MAX_CONTENT_LENGTH=1000000000  # 1GB
 ```
 
 2. **Setup Database**
+
 ```bash
 flask init-db
 ```
 
 3. **Configure Storage**
+
 - Use S3/Azure Blob Storage instead of local filesystem
 - Implement encryption at rest
 - Setup backup strategy
 
 4. **Enable Async Processing**
+
 ```bash
 celery -A app.celery worker
 ```
 
 5. **Monitor Performance**
+
 - Track upload speeds
 - Monitor disk usage
 - Log all operations
 
 ### Deployment Command
+
 ```bash
 gunicorn wsgi:app \
   --workers 4 \
@@ -460,14 +495,15 @@ gunicorn wsgi:app \
 ## 📚 API Examples
 
 ### JavaScript/Fetch
+
 ```javascript
 // Single file
 const formData = new FormData();
 formData.append('file', file);
 
 const response = await fetch('/upload/single', {
-    method: 'POST',
-    body: formData
+  method: 'POST',
+  body: formData,
 });
 
 const data = await response.json();
@@ -475,6 +511,7 @@ console.log(data.file_id, data.status);
 ```
 
 ### Python/Requests
+
 ```python
 import requests
 
@@ -485,6 +522,7 @@ print(result['file_id'])
 ```
 
 ### cURL
+
 ```bash
 curl -X POST \
   -F "file=@document.pdf" \

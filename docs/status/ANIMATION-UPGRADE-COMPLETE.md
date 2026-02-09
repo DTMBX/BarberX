@@ -165,18 +165,18 @@ comprehensive animation system with GPU-acceleration and accessibility features.
 
 ```javascript
 // Listen for animation reveals
-document.addEventListener("element-revealed", (e) => {
-  console.log("Element:", e.detail.target);
+document.addEventListener('element-revealed', (e) => {
+  console.log('Element:', e.detail.target);
 });
 
 // Listen for theme changes
-document.addEventListener("theme:change", (e) => {
-  console.log("Theme:", e.detail.theme);
+document.addEventListener('theme:change', (e) => {
+  console.log('Theme:', e.detail.theme);
 });
 
 // App ready
-document.addEventListener("Evident:ready", () => {
-  console.log("App initialized");
+document.addEventListener('Evident:ready', () => {
+  console.log('App initialized');
 });
 ```
 

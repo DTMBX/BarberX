@@ -7,6 +7,7 @@ The Evident Legal Library is a comprehensive reference system for Supreme Court 
 ## Features
 
 ### Public Features
+
 - **Full-Text Search**: Search across all documents by case name, keywords, topics
 - **Advanced Filtering**: Filter by category, justice/author, date range
 - **Document Details**: View complete case information including citations, parties, justices
@@ -16,6 +17,7 @@ The Evident Legal Library is a comprehensive reference system for Supreme Court 
 - **Annotations**: Add comments and highlights to documents
 
 ### Admin Features
+
 - **Bulk Initialize**: Load founding documents and landmark cases
 - **Manual Creation**: Create individual documents
 - **CSV Import**: Bulk import from CSV files
@@ -28,7 +30,9 @@ The Evident Legal Library is a comprehensive reference system for Supreme Court 
 ### Core Models
 
 #### LegalDocument
+
 Main document model with 57 fields including:
+
 - `id` (UUID): Unique identifier
 - `title`: Document title
 - `case_number`: Citation format (e.g., "123 U.S. 456")
@@ -51,7 +55,9 @@ Main document model with 57 fields including:
 - `indexed_at`: Timestamp of last full-text indexing
 
 #### DocumentCollection
+
 Group related documents:
+
 - `id` (UUID): Unique identifier
 - `name`: Collection name
 - `category`: Optional category
@@ -59,7 +65,9 @@ Group related documents:
 - `document_ids`: JSON array of document IDs
 
 #### SearchIndex
+
 Full-text search support:
+
 - `id` (UUID)
 - `document_id`: Reference to document
 - `content`: Indexed text content
@@ -67,7 +75,9 @@ Full-text search support:
 - `vector`: Embedding vector (for future vector search)
 
 #### DocumentComment
+
 User annotations:
+
 - `id` (UUID)
 - `document_id`: Reference to document
 - `user_id`: Reference to user
@@ -76,7 +86,9 @@ User annotations:
 - `created_at`: Timestamp
 
 #### SavedDocument
+
 User library management:
+
 - `id` (UUID)
 - `user_id`: Reference to user
 - `document_id`: Reference to document
@@ -84,7 +96,9 @@ User library management:
 - `saved_at`: Timestamp
 
 #### DocumentVersion
+
 Track document changes:
+
 - `id` (UUID)
 - `document_id`: Reference to document
 - `version`: Version number
@@ -96,74 +110,97 @@ Track document changes:
 ### Document Endpoints
 
 #### Search Documents
+
 ```bash
 GET /api/legal/documents/search?q=<query>&category=<category>&limit=50
 ```
+
 Returns: `{ "documents": [...], "total": N }`
 
 #### Get Document
+
 ```bash
 GET /api/legal/documents/<id>
 ```
+
 Increments view count. Returns full document.
 
 #### Get by Case Number
+
 ```bash
 GET /api/legal/documents/by-case/<case_number>
 ```
+
 Returns: `{ "document": {...} }`
 
 #### Get by Keyword
+
 ```bash
 GET /api/legal/documents/keywords/<keyword>
 ```
+
 Returns: `{ "documents": [...] }`
 
 #### Get by Justice
+
 ```bash
 GET /api/legal/documents/justice/<justice_name>
 ```
+
 Returns: `{ "documents": [...] }`
 
 #### Related Cases
+
 ```bash
 GET /api/legal/documents/<id>/related
 ```
+
 Returns: `{ "related_cases": [...] }`
 
 #### Citing Cases
+
 ```bash
 GET /api/legal/documents/<case_number>/citing
 ```
+
 Returns cases that cite the specified case.
 
 #### Trending Documents
+
 ```bash
 GET /api/legal/documents/trending
 ```
+
 Most viewed documents in the last 30 days.
 
 #### Recent Documents
+
 ```bash
 GET /api/legal/documents/recent
 ```
+
 Most recently added documents.
 
 ### Collection Endpoints
 
 #### List Collections
+
 ```bash
 GET /api/legal/collections
 ```
+
 Returns: `{ "collections": [...] }`
 
 #### Get Collection
+
 ```bash
 GET /api/legal/collections/<id>
 ```
+
 Returns: `{ "collection": {...}, "documents": [...] }`
 
 #### Create Collection (Admin)
+
 ```bash
 POST /api/legal/collections
 Content-Type: application/json
@@ -176,6 +213,7 @@ Content-Type: application/json
 ```
 
 #### Add Document to Collection (Admin)
+
 ```bash
 POST /api/legal/collections/<collection_id>/add/<document_id>
 ```
@@ -183,24 +221,31 @@ POST /api/legal/collections/<collection_id>/add/<document_id>
 ### User Endpoints
 
 #### Get Saved Documents
+
 ```bash
 GET /api/legal/saved
 ```
+
 Returns user's saved documents grouped by folder.
 
 #### Save Document
+
 ```bash
 POST /api/legal/save/<document_id>
 ```
+
 Optional: `{ "folder": "My Folder" }`
 
 #### Get Comments
+
 ```bash
 GET /api/legal/comments/<document_id>
 ```
+
 Returns document comments.
 
 #### Add Comment
+
 ```bash
 POST /api/legal/comments/<document_id>
 Content-Type: application/json
@@ -214,6 +259,7 @@ Content-Type: application/json
 ### Admin Endpoints
 
 #### Create Document (Admin)
+
 ```bash
 POST /api/legal/documents
 Content-Type: application/json
@@ -230,6 +276,7 @@ Content-Type: application/json
 ```
 
 #### Update Document (Admin)
+
 ```bash
 PUT /api/legal/documents/<id>
 Content-Type: application/json
@@ -240,11 +287,13 @@ Content-Type: application/json
 ```
 
 #### Initialize Library (Admin)
+
 ```bash
 POST /admin/legal/initialize
 ```
 
 #### Import CSV (Admin)
+
 ```bash
 POST /admin/legal/import-csv
 Content-Type: multipart/form-data
@@ -255,10 +304,13 @@ file: <csv_file>
 ### Statistics Endpoints
 
 #### Get Statistics
+
 ```bash
 GET /api/legal/statistics
 ```
+
 Returns:
+
 ```json
 {
   "total_documents": N,
@@ -271,11 +323,13 @@ Returns:
 ```
 
 #### Get Categories
+
 ```bash
 GET /api/legal/categories
 ```
 
 #### Collections by Category
+
 ```bash
 GET /api/legal/collections/category/<category>
 ```
@@ -283,9 +337,11 @@ GET /api/legal/collections/category/<category>
 ## Web Interfaces
 
 ### Public Search Interface
+
 **Location**: `/templates/legal_library/search.html`
 
 Features:
+
 - Full-text search with real-time suggestions
 - Advanced filtering (category, justice, date range)
 - Sort by relevance, date, citations
@@ -293,9 +349,11 @@ Features:
 - Direct document view links
 
 ### Document Detail View
+
 **Location**: `/templates/legal_library/document.html`
 
 Features:
+
 - Complete document information
 - Full text display
 - Citation management
@@ -305,9 +363,11 @@ Features:
 - View counter
 
 ### Admin Dashboard
+
 **Location**: `/admin/legal/dashboard`
 
 Features:
+
 - Library statistics
 - Initialize library button
 - Manual document creation form
@@ -378,6 +438,7 @@ init_legal_library()             # Complete initialization
 ### Pre-loaded Data
 
 **Founding Documents**:
+
 - US Constitution
 - Declaration of Independence
 - Bill of Rights
@@ -385,6 +446,7 @@ init_legal_library()             # Complete initialization
 - Federalist Papers (structure)
 
 **Landmark Supreme Court Cases** (8 cases):
+
 1. Marbury v. Madison (1803) - Judicial review
 2. McCulloch v. Maryland (1819) - Implied powers
 3. Plessy v. Ferguson (1896) - Separate but equal
@@ -395,6 +457,7 @@ init_legal_library()             # Complete initialization
 8. Gideon v. Wainwright (1963) - Right to counsel
 
 **Default Collections** (10 collections):
+
 - Founding Documents
 - Bill of Rights & Amendments
 - Free Speech & First Amendment
@@ -409,6 +472,7 @@ init_legal_library()             # Complete initialization
 ## Setup Instructions
 
 ### 1. Database Migration
+
 ```bash
 flask db init
 flask db migrate -m "Add legal library models"
@@ -416,6 +480,7 @@ flask db upgrade
 ```
 
 ### 2. Initialize Legal Library
+
 ```bash
 # Via Flask CLI (recommended)
 flask init-legal-library
@@ -425,12 +490,14 @@ flask init-legal-library
 ```
 
 ### 3. Access Public Interface
+
 ```
 Navigate to /templates/legal_library/search.html
 or configure routes to serve at /legal/search
 ```
 
 ### 4. Access Admin Interface
+
 ```
 Visit /admin/legal/dashboard (admin login required)
 ```
@@ -477,19 +544,23 @@ title,category,case_number,citation,date,summary,keywords,full_text,petitioner,r
 ## Performance Optimization
 
 ### Full-Text Search Index
+
 - Separate SearchIndex table for O(1) lookups
 - Keywords pre-indexed for filtering
 - Vector field ready for embedding search
 
 ### View Counting
+
 - Cached increment operations
 - Database-backed count for accuracy
 
 ### Pagination
+
 - Default 50 documents per page
 - Offset-based pagination for consistency
 
 ### Future Enhancements
+
 - Vector embeddings via OpenAI
 - Semantic search across cases
 - Precedent graph visualization
@@ -498,11 +569,13 @@ title,category,case_number,citation,date,summary,keywords,full_text,petitioner,r
 ## Security
 
 ### Access Control
+
 - Public read access to all documents
 - Admin-only for creation/modification
 - User authentication for saving documents
 
 ### Permissions
+
 ```python
 # Anyone can view
 GET /api/legal/documents
@@ -519,6 +592,7 @@ DELETE /api/legal/documents/<id>  # Delete
 ## Troubleshooting
 
 ### Documents Not Found
+
 ```bash
 # Check import status
 flask shell
@@ -530,6 +604,7 @@ flask init-legal-library
 ```
 
 ### Search Not Working
+
 ```bash
 # Re-index all documents
 flask shell
@@ -540,6 +615,7 @@ flask shell
 ```
 
 ### Admin Dashboard Not Loading
+
 - Verify user is admin: `User.is_admin == True`
 - Check blueprint registration in app_config.py
 - Ensure legal_admin_bp is imported and registered
@@ -547,6 +623,7 @@ flask shell
 ## Configuration
 
 ### Environment Variables
+
 ```bash
 # Optional - for future external data sources
 SUPREMECOURT_API_KEY=...
@@ -554,6 +631,7 @@ CONGRESS_API_KEY=...
 ```
 
 ### Database Size Considerations
+
 - Constitution: ~50 KB
 - 27 Amendments: ~100 KB
 - 8 Landmark Cases: ~500 KB
@@ -576,6 +654,7 @@ CONGRESS_API_KEY=...
 ## Support
 
 For issues or questions:
+
 1. Check `/MIGRATION.md` for system architecture
 2. Review test files for usage examples
 3. Consult `/docs` for additional documentation

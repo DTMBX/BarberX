@@ -16,18 +16,13 @@ describe('FileDropZone Component', () => {
   });
 
   test('renders drop zone with instructions', () => {
-    render(
-      <FileDropZone onFilesSelected={mockOnFilesSelected} />
-    );
+    render(<FileDropZone onFilesSelected={mockOnFilesSelected} />);
     expect(screen.getByText(/drag and drop/i)).toBeInTheDocument();
   });
 
   test('accepts video files on drop', async () => {
     const { container } = render(
-      <FileDropZone
-        onFilesSelected={mockOnFilesSelected}
-        accept=".mp4,.mov"
-      />
+      <FileDropZone onFilesSelected={mockOnFilesSelected} accept=".mp4,.mov" />
     );
 
     const dropZone = container.querySelector('[data-testid="drop-zone"]') as HTMLElement;
@@ -48,10 +43,7 @@ describe('FileDropZone Component', () => {
 
   test('rejects invalid file types', () => {
     const { container } = render(
-      <FileDropZone
-        onFilesSelected={mockOnFilesSelected}
-        accept=".mp4,.mov"
-      />
+      <FileDropZone onFilesSelected={mockOnFilesSelected} accept=".mp4,.mov" />
     );
 
     const dropZone = container.querySelector('[data-testid="drop-zone"]') as HTMLElement;
@@ -72,11 +64,7 @@ describe('FileDropZone Component', () => {
 
   test('enforces max file count', async () => {
     const { container } = render(
-      <FileDropZone
-        onFilesSelected={mockOnFilesSelected}
-        maxFiles={2}
-        accept=".mp4"
-      />
+      <FileDropZone onFilesSelected={mockOnFilesSelected} maxFiles={2} accept=".mp4" />
     );
 
     const dropZone = container.querySelector('[data-testid="drop-zone"]') as HTMLElement;
@@ -88,7 +76,7 @@ describe('FileDropZone Component', () => {
 
     const dataTransfer = {
       files,
-      items: files.map(f => ({ kind: 'file', getAsFile: () => f })),
+      items: files.map((f) => ({ kind: 'file', getAsFile: () => f })),
       types: ['Files'],
     };
 
@@ -99,20 +87,14 @@ describe('FileDropZone Component', () => {
 
   test('handles click to browse', async () => {
     const user = userEvent.setup();
-    render(
-      <FileDropZone onFilesSelected={mockOnFilesSelected} />
-    );
+    render(<FileDropZone onFilesSelected={mockOnFilesSelected} />);
 
-    const input = document.querySelector(
-      'input[type="file"]'
-    ) as HTMLInputElement;
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
     expect(input).toBeInTheDocument();
   });
 
   test('shows drag-over visual feedback', () => {
-    const { container } = render(
-      <FileDropZone onFilesSelected={mockOnFilesSelected} />
-    );
+    const { container } = render(<FileDropZone onFilesSelected={mockOnFilesSelected} />);
 
     const dropZone = container.querySelector('[data-testid="drop-zone"]') as HTMLElement;
 

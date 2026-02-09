@@ -1,27 +1,31 @@
 # Phase 9 Immediate Action Plan
+
 ## Start Testing This Hour
 
 **Created**: February 9, 2026  
 **Status**: 🟢 READY TO BEGIN  
-**Time to First Test**: 5 minutes  
+**Time to First Test**: 5 minutes
 
 ---
 
 ## ⚡ RIGHT NOW (5 MINUTES)
 
 ### Option A: Automated Setup (Recommended)
+
 ```bash
 cd c:\web-dev\github-repos\Evident
 python phase9_quickstart.py
 ```
 
 **What this does**:
+
 - ✅ Checks Python 3.8+
 - ✅ Installs all dependencies
 - ✅ Generates sample PDFs
 - ✅ Runs initialization test
 
 ### Option B: Manual Setup
+
 ```bash
 cd c:\web-dev\github-repos\Evident
 
@@ -40,6 +44,7 @@ pytest tests/phase9/unit/batch_processing/test_pdf_batch_loader.py::TestPDFBatch
 ## 📊 What's Ready RIGHT NOW
 
 ### ✅ Test Files Created
+
 - [x] `tests/phase9/conftest.py` - Fixtures + configuration
 - [x] `tests/phase9/unit/batch_processing/test_pdf_batch_loader.py` - 50+ tests
 - [x] `tests/phase9/fixtures/generate_fixtures.py` - PDF generator
@@ -47,12 +52,14 @@ pytest tests/phase9/unit/batch_processing/test_pdf_batch_loader.py::TestPDFBatch
 - [x] `phase9_quickstart.py` - Automated setup
 
 ### ✅ Documentation Created
+
 - [x] `PHASE_9_QUICK_START.md` - 3-week workflow
 - [x] `MASTER_IMPLEMENTATION_CHECKLIST.md` - 12-week roadmap
 - [x] `PHASE_9_STARTED.md` - Kickoff summary
 - [x] `PHASE_9_IMMEDIATE_ACTION_PLAN.md` - This document
 
 ### ✅ Test Models Ready (From Previous)
+
 - [x] `models/batch_document_processing.py` - 400+ lines of models/services
 - [x] `models/chat_system.py` - 400+ lines of models/services
 
@@ -89,11 +96,13 @@ pytest tests/phase9/unit/batch_processing/test_pdf_batch_loader.py::TestPDFBatch
 ## 🚀 First Test Run (2 Minutes)
 
 ### Test 1: Loader Initialization
+
 ```bash
 pytest tests/phase9/unit/batch_processing/test_pdf_batch_loader.py::TestPDFBatchLoaderBasic -v --tb=short
 ```
 
 **Expected Output**:
+
 ```
 test_pdf_loader_initialization PASSED
 test_pdf_loader_has_load_batch_method PASSED
@@ -103,17 +112,20 @@ test_pdf_loader_has_load_single_method PASSED
 ```
 
 ### Test 2: All PDFBatchLoader Tests (1 minute)
+
 ```bash
 pytest tests/phase9/unit/batch_processing/test_pdf_batch_loader.py -v --tb=short
 ```
 
 **Expected Output**:
+
 ```
 50 tests collected
 ... PASSED in 2.34s
 ```
 
 ### Test 3: With Coverage Report
+
 ```bash
 pytest tests/phase9/ --cov=models.batch_document_processing --cov-report=html
 # Opens: htmlcov/index.html
@@ -163,12 +175,14 @@ Evident/
 ## 💡 Key Points
 
 ### Tests Are Designed For:
+
 1. **Unit Testing**: Isolated component testing
 2. **Integration Testing**: Multi-component workflows
 3. **Performance Testing**: Timing benchmarks
 4. **Async Testing**: Concurrent operations
 
 ### Test Quality Indicators:
+
 - ✅ 50+ tests for PDFBatchLoader (Week 1)
 - ✅ 60+ tests for OCREngine (Week 2)
 - ✅ 50+ tests for context extraction (Week 2)
@@ -178,6 +192,7 @@ Evident/
 - **Total**: 315+ tests (>300 target)
 
 ### Coverage Target:
+
 - 90%+ code coverage for batch_document_processing module
 - All critical paths tested
 - Edge cases documented
@@ -186,14 +201,14 @@ Evident/
 
 ## 🛠️ Troubleshooting Quick Links
 
-| Problem | Solution |
-|---------|----------|
-| pytesseract not found | Download Tesseract binary from GitHub |
-| pytest not installed | `pip install -r requirements-phase9.txt` |
-| PDF generator fails | Check reportlab installed: `pip install reportlab` |
-| Tests timeout | Already configured: 600 seconds max |
-| Import errors | Verify pytest.ini exists + correct paths |
-| Async test errors | All marked with `@pytest.mark.asyncio` |
+| Problem               | Solution                                           |
+| --------------------- | -------------------------------------------------- |
+| pytesseract not found | Download Tesseract binary from GitHub              |
+| pytest not installed  | `pip install -r requirements-phase9.txt`           |
+| PDF generator fails   | Check reportlab installed: `pip install reportlab` |
+| Tests timeout         | Already configured: 600 seconds max                |
+| Import errors         | Verify pytest.ini exists + correct paths           |
+| Async test errors     | All marked with `@pytest.mark.asyncio`             |
 
 ---
 
@@ -238,6 +253,7 @@ pytest tests/phase9/ -n auto
 ## 🏁 Success for Week 1
 
 **Gate Criteria**:
+
 - ✅ 50+ tests created (DONE)
 - ⏳ 50+ tests PASSING (run them now)
 - ⏳ Fixtures generated (running now)
@@ -272,6 +288,7 @@ Phase 9 Timeline:
 ## START NOW
 
 **Next Step**: Run this command
+
 ```bash
 python phase9_quickstart.py
 ```

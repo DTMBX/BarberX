@@ -117,12 +117,12 @@ cases_created              # Int: number of cases
 
 **Tier Specifications:**
 
-| Tier           | Price   | Trial     | PDF/month | Video/month | Cases     | Key Features                                        |
-| -------------- | ------- | --------- | --------- | ----------- | --------- | --------------------------------------------------- |
-| **FREE**       | $0      | —         | 1 doc     | ❌ None     | 1         | Web access only                                     |
+| Tier           | Price   | Trial      | PDF/month | Video/month | Cases     | Key Features                                        |
+| -------------- | ------- | ---------- | --------- | ----------- | --------- | --------------------------------------------------- |
+| **FREE**       | $0      | —          | 1 doc     | ❌ None     | 1         | Web access only                                     |
 | **PRO**        | $49/mo  | ✅ 14 days | 10 docs   | 2 hours     | 10        | AI Assistant (Basic), Email support                 |
-| **PREMIUM**    | $249/mo | ❌        | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline, Forensics, Priority support |
-| **ENTERPRISE** | Custom  | ❌        | Unlimited | Unlimited   | Unlimited | Self-hosted, White-label, Dedicated PM, SLA         |
+| **PREMIUM**    | $249/mo | ❌         | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline, Forensics, Priority support |
+| **ENTERPRISE** | Custom  | ❌         | Unlimited | Unlimited   | Unlimited | Self-hosted, White-label, Dedicated PM, SLA         |
 
 **Code Location:** `models_auth.py` - Lines 17-50 (TierLevel enum and tier
 limits)
@@ -373,14 +373,14 @@ Add to `pricing.html`:
 
 ```html
 <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
-   Start 14-Day Free Trial
+  Start 14-Day Free Trial
 </button>
 
 <script>
   async function subscribeToPlan(tier) {
-    const res = await fetch("/api/stripe/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const res = await fetch('/api/stripe/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier }),
     });
     const { url } = await res.json();

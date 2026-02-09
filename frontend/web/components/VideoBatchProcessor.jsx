@@ -1,7 +1,7 @@
 /**
  * VIDEO BATCH PROCESSOR - Web UI Component Library
  * React components for video upload, processing, transcription, and sync
- * 
+ *
  * Architecture: Component-based, state managed, real-time WebSocket
  */
 
@@ -131,7 +131,7 @@ export const FileUploadArea = ({
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
-    
+
     const droppedFiles = Array.from(e.dataTransfer.files).slice(0, maxFiles);
     setFiles(droppedFiles);
     onFilesSelected(droppedFiles);
@@ -167,7 +167,7 @@ export const FileUploadArea = ({
         onChange={handleInputChange}
         style={{ display: 'none' }}
       />
-      
+
       <div style={{ fontSize: '32px', marginBottom: SPACING.md }}>📹</div>
       <h3 style={{ color: COLORS.primary, margin: 0 }}>
         {files.length > 0 ? `${files.length} file(s) selected` : 'Drag & drop videos here'}
@@ -175,7 +175,7 @@ export const FileUploadArea = ({
       <p style={{ color: COLORS.dark, fontSize: '12px', margin: SPACING.sm }}>
         or click to browse (up to {maxFiles} files, .mp4, .mov, .avi)
       </p>
-      
+
       {files.length > 0 && (
         <div style={{ marginTop: SPACING.md, textAlign: 'left' }}>
           {files.map((file, idx) => (
@@ -226,17 +226,11 @@ export const BatchUploadForm = ({ onSubmit }) => {
         boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
       }}
     >
-      <h2 style={{ color: COLORS.primary, marginTop: 0 }}>
-        🎬 Batch Video Upload
-      </h2>
+      <h2 style={{ color: COLORS.primary, marginTop: 0 }}>🎬 Batch Video Upload</h2>
 
       {/* File Upload */}
       <div style={{ marginBottom: SPACING.lg }}>
-        <FileUploadArea
-          onFilesSelected={setFiles}
-          multiple={true}
-          maxFiles={50}
-        />
+        <FileUploadArea onFilesSelected={setFiles} multiple={true} maxFiles={50} />
       </div>
 
       {/* Case ID */}
@@ -288,7 +282,14 @@ export const BatchUploadForm = ({ onSubmit }) => {
       </div>
 
       {/* Options */}
-      <div style={{ marginBottom: SPACING.lg, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.md }}>
+      <div
+        style={{
+          marginBottom: SPACING.lg,
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: SPACING.md,
+        }}
+      >
         <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <input
             type="checkbox"
@@ -359,10 +360,7 @@ export const BatchProgressMonitor = ({ batchId, onClose }) => {
     });
 
     socketRef.current.on('file_processed', (data) => {
-      setFiles((prev) => [
-        ...prev,
-        { id: data.file_id, status: 'complete', ...data },
-      ]);
+      setFiles((prev) => [...prev, { id: data.file_id, status: 'complete', ...data }]);
     });
 
     socketRef.current.on('sync_progress', (data) => {
@@ -378,8 +376,9 @@ export const BatchProgressMonitor = ({ batchId, onClose }) => {
     };
   }, [batchId]);
 
-  const progress = status?.progress ? 
-    (parseInt(status.progress.split(' ')[0]) / parseInt(status.progress.split(' ')[2])) * 100 : 0;
+  const progress = status?.progress
+    ? (parseInt(status.progress.split(' ')[0]) / parseInt(status.progress.split(' ')[2])) * 100
+    : 0;
 
   return (
     <div
@@ -428,13 +427,13 @@ export const BatchProgressMonitor = ({ batchId, onClose }) => {
             marginBottom: SPACING.lg,
           }}
         >
-          <h4 style={{ margin: `0 0 ${SPACING.sm} 0` }}>
-            📹 Multi-Camera Synchronization
-          </h4>
+          <h4 style={{ margin: `0 0 ${SPACING.sm} 0` }}>📹 Multi-Camera Synchronization</h4>
           <div style={{ fontSize: '12px', color: COLORS.dark }}>
             <div>✓ Total Videos: {syncStatus.total_videos}</div>
-            <div>✓ Synced: {syncStatus.synced_videos}/{syncStatus.total_videos}</div>
-            <div>✓ Confidence: {(syncStatus.progress_percent || 0)}%</div>
+            <div>
+              ✓ Synced: {syncStatus.synced_videos}/{syncStatus.total_videos}
+            </div>
+            <div>✓ Confidence: {syncStatus.progress_percent || 0}%</div>
           </div>
         </div>
       )}
@@ -470,7 +469,14 @@ export const BatchProgressMonitor = ({ batchId, onClose }) => {
       </div>
 
       {/* Status */}
-      <div style={{ marginTop: SPACING.lg, padding: SPACING.md, background: COLORS.neutral, borderRadius: '4px' }}>
+      <div
+        style={{
+          marginTop: SPACING.lg,
+          padding: SPACING.md,
+          background: COLORS.neutral,
+          borderRadius: '4px',
+        }}
+      >
         <span style={{ fontWeight: '600' }}>Status: </span>
         <span style={{ color: COLORS.primary }}>
           {status?.status === 'complete' ? '✓ Complete' : '⏳ In Progress'}
@@ -494,7 +500,7 @@ export const TranscriptionViewer = ({ fileId, onClose }) => {
           `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/upload/file/${fileId}/transcription`,
           {
             headers: {
-              'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
+              Authorization: `Bearer ${localStorage.getItem('jwt_token')}`,
             },
           }
         );
@@ -525,7 +531,14 @@ export const TranscriptionViewer = ({ fileId, onClose }) => {
         overflowY: 'auto',
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: SPACING.lg }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: SPACING.lg,
+        }}
+      >
         <h3 style={{ color: COLORS.primary, margin: 0 }}>🎤 Transcription</h3>
         <button
           onClick={onClose}
@@ -558,7 +571,14 @@ export const TranscriptionViewer = ({ fileId, onClose }) => {
       {/* Full Text */}
       <div style={{ marginBottom: SPACING.lg }}>
         <h4>Full Text</h4>
-        <p style={{ lineHeight: '1.6', padding: SPACING.md, background: COLORS.neutral, borderRadius: '4px' }}>
+        <p
+          style={{
+            lineHeight: '1.6',
+            padding: SPACING.md,
+            background: COLORS.neutral,
+            borderRadius: '4px',
+          }}
+        >
           {transcription.full_text}
         </p>
       </div>
@@ -616,7 +636,7 @@ export const VideoBatchProcessor = () => {
         {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
+            Authorization: `Bearer ${localStorage.getItem('jwt_token')}`,
           },
           body: formData,
         }
@@ -653,10 +673,7 @@ export const VideoBatchProcessor = () => {
           {/* Current Progress */}
           {currentBatch && (
             <div>
-              <BatchProgressMonitor
-                batchId={currentBatch}
-                onClose={() => setCurrentBatch(null)}
-              />
+              <BatchProgressMonitor batchId={currentBatch} onClose={() => setCurrentBatch(null)} />
             </div>
           )}
         </div>

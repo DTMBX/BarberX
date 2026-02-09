@@ -1,28 +1,30 @@
 # Evident Pro: Master Implementation Checklist
+
 ## Complete Development Roadmap (12 Weeks)
 
 **Project**: Evident Pro - Modern Legal Workspace Platform  
 **Scope**: Batch PDF processing + AI Chat with Memory + Case Knowledge Transfer + Subscription SaaS  
 **Timeline**: 12 weeks (3 phases)  
-**Team**: 3-4 developers + 2 QA + 1 DevOps  
+**Team**: 3-4 developers + 2 QA + 1 DevOps
 
 ---
 
 ## 📅 Phase Overview
 
-| Phase | Duration | Focus | Deliverable |
-|-------|----------|-------|-------------|
-| **9** | Weeks 1-3 | Testing Suite | 300+ tests, 90%+ coverage |
-| **10** | Weeks 4-7 | FastAPI + Chat | REST API + WebSocket chat |
-| **11** | Weeks 8-10 | Vector DB | Knowledge graphs + transfers |
-| **12** | Weeks 11-12 | DevOps | Docker/K8s, CI/CD, monitoring |
-| **13** | Parallel | UI | React split-window interface |
+| Phase  | Duration    | Focus          | Deliverable                   |
+| ------ | ----------- | -------------- | ----------------------------- |
+| **9**  | Weeks 1-3   | Testing Suite  | 300+ tests, 90%+ coverage     |
+| **10** | Weeks 4-7   | FastAPI + Chat | REST API + WebSocket chat     |
+| **11** | Weeks 8-10  | Vector DB      | Knowledge graphs + transfers  |
+| **12** | Weeks 11-12 | DevOps         | Docker/K8s, CI/CD, monitoring |
+| **13** | Parallel    | UI             | React split-window interface  |
 
 ---
 
 # PHASE 9: TESTING SUITE (Weeks 1-3)
 
 ## Week 1: Setup + Batch PDF Loading
+
 - [ ] Create test directory structure (`tests/phase9/`)
 - [ ] Create `conftest.py` with pytest fixtures
 - [ ] Generate 10 sample legal PDFs (with `reportlab`)
@@ -37,6 +39,7 @@
 - **✅ Gate**: 50+ tests passing, concurrent loading verified
 
 ## Week 2: OCR Extraction + Context
+
 - [ ] Install Tesseract OCR locally (Windows binary)
 - [ ] Implement `OCREngine` tests (60 tests)
   - [ ] Extract from scanned PDF (95%+ accuracy)
@@ -58,6 +61,7 @@
 - **✅ Gate**: 160+ tests passing, OCR accuracy >= 95%, extraction validated
 
 ## Week 3: Knowledge Graph + Integration + Performance
+
 - [ ] Implement `CaseKnowledgeGraphBuilder` tests (45 tests)
   - [ ] Extract entities (PERSON, ORG, DATE, MONEY, LAW)
   - [ ] Build relationships (entity proximity-based)
@@ -82,6 +86,7 @@
 - **✅ Gate**: 300+ tests passing, 90%+ coverage, performance targets met
 
 ## Phase 9 Deliverables
+
 - [x] Test directory structure + conftest.py
 - [x] Batch PDF loading tests (50 tests)
 - [x] OCR extraction tests (60 tests)
@@ -98,6 +103,7 @@
 # PHASE 10: FASTAPI ENDPOINTS + CHAT SYSTEM (Weeks 4-7)
 
 ## Week 4: API Setup + Batch Document Endpoints
+
 - [ ] Setup FastAPI project structure
 - [ ] Create Pydantic request/response models
   - [ ] `BatchDocumentRequest` (file upload, batch config)
@@ -128,6 +134,7 @@
 - **✅ Gate**: All 6 endpoints working, 25 tests passing
 
 ## Week 5: Chat System Foundation
+
 - [ ] Setup database models from `chat_system.py`
   - [ ] Project model (case/workspace container)
   - [ ] Chat model (conversation container)
@@ -151,6 +158,7 @@
 - **✅ Gate**: All services working, 40 tests passing
 
 ## Week 6: Chat API Endpoints + LLM Integration
+
 - [ ] Implement chat endpoints (7 endpoints + 1 WebSocket)
   - [ ] `POST /api/v2/projects/create` (create workspace)
     - Tests: 3 tests
@@ -179,6 +187,7 @@
 - **✅ Gate**: All endpoints working, LLM integrated, 33 tests passing
 
 ## Week 7: Project Management + Integration Testing
+
 - [ ] Implement project management endpoints (5 endpoints)
   - [ ] `POST /api/v2/projects/{id}/upload-documents` (upload PDFs to project)
     - Tests: 5 tests
@@ -204,6 +213,7 @@
 - **✅ Gate**: All features working, integration tests passing, performance targets met
 
 ## Phase 10 Deliverables
+
 - [x] FastAPI application structure
 - [x] Pydantic models for all endpoints
 - [x] 6 batch document endpoints + tests
@@ -222,6 +232,7 @@
 # PHASE 11: VECTOR DB + KNOWLEDGE GRAPHS (Weeks 8-10)
 
 ## Week 8: Vector Database Setup + Knowledge Graph Builder
+
 - [ ] Choose vector DB platform (Pinecone or self-hosted Milvus)
   - [ ] **Pinecone**: Cloud option, managed, $0.25/MCU-hour
   - [ ] **Milvus**: Self-hosted option, free but requires DevOps
@@ -246,6 +257,7 @@
 - **✅ Gate**: Vector DB working, knowledge graphs building, comparisons accurate
 
 ## Week 9: Semantic Search + Case Knowledge Transfer
+
 - [ ] Implement semantic search service
   - [ ] Query embedding (sentence-transformers)
   - [ ] Vector search (Pinecone)
@@ -274,6 +286,7 @@
 - **✅ Gate**: Semantic search < 100 ms, transfers working, tests passing
 
 ## Week 10: Integration + Optimization + Documentation
+
 - [ ] Create end-to-end integration tests (25 tests)
   - [ ] Full user journey: upload → process → chat → transfer
   - [ ] Multi-case workflows
@@ -297,6 +310,7 @@
 - **✅ Gate**: All features working, tests passing, performance optimized
 
 ## Phase 11 Deliverables
+
 - [x] Vector database setup (Pinecone or Milvus)
 - [x] Knowledge graph builder
 - [x] Case-to-case comparison service
@@ -313,6 +327,7 @@
 # PHASE 12: DEVOPS + DEPLOYMENT (Weeks 11-12)
 
 ## Week 11: Containerization + CI/CD
+
 - [ ] Create Docker setup
   - [ ] Dockerfile for FastAPI app
   - [ ] docker-compose.yml (app + database + Redis)
@@ -337,6 +352,7 @@
 - **✅ Gate**: Docker working, CI/CD automated, monitoring active
 
 ## Week 12: Load Testing + Documentation
+
 - [ ] Load testing
   - [ ] Simulate 100 concurrent users
   - [ ] Test batch document upload (10 concurrent, 2,000 documents)
@@ -358,6 +374,7 @@
 - **✅ Gate**: Load testing passed, security audit passed, fully documented
 
 ## Phase 12 Deliverables
+
 - [x] Docker + docker-compose setup
 - [x] Kubernetes manifests
 - [x] CI/CD pipeline (GitHub Actions)
@@ -372,6 +389,7 @@
 # PHASE 13: UI DEVELOPMENT (Parallel with Phases 10-12)
 
 ## Week 4-7: React Component Development
+
 - [ ] Setup React project structure
 - [ ] Create split-window layout component
   - [ ] Left pane: document list + project selector
@@ -401,6 +419,7 @@
 - **✅ Gate**: All components working, tests passing
 
 ## Week 8-12: Integration + Polish
+
 - [ ] Integrate with FastAPI endpoints
 - [ ] Add authentication UI (login/signup)
 - [ ] Create settings page (model selection, API key input for BYOK)
@@ -413,6 +432,7 @@
 - **✅ Gate**: UI production-ready, E2E tests passing
 
 ## Phase 13 Deliverables
+
 - [x] React project setup
 - [x] Split-window layout component
 - [x] Document upload component
@@ -430,6 +450,7 @@
 # BUSINESS DELIVERABLES (Parallel)
 
 ## Pricing Model
+
 - [x] Free tier ($0): 10 PDFs/month, local storage
 - [x] Professional Lite ($29/mo): 50 PDFs/month, 5GB cloud
 - [x] Professional Standard ($59/mo): 200 PDFs/month, case transfers
@@ -439,6 +460,7 @@
 - [x] BYOK ($500/mo): User API keys, unlimited usage
 
 ## Go-to-Market
+
 - [ ] Landing page (pricing, features, FAQs)
 - [ ] Free tier signup flow
 - [ ] Stripe payment integration
@@ -452,6 +474,7 @@
 # SUCCESS METRICS
 
 ## Phase 9 (Testing)
+
 - [ ] ✅ 300+ tests passing
 - [ ] ✅ 90%+ code coverage
 - [ ] ✅ OCR accuracy >= 95%
@@ -459,6 +482,7 @@
 - [ ] ✅ End-to-end < 6 min (25 PDFs)
 
 ## Phase 10 (API)
+
 - [ ] ✅ 6 batch endpoints working
 - [ ] ✅ 7 chat endpoints + WebSocket working
 - [ ] ✅ 5 project endpoints working
@@ -467,12 +491,14 @@
 - [ ] ✅ 120+ tests passing
 
 ## Phase 11 (Vector DB)
+
 - [ ] ✅ Vector DB indexed (1,000+ documents)
 - [ ] ✅ Semantic search < 100 ms
 - [ ] ✅ Case transfer working (85%+ accuracy)
 - [ ] ✅ 80+ tests passing
 
 ## Phase 12 (DevOps)
+
 - [ ] ✅ Docker build succeeds
 - [ ] ✅ Kubernetes deployment works
 - [ ] ✅ CI/CD pipeline automated
@@ -480,6 +506,7 @@
 - [ ] ✅ Response time < 2 sec (95th percentile)
 
 ## Phase 13 (UI)
+
 - [ ] ✅ Split-window layout working
 - [ ] ✅ Document upload works
 - [ ] ✅ Chat real-time works
@@ -491,6 +518,7 @@
 # TEAM + TIMELINE
 
 ## Team Composition
+
 - **Backend Lead** (1): Oversee all phases, architecture, performance
 - **Backend Dev 1** (1): Phases 9-10 (batch processing, APIs)
 - **Backend Dev 2** (1): Phases 10-11 (chat, vector DB)
@@ -500,6 +528,7 @@
 - **DevOps** (1): Phase 12 (Docker, Kubernetes, monitoring)
 
 ## Timeline (12 Weeks)
+
 ```
 Week 1-3:   Phase 9 (Testing)       - 3 devs + 2 QA
 Week 4-7:   Phase 10 (API)          - 2 devs + 1 QA + 1 FE
@@ -514,19 +543,20 @@ Parallel:   Business/Marketing      - Continuous
 
 # RISK MITIGATION
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|-----------|--------|-----------|
-| OCR accuracy < 95% | Medium | High | Fallback engines, preprocessing |
-| API performance > 2 sec | Medium | High | Caching, async processing, CDN |
-| Vector DB costs > $5K/mo | Low | Medium | Self-host Milvus alternative |
-| Team capacity | High | High | Hire QA contractor, pare UI initially |
-| Data privacy concerns | Medium | High | On-premise option, BYOK tier |
+| Risk                     | Likelihood | Impact | Mitigation                            |
+| ------------------------ | ---------- | ------ | ------------------------------------- |
+| OCR accuracy < 95%       | Medium     | High   | Fallback engines, preprocessing       |
+| API performance > 2 sec  | Medium     | High   | Caching, async processing, CDN        |
+| Vector DB costs > $5K/mo | Low        | Medium | Self-host Milvus alternative          |
+| Team capacity            | High       | High   | Hire QA contractor, pare UI initially |
+| Data privacy concerns    | Medium     | High   | On-premise option, BYOK tier          |
 
 ---
 
 # GETTING STARTED NOW
 
 **Start Phase 9 this week**:
+
 ```bash
 cd c:\web-dev\github-repos\Evident
 mkdir -p tests/phase9/{unit/batch_processing,integration,fixtures}
@@ -534,6 +564,7 @@ mkdir -p tests/phase9/{unit/batch_processing,integration,fixtures}
 ```
 
 **All specifications ready**:
+
 - ✅ PHASE_9_10_11_ENHANCED_PLAN.md (technical specs)
 - ✅ BUSINESS_MODEL_PRICING_TIERS.md (business model)
 - ✅ IMPLEMENTATION_SUMMARY.md (overview)
@@ -548,4 +579,3 @@ mkdir -p tests/phase9/{unit/batch_processing,integration,fixtures}
 **Status**: ✅ Ready to start development immediately.  
 **Action**: Begin Phase 9 testing suite this week.  
 **Timeline**: 12-week delivery to production.
-

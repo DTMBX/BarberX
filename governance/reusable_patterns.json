@@ -2,11 +2,7 @@
   {
     "id": "pattern_0",
     "name": "ProgressMonitor",
-    "platforms": [
-      "web",
-      "mobile",
-      "windows"
-    ],
+    "platforms": ["web", "mobile", "windows"],
     "description": "Consistent pattern for displaying batch processing progress with real-time updates",
     "component_examples": [
       "web:BatchProgressMonitor",
@@ -20,11 +16,7 @@
   {
     "id": "pattern_1",
     "name": "FileUploadForm",
-    "platforms": [
-      "web",
-      "mobile",
-      "windows"
-    ],
+    "platforms": ["web", "mobile", "windows"],
     "description": "Unified pattern for video file upload with quality/option selection",
     "component_examples": [
       "web:FileUploadArea+BatchUploadForm",
@@ -38,11 +30,7 @@
   {
     "id": "pattern_2",
     "name": "DesignTokenizedUI",
-    "platforms": [
-      "web",
-      "mobile",
-      "windows"
-    ],
+    "platforms": ["web", "mobile", "windows"],
     "description": "Consistent design system using centralized color, spacing, typography tokens",
     "component_examples": [
       "web:COLORS/SPACING/FONTS",

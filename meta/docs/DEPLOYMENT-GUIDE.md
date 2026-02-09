@@ -330,7 +330,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: '10.0.x'
 
       - name: Restore dependencies
         run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
@@ -363,7 +363,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: '10.0.x'
 
       - name: Install provisioning profile
         run: |
@@ -406,7 +406,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
@@ -441,7 +441,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "9.0.x"
+          dotnet-version: '9.0.x'
 
       - name: Restore dependencies
         run: dotnet restore src/Evident.Web/Evident.Web.csproj

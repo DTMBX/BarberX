@@ -1,5 +1,5 @@
 ---
-title: "Evident Chat Tools Complete Reference"
+title: 'Evident Chat Tools Complete Reference'
 date: 2026-02-08
 ---
 
@@ -20,6 +20,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Search Supreme Court cases, founding documents, amendments, and precedents
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -35,7 +36,14 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
         },
         "category": {
           "type": "string",
-          "enum": ["supreme_court", "founding_documents", "amendments", "bill_of_rights", "precedent", "all"],
+          "enum": [
+            "supreme_court",
+            "founding_documents",
+            "amendments",
+            "bill_of_rights",
+            "precedent",
+            "all"
+          ],
           "description": "Document category to search in"
         },
         "limit": {
@@ -63,6 +71,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Backend Connection**: `auth/legal_library_service.py::LegalLibraryService.search_documents()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -89,6 +98,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Retrieve complete details for a specific Supreme Court case
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -114,6 +124,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Backend Connection**: `auth/legal_library_models.py::LegalDocument.query.get()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -147,6 +158,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Advanced case search with multiple filters (justices, dates, topics)
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -174,7 +186,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
         },
         "topics": {
           "type": "array",
-          "items": {"type": "string"},
+          "items": { "type": "string" },
           "description": "Legal topics to filter by (e.g., ['First Amendment', 'Equal Protection'])"
         }
       },
@@ -187,6 +199,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Implementation**: `services/tool_implementations.py::ToolExecutors.search_cases()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -214,6 +227,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Retrieve case management details (status, dates, parties, files)
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -239,6 +253,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Backend Connection**: `auth/models.py::LegalCase`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -267,6 +282,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Retrieve evidence items for a case with filtering
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -302,6 +318,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Backend Connection**: `auth/models.py::EvidenceItem`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -330,6 +347,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Full-text search across evidence items
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -365,6 +383,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Implementation**: `services/tool_implementations.py::ToolExecutors.search_evidence()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -388,6 +407,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Determine if evidence is privileged (attorney-client, work product, etc.)
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -411,6 +431,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Implementation**: `services/tool_implementations.py::ToolExecutors.check_privilege()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -431,6 +452,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Initiate media file upload and processing (transcription, OCR, analysis)
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -465,6 +487,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Backend Connection**: `services/media_processor.py`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -484,6 +507,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Check status of media processing jobs (transcription, OCR, etc.)
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -507,6 +531,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Implementation**: `services/tool_implementations.py::ToolExecutors.get_media_processing_status()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -532,6 +557,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Analyze documents for privilege, redaction needs, relevance, entities, sentiment
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -560,6 +586,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Implementation**: `services/tool_implementations.py::ToolExecutors.analyze_document()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -597,6 +624,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Create collections to organize and group related documents
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -630,6 +658,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Backend Connection**: `auth/legal_library_models.py::DocumentCollection`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -648,6 +677,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Purpose**: Get statistics about legal library, cases, evidence, media processing
 
 **Definition**:
+
 ```json
 {
   "type": "function",
@@ -672,6 +702,7 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 **Implementation**: `services/tool_implementations.py::ToolExecutors.get_statistics()`
 
 **Returns**:
+
 ```json
 {
   "status": "success",
@@ -700,20 +731,20 @@ All 12 tools are fully implemented and integrated with backend services. Tools a
 
 ## Tool Implementation Status
 
-| # | Tool | Status | Backend | Government Source |
-|---|------|--------|---------|-------------------|
-| 1 | search_legal_documents | ✅ Complete | LegalLibraryService | Archives.gov |
-| 2 | get_case_details | ✅ Complete | LegalDocument | Supreme Court |
-| 3 | search_cases | ✅ Complete | LegalLibraryService | Congress.gov |
-| 4 | get_case_management_info | ✅ Complete | LegalCase | Case DB |
-| 5 | get_evidence_items | ✅ Complete | EvidenceItem | Evidence DB |
-| 6 | search_evidence | ✅ Complete | EvidenceItem | Evidence DB |
-| 7 | check_privilege | ✅ Complete | EvidenceItem | Privilege DB |
-| 8 | upload_media | ✅ Complete | MediaProcessor | Media Service |
-| 9 | get_media_processing_status | ✅ Complete | MediaProcessor | Media Service |
-| 10 | analyze_document | ✅ Complete | Document Analysis | Analysis Engine |
-| 11 | create_case_collection | ✅ Complete | DocumentCollection | Collection DB |
-| 12 | get_statistics | ✅ Complete | Statistics Engine | Various |
+| #   | Tool                        | Status      | Backend             | Government Source |
+| --- | --------------------------- | ----------- | ------------------- | ----------------- |
+| 1   | search_legal_documents      | ✅ Complete | LegalLibraryService | Archives.gov      |
+| 2   | get_case_details            | ✅ Complete | LegalDocument       | Supreme Court     |
+| 3   | search_cases                | ✅ Complete | LegalLibraryService | Congress.gov      |
+| 4   | get_case_management_info    | ✅ Complete | LegalCase           | Case DB           |
+| 5   | get_evidence_items          | ✅ Complete | EvidenceItem        | Evidence DB       |
+| 6   | search_evidence             | ✅ Complete | EvidenceItem        | Evidence DB       |
+| 7   | check_privilege             | ✅ Complete | EvidenceItem        | Privilege DB      |
+| 8   | upload_media                | ✅ Complete | MediaProcessor      | Media Service     |
+| 9   | get_media_processing_status | ✅ Complete | MediaProcessor      | Media Service     |
+| 10  | analyze_document            | ✅ Complete | Document Analysis   | Analysis Engine   |
+| 11  | create_case_collection      | ✅ Complete | DocumentCollection  | Collection DB     |
+| 12  | get_statistics              | ✅ Complete | Statistics Engine   | Various           |
 
 ---
 
@@ -747,20 +778,20 @@ POST /api/chat/messages {
 
 ### Tool Execution Times (Average)
 
-| Tool | Execution Time | Notes |
-|------|---|---|
-| search_legal_documents | 200-500ms | Depends on result count |
-| get_case_details | 100ms | Single database query |
-| search_cases | 300-800ms | Multiple filters applied |
-| get_case_management_info | 150ms | Single query + relationships |
-| get_evidence_items | 200-400ms | Can be many items |
-| search_evidence | 400-1000ms | Full-text search |
-| check_privilege | 100ms | Single record lookup |
-| upload_media | 50ms | Queue job creation |
-| get_media_processing_status | 100ms | Job status lookup |
-| analyze_document | 500ms-2s | Depends on analysis type |
-| create_case_collection | 150ms | Create record + index |
-| get_statistics | 300-500ms | Aggregation queries |
+| Tool                        | Execution Time | Notes                        |
+| --------------------------- | -------------- | ---------------------------- |
+| search_legal_documents      | 200-500ms      | Depends on result count      |
+| get_case_details            | 100ms          | Single database query        |
+| search_cases                | 300-800ms      | Multiple filters applied     |
+| get_case_management_info    | 150ms          | Single query + relationships |
+| get_evidence_items          | 200-400ms      | Can be many items            |
+| search_evidence             | 400-1000ms     | Full-text search             |
+| check_privilege             | 100ms          | Single record lookup         |
+| upload_media                | 50ms           | Queue job creation           |
+| get_media_processing_status | 100ms          | Job status lookup            |
+| analyze_document            | 500ms-2s       | Depends on analysis type     |
+| create_case_collection      | 150ms          | Create record + index        |
+| get_statistics              | 300-500ms      | Aggregation queries          |
 
 ---
 
@@ -785,16 +816,16 @@ def search_legal_documents(query, category="all", limit=10, year_from=None, year
     # Validate query
     if not query or not isinstance(query, str):
         return {"status": "error", "message": "Query must be a non-empty string"}
-    
+
     # Validate category
     valid_categories = ["supreme_court", "founding_documents", "amendments", "bill_of_rights", "precedent", "all"]
     if category not in valid_categories:
         return {"status": "error", "message": f"Category must be one of: {valid_categories}"}
-    
+
     # Validate limit
     if limit < 1 or limit > 50:
         return {"status": "error", "message": "Limit must be between 1 and 50"}
-    
+
     # Execute tool...
 ```
 
@@ -824,7 +855,7 @@ def test_search_legal_documents():
         "category": "supreme_court",
         "limit": 10
     })
-    
+
     assert result["status"] == "success"
     assert len(result["documents"]) > 0
     assert "id" in result["documents"][0]

@@ -1,7 +1,7 @@
 /**
  * Theme.js – Modern, flexible theme system
  * Evident Technologies
- * 
+ *
  * Features:
  * - Light/dark mode toggle
  * - Persistent user preference (localStorage)
@@ -14,7 +14,7 @@ class ThemeManager {
     this.storageKey = 'evident-theme';
     this.htmlElement = document.documentElement;
     this.prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    
+
     this.init();
   }
 
@@ -43,7 +43,7 @@ class ThemeManager {
     const isDark = theme === 'dark';
     this.htmlElement.style.colorScheme = theme;
     localStorage.setItem(this.storageKey, theme);
-    
+
     // Dispatch custom event for other scripts to listen to
     window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
   }
@@ -84,7 +84,7 @@ class ThemeManager {
     `;
 
     btn.addEventListener('click', () => this.toggleTheme());
-    
+
     // Insert before the mobile nav button
     const mobileBtn = document.getElementById('mobile-nav-btn');
     if (mobileBtn) {

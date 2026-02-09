@@ -10,6 +10,7 @@
 ## EXECUTIVE SUMMARY
 
 Evident Technologies has a **strong foundation** in evidence processing capabilities with professional-grade implementations for:
+
 - SHA-256 hashing and chain of custody tracking
 - Audio transcription (OpenAI Whisper) and speaker diarization (PyAnnote)
 - Metadata extraction via ffprobe
@@ -17,6 +18,7 @@ Evident Technologies has a **strong foundation** in evidence processing capabili
 - Court-ready exhibit generation
 
 **Critical gaps** requiring hardening:
+
 1. **Media proxy generation**: No h.264 proxy transcoding for fast UI playback
 2. **SBOM tracking**: No Software Bill of Materials for supply-chain transparency
 3. **Metadata extraction**: Limited EXIF/XMP support; ffprobe used via subprocess
@@ -27,6 +29,7 @@ Evident Technologies has a **strong foundation** in evidence processing capabili
 **Recommended approach**: Incremental hardening with **mature, widely-adopted OSS tools** prioritizing license compatibility (MIT/BSD/Apache-2.0), active maintenance, and court-defensible provenance.
 
 **Key recommendations** (12 high-assurance components):
+
 - **Media processing**: FFmpeg (LGPL-2.1+), MediaInfo (BSD-2-Clause), ExifTool (Perl Artistic + GPL-1.0)
 - **SBOM generation**: CycloneDX Python library (Apache-2.0)
 - **Vulnerability scanning**: pip-audit (Apache-2.0), OSV-Scanner (Apache-2.0)
@@ -40,28 +43,29 @@ All recommendations **reject** proprietary tools, spyware, or "military-grade" c
 
 ## GAP ANALYSIS TABLE
 
-| Feature | Current Status | Risk Level | Proposed OSS Options |
-|---------|---------------|------------|---------------------|
-| **SHA-256 Hashing** | ✅ Implemented | ✅ Low | Continue using Python hashlib (built-in) |
-| **Chain of Custody** | ✅ Implemented | ✅ Low | Enhance with append-only audit log (SQLite WAL mode) |
-| **Audio Transcription** | ✅ Whisper integrated | ⚠️ Medium | Add fallback: Vosk (Apache-2.0) for offline/air-gapped |
-| **Speaker Diarization** | ✅ PyAnnote integrated | ✅ Low | Continue; consider SpeechBrain (Apache-2.0) as backup |
-| **Metadata Extraction** | ⚠️ Partial (ffprobe) | ⚠️ Medium | Add: MediaInfo (BSD-2), ExifTool (Perl Artistic/GPL-1) |
-| **Video Proxy Generation** | ❌ Missing | 🔴 High | Add: FFmpeg with h.264/AAC presets (LGPL-2.1+) |
-| **Thumbnail Generation** | ❌ Missing | ⚠️ Medium | Add: FFmpeg frame extraction |
-| **Waveform Visualization** | ❌ Missing | 🟡 Low | Add: LibROSA (already installed) + matplotlib |
-| **SBOM Generation** | ❌ Missing | 🔴 High | Add: CycloneDX (Apache-2.0) |
-| **Vulnerability Scanning** | ❌ Missing | 🔴 High | Add: pip-audit + OSV-Scanner (both Apache-2.0) |
-| **Export ZIP Packaging** | ⚠️ Partial | ⚠️ Medium | Add: Python zipfile + structured folders |
-| **Manifest Validation** | ⚠️ Partial | ⚠️ Medium | Add: JSON Schema validation (MIT) |
-| **Full-Text Search** | ❌ Missing | 🟡 Low | Add: Whoosh (BSD-2) or Meilisearch (MIT) |
-| **Document OCR** | ✅ PyTesseract | ✅ Low | Continue; ensure Tesseract binary installed |
-| **PDF Processing** | ✅ pypdf + pdfplumber | ✅ Low | Continue; pypdf replaces deprecated PyPDF2 |
-| **Redaction Assist** | ❌ Missing | 🟡 Low | Add: OpenCV blur/pixelate (BSD-3) + ffmpeg mute |
-| **Quality Metrics** | ❌ Missing | 🟡 Low | Add: ffmpeg-quality-metrics (MIT) |
-| **Streaming Transcription** | ❌ Missing | 🟡 Low | Future: Whisper.cpp (MIT) for real-time |
+| Feature                     | Current Status         | Risk Level | Proposed OSS Options                                   |
+| --------------------------- | ---------------------- | ---------- | ------------------------------------------------------ |
+| **SHA-256 Hashing**         | ✅ Implemented         | ✅ Low     | Continue using Python hashlib (built-in)               |
+| **Chain of Custody**        | ✅ Implemented         | ✅ Low     | Enhance with append-only audit log (SQLite WAL mode)   |
+| **Audio Transcription**     | ✅ Whisper integrated  | ⚠️ Medium  | Add fallback: Vosk (Apache-2.0) for offline/air-gapped |
+| **Speaker Diarization**     | ✅ PyAnnote integrated | ✅ Low     | Continue; consider SpeechBrain (Apache-2.0) as backup  |
+| **Metadata Extraction**     | ⚠️ Partial (ffprobe)   | ⚠️ Medium  | Add: MediaInfo (BSD-2), ExifTool (Perl Artistic/GPL-1) |
+| **Video Proxy Generation**  | ❌ Missing             | 🔴 High    | Add: FFmpeg with h.264/AAC presets (LGPL-2.1+)         |
+| **Thumbnail Generation**    | ❌ Missing             | ⚠️ Medium  | Add: FFmpeg frame extraction                           |
+| **Waveform Visualization**  | ❌ Missing             | 🟡 Low     | Add: LibROSA (already installed) + matplotlib          |
+| **SBOM Generation**         | ❌ Missing             | 🔴 High    | Add: CycloneDX (Apache-2.0)                            |
+| **Vulnerability Scanning**  | ❌ Missing             | 🔴 High    | Add: pip-audit + OSV-Scanner (both Apache-2.0)         |
+| **Export ZIP Packaging**    | ⚠️ Partial             | ⚠️ Medium  | Add: Python zipfile + structured folders               |
+| **Manifest Validation**     | ⚠️ Partial             | ⚠️ Medium  | Add: JSON Schema validation (MIT)                      |
+| **Full-Text Search**        | ❌ Missing             | 🟡 Low     | Add: Whoosh (BSD-2) or Meilisearch (MIT)               |
+| **Document OCR**            | ✅ PyTesseract         | ✅ Low     | Continue; ensure Tesseract binary installed            |
+| **PDF Processing**          | ✅ pypdf + pdfplumber  | ✅ Low     | Continue; pypdf replaces deprecated PyPDF2             |
+| **Redaction Assist**        | ❌ Missing             | 🟡 Low     | Add: OpenCV blur/pixelate (BSD-3) + ffmpeg mute        |
+| **Quality Metrics**         | ❌ Missing             | 🟡 Low     | Add: ffmpeg-quality-metrics (MIT)                      |
+| **Streaming Transcription** | ❌ Missing             | 🟡 Low     | Future: Whisper.cpp (MIT) for real-time                |
 
 **Risk Legend:**
+
 - ✅ Low: Well-implemented or low priority
 - ⚠️ Medium: Needs improvement or backup plan
 - 🔴 High: Critical gap affecting security, compliance, or core workflow
@@ -81,12 +85,14 @@ All recommendations **reject** proprietary tools, spyware, or "military-grade" c
 **Integration**: Backend worker (subprocess + python-ffmpeg wrapper)
 
 **Why Safer**:
+
 - Most widely audited media processing tool (used by YouTube, Netflix, courts worldwide)
 - LGPL allows dynamic linking; no code disclosure obligation
 - Better than: proprietary transcoders (vendor lock-in), handwritten codecs (security risk)
 - Alternatives like GStreamer (LGPL) or libav (abandoned) lack ecosystem maturity
 
 **Installation**:
+
 ```bash
 # Ubuntu
 apt-get install ffmpeg ffprobe
@@ -96,6 +102,7 @@ pip install ffmpeg-python==0.2.0
 ```
 
 **Usage in Evident**:
+
 ```python
 # Generate h.264 proxy (fast playback)
 import ffmpeg
@@ -127,12 +134,14 @@ ffmpeg.input('evidence.mp4', ss='00:00:10').output(
 **Integration**: Backend worker (Python pymediainfo wrapper)
 
 **Why Safer**:
+
 - Pure metadata reader; no codec execution (unlike ffprobe which loads decoder)
 - Smaller attack surface than FFmpeg for metadata-only tasks
 - Better than: ffprobe alone (limited output), exiftool (Perl dependency), custom parsing (reinventing wheel)
 - Widely used in digital forensics and archival systems
 
 **Installation**:
+
 ```bash
 # Ubuntu
 apt-get install libmediainfo-dev
@@ -142,6 +151,7 @@ pip install pymediainfo==6.1.0
 ```
 
 **Usage in Evident**:
+
 ```python
 from pymediainfo import MediaInfo
 
@@ -167,12 +177,14 @@ for track in media_info.tracks:
 **Integration**: Backend worker (subprocess via PyExifTool)
 
 **Why Safer**:
+
 - Gold standard for EXIF extraction; used by forensic examiners and courts
 - More comprehensive than Pillow.Image.getexif() (limited tag support)
 - Better than: custom EXIF parsers (security bugs), online services (privacy risk)
 - Dual license allows choosing non-copyleft Artistic License
 
 **Installation**:
+
 ```bash
 # Ubuntu
 apt-get install libimage-exiftool-perl
@@ -182,6 +194,7 @@ pip install PyExifTool==0.5.6
 ```
 
 **Usage in Evident**:
+
 ```python
 import exiftool
 
@@ -206,16 +219,19 @@ with exiftool.ExifToolHelper() as et:
 **Integration**: CI/CD pipeline + backend scripts
 
 **Why Safer**:
+
 - OWASP standard for SBOM; interoperable with security tools
 - Better than: SPDX (less tooling), custom JSON (non-standard), no SBOM (blind to supply chain)
 - Enables automated vulnerability tracking via SBOM ingestion
 
 **Installation**:
+
 ```bash
 pip install cyclonedx-bom==4.6.4
 ```
 
 **Usage in Evident**:
+
 ```bash
 # Generate SBOM from requirements.txt
 cyclonedx-py requirements \
@@ -238,16 +254,19 @@ cyclonedx-py requirements \
 **Integration**: CI/CD pre-commit hooks + scheduled scans
 
 **Why Safer**:
+
 - Official PyPA tool; same team as pip/setuptools
 - Better than: Safety (proprietary DB), Snyk (commercial), manual CVE tracking (error-prone)
 - Works offline (important for air-gapped environments)
 
 **Installation**:
+
 ```bash
 pip install pip-audit==2.7.3
 ```
 
 **Usage in Evident**:
+
 ```bash
 # Scan all installed packages
 pip-audit
@@ -273,11 +292,13 @@ pip-audit --strict
 **Integration**: CI/CD pipeline (runs on lockfiles)
 
 **Why Safer**:
+
 - Multi-ecosystem support (Python + JavaScript worker)
 - Better than: language-specific scanners (partial coverage), commercial tools (cost)
 - Open database; no vendor lock-in
 
 **Installation**:
+
 ```bash
 # Ubuntu
 wget https://github.com/google/osv-scanner/releases/download/v1.9.1/osv-scanner_linux_amd64
@@ -286,6 +307,7 @@ mv osv-scanner_linux_amd64 /usr/local/bin/osv-scanner
 ```
 
 **Usage in Evident**:
+
 ```bash
 # Scan entire repository
 osv-scanner --lockfile=backend/requirements.txt --lockfile=package-lock.json
@@ -308,16 +330,19 @@ osv-scanner --format json > governance/osv-scan.json
 **Integration**: Backend API (search endpoints)
 
 **Why Safer**:
+
 - Pure Python; no JVM or native dependencies (unlike Elasticsearch, Lucene)
 - Better than: Elasticsearch (heavyweight, resource-intensive), PostgreSQL FTS (limited ranking), no search (poor UX)
 - Sufficient for <1M documents; upgrade to Meilisearch if scale requires
 
 **Installation**:
+
 ```bash
 pip install Whoosh==2.7.4
 ```
 
 **Usage in Evident**:
+
 ```python
 from whoosh import index
 from whoosh.fields import Schema, TEXT, ID
@@ -362,16 +387,19 @@ results = searcher.search(query)
 **Integration**: Backend worker (post-transcode validation)
 
 **Why Safer**:
+
 - Validates proxy quality matches original (detect transcode errors)
 - Better than: no validation (broken proxies), custom metrics (unvalidated)
 - Uses industry-standard VMAF (Netflix-developed quality metric)
 
 **Installation**:
+
 ```bash
 pip install ffmpeg-quality-metrics==2.0.1
 ```
 
 **Usage in Evident**:
+
 ```python
 from ffmpeg_quality_metrics import FfmpegQualityMetrics
 
@@ -394,16 +422,19 @@ print(f"VMAF score: {result['vmaf']['mean']}")  # >95 is excellent
 **Integration**: Backend API (manifest import/export)
 
 **Why Safer**:
+
 - Prevents malformed manifests (missing hashes, invalid timestamps)
 - Better than: no validation (garbage in/out), custom validation (bugs)
 - JSON Schema is ISO/IEC standard (draft-07)
 
 **Installation**:
+
 ```bash
 pip install jsonschema==4.23.0
 ```
 
 **Usage in Evident**:
+
 ```python
 import jsonschema
 
@@ -435,11 +466,13 @@ jsonschema.validate(manifest_data, manifest_schema)
 **Integration**: Backend worker (fallback when Whisper unavailable)
 
 **Why Safer**:
+
 - Runs locally; no cloud dependency (Whisper requires GPU or API)
 - Better than: Google Speech API (privacy risk), proprietary engines (vendor lock-in)
 - Smaller models (50MB-2GB) vs Whisper (1.5GB-10GB)
 
 **Installation**:
+
 ```bash
 pip install vosk==0.3.45
 
@@ -449,6 +482,7 @@ unzip vosk-model-en-us-0.22.zip
 ```
 
 **Usage in Evident**:
+
 ```python
 from vosk import Model, KaldiRecognizer
 import wave
@@ -479,16 +513,19 @@ while True:
 **Integration**: Backend worker (alternative to PyAnnote)
 
 **Why Safer**:
+
 - Apache license (vs PyAnnote's MIT + model license ambiguity)
 - Better than: custom diarization (complex), cloud APIs (privacy risk)
 - Newer architecture; actively developed by academic lab
 
 **Installation**:
+
 ```bash
 pip install speechbrain==1.0.4
 ```
 
 **Usage in Evident**:
+
 ```python
 from speechbrain.pretrained import SpeakerRecognition
 
@@ -512,11 +549,13 @@ score, prediction = verification.verify_files("audio1.wav", "audio2.wav")
 **Integration**: Already integrated via Flask
 
 **Why Safer**:
+
 - Already required by Flask; no new dependency
 - Prevents path traversal attacks (CVE-2026-21860 fix verified)
 - Better than: raw file handling (security bugs), custom upload handlers (reinventing wheel)
 
 **Usage in Evident** (already implemented):
+
 ```python
 from werkzeug.utils import secure_filename
 
@@ -533,21 +572,22 @@ file.save(os.path.join(UPLOAD_FOLDER, filename))
 
 ### **License Compatibility Matrix**
 
-| License Type | Status | Condition | Examples |
-|-------------|--------|-----------|----------|
-| **MIT** | ✅ Approved | Permissive; no obligations | jsonschema, Whoosh alternatives, Vosk alternative |
-| **BSD-2/BSD-3** | ✅ Approved | Permissive; attribution only | MediaInfo, Whoosh, Werkzeug |
-| **Apache-2.0** | ✅ Approved | Permissive; patent grant | CycloneDX, pip-audit, OSV-Scanner, Vosk, SpeechBrain |
-| **LGPL-2.1+** | ⚠️ Review Required | Dynamic linking OK; no code disclosure | FFmpeg (OK as subprocess/dynamic lib) |
+| License Type        | Status             | Condition                                   | Examples                                                     |
+| ------------------- | ------------------ | ------------------------------------------- | ------------------------------------------------------------ |
+| **MIT**             | ✅ Approved        | Permissive; no obligations                  | jsonschema, Whoosh alternatives, Vosk alternative            |
+| **BSD-2/BSD-3**     | ✅ Approved        | Permissive; attribution only                | MediaInfo, Whoosh, Werkzeug                                  |
+| **Apache-2.0**      | ✅ Approved        | Permissive; patent grant                    | CycloneDX, pip-audit, OSV-Scanner, Vosk, SpeechBrain         |
+| **LGPL-2.1+**       | ⚠️ Review Required | Dynamic linking OK; no code disclosure      | FFmpeg (OK as subprocess/dynamic lib)                        |
 | **GPL-1.0/2.0/3.0** | ⚠️ Review Required | Copyleft; distribution triggers obligations | ExifTool (use Artistic License), FFmpeg GPL codecs (disable) |
-| **Perl Artistic** | ✅ Approved (dual) | Choose over GPL option | ExifTool (dual-licensed) |
-| **Proprietary** | ❌ Rejected | No source code; vendor lock-in | All commercial tools excluded |
+| **Perl Artistic**   | ✅ Approved (dual) | Choose over GPL option                      | ExifTool (dual-licensed)                                     |
+| **Proprietary**     | ❌ Rejected        | No source code; vendor lock-in              | All commercial tools excluded                                |
 
 ### **Supply-Chain Requirements (Mandatory)**
 
 All dependencies MUST satisfy:
 
 1. **Version Pinning**
+
    ```bash
    # requirements.txt MUST use exact versions
    ffmpeg-python==0.2.0  # ✅ Good
@@ -555,26 +595,31 @@ All dependencies MUST satisfy:
    ```
 
 2. **Hash Locking** (pip-tools or Poetry)
+
    ```bash
    pip-compile --generate-hashes --output-file=requirements-lock.txt requirements.txt
    pip install --require-hashes -r requirements-lock.txt
    ```
 
 3. **SBOM Generation**
+
    ```bash
    cyclonedx-py requirements backend/requirements.txt \
        --output governance/sbom-backend.json
    ```
 
 4. **Vulnerability Scanning (CI/CD)**
+
    ```bash
    pip-audit --strict  # Fail build on HIGH/CRITICAL
    osv-scanner --lockfile=requirements.txt
    ```
 
 5. **Provenance Documentation** (`governance/DEPENDENCIES.md`)
+
    ```markdown
    ## ffmpeg-python 0.2.0
+
    - License: Apache-2.0
    - Source: https://github.com/kkroening/ffmpeg-python
    - SHA-256: <hash>
@@ -643,12 +688,15 @@ FFmpeg uses **LGPL-2.1-or-later** (core libraries). Compliance:
 **Goal**: Harden supply chain and add SBOM tracking.
 
 #### Tasks:
+
 1. **Create `governance/` directory**
+
    ```bash
    mkdir -p governance
    ```
 
 2. **Generate SBOM**
+
    ```bash
    pip install cyclonedx-bom==4.6.4
    cyclonedx-py requirements backend/requirements.txt \
@@ -656,6 +704,7 @@ FFmpeg uses **LGPL-2.1-or-later** (core libraries). Compliance:
    ```
 
 3. **Add vulnerability scanning to CI/CD**
+
    ```yaml
    # .github/workflows/security-scan.yml
    name: Security Scan
@@ -688,12 +737,14 @@ FFmpeg uses **LGPL-2.1-or-later** (core libraries). Compliance:
    ```
 
 #### Acceptance Criteria:
+
 - ✅ SBOM exists in `governance/sbom-backend.json`
 - ✅ CI/CD fails on HIGH/CRITICAL vulnerabilities
 - ✅ `governance/DEPENDENCIES.md` documents all 30+ dependencies
 - ✅ `requirements-lock.txt` uses `--hash` for all packages
 
 #### How to Measure:
+
 ```bash
 # Verify SBOM
 jq '.components | length' governance/sbom-backend.json  # Should match dependency count
@@ -712,11 +763,13 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
 **Goal**: Add media proxy generation, metadata extraction, and quality validation.
 
 #### Tasks:
+
 1. **Install FFmpeg + wrappers**
+
    ```bash
    # Dockerfile
    RUN apt-get update && apt-get install -y ffmpeg libmediainfo-dev
-   
+
    # requirements.txt
    ffmpeg-python==0.2.0
    pymediainfo==6.1.0
@@ -724,10 +777,11 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
    ```
 
 2. **Create `backend/src/media_processor.py`**
+
    ```python
    import ffmpeg
    from pymediainfo import MediaInfo
-   
+
    class MediaProcessor:
        def generate_proxy(self, input_path, output_path):
            """Generate h.264 proxy for fast playback"""
@@ -739,7 +793,7 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
                preset='medium',
                movflags='faststart'  # Web-optimized
            ).run(overwrite_output=True)
-       
+
        def extract_metadata(self, input_path):
            """Extract comprehensive metadata"""
            media_info = MediaInfo.parse(input_path)
@@ -757,7 +811,7 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
                    for t in media_info.tracks
                ]
            }
-       
+
        def generate_thumbnail(self, input_path, output_path, timestamp='00:00:10'):
            """Extract thumbnail frame"""
            ffmpeg.input(input_path, ss=timestamp).output(
@@ -766,11 +820,12 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
    ```
 
 3. **Update `evidence_processing.py`** to use `MediaProcessor`
+
    ```python
    from src.media_processor import MediaProcessor
-   
+
    processor = MediaProcessor()
-   
+
    # In create_evidence_package():
    if evidence_data['evidence_type'] in ['bwc_video', 'dashcam', 'cctv']:
        metadata = processor.extract_metadata(evidence_data['file_path'])
@@ -779,29 +834,31 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
    ```
 
 4. **Add proxy validation**
+
    ```python
    from ffmpeg_quality_metrics import FfmpegQualityMetrics
-   
+
    def validate_proxy(original_path, proxy_path):
        metrics = FfmpegQualityMetrics(original_path, proxy_path)
        result = metrics.calculate(['vmaf'])
        vmaf_score = result['vmaf']['mean']
-       
+
        if vmaf_score < 95:
            logger.warning(f"Proxy quality low: VMAF {vmaf_score}")
-       
+
        return vmaf_score
    ```
 
 5. **Add ExifTool for images**
+
    ```bash
    apt-get install libimage-exiftool-perl
    pip install PyExifTool==0.5.6
    ```
-   
+
    ```python
    import exiftool
-   
+
    def extract_exif(image_path):
        with exiftool.ExifToolHelper() as et:
            metadata = et.get_metadata([image_path])[0]
@@ -816,29 +873,30 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
    ```
 
 6. **Create `backend/src/export_packager.py`**
-   ```python
+
+   ````python
    import zipfile
    import json
    from datetime import datetime
-   
+
    class ExportPackager:
        def create_export_package(self, evidence_package, export_path):
            """Create ZIP export with manifest"""
            with zipfile.ZipFile(export_path, 'w', zipfile.ZIP_DEFLATED) as zf:
                # Add evidence file
-               zf.write(evidence_package['file_path'], 
+               zf.write(evidence_package['file_path'],
                        arcname=f"evidence/{evidence_package['filename']}")
-               
+
                # Add proxy
                if evidence_package.get('proxy_path'):
                    zf.write(evidence_package['proxy_path'],
                            arcname=f"proxies/{evidence_package['filename']}")
-               
+
                # Add transcript
                if evidence_package.get('transcript_path'):
                    zf.write(evidence_package['transcript_path'],
                            arcname=f"transcripts/{evidence_package['filename']}.txt")
-               
+
                # Add manifest
                manifest = {
                    'evidence_id': evidence_package['id'],
@@ -854,26 +912,30 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
                    'chain_of_custody': evidence_package['chain_of_custody']
                }
                zf.writestr('MANIFEST.json', json.dumps(manifest, indent=2))
-               
+
                # Add README
                readme = f"""# Evidence Export Package
-   
+
    Case Number: {evidence_package['case_number']}
    Evidence ID: {evidence_package['id']}
    Exported: {datetime.utcnow().isoformat()}
-   
+
    ## Contents
    - evidence/: Original evidence files
    - proxies/: Web-optimized proxy files
    - transcripts/: Audio transcripts
    - MANIFEST.json: File hashes and chain of custody
-   
+
    ## Verification
    ```bash
    sha256sum -c MANIFEST.json
-   ```
+   ````
+
    """
-               zf.writestr('README.md', readme)
+   zf.writestr('README.md', readme)
+
+   ```
+
    ```
 
 7. **Add tests**
@@ -883,7 +945,7 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
        processor = MediaProcessor()
        processor.generate_proxy('fixtures/test.mp4', 'output/proxy.mp4')
        assert os.path.exists('output/proxy.mp4')
-       
+
        # Verify playable
        metadata = processor.extract_metadata('output/proxy.mp4')
        assert metadata['format'] == 'MPEG-4'
@@ -891,6 +953,7 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
    ```
 
 #### Acceptance Criteria:
+
 - ✅ Proxy generation creates h.264/AAC files
 - ✅ MediaInfo extracts codec, duration, bitrate
 - ✅ ExifTool extracts GPS, camera model from images
@@ -899,6 +962,7 @@ grep --count "^    --hash=" backend/requirements-lock.txt  # >0
 - ✅ Tests pass for all media processing functions
 
 #### How to Measure:
+
 ```bash
 # Verify proxy
 ffprobe -v error -show_format output/proxy.mp4 | grep codec_name
@@ -919,16 +983,18 @@ pytest tests/test_media_processor.py -v
 **Goal**: Add full-text search, waveform visualization, and redaction assist.
 
 #### Tasks:
+
 1. **Add Whoosh for search**
+
    ```bash
    pip install Whoosh==2.7.4
    ```
-   
+
    ```python
    # backend/src/search_indexer.py
    from whoosh import index
    from whoosh.fields import Schema, TEXT, ID, DATETIME
-   
+
    schema = Schema(
        id=ID(stored=True, unique=True),
        case_number=ID(stored=True),
@@ -936,9 +1002,9 @@ pytest tests/test_media_processor.py -v
        metadata=TEXT(stored=True),
        timestamp=DATETIME(stored=True)
    )
-   
+
    idx = index.create_in("search_index", schema)
-   
+
    def index_evidence(evidence_package):
        writer = idx.writer()
        writer.add_document(
@@ -952,10 +1018,11 @@ pytest tests/test_media_processor.py -v
    ```
 
 2. **Add waveform generation**
+
    ```python
    import librosa
    import matplotlib.pyplot as plt
-   
+
    def generate_waveform(audio_path, output_path):
        y, sr = librosa.load(audio_path)
        plt.figure(figsize=(14, 5))
@@ -968,47 +1035,49 @@ pytest tests/test_media_processor.py -v
    ```
 
 3. **Add redaction assist**
+
    ```python
    import cv2
-   
+
    def blur_region(video_path, output_path, regions):
        """Blur specified regions (e.g., faces, license plates)"""
        cap = cv2.VideoCapture(video_path)
        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
        out = cv2.VideoWriter(output_path, fourcc, 30.0, (width, height))
-       
+
        while cap.isOpened():
            ret, frame = cap.read()
            if not ret:
                break
-           
+
            for (x, y, w, h) in regions:
                roi = frame[y:y+h, x:x+w]
                blurred = cv2.GaussianBlur(roi, (99, 99), 30)
                frame[y:y+h, x:x+w] = blurred
-           
+
            out.write(frame)
-       
+
        cap.release()
        out.release()
    ```
 
 4. **Add offline speech recognition (Vosk)**
+
    ```bash
    pip install vosk==0.3.45
    wget https://alphacephei.com/vosk/models/vosk-model-en-us-0.22.zip
    unzip vosk-model-en-us-0.22.zip -d models/
    ```
-   
+
    ```python
    from vosk import Model, KaldiRecognizer
    import wave
-   
+
    def transcribe_offline(audio_path):
        model = Model("models/vosk-model-en-us-0.22")
        wf = wave.open(audio_path, "rb")
        rec = KaldiRecognizer(model, wf.getframerate())
-       
+
        transcript = []
        while True:
            data = wf.readframes(4000)
@@ -1017,11 +1086,12 @@ pytest tests/test_media_processor.py -v
            if rec.AcceptWaveform(data):
                result = json.loads(rec.Result())
                transcript.append(result.get('text', ''))
-       
+
        return ' '.join(transcript)
    ```
 
 #### Acceptance Criteria:
+
 - ✅ Full-text search returns relevant evidence by transcript keyword
 - ✅ Waveform PNG generation completes in <5 seconds
 - ✅ Redaction blur is irreversible (no unblur attack)
@@ -1034,6 +1104,7 @@ pytest tests/test_media_processor.py -v
 ### **License Compliance Verification**
 
 All proposed dependencies satisfy license requirements:
+
 - **Permissive (MIT/BSD/Apache)**: 10/12 recommendations
 - **LGPL (dynamic linking OK)**: 1/12 (FFmpeg)
 - **Dual-licensed (Artistic preferred)**: 1/12 (ExifTool)
@@ -1076,22 +1147,26 @@ All proposed dependencies satisfy license requirements:
 ### A. Maintenance Signal Criteria
 
 **Excellent**:
+
 - Releases in last 6 months
 - 10+ contributors
 - Active issue triage (<7 day median response)
 - Signed releases or SLSA
 
 **Good**:
+
 - Releases in last 12 months
 - 5+ contributors
 - Active issue triage (<30 day median response)
 
 **Moderate**:
+
 - Stable; no critical bugs
 - 1-5 contributors
 - Infrequent updates (feature-complete)
 
 **Poor** (reject):
+
 - No releases in 24+ months
 - Unpatched CVEs
 - Abandoned repository
@@ -1117,8 +1192,8 @@ All proposed dependencies satisfy license requirements:
       "name": "ffmpeg-python",
       "version": "0.2.0",
       "purl": "pkg:pypi/ffmpeg-python@0.2.0",
-      "licenses": [{"license": {"id": "Apache-2.0"}}],
-      "hashes": [{"alg": "SHA-256", "content": "..."}]
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "hashes": [{ "alg": "SHA-256", "content": "..." }]
     }
   ]
 }
@@ -1148,4 +1223,4 @@ All proposed dependencies satisfy license requirements:
 
 **END OF DOCUMENT**
 
-*This recommendation set prioritizes truth, structure, integrity, and restraint. All tools support headless automation and privacy-by-design. No "military-grade" claims. No spyware. Court-defensible provenance.*
+_This recommendation set prioritizes truth, structure, integrity, and restraint. All tools support headless automation and privacy-by-design. No "military-grade" claims. No spyware. Court-defensible provenance._

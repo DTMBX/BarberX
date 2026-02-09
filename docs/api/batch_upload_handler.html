@@ -110,7 +110,7 @@ Accepts mixed PDFs and BWC videos, separates them, and processes in parallel"
       .title code {
         font-weight: bold;
       }
-      h2[id^="header-"] {
+      h2[id^='header-'] {
         margin-top: 2em;
       }
       .ident {
@@ -125,7 +125,7 @@ Accepts mixed PDFs and BWC videos, separates them, and processes in parallel"
       }
       code {
         background: #f3f3f3;
-        font-family: "DejaVu Sans Mono", monospace;
+        font-family: 'DejaVu Sans Mono', monospace;
         padding: 1px 4px;
         overflow-wrap: break-word;
       }
@@ -268,7 +268,7 @@ Accepts mixed PDFs and BWC videos, separates them, and processes in parallel"
         display: inline;
       }
       .hlist li:after {
-        content: ",\2002";
+        content: ',\2002';
       }
       .hlist li:last-child:after {
         content: none;
@@ -364,19 +364,19 @@ Accepts mixed PDFs and BWC videos, separates them, and processes in parallel"
           text-shadow: none !important;
         }
         a[href]:after {
-          content: " (" attr(href) ")";
+          content: ' (' attr(href) ')';
           font-size: 90%;
         }
         a[href][title]:after {
           content: none;
         }
         abbr[title]:after {
-          content: " (" attr(title) ")";
+          content: ' (' attr(title) ')';
         }
         .ir a:after,
-        a[href^="javascript:"]:after,
-        a[href^="#"]:after {
-          content: "";
+        a[href^='javascript:']:after,
+        a[href^='#']:after {
+          content: '';
         }
         pre,
         blockquote {
@@ -419,38 +419,38 @@ Accepts mixed PDFs and BWC videos, separates them, and processes in parallel"
       crossorigin
     ></script>
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
+      window.addEventListener('DOMContentLoaded', () => {
         hljs.configure({
           languages: [
-            "bash",
-            "css",
-            "diff",
-            "graphql",
-            "ini",
-            "javascript",
-            "json",
-            "plaintext",
-            "python",
-            "python-repl",
-            "rust",
-            "shell",
-            "sql",
-            "typescript",
-            "xml",
-            "yaml",
+            'bash',
+            'css',
+            'diff',
+            'graphql',
+            'ini',
+            'javascript',
+            'json',
+            'plaintext',
+            'python',
+            'python-repl',
+            'rust',
+            'shell',
+            'sql',
+            'typescript',
+            'xml',
+            'yaml',
           ],
         });
         hljs.highlightAll();
         /* Collapse source docstrings */
         setTimeout(() => {
-          [...document.querySelectorAll(".hljs.language-python > .hljs-string")]
+          [...document.querySelectorAll('.hljs.language-python > .hljs-string')]
             .filter(
               (el) =>
                 el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3))
             )
             .forEach((el) => {
-              let d = document.createElement("details");
-              d.classList.add("hljs-string");
+              let d = document.createElement('details');
+              d.classList.add('hljs-string');
               d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
               el.replaceWith(d);
             });

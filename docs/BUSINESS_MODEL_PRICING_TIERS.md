@@ -1,4 +1,5 @@
 # Evident Pro: Business Model & Pricing Tiers
+
 ## Subscription Strategy for Legal Tech
 
 **Effective Date**: February 9, 2026  
@@ -21,24 +22,25 @@ Transform Evident from a one-time tool into a **subscription SaaS platform** wit
 
 ### Target Users
 
-| Segment | Size | Pain Point | Willingness to Pay |
-|---------|------|-----------|-------------------|
-| Solo Practitioners | 30,000+ | High document volume | $29-50/month |
-| Small Firms (2-10) | 50,000+ | Complex cases | $99-299/month |
-| Mid-Tier Firms (11-100) | 10,000+ | Multi-case coordination | $499-999/month |
-| Large Firms (100+) | 5,000+ | On-premise/BYOK | Custom/Enterprise |
-| In-house Counsel | 20,000+ | Privacy + compliance | Custom |
+| Segment                 | Size    | Pain Point              | Willingness to Pay |
+| ----------------------- | ------- | ----------------------- | ------------------ |
+| Solo Practitioners      | 30,000+ | High document volume    | $29-50/month       |
+| Small Firms (2-10)      | 50,000+ | Complex cases           | $99-299/month      |
+| Mid-Tier Firms (11-100) | 10,000+ | Multi-case coordination | $499-999/month     |
+| Large Firms (100+)      | 5,000+  | On-premise/BYOK         | Custom/Enterprise  |
+| In-house Counsel        | 20,000+ | Privacy + compliance    | Custom             |
 
 ### Competitive Landscape
 
-| Competitor | Offer | Price | Gap |
-|-----------|--------|-------|-----|
-| Contract AI | Generic AI review | $99/month | No case knowledge |
-| LexisNexis | Statutes + search | $500+/month | Too expensive |
-| Westlaw | Research + docs | $300+/month | Not specialized |
+| Competitor  | Offer                           | Price       | Gap                        |
+| ----------- | ------------------------------- | ----------- | -------------------------- |
+| Contract AI | Generic AI review               | $99/month   | No case knowledge          |
+| LexisNexis  | Statutes + search               | $500+/month | Too expensive              |
+| Westlaw     | Research + docs                 | $300+/month | Not specialized            |
 | **Evident** | **End-to-end e-discovery + AI** | **$29-999** | **Modern legal workspace** |
 
 **Evident's Advantages**:
+
 - ✓ Batch processing (10-25 PDFs at once)
 - ✓ AI chat with memory (learns case facts)
 - ✓ Case reuse (dismissed → new case)
@@ -56,6 +58,7 @@ Transform Evident from a one-time tool into a **subscription SaaS platform** wit
 **Target**: Solo practitioners, students, pro bono work
 
 **Features**:
+
 ```
 Core Functionality:
 ✓ Document upload (10 PDFs/month)
@@ -92,6 +95,7 @@ Constraints:
 ```
 
 **Analytics**:
+
 - Attracts 10,000-50,000 free users
 - Generates word-of-mouth
 - 5-10% convert to paid ($5K-$10K/month)
@@ -105,9 +109,11 @@ Constraints:
 **Price**: Tiered pricing within tier
 
 #### Professional Lite: $29/month
+
 **Target**: Solo practitioners with 2-5 active cases
 
 **Features**:
+
 ```
 Everything in FREE, PLUS:
 
@@ -150,9 +156,11 @@ Limitations:
 ```
 
 #### Professional Standard: $59/month
+
 **Target**: Small firms with 10-20 active cases
 
 **Everything in Lite, PLUS**:
+
 ```
 Document Processing:
 ✓ 200 PDFs/month
@@ -191,9 +199,11 @@ Storage:
 **Monthly Revenue**: $177K-$295K
 
 #### Professional Premium: $99/month
+
 **Target**: Growing firms with 50+ active cases
 
 **Everything in Standard, PLUS**:
+
 ```
 Document Processing:
 ✓ 1,000 PDFs/month (unlimited processing)
@@ -254,6 +264,7 @@ Storage:
 **Deployment Options**:
 
 #### Option A: Cloud Enterprise (Managed by Evident)
+
 **Price**: $999-$4,999/month (or usage-based)
 
 ```
@@ -284,6 +295,7 @@ Support:
 ```
 
 #### Option B: Self-Hosted (On Premises)
+
 **Price**: $2,000-$10,000/month (or one-time + support)
 
 ```
@@ -312,6 +324,7 @@ Support:
 ```
 
 #### Option C: BRING YOUR OWN KEYS (BYOK Premium)
+
 **Price**: $500/month (flat fee) + you pay for external APIs
 
 ```
@@ -371,23 +384,23 @@ Not included:
 
 ## Feature Comparison Matrix
 
-| Feature | Free | Pro Lite | Pro Standard | Pro Premium | Enterprise |
-|---------|------|----------|--------------|-------------|-----------|
-| **Price** | $0 | $29 | $59 | $99 | Custom |
-| **Storage** | Local only | 5GB | 50GB | 500GB | Unlimited |
-| **PDFs/Month** | 10 | 50 | 200 | 1000+ | Unlimited |
-| **OCR Accuracy** | 95% | 95% | 97% | 99% | 99%+ |
-| **Violation Detection** | BASIC | COMP | EXPERT | EXPERT | EXPERT |
-| **Chat Memory** | No | Limited | Full | Full + Team | Full + Custom |
-| **Projects** | 1 | 3 | Unlimited | Unlimited | Unlimited |
-| **Split Windows** | 1 | 1 | 2 | 4 | Unlimited |
-| **Case Transfers** | No | 1/mo | Unlimited | Unlimited | Unlimited |
-| **Forensic Analysis** | No | No | Limited | Full | Full |
-| **Discovery Production** | No | No | Full | Full | Full |
-| **API Access** | No | No | Read-only | Full | Full |
-| **Team Members** | 1 | 1 | 1 | 5 | 10+ |
-| **Support** | Community | Email | Priority | 24/7 | 24/7+Dedicated |
-| **SLA** | None | None | None | 99.5% | 99.9% |
+| Feature                  | Free       | Pro Lite | Pro Standard | Pro Premium | Enterprise     |
+| ------------------------ | ---------- | -------- | ------------ | ----------- | -------------- |
+| **Price**                | $0         | $29      | $59          | $99         | Custom         |
+| **Storage**              | Local only | 5GB      | 50GB         | 500GB       | Unlimited      |
+| **PDFs/Month**           | 10         | 50       | 200          | 1000+       | Unlimited      |
+| **OCR Accuracy**         | 95%        | 95%      | 97%          | 99%         | 99%+           |
+| **Violation Detection**  | BASIC      | COMP     | EXPERT       | EXPERT      | EXPERT         |
+| **Chat Memory**          | No         | Limited  | Full         | Full + Team | Full + Custom  |
+| **Projects**             | 1          | 3        | Unlimited    | Unlimited   | Unlimited      |
+| **Split Windows**        | 1          | 1        | 2            | 4           | Unlimited      |
+| **Case Transfers**       | No         | 1/mo     | Unlimited    | Unlimited   | Unlimited      |
+| **Forensic Analysis**    | No         | No       | Limited      | Full        | Full           |
+| **Discovery Production** | No         | No       | Full         | Full        | Full           |
+| **API Access**           | No         | No       | Read-only    | Full        | Full           |
+| **Team Members**         | 1          | 1        | 1            | 5           | 10+            |
+| **Support**              | Community  | Email    | Priority     | 24/7        | 24/7+Dedicated |
+| **SLA**                  | None       | None     | None         | 99.5%       | 99.9%          |
 
 ---
 
@@ -434,6 +447,7 @@ CAC:LTV Ratio:
 ## Go-to-Market Strategy
 
 ### Free Tier Positioning
+
 **"Try Evident. Use forever. No credit card required."**
 
 ```
@@ -448,6 +462,7 @@ Goal: 50K free users → 5-10% premium conversion = $7-15K/month
 ```
 
 ### Professional Tier Positioning
+
 **"Powerful case management. Affordable by design."**
 
 ```
@@ -462,6 +477,7 @@ Conversion: 5,000 users × $59 avg = $295K/month by end of year
 ```
 
 ### Enterprise Tier Positioning
+
 **"Built for ambitious law firms. Control your data. Control your costs."**
 
 ```
@@ -481,6 +497,7 @@ Target: 100 enterprise deals = $250K/month
 ## Implementation Roadmap
 
 ### Month 1: Tier 1 (Free) Launch
+
 - Desktop app with local-only storage
 - 10 PDFs/month limit
 - Basic features no cloud
@@ -489,6 +506,7 @@ Target: 100 enterprise deals = $250K/month
 **Revenue**: $0 (build audience)
 
 ### Month 2-3: Tier 2 (Professional) Launch
+
 - Cloud infrastructure ready
 - Lite ($29) and Standard ($59) tiers
 - Payment processing (Stripe)
@@ -498,6 +516,7 @@ Target: 100 enterprise deals = $250K/month
 **Revenue**: $295K/month
 
 ### Month 4: Tier 3 (Enterprise Lite)
+
 - Cloud Enterprise ($999-2,999/month)
 - SSO + advanced admin
 - API rate limits
@@ -507,6 +526,7 @@ Target: 100 enterprise deals = $250K/month
 **Revenue**: $75K/month
 
 ### Month 5-6: Enterprise Premium
+
 - Self-hosted option
 - BYOK pricing model ($500/month)
 - On-premise infrastructure package
@@ -516,6 +536,7 @@ Target: 100 enterprise deals = $250K/month
 **Revenue**: $75K+/month from premium tier
 
 ### Month 7-12: Optimization
+
 - Upsell automation (Free → Pro)
 - Enterprise sales acceleration
 - Product refinement based on feedback
@@ -530,27 +551,32 @@ Target: 100 enterprise deals = $250K/month
 ### Why These Prices?
 
 **Free Tier ($0)**
+
 - Market leader positioning (vs. LexisNexis/Westlaw)
 - Build 50K+ user base for future conversion
 - Generate GitHub stars, word-of-mouth
 
 **Lite ($29)**
+
 - Break-even point: ~$2,000/month in support costs
 - Targets solo practitioners (existing spending: $0-50/month on legal tech)
 - Lower friction to conversion from free
 
 **Standard ($59)**
+
 - 2x Lite price (Premium customers spend 2x more)
 - Targets small firms (existing spend: $100-300/month)
 - Added forensic analysis justifies +$30
 
 **Premium ($99)**
+
 - 1.7x Standard price
 - Targets growing firms (existing spend: $200-500/month)
 - Team features, API access, advanced analytics justify price
 - Most profitable tier (higher retention, less churn)
 
 **Enterprise (Custom)**
+
 - SaaS best practice: 10x+ premium tier
 - Reflects true value: cost avoidance + ROI
 - Example: 1 hour saved per lawyer per week = $12K/year savings
@@ -564,15 +590,15 @@ Competitor vs. Evident:
 
 LexisNexis Lexis+ PC:
   $500-800/month (statutes only)
-  
+
 Thomson Reuters Westlaw:
   $300-600/month (statutes + cases)
   Evident Professional: $59-99/month
   (E-discovery + AI + modern UX)
-  
+
 Casetext CoCounsel:
   $99-399/month (AI only, no discovery)
-  
+
 Evident Professional: $99/month
 (E-discovery + AI + discovery + forensics)
 
@@ -584,6 +610,7 @@ VALUE: 3-5x cheaper than alternatives
 ## Customer Segments & Messaging
 
 ### Segment 1: Solo Practitioners
+
 **Message**: "Take on bigger cases without hiring staff"
 **Pain**: Overwhelmed by documents, limited budget
 **Solution**: Free + Lite tier ($29/month)
@@ -591,6 +618,7 @@ VALUE: 3-5x cheaper than alternatives
 **Answer**: "Lite enables 5x more cases: unlimited memory, batch processing, case reuse"
 
 ### Segment 2: Small Firms (2-10 lawyers)
+
 **Message**: "Coordinate cases. Reduce errors. Win more."
 **Pain**: Communication gaps, repeated work, knowledge silos
 **Solution**: Standard tier ($59/month)
@@ -598,6 +626,7 @@ VALUE: 3-5x cheaper than alternatives
 **Answer**: "Legacy tools are separate pieces. Evident unifies everything."
 
 ### Segment 3: Mid-Tier Firms (11-50 lawyers)
+
 **Message**: "Scale your practice without scaling overhead"
 **Pain**: Growing firm costs, retention challenges, competitive pressure
 **Solution**: Premium tier ($99/month) or Enterprise
@@ -605,6 +634,7 @@ VALUE: 3-5x cheaper than alternatives
 **Answer**: "ROI: 1 lawyer saves 5 hrs/week = $60K/year. 10 lawyers = $600K ROI"
 
 ### Segment 4: Large Firms & In-House
+
 **Message**: "Enterprise-grade discovery. Your way."
 **Pain**: Data privacy, regulatory compliance, cost control
 **Solution**: Enterprise self-hosted or BYOK
@@ -618,6 +648,7 @@ VALUE: 3-5x cheaper than alternatives
 ### Reducing Churn
 
 **Month 1-3**: Onboarding Success
+
 ```
 - Automated setup flow (5 min)
 - Email tutorial series (3 emails)
@@ -627,6 +658,7 @@ VALUE: 3-5x cheaper than alternatives
 ```
 
 **Month 3-6**: Engagement Maximization
+
 ```
 - Weekly digest emails (key metrics)
 - Usage analytics dashboard
@@ -636,6 +668,7 @@ VALUE: 3-5x cheaper than alternatives
 ```
 
 **Month 6+**: Expansion Revenue
+
 ```
 - Upsell to higher tiers (in-app prompts)
 - Add-on services (custom integrations)
@@ -644,6 +677,7 @@ VALUE: 3-5x cheaper than alternatives
 ```
 
 **Churn Targets**:
+
 - Free tier: 20% monthly (normal)
 - Lite: 5% monthly (professional use)
 - Standard: 3% monthly (business critical)
@@ -675,19 +709,19 @@ Net Revenue Retention Target: 110-120%
 ### Year 1 (Months 1-12)
 
 | Month | Free Users | Lite Users | Standard | Premium | Enterprise | Revenue |
-|-------|-----------|-----------|----------|---------|-----------|---------|
-| 1 | 10,000 | 0 | 0 | 0 | 0 | $0 |
-| 2 | 15,000 | 500 | 100 | 50 | 0 | $50K |
-| 3 | 20,000 | 2,000 | 500 | 200 | 10 | $200K |
-| 4 | 25,000 | 4,000 | 1,000 | 400 | 20 | $400K |
-| 5 | 30,000 | 5,000 | 1,500 | 800 | 50 | $750K |
-| 6 | 35,000 | 5,500 | 1,800 | 1000 | 75 | $900K |
-| 7 | 40,000 | 5,800 | 2,000 | 1,200 | 100 | $1.1M |
-| 8 | 42,000 | 6,000 | 2,100 | 1,300 | 100 | $1.15M |
-| 9 | 45,000 | 6,300 | 2,300 | 1,400 | 120 | $1.25M |
-| 10 | 48,000 | 6,500 | 2,400 | 1,500 | 130 | $1.3M |
-| 11 | 50,000 | 6,700 | 2,500 | 1,700 | 140 | $1.45M |
-| 12 | 50,000 | 7,000 | 2,600 | 1,800 | 150 | $1.6M |
+| ----- | ---------- | ---------- | -------- | ------- | ---------- | ------- |
+| 1     | 10,000     | 0          | 0        | 0       | 0          | $0      |
+| 2     | 15,000     | 500        | 100      | 50      | 0          | $50K    |
+| 3     | 20,000     | 2,000      | 500      | 200     | 10         | $200K   |
+| 4     | 25,000     | 4,000      | 1,000    | 400     | 20         | $400K   |
+| 5     | 30,000     | 5,000      | 1,500    | 800     | 50         | $750K   |
+| 6     | 35,000     | 5,500      | 1,800    | 1000    | 75         | $900K   |
+| 7     | 40,000     | 5,800      | 2,000    | 1,200   | 100        | $1.1M   |
+| 8     | 42,000     | 6,000      | 2,100    | 1,300   | 100        | $1.15M  |
+| 9     | 45,000     | 6,300      | 2,300    | 1,400   | 120        | $1.25M  |
+| 10    | 48,000     | 6,500      | 2,400    | 1,500   | 130        | $1.3M   |
+| 11    | 50,000     | 6,700      | 2,500    | 1,700   | 140        | $1.45M  |
+| 12    | 50,000     | 7,000      | 2,600    | 1,800   | 150        | $1.6M   |
 
 **Year 1 Revenue: $8.8M**
 
@@ -710,6 +744,7 @@ Growth Rate: 250-300%
 ## Implementation Checklist
 
 ### Pre-Launch (Month 1)
+
 - [ ] Stripe payment processing setup
 - [ ] Tier database schema created
 - [ ] Feature flags implemented (per-tier restrictions)
@@ -719,6 +754,7 @@ Growth Rate: 250-300%
 - [ ] Email templates (onboarding, billing, churn prevention)
 
 ### Launch (Month 2)
+
 - [ ] Professional tier cloud infrastructure ready
 - [ ] Payment processing tested
 - [ ] Lite tier feature gating functional
@@ -728,6 +764,7 @@ Growth Rate: 250-300%
 - [ ] Customer success team trained
 
 ### Post-Launch (Month 3+)
+
 - [ ] Analytics dashboard (CAC, LTV, churn)
 - [ ] Feedback collection surveys
 - [ ] A/B testing landing pages/pricing
@@ -741,18 +778,23 @@ Growth Rate: 250-300%
 ## Risk Mitigation
 
 ### Risk: Price Too High
+
 **Mitigation**: Free tier builds audience, A/B test pricing, offer annual discounts
 
-### Risk: Price Too Low  
+### Risk: Price Too Low
+
 **Mitigation**: Free to Lite conversion low → increase Lite pricing to $39 or $49
 
 ### Risk: Churn Higher Than Expected
+
 **Mitigation**: Invest in onboarding, success team, feature improvements based on feedback
 
 ### Risk: Enterprise Sales Slow
+
 **Mitigation**: Hire sales rep earlier, partner with legal tech resellers, attend conferences
 
 ### Risk: Free Tier Cannibalizes Pro
+
 **Mitigation**: Limit features (10 PDFs), encourage upgrades with in-app messaging
 
 ---
@@ -768,4 +810,3 @@ This pricing strategy positions Evident as:
 5. **Customer-Centric** - Value delivered at all price points
 
 **Expected Outcome**: $7.35M Year 1, $28-35M Year 2, path to $50M+ by Year 3
-

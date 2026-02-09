@@ -78,7 +78,7 @@ criminal defense
 - Sweet spot pricing ($2.72/day = cost of a coffee)
 - 25 videos (3 hours) supports full-time BWC practice
 - Timeline builder syncs video timestamps to events
- - 14-day free trial removes risk
+- 14-day free trial removes risk
 - 83% profit margin, sustainable long-term
 
 **Marketing Copy:**
@@ -342,7 +342,7 @@ users, private AI, firm branding, and dedicated support."_
 - ✅ 25 Videos + 15 PDFs Monthly
 - ✅ Timeline Builder (Sync to video timestamps)
 - ✅ Advanced AI Assistant
--- ✅ Try Free for 14 Days
+  -- ✅ Try Free for 14 Days
 
 **Call-to-Action:** "Start 14-Day Free Trial" → `/subscribe/professional`
 

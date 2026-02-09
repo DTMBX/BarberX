@@ -25,9 +25,11 @@ This is a professional-grade authentication and dashboard system for the Evident
 ### Database Models
 
 #### User
+
 Core user account model with authentication and profile data.
 
 **Fields:**
+
 - `id` - Primary key
 - `email` - Unique email address (indexed)
 - `username` - Unique username (indexed)
@@ -49,6 +51,7 @@ Core user account model with authentication and profile data.
 - `last_login_ip` - Last login IP address
 
 **Methods:**
+
 - `set_password(password)` - Hash and store password
 - `check_password(password)` - Verify password
 - `get_tier_limits()` - Get feature limits for tier
@@ -57,14 +60,17 @@ Core user account model with authentication and profile data.
 - `to_dict(include_sensitive)` - Convert to dict
 
 **Properties:**
+
 - `is_admin` - Check if admin role
 - `is_moderator` - Check if moderator or admin
 - `is_pro` - Check if pro tier or higher
 
 #### ApiToken
+
 API tokens for programmatic access and rate limiting.
 
 **Fields:**
+
 - `id` - Primary key
 - `token` - Unique token (indexed)
 - `name` - Token name
@@ -75,14 +81,17 @@ API tokens for programmatic access and rate limiting.
 - `expires_at` - Expiration timestamp
 
 **Methods:**
+
 - `generate_token()` - Generate secure token
 - `is_valid()` - Check if valid and not expired
 - `record_usage()` - Update last used time
 
 #### AuditLog
+
 Complete audit trail of all user actions.
 
 **Fields:**
+
 - `id` - Primary key
 - `user_id` - Foreign key to User
 - `action` - Action name
@@ -96,12 +105,15 @@ Complete audit trail of all user actions.
 - `created_at` - Timestamp (indexed)
 
 **Methods:**
+
 - `to_dict()` - Convert to dictionary
 
 #### UsageRecord
+
 Track user API usage for billing and limits.
 
 **Fields:**
+
 - `id` - Primary key
 - `user_id` - Foreign key to User
 - `metric` - Metric name (api_calls, storage_gb, etc)
@@ -118,15 +130,18 @@ Track user API usage for billing and limits.
 ### Authentication Routes
 
 #### Register
+
 ```
 GET/POST /auth/register
 ```
+
 Create new user account.
 
 **GET Response:**
 Returns registration form.
 
 **POST Parameters:**
+
 - `email` - User email
 - `username` - Unique username (3+ chars)
 - `full_name` - Full name
@@ -138,6 +153,7 @@ Returns registration form.
 Redirects to login page with success message.
 
 **Errors:**
+
 - Invalid email format
 - Email already registered
 - Username too short or taken
@@ -145,12 +161,15 @@ Redirects to login page with success message.
 - Invalid organization name
 
 #### Login
+
 ```
 GET/POST /auth/login
 ```
+
 Authenticate user and create session.
 
 **POST Parameters:**
+
 - `email` - User email
 - `password` - User password
 - `remember` - Remember for 30 days (optional)
@@ -159,14 +178,17 @@ Authenticate user and create session.
 Creates session and redirects to dashboard.
 
 **Errors:**
+
 - Email not found
 - Account disabled
 - Invalid password
 
 #### Logout
+
 ```
 GET /auth/logout
 ```
+
 Destroy session and logout user.
 
 **Requires:** Authentication
@@ -175,24 +197,30 @@ Destroy session and logout user.
 Redirects to login page.
 
 #### Forgot Password
+
 ```
 GET/POST /auth/forgot-password
 ```
+
 Request password reset email.
 
 **POST Parameters:**
+
 - `email` - User email
 
 **Response:**
 Confirmation message (doesn't reveal if email exists).
 
 #### Reset Password
+
 ```
 GET/POST /auth/reset-password/<token>
 ```
+
 Reset password with token from email.
 
 **POST Parameters:**
+
 - `password` - New password (8+ chars)
 - `password_confirm` - Password confirmation
 
@@ -200,19 +228,23 @@ Reset password with token from email.
 Password updated, redirects to login.
 
 **Errors:**
+
 - Invalid or expired token
 - Password too short
 - Password mismatch
 
 #### Profile
+
 ```
 GET/POST /auth/profile
 ```
+
 View and edit user profile.
 
 **Requires:** Authentication
 
 **POST Parameters:**
+
 - `full_name` - Full name
 - `organization` - Organization
 - `bio` - User bio
@@ -221,14 +253,17 @@ View and edit user profile.
 Profile page with current info.
 
 #### Change Password
+
 ```
 GET/POST /auth/change-password
 ```
+
 Change password for logged-in user.
 
 **Requires:** Authentication
 
 **POST Parameters:**
+
 - `old_password` - Current password
 - `new_password` - New password (8+ chars)
 - `new_password_confirm` - Confirmation
@@ -237,6 +272,7 @@ Change password for logged-in user.
 Password changed, redirects to profile.
 
 **Errors:**
+
 - Current password incorrect
 - New password too short
 - Password mismatch
@@ -246,15 +282,18 @@ Password changed, redirects to profile.
 ### User Routes
 
 #### Dashboard
+
 ```
 GET /dashboard
 ```
+
 User dashboard with profile and stats.
 
 **Requires:** Authentication
 
 **Response:**
 Dashboard page with:
+
 - Account status
 - Member since date
 - Tier limits
@@ -266,14 +305,17 @@ Dashboard page with:
 ### API Routes
 
 #### Get Current User
+
 ```
 GET /auth/api/me
 ```
+
 Get authenticated user info.
 
 **Requires:** Authentication
 
 **Response (200):**
+
 ```json
 {
   "user": {
@@ -301,14 +343,17 @@ Get authenticated user info.
 ```
 
 #### API Logout
+
 ```
 POST /auth/api/logout
 ```
+
 Logout via API.
 
 **Requires:** Authentication
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -321,15 +366,18 @@ Logout via API.
 ### Admin Routes
 
 #### Admin Dashboard
+
 ```
 GET /admin/
 ```
+
 Admin overview with statistics.
 
 **Requires:** Admin role
 
 **Response:**
 Admin dashboard with:
+
 - Total users count
 - Active users count
 - Verified users count
@@ -338,14 +386,17 @@ Admin dashboard with:
 - Recent activity log
 
 #### Users List
+
 ```
 GET /admin/users
 ```
+
 List all users with filtering and pagination.
 
 **Requires:** Admin role
 
 **Query Parameters:**
+
 - `page` - Page number (default: 1)
 - `search` - Search by email/name
 - `tier` - Filter by tier (free, pro, enterprise)
@@ -356,14 +407,17 @@ List all users with filtering and pagination.
 Users list page with search and filters.
 
 #### Edit User
+
 ```
 GET/POST /admin/users/<user_id>
 ```
+
 View and edit specific user.
 
 **Requires:** Admin role
 
 **POST Parameters:**
+
 - `full_name` - User full name
 - `organization` - User organization
 - `role` - User role
@@ -378,19 +432,23 @@ User edit page with activity log.
 Redirects to user page with success message.
 
 **Errors:**
+
 - User not found (404)
 - Invalid role or tier
 - Cannot edit your own account
 
 #### Toggle User Status
+
 ```
 POST /admin/users/<user_id>/toggle-status
 ```
+
 Enable or disable user account.
 
 **Requires:** Admin role
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -400,17 +458,21 @@ Enable or disable user account.
 ```
 
 **Errors:**
+
 - Cannot disable your own account (400)
 
 #### Reset User Password
+
 ```
 POST /admin/users/<user_id>/reset-password
 ```
+
 Admin reset user password.
 
 **Requires:** Admin role
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -419,9 +481,11 @@ Admin reset user password.
 ```
 
 #### Delete User
+
 ```
 POST /admin/users/<user_id>/delete
 ```
+
 Soft-delete user account.
 
 **Requires:** Admin role
@@ -430,6 +494,7 @@ Soft-delete user account.
 Redirects with success message.
 
 **Errors:**
+
 - Cannot delete your own account (400)
 
 ---
@@ -437,14 +502,17 @@ Redirects with success message.
 ### Admin API Endpoints
 
 #### Get Statistics
+
 ```
 GET /admin/api/stats
 ```
+
 Get platform statistics.
 
 **Requires:** Admin role
 
 **Response (200):**
+
 ```json
 {
   "total_users": 156,
@@ -461,14 +529,17 @@ Get platform statistics.
 ```
 
 #### Get User
+
 ```
 GET /admin/api/users/<user_id>
 ```
+
 Get specific user details.
 
 **Requires:** Admin role
 
 **Response (200):**
+
 ```json
 {
   "user": {
@@ -484,14 +555,17 @@ Get specific user details.
 ```
 
 #### Update User
+
 ```
 PUT /admin/api/users/<user_id>
 ```
+
 Update user via API.
 
 **Requires:** Admin role
 
 **JSON Parameters:**
+
 ```json
 {
   "full_name": "Jane Doe",
@@ -502,6 +576,7 @@ Update user via API.
 ```
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -510,14 +585,17 @@ Update user via API.
 ```
 
 #### Delete User (API)
+
 ```
 DELETE /admin/api/users/<user_id>
 ```
+
 Delete user via API.
 
 **Requires:** Admin role
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -526,19 +604,23 @@ Delete user via API.
 ```
 
 #### Get Audit Logs
+
 ```
 GET /admin/api/audit-logs
 ```
+
 Get audit logs with filtering.
 
 **Requires:** Admin role
 
 **Query Parameters:**
+
 - `page` - Page number (default: 1)
 - `user_id` - Filter by user
 - `action` - Filter by action
 
 **Response (200):**
+
 ```json
 {
   "total": 500,
@@ -565,6 +647,7 @@ Get audit logs with filtering.
 ## Decorators
 
 ### @login_required
+
 Require user to be authenticated.
 
 ```python
@@ -577,6 +660,7 @@ def protected():
 ```
 
 ### @admin_required
+
 Require admin role.
 
 ```python
@@ -589,6 +673,7 @@ def admin_only():
 ```
 
 ### @moderator_required
+
 Require moderator or admin role.
 
 ```python
@@ -601,6 +686,7 @@ def moderate():
 ```
 
 ### @tier_required
+
 Require specific subscription tier.
 
 ```python
@@ -698,6 +784,7 @@ flask run
 ```
 
 Access the system:
+
 - Login: http://localhost:5000/auth/login
 - Register: http://localhost:5000/auth/register
 - Dashboard: http://localhost:5000/dashboard
@@ -753,6 +840,7 @@ Access the system:
 ## Tier System
 
 ### Free
+
 - 1,000 API calls/month
 - 1 GB storage
 - 1 concurrent upload
@@ -760,6 +848,7 @@ Access the system:
 - No custom models
 
 ### Pro
+
 - 100,000 API calls/month
 - 100 GB storage
 - 5 concurrent uploads
@@ -767,6 +856,7 @@ Access the system:
 - No custom models
 
 ### Enterprise
+
 - Unlimited API calls
 - Unlimited storage
 - Unlimited concurrent uploads
@@ -774,6 +864,7 @@ Access the system:
 - Custom models enabled
 
 ### Admin
+
 - Full system access
 - All features unlocked
 - Can manage users
@@ -785,9 +876,11 @@ Access the system:
 ## Troubleshooting
 
 ### "Admin access required"
+
 **Cause:** User doesn't have admin role
 
 **Solution:**
+
 ```python
 with app.app_context():
     user = User.query.filter_by(email='user@example.com').first()
@@ -796,30 +889,36 @@ with app.app_context():
 ```
 
 ### "Email not found"
+
 **Cause:** User not registered
 
 **Solution:** Register at `/auth/register`
 
 ### "Account is disabled"
+
 **Cause:** User marked as inactive
 
 **Solution:** Admin can re-enable at `/admin/users/<id>`
 
 ### Database errors
+
 **Cause:** Tables not created
 
 **Solution:**
+
 ```python
 with app.app_context():
     db.create_all()
 ```
 
 ### CSRF errors
+
 **Cause:** CSRF protection enabled
 
 **Solution:** Include `{{ csrf_token() }}` in forms
 
 ### Session lost
+
 **Cause:** SECRET_KEY changed or session expired
 
 **Solution:** Clear cookies and re-login

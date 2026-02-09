@@ -153,7 +153,7 @@
         style="
           background-image:
             linear-gradient(rgba(11, 95, 115, 0.5), rgba(11, 95, 115, 0.3)),
-            url(&quot;/assets/images/hero.svg&quot;);
+            url('/assets/images/hero.svg');
         "
       >
         <div class="site-container py-16 md:py-20 text-white">
@@ -210,27 +210,27 @@
 
       <script>
         (function () {
-          const vid = document.getElementById("flag-video");
+          const vid = document.getElementById('flag-video');
           if (!vid) return;
 
           // Lazy-assign sources when element is near viewport for performance
           const assignSources = () => {
             const width = Math.max(window.innerWidth || 1024, 320);
-            const target = width >= 1000 ? "1080p" : width >= 600 ? "720p" : "360p";
+            const target = width >= 1000 ? '1080p' : width >= 600 ? '720p' : '360p';
             const canPlayWebm =
               vid.canPlayType && vid.canPlayType('video/webm; codecs="vp9,vorbis"');
-            const sources = vid.querySelectorAll("source");
+            const sources = vid.querySelectorAll('source');
             sources.forEach((s) => {
               const attrs = s.getAttributeNames();
               for (const a of attrs) {
-                if (a.startsWith("data-src-")) {
-                  const parts = a.split("-");
+                if (a.startsWith('data-src-')) {
+                  const parts = a.split('-');
                   // expected format: data-src-<fmt>-<res>
                   const fmt = parts[2];
                   const res = parts[3];
                   if (res === target) {
-                    if (fmt === "webm" && canPlayWebm) s.src = s.getAttribute(a);
-                    if (fmt === "mp4" && !canPlayWebm) s.src = s.getAttribute(a);
+                    if (fmt === 'webm' && canPlayWebm) s.src = s.getAttribute(a);
+                    if (fmt === 'mp4' && !canPlayWebm) s.src = s.getAttribute(a);
                   }
                 }
               }
@@ -240,7 +240,7 @@
             } catch (e) {}
           };
 
-          if ("IntersectionObserver" in window) {
+          if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver(
               (entries, obs) => {
                 entries.forEach((e) => {
@@ -250,7 +250,7 @@
                   }
                 });
               },
-              { rootMargin: "200px" }
+              { rootMargin: '200px' }
             );
             io.observe(vid);
           } else {
@@ -334,7 +334,7 @@
           <div class="footer-meta text-sm text-gray-600 text-right">
             <div>&copy; <span id="site-year"></span> Evident. All rights reserved.</div>
             <script>
-              document.getElementById("site-year").textContent = new Date().getFullYear();
+              document.getElementById('site-year').textContent = new Date().getFullYear();
             </script>
             <div class="footer-meta-links mt-2">
               <a href="/docs.html#privacy">Privacy</a> <span class="mx-2">|</span>

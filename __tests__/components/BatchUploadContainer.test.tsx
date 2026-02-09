@@ -48,10 +48,7 @@ describe('BatchUploadContainer Component', () => {
     render(<BatchUploadContainer />);
 
     expect(socketIO.io).toHaveBeenCalled();
-    expect(mockSocket.on).toHaveBeenCalledWith(
-      'batch_progress',
-      expect.any(Function)
-    );
+    expect(mockSocket.on).toHaveBeenCalledWith('batch_progress', expect.any(Function));
   });
 
   test('handles file selection from drop zone', async () => {
@@ -60,9 +57,7 @@ describe('BatchUploadContainer Component', () => {
 
     // Simulate file drop
     const file = new File(['video'], 'test.mp4', { type: 'video/mp4' });
-    const input = document.querySelector(
-      'input[type="file"]'
-    ) as HTMLInputElement;
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
 
     await user.upload(input, file);
 
@@ -100,9 +95,7 @@ describe('BatchUploadContainer Component', () => {
 
     // Add file
     const file = new File(['video'], 'test.mp4', { type: 'video/mp4' });
-    const input = document.querySelector(
-      'input[type="file"]'
-    ) as HTMLInputElement;
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
     fireEvent.change(input, { target: { files: [file] } });
 
     // Click start upload
@@ -115,7 +108,7 @@ describe('BatchUploadContainer Component', () => {
         expect.objectContaining({
           method: 'POST',
           headers: expect.objectContaining({
-            'Authorization': expect.stringContaining('Bearer'),
+            Authorization: expect.stringContaining('Bearer'),
           }),
         })
       );
@@ -146,9 +139,7 @@ describe('BatchUploadContainer Component', () => {
 
     // Add file
     const file = new File(['video'], 'test.mp4', { type: 'video/mp4' });
-    const input = document.querySelector(
-      'input[type="file"]'
-    ) as HTMLInputElement;
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
     await user.upload(input, file);
 
     // Verify file is visible
@@ -177,7 +168,7 @@ describe('BatchUploadContainer Component', () => {
 
     // Get the batch_progress handler
     const progressHandler = mockSocket.on.mock.calls.find(
-      call => call[0] === 'batch_progress'
+      (call) => call[0] === 'batch_progress'
     )?.[1];
 
     expect(progressHandler).toBeDefined();
@@ -196,9 +187,7 @@ describe('BatchUploadContainer Component', () => {
     const user = userEvent.setup();
     render(<BatchUploadContainer />);
 
-    const transcriptionCheckbox = screen.getByLabelText(
-      /Enable Transcription/i
-    );
+    const transcriptionCheckbox = screen.getByLabelText(/Enable Transcription/i);
     const syncCheckbox = screen.getByLabelText(/Enable.*Sync/i);
 
     await user.click(transcriptionCheckbox);

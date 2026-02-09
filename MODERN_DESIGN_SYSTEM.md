@@ -50,19 +50,19 @@ All design decisions are stored as CSS variables in `assets/css/design-tokens.cs
 ```css
 :root {
   /* Colors */
-  --color-primary-500: #0b73d2;     /* Brand blue */
-  --color-accent-500: #e07a5f;      /* Accent orange */
-  --color-text-primary: #0d0f12;    /* Main text */
-  
+  --color-primary-500: #0b73d2; /* Brand blue */
+  --color-accent-500: #e07a5f; /* Accent orange */
+  --color-text-primary: #0d0f12; /* Main text */
+
   /* Spacing (4px baseline) */
   --spacing-4: 1rem;
   --spacing-6: 1.5rem;
   --spacing-8: 2rem;
-  
+
   /* Typography */
   --font-size-base: 1rem;
   --font-weight-bold: 700;
-  
+
   /* Borders & Shadows */
   --radius-lg: 0.75rem;
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -133,12 +133,12 @@ All design decisions are stored as CSS variables in `assets/css/design-tokens.cs
     <label for="name">Name</label>
     <input type="text" id="name" placeholder="Enter your name" />
   </div>
-  
+
   <div class="form-group">
     <label for="message">Message</label>
     <textarea id="message"></textarea>
   </div>
-  
+
   <button class="btn btn-primary">Submit</button>
 </form>
 ```
@@ -236,12 +236,18 @@ All design decisions are stored as CSS variables in `assets/css/design-tokens.cs
 ### Headings
 
 ```html
-<h1>Page Title (5xl)</h1>        <!-- 48px -->
-<h2>Section Heading (4xl)</h2>   <!-- 36px -->
-<h3>Subsection (3xl)</h3>        <!-- 30px -->
-<h4>Minor Heading (2xl)</h4>     <!-- 24px -->
-<h5>Small Heading (xl)</h5>      <!-- 20px -->
-<h6>Tiny Heading (lg)</h6>       <!-- 18px -->
+<h1>Page Title (5xl)</h1>
+<!-- 48px -->
+<h2>Section Heading (4xl)</h2>
+<!-- 36px -->
+<h3>Subsection (3xl)</h3>
+<!-- 30px -->
+<h4>Minor Heading (2xl)</h4>
+<!-- 24px -->
+<h5>Small Heading (xl)</h5>
+<!-- 20px -->
+<h6>Tiny Heading (lg)</h6>
+<!-- 18px -->
 ```
 
 ### Text Classes
@@ -294,8 +300,8 @@ Edit `assets/css/design-tokens.css`:
 
 ```css
 :root {
-  --color-primary-500: #0b73d2;    /* Change this blue */
-  --color-accent-500: #e07a5f;     /* Change this orange */
+  --color-primary-500: #0b73d2; /* Change this blue */
+  --color-accent-500: #e07a5f; /* Change this orange */
 }
 ```
 
@@ -372,7 +378,7 @@ Edit `utilities.css` media queries:
 ✅ **Color Contrast** – WCAG AA+ compliant color pairs  
 ✅ **Form Labels** – Associated with inputs  
 ✅ **Error Messages** – Clear validation feedback  
-✅ **Screen Reader** – `.visually-hidden` for supplemental content  
+✅ **Screen Reader** – `.visually-hidden` for supplemental content
 
 ### Testing Accessibility
 
@@ -497,13 +503,13 @@ themeManager.toggleTheme();
 
 All technologies used are open-source with permissive licenses:
 
-| Tool | License | Purpose |
-|------|---------|---------|
-| Tailwind CSS | MIT | Utility CSS framework |
-| PostCSS | MIT | CSS transformation |
-| Inter Font | OFL 1.1 | Modern typeface |
-| Prettier | MIT | Code formatting |
-| ESLint | MIT | JavaScript linting |
+| Tool         | License | Purpose               |
+| ------------ | ------- | --------------------- |
+| Tailwind CSS | MIT     | Utility CSS framework |
+| PostCSS      | MIT     | CSS transformation    |
+| Inter Font   | OFL 1.1 | Modern typeface       |
+| Prettier     | MIT     | Code formatting       |
+| ESLint       | MIT     | JavaScript linting    |
 
 **Zero proprietary dependencies!**
 
@@ -511,14 +517,14 @@ All technologies used are open-source with permissive licenses:
 
 ## Browser Support
 
-| Browser | Version | Support |
-|---------|---------|---------|
-| Chrome | 90+ | Full support |
-| Firefox | 88+ | Full support |
-| Safari | 14+ | Full support |
-| Edge | 90+ | Full support |
-| Mobile Chrome | Latest | Full support |
-| Mobile Safari | 14+ | Full support |
+| Browser       | Version | Support      |
+| ------------- | ------- | ------------ |
+| Chrome        | 90+     | Full support |
+| Firefox       | 88+     | Full support |
+| Safari        | 14+     | Full support |
+| Edge          | 90+     | Full support |
+| Mobile Chrome | Latest  | Full support |
+| Mobile Safari | 14+     | Full support |
 
 ---
 
@@ -558,6 +564,7 @@ All technologies used are open-source with permissive licenses:
 
 📖 **Documentation:** See DESIGN_SYSTEM.md
 🎨 **Tools & Resources:**
+
 - Tailwind CSS Docs: https://tailwindcss.com
 - CSS Variables Guide: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
 - Web Accessibility: https://www.w3.org/WAI/

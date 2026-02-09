@@ -9,6 +9,7 @@
 ## Executive Summary
 
 Transform Evident's PDF analyzer and content processing pipeline into a comprehensive legal document intelligence system capable of:
+
 - **Detecting constitutional, statutory, procedural, and ethical violations**
 - **Understanding documents at multiple sophistication levels** (basic → comprehensive → expert)
 - **Processing audio/video** with military-grade fidelity for deposition analysis
@@ -20,6 +21,7 @@ Transform Evident's PDF analyzer and content processing pipeline into a comprehe
 ## Part 1: Dependency & Infrastructure Upgrades
 
 ### Core Framework Upgrades
+
 ```
 Current Stack → Target Stack
 
@@ -37,6 +39,7 @@ Add:
 ```
 
 ### AI/ML & NLP Stack
+
 ```
 OCR & Document Processing:
 - Tesseract 5.x → easyOCR or LayoutLM v3 (better for legal docs)
@@ -67,6 +70,7 @@ Legal Knowledge Bases:
 ```
 
 ### Data Processing & Vector Databases
+
 ```
 Add:
 - Pinecone or Weaviate (vector DB for semantic search)
@@ -77,6 +81,7 @@ Add:
 ```
 
 ### Audio/Video & Forensic Tools
+
 ```
 Add:
 - FFmpeg 7+ (comprehensive media handling)
@@ -88,6 +93,7 @@ Add:
 ```
 
 ### Quality & Compliance
+
 ```
 Add:
 - Pydantic 2.x (data validation for legal data)
@@ -134,54 +140,54 @@ class ConfidenceLevel(Enum):
 class LegalViolation(db.Model):
     """Record of detected violation"""
     __tablename__ = 'legal_violation'
-    
+
     id = db.Column(db.Integer, primary_key=True)
     evidence_id = db.Column(db.Integer, db.ForeignKey('evidence_item.id'))
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'))
-    
+
     # Violation Details
     violation_type = db.Column(db.Enum(ViolationType), nullable=False)
     violation_category = db.Column(db.String(100))  # e.g., "4th Amendment", "Evidence Rule 401"
     severity = db.Column(db.Enum(ViolationSeverity), nullable=False)
     confidence = db.Column(db.Enum(ConfidenceLevel), nullable=False)
     confidence_score = db.Column(db.Float)  # 0-1 probability
-    
+
     # Detection Details
     detected_text = db.Column(db.Text)  # Specific passage or audio timestamp
     detection_location = db.Column(db.String(500))  # Page number, timestamp, etc.
     detection_context = db.Column(db.Text)  # Surrounding context
-    
+
     # Legal Basis
     applicable_rule = db.Column(db.String(500))  # Constitutional provision, statute, rule
     applicable_jurisdiction = db.Column(db.String(100))  # Federal/State/District
     supporting_precedents = db.Column(db.Text)  # JSON: case citations
-    
+
     # Analysis
     violation_explanation = db.Column(db.Text)  # Why this is a violation
     legal_implications = db.Column(db.Text)  # What it means for the case
     remedial_options = db.Column(db.Text)  # JSON: possible fixes
     case_impact = db.Column(db.Text)  # Potential impact on case outcome
-    
+
     # Evidence of Violation
     direct_quote = db.Column(db.Text)
     supporting_evidence = db.Column(db.Text)  # JSON: cross-references
     counterarguments = db.Column(db.Text)  # JSON: possible defenses
-    
+
     # Detection Metadata
     detection_engine = db.Column(db.String(100))  # Which AI model detected it
     model_version = db.Column(db.String(50))
     detection_method = db.Column(db.String(100))  # keyword, ml_inference, rule_based, etc.
-    
+
     # Expert Review
     reviewed_by_attorney_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     attorney_agrees = db.Column(db.Boolean)  # Can be null (not reviewed)
     attorney_comments = db.Column(db.Text)
     review_date = db.Column(db.DateTime)
-    
+
     # Audit
     detected_date = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    
+
     # Relationships
     attorney = db.relationship('User', foreign_keys=[reviewed_by_attorney_id])
 ```
@@ -189,15 +195,16 @@ class LegalViolation(db.Model):
 ### Detection Levels
 
 #### Level 1: BASIC (Pattern Matching)
+
 ```python
 class BasicViolationDetector:
     """Keyword and pattern-based detection"""
-    
+
     strategies = {
         'keyword_matching': {
             'description': 'Find exact phrases associated with violations',
             'examples': [
-                'without permission', 'destroyed records', 'privileged', 
+                'without permission', 'destroyed records', 'privileged',
                 'work product', 'illegal search', 'warrantless'
             ]
         },
@@ -214,16 +221,17 @@ class BasicViolationDetector:
             'database': 'Constitutional violations indexed by state'
         }
     }
-    
+
     # Simple scoring
     detection_confidence = 0.3-0.6  # Low confidence, high false positives
 ```
 
 #### Level 2: COMPREHENSIVE (Context-Aware ML)
+
 ```python
 class ComprehensiveViolationDetector:
     """Context-informed, precedent-aware detection"""
-    
+
     components = {
         'document_classifier': {
             'model': 'LegalBERT or fine-tuned BERT',
@@ -247,7 +255,7 @@ class ComprehensiveViolationDetector:
             'output': 'Likelihood of intentional vs. negligent violation'
         }
     }
-    
+
     # Multi-factor scoring
     detection_confidence = 0.6-0.85  # Medium confidence, fewer false positives
     factors = {
@@ -259,10 +267,11 @@ class ComprehensiveViolationDetector:
 ```
 
 #### Level 3: EXPERT (Deep Legal Analysis)
+
 ```python
 class ExpertViolationDetector:
     """Multi-factor legal reasoning with expert knowledge"""
-    
+
     components = {
         'statute_analyzer': {
             'knowledge_base': 'Full statutory text + legislative history',
@@ -296,7 +305,7 @@ class ExpertViolationDetector:
             'output': 'Behavioral analysis of violation'
         }
     }
-    
+
     # Holistic multi-dimensional scoring
     detection_confidence = 0.85-0.99  # High confidence, integrates case law
     reasoning_chain = True  # Provides full legal reasoning
@@ -308,10 +317,11 @@ class ExpertViolationDetector:
 ## Part 3: Violation Detection Engines
 
 ### Constitutional Violations Detector
+
 ```python
 class ConstitutionalViolationDetector:
     """Detect 1st, 4th, 5th, 6th, 8th, 14th Amendment violations"""
-    
+
     detection_rules = {
         'fourth_amendment': {
             'illegal_search': ['warrantless', 'no probable cause', 'no consent obtained'],
@@ -343,7 +353,7 @@ class ConstitutionalViolationDetector:
             'privileges_immunities': ['state discrimination against citizens']
         }
     }
-    
+
     # Court scrutiny levels
     scrutiny_analysis = {
         'strict_scrutiny': ['fundamental right', 'suspect class', 'government interest'],
@@ -353,10 +363,11 @@ class ConstitutionalViolationDetector:
 ```
 
 ### Procedural Violations Detector
+
 ```python
 class ProceduralViolationDetector:
     """Detect discovery, evidence rule, and court procedure violations"""
-    
+
     rules_databases = {
         'federal_rules_civil_procedure': {
             'rules': 'FRCP 1-86',
@@ -382,7 +393,7 @@ class ProceduralViolationDetector:
             'need_jurisdiction': True
         }
     }
-    
+
     violation_categories = {
         'discovery_violations': {
             'complete_failure': 'Never responded',
@@ -408,10 +419,11 @@ class ProceduralViolationDetector:
 ```
 
 ### Statutory Violations Detector
+
 ```python
 class StatutoryViolationDetector:
     """Detect federal and state law violations"""
-    
+
     knowledge_bases = {
         'federal_statutes': {
             'civil_rights_1964': 'Title VII Employment Discrimination',
@@ -430,7 +442,7 @@ class StatutoryViolationDetector:
             'environmental': 'Clean Air/Water Acts, CERCLA'
         }
     }
-    
+
     detection_approach = {
         'elements_analysis': 'Break statute into elements, check each',
         'knowledge_graph': 'Statutory relationships, amendments, related statutes',
@@ -440,10 +452,11 @@ class StatutoryViolationDetector:
 ```
 
 ### Ethical Violations Detector
+
 ```python
 class EthicalViolationDetector:
     """Detect Model Rules of Professional Conduct violations"""
-    
+
     model_rules = {
         'rule_1_1': 'Competence',
         'rule_1_3': 'Diligence',
@@ -458,7 +471,7 @@ class EthicalViolationDetector:
         'rule_5_1': 'Supervisory lawyer responsibilities',
         'rule_8_4': 'Misconduct'
     }
-    
+
     red_flags = {
         'privilege_breach': 'Confidential information disclosed',
         'conflict': 'Representation of conflicting interests',
@@ -472,10 +485,11 @@ class EthicalViolationDetector:
 ```
 
 ### Moral Code & Standards Violations
+
 ```python
 class MoralCodeViolationDetector:
     """Detect ethical violations beyond bar rules"""
-    
+
     standards = {
         'honesty_integrity': {
             'false_statements': 'Knowingly false statements to court or counsel',
@@ -507,7 +521,7 @@ class MilitaryGradeAudioProcessor:
     Court-admissible audio processing with forensic preservation
     Standards: NIST, ISO, DoD forensic standards
     """
-    
+
     stages = {
         'ingestion': {
             'bit_depth': '24-bit or higher (preserve original)',
@@ -571,7 +585,7 @@ class MilitaryGradeAudioProcessor:
             'presentation_format': 'MP4/MOV with timed subtitles'
         }
     }
-    
+
     forensic_standards = [
         'NIST Special Publication 800-86',
         'FBI Audio Forensics Manual',
@@ -581,13 +595,14 @@ class MilitaryGradeAudioProcessor:
 ```
 
 ### Video Processing - Forensic Grade
+
 ```python
 class ForensicVideoProcessor:
     """
     Forensic video processing for evidence integrity
     Standards: NIST, SWGDE, video forensics best practices
     """
-    
+
     capabilities = {
         'authenticity_analysis': {
             'metadata_extraction': 'All file metadata, device info',
@@ -619,48 +634,49 @@ class ForensicVideoProcessor:
 ## Part 5: Court-Grade E-Discovery Processing Suite
 
 ### Master Data Model for Court Submissions
+
 ```python
 class CourtGradeDiscoveryPackage(db.Model):
     """Complete production package meeting all court requirements"""
-    
+
     __tablename__ = 'court_grade_discovery_package'
-    
+
     # Package Identity
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'))
     production_id = db.Column(db.Integer, db.ForeignKey('production_set.id'))
-    
+
     # Court Requirements Met
     frcp_compliant = db.Column(db.Boolean)  # All FRCP 26, 33, 34, etc.
     state_rules_compliant = db.Column(db.Boolean)  # Applicable state rules
     esi_protocol_compliant = db.Column(db.Boolean)  # ESI agreement followed
     judge_order_compliant = db.Column(db.Boolean)  # Any special orders
-    
+
     # Completeness
     all_documents_included = db.Column(db.Boolean)
     completeness_certification = db.Column(db.Boolean)
     completeness_attorney_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    
+
     # Authentication
     bates_numbering_verified = db.Column(db.Boolean)
     metadata_preserved = db.Column(db.Boolean)
     hash_values_calculated = db.Column(db.Boolean)
-    
+
     # Privilege Protection
     privilege_log_complete = db.Column(db.Boolean)
     privilege_log_entries = db.Column(db.Integer)
-    
+
     # Redactions
     redactions_documented = db.Column(db.Boolean)
     redaction_log = db.Column(db.Text)  # JSON
-    
+
     # Production Format
     format_type = db.Column(db.String(50))  # native, pdf, tiff, load_file
     format_compliant = db.Column(db.Boolean)
-    
+
     # Audit Trail
     all_actions_logged = db.Column(db.Boolean)
     audit_log_certified = db.Column(db.Boolean)
-    
+
     # Admission of Evidence
     evidence_authentication = db.Column(db.Text)  # Authentication approach
     foundation_adequate = db.Column(db.Boolean)  # Can be admitted in evidence
@@ -668,46 +684,46 @@ class CourtGradeDiscoveryPackage(db.Model):
 
 class CourtSubmissionChecklist(db.Model):
     """Pre-submission verification checklist"""
-    
+
     court_grade_package_id = db.Column(db.Integer, pk)
-    
+
     # Document Count & Completeness
     document_count_verified = db.Column(db.Boolean)
     page_count_verified = db.Column(db.Boolean)
     file_size_verified = db.Column(db.Boolean)
     sampling_completed = db.Column(db.Boolean)  # Random 5% sample reviewed
-    
+
     # FRCP Compliance
     frcp_26_complete = db.Column(db.Boolean)  # Disclosures complete
     frcp_33_proper = db.Column(db.Boolean)  # Interrogatories proper
     frcp_34_proper = db.Column(db.Boolean)  # RFP proper form
     frcp_26f_met = db.Column(db.Boolean)  # Meet and confer completed
-    
+
     # Authentication Issues
     no_metadata_stripping = db.Column(db.Boolean)
     all_documents_traceable = db.Column(db.Boolean)
     custody_chain_complete = db.Column(db.Boolean)
-    
+
     # Redaction Issues
     only_privileged_redacted = db.Column(db.Boolean)
     no_substantive_redactions = db.Column(db.Boolean)  # Only privilege
     redaction_log_complete = db.Column(db.Boolean)
-    
+
     # ESI Issues
     esi_protocol_followed = db.Column(db.Boolean)
     cost_allocation_correct = db.Column(db.Boolean)
     claw_back_procedure_ready = db.Column(db.Boolean)
-    
+
     # Quality Issues
     no_duplicates = db.Column(db.Boolean)
     no_corrupted_files = db.Column(db.Boolean)
     all_files_openable = db.Column(db.Boolean)
-    
+
     # Format Issues
     load_files_correct = db.Column(db.Boolean)
     bates_sequential = db.Column(db.Boolean)
     optical_file_accuracy = db.Column(db.Float)  # % pages OCR'd correctly
-    
+
     # Final Sign-Off
     attorney_certified = db.Column(db.Boolean)
     certification_date = db.Column(db.DateTime)
@@ -715,35 +731,36 @@ class CourtSubmissionChecklist(db.Model):
 ```
 
 ### Quality Assurance Workflow
+
 ```python
 class CourtGradeQAWorkflow(db.Model):
     """Mandatory QA workflow before court submission"""
-    
+
     production_id = db.Column(db.Integer)
-    
+
     # Stage 1: Automated Validation (90% of issues caught)
     automated_validation_pass = db.Column(db.Boolean)
     validation_issues = db.Column(db.Text)  # JSON
-    
+
     # Stage 2: Expert Sampling (5% of documents)
     sample_size = db.Column(db.Integer)  # 40-100 documents
     random_selection = db.Column(db.Boolean)  # Truly random, documented
     sample_issues_found = db.Column(db.Integer)
     sample_issues_percentage = db.Column(db.Float)
-    
+
     # Stage 3: Format Verification
     load_file_test_import = db.Column(db.Boolean)
     metadata_integrity_check = db.Column(db.Boolean)
     file_format_validation = db.Column(db.Boolean)
-    
+
     # Stage 4: Privilege Verification
     privilege_log_spot_check = db.Column(db.Boolean)
     no_privileged_in_production = db.Column(db.Boolean)
-    
+
     # Stage 5: Chain of Custody
     coc_complete = db.Column(db.Boolean)
     coc_certified = db.Column(db.Boolean)
-    
+
     # Final Certification
     qa_passed = db.Column(db.Boolean)
     qa_certification_date = db.Column(db.DateTime)
@@ -755,24 +772,28 @@ class CourtGradeQAWorkflow(db.Model):
 ## Part 6: Implementation Roadmap
 
 ### Phase 1: Foundation (Months 1-2)
+
 - [ ] Upgrade Python to 3.13, FastAPI integration
 - [ ] Add Celery distributed job queue
 - [ ] Integrate PostgreSQL 15+
 - [ ] Set up vector database (Pinecone/Weaviate)
 
 ### Phase 2: AI/ML Stack (Months 2-4)
+
 - [ ] Deploy Legal-BERT + LawBERT models
 - [ ] Integrate Whisper-large v3 + faster-whisper
 - [ ] Set up Pyannote speaker diarization
 - [ ] Create legal knowledge base indexing
 
 ### Phase 3: Violation Detection (Months 4-6)
+
 - [ ] Build Level 1 (Basic) detector
 - [ ] Build Level 2 (Comprehensive) detector
 - [ ] Build Level 3 (Expert) detector
 - [ ] Integrate constitutional, statutory, procedural databases
 
 ### Phase 4: Audio/Video Processing (Months 6-8)
+
 - [ ] Military-grade audio ingestion pipeline
 - [ ] Forensic audio authenticity verification
 - [ ] Speaker diarization and identification
@@ -780,6 +801,7 @@ class CourtGradeQAWorkflow(db.Model):
 - [ ] Forensic video processing
 
 ### Phase 5: Court-Grade Suite (Months 8-10)
+
 - [ ] CourtGradeDiscoveryPackage models
 - [ ] Automated pre-submission validation
 - [ ] QA workflow and sampling
@@ -787,6 +809,7 @@ class CourtGradeQAWorkflow(db.Model):
 - [ ] Load file generation and testing
 
 ### Phase 6: Integration & Testing (Months 10-12)
+
 - [ ] End-to-end testing
 - [ ] Adversarial testing (can violations be hidden?)
 - [ ] Court admissibility research
@@ -798,13 +821,15 @@ class CourtGradeQAWorkflow(db.Model):
 ## Technical Specifications
 
 ### Violation Detection Accuracy Targets
+
 ```
 Level 1 (Basic): 80-85% precision, 60-70% recall
-Level 2 (Comprehensive): 90-92% precision, 75-85% recall  
+Level 2 (Comprehensive): 90-92% precision, 75-85% recall
 Level 3 (Expert): 95%+ precision, 85-90% recall
 ```
 
 ### Processing Performance Targets
+
 ```
 OCR: 1,000 pages/hour (8-core server)
 Transcription: 10:1 ratio (1 hour content = 10 hours processing)
@@ -813,6 +838,7 @@ E-Discovery Production: 10,000 docs/day with full validation
 ```
 
 ### Court Admissibility Standards
+
 ```
 - Every piece of evidence traceable
 - No metadata loss
@@ -843,4 +869,4 @@ E-Discovery Production: 10,000 docs/day with full validation
 ✅ **Admissibility**: 100% of discovered evidence meets court standards  
 ✅ **Compliance**: FRCP, state rules, ESI protocols fully satisfied  
 ✅ **Cost**: 70-80% reduction in manual discovery review costs  
-✅ **Confidence**: Attorneys can confidently certify productions  
+✅ **Confidence**: Attorneys can confidently certify productions

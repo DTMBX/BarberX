@@ -3,21 +3,25 @@
 ## 🚀 Quick Start (Choose Your OS)
 
 ### Windows (CMD)
+
 ```bash
 setup.bat
 ```
 
 ### Windows (PowerShell)
+
 ```bash
 .\setup.ps1
 ```
 
 ### macOS / Linux
+
 ```bash
 ./setup.sh
 ```
 
 Then start the server:
+
 ```bash
 python app.py
 ```
@@ -37,6 +41,7 @@ Visit: **http://localhost:5000/auth/login**
 ## 🔧 Troubleshooting
 
 Still having issues? Run the verification script:
+
 ```bash
 python verify-system.py
 ```

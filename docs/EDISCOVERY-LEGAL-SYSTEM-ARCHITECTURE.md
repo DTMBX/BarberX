@@ -11,7 +11,7 @@
 Evident is a comprehensive, multi-platform e-discovery and legal evidence processing system designed for legal professionals, law firms, pro se litigants, civic organizations, law enforcement agencies, and insurance companies to efficiently process, analyze, and manage large volumes of digital evidence including:
 
 - **PDF Documents** (contracts, depositions, discovery materials)
-- **Body-Worn Camera (BWC) Footage** (law enforcement evidence)  
+- **Body-Worn Camera (BWC) Footage** (law enforcement evidence)
 - **Video Evidence** (interviews, surveillance, demos)
 - **Audio Evidence** (recordings, interviews, interrogations)
 - **Digital Media** (images, documents, exhibits)
@@ -21,6 +21,7 @@ Evident is a comprehensive, multi-platform e-discovery and legal evidence proces
 ## Architecture Layers
 
 ### 1. **Legal Workflow Layer** (UI/UX)
+
 - Case management & matter control
 - Evidence intake & chain of custody
 - Legal hold & retention policies
@@ -29,6 +30,7 @@ Evident is a comprehensive, multi-platform e-discovery and legal evidence proces
 - Multi-party collaboration
 
 ### 2. **Evidence Processing Engine** (AI/ML Backend)
+
 - PDF text extraction & OCR
 - Video transcription & speaker identification
 - AI legal analysis (privilege, relevance, responsiveness)
@@ -37,6 +39,7 @@ Evident is a comprehensive, multi-platform e-discovery and legal evidence proces
 - Redaction & masking capabilities
 
 ### 3. **Data Models Layer** (Harmonized)
+
 - **Cases** (Legal matters with multiple parties)
 - **Evidence** (Raw digital media files)
 - **Documents** (Processed/extracted records)
@@ -46,6 +49,7 @@ Evident is a comprehensive, multi-platform e-discovery and legal evidence proces
 - **LegalHolds** (Retention & litigation hold directives)
 
 ### 4. **API Layer** (RESTful)
+
 - Case management endpoints
 - Evidence upload & processing
 - Document analysis & review
@@ -54,14 +58,16 @@ Evident is a comprehensive, multi-platform e-discovery and legal evidence proces
 - Audit & compliance reporting
 
 ### 5. **Platform Implementations**
+
 - **Web**: React/TypeScript - Primary interface for attorneys & paralegals
 - **Mobile (MAUI)**: Windows/Android/iOS - Field evidence capture & case review
 - **Desktop (WPF)**: Heavy-duty evidence processing for law firms
 - **Backend (Flask)**: Python AI engine for evidence processing
 
 ### 6. **Supporting Systems**
+
 - Authentication & authorization (JWT, OAuth2)
-- Database (PostgreSQL with encryption)  
+- Database (PostgreSQL with encryption)
 - File storage (Encrypted cloud or on-premises)
 - Message queuing (RabbitMQ/Celery for async processing)
 - Monitoring & audit logging
@@ -72,6 +78,7 @@ Evident is a comprehensive, multi-platform e-discovery and legal evidence proces
 ## Core Data Model Harmonization
 
 ### Case (formerly "Project")
+
 ```
 Case
 ├── id (UUID)
@@ -90,6 +97,7 @@ Case
 ```
 
 ### Evidence (Digital Media)
+
 ```
 Evidence
 ├── id (UUID)
@@ -112,6 +120,7 @@ Evidence
 ```
 
 ### Document (Processed Output)
+
 ```
 Document
 ├── id (UUID)
@@ -130,6 +139,7 @@ Document
 ```
 
 ### Party (Legal Party)
+
 ```
 Party
 ├── id (UUID)
@@ -145,6 +155,7 @@ Party
 ```
 
 ### AuditLog (Compliance & Chain of Custody)
+
 ```
 AuditLog
 ├── id (UUID)
@@ -160,13 +171,14 @@ AuditLog
 ```
 
 ### LegalHold (Retention Directive)
+
 ```
 LegalHold
 ├── id (UUID)
 ├── caseId (UUID)
 ├── issued_by (User)
 ├── issued_date (datetime)
-├── applicable_parties (Party[])  
+├── applicable_parties (Party[])
 ├── retention_criteria (text) - What to retain
 ├── retention_until (datetime)
 ├── status (enum) - Active, Modified, Lifted, Expired
@@ -178,19 +190,19 @@ LegalHold
 
 ## User Roles & Permissions
 
-| Role | Organization | Permissions | Use Cases |
-|------|--------------|-------------|-----------|
-| **Attorney** | Law Firm | Full access to case, review, produce, privilege log | Case strategy, document review, legal holds |
-| **Paralegal** | Law Firm | Upload, organize, tag, initial review | Evidence management, litigation support |
-| **Investigator** | Law Firm/Agency | Field evidence capture, metadata collection | BWC footage, interview videos, scene documentation |
-| **Document Reviewer** | Law Firm/Contract | Review documents, flag issues, recommend productions | Quality control, responsiveness assessment |
-| **Client/Pro Se** | Self-represented | Limited case access, upload their evidence | DIY litigation, small claims |
-| **Law Enforcement** | Police Department | Upload BWC, manage chain of custody, export for prosecution | Criminal investigations, evidence management |
-| **Police Chief** | Police Department | Oversight, policy enforcement, audits | Department compliance, evidence governance |
-| **Insurance Adjuster** | Insurance Company | Review claims evidence, determine liability | Claims investigation, coverage determination |
-| **Civic Organization** | NGO/Advocacy | Document evidence of interest, organize for action | Community investigation, public advocacy |
-| **Judge/Arbitrator** | Court/ADR | View submitted evidence, ruling tools | Case decision support |
-| **System Admin** | Evident | User management, backup, compliance reporting | Operations, support |
+| Role                   | Organization      | Permissions                                                 | Use Cases                                          |
+| ---------------------- | ----------------- | ----------------------------------------------------------- | -------------------------------------------------- |
+| **Attorney**           | Law Firm          | Full access to case, review, produce, privilege log         | Case strategy, document review, legal holds        |
+| **Paralegal**          | Law Firm          | Upload, organize, tag, initial review                       | Evidence management, litigation support            |
+| **Investigator**       | Law Firm/Agency   | Field evidence capture, metadata collection                 | BWC footage, interview videos, scene documentation |
+| **Document Reviewer**  | Law Firm/Contract | Review documents, flag issues, recommend productions        | Quality control, responsiveness assessment         |
+| **Client/Pro Se**      | Self-represented  | Limited case access, upload their evidence                  | DIY litigation, small claims                       |
+| **Law Enforcement**    | Police Department | Upload BWC, manage chain of custody, export for prosecution | Criminal investigations, evidence management       |
+| **Police Chief**       | Police Department | Oversight, policy enforcement, audits                       | Department compliance, evidence governance         |
+| **Insurance Adjuster** | Insurance Company | Review claims evidence, determine liability                 | Claims investigation, coverage determination       |
+| **Civic Organization** | NGO/Advocacy      | Document evidence of interest, organize for action          | Community investigation, public advocacy           |
+| **Judge/Arbitrator**   | Court/ADR         | View submitted evidence, ruling tools                       | Case decision support                              |
+| **System Admin**       | Evident           | User management, backup, compliance reporting               | Operations, support                                |
 
 ---
 
@@ -200,7 +212,7 @@ LegalHold
 User uploads Evidence
         ↓
 Validate file integrity (hash verification)
-        ↓  
+        ↓
 Record in chain of custody + audit log
         ↓
 Route to appropriate processor:
@@ -234,32 +246,38 @@ Production generation + privilege log
 ## API Endpoint Categories
 
 ### Case Management
+
 - `GET/POST /api/v1/cases` - List/create cases
 - `GET/PUT/DELETE /api/v1/cases/{caseId}` - Case CRUD
 - `GET /api/v1/cases/{caseId}/summary` - Case statistics & analytics
 
 ### Evidence & Document Management
+
 - `POST /api/v1/cases/{caseId}/evidence/upload` - Upload evidence
 - `GET /api/v1/cases/{caseId}/evidence` - List evidence
 - `GET /api/v1/evidence/{evidenceId}/documents` - Extract documents
 - `POST /api/v1/documents/{docId}/redact` - Apply redactions
 - `POST /api/v1/documents/{docId}/privilege` - Mark as privileged
 
-### Party & Role Management  
+### Party & Role Management
+
 - `GET/POST /api/v1/cases/{caseId}/parties` - Manage parties
 - `PUT /api/v1/cases/{caseId}/parties/{partyId}/permissions` - Set permissions
 
 ### Legal Holds
+
 - `POST /api/v1/cases/{caseId}/legal-holds` - Issue legal hold
 - `GET /api/v1/cases/{caseId}/legal-holds` - List active holds
 - `PUT /api/v1/legal-holds/{holdId}/lift` - Terminate hold
 
-### Compliance & Audit  
+### Compliance & Audit
+
 - `GET /api/v1/cases/{caseId}/audit-log` - Chain of custody log
 - `GET /api/v1/cases/{caseId}/privilege-log` - Privilege assertions
 - `POST /api/v1/cases/{caseId}/export-production` - Generate production set
 
 ### Analysis & Review
+
 - `GET /api/v1/documents/{docId}/analysis` - AI analysis results
 - `POST /api/v1/documents/{docId}/review` - Reviewer notes
 - `GET /api/v1/cases/{caseId}/analytics` - Case analytics dashboard
@@ -269,29 +287,34 @@ Production generation + privilege log
 ## Deployment Scenarios
 
 ### 1. **Law Firm** (Large Multi-Office)
+
 - Centralized Flask backend + PostgreSQL
 - Web app for all attorneys/paralegals
 - MAUI app for field investigators
 - On-premises storage for confidential evidence
 
 ### 2. **Solo Attorney / Pro Se**
+
 - SaaS web app only
 - Cloud storage (AWS S3 encrypted)
 - Minimal user management
 
 ### 3. **Police Department**
+
 - On-premises deployment mandatory
 - Purpose-built BWC ingestion workflow
 - Evidence chain-of-custody auditing
 - Export for prosecution
 
 ### 4. **Insurance Company**
+
 - Multi-tenant SaaS
 - Claims evidence investigation module
 - Liability assessment AI
 - Audit/compliance reporting
 
 ### 5. **Civic Organization / NGO**
+
 - Community cloud deployment
 - Collaborative evidence collection
 - Public reporting capabilities
@@ -302,6 +325,7 @@ Production generation + privilege log
 ## Security & Compliance
 
 ### Data Protection
+
 - ✅ AES-256 encryption at rest
 - ✅ TLS 1.3 in transit
 - ✅ MFA for all users
@@ -309,6 +333,7 @@ Production generation + privilege log
 - ✅ Role-based access control (RBAC)
 
 ### Legal Compliance
+
 - ✅ Chain of custody tracking (immutable audit log)
 - ✅ Privilege log management
 - ✅ Legal hold enforcement
@@ -317,14 +342,16 @@ Production generation + privilege log
 - ✅ Data retention policies
 
 ### Audit & Discovery
+
 - ✅ Complete audit trail of all actions
 - ✅ Export compliance reports
 - ✅ Privilege assertion logging
 - ✅ Legal hold compliance verification
 
 ### Standards
+
 - HIPAA (healthcare evidence)
-- GLBA (financial/insurance evidence)  
+- GLBA (financial/insurance evidence)
 - State discovery rules (FRCP, state equivalents)
 - Police records management standards
 - Forensic best practices
@@ -333,13 +360,13 @@ Production generation + privilege log
 
 ## Licensing & Multi-Tier Support
 
-| Tier | Users | Storage | Features |
-|------|-------|---------|----------|
-| **Free** | 1 | 1GB | Single case, basic upload, single user |
-| **Professional** | 5 | 100GB | Multiple cases, team collaboration, advanced AI |
-| **Enterprise** | Unlimited | Unlimited | On-premises, custom integrations, support SLA |
-| **Law Enforcement** | Department | Custom | BWC ingestion, chain of custody, legal reporting |
-| **Insurance** | Organization | Custom | Claims workflow, adjuster tools, liability assessment |
+| Tier                | Users        | Storage   | Features                                              |
+| ------------------- | ------------ | --------- | ----------------------------------------------------- |
+| **Free**            | 1            | 1GB       | Single case, basic upload, single user                |
+| **Professional**    | 5            | 100GB     | Multiple cases, team collaboration, advanced AI       |
+| **Enterprise**      | Unlimited    | Unlimited | On-premises, custom integrations, support SLA         |
+| **Law Enforcement** | Department   | Custom    | BWC ingestion, chain of custody, legal reporting      |
+| **Insurance**       | Organization | Custom    | Claims workflow, adjuster tools, liability assessment |
 
 ---
 
@@ -357,12 +384,14 @@ Production generation + privilege log
 ## Implementation Roadmap
 
 ### Phase 1 (Complete)
+
 - ✅ Core architecture & data models
 - ✅ Flask backend API
 - ✅ MAUI multi-platform app
 - ✅ Authentication system
 
 ### Phase 2 (Current)
+
 - 🔄 E-discovery legal system harmonization
 - 🔄 File processing pipeline (PDF, video, audio)
 - 🔄 AI analysis for legal documents
@@ -370,13 +399,15 @@ Production generation + privilege log
 - 🔄 Privilege log system
 
 ### Phase 3 (Planned)
+
 - Evidence ingestion workflow
 - Legal hold enforcement
 - Production generation
 - Compliance reporting
 - Integration with legal case management systems (LexisNexis, Thomson Reuters)
 
-### Phase 4 (Future)  
+### Phase 4 (Future)
+
 - Blockchain chain of custody
 - DeepFace video analysis (suspect identification)
 - Legal research integration

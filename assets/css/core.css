@@ -22,9 +22,9 @@ body {
     Inter,
     system-ui,
     -apple-system,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
-    "Helvetica Neue",
+    'Helvetica Neue',
     Arial;
   font-size: var(--evident-type-base);
   line-height: var(--evident-line-height);

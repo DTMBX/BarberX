@@ -1,4 +1,5 @@
 # Phases 9-11 Enhanced Implementation Plan
+
 ## Modern Legal Pro Workspace with Batch PDF Processing & AI Chat
 
 **Status**: Ready for Implementation  
@@ -27,6 +28,7 @@ Transform Evident from a document analysis tool into a **comprehensive legal wor
 **Focus**: Validate existing code + NEW batch PDF/OCR pipeline
 
 ### 9.1 Existing Test Suite (from Phase 9 roadmap)
+
 - 500+ unit tests (models, services)
 - 300+ integration tests
 - 150+ AI/ML tests
@@ -48,14 +50,15 @@ tests/
 ```
 
 #### Test 1: PDF Batch Loading
+
 ```python
 def test_batch_load_pdf_documents():
     """Load 10-25 PDFs concurrently"""
     pdf_files = [f'sample_{i}.pdf' for i in range(25)]
     loader = PDFBatchLoader(max_concurrent=5)
-    
+
     results = loader.load_batch(pdf_files)
-    
+
     assert len(results) == 25
     assert all(r['status'] == 'loaded' for r in results)
     assert all(r['page_count'] > 0 for r in results)
@@ -65,9 +68,9 @@ def test_batch_load_with_error_handling():
     """Handle corrupted/invalid PDFs gracefully"""
     pdf_files = ['valid.pdf', 'corrupted.pdf', 'missing.pdf', 'valid2.pdf']
     loader = PDFBatchLoader(skip_errors=True)
-    
+
     results = loader.load_batch(pdf_files)
-    
+
     assert results[0]['status'] == 'loaded'
     assert results[1]['status'] == 'error'  # Corrupted
     assert results[2]['status'] == 'error'  # Missing
@@ -76,14 +79,15 @@ def test_batch_load_with_error_handling():
 ```
 
 #### Test 2: OCR Extraction
+
 ```python
 def test_ocr_extraction_high_accuracy():
     """Extract text from scanned PDFs with 95%+ accuracy"""
     pdf = load_scanned_pdf('legal_document.pdf')
     ocr_engine = OCREngine(model='tesseract-v5')
-    
+
     result = ocr_engine.extract_text(pdf)
-    
+
     assert result['confidence'] >= 0.95
     assert len(result['text']) > 1000
     assert result['page_count'] == pdf.page_count
@@ -93,32 +97,33 @@ def test_ocr_batch_performance():
     """OCR 25 PDFs (100 pages) in < 5 minutes"""
     pdfs = [load_pdf(f'document_{i}.pdf') for i in range(25)]
     ocr_engine = OCREngine()
-    
+
     start_time = time.time()
     results = ocr_engine.batch_extract(pdfs, workers=4)
     duration = time.time() - start_time
-    
+
     assert duration < 300  # 5 minutes
     assert len(results) == 25
     assert all(r['confidence'] > 0.90 for r in results)
 ```
 
 #### Test 3: Document Context Extraction
+
 ```python
 def test_extract_legal_context():
     """Extract case-specific context from document"""
     text = """
     CASE NO. 2023-CV-12345
     Plaintiff: John Smith v. Defendant: Acme Corp
-    
+
     The court finds that...
     The defendant failed to...
     Relief requested: $500,000 in damages
     """
-    
+
     extractor = DocumentContextExtractor()
     context = extractor.extract(text)
-    
+
     assert context['case_number'] == '2023-CV-12345'
     assert context['parties'] == {
         'plaintiff': 'John Smith',
@@ -129,6 +134,7 @@ def test_extract_legal_context():
 ```
 
 #### Test 4: Case Knowledge Graph
+
 ```python
 def test_build_case_knowledge_graph():
     """Build semantic graph linking case elements"""
@@ -137,10 +143,10 @@ def test_build_case_knowledge_graph():
         {'id': 2, 'type': 'discovery', 'text': '...'},
         {'id': 3, 'type': 'motion', 'text': '...'}
     ]
-    
+
     graph_builder = CaseKnowledgeGraphBuilder()
     graph = graph_builder.build(case_docs)
-    
+
     assert graph.num_nodes == 50+  # Entities from documents
     assert graph.num_edges == 100+  # Relationships
     assert 'case_number' in graph.nodes
@@ -149,14 +155,15 @@ def test_build_case_knowledge_graph():
 ```
 
 #### Test 5: Batch Integration Workflow
+
 ```python
 def test_full_batch_workflow():
     """End-to-end: Load 10 PDFs → OCR → Extract → Graph"""
     pdf_files = [f'legal_case_{i}.pdf' for i in range(10)]
-    
+
     workflow = BatchDocumentWorkflow()
     result = workflow.process_batch(pdf_files)
-    
+
     assert result['pdfs_loaded'] == 10
     assert result['pdfs_processed'] == 10
     assert result['errors'] == 0
@@ -168,6 +175,7 @@ def test_full_batch_workflow():
 ### 9.3 Test Infrastructure
 
 **New Test Fixtures**:
+
 ```python
 # tests/fixtures/sample_documents.py
 @pytest.fixture
@@ -191,6 +199,7 @@ def dismissed_case_docs():
 ```
 
 ### Success Criteria
+
 - ✓ 1,000+ tests total (500 existing + 500 new)
 - ✓ 90%+ code coverage
 - ✓ All batch PDF tests passing
@@ -206,6 +215,7 @@ def dismissed_case_docs():
 **Focus**: Async API + Chat system + Project management
 
 ### 10.1 Existing FastAPI Endpoints (from Phase 10 roadmap)
+
 - 6 core endpoints (violations, forensics, discovery)
 - Async task processing
 - Background tasks and caching
@@ -213,6 +223,7 @@ def dismissed_case_docs():
 ### 10.2 NEW: Batch Document Processing API
 
 **Endpoint: POST /api/v2/documents/batch-analyze**
+
 ```python
 @app.post("/api/v2/documents/batch-analyze")
 async def batch_analyze_documents(
@@ -221,7 +232,7 @@ async def batch_analyze_documents(
 ) -> AsyncTaskResponse:
     """
     Process 10-25 PDFs simultaneously
-    
+
     Request:
     {
         "project_id": "proj_123",
@@ -231,7 +242,7 @@ async def batch_analyze_documents(
         "build_knowledge_graph": true,
         "perform_ocr": true
     }
-    
+
     Response:
     {
         "task_id": "task_abc123",
@@ -255,6 +266,7 @@ async def batch_analyze_documents(
 ```
 
 **Endpoint: GET /api/v2/documents/batch-status/{task_id}**
+
 ```python
 @app.get("/api/v2/documents/batch-status/{task_id}")
 async def get_batch_status(task_id: str) -> Dict:
@@ -280,6 +292,7 @@ async def get_batch_status(task_id: str) -> Dict:
 ```
 
 **Endpoint: POST /api/v2/documents/compare-cases**
+
 ```python
 @app.post("/api/v2/documents/compare-cases")
 async def compare_cases(
@@ -288,7 +301,7 @@ async def compare_cases(
     """
     Compare dismissed case with new case
     Extract reusable elements and certifications
-    
+
     Request:
     {
         "dismissed_case_id": 789,
@@ -297,7 +310,7 @@ async def compare_cases(
         "find_similar_violations": true,
         "build_template": true
     }
-    
+
     Response:
     {
         "comparison_id": "comp_xyz789",
@@ -327,42 +340,43 @@ async def compare_cases(
 **Components**:
 
 #### Chat Message Service
+
 ```python
 class ChatMessage(Base):
     __tablename__ = "chat_messages"
-    
+
     id: int (PK)
     chat_id (FK → Chat)
     user_id (FK → User)
     project_id (FK → Project) (optional)
-    
+
     role: str ("user", "assistant", "system")
     content: str  # Message text
     context: JSON  # Embedded context
     citations: List[str]  # Supporting documents
-    
+
     embeddings: List[float]  # For semantic search
-    
+
     created_at: datetime
     updated_at: datetime
 
 class Chat(Base):
     __tablename__ = "chats"
-    
+
     id: int (PK)
     user_id (FK → User)
     project_id (FK → Project)
-    
+
     title: str  # "Contract Review - Acme Corp"
     system_prompt: str  # Custom instructions
     model: str  # "gpt-4", "claude-3", etc.
-    
+
     messages: Relationship[ChatMessage]
     memory_items: Relationship[ChatMemory]
-    
+
     created_at: datetime
     last_active: datetime
-    
+
     # Settings
     preserve_context: bool  # Keep full history
     max_context_tokens: int
@@ -371,61 +385,62 @@ class Chat(Base):
 ```
 
 #### Chat Memory Service
+
 ```python
 class ChatMemory(Base):
     __tablename__ = "chat_memory"
-    
+
     id: int (PK)
     chat_id (FK → Chat)
-    
+
     key: str  # "case_number", "defendant_name", "damages_claimed"
     value: JSON  # Extracted fact/value
     confidence: float (0-1)
-    
+
     source_message_id (FK → ChatMessage)
     learned_at: datetime
     usage_count: int  # Times referenced
-    
+
     category: str  # "case_fact", "legal_principle", "custom"
-    
+
 class ChatMemoryService:
     async def extract_facts_from_message(self, message: str) -> List[ChatMemory]:
         """Extract learnable facts from user message"""
         # Uses LLM to identify key facts
         facts = await llm.extract_facts(message)
         return facts
-    
+
     async def retrieve_relevant_memory(self, context: str) -> List[ChatMemory]:
         """Find relevant learned facts for response generation"""
         # Semantic search over memory
         embedding = await embedder.embed(context)
         memory_items = await db.vector_search('chat_memory', embedding)
         return memory_items
-    
+
     async def generate_response_with_memory(self, chat_id: int, user_message: str):
         """Generate response informed by learned memory"""
         # Retrieve relevant memory
         relevant_memory = await self.retrieve_relevant_memory(user_message)
-        
+
         # Build context
         memory_context = "\n".join([
             f"{m.key}: {m.value}" for m in relevant_memory
         ])
-        
+
         # Generate response
         system_prompt = f"""
         You are a legal assistant with access to this learned information:
-        
+
         {memory_context}
-        
+
         Use this context to provide better responses.
         """
-        
+
         response = await llm.generate(
             messages=chat_messages,
             system_prompt=system_prompt
         )
-        
+
         return response
 ```
 
@@ -456,7 +471,7 @@ async def send_chat_message(
         "include_project_context": true,
         "citations": ["doc_123", "doc_456"]
     }
-    
+
     Response: WebSocket stream of tokens OR polling
     {
         "message_id": 789,
@@ -492,24 +507,24 @@ async def get_chat_history(chat_id: int, limit: int = 50):
 ```python
 class Project(Base):
     __tablename__ = "projects"
-    
+
     id: int (PK)
     user_id (FK → User)
-    
+
     name: str  # "Acme Corp Litigation"
     description: str
     case_id (Optional, FK → LegalCase)
-    
+
     # File storage
     documents: Relationship[ProjectDocument]
     chats: Relationship[Chat]
     cases: Relationship[LegalCase]
-    
+
     # Settings
     storage_limit_bytes: int  # 1GB for paid, unlimited enterprise
     storage_used_bytes: int
     visibility: str  # "private", "shared", "team"
-    
+
     created_at: datetime
     updated_at: datetime
     last_accessed: datetime
@@ -517,22 +532,22 @@ class Project(Base):
 
 class ProjectDocument(Base):
     __tablename__ = "project_documents"
-    
+
     id: int (PK)
     project_id (FK → Project)
-    
+
     filename: str
     original_filename: str
     file_type: str  # "pdf", "docx", "txt"
     file_size_bytes: int
     file_path: str  # S3 or local storage
-    
+
     # Processing
     processing_status: str  # "uploaded", "processing", "complete"
     ocr_applied: bool
     text_extracted: str
     page_count: int
-    
+
     # Metadata
     uploaded_at: datetime
     processed_at: datetime
@@ -564,6 +579,7 @@ async def archive_project(project_id: int):
 ```
 
 ### Success Criteria
+
 - ✓ Batch document upload/processing functional
 - ✓ PDF OCR working at 95%+ accuracy
 - ✓ Chat message creation and retrieval working
@@ -611,36 +627,36 @@ Relationships:
 class CaseKnowledgeGraphBuilder:
     def __init__(self, vector_db):
         self.vector_db = vector_db  # Pinecone/Weaviate
-    
+
     async def build_from_documents(self, case_id: int, documents: List[str]):
         """Build knowledge graph from case documents"""
-        
+
         # Step 1: Extract entities
         entities = await self._extract_entities(documents)
-        
+
         # Step 2: Build relationships
         relationships = await self._build_relationships(entities)
-        
+
         # Step 3: Embed and index
         await self._index_graph_elements(case_id, entities, relationships)
-        
+
         return {
             "case_id": case_id,
             "num_entities": len(entities),
             "num_relationships": len(relationships),
             "entity_types": self._count_by_type(entities)
         }
-    
+
     async def _extract_entities(self, documents: List[str]):
         """Use Legal-BERT to find case entities"""
         # NER on steroids
         # Find: parties, amounts, dates, statutes, precedents
         pass
-    
+
     async def _build_relationships(self, entities):
         """Determine relationships between entities"""
         pass
-    
+
     async def search_similar_cases(self, case_id: int, top_k: int = 10):
         """Find cases with similar knowledge graphs"""
         # Use graph embedding similarity
@@ -661,29 +677,29 @@ class CaseKnowledgeTransferService:
     ):
         """
         Transfer learned facts from dismissed case to new case
-        
+
         transfer_types:
         - "violations": Copy violation patterns (if similar)
         - "certifications": Reuse relevant certifications
         - "precedents": Find applicable case law
         - "templates": Generate motions from old patterns
         """
-        
+
         # Load both cases' knowledge graphs
         dismissed_graph = await self.get_case_graph(dismissed_case_id)
         new_graph = await self.get_case_graph(new_case_id)
-        
+
         transfer_report = {
             "violations_transferred": 0,
             "certifications_reusable": [],
             "precedents_applicable": [],
             "templates_generated": []
         }
-        
+
         if "violations" in transfer_types:
             # Find violations from dismissed case
             violations = dismissed_graph.get_node_category("violation")
-            
+
             # Check relevance to new case
             for v in violations:
                 similarity = await self.similarity_score(v, new_case_id)
@@ -694,11 +710,11 @@ class CaseKnowledgeTransferService:
                         "from_dismissed": dismissed_case_id,
                         "to_new": new_case_id
                     })
-        
+
         if "certifications" in transfer_types:
             # Extract certifications from dismissed case
             certs = dismissed_graph.get_node_category("certification")
-            
+
             for cert in certs:
                 if self._is_reusable(cert, new_case_id):
                     transfer_report["certifications_reusable"].append({
@@ -706,11 +722,11 @@ class CaseKnowledgeTransferService:
                         "text": cert.text,
                         "adaptations_needed": self._get_adaptations(cert, new_case_id)
                     })
-        
+
         if "precedents" in transfer_types:
             # Find precedents from dismissed case
             precedents = dismissed_graph.get_node_category("precedent")
-            
+
             # Check if applicable to new violations
             for p in precedents:
                 if self._applies_to_new_case(p, new_case_id):
@@ -719,11 +735,11 @@ class CaseKnowledgeTransferService:
                         "holding": p.holding,
                         "relevance": "high"
                     })
-        
+
         if "templates" in transfer_types:
             # Generate motion templates from old case
             motion_history = await self.get_motion_history(dismissed_case_id)
-            
+
             for motion in motion_history:
                 template = self._generate_template(motion, new_case_id)
                 transfer_report["templates_generated"].append({
@@ -731,9 +747,9 @@ class CaseKnowledgeTransferService:
                     "template_id": template.id,
                     "adaptations": template.required_changes
                 })
-        
+
         return transfer_report
-    
+
     async def _get_adaptations(self, certification, new_case_id):
         """What needs to change in this certification for new case"""
         return [
@@ -775,7 +791,7 @@ pinecone/
 async def search_similar_cases(request: SimilarCaseSearchRequest):
     """
     Find dismissed cases with similar elements
-    
+
     Request:
     {
         "case_id": 456,
@@ -783,7 +799,7 @@ async def search_similar_cases(request: SimilarCaseSearchRequest):
         "top_k": 10,
         "min_similarity": 0.75
     }
-    
+
     Response:
     {
         "query_case_id": 456,
@@ -801,6 +817,7 @@ async def search_similar_cases(request: SimilarCaseSearchRequest):
 ```
 
 ### Success Criteria
+
 - ✓ Case knowledge graphs built successfully
 - ✓ Cross-case similarity search <100ms
 - ✓ Knowledge transfer functional
@@ -863,23 +880,27 @@ Knowledge Transfer (reuse certifications)
 ## Technology Stack
 
 ### Batch Processing
+
 - **PDF Reading**: PyPDF2, pdfplumber, PyMuPDF
 - **OCR**: Tesseract 5, EasyOCR, PaddleOCR (fallback)
 - **Async Orchestration**: asyncio, concurrent.futures
 - **Error Handling**: Exponential backoff, retry logic
 
 ### Chat System
+
 - **LLM**: GPT-4, Claude 3 (or local LLaMA)
 - **LangChain**: For memory, RAG chains
 - **WebSocket**: Real-time message streaming
 - **Vector Embeddings**: Legal-BERT (768-dim)
 
 ### Knowledge Graph
+
 - **Graph DB**: Neo4j (for relationship queries)
 - **Vector DB**: Pinecone (for semantic search)
 - **Entity Extraction**: spaCy NER + Legal-BERT
 
 ### Storage
+
 - **Documents**: S3/Azure Blob (cloud) or local
 - **Metadata**: PostgreSQL
 - **Cache**: Redis (chat history, searches)
@@ -921,30 +942,35 @@ Knowledge Transfer (reuse certifications)
 ## Enhanced Features
 
 ### 1. Batch OCR (10-25 PDFs)
+
 - Concurrent processing (4-8 workers)
 - Target: 5 min for 25 PDFs (25 pages avg)
 - Error handling (corrupted PDFs skip)
 - Progress tracking
 
 ### 2. Case Reuse
+
 - Extract certifications from dismissed case
 - Find similar violations in new case
 - Suggest applicable precedents
 - Generate motion templates
 
 ### 3. AI Chat Memory
+
 - Learns facts from user messages
 - Remembers across sessions
 - Retrieves relevant facts for responses
 - Maintains context window
 
 ### 4. Project Management
+
 - Upload 10-25 PDFs at once
 - Organize chats by topic
 - Tag documents
 - Archive/restore projects
 
 ### 5. Split-Window Workflows
+
 - Multiple chats simultaneously
 - Drag-and-drop chat windows
 - Real-time synchronization
@@ -955,24 +981,28 @@ Knowledge Transfer (reuse certifications)
 ## Implementation Sequence
 
 **Week 1-2 (Phase 9)**
+
 - Batch PDF loader with error handling
 - OCR engine integration
 - Context extraction (parties, case #)
 - 200+ tests
 
 **Week 3-4 (Phase 10)**
+
 - FastAPI batch endpoints
 - Chat system models + services
 - Project management endpoints
 - Memory extraction + retrieval
 
 **Week 5-6 (Phase 10 contd.)**
+
 - WebSocket for real-time chat
 - Chat history persistence
 - Memory fact learning
 - URL migration testing
 
 **Week 7-9 (Phase 11)**
+
 - Knowledge graph building
 - Vector embeddings
 - Pinecone indexing
@@ -980,6 +1010,7 @@ Knowledge Transfer (reuse certifications)
 - Knowledge transfer service
 
 **Week 10-12 (Phase 11 contd.)**
+
 - Case-to-case transfers
 - Certification reuse service
 - Motion template generator
@@ -990,17 +1021,20 @@ Knowledge Transfer (reuse certifications)
 ## Success Metrics
 
 ### Phase 9
+
 - [ ] 1000+ tests (90%+ coverage)
 - [ ] OCR accuracy >= 95%
 - [ ] Batch processing <= 5 min for 25 PDFs
 
 ### Phase 10
+
 - [ ] Batch upload/process working
 - [ ] Chat message send/receive <500ms
 - [ ] Memory facts extracted and retrievable
 - [ ] Project CRUD 100% functional
 
 ### Phase 11
+
 - [ ] Knowledge graphs built for all cases
 - [ ] Similar case search <100ms
 - [ ] Knowledge transfer reusability >= 70%
@@ -1029,4 +1063,3 @@ Knowledge Transfer (reuse certifications)
 3. Set up test fixtures for PDFs
 4. Begin Phase 10 API endpoint implementation alongside tests
 5. Coordinate with Phase 13 UI team on chat interface
-

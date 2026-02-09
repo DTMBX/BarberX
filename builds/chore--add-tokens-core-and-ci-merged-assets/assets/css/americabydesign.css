@@ -6,7 +6,7 @@
   --ad-accent: #e07a5f;
   --ad-neutral: #f6f7f9;
   --ad-font-sans:
-    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica", Arial, sans-serif;
+    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica', Arial, sans-serif;
 }
 
 /* Button components */

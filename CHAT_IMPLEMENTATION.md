@@ -8,7 +8,7 @@ Evident Chat is now the PRIMARY interface for your e-discovery legal platform. I
 
 1. **Chat Database Models** (`auth/chat_models.py`) - 5 models for conversations, messages, API keys, sessions, and tool tracking
 2. **API Key Manager** (`auth/api_key_manager.py`) - Secure encryption and management of user API keys
-3. **Chat Service** (`services/chat_service.py`) - Core chat logic with OpenAI integration and context management  
+3. **Chat Service** (`services/chat_service.py`) - Core chat logic with OpenAI integration and context management
 4. **Chat Tools** (`services/chat_tools.py`) - 12 tools connecting chat to all backend services
 5. **Prompt Templates** (`auth/prompt_templates.py`) - 4 specialized AI personas for different legal roles
 6. **Chat API Routes** (`routes/chat_routes.py`) - 15+ REST endpoints for chat operations
@@ -64,6 +64,7 @@ SECRET_KEY=your-secret-key-here
 After logging in, users are automatically redirected to `/chat` which shows the modern chat interface.
 
 **URL Structure:**
+
 - **Chat Interface:** `https://your-app/chat`
 - **API Base:** `https://your-app/api/chat`
 - **Admin Panel:** `https://your-app/admin/chat`
@@ -73,6 +74,7 @@ After logging in, users are automatically redirected to `/chat` which shows the 
 ### For Users
 
 #### Chat Interface
+
 - **Modern UI** - Responsive design with sidebar, message history, input area
 - **Conversation Management** - Create, list, view, delete conversations
 - **AI Personas** - 4 specialized roles:
@@ -80,15 +82,18 @@ After logging in, users are automatically redirected to `/chat` which shows the 
   - **Evidence Manager** - Chain of custody and privilege management
   - **Case Analyzer** - Deep case law analysis and precedent
   - **Research Specialist** - Comprehensive legal research
-  
+
 #### API Key Management
+
 - **Configure API Keys** - Users provide their own OpenAI API keys
 - **Secure Storage** - Keys encrypted with Fernet encryption
 - **Validation** - Test keys before storage
 - **Usage Tracking** - Monitor token usage and costs
 
 #### Tool Integration
+
 Chat can execute 12 different tools:
+
 - `search_legal_documents` - Search Supreme Court cases, founding docs
 - `get_case_details` - Get detailed case information
 - `search_cases` - Advanced case search with filters
@@ -105,12 +110,14 @@ Chat can execute 12 different tools:
 ### For Admins
 
 #### Admin Dashboard (`/admin/chat`)
+
 - **API Key Management** - View and manage all user keys
 - **Chat Statistics** - Overall usage and top users
 - **User Monitoring** - Conversations and message tracking
 - **Maintenance** - Cleanup, validation, monthly cost reset
 
 #### Key Endpoints
+
 - `GET /admin/chat/api-keys` - List all API keys
 - `GET /admin/chat/statistics` - View chat statistics
 - `GET /admin/chat/user/<user_id>/conversations` - User's conversations
@@ -121,6 +128,7 @@ Chat can execute 12 different tools:
 ### User Endpoints
 
 #### Conversations
+
 ```
 POST   /api/chat/conversations                 - Create conversation
 GET    /api/chat/conversations                 - List conversations
@@ -130,17 +138,20 @@ GET    /api/chat/export/<id>                   - Export conversation
 ```
 
 #### Messages
+
 ```
 POST   /api/chat/messages                      - Send message (main chat)
 GET    /api/chat/conversations/<id>/messages   - Get conversation history
 ```
 
 #### Tools
+
 ```
 GET    /api/chat/tools                         - List available tools
 ```
 
 #### API Keys
+
 ```
 GET    /api/chat/api-keys                      - List user's API keys
 POST   /api/chat/api-keys                      - Add new API key
@@ -149,6 +160,7 @@ POST   /api/chat/api-keys/<key_id>/validate    - Test API key
 ```
 
 #### Usage
+
 ```
 GET    /api/chat/usage                         - Get usage statistics
 ```
@@ -156,6 +168,7 @@ GET    /api/chat/usage                         - Get usage statistics
 ### Example Usage
 
 #### Create Conversation
+
 ```bash
 curl -X POST https://your-app/api/chat/conversations \
   -H "Content-Type: application/json" \
@@ -167,6 +180,7 @@ curl -X POST https://your-app/api/chat/conversations \
 ```
 
 #### Send Message
+
 ```bash
 curl -X POST https://your-app/api/chat/messages \
   -H "Content-Type: application/json" \
@@ -179,6 +193,7 @@ curl -X POST https://your-app/api/chat/messages \
 ```
 
 #### Store API Key
+
 ```bash
 curl -X POST https://your-app/api/chat/api-keys \
   -H "Content-Type: application/json" \
@@ -195,28 +210,33 @@ curl -X POST https://your-app/api/chat/api-keys \
 ### New Tables
 
 **chat_conversations**
+
 - id, user_id, title, system_role, model, temperature
 - total_input_tokens, total_output_tokens, estimated_cost
 - context_strategy, max_context_tokens
 - created_at, updated_at, is_archived, is_public
 
 **chat_messages**
+
 - id, conversation_id, role, content
 - tool_calls, tool_results
 - input_tokens, output_tokens
 - created_at, is_deleted
 
 **user_api_keys**
+
 - id, user_id, service_name, encrypted_key
 - is_active, is_validated, validation_error
 - total_requests, total_cost, monthly_cost
 - last_used_at, last_validated_at
 
 **chat_sessions**
+
 - id, user_id, conversation_id, session_token
 - created_at, last_activity, expires_at, is_active
 
 **chat_tool_calls**
+
 - id, message_id, tool_name, tool_args, tool_result
 - success, error, execution_time_ms, created_at
 
@@ -256,6 +276,7 @@ register_tool_executor('search_legal_documents', search_legal_documents_executor
 ```
 
 Current tool implementations are PLACEHOLDERS. You need to:
+
 1. Connect each tool to your actual backend services
 2. Test tool execution
 3. Add error handling and validation
@@ -305,16 +326,19 @@ SERVICE_CONFIGS = {
 ## Security Considerations
 
 ### API Key Security
+
 - ✅ Keys encrypted with Fernet (symmetric encryption)
 - ✅ Never logged or displayed in full
 - ✅ Per-user isolation
 
 ### Session Security
+
 - ✅ Session tokens for chat websocket connections (future)
 - ✅ User ID verification on all operations
 - ✅ Rate limiting on message sending and key operations
 
 ### Best Practices
+
 1. **Environment Variables** - Keep master key in `.env`
 2. **HTTPS Only** - Enforce SSL/TLS in production
 3. **Regular Validation** - Run `/admin/chat/maintenance/validate-all-keys`
@@ -324,12 +348,14 @@ SERVICE_CONFIGS = {
 ## Next Steps / Future Enhancements
 
 ### Phase 4.1: Tool Implementation
+
 - [ ] Implement actual tool executors for all 12 tools
 - [ ] Add error handling and validation
 - [ ] Add streaming responses for long searches
 - [ ] Add batch tool execution
 
 ### Phase 4.2: Advanced Features
+
 - [ ] Conversation branching (what-if analysis)
 - [ ] Conversation sharing and collaboration
 - [ ] Message editing and re-generation
@@ -337,18 +363,21 @@ SERVICE_CONFIGS = {
 - [ ] Conversation analytics dashboard
 
 ### Phase 4.3: AI Enhancements
+
 - [ ] Support multiple AI providers (Claude, Cohere)
 - [ ] Fine-tuning for legal domain
 - [ ] System prompt versioning
 - [ ] A/B testing different prompts
 
 ### Phase 4.4: Performance
+
 - [ ] Redis caching for frequent queries
 - [ ] Message streaming via WebSockets
 - [ ] Async tool execution with job queue
 - [ ] Token budget alerts and notifications
 
 ### Phase 4.5: Compliance
+
 - [ ] Conversation archival for e-discovery
 - [ ] Audit logging for regulatory compliance
 - [ ] Data retention policies
@@ -357,19 +386,25 @@ SERVICE_CONFIGS = {
 ## Troubleshooting
 
 ### "No OpenAI API key configured"
+
 **Solution:** Users must configure API key in chat settings before sending first message.
 
 ### "API key validation failed"
+
 **Solution:** Check that API key is valid with `POST /api/chat/api-keys/<key_id>/validate`
 
 ### "Context window exceeded"
+
 **Solution:** Chat automatically manages context with `rolling_window` strategy. Messages at start of conversation may be dropped if conversation is very long.
 
 ### "Tool execution failed"
+
 **Solution:** Tool executors are placeholders. Need to implement actual tool functions that call your backend services.
 
 ### "Slow response time"
-**Solution:** 
+
+**Solution:**
+
 - Check OpenAI API rate limits
 - Verify database indexes are created
 - Consider enabling response streaming

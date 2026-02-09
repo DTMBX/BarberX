@@ -13,19 +13,20 @@
 
 ### 1. pypdf 5.1.0 → **7 vulnerabilities**
 
-| ID | Severity | Fix Version | Impact |
-|----|----------|-------------|---------|
-| GHSA-7hfw-26vp-jp8m (CVE-2025-55197) | HIGH | 6.0.0 | RAM exhaustion via malicious FlateDecode filters |
-| GHSA-vr63-x8vc-m265 (CVE-2025-62707) | MEDIUM | 6.1.3 | Infinite loop via DCTDecode inline image |
-| GHSA-jfx9-29x2-rv3j (CVE-2025-62708) | MEDIUM | 6.1.3 | Large memory usage via LZWDecode |
-| GHSA-m449-cwjh-6pw7 (CVE-2025-66019) | MEDIUM | 6.4.0 | Memory usage up to 1GB per stream (LZWDecode) |
-| GHSA-4xc4-762w-m6cg (CVE-2026-22690) | MEDIUM | 6.6.0 | Long runtimes for invalid /Root entry |
-| GHSA-4f6g-68pf-7vhv (CVE-2026-22691) | MEDIUM | 6.6.0 | Long runtimes for invalid startxref |
-| GHSA-2q4j-m29v-hq73 (CVE-2026-24688) | MEDIUM | 6.6.2 | Infinite loop accessing outlines/bookmarks |
+| ID                                   | Severity | Fix Version | Impact                                           |
+| ------------------------------------ | -------- | ----------- | ------------------------------------------------ |
+| GHSA-7hfw-26vp-jp8m (CVE-2025-55197) | HIGH     | 6.0.0       | RAM exhaustion via malicious FlateDecode filters |
+| GHSA-vr63-x8vc-m265 (CVE-2025-62707) | MEDIUM   | 6.1.3       | Infinite loop via DCTDecode inline image         |
+| GHSA-jfx9-29x2-rv3j (CVE-2025-62708) | MEDIUM   | 6.1.3       | Large memory usage via LZWDecode                 |
+| GHSA-m449-cwjh-6pw7 (CVE-2025-66019) | MEDIUM   | 6.4.0       | Memory usage up to 1GB per stream (LZWDecode)    |
+| GHSA-4xc4-762w-m6cg (CVE-2026-22690) | MEDIUM   | 6.6.0       | Long runtimes for invalid /Root entry            |
+| GHSA-4f6g-68pf-7vhv (CVE-2026-22691) | MEDIUM   | 6.6.0       | Long runtimes for invalid startxref              |
+| GHSA-2q4j-m29v-hq73 (CVE-2026-24688) | MEDIUM   | 6.6.2       | Infinite loop accessing outlines/bookmarks       |
 
 **Recommendation**: Upgrade to pypdf >= 6.6.2
 
 **Workaround** (if cannot upgrade immediately):
+
 ```python
 # Use strict mode to mitigate some attacks
 reader = PdfReader("file.pdf", strict=True)
@@ -35,16 +36,17 @@ reader = PdfReader("file.pdf", strict=True)
 
 ### 2. pdfminer-six 20231228 → **2 vulnerabilities**
 
-| ID | Severity | Fix Version | Impact |
-|----|----------|-------------|---------|
-| GHSA-wf5f-4jwr-ppcp (CVE-2025-64512) | 🔴 **CRITICAL** | 20251107 | RCE via malicious pickle deserialization |
-| GHSA-f83h-ghpp-7wcc (CVE-2025-70559) | 🔴 **CRITICAL** | 20251230 | Privilege escalation via unsafe pickle |
+| ID                                   | Severity        | Fix Version | Impact                                   |
+| ------------------------------------ | --------------- | ----------- | ---------------------------------------- |
+| GHSA-wf5f-4jwr-ppcp (CVE-2025-64512) | 🔴 **CRITICAL** | 20251107    | RCE via malicious pickle deserialization |
+| GHSA-f83h-ghpp-7wcc (CVE-2025-70559) | 🔴 **CRITICAL** | 20251230    | Privilege escalation via unsafe pickle   |
 
 **Recommendation**: Upgrade to pdfminer-six >= 20251230
 
 **Severity**: **CRITICAL** - Allows arbitrary code execution
 
-**Impact**: 
+**Impact**:
+
 - Attacker can execute arbitrary Python code by providing malicious PDF
 - Possible privilege escalation from low-privileged user to root
 - **CVSS Score**: 7.8 (High) for CVE-2025-70559
@@ -55,12 +57,12 @@ reader = PdfReader("file.pdf", strict=True)
 
 ### 3. torch 2.3.1 → **4 vulnerabilities**
 
-| ID | Severity | Fix Version | Impact |
-|----|----------|-------------|---------|
-| PYSEC-2025-41 (CVE-2025-32434) | HIGH | 2.6.0 | RCE when loading model with torch.load(weights_only=True) |
-| PYSEC-2024-259 (CVE-2024-48063) | MEDIUM | 2.5.0 | Deserialization RCE in RemoteModule |
-| GHSA-3749-ghw9-m3mg (CVE-2025-2953) | LOW | 2.7.1rc1 | DoS in torch.mkldnn_max_pool2d |
-| GHSA-887c-mr87-cxwp (CVE-2025-3730) | LOW | 2.8.0 | DoS in torch.nn.functional.ctc_loss |
+| ID                                  | Severity | Fix Version | Impact                                                    |
+| ----------------------------------- | -------- | ----------- | --------------------------------------------------------- |
+| PYSEC-2025-41 (CVE-2025-32434)      | HIGH     | 2.6.0       | RCE when loading model with torch.load(weights_only=True) |
+| PYSEC-2024-259 (CVE-2024-48063)     | MEDIUM   | 2.5.0       | Deserialization RCE in RemoteModule                       |
+| GHSA-3749-ghw9-m3mg (CVE-2025-2953) | LOW      | 2.7.1rc1    | DoS in torch.mkldnn_max_pool2d                            |
+| GHSA-887c-mr87-cxwp (CVE-2025-3730) | LOW      | 2.8.0       | DoS in torch.nn.functional.ctc_loss                       |
 
 **Recommendation**: Upgrade to torch >= 2.6.0 (or 2.8.0 for all fixes)
 
@@ -108,6 +110,7 @@ torch==2.6.0  # Was: 2.3.1 (or wait for 2.8.0 for all DoS fixes)
 ### Testing Checklist
 
 After upgrading:
+
 - [ ] PDF upload and processing works
 - [ ] PDF text extraction works (pdfplumber uses pdfminer-six)
 - [ ] OCR processing works (pdf2image)
@@ -163,6 +166,7 @@ Based on these findings, implement:
 ## Approval Required
 
 Before upgrading:
+
 - [ ] Engineering lead review (API compatibility)
 - [ ] QA testing (PDF processing, OCR, transcription)
 - [ ] Security team approval (if applicable)

@@ -4,20 +4,20 @@
 
 :root {
   /* Evident Brand Colors */
-  --evident-primary: #0b73d2;      /* Primary blue */
-  --evident-accent: #e07a5f;       /* Accent orange */
-  --evident-neutral: #f6f7f9;      /* Light gray */
-  --evident-bg: #ffffff;           /* White background */
-  --evident-text: #1a1a2e;         /* Dark text */
-  
+  --evident-primary: #0b73d2; /* Primary blue */
+  --evident-accent: #e07a5f; /* Accent orange */
+  --evident-neutral: #f6f7f9; /* Light gray */
+  --evident-bg: #ffffff; /* White background */
+  --evident-text: #1a1a2e; /* Dark text */
+
   /* Legacy aliases for compatibility */
-  --ad-navy: #0b73d2;            /* Maps to Evident blue */
-  --ad-blue: #0b73d2;            /* Maps to Evident blue */ 
-  --ad-red: #e07a5f;             /* Maps to Evident accent */
-  --ad-accent: #e07a5f;          /* Maps to Evident accent */
-  --ad-neutral: #f6f7f9;         /* Maps to Evident neutral */
+  --ad-navy: #0b73d2; /* Maps to Evident blue */
+  --ad-blue: #0b73d2; /* Maps to Evident blue */
+  --ad-red: #e07a5f; /* Maps to Evident accent */
+  --ad-accent: #e07a5f; /* Maps to Evident accent */
+  --ad-neutral: #f6f7f9; /* Maps to Evident neutral */
   --ad-font-sans:
-    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica", Arial, sans-serif;
+    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica', Arial, sans-serif;
 }
 
 /* Typography - Evident Standards */

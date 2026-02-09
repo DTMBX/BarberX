@@ -137,8 +137,8 @@ window.themeManager.toggleTheme();
 const theme = window.themeManager.getCurrentTheme();
 
 // Listen for theme changes
-document.addEventListener("theme:change", (e) => {
-  console.log("Theme changed to:", e.detail.theme);
+document.addEventListener('theme:change', (e) => {
+  console.log('Theme changed to:', e.detail.theme);
 });
 
 // Get current theme colors
@@ -285,22 +285,22 @@ const colors = window.themeManager.getThemeColors();
 
 ```javascript
 // Animation events
-document.addEventListener("element-revealed", (e) => {
-  console.log("Element revealed:", e.detail.target);
+document.addEventListener('element-revealed', (e) => {
+  console.log('Element revealed:', e.detail.target);
 });
 
 // Theme events
-document.addEventListener("theme:ready", (e) => {
-  console.log("Theme system ready:", e.detail.currentTheme);
+document.addEventListener('theme:ready', (e) => {
+  console.log('Theme system ready:', e.detail.currentTheme);
 });
 
-document.addEventListener("theme:change", (e) => {
-  console.log("Theme changed:", e.detail.theme);
+document.addEventListener('theme:change', (e) => {
+  console.log('Theme changed:', e.detail.theme);
 });
 
 // App events
-document.addEventListener("Evident:ready", () => {
-  console.log("Evident app initialized");
+document.addEventListener('Evident:ready', () => {
+  console.log('Evident app initialized');
 });
 ```
 

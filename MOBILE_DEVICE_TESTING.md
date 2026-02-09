@@ -7,6 +7,7 @@ Testing on real iOS and Android devices before app store submission ensures reli
 ## 📋 Prerequisites
 
 ### iOS Requirements
+
 - **Mac computer** (required for iOS development)
 - **Xcode 14+** (latest version recommended)
 - **Apple ID** with valid payment method (for provisioning profiles)
@@ -15,6 +16,7 @@ Testing on real iOS and Android devices before app store submission ensures reli
 - **USB cable** (to connect device to Mac)
 
 ### Android Requirements
+
 - **Windows/Mac/Linux computer** (any OS works)
 - **Android Studio 2023+** (Bumblebee or newer)
 - **Android SDK 31+** (API level)
@@ -71,10 +73,11 @@ cd ..
 1. **Connect iPhone via USB cable**
 2. **Trust the computer** (tap "Trust" on iPhone)
 3. **Verify connection:**
+
    ```bash
    # List connected devices
    xcrun xcode-select -p
-   
+
    # Should output: /Applications/Xcode.app/Contents/Developer
    ```
 
@@ -104,6 +107,7 @@ When app launches on device for first time:
 ### Step 7: Test on Device
 
 #### Feature Checklist
+
 - [ ] App launches without crashing
 - [ ] File picker opens when tapping "Select Videos"
 - [ ] Can select video files from camera roll
@@ -117,6 +121,7 @@ When app launches on device for first time:
 - [ ] Back button works correctly
 
 #### Performance Checklist
+
 - [ ] App starts within 5 seconds
 - [ ] File selection is responsive
 - [ ] Large file list (50 files) scrolls smoothly
@@ -124,6 +129,7 @@ When app launches on device for first time:
 - [ ] WebSocket stays connected for 5+ minutes
 
 #### Network Testing
+
 - [ ] WiFi connection: Upload works
 - [ ] Switch to cellular: App handles gracefully
 - [ ] Disable network: Shows offline message
@@ -181,7 +187,7 @@ Before app store submission, use TestFlight for wider testing:
 # Windows users: Download Android Studio
 # https://developer.android.com/studio
 
-# Mac users: 
+# Mac users:
 brew install android-studio
 
 # Or download from: https://developer.android.com/studio
@@ -293,6 +299,7 @@ When app launches for first time:
 ### Step 8: Test on Device
 
 #### Feature Checklist
+
 - [ ] App launches without crashing
 - [ ] File picker opens when tapping "Select Videos"
 - [ ] Can select multiple video files
@@ -306,6 +313,7 @@ When app launches for first time:
 - [ ] Transcription preview displays
 
 #### Performance Checklist
+
 - [ ] App starts within 5 seconds
 - [ ] Can select 50 files without crashing
 - [ ] File list scrolls smoothly with 50 items
@@ -314,6 +322,7 @@ When app launches for first time:
 - [ ] Memory usage stays under 200MB
 
 #### Network Testing
+
 - [ ] WiFi: Upload works end-to-end
 - [ ] Cellular data: Upload works (may be slower)
 - [ ] Switch networks mid-upload: Handles gracefully
@@ -376,6 +385,7 @@ cd ..
 ## 🧪 Comprehensive Testing Checklist
 
 ### Before First Device Test
+
 - [ ] API endpoint is running (health check: `curl http://localhost:5000/health`)
 - [ ] WebSocket is accessible (check CORS configuration)
 - [ ] Database is seeded with test data
@@ -383,6 +393,7 @@ cd ..
 - [ ] Environment variables are set (.env file)
 
 ### Unit Testing
+
 ```bash
 # Run Jest tests before device testing
 cd mobile
@@ -393,6 +404,7 @@ npm test -- --coverage
 ```
 
 ### On Device: Core Functionality
+
 - [ ] Authentication (login screen, token storage)
 - [ ] File selection (all video formats work)
 - [ ] Upload (single file, batch files)
@@ -402,6 +414,7 @@ npm test -- --coverage
 - [ ] Offline support (graceful degradation)
 
 ### On Device: Edge Cases
+
 - [ ] App backgrounding (pause upload, resume)
 - [ ] Screen rotation (data persists)
 - [ ] Device orientation (landscape/portrait)
@@ -411,16 +424,18 @@ npm test -- --coverage
 - [ ] Long uploads (test 30+ minute video)
 
 ### Performance Benchmarks
-| Action | Target | Actual |
-|--------|--------|--------|
-| App launch | <5s | ___ |
-| File picker open | <2s | ___ |
-| Select 50 files | <3s | ___ |
-| Start upload | <1s | ___ |
-| Progress update | <500ms | ___ |
-| Zoom scroll (50 items) | >60fps | ___ |
+
+| Action                 | Target | Actual |
+| ---------------------- | ------ | ------ |
+| App launch             | <5s    | \_\_\_ |
+| File picker open       | <2s    | \_\_\_ |
+| Select 50 files        | <3s    | \_\_\_ |
+| Start upload           | <1s    | \_\_\_ |
+| Progress update        | <500ms | \_\_\_ |
+| Zoom scroll (50 items) | >60fps | \_\_\_ |
 
 ### Security Checks
+
 - [ ] Token stored securely (not in logs)
 - [ ] Sensitive data not displayed
 - [ ] API calls use HTTPS
@@ -435,6 +450,7 @@ npm test -- --coverage
 ### iOS Issues
 
 **"Could not find connected device"**
+
 ```bash
 # Reconnect device and try again
 # Restart Xcode
@@ -443,6 +459,7 @@ npm test -- --coverage
 ```
 
 **"Provisioning profile expired"**
+
 ```bash
 # In Xcode: Preferences → Accounts
 # Select Apple ID
@@ -452,6 +469,7 @@ npm test -- --coverage
 ```
 
 **"Build fails with 'App not installed'"**
+
 ```bash
 # Device storage full
 # Uninstall old app: xcode-select --reset
@@ -463,6 +481,7 @@ npm test -- --coverage
 ```
 
 **"WebSocket connection fails"**
+
 ```bash
 # Check API is accessible from device:
 # On device browser, visit: http://<your-computer-ip>:5000/health
@@ -478,6 +497,7 @@ npm test -- --coverage
 ### Android Issues
 
 **"No device connected"**
+
 ```bash
 # Check USB cable (try different port)
 adb kill-server
@@ -489,6 +509,7 @@ adb devices
 ```
 
 **"Permission denied / Device unauthorized"**
+
 ```bash
 # On phone, tap "Allow" in authorization prompt
 # Or revoke and reconnect:
@@ -498,6 +519,7 @@ adb kill-server
 ```
 
 **"Gradle build fails"**
+
 ```bash
 # Clear Gradle cache
 cd android
@@ -512,6 +534,7 @@ react-native run-android
 ```
 
 **"WebSocket connection fails"**
+
 ```bash
 # Get computer IP address:
 # Windows: ipconfig | findstr IPv4
@@ -525,6 +548,7 @@ react-native run-android
 ```
 
 **"Out of memory / App crashes"**
+
 ```bash
 # Increase heap size:
 # In android/app/build.gradle, find dexOptions:
@@ -547,7 +571,7 @@ Create a file `device-testing-report.md`:
 # Device Testing Report
 
 **Date:** 2026-02-09
-**Tester Name:** ___________
+**Tester Name:** ****\_\_\_****
 **Device:** iPhone 14 Pro / Samsung Galaxy S23
 **OS Version:** iOS 17.2 / Android 13
 **Network:** WiFi / Cellular
@@ -555,28 +579,33 @@ Create a file `device-testing-report.md`:
 ## Functional Tests
 
 ### File Upload
+
 - [ ] Single file upload succeeds
 - [ ] Batch upload (10 files) succeeds
 - [ ] File validation works (rejects non-video)
 - [ ] Progress bar updates in real-time
 
 ### Quality Selection
+
 - [ ] All 5 quality tiers selectable
 - [ ] Selected quality persists
 - [ ] Quality affects upload speed (visible?)
 
 ### Case Assignment
+
 - [ ] Case dropdown loads cases
 - [ ] Case search works
 - [ ] Selected case saves
 
 ### Transcription
+
 - [ ] Transcription progress displays
 - [ ] Completed transcript displays
 - [ ] Download transcript button works
 - [ ] Text is readable (not corrupted)
 
 ### Error Handling
+
 - [ ] Network error shows message
 - [ ] Invalid file shows message
 - [ ] Server error shows message
@@ -584,31 +613,34 @@ Create a file `device-testing-report.md`:
 
 ## Performance
 
-| Metric | Expected | Actual | Status |
-|--------|----------|--------|--------|
-| App Launch | <5s | ___ | ✓/✗ |
-| File Selection | <2s | ___ | ✓/✗ |
-| Upload Start | <1s | ___ | ✓/✗ |
-| Progress Update | <500ms | ___ | ✓/✗ |
+| Metric          | Expected | Actual | Status |
+| --------------- | -------- | ------ | ------ |
+| App Launch      | <5s      | \_\_\_ | ✓/✗    |
+| File Selection  | <2s      | \_\_\_ | ✓/✗    |
+| Upload Start    | <1s      | \_\_\_ | ✓/✗    |
+| Progress Update | <500ms   | \_\_\_ | ✓/✗    |
 
 ## Issues Found
 
 ### Critical (blocks submission)
-- [ ] Crash: ___________
-- [ ] Feature broken: ___________
+
+- [ ] Crash: ****\_\_\_****
+- [ ] Feature broken: ****\_\_\_****
 
 ### Major (need to fix)
-- [ ] Slow performance: ___________
-- [ ] UI issue: ___________
+
+- [ ] Slow performance: ****\_\_\_****
+- [ ] UI issue: ****\_\_\_****
 
 ### Minor (nice to fix)
-- [ ] Typo: ___________
-- [ ] Layout: ___________
+
+- [ ] Typo: ****\_\_\_****
+- [ ] Layout: ****\_\_\_****
 
 ## Recommendations
 
-- ___________
-- ___________
+- ***
+- ***
 
 **Overall Status:** ✓ Ready for App Store / ✗ Needs Fixes
 ```
@@ -647,6 +679,7 @@ After testing on real devices, collect:
 ## 📱 Next Steps After Device Testing
 
 ### If All Tests Pass ✅
+
 1. **Create TestFlight build** (iOS)
 2. **Create closed beta** (Android)
 3. **Get App Store approvals**
@@ -654,6 +687,7 @@ After testing on real devices, collect:
 5. **Submit to Play Store** (usually approved within 2-4 hours)
 
 ### If Issues Found ✗
+
 1. **Document all issues** with screenshots
 2. **Prioritize by severity** (critical first)
 3. **Fix in code**
@@ -682,20 +716,24 @@ Device testing is complete when:
 ## 📞 Support
 
 **iOS Specific Issues:**
+
 - Ask on StackOverflow with tag `[swift]`
 - Check Apple Developer Forums
 - Review Xcode logs: `~/Library/Logs/Xcode/`
 
 **Android Specific Issues:**
+
 - Ask on StackOverflow with tag `[android]`
 - Check Google Android Developer docs
 - Review Android Studio logcat
 
 **React Native Issues:**
+
 - Check React Native docs: https://reactnative.dev
 - Review debugging guide: https://reactnative.dev/docs/debugging
 
 **WebSocket Issues:**
+
 - Test Socket.IO connection: https://socket.io/docs/
 - Verify CORS settings in Flask backend
 - Check firewall rules on both computers

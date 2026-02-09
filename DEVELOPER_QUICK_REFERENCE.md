@@ -80,7 +80,7 @@ routes/
 templates/
 ├── upload/
 │   ├── single.html             # 320 lines - Single upload
-│   ├── batch.html              # 420 lines - Batch upload  
+│   ├── batch.html              # 420 lines - Batch upload
 │   └── history.html            # 300 lines - History dashboard
 └── legal_library/
     ├── search.html             # 450 lines - Document search
@@ -220,6 +220,7 @@ POST /admin/legal/documents/<id>/sync-index (ADMIN)
 ## 💾 Database Schema Quick View
 
 ### LegalDocument (Main Table)
+
 ```sql
 id, title, case_number, category, status, full_text, summary
 date_decided, court, petitioner, respondent, author
@@ -233,6 +234,7 @@ created_at, updated_at
 ```
 
 ### Related Tables
+
 - DocumentCollection: id, name, category, description, document_ids (JSON)
 - SearchIndex: id, document_id, content, keywords, vector (for embeddings)
 - DocumentComment: id, user_id, document_id, content, highlight_range
@@ -284,6 +286,7 @@ index_document(doc)
 ## 📊 Pre-loaded Data
 
 **50+ Documents Ready:**
+
 - Constitution (1)
 - Amendments (27 total)
 - Landmark Supreme Court Cases (8)
@@ -297,6 +300,7 @@ index_document(doc)
   - Gideon v. Wainwright (1963)
 
 **10 Default Collections:**
+
 1. Founding Documents
 2. Bill of Rights & Amendments
 3. Free Speech & First Amendment
@@ -358,6 +362,7 @@ curl http://localhost:5000/api/legal/statistics
 ## 🚨 Troubleshooting
 
 ### Database Issues
+
 ```bash
 # Check if tables exist
 flask shell
@@ -374,6 +379,7 @@ flask init-legal-library
 ```
 
 ### Search Not Working
+
 ```bash
 # Verify SearchIndex has entries
 >>> from auth.legal_library_models import SearchIndex
@@ -386,6 +392,7 @@ flask init-legal-library
 ```
 
 ### Upload Errors
+
 ```bash
 # Check upload folder exists
 ls -la uploads/
@@ -402,18 +409,21 @@ chmod -R 755 uploads/
 ## 📈 Key Metrics
 
 ### API Performance Targets
+
 - Search: < 100ms for 1000+ documents
 - Document load: < 50ms
 - Upload: < 5s for 10MB file
 - Batch: < 2s per file average
 
 ### Database Size Estimates
+
 - Constitution + Amendments: ~150 KB
 - 8 Landmark cases: ~500 KB
 - Search index: ~1 MB
 - Typical growth: ~5 KB per new document
 
 ### Scalability
+
 - Handles 10,000+ documents efficiently
 - Supports 100-1000 concurrent users
 - Media files up to 500MB
@@ -454,6 +464,7 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:create_app()
 ## 📚 Documentation Map
 
 Need to...
+
 - **Deploy?** → Read `COMPLETE_IMPLEMENTATION.md`
 - **Understand API?** → Read `LEGAL_LIBRARY_COMPLETE.md`
 - **Set up media?** → Read `MEDIA_PROCESSING_SETUP.md`
@@ -481,7 +492,7 @@ Need to...
 ✅ Admin dashboard accessible  
 ✅ Statistics show document count > 0  
 ✅ Collections display properly  
-✅ Related cases display correctly  
+✅ Related cases display correctly
 
 ---
 
@@ -491,12 +502,12 @@ Need to...
 **API Issues** → `api/legal_library_routes.py`  
 **Business Logic** → `auth/legal_library_service.py`  
 **Admin Features** → `routes/legal_admin.py`  
-**Setup Issues** → `COMPLETE_IMPLEMENTATION.md`  
+**Setup Issues** → `COMPLETE_IMPLEMENTATION.md`
 
 ---
 
 **Version**: 1.0  
 **Last Updated**: January 2025  
-**Status**: Production Ready ✅  
+**Status**: Production Ready ✅
 
-*Print this card and keep it handy for development reference!*
+_Print this card and keep it handy for development reference!_

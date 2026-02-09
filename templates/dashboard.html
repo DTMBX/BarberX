@@ -1,122 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Evident</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     {% include 'components/navbar.html' %}
-    
+
     <main id="main">
-        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
-            <!-- Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <div>
-                    <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem;">Dashboard</h1>
-                    <p style="margin: 0; color: var(--color-neutral-600);">Welcome back, {{ user.full_name }}!</p>
-                </div>
-                <div>
-                    <span class="badge" style="background: var(--color-primary-100); color: var(--color-primary-700);">
-                        {{ user.tier.value | upper }} Plan
-                    </span>
-                </div>
-            </div>
-            
-            <!-- Quick Stats Grid -->
-            <div class="layout-grid-3" style="margin-bottom: 2rem; gap: 1.5rem;">
-                <div class="card" style="padding: 1.5rem;">
-                    <div style="color: var(--color-neutral-500); font-size: 0.875rem; margin-bottom: 0.5rem;">Account Status</div>
-                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary-600);">
-                        {% if user.is_active %}✅ Active{% else %}⚠️ Inactive{% endif %}
-                    </div>
-                </div>
-                
-                <div class="card" style="padding: 1.5rem;">
-                    <div style="color: var(--color-neutral-500); font-size: 0.875rem; margin-bottom: 0.5rem;">Member Since</div>
-                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-accent-600);">
-                        {{ user.created_at.strftime('%b %Y') }}
-                    </div>
-                </div>
-                
-                <div class="card" style="padding: 1.5rem;">
-                    <div style="color: var(--color-neutral-500); font-size: 0.875rem; margin-bottom: 0.5rem;">Tier Limits</div>
-                    <div style="font-size: 0.875rem; color: var(--color-neutral-700);">
-                        {% set limits = user.get_tier_limits() %}
-                        {% if limits.api_calls_per_month %}
-                            {{ "{:,}".format(limits.api_calls_per_month) }} API calls/month
-                        {% else %}
-                            Unlimited access
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Profile Section -->
-            <div class="card" style="padding: 2rem; margin-bottom: 2rem;">
-                <h2 style="margin: 0 0 1.5rem 0; font-size: 1.25rem;">Profile Information</h2>
-                
-                <div class="layout-grid-2" style="gap: 2rem;">
-                    <div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-neutral-700);">Full Name</label>
-                            <div style="color: var(--color-neutral-600);">{{ user.full_name }}</div>
-                        </div>
-                        
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-neutral-700);">Email</label>
-                            <div style="color: var(--color-neutral-600);">{{ user.email }}</div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-neutral-700);">Organization</label>
-                            <div style="color: var(--color-neutral-600);">{{ user.organization or 'Not specified' }}</div>
-                        </div>
-                        
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-neutral-700);">Verification</label>
-                            <div style="color: var(--color-neutral-600);">
-                                {% if user.is_verified %}
-                                    ✅ Email verified
-                                {% else %}
-                                    ⏳ Pending verification
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                    <a href="{{ url_for('auth.profile') }}" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Edit Profile</a>
-                    <a href="{{ url_for('auth.change_password') }}" class="btn btn-outline" style="padding: 0.5rem 1.25rem;">Change Password</a>
-                </div>
-            </div>
-            
-            <!-- API Keys Section -->
-            <div class="card" style="padding: 2rem;">
-                <h2 style="margin: 0 0 1.5rem 0; font-size: 1.25rem;">API Keys</h2>
-                <p style="color: var(--color-neutral-600); margin: 0 0 1.5rem 0;">
-                    Manage your API tokens for programmatic access.
-                </p>
-                
-                <a href="{{ url_for('dashboard.api_keys') }}" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">
-                    Manage API Keys
-                </a>
-            </div>
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem">
+        <!-- Header -->
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+          "
+        >
+          <div>
+            <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem">Dashboard</h1>
+            <p style="margin: 0; color: var(--color-neutral-600)">
+              Welcome back, {{ user.full_name }}!
+            </p>
+          </div>
+          <div>
+            <span
+              class="badge"
+              style="background: var(--color-primary-100); color: var(--color-primary-700)"
+            >
+              {{ user.tier.value | upper }} Plan
+            </span>
+          </div>
         </div>
+
+        <!-- Quick Stats Grid -->
+        <div class="layout-grid-3" style="margin-bottom: 2rem; gap: 1.5rem">
+          <div class="card" style="padding: 1.5rem">
+            <div
+              style="color: var(--color-neutral-500); font-size: 0.875rem; margin-bottom: 0.5rem"
+            >
+              Account Status
+            </div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary-600)">
+              {% if user.is_active %}✅ Active{% else %}⚠️ Inactive{% endif %}
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem">
+            <div
+              style="color: var(--color-neutral-500); font-size: 0.875rem; margin-bottom: 0.5rem"
+            >
+              Member Since
+            </div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-accent-600)">
+              {{ user.created_at.strftime('%b %Y') }}
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem">
+            <div
+              style="color: var(--color-neutral-500); font-size: 0.875rem; margin-bottom: 0.5rem"
+            >
+              Tier Limits
+            </div>
+            <div style="font-size: 0.875rem; color: var(--color-neutral-700)">
+              {% set limits = user.get_tier_limits() %} {% if limits.api_calls_per_month %} {{
+              "{:,}".format(limits.api_calls_per_month) }} API calls/month {% else %} Unlimited
+              access {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="card" style="padding: 2rem; margin-bottom: 2rem">
+          <h2 style="margin: 0 0 1.5rem 0; font-size: 1.25rem">Profile Information</h2>
+
+          <div class="layout-grid-2" style="gap: 2rem">
+            <div>
+              <div style="margin-bottom: 1.5rem">
+                <label
+                  style="
+                    display: block;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    color: var(--color-neutral-700);
+                  "
+                  >Full Name</label
+                >
+                <div style="color: var(--color-neutral-600)">{{ user.full_name }}</div>
+              </div>
+
+              <div style="margin-bottom: 1.5rem">
+                <label
+                  style="
+                    display: block;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    color: var(--color-neutral-700);
+                  "
+                  >Email</label
+                >
+                <div style="color: var(--color-neutral-600)">{{ user.email }}</div>
+              </div>
+            </div>
+
+            <div>
+              <div style="margin-bottom: 1.5rem">
+                <label
+                  style="
+                    display: block;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    color: var(--color-neutral-700);
+                  "
+                  >Organization</label
+                >
+                <div style="color: var(--color-neutral-600)">
+                  {{ user.organization or 'Not specified' }}
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.5rem">
+                <label
+                  style="
+                    display: block;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    color: var(--color-neutral-700);
+                  "
+                  >Verification</label
+                >
+                <div style="color: var(--color-neutral-600)">
+                  {% if user.is_verified %} ✅ Email verified {% else %} ⏳ Pending verification {%
+                  endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem">
+            <a
+              href="{{ url_for('auth.profile') }}"
+              class="btn btn-primary"
+              style="padding: 0.5rem 1.25rem"
+              >Edit Profile</a
+            >
+            <a
+              href="{{ url_for('auth.change_password') }}"
+              class="btn btn-outline"
+              style="padding: 0.5rem 1.25rem"
+              >Change Password</a
+            >
+          </div>
+        </div>
+
+        <!-- API Keys Section -->
+        <div class="card" style="padding: 2rem">
+          <h2 style="margin: 0 0 1.5rem 0; font-size: 1.25rem">API Keys</h2>
+          <p style="color: var(--color-neutral-600); margin: 0 0 1.5rem 0">
+            Manage your API tokens for programmatic access.
+          </p>
+
+          <a
+            href="{{ url_for('dashboard.api_keys') }}"
+            class="btn btn-primary"
+            style="padding: 0.5rem 1.25rem"
+          >
+            Manage API Keys
+          </a>
+        </div>
+      </div>
     </main>
-    
+
     {% include 'components/footer.html' %}
-    
+
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
     <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
-</body>
+  </body>
 </html>

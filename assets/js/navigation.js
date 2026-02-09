@@ -1,7 +1,7 @@
 /**
  * Navigation.js – Modern, accessible mobile menu
  * Evident Technologies
- * 
+ *
  * Features:
  * - Keyboard navigation support
  * - ARIA labels and attributes
@@ -25,7 +25,7 @@ class Navigation {
     this.mobileNavBtn.addEventListener('click', () => this.toggleMenu());
 
     // Close menu on link click
-    this.primaryNav.querySelectorAll('a').forEach(link => {
+    this.primaryNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => this.closeMenu());
     });
 
@@ -39,9 +39,7 @@ class Navigation {
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (this.isOpen && 
-          !e.target.closest('.site-header') && 
-          !e.target.closest('.primary-nav')) {
+      if (this.isOpen && !e.target.closest('.site-header') && !e.target.closest('.primary-nav')) {
         this.closeMenu();
       }
     });

@@ -82,14 +82,14 @@ Test credentials:
 
    ```html
    <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
-   Start 14-Day Free Trial
+     Start 14-Day Free Trial
    </button>
 
    <script>
      async function subscribeToPlan(tier) {
-       const res = await fetch("/api/stripe/create-checkout-session", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
+       const res = await fetch('/api/stripe/create-checkout-session', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({ tier }),
        });
        const data = await res.json();
@@ -113,17 +113,17 @@ Test credentials:
 
 ## 📋 Pricing Tiers
 
-| Feature              | FREE  | PRO ($49) | PREMIUM ($249) | ENTERPRISE       |
-| -------------------- | ----- | --------- | -------------- | ---------------- |
+| Feature              | FREE  | PRO ($49)  | PREMIUM ($249) | ENTERPRISE       |
+| -------------------- | ----- | ---------- | -------------- | ---------------- |
 | **Trial**            | —     | ✅ 14 days | —              | —                |
-| **PDFs/month**       | 1 doc | 10 docs   | Unlimited      | Unlimited        |
-| **Video/month**      | ❌    | 2 hours   | Unlimited      | Unlimited        |
-| **Cases**            | 1     | 10        | Unlimited      | Unlimited        |
-| **AI Assistant**     | ❌    | Basic     | Full           | Private Instance |
-| **Timeline Builder** | ❌    | ❌        | ✅             | ✅               |
-| **API Access**       | ❌    | ❌        | ✅             | ✅               |
-| **White-Label**      | ❌    | ❌        | ❌             | ✅               |
-| **Self-Hosted**      | ❌    | ❌        | ❌             | ✅               |
+| **PDFs/month**       | 1 doc | 10 docs    | Unlimited      | Unlimited        |
+| **Video/month**      | ❌    | 2 hours    | Unlimited      | Unlimited        |
+| **Cases**            | 1     | 10         | Unlimited      | Unlimited        |
+| **AI Assistant**     | ❌    | Basic      | Full           | Private Instance |
+| **Timeline Builder** | ❌    | ❌         | ✅             | ✅               |
+| **API Access**       | ❌    | ❌         | ✅             | ✅               |
+| **White-Label**      | ❌    | ❌         | ❌             | ✅               |
+| **Self-Hosted**      | ❌    | ❌         | ❌             | ✅               |
 
 --
 

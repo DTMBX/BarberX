@@ -297,18 +297,18 @@
 ### Show Toast Notification:
 
 ```javascript
-Toast.success("Operation completed!");
-Toast.error("Something went wrong");
-Toast.warning("Approaching limit");
-Toast.info("Processing...");
+Toast.success('Operation completed!');
+Toast.error('Something went wrong');
+Toast.warning('Approaching limit');
+Toast.info('Processing...');
 ```
 
 ### Add Loading State:
 
 ```javascript
-button.classList.add("is-loading");
+button.classList.add('is-loading');
 // ... do work ...
-button.classList.remove("is-loading");
+button.classList.remove('is-loading');
 ```
 
 ### Enable Form Validation:
