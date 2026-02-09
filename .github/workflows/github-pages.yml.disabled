@@ -1,3 +1,5 @@
+# DISABLED: This workflow conflicts with pages.yml which is the primary deployment workflow
+# To re-enable, remove the .disabled extension and ensure no conflicts with pages.yml
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
