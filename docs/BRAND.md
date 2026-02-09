@@ -2,13 +2,20 @@
 
 ## Brand Overview
 
-Evident is a legal-grade evidence processing platform focused on forensic
-clarity, auditability, and local-first privacy. The brand tone is precise,
-accessible, and trustworthy—never playful or ambiguous.
+Evident Technologies (DBA: EVIDENT) is a legal-grade evidence processing
+platform focused on forensic clarity, auditability, and accountability. Born
+from lived experience—evidence processing shouldn't require guesswork or
+endless hours. The brand tone is direct, restrained, and mission-driven with
+professional humor from experience.
 
-- **Brand Name:** Evident
-- **Tagline:** Evidence made legible. Truth made durable.
-- **Core Values:** Forensic clarity, auditability, privacy, accessibility
+- **Legal Entity:** Evident Technologies, LLC
+- **DBA (Doing Business As):** EVIDENT
+- **Primary Tagline:** Cut away all the extra. Get to the truth.
+- **Brand Voice:** Evident.
+- **Mission:** Born from lived experience. Evidence processing shouldn't require
+  guesswork or endless hours. EVIDENT aims to change that.
+- **Core Values:** Truth before persuasion, integrity before convenience,
+  restraint before expression, due process before outcomes
 - **Primary Color:** `--brand: #2F5D9F;` (Evident Blue)
 - **Accent Color:** `--accent: #F7B32B;` (Gold)
 - **Surface:** `--paper: #F8FAFC;` (Paper White)

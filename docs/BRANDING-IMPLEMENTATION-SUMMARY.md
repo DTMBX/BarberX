@@ -1,6 +1,21 @@
 # Evident Branding Implementation Summary
 
-## What Was Done
+**⚠️ ARCHIVED - OUTDATED BRANDING**
+
+This document describes the previous barbershop/fade branding which has been
+replaced with evidence-focused, legal-technology branding.
+
+**Current branding documentation:** See `docs/BRAND.md` and `docs/BRAND-GUIDE.md`
+
+**New brand direction:**
+- Primary Tagline: "Cut away all the extra. Get to the truth."
+- Mission: Born from lived experience. Evidence processing shouldn't require guesswork.
+- Visual Identity: Scales of justice (not barber pole)
+- Color Palette: Evident Blue (#2F5D9F) and Gold (#F7B32B)
+
+---
+
+## Historical Record: What Was Done (2024)
 
 Successfully unified the classic 1920s barber pole branding across the entire
 Evident.info site with a clean NYC fade aesthetic — rounded, smooth, and crisp.

@@ -9,13 +9,18 @@
 
 ### Primary Tagline
 
-**"Legal Research for Everyone"**
+**"Cut away all the extra. Get to the truth."**
+
+Brand voice closer: **Evident.**
 
 ### Mission Statement
 
-Evident provides research-grade legal tools—10M+ opinions, Shepard's-equivalent
-citation analysis, judge intelligence, AI search—at 1/10th the cost of Westlaw
-and LexisNexis. We're democratizing legal research to close the justice gap.
+Born from lived experience. Evidence processing shouldn't require guesswork or
+endless hours. EVIDENT aims to change that.
+
+We provide legal-grade evidence processing and verification—forensic clarity,
+auditability, and accountability—at prices that don't exclude solo practitioners
+and public defenders. Professional tools for professional work.
 
 --
 
@@ -58,30 +63,32 @@ and LexisNexis. We're democratizing legal research to close the justice gap.
 
 ### The Problem
 
-**Legal research costs $2,000 per month.**
+**Evidence processing requires guesswork and endless hours.**
 
-For decades, Westlaw and LexisNexis have charged prices that:
+For years, attorneys have struggled with evidence processing tools that:
 
-- **Exclude 80% of solo practitioners** who can't afford enterprise tools
-- **Bankrupt legal aid organizations** serving those who need help most
-- **Block law students** from practicing research after graduation
+- **Require expensive subscriptions** that exclude solo practitioners
+- **Lack transparency** in chain of custody and verification
+- **Are complex and time-consuming** when cases demand speed
 - **Widen the justice gap** between well-funded firms and everyone else
 
 ### The Solution
 
-**Professional research at human prices.**
+**Professional evidence processing without guesswork.**
 
-Evident provides the same primary sources, citation analysis, and research tools
-used by BigLaw—for **$50/month** instead of $2,000.
+Evident provides legal-grade evidence verification, forensic clarity, and
+auditability—at prices that don't exclude solo practitioners and public
+defenders. Born from lived experience: evidence processing shouldn't require
+guesswork or endless hours.
 
 ### The Impact
 
-**When legal research becomes affordable:**
+**When evidence processing becomes clear and accessible:**
 
-- Solo practitioners compete with BigLaw
+- Solo practitioners compete with larger firms
 - Public defenders get professional tools
-- Law students graduate practice-ready
-- Justice becomes accessible, not theoretical
+- Truth becomes accessible through transparency
+- Justice system integrity strengthens
 
 --
 

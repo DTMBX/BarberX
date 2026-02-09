@@ -36,25 +36,23 @@ NEW SECTION: Truth Protects Good Officers Too
 ✅ "Both sides have oath to justice"
 
 HERO UPDATED:
-- Tagline: "Sell Confidence, Not Conflict — Dig Up Truth, Protect Good Officers"
-- Sub-tagline emphasizes protecting both defendants AND good officers
+- PRIMARY TAGLINE: "Cut away all the extra. Get to the truth."
+- BRAND VOICE: "Evident."
+- Mission-driven messaging emphasizing transparency and accountability
 
 PROBLEM/SOLUTION UPDATED:
-- Headline: "Defense Attorneys Need The Same Tools Prosecutors Have"
-- Subtitle: "Truth-seeking technology protects everyone—including good officers"
-- Added: Bad actors hide violations / Good officers overlooked
-- Added: Truth surfaces / Confidence not guesswork
+- Headline: "Evidence Processing Without Guesswork"
+- Subtitle: "Born from lived experience—transparency and clarity for defense work"
+- Focus: Professional tools at accessible prices
+- Approach: Truth before persuasion, integrity before convenience
 
 CONFIDENCE FRAMING:
-"Evident gives you confidence in the evidence—that you found every
-Miranda warning, every 4th Amendment issue, every contradiction. When
-defense attorneys have tools to uncover truth, good officers are
-protected and bad actors are held accountable. That's how the system
-is supposed to work."
+"Evident provides forensic clarity and auditability in evidence processing.
+Cut away all the extra. Get to the truth. That's how accountability works."
 
 MISSION STATEMENT:
-"The truth doesn't take sides. It just is. Our job is to find it—
-no matter where it leads."
+"Born from lived experience. Evidence processing shouldn't require
+guesswork or endless hours. EVIDENT aims to change that."
 
 FILES:
 + templates/landing-public.html (conversion landing + pro-truth)
