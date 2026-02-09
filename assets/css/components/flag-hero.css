@@ -1,0 +1,175 @@
+/* ============================================================================
+   FLAG VIDEO HERO
+   Full-width video background with text overlay
+   ============================================================================ */
+
+.flag-hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Fallback background if video missing or fails to load */
+  background: linear-gradient(
+      135deg,
+      rgba(10, 10, 40, 0.95) 0%,
+      rgba(20, 30, 60, 0.90) 50%,
+      rgba(30, 40, 70, 0.85) 100%
+    ),
+    url('/assets/img/flags/us-flag-50.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.flag-hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.flag-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 15, 0.3) 0%,
+    rgba(10, 10, 15, 0.5) 100%
+  );
+  z-index: 2;
+}
+
+.flag-hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.flag-hero__title {
+  font-size: clamp(var(--text-3xl), 4vw + 1rem, var(--text-5xl));
+  font-weight: var(--font-weight-bold);
+  color: white;
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--space-6) 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.flag-hero__tagline {
+  font-size: clamp(var(--text-xl), 2vw + 0.5rem, var(--text-2xl));
+  font-weight: var(--font-weight-normal);
+  color: white;
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--space-8) 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flag-hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flag-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.flag-hero__cta--primary {
+  background: rgb(var(--color-primary));
+  color: white;
+}
+
+.flag-hero__cta--primary:hover {
+  background: rgb(var(--color-primary) / 90%);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+.flag-hero__cta--secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.flag-hero__cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .flag-hero__video {
+    display: none;
+  }
+
+  .flag-hero {
+    background: linear-gradient(
+        135deg,
+        rgb(var(--color-slate-900)) 0%,
+        rgb(var(--color-slate-800)) 100%
+      ),
+      url('/assets/img/flags/us-flag-50.svg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .flag-hero__cta:hover {
+    transform: none;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .flag-hero {
+    min-height: 60vh;
+  }
+
+  .flag-hero__title {
+    font-size: var(--text-2xl);
+  }
+
+  .flag-hero__tagline {
+    font-size: var(--text-lg);
+  }
+
+  .flag-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flag-hero__cta {
+    justify-content: center;
+  }
+}

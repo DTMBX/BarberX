@@ -1,0 +1,49 @@
+{# Flag Video Hero Component
+   Full-width video background with mission statement overlay
+   Accessible, performant, respects reduced motion preferences
+   
+   VIDEO SETUP INSTRUCTIONS:
+   Place your flag video at: src/assets/media/flag.mp4
+   Recommended: 1920x1080 or 4K, H.264 codec, gentle waving motion
+   Reference: www.AmericaByDesign.gov flag animation style
+#}
+
+<section class="flag-hero" role="banner" aria-label="Evident mission statement">
+  {# Video background - decorative, autoplay muted loop #}
+  {# Falls back to gradient + static flag image if video not available #}
+  <video
+    class="flag-hero__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-hidden="true"
+    poster="/assets/img/flags/us-flag-50.svg"
+    onloadeddata="this.style.opacity='0.85'"
+    onerror="this.style.display='none'"
+  >
+    <source src="/assets/media/flag.mp4" type="video/mp4">
+    {# If video missing, element will be hidden via onerror #}
+  </video>
+
+  {# Overlay for contrast #}
+  <div class="flag-hero__overlay" aria-hidden="true"></div>
+
+  {# Content overlay #}
+  <div class="flag-hero__content">
+    <h1 class="flag-hero__title">
+      Cut away all the extra.<br>Get to the truth.
+    </h1>
+    <p class="flag-hero__tagline">
+      <strong>Evident.</strong>
+    </p>
+    <div class="flag-hero__actions">
+      <a href="/pricing/" class="flag-hero__cta flag-hero__cta--primary">
+        Start 14-Day Trial
+      </a>
+      <a href="/docs/" class="flag-hero__cta flag-hero__cta--secondary">
+        Learn More
+      </a>
+    </div>
+  </div>
+</section>
