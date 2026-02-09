@@ -1,94 +1,132 @@
-/* Core base styles
-   - Minimal, accessible base: reset, typography, containers, reduced-motion, focus states
-   - Keep changes conservative; components continue to ship in `style.css`
-*/
+/* ============================================================================
+   EVIDENT CORE STYLES
+   Minimal, accessible base layer - depends on tokens.css
+   Conservative resets, typography, containers, accessibility
+   ============================================================================ */
 
-/* Box sizing */
-,
+/* ===== RESET & BASE ===== */
+*,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default body margin and set sensible defaults */
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial;
-  font-size: var(--evident-type-base);
-  line-height: var(--evident-line-height);
-  color: rgb(var(--evident-color-foreground));
-  background-color: rgb(var(--evident-color-bg));
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
+  color: rgb(var(--color-fg));
+  background-color: rgb(var(--color-bg));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Root app container */
+/* ===== LAYOUT CONTAINERS ===== */
 .evident-app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Responsive readable measure */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.container-wide {
+  max-width: var(--container-wide);
+}
+
 main,
 .main-content {
   width: 100%;
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--evident-space-md);
-  padding-right: var(--evident-space-md);
+  flex: 1;
 }
 
-/* Typographic scale helpers */
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--space-4) 0;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: rgb(var(--color-fg));
+}
+
 h1 {
-  font-size: clamp(1.5rem, 2.25vw + 1rem, 2.25rem);
-  margin: 0 0 var(--evident-space-md) 0;
+  font-size: clamp(var(--text-2xl), 2.25vw + 1rem, var(--text-5xl));
 }
 
 h2 {
-  font-size: clamp(1.25rem, 1.8vw + 0.9rem, 1.75rem);
-  margin: 0 0 var(--evident-space-sm) 0;
+  font-size: clamp(var(--text-xl), 1.8vw + 0.9rem, var(--text-3xl));
 }
 
 h3 {
-  font-size: 1.125rem;
-  margin: 0 0 var(--evident-space-sm) 0;
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
 }
 
 p {
-  margin: 0 0 var(--evident-space-md) 0;
+  margin: 0 0 var(--space-4) 0;
+  line-height: var(--line-height-relaxed);
 }
 
+a {
+  color: rgb(var(--color-primary));
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: rgb(var(--color-primary) / 80%);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--shadow-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ===== ACCESSIBILITY ===== */
 .visually-hidden {
   position: absolute !important;
-  height: 1px;
   width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
-  clip-path: inset(50%);
 }
 
-/* Focus visible for keyboard users */
-:where(a, button, input, textarea, select):focus-visible {
-  outline: 3px solid rgb(var(--evident-color-primary) / 16%);
-  outline-offset: 2px;
-}
-
-/* Skip link */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -96,24 +134,55 @@ p {
   width: 1px;
   height: 1px;
   overflow: hidden;
+  z-index: var(--z-fixed);
 }
 
 .skip-link:focus {
-  left: var(--evident-space-md);
-  top: var(--evident-space-md);
+  position: fixed;
+  left: var(--space-4);
+  top: var(--space-4);
   width: auto;
   height: auto;
-  padding: var(--evident-space-xs) var(--evident-space-sm);
-  background: rgb(var(--evident-color-primary));
-  color: rgb(var(--evident-color-primary-contrast));
-  z-index: 9999;
+  padding: var(--space-2) var(--space-4);
+  background: rgb(var(--color-primary));
+  color: rgb(var(--color-primary-contrast));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
 }
 
-/* Utility: visually hidden (for accessibility) */
+:where(button, input, textarea, select):focus-visible {
+  outline: 3px solid var(--shadow-focus);
+  outline-offset: 2px;
+}
 
-/* (old visually-hidden removed — using modern clip-path version above) */
+/* ===== UTILITIES ===== */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
 
-/* Reduced motion */
+.cluster {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -125,17 +194,62 @@ p {
   }
 }
 
-/* Simple utility classes to encourage token usage */
-.container {
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--evident-space-md);
-  padding-right: var(--evident-space-md);
+/* ===== PRINT STYLES ===== */
+@media print {
+  .no-print,
+  .skip-link {
+    display: none !important;
+  }
+
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
 
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--evident-space-md);
-}
