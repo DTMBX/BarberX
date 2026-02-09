@@ -1,6 +1,18 @@
+---
+title: "Legal AI Tools for Evident"
+description: "Conceptual AI tool catalog for internal planning; not legal advice or deployed features."
+layout: doc
+permalink: /docs/features/legal-ai-tools/
+canonical: /docs/features/legal-ai-tools/
+last_modified_at: 2026-02-09
+---
+
 # 🏛️ Legal AI Tools for Evident
 
 **Specialized AI assistants for defense law firms and civic organizations**
+
+**Status:** Conceptual planning content only. These prompts are not deployed
+features and do not provide legal advice.
 
 --
 

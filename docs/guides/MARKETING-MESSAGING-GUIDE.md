@@ -1,9 +1,21 @@
+---
+title: "Evident Marketing & Messaging Guide"
+description: "Draft messaging guidance for Evident materials; verify metrics and pricing before external use."
+layout: doc
+permalink: /docs/guides/marketing-messaging-guide/
+canonical: /docs/guides/marketing-messaging-guide/
+last_modified_at: 2026-02-09
+---
+
 # Evident Marketing & Messaging Guide
 
 **Date:** January 27, 2026  
 **Purpose:** Unified messaging across all platforms
 
 --
+
+**Status:** Draft. Quantitative claims, pricing comparisons, partnerships, and timelines require source
+verification before publication.
 
 ## Core Messaging
 
@@ -13,9 +25,9 @@
 
 ### Mission Statement
 
-Evident provides research-grade legal tools—10M+ opinions, Shepard's-equivalent
-citation analysis, judge intelligence, AI search—at 1/10th the cost of Westlaw
-and LexisNexis. We're democratizing legal research to close the justice gap.
+Evident is intended to provide research-grade legal tools such as citation
+analysis, judge background research, and AI-assisted search. Cost comparisons
+and dataset size claims require verification before publication.
 
 --
 
@@ -30,21 +42,25 @@ and LexisNexis. We're democratizing legal research to close the justice gap.
 
 ### Technology
 
+**Status note:** Items below are targets or planned capabilities; verify implementation status before use.
+
 - ✅ **Shepardize™ equivalent** (citation network analysis)
-- ✅ **Judge intelligence** (backgrounds, ideology, voting patterns)
-- ✅ **AI integration** (ChatGPT-powered research assistant)
-- ✅ **Predictive analytics** (ML-powered litigation insights)
-- ✅ **Real-time monitoring** (live docket tracking)
+- ✅ **Judge background research** (publicly available sources; compliance review required)
+- ✅ **AI-assisted research** (planned)
+- ✅ **Predictive analytics** (planned)
+- ✅ **Real-time monitoring** (planned)
 
-### Cost Disruption
+### Pricing Comparison (Draft)
 
-- ✅ **20x cheaper** than Westlaw/LexisNexis
-- ✅ **$50-200/month** vs. their $500-2,000/month
-- ✅ **$5,400-23,400/year** in savings
-- ✅ **FREE PACER** alternative (save $0.10/page fees)
-- ✅ **No contracts** (cancel anytime)
+- ✅ **Pricing comparison** (verify against current vendor pricing)
+- ✅ **$50-200/month** vs. **$500-2,000/month** (placeholder ranges; verify)
+- ✅ **$5,400-23,400/year** in savings (derived; verify)
+- ✅ **FREE PACER alternative** (validate availability/terms)
+- ✅ **No contracts** (confirm contract terms)
 
 ### Open Access Mission
+
+**Verification required:** confirm eligibility, scope, and terms for offerings below.
 
 - ✅ **Free tier** for basic research
 - ✅ **50% discount** for legal aid organizations
@@ -58,7 +74,7 @@ and LexisNexis. We're democratizing legal research to close the justice gap.
 
 ### The Problem
 
-**Legal research costs $2,000 per month.**
+**Legal research can cost $2,000 per month (verify current pricing).**
 
 For decades, Westlaw and LexisNexis have charged prices that:
 
@@ -69,10 +85,10 @@ For decades, Westlaw and LexisNexis have charged prices that:
 
 ### The Solution
 
-**Professional research at human prices.**
+**Professional research at transparent prices.**
 
-Evident provides the same primary sources, citation analysis, and research tools
-used by BigLaw—for **$50/month** instead of $2,000.
+Evident aims to provide primary sources, citation analysis, and research tools
+with pricing targets that require verification before publication.
 
 ### The Impact
 
@@ -95,26 +111,25 @@ We don't compromise. Evident provides **10 million+ federal opinions** spanning
 **Result:** Research quality that rivals the incumbents, at a fraction of the
 cost.
 
-### Strategy 2: Next-Generation Technology
+### Strategy 2: Modern Technology
 
 While legacy platforms rely on 1990s infrastructure, we're building with
-cutting-edge AI:
+modern AI:
 
 - Shepardize™ equivalent (citation network analysis)
 - Judge intelligence (backgrounds, voting patterns)
 - AI-powered research (ChatGPT integration)
 - Predictive analytics (case outcome modeling)
 
-**Result:** Features that didn't exist five years ago—now available to every
-attorney.
+**Result:** Features intended to broaden access to research tools.
 
-### Strategy 3: Radical Cost Disruption
+### Strategy 3: Cost Reduction Strategy
 
-We're not "a little cheaper"—we're **20x cheaper**:
+Pricing targets require verification before publication:
 
-- Westlaw: $500-2,000/month → Evident: $50-200/month
-- PACER: $0.10/page → Evident: FREE
-- Annual cost: $6,000-24,000 → Evident: $600-2,400
+- Westlaw: $500-2,000/month → Evident: $50-200/month (verify)
+- PACER: $0.10/page → Evident: FREE (confirm terms)
+- Annual cost: $6,000-24,000 → Evident: $600-2,400 (verify)
 
 **Result:** Professional research accessible to solo practitioners, legal aid,
 and students.
@@ -133,7 +148,9 @@ We believe legal research is infrastructure for justice—not a luxury good:
 
 --
 
-## The Path to Greatness
+## Roadmap (Draft Targets)
+
+**Note:** Targets below are planning placeholders and require validation.
 
 ### Today: Launch
 
@@ -159,19 +176,19 @@ We believe legal research is infrastructure for justice—not a luxury good:
 - State court opinions
 - Public API
 
-### 3 Years: Market Leadership
+### 3 Years: Market Adoption
 
 - **500,000+ users**
 - **BigLaw adoption** (even elite firms switch)
 - **Government partnerships**
 - **Profitability** while maintaining affordability
-- **Westlaw/LexisNexis forced to cut prices** ✅ Mission accomplished
+- **Competitive response** (speculative; verify before external use)
 
 --
 
 ## Leveraging Success for Impact
 
-Once we dominate legal research, we'll use that position to transform justice:
+If adoption grows, we plan to use that position to expand access and oversight:
 
 ### 1. Free Tools for Public Interest
 
