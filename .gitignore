@@ -1,3 +1,19 @@
+# ============================================================================
+# EVIDENT Professional Repository .gitignore
+# 
+# Repository Structure:
+#   src/backend/       - Python/Flask application (see imports below)
+#   src/frontend/      - Web, Windows, Mobile frontends
+#   src/static/        - CSS, JavaScript, images, fonts
+#   src/templates/     - HTML templates
+#   tests/             - Unit, integration, e2e tests
+#   docs/              - Architecture, API, deployment docs
+#   infrastructure/    - Docker, Kubernetes, Terraform configs
+#   .config/           - All tool configurations (.eslintrc, pytest, etc)
+#
+# See REPOSITORY_STRUCTURE.md for complete folder guide
+# ============================================================================
+
 # Python
 __pycache__/
 *.py[cod]
