@@ -14,3 +14,7 @@
 @import url('components/footer.css');
 @import url('components/cards.css');
 @import url('components/flag-hero.css');
+
+/* Enhanced animations and UX */
+@import url('enhancements/enhanced-animations.css');
+@import url('enhancements/ux-enhancements.css');
