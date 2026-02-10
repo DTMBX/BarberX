@@ -1,21 +1,85 @@
 """
 Evident Evidence Processing Models
-Models for tracking evidence items, chain of custody, and evidence analysis
+Models for tracking evidence items, chain of custody, evidence analysis,
+and case-evidence membership.
+
+Design principles:
+  - Evidence items are case-agnostic by default.
+  - Case membership is tracked via CaseEvidence (many-to-many).
+  - Evidence identity is bound to hash_sha256 (unique, immutable).
+  - All membership changes generate append-only audit entries.
+  - No cascade-delete from cases to evidence.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from auth.models import db, User
+
+
+# ---------------------------------------------------------------------------
+# Case-Evidence association (many-to-many with audit fields)
+# ---------------------------------------------------------------------------
+
+
+class CaseEvidence(db.Model):
+    """
+    Links an evidence item to one or more cases.
+
+    This is the authoritative record of which cases reference which evidence.
+    Evidence items are never copied — only linked.
+    All links are auditable and append-only (soft-delete via unlinked_at).
+    """
+    __tablename__ = 'case_evidence'
+
+    id = db.Column(db.Integer, primary_key=True)
+    case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False, index=True)
+    evidence_id = db.Column(db.Integer, db.ForeignKey('evidence_item.id'), nullable=False, index=True)
+
+    # Audit fields
+    linked_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
+    linked_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    link_purpose = db.Column(db.String(50), default='intake')  # intake, discovery, exhibit, reference
+
+    # Soft-unlink (append-only — never delete the row)
+    unlinked_at = db.Column(db.DateTime, nullable=True)
+    unlinked_by_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+
+    # Unique constraint: same evidence can only be actively linked to a case once
+    __table_args__ = (
+        db.UniqueConstraint('case_id', 'evidence_id', name='uq_case_evidence'),
+    )
+
+    # Relationships
+    linked_by = db.relationship('User', foreign_keys=[linked_by_id])
+    unlinked_by = db.relationship('User', foreign_keys=[unlinked_by_id])
+    case = db.relationship('LegalCase', back_populates='case_evidence_links')
+    evidence = db.relationship('EvidenceItem', back_populates='case_evidence_links')
+
+    @property
+    def is_active(self) -> bool:
+        return self.unlinked_at is None
+
+    def __repr__(self):
+        return f'<CaseEvidence case={self.case_id} evidence={self.evidence_id} purpose={self.link_purpose}>'
 
 
 class EvidenceItem(db.Model):
     """
-    Represents a piece of evidence (document, video, image, audio)
-    Tracks all metadata and processing status
+    Represents a piece of evidence (document, video, image, audio).
+    Tracks all metadata and processing status.
+
+    Evidence is case-agnostic: case membership is managed via CaseEvidence.
+    The origin_case_id column is non-authoritative workflow metadata
+    recording where this evidence was first ingested. The authoritative
+    case membership record is always in CaseEvidence.
     """
     __tablename__ = 'evidence_item'
     
     id = db.Column(db.Integer, primary_key=True)
-    case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False)
+
+    # Non-authoritative origin pointer (nullable, workflow metadata only).
+    # Physical column remains 'case_id' for backward compatibility with
+    # existing SQLite schema. Do not use this for case membership queries.
+    origin_case_id = db.Column('case_id', db.Integer, db.ForeignKey('legal_case.id'), nullable=True)
     
     # File Information
     original_filename = db.Column(db.String(500), nullable=False)
@@ -23,26 +87,33 @@ class EvidenceItem(db.Model):
     file_type = db.Column(db.String(50))  # pdf, mp4, jpg, mp3, docx, etc.
     file_size_bytes = db.Column(db.Integer)
     mime_type = db.Column(db.String(100))
-    
+
+    # Evidence store reference (UUID from EvidenceStore.ingest)
+    evidence_store_id = db.Column(db.String(36), index=True)  # UUIDv4 evidence_id
+
     # Evidence Classification
     evidence_type = db.Column(db.String(50), nullable=False)  # document, video, image, audio, other
     media_category = db.Column(db.String(100))  # e.g., body_worn_camera, surveillance, interview
     
     # Metadata & Chain of Custody
-    hash_sha256 = db.Column(db.String(64), unique=True, index=True)  # Forensic hash
+    hash_sha256 = db.Column(db.String(64), unique=True, index=True)  # Forensic hash — identity anchor
     hash_md5 = db.Column(db.String(32))
     
     collected_date = db.Column(db.DateTime)
     collected_by = db.Column(db.String(300))  # Officer, investigator name
     collection_location = db.Column(db.String(300))
-    
+
+    # Device provenance (BWC, dash cam, etc.)
+    device_label = db.Column(db.String(200))  # e.g., "BWL7139078"
+    device_type = db.Column(db.String(100))   # body_worn_camera, dash_cam, surveillance
+
     # Content Information
     duration_seconds = db.Column(db.Integer)  # For video/audio
     transcript = db.Column(db.LargeBinary)  # Transcription if processed
     text_content = db.Column(db.Text)  # Extracted text from PDF/images
     
     # Processing Status
-    processing_status = db.Column(db.String(50), default='pending')  # pending, processing, completed, failed
+    processing_status = db.Column(db.String(50), default='pending')
     has_been_transcribed = db.Column(db.Boolean, default=False)
     has_ocr = db.Column(db.Boolean, default=False)
     is_redacted = db.Column(db.Boolean, default=False)
@@ -50,15 +121,16 @@ class EvidenceItem(db.Model):
     # Discovery Classification
     is_responsive = db.Column(db.Boolean)  # Null = undetermined
     has_privilege = db.Column(db.Boolean, default=False)
-    privilege_type = db.Column(db.String(100))  # attorney_client, work_product, spousal, etc.
+    privilege_type = db.Column(db.String(100))
     
     # Legal Holds & Retention
     is_under_legal_hold = db.Column(db.Boolean, default=False)
     retention_date = db.Column(db.DateTime)
     
     # Audit Trail
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), index=True)
+    updated_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc),
+                           onupdate=lambda: datetime.now(timezone.utc))
     uploaded_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     notes = db.Column(db.Text)
@@ -68,7 +140,13 @@ class EvidenceItem(db.Model):
     chain_of_custody = db.relationship('ChainOfCustody', backref='evidence', cascade='all, delete-orphan')
     analysis_results = db.relationship('EvidenceAnalysis', backref='evidence', cascade='all, delete-orphan')
     tags = db.relationship('EvidenceTag', secondary='evidence_tag_association', backref='evidence_items')
-    
+    case_evidence_links = db.relationship('CaseEvidence', back_populates='evidence')
+
+    @property
+    def linked_cases(self):
+        """Return actively linked cases (not soft-unlinked)."""
+        return [link.case for link in self.case_evidence_links if link.is_active]
+
     def __repr__(self):
         return f'<EvidenceItem {self.original_filename}>'
 

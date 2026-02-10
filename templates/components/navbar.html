@@ -6,6 +6,7 @@
     <div style="display: flex; gap: 1.5rem; align-items: center;">
       {% if current_user.is_authenticated %}
         <a href="/dashboard" style="color: var(--color-text-secondary, #a0a0c0); text-decoration: none; font-size: 0.875rem;">Dashboard</a>
+        <a href="/cases/" style="color: var(--color-text-secondary, #a0a0c0); text-decoration: none; font-size: 0.875rem;">Cases</a>
         <a href="/upload/single" style="color: var(--color-text-secondary, #a0a0c0); text-decoration: none; font-size: 0.875rem;">Upload</a>
         <a href="/upload/history" style="color: var(--color-text-secondary, #a0a0c0); text-decoration: none; font-size: 0.875rem;">History</a>
         {% if current_user.role.value == 'admin' %}

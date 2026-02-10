@@ -169,9 +169,10 @@ def upload_single():
                 'error': f'Ingest failed: {ingest_result.error}'
             }), 500
 
-        # 3. Create database record (EvidenceItem)
+        # 3. Create or find database record (EvidenceItem)
+        #    If same hash already exists, reuse the existing record.
         from auth.models import db
-        from models.evidence import EvidenceItem
+        from models.evidence import EvidenceItem, CaseEvidence
 
         media_type = MediaValidator.get_media_type(file.filename)
         evidence_type_map = {
@@ -182,26 +183,48 @@ def upload_single():
             MediaType.DOCUMENT: 'document',
         }
 
-        evidence_item = EvidenceItem(
-            case_id=case_id or 1,  # default case until case mgmt is wired
-            original_filename=file.filename,
-            stored_filename=Path(ingest_result.stored_path).name,
-            file_type=Path(file.filename).suffix.lstrip('.').lower(),
-            file_size_bytes=ingest_result.metadata.size_bytes,
-            mime_type=ingest_result.metadata.mime_type,
-            evidence_type=evidence_type_map.get(media_type, 'other'),
-            hash_sha256=ingest_result.sha256,
-            processing_status='processing',
-            uploaded_by_id=current_user.id,
-            created_at=datetime.now(timezone.utc),
-        )
+        existing_item = EvidenceItem.query.filter_by(hash_sha256=ingest_result.sha256).first()
 
-        if device_label:
-            evidence_item.media_category = 'body_worn_camera'
-            evidence_item.collected_by = device_label
+        if existing_item and ingest_result.duplicate:
+            # Reuse existing EvidenceItem — do not create a new one
+            evidence_item = existing_item
+        else:
+            evidence_item = EvidenceItem(
+                original_filename=file.filename,
+                stored_filename=Path(ingest_result.stored_path).name,
+                file_type=Path(file.filename).suffix.lstrip('.').lower(),
+                file_size_bytes=ingest_result.metadata.size_bytes,
+                mime_type=ingest_result.metadata.mime_type,
+                evidence_type=evidence_type_map.get(media_type, 'other'),
+                evidence_store_id=ingest_result.evidence_id,
+                hash_sha256=ingest_result.sha256,
+                processing_status='processing',
+                uploaded_by_id=current_user.id,
+                created_at=datetime.now(timezone.utc),
+            )
 
-        db.session.add(evidence_item)
-        db.session.commit()
+            if device_label:
+                evidence_item.media_category = 'body_worn_camera'
+                evidence_item.device_label = device_label
+                evidence_item.collected_by = device_label
+
+            db.session.add(evidence_item)
+            db.session.commit()
+
+        # 3b. Link to case via CaseEvidence if case_id provided
+        if case_id:
+            existing_link = CaseEvidence.query.filter_by(
+                case_id=case_id, evidence_id=evidence_item.id
+            ).first()
+            if not existing_link:
+                link = CaseEvidence(
+                    case_id=case_id,
+                    evidence_id=evidence_item.id,
+                    linked_by_id=current_user.id,
+                    link_purpose='intake',
+                )
+                db.session.add(link)
+                db.session.commit()
 
         # 4. Audit: ingest event
         audit = AuditStream(db.session, _evidence_store)

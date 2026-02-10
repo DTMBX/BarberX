@@ -338,6 +338,16 @@
           </div>
         </div>
 
+        <!-- Case assignment (optional) -->
+        <div id="caseSelector" style="margin: 1rem 0; display: none;">
+          <label for="caseSelect" style="display:block; font-weight:600; margin-bottom:0.4rem; color: var(--text-primary, #e0e0e0);">
+            Assign to Case (optional)
+          </label>
+          <select id="caseSelect" style="width:100%; padding:0.6rem 0.8rem; border-radius:6px; border:1px solid var(--border-color, #3a3a3a); background:var(--input-bg, #1e1e2e); color:var(--text-primary, #e0e0e0); font-size:0.95rem;">
+            <option value="">— None (unassigned) —</option>
+          </select>
+        </div>
+
         <div id="progressContainer" class="progress-container">
           <div class="progress-bar">
             <div class="progress-fill" id="progressFill"></div>
@@ -388,6 +398,25 @@
 
       fileInput.addEventListener('change', handleFileSelect);
 
+      // Load available cases for the selector
+      (async function loadCases() {
+        try {
+          const resp = await fetch('/cases/api/list');
+          if (resp.ok) {
+            const cases = await resp.json();
+            const sel = document.getElementById('caseSelect');
+            cases.forEach(c => {
+              const opt = document.createElement('option');
+              opt.value = c.id;
+              opt.textContent = c.case_number
+                ? `${c.case_number} — ${c.case_name}`
+                : c.case_name;
+              sel.appendChild(opt);
+            });
+          }
+        } catch (_) { /* non-critical */ }
+      })();
+
       function handleFileSelect() {
         selectedFile = fileInput.files[0];
         if (selectedFile) {
@@ -396,6 +425,7 @@
             (selectedFile.size / 1024 / 1024).toFixed(2) + ' MB';
           document.getElementById('fileType').textContent = selectedFile.type || 'Unknown';
           document.getElementById('fileInfo').classList.add('active');
+          document.getElementById('caseSelector').style.display = 'block';
           document.getElementById('resultContainer').classList.remove('active');
         }
       }
@@ -408,6 +438,12 @@
 
         const formData = new FormData();
         formData.append('file', selectedFile);
+
+        // Include case assignment if selected
+        const caseId = document.getElementById('caseSelect').value;
+        if (caseId) {
+          formData.append('case_id', caseId);
+        }
 
         document.getElementById('uploadBtn').disabled = true;
         document.getElementById('progressContainer').classList.add('active');

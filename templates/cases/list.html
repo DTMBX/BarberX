@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Management - Evident</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% include 'components/navbar.html' %}
+
+    <main id="main">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem">
+        <!-- Header -->
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+          "
+        >
+          <div>
+            <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem">Cases</h1>
+            <p style="margin: 0; color: var(--color-neutral-600)">
+              Manage cases and evidence assignments.
+            </p>
+          </div>
+          <a
+            href="{{ url_for('cases.case_create') }}"
+            class="btn btn-primary"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.625rem 1.25rem;
+              background: var(--color-primary-600);
+              color: #fff;
+              border-radius: 6px;
+              text-decoration: none;
+              font-size: 0.875rem;
+              font-weight: 600;
+            "
+          >
+            + New Case
+          </a>
+        </div>
+
+        <!-- Summary Stats -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+          <div class="card" style="padding: 1.25rem;">
+            <div style="color: var(--color-neutral-500); font-size: 0.8125rem; margin-bottom: 0.25rem;">Total Cases</div>
+            <div style="font-size: 1.75rem; font-weight: 700; color: var(--color-primary-600);">{{ cases | length }}</div>
+          </div>
+          <div class="card" style="padding: 1.25rem;">
+            <div style="color: var(--color-neutral-500); font-size: 0.8125rem; margin-bottom: 0.25rem;">Open</div>
+            <div style="font-size: 1.75rem; font-weight: 700; color: var(--color-success-600, #16a34a);">{{ cases | selectattr('status', 'equalto', 'open') | list | length }}</div>
+          </div>
+          <div class="card" style="padding: 1.25rem;">
+            <div style="color: var(--color-neutral-500); font-size: 0.8125rem; margin-bottom: 0.25rem;">Legal Hold</div>
+            <div style="font-size: 1.75rem; font-weight: 700; color: var(--color-warning-600, #d97706);">{{ cases | selectattr('is_legal_hold', 'equalto', true) | list | length }}</div>
+          </div>
+        </div>
+
+        <!-- Cases Table -->
+        {% if cases %}
+        <div class="card" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--color-border, #2a2a4a);">
+                <th style="padding: 0.75rem 1rem; text-align: left; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Case Number</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Name</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Type</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Status</th>
+                <th style="padding: 0.75rem 1rem; text-align: right; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Evidence</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Jurisdiction</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; color: var(--color-neutral-500); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for case in cases %}
+              <tr style="border-bottom: 1px solid var(--color-border, #2a2a4a); cursor: pointer;" onclick="window.location='{{ url_for('cases.case_detail', case_id=case.id) }}'">
+                <td style="padding: 0.75rem 1rem;">
+                  <span style="font-weight: 600; color: var(--color-primary-400, #60a5fa);">{{ case.case_number }}</span>
+                </td>
+                <td style="padding: 0.75rem 1rem; color: var(--color-text-primary, #e0e0e0);">{{ case.case_name }}</td>
+                <td style="padding: 0.75rem 1rem;">
+                  <span style="
+                    display: inline-block;
+                    padding: 0.125rem 0.5rem;
+                    border-radius: 9999px;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    background: var(--color-neutral-800, #374151);
+                    color: var(--color-neutral-300, #d1d5db);
+                  ">{{ case.case_type }}</span>
+                </td>
+                <td style="padding: 0.75rem 1rem;">
+                  {% if case.status == 'open' %}
+                    <span style="color: var(--color-success-500, #22c55e);">● Open</span>
+                  {% elif case.status == 'closed' %}
+                    <span style="color: var(--color-neutral-500);">● Closed</span>
+                  {% else %}
+                    <span style="color: var(--color-warning-500, #eab308);">● {{ case.status | capitalize }}</span>
+                  {% endif %}
+                </td>
+                <td style="padding: 0.75rem 1rem; text-align: right; font-variant-numeric: tabular-nums;">{{ case.evidence_count }}</td>
+                <td style="padding: 0.75rem 1rem; color: var(--color-neutral-400, #9ca3af);">{{ case.jurisdiction_state or case.jurisdiction or '—' }}</td>
+                <td style="padding: 0.75rem 1rem; color: var(--color-neutral-500); font-size: 0.8125rem;">
+                  {{ case.created_at.strftime('%Y-%m-%d') if case.created_at else '—' }}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+        <div class="card" style="padding: 3rem; text-align: center;">
+          <p style="color: var(--color-neutral-500); margin: 0 0 1rem;">No cases exist yet.</p>
+          <a
+            href="{{ url_for('cases.case_create') }}"
+            style="color: var(--color-primary-400); text-decoration: none; font-weight: 600;"
+          >
+            Create the first case →
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </main>
+  </body>
+</html>
