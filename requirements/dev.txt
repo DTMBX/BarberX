@@ -1,0 +1,26 @@
+# Evident Technologies — Development & Testing
+# Test runners, linters, static analysis, benchmarking
+#
+# Install: py -3.12 -m pip install -r requirements/dev.txt
+# -------------------------------------------------------------------
+
+-r extraction.txt
+-r ml.txt
+-r crypto.txt
+-r media.txt
+
+# --- Test framework ---
+pytest==9.0.2                       # test runner
+hypothesis==6.151.5                 # property-based testing
+faker==40.4.0                       # synthetic test data generation
+pytest-benchmark>=5.1.0             # performance benchmarking
+
+# --- Linting & formatting ---
+ruff==0.15.0                        # fast Python linter + formatter
+
+# --- Batch processing progress ---
+# NOTE: celery-progress==0.5 was evaluated but OMITTED.
+# Reason: Django-only package (Django 3.2–5.1 framework classifiers).
+# Incompatible with FastAPI architecture.
+# Alternative: Build custom SSE/WebSocket progress endpoint with FastAPI.
+# Celery task state is already trackable via celery.result.AsyncResult.

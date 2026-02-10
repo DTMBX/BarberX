@@ -1,0 +1,10 @@
+# Evident Technologies — Full Forensic Stack
+# Installs every pipeline: base + extraction + ML + crypto + media
+# Does NOT include dev/test tooling (use dev.txt for that).
+# -------------------------------------------------------------------
+
+-r base.txt
+-r extraction.txt
+-r ml.txt
+-r crypto.txt
+-r media.txt

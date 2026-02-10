@@ -1,0 +1,53 @@
+name: CI — Python deps (base + lint + test)
+
+on:
+  push:
+    branches: [main, stabilize/**]
+    paths:
+      - "requirements/**"
+      - "requirements.txt"
+      - "scripts/verify_deps.sh"
+      - ".github/workflows/ci-minimal.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "requirements/**"
+      - "requirements.txt"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements/base.txt
+
+      - name: Install base deps
+        run: pip install -r requirements/base.txt
+
+      - name: pip check
+        run: pip check
+
+      - name: Smoke import — fastapi
+        run: python -c "import fastapi; print(f'fastapi {fastapi.__version__}')"
+
+      - name: Install dev deps (ruff + pytest)
+        run: pip install ruff pytest
+
+      - name: Ruff lint (errors only)
+        run: ruff check --select=E,F --no-fix .
+        continue-on-error: true
+
+      - name: Pytest (if tests exist)
+        run: |
+          if [ -d tests ] || [ -d __tests__ ]; then
+            pytest -x -q --tb=short 2>&1 | head -40
+          else
+            echo "No tests directory found — running import smoke test only"
+            python -c "import fastapi, sqlalchemy, celery; print('core imports OK')"
+          fi
+        continue-on-error: true

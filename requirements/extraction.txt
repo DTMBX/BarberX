@@ -1,0 +1,30 @@
+# Evident Technologies — Document Extraction Pipeline
+# Forensic document parsing: PDF, DOCX, XLSX, HTML, images
+#
+# Goal: Discovery Classifier, Privilege Detection
+# Requires: Ubuntu system packages (see docs/apt-packages.md)
+#   - tesseract-ocr, poppler-utils, libgl1
+# -------------------------------------------------------------------
+
+-r base.txt
+
+# --- PDF extraction (multi-engine for forensic coverage) ---
+pymupdf==1.26.7                     # MuPDF bindings — fast native PDF parsing
+pdfminer.six==20251230              # layout-aware text extraction (pinned to match pdfplumber)
+pypdf==6.7.0                        # pure-Python PDF manipulation
+pdfplumber==0.11.9                  # table + structured content extraction
+pdf2image==1.17.0                   # PDF → image conversion (requires poppler)
+reportlab==4.4.0                    # PDF generation for reports
+
+# --- Office document extraction ---
+python-docx==1.2.0                  # Microsoft Word .docx parsing
+openpyxl==3.1.5                     # Microsoft Excel .xlsx parsing
+
+# --- HTML / markup parsing ---
+beautifulsoup4==4.14.3              # HTML/XML content extraction
+lxml==6.0.2                         # fast XML/HTML parser backend
+
+# --- Image processing & OCR ---
+Pillow==11.3.0                      # image manipulation (moviepy compat constraint)
+opencv-python-headless==4.13.0.92   # computer vision (no GUI dependencies)
+pytesseract==0.3.13                 # Tesseract OCR wrapper (requires tesseract-ocr)

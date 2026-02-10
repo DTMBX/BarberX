@@ -1,0 +1,20 @@
+# Evident Technologies — Media Processing Pipeline
+# Audio/video extraction, transcription, forensic metadata
+#
+# Goal: Discovery Classifier (A/V content), Timeline Builder (timestamps)
+# Requires: Ubuntu system packages (see docs/apt-packages.md)
+#   - ffmpeg, mediainfo, exiftool
+# -------------------------------------------------------------------
+
+-r base.txt
+
+# --- Video processing ---
+ffmpeg-python==0.2.0                # FFmpeg pipeline builder
+moviepy==2.2.1                      # video editing / frame extraction
+
+# --- Audio processing ---
+pydub==0.25.1                       # audio format conversion + manipulation
+librosa==0.11.0                     # audio feature extraction (spectral, tempo)
+
+# --- Speech-to-text ---
+openai-whisper==20250625            # local Whisper ASR model
