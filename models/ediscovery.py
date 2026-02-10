@@ -104,7 +104,7 @@ class ProductionSet(db.Model):
     Represents a production of documents to opposing counsel
     Groups documents produced together in response to discovery
     """
-    __tablename__ = 'production_set'
+    __tablename__ = 'ediscovery_production_set'
     
     id = db.Column(db.Integer, primary_key=True)
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False)
@@ -154,10 +154,10 @@ class ProductionItem(db.Model):
     Individual item in a production set
     Links evidence to specific productions with Bates numbering
     """
-    __tablename__ = 'production_item'
+    __tablename__ = 'ediscovery_production_item'
     
     id = db.Column(db.Integer, primary_key=True)
-    production_id = db.Column(db.Integer, db.ForeignKey('production_set.id'), nullable=False, index=True)
+    production_id = db.Column(db.Integer, db.ForeignKey('ediscovery_production_set.id'), nullable=False, index=True)
     evidence_id = db.Column(db.Integer, db.ForeignKey('evidence_item.id'), nullable=False)
     
     # Bates Numbering
@@ -193,7 +193,7 @@ class PrivilegeLog(db.Model):
     Maintains privilege log for withheld documents
     Required by discovery rules when claiming privilege
     """
-    __tablename__ = 'privilege_log'
+    __tablename__ = 'ediscovery_privilege_log'
     
     id = db.Column(db.Integer, primary_key=True)
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False)

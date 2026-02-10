@@ -149,9 +149,9 @@ _pypi_versions.txt
 lighthouse-*.html
 test_*.html
 
-# Numbered version folders
-[0-9]*
-[0-9]*.[0-9]*.[0-9]*
+# Numbered version folders (root level only)
+/[0-9]*
+/[0-9]*.[0-9]*.[0-9]*
 
 # Evident Security Rules (Added 2026-01-28)
 # Evident Confidential Financial Data
@@ -389,3 +389,6 @@ ci-logs/
 
 # Security scan outputs (do not commit)
 security/secret-scan-results.txt
+
+# Redis dump
+dump.rdb

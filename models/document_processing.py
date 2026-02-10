@@ -45,6 +45,9 @@ class DocumentProcessingTask(db.Model):
     estimated_cost = db.Column(db.Float)
     actual_cost = db.Column(db.Float)
     
+    # Batch reference (nullable — only set when task belongs to a batch)
+    batch_id = db.Column(db.Integer, db.ForeignKey('batch_processing_queue.id'), nullable=True, index=True)
+    
     # Metadata
     requested_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     completed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))

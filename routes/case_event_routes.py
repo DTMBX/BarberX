@@ -13,8 +13,9 @@ All routes assume a forensic context:
 """
 
 from datetime import datetime
+from pathlib import Path
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, render_template, request, send_file
 from flask_login import login_required, current_user
 
 from auth.models import db
@@ -296,3 +297,97 @@ def list_case_exports(case_id):
         'package_sha256': r.package_sha256,
         'exported_at': r.exported_at.isoformat() if r.exported_at else None,
     } for r in records])
+
+
+# ------------------------------------------------------------------
+# 11. Event alignment timeline (JSON)
+# ------------------------------------------------------------------
+
+@case_event_bp.route('/events/<event_id>/alignment-timeline', methods=['GET'])
+@login_required
+def get_alignment_timeline(event_id):
+    """
+    Build and return the canonical alignment timeline for an event.
+
+    The response is a deterministic JSON structure.  Its SHA-256 hash is
+    recorded in the audit log on every generation.
+    """
+    from services.event_timeline import EventTimelineBuilder
+
+    builder = EventTimelineBuilder()
+    result = builder.build(event_id, user_id=current_user.id)
+
+    if not result.success:
+        return jsonify({'error': result.error}), 404
+
+    return jsonify(result.timeline)
+
+
+# ------------------------------------------------------------------
+# 12. Event alignment viewer (HTML page)
+# ------------------------------------------------------------------
+
+@case_event_bp.route('/events/<event_id>/viewer', methods=['GET'])
+@login_required
+def event_viewer(event_id):
+    """Render the timeline alignment viewer for an event."""
+    event = db.session.get(Event, event_id)
+    if not event:
+        return jsonify({'error': 'Event not found'}), 404
+
+    return render_template(
+        'cases/event_timeline_viewer.html',
+        event=event,
+        user=current_user,
+    )
+
+
+# ------------------------------------------------------------------
+# 13. Serve evidence proxy for viewer playback
+# ------------------------------------------------------------------
+
+@case_event_bp.route('/evidence/<int:evidence_id>/proxy', methods=['GET'])
+@login_required
+def serve_evidence_proxy(evidence_id):
+    """
+    Serve the low-resolution proxy video for in-browser playback.
+
+    Falls back to the original if no proxy exists.
+    This endpoint does NOT modify any evidence files.
+    """
+    from models.evidence import EvidenceItem
+    from services.evidence_store import EvidenceStore
+
+    evidence = db.session.get(EvidenceItem, evidence_id)
+    if not evidence:
+        return jsonify({'error': 'Evidence not found'}), 404
+
+    store = EvidenceStore()
+
+    # Try proxy first
+    if evidence.evidence_store_id:
+        manifest = store.load_manifest(evidence.evidence_store_id)
+        if manifest:
+            for deriv in manifest.derivatives:
+                if deriv.derivative_type == 'proxy':
+                    proxy_path = store.get_derivative_path(
+                        evidence.hash_sha256,
+                        'proxy',
+                        deriv.filename,
+                    )
+                    if proxy_path and Path(proxy_path).exists():
+                        return send_file(
+                            proxy_path,
+                            mimetype=evidence.mime_type or 'video/mp4',
+                        )
+
+    # Fallback to original
+    if evidence.hash_sha256:
+        original_path = store.get_original_path(evidence.hash_sha256)
+        if original_path and Path(original_path).exists():
+            return send_file(
+                original_path,
+                mimetype=evidence.mime_type or 'application/octet-stream',
+            )
+
+    return jsonify({'error': 'No playable file found'}), 404

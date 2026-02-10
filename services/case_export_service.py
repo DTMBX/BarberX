@@ -9,6 +9,7 @@ Export packages include:
   - Event metadata (JSON)
   - Sync group data (JSON) — if any
   - Timeline data (JSON) — if generated
+  - Evidence Integrity Statement (deterministic text + optional PDF)
   - Package manifest and integrity report
 
 Exports are deterministic and reproducible from originals.
@@ -48,7 +49,12 @@ class CaseExporter:
             return None
 
     def export_case(self, case_id, user_id=None):
-        """Export all case materials to a court-ready ZIP package."""
+        """Export all case materials to a court-ready ZIP package.
+
+        The export includes an Evidence Integrity Statement generated
+        deterministically from export metadata.  The statement's SHA-256
+        is recorded in the manifest and in the audit stream.
+        """
         case = db.session.get(LegalCase, case_id)
         if not case:
             return None
@@ -56,7 +62,8 @@ class CaseExporter:
         evidence_items = case.evidence_items  # active items via property
         events = Event.query.filter_by(case_id=case_id).all()
 
-        timestamp = datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')
+        export_time = datetime.now(timezone.utc)
+        timestamp = export_time.strftime('%Y%m%d_%H%M%S')
         zip_name = f'case_{case.case_number}_{timestamp}.zip'
         zip_path = self._export_base / zip_name
 
@@ -89,14 +96,67 @@ class CaseExporter:
                 tl_data = [self._serialize_timeline_entry(t) for t in timeline]
                 zf.writestr('timeline.json', json.dumps(tl_data, indent=2))
 
-            # --- Manifest ---
+            # --- Pre-manifest (without integrity statement entry) ---
+            pre_manifest = {
+                'case_number': case.case_number,
+                'case_name': case.case_name,
+                'exported_at': export_time.isoformat(),
+                'evidence_count': len(evidence_items),
+                'event_count': len(events),
+                'files': list(file_manifest),
+            }
+            pre_manifest_sha256 = hashlib.sha256(
+                json.dumps(pre_manifest, sort_keys=True).encode('utf-8'),
+            ).hexdigest()
+
+            # --- Evidence Integrity Statement ---
+            stmt_result = self._generate_integrity_statement(
+                case=case,
+                manifest_sha256=pre_manifest_sha256,
+                export_time=export_time,
+            )
+
+            # Write text statement (authoritative, deterministic)
+            zf.writestr(
+                'evidence_integrity_statement.txt',
+                stmt_result.text_bytes,
+            )
+            file_manifest.append({
+                'path': 'evidence_integrity_statement.txt',
+                'sha256': stmt_result.text_sha256,
+                'type': 'integrity_statement',
+                'format': 'text',
+            })
+            total_bytes += len(stmt_result.text_bytes)
+
+            # Write PDF statement if available (convenience derivative)
+            if stmt_result.pdf_bytes is not None:
+                zf.writestr(
+                    'evidence_integrity_statement.pdf',
+                    stmt_result.pdf_bytes,
+                )
+                file_manifest.append({
+                    'path': 'evidence_integrity_statement.pdf',
+                    'sha256': stmt_result.pdf_sha256,
+                    'type': 'integrity_statement',
+                    'format': 'pdf',
+                })
+                total_bytes += len(stmt_result.pdf_bytes)
+
+            # --- Final manifest (includes integrity statement entries) ---
             manifest = {
                 'case_number': case.case_number,
                 'case_name': case.case_name,
-                'exported_at': datetime.now(timezone.utc).isoformat(),
+                'exported_at': export_time.isoformat(),
                 'evidence_count': len(evidence_items),
                 'event_count': len(events),
                 'files': file_manifest,
+                'integrity_statement': {
+                    'statement_id': stmt_result.statement_id,
+                    'text_sha256': stmt_result.text_sha256,
+                    'pdf_sha256': stmt_result.pdf_sha256,
+                    'pre_manifest_sha256': pre_manifest_sha256,
+                },
             }
             zf.writestr('manifest.json', json.dumps(manifest, indent=2))
 
@@ -123,9 +183,38 @@ class CaseExporter:
         db.session.add(record)
         db.session.commit()
 
-        self._audit_export(case_id, record, evidence_items, user_id)
+        self._audit_export(case_id, record, evidence_items, user_id,
+                           stmt_result=stmt_result)
 
         return record
+
+    # ------------------------------------------------------------------
+    # Integrity Statement generation
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _generate_integrity_statement(case, manifest_sha256, export_time):
+        """Generate the Evidence Integrity Statement for this export.
+
+        Uses an explicit timestamp and deterministic statement ID so
+        that the text output is byte-reproducible from the same inputs.
+        """
+        from services.integrity_statement import IntegrityStatementGenerator
+
+        gen = IntegrityStatementGenerator()
+        statement_id = (
+            f"IS-{case.case_number}-"
+            f"{export_time.strftime('%Y%m%d%H%M%S')}"
+        )
+        return gen.generate(
+            scope="CASE",
+            scope_id=case.case_number,
+            manifest_sha256=manifest_sha256,
+            manifest_filename="manifest.json",
+            generated_at=export_time,
+            statement_id=statement_id,
+            render_pdf=True,
+        )
 
     # ------------------------------------------------------------------
     # Packaging helpers
@@ -259,19 +348,26 @@ class CaseExporter:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _audit_export(case_id, record, evidence_items, user_id):
+    def _audit_export(case_id, record, evidence_items, user_id,
+                      stmt_result=None):
         try:
             from services.audit_stream import AuditStream
             audit = AuditStream()
+            metadata = {
+                'case_id': case_id,
+                'export_id': record.id,
+                'package_sha256': record.package_sha256,
+            }
+            if stmt_result is not None:
+                metadata['integrity_statement_id'] = stmt_result.statement_id
+                metadata['integrity_statement_text_sha256'] = stmt_result.text_sha256
+                if stmt_result.pdf_sha256 is not None:
+                    metadata['integrity_statement_pdf_sha256'] = stmt_result.pdf_sha256
             for item in evidence_items:
                 audit.record(
                     action='EXPORT',
                     evidence_id=item.evidence_store_id,
-                    metadata={
-                        'case_id': case_id,
-                        'export_id': record.id,
-                        'package_sha256': record.package_sha256,
-                    },
+                    metadata=metadata,
                     user_id=user_id,
                 )
         except Exception:

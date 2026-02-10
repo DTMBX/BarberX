@@ -149,17 +149,19 @@ class BatchProcessingJob(Base):
 class PDFBatchLoader:
     """Load multiple PDFs concurrently with error handling"""
     
-    def __init__(self, max_concurrent: int = 5, skip_errors: bool = True):
+    def __init__(self, max_concurrent: int = 5, skip_errors: bool = True, timeout_per_pdf: int = 60):
         self.max_concurrent = max_concurrent
         self.skip_errors = skip_errors
+        self.timeout_per_pdf = timeout_per_pdf
         self.logger = logging.getLogger(__name__)
     
-    async def load_batch(self, pdf_files: list) -> list:
+    async def load_batch(self, pdf_files: list, max_concurrent: int = None) -> list:
         """
         Load 10-25 PDFs concurrently
         
         Args:
             pdf_files: List of file paths
+            max_concurrent: Override instance-level concurrency limit
         
         Returns:
             [{
@@ -176,7 +178,8 @@ class PDFBatchLoader:
         results = []
         
         # Create semaphore to limit concurrent loads
-        semaphore = asyncio.Semaphore(self.max_concurrent)
+        concurrency = max_concurrent if max_concurrent is not None else self.max_concurrent
+        semaphore = asyncio.Semaphore(concurrency)
         
         async def load_with_semaphore(file_path):
             async with semaphore:
@@ -223,17 +226,23 @@ class PDFBatchLoader:
                 'error_message': str(e)
             }
 
+    async def load_single(self, file_path: str) -> dict:
+        """Public interface: load a single PDF with error handling."""
+        return await self._load_single_pdf(file_path)
+
 class OCREngine:
     """Extract text from PDFs using multiple OCR engines"""
     
-    def __init__(self, model: str = 'tesseract-v5', fallback: str = 'easyocr'):
+    def __init__(self, model: str = 'tesseract-v5', fallback: str = 'easyocr', preprocessing: bool = False):
         """
         Args:
             model: Primary OCR model ('tesseract-v5', 'easyocr', 'paddleocr')
             fallback: Fallback model if primary fails
+            preprocessing: Enable image preprocessing before OCR
         """
         self.model = model
         self.fallback = fallback
+        self.preprocessing = preprocessing
         self.logger = logging.getLogger(__name__)
     
     async def extract_text(self, pdf_path: str) -> dict:

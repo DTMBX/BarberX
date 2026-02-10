@@ -722,7 +722,34 @@ def export_evidence(evidence_id: str):
 @upload_bp.route('/api/export/<evidence_id>/download', methods=['GET'])
 @login_required
 def download_export(evidence_id: str):
-    """Download the most recent export package for evidence."""
+    """Download the most recent export package for evidence.
+
+    Requires a stated purpose (?purpose=case_review etc.) and records the
+    download in the audit stream.
+    """
+    from auth.access_control import (
+        VALID_ACCESS_PURPOSES,
+        _extract_purpose,
+        record_access,
+    )
+    from services.audit_stream import AuditAction, AuditStream
+    from services.evidence_store import EvidenceStore
+
+    # --- Purpose validation ---
+    purpose = _extract_purpose()
+    if not purpose:
+        return jsonify({
+            'error': 'Access purpose required',
+            'detail': 'Provide ?purpose= with one of: '
+                      + ', '.join(sorted(VALID_ACCESS_PURPOSES)),
+        }), 400
+
+    if purpose not in VALID_ACCESS_PURPOSES:
+        return jsonify({
+            'error': 'Invalid access purpose',
+            'detail': f"'{purpose}' is not recognized.",
+        }), 422
+
     export_dir = Path("exports").resolve()
     if not export_dir.exists():
         return jsonify({'error': 'No exports available'}), 404
@@ -735,6 +762,29 @@ def download_export(evidence_id: str):
     )
     if not candidates:
         return jsonify({'error': 'No export package found for this evidence'}), 404
+
+    # --- Audit the download ---
+    try:
+        from auth.models import db
+        audit = AuditStream(db.session, EvidenceStore())
+        audit.record(
+            evidence_id=evidence_id,
+            action=AuditAction.DOWNLOADED,
+            actor_id=getattr(current_user, 'id', None),
+            actor_name=getattr(current_user, 'username', None)
+                       or getattr(current_user, 'email', 'unknown'),
+            details={
+                'purpose': purpose,
+                'package': candidates[0].name,
+                'endpoint': 'download_export',
+            },
+        )
+    except Exception:
+        # Audit failure must not block download, but log it
+        import logging
+        logging.getLogger(__name__).error(
+            "Audit write failed for download of %s", evidence_id, exc_info=True
+        )
 
     return send_file(
         str(candidates[0]),
