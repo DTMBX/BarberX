@@ -1,3 +1,15 @@
+"""Quarantined: backend package removed from main branch.
+Source modules (backend.tools.cli.cli) no longer exist.
+Tracked: Phase 10 gate — restore when CLI module is re-implemented.
+Deadline: Phase 11 or remove permanently.
+"""
+import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="quarantined — backend.tools.cli.cli removed from main; "
+           "source modules do not exist (see Phase 10 gate)"
+)
+
 import json
 import subprocess
 import sys

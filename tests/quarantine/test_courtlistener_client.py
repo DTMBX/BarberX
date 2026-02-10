@@ -1,7 +1,19 @@
+"""Quarantined: backend package removed from main branch.
+Source module (backend.src.verified_legal_sources) and VerifiedLegalSources
+class no longer exist in the codebase.
+Tracked: Phase 10 gate — restore when verified legal sources is re-implemented.
+Deadline: Phase 11 or remove permanently.
+"""
+import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="quarantined — backend.src.verified_legal_sources removed from main; "
+           "VerifiedLegalSources class does not exist (see Phase 10 gate)"
+)
+
 import os
 from unittest.mock import MagicMock
 
-import pytest
 import requests
 
 from backend.src import verified_legal_sources as vls_mod
