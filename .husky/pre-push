@@ -1,7 +1,7 @@
 #!/bin/sh
-. "$(dirname -- "$0")/_/husky.sh"
+# Evident Technologies — pre-push hook
+# Prevents accidental pushes to protected branches.
 
-# Prevent accidental pushes to protected branches
 PROTECTED_BRANCHES="main gh-pages"
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
