@@ -392,3 +392,6 @@ security/secret-scan-results.txt
 
 # Redis dump
 dump.rdb
+
+# Ruby bundler cache
+vendor/
