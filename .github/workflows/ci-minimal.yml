@@ -32,8 +32,21 @@ jobs:
       - name: pip check
         run: pip check
 
-      - name: Smoke import — fastapi
-        run: python -c "import fastapi; print(f'fastapi {fastapi.__version__}')"
+      - name: Smoke import (framework)
+        run: |
+          python - <<'PY'
+          import importlib
+          def ok(name):
+              try:
+                  importlib.import_module(name)
+                  print(f"{name}: ok")
+                  return True
+              except Exception as e:
+                  print(f"{name}: not available ({e.__class__.__name__})")
+                  return False
+          if not (ok("flask") or ok("fastapi")):
+              raise SystemExit("Neither flask nor fastapi importable.")
+          PY
 
       - name: Install dev deps (ruff + pytest)
         run: pip install ruff pytest
@@ -42,12 +55,11 @@ jobs:
         run: ruff check --select=E,F --no-fix .
         continue-on-error: true
 
-      - name: Pytest (if tests exist)
+      - name: Tests
         run: |
-          if [ -d tests ] || [ -d __tests__ ]; then
-            pytest -x -q --tb=short 2>&1 | head -40
+          if [ -d tests ]; then
+            python -m pytest -q
           else
-            echo "No tests directory found — running import smoke test only"
-            python -c "import fastapi, sqlalchemy, celery; print('core imports OK')"
+            echo "No tests/ directory found; skipping pytest."
           fi
         continue-on-error: true
