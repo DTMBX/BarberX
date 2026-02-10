@@ -118,6 +118,7 @@ def create_app():
     from routes.legal_admin import legal_admin_bp
     from routes.chat_routes import chat_bp
     from routes.chat_admin import chat_admin_bp
+    from routes.nara_webhook import nara_bp
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
@@ -127,6 +128,7 @@ def create_app():
     app.register_blueprint(legal_admin_bp)
     app.register_blueprint(chat_bp)
     app.register_blueprint(chat_admin_bp)
+    app.register_blueprint(nara_bp)
     
     # Create tables
     with app.app_context():

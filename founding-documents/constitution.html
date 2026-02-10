@@ -1,0 +1,118 @@
+---
+layout: default
+permalink: /founding-documents/constitution
+title: "The Constitution of the United States — Evident Technologies"
+description: >-
+  Full transcription of the United States Constitution as inscribed on parchment
+  by Jacob Shallus, retrieved from the National Archives of the United States.
+---
+
+<section class="w-full bg-gradient-to-br from-blue-50 to-blue-100 py-10 md:py-14">
+  <div class="max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}" class="hover:text-blue-700">Home</a>
+      <span class="mx-1">/</span>
+      <a href="{{ '/honor' | relative_url }}" class="hover:text-blue-700">Honor Wall</a>
+      <span class="mx-1">/</span>
+      <a href="{{ '/founding-documents/' | relative_url }}" class="hover:text-blue-700">Founding Documents</a>
+      <span class="mx-1">/</span>
+      <span class="text-gray-900">Constitution</span>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      The Constitution of the United States
+    </h1>
+    <p class="text-gray-600 leading-relaxed max-w-3xl">
+      A transcription of the Constitution as it was inscribed by Jacob Shallus on
+      parchment — the document on display in the Rotunda at the National Archives
+      Museum. The spelling and punctuation reflect the original.
+    </p>
+  </div>
+</section>
+
+<!-- Document Metadata -->
+<section class="w-full bg-white border-b border-gray-200">
+  <div class="max-w-4xl mx-auto px-4 py-6">
+    <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Status</dt>
+        <dd class="text-gray-900">Supreme Law of the Land</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Ratified</dt>
+        <dd class="text-gray-900">June 21, 1788</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">NAID</dt>
+        <dd class="text-gray-900">
+          <a href="https://catalog.archives.gov/id/1667751"
+             class="text-blue-700 hover:underline"
+             target="_blank" rel="noopener noreferrer">
+            1667751
+          </a>
+        </dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Source</dt>
+        <dd class="text-gray-900">
+          <a href="https://www.archives.gov/founding-docs/constitution-transcript"
+             class="text-blue-700 hover:underline"
+             target="_blank" rel="noopener noreferrer">
+            National Archives
+          </a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- Document Body -->
+<article class="w-full bg-white py-12">
+  <div class="max-w-3xl mx-auto px-4 prose prose-lg prose-gray
+              prose-headings:font-bold prose-headings:text-gray-900
+              prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-gray-200
+              prose-h3:text-xl prose-h3:mt-8
+              prose-blockquote:border-l-blue-700 prose-blockquote:text-gray-600
+              prose-a:text-blue-700">
+
+    {% capture constitution_content %}{% include founding/constitution.md %}{% endcapture %}
+    {{ constitution_content | markdownify }}
+
+  </div>
+</article>
+
+<!-- Chain of Custody -->
+<section class="w-full bg-gray-50 border-t border-gray-200 py-10">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-lg font-bold text-gray-900 mb-4">Chain of Custody</h2>
+    <dl class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <dt class="font-semibold text-gray-500">Official Source</dt>
+        <dd class="text-gray-700">National Archives of the United States</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500">Retrieved Via</dt>
+        <dd class="text-gray-700">NextGen Catalog API v2</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500">Verification</dt>
+        <dd class="text-gray-700">Cross-referenced against archives.gov transcript</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500">Integrity</dt>
+        <dd class="text-gray-700">SHA-256 hash recorded at retrieval</dd>
+      </div>
+    </dl>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="{{ '/founding-documents/' | relative_url }}"
+         class="inline-flex items-center gap-2 text-sm text-blue-700 hover:underline">
+        &larr; All Founding Documents
+      </a>
+      <a href="{{ '/founding-documents/bill-of-rights' | relative_url }}"
+         class="inline-flex items-center gap-2 text-sm text-blue-700 hover:underline">
+        Next: Bill of Rights &rarr;
+      </a>
+    </div>
+  </div>
+</section>

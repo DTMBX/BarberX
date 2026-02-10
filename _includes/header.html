@@ -52,6 +52,12 @@
       >
         Contact
       </a>
+      <a
+        href="{{ '/honor' | relative_url }}"
+        class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition-colors{% if page.url contains 'honor' %} text-blue-700 border-b-2 border-blue-700{% endif %}"
+      >
+        Honor Wall
+      </a>
     </nav>
 
     <!-- Header Actions -->
@@ -103,6 +109,12 @@
         class="nav-link font-semibold text-gray-700 hover:text-blue-700 py-2 transition-colors"
       >
         Contact
+      </a>
+      <a
+        href="{{ '/honor' | relative_url }}"
+        class="nav-link font-semibold text-gray-700 hover:text-blue-700 py-2 transition-colors"
+      >
+        Honor Wall
       </a>
     </div>
   </nav>
