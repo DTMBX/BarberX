@@ -42,6 +42,7 @@ class ThemeManager {
   setTheme(theme) {
     const isDark = theme === 'dark';
     this.htmlElement.style.colorScheme = theme;
+    this.htmlElement.setAttribute('data-theme', theme);
     localStorage.setItem(this.storageKey, theme);
 
     // Dispatch custom event for other scripts to listen to
