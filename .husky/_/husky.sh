@@ -9,5 +9,5 @@
 # Source user config if present
 [ -f "$HOME/.huskyrc" ] && . "$HOME/.huskyrc"
 
-# Ensure node_modules/.bin is in PATH
-export PATH="node_modules/.bin:$PATH"
+# Ensure node_modules/.bin is in PATH (use absolute path from repo root)
+export PATH="$(git rev-parse --show-toplevel)/node_modules/.bin:$PATH"
