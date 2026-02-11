@@ -360,6 +360,9 @@ class TestAuditLogIntegrity:
             try:
                 algo.run(PARAMS, ctx)
             except Exception:
+                # Intentionally suppress exceptions: this test verifies that audit
+                # event counts never decrease, even when algorithms fail. The audit
+                # log must remain append-only regardless of algorithm success/failure.
                 pass
             counts.append(len(audit.events))
         for i in range(1, len(counts)):
