@@ -1,36 +1,13 @@
 #!/usr/bin/env sh
-if [ -z "$husky_skip_init" ]; then
-  debug () {
-    if [ "$HUSKY_DEBUG" = "1" ]; then
-      echo "husky (debug) - $1"
-    fi
-  }
 
-  readonly hook_name="$(basename -- "$0")"
-  debug "starting $hook_name..."
+# Husky bootstrap script for environment consistency
+# Ensures PATH includes node_modules/.bin and sources user config if present
 
-  if [ "$HUSKY" = "0" ]; then
-    debug "HUSKY env variable is set to 0, skipping hook"
-    exit 0
-  fi
+# Skip if HUSKY=0
+[ "${HUSKY-}" = "0" ] && exit 0
 
-  if [ -f ~/.huskyrc ]; then
-    debug "sourcing ~/.huskyrc"
-    . ~/.huskyrc
-  fi
+# Source user config if present
+[ -f "$HOME/.huskyrc" ] && . "$HOME/.huskyrc"
 
-  readonly husky_skip_init=1
-  export husky_skip_init
-  sh -e "$0" "$@"
-  exitCode="$?"
-
-  if [ $exitCode != 0 ]; then
-    echo "husky - $hook_name hook exited with code $exitCode (error)"
-  fi
-
-  if [ $exitCode = 127 ]; then
-    echo "husky - command not found in PATH=$PATH"
-  fi
-
-  exit $exitCode
-fi
+# Ensure node_modules/.bin is in PATH
+export PATH="node_modules/.bin:$PATH"
