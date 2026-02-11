@@ -64,9 +64,10 @@ secrets.enc filter=git-crypt diff=git-crypt -text
 secrets.encrypted filter=git-crypt diff=git-crypt -text
 *.secrets filter=git-crypt diff=git-crypt -text
 
-# Environment files (only if you intentionally track them; usually you should NOT)
+# Environment files — real .env is in .gitignore and never committed.
+# Only encrypt actual .env if it somehow gets tracked; templates are safe plaintext.
 .env            filter=git-crypt diff=git-crypt -text
-.env.*          filter=git-crypt diff=git-crypt -text
+# NOTE: .env.* removed — .env.template files are placeholder-only and should be readable.
 
 # Private keys and certificates
 *.key filter=git-crypt diff=git-crypt -text
@@ -81,7 +82,7 @@ credentials.json filter=git-crypt diff=git-crypt -text
 # Secure directories
 secure/**        filter=git-crypt diff=git-crypt -text
 barber-cam/**    filter=git-crypt diff=git-crypt -text
-scripts/security/** filter=git-crypt diff=git-crypt -text
+# NOTE: scripts/security/** removed — contains only CI placeholder stubs, not secrets.
 
 # NOTE:
 # Do NOT encrypt backend/** or shared/** here unless you accept:
