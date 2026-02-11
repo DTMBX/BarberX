@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
   NODE_OPTIONS: '--max_old_space_size=4096'
 
 permissions:
@@ -56,8 +56,14 @@ jobs:
             echo "ERROR: Build failed - _site/index.html not found"
             exit 1
           fi
-          echo "✓ Build verification passed"
+          page_count=$(find _site -name '*.html' | wc -l)
+          echo "Build verification passed: ${page_count} HTML pages"
           du -sh _site 2>/dev/null || true
+
+      - name: Check for broken internal links
+        continue-on-error: true
+        run: |
+          npx --yes broken-link-checker-local _site --filter-level 2 || echo "Link check completed with warnings"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
