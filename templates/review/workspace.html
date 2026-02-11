@@ -1,0 +1,1409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review · {{ case.case_name }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- PDF.js for document viewing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.mjs" type="module"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf_viewer.min.css" />
+
+  <style>
+    /* === Review Workspace Layout === */
+    :root {
+      --review-border: var(--color-border, #2a2a4a);
+      --review-surface: var(--color-surface, #1a1a2e);
+      --review-surface-alt: #1e1e3a;
+      --review-text: var(--color-text-primary, #e0e0e0);
+      --review-text-muted: var(--color-neutral-500, #6a6a8a);
+      --review-accent: var(--color-primary-400, #60a5fa);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--review-surface);
+      color: var(--review-text);
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .review-shell {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .review-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: var(--review-surface-alt);
+      border-bottom: 1px solid var(--review-border);
+      flex-shrink: 0;
+      min-height: 3rem;
+    }
+
+    .review-toolbar .case-title {
+      font-weight: 600;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
+
+    .review-toolbar .stats-bar {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--review-text-muted);
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .stats-bar .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* === Three-panel layout === */
+    .review-panels {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* LEFT: Results list */
+    .panel-left {
+      width: 320px;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--review-border);
+      flex-shrink: 0;
+    }
+
+    .search-bar {
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid var(--review-border);
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--review-border);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      color: var(--review-text);
+      font-size: 0.8125rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-bar input:focus {
+      border-color: var(--review-accent);
+    }
+
+    .search-bar input::placeholder {
+      color: var(--review-text-muted);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.375rem 0.75rem;
+      border-bottom: 1px solid var(--review-border);
+      flex-wrap: wrap;
+    }
+
+    .filter-row select, .filter-row input[type="date"] {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      border: 1px solid var(--review-border);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.04);
+      color: var(--review-text);
+      font-family: inherit;
+    }
+
+    .results-list {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .result-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      cursor: pointer;
+      transition: background 0.1s;
+      position: relative;
+    }
+
+    .result-item:hover { background: rgba(255,255,255,0.03); }
+    .result-item.selected { background: rgba(96,165,250,0.08); border-left: 3px solid var(--review-accent); }
+
+    .result-item .filename {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .result-item .meta {
+      font-size: 0.6875rem;
+      color: var(--review-text-muted);
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .result-item .snippet {
+      font-size: 0.6875rem;
+      color: var(--review-text-muted);
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-height: 1.4;
+    }
+
+    .code-badge {
+      display: inline-block;
+      padding: 0.0625rem 0.375rem;
+      border-radius: 3px;
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .code-responsive { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .code-non_responsive { background: rgba(239,68,68,0.15); color: #f87171; }
+    .code-privileged { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .code-hot { background: rgba(234,179,8,0.15); color: #facc15; }
+    .code-irrelevant { background: rgba(156,163,175,0.15); color: #9ca3af; }
+
+    .results-pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      border-top: 1px solid var(--review-border);
+      flex-shrink: 0;
+    }
+
+    .results-pagination button {
+      padding: 0.25rem 0.625rem;
+      border: 1px solid var(--review-border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--review-text);
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .results-pagination button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* CENTER: Viewer */
+    .panel-center {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: #121220;
+    }
+
+    .viewer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--review-border);
+      font-size: 0.8125rem;
+      flex-shrink: 0;
+    }
+
+    .viewer-content {
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .viewer-content .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--review-text-muted);
+      font-size: 0.875rem;
+      gap: 0.5rem;
+    }
+
+    .viewer-content img.evidence-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      cursor: grab;
+    }
+
+    .viewer-content .text-viewer {
+      width: 100%;
+      max-width: 800px;
+      padding: 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--review-text);
+    }
+
+    .viewer-content .text-viewer mark {
+      background: rgba(234,179,8,0.3);
+      color: inherit;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
+    #pdf-viewer-container {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #pdf-viewer-container canvas {
+      max-width: 100%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .html-viewer {
+      width: 100%;
+      max-width: 800px;
+      background: #fff;
+      color: #111;
+      padding: 2rem;
+      border-radius: 4px;
+      overflow: auto;
+    }
+
+    /* RIGHT: Coding panel */
+    .panel-right {
+      width: 300px;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--review-border);
+      flex-shrink: 0;
+    }
+
+    .coding-header {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--review-border);
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .coding-section {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--review-border);
+    }
+
+    .coding-section h3 {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--review-text-muted);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .code-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .code-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--review-border);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--review-text);
+      font-size: 0.8125rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.1s;
+      text-align: left;
+    }
+
+    .code-btn:hover { border-color: var(--review-accent); }
+    .code-btn.active { border-color: var(--review-accent); background: rgba(96,165,250,0.1); }
+
+    .code-btn kbd {
+      font-size: 0.625rem;
+      padding: 0.0625rem 0.25rem;
+      border: 1px solid var(--review-border);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.05);
+      font-family: inherit;
+      margin-left: auto;
+      color: var(--review-text-muted);
+    }
+
+    .tags-section .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      cursor: pointer;
+      margin: 0.125rem;
+      border: 1px solid transparent;
+    }
+
+    .tags-section .tag-chip.applied { border-color: rgba(255,255,255,0.2); }
+
+    .annotations-section {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.75rem;
+    }
+
+    .annotation-item {
+      padding: 0.5rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .annotation-item .annotation-meta {
+      font-size: 0.625rem;
+      color: var(--review-text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .annotation-input {
+      display: flex;
+      gap: 0.375rem;
+      padding: 0.5rem 0.75rem;
+      border-top: 1px solid var(--review-border);
+      flex-shrink: 0;
+    }
+
+    .annotation-input textarea {
+      flex: 1;
+      padding: 0.375rem 0.5rem;
+      border: 1px solid var(--review-border);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      color: var(--review-text);
+      font-size: 0.75rem;
+      font-family: inherit;
+      resize: none;
+      outline: none;
+      min-height: 2.5rem;
+    }
+
+    .annotation-input button {
+      padding: 0.375rem 0.75rem;
+      border: none;
+      border-radius: 6px;
+      background: var(--color-primary-600, #2563eb);
+      color: #fff;
+      font-size: 0.75rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      align-self: flex-end;
+    }
+
+    /* History panel (toggleable) */
+    .history-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 360px;
+      background: var(--review-surface-alt);
+      border-left: 1px solid var(--review-border);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.2s;
+    }
+
+    .history-panel.open { transform: translateX(0); }
+
+    .history-panel .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--review-border);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .history-panel .history-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.75rem;
+    }
+
+    .history-event {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.75rem;
+    }
+
+    .history-event .event-action { font-weight: 500; }
+    .history-event .event-time { color: var(--review-text-muted); font-size: 0.6875rem; }
+
+    /* Keyboard shortcut toast */
+    .shortcut-toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--review-surface-alt);
+      border: 1px solid var(--review-border);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      color: var(--review-text);
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .shortcut-toast.visible { opacity: 1; }
+
+    /* Batch selection */
+    .result-item .batch-check {
+      position: absolute;
+      left: 0.375rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      accent-color: var(--review-accent);
+    }
+
+    .batch-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(96,165,250,0.08);
+      border-bottom: 1px solid var(--review-border);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .batch-bar button {
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--review-border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--review-text);
+      font-size: 0.6875rem;
+      cursor: pointer;
+    }
+
+    /* Tab navigation in coding panel */
+    .panel-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--review-border);
+      flex-shrink: 0;
+    }
+
+    .panel-tab {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--review-text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
+    }
+
+    .panel-tab.active {
+      color: var(--review-accent);
+      border-bottom-color: var(--review-accent);
+    }
+
+    /* Responsive: collapse panels on small screens */
+    @media (max-width: 1024px) {
+      .panel-left { width: 260px; }
+      .panel-right { width: 260px; }
+    }
+
+    @media (max-width: 768px) {
+      .review-panels { flex-direction: column; }
+      .panel-left, .panel-right { width: 100%; border: none; max-height: 33vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="review-shell" id="reviewApp">
+    <!-- TOOLBAR -->
+    <div class="review-toolbar">
+      <a href="/review/" style="color:var(--review-text-muted); text-decoration:none; font-size:0.8125rem;">← Cases</a>
+      <span style="color:var(--review-border);">|</span>
+      <span class="case-title">{{ case.case_name }}</span>
+      <span style="font-size:0.75rem; color:var(--review-text-muted);">{{ case.case_number }}</span>
+      <div class="stats-bar" id="statsBar">
+        <span class="stat-pill" id="statTotal" title="Total evidence">— items</span>
+        <span class="stat-pill" id="statCoded" title="Coded">— coded</span>
+        <span class="stat-pill" id="statUncoded" title="Uncoded">— uncoded</span>
+      </div>
+      <button onclick="toggleHistory()" style="padding:0.25rem 0.5rem; border:1px solid var(--review-border); border-radius:4px; background:transparent; color:var(--review-text); font-size:0.6875rem; cursor:pointer;" title="Review History">History</button>
+    </div>
+
+    <!-- THREE-PANEL LAYOUT -->
+    <div class="review-panels" style="position:relative;">
+      <!-- LEFT: Search + Results -->
+      <div class="panel-left">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder='Search… (use "quotes" for exact, AND/OR for boolean)' autocomplete="off" />
+        </div>
+        <div class="filter-row" id="filterRow">
+          <select id="filterFileType" title="File type">
+            <option value="">All types</option>
+            <option value="pdf">PDF</option>
+            <option value="jpg,jpeg,png,gif,tiff,bmp,webp">Image</option>
+            <option value="mp4,avi,mov,mkv,webm">Video</option>
+            <option value="mp3,wav,flac,aac">Audio</option>
+            <option value="docx,doc,txt,rtf">Document</option>
+            <option value="eml,msg">Email</option>
+          </select>
+          <select id="filterCode" title="Review code">
+            <option value="">All codes</option>
+            <option value="responsive">Responsive</option>
+            <option value="non_responsive">Non-Responsive</option>
+            <option value="privileged">Privileged</option>
+            <option value="hot">Hot</option>
+            <option value="irrelevant">Irrelevant</option>
+            <option value="__uncoded__">Uncoded</option>
+          </select>
+          <select id="filterSort" title="Sort">
+            <option value="relevance-desc">Relevance</option>
+            <option value="date-desc">Date ↓</option>
+            <option value="date-asc">Date ↑</option>
+            <option value="filename-asc">Name A-Z</option>
+            <option value="size-desc">Size ↓</option>
+          </select>
+        </div>
+
+        <!-- Batch action bar (hidden when nothing selected) -->
+        <div class="batch-bar" id="batchBar" style="display:none;">
+          <span id="batchCount">0 selected</span>
+          <button onclick="batchCode('responsive')">Responsive</button>
+          <button onclick="batchCode('non_responsive')">Non-Resp</button>
+          <button onclick="batchCode('privileged')">Priv</button>
+          <button onclick="batchCode('hot')">Hot</button>
+          <button onclick="clearBatchSelection()">Clear</button>
+        </div>
+
+        <div class="results-list" id="resultsList" tabindex="0" role="listbox" aria-label="Search results">
+          <div style="padding:2rem 1rem; text-align:center; color:var(--review-text-muted); font-size:0.8125rem;">
+            Enter a search query or clear filters to browse all documents.
+          </div>
+        </div>
+
+        <div class="results-pagination" id="pagination">
+          <button id="prevPage" onclick="changePage(-1)" disabled>← Prev</button>
+          <span id="pageInfo" style="color:var(--review-text-muted);">—</span>
+          <button id="nextPage" onclick="changePage(1)" disabled>Next →</button>
+        </div>
+      </div>
+
+      <!-- CENTER: Document Viewer -->
+      <div class="panel-center">
+        <div class="viewer-header" id="viewerHeader">
+          <span id="viewerFilename" style="font-weight:500;">No document selected</span>
+          <span id="viewerMeta" style="color:var(--review-text-muted); font-size:0.75rem;"></span>
+        </div>
+        <div class="viewer-content" id="viewerContent">
+          <div class="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Select a document to view</span>
+            <span style="font-size:0.75rem;">Use ↑↓ to navigate, Enter to open</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Coding / Tags / Annotations -->
+      <div class="panel-right">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-tab="coding" onclick="switchTab('coding')">Coding</button>
+          <button class="panel-tab" data-tab="tags" onclick="switchTab('tags')">Tags</button>
+          <button class="panel-tab" data-tab="notes" onclick="switchTab('notes')">Notes</button>
+        </div>
+
+        <!-- CODING TAB -->
+        <div id="tabCoding" class="tab-content" style="display:flex; flex-direction:column; flex:1; overflow:hidden;">
+          <div class="coding-section">
+            <h3>Review Code</h3>
+            <div class="code-buttons">
+              <button class="code-btn" data-code="responsive" onclick="applyCode('responsive')">
+                <span class="code-badge code-responsive">R</span> Responsive <kbd>1</kbd>
+              </button>
+              <button class="code-btn" data-code="non_responsive" onclick="applyCode('non_responsive')">
+                <span class="code-badge code-non_responsive">N</span> Non-Responsive <kbd>2</kbd>
+              </button>
+              <button class="code-btn" data-code="privileged" onclick="applyCode('privileged')">
+                <span class="code-badge code-privileged">P</span> Privileged <kbd>3</kbd>
+              </button>
+              <button class="code-btn" data-code="hot" onclick="applyCode('hot')">
+                <span class="code-badge code-hot">H</span> Hot <kbd>4</kbd>
+              </button>
+              <button class="code-btn" data-code="irrelevant" onclick="applyCode('irrelevant')">
+                <span class="code-badge code-irrelevant">I</span> Irrelevant <kbd>5</kbd>
+              </button>
+            </div>
+          </div>
+          <div class="coding-section" style="flex:1; overflow-y:auto;">
+            <h3>Current Decision</h3>
+            <div id="currentDecision" style="font-size:0.8125rem; color:var(--review-text-muted);">
+              No document selected
+            </div>
+          </div>
+        </div>
+
+        <!-- TAGS TAB -->
+        <div id="tabTags" class="tab-content tags-section" style="display:none; flex-direction:column; flex:1; overflow:hidden;">
+          <div class="coding-section" style="flex:1; overflow-y:auto;">
+            <h3>Tags</h3>
+            <div id="tagsList" style="margin-bottom:0.75rem;">
+              <span style="font-size:0.75rem; color:var(--review-text-muted);">Loading tags…</span>
+            </div>
+            <div style="display:flex; gap:0.375rem;">
+              <input id="newTagName" type="text" placeholder="New tag name" style="flex:1; padding:0.25rem 0.5rem; border:1px solid var(--review-border); border-radius:4px; background:rgba(255,255,255,0.04); color:var(--review-text); font-size:0.75rem;" />
+              <input id="newTagColor" type="color" value="#6366f1" style="width:2rem; height:1.5rem; border:none; background:none; cursor:pointer;" />
+              <button onclick="createTag()" style="padding:0.25rem 0.5rem; border:1px solid var(--review-border); border-radius:4px; background:transparent; color:var(--review-text); font-size:0.6875rem; cursor:pointer;">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOTES TAB -->
+        <div id="tabNotes" class="tab-content" style="display:none; flex-direction:column; flex:1; overflow:hidden;">
+          <div class="annotations-section" id="annotationsList">
+            <span style="font-size:0.75rem; color:var(--review-text-muted);">Select a document to view notes.</span>
+          </div>
+          <div class="annotation-input">
+            <textarea id="annotationText" placeholder="Add a note…" rows="2"></textarea>
+            <button onclick="addAnnotation()">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HISTORY PANEL (slide-in) -->
+      <div class="history-panel" id="historyPanel">
+        <div class="history-header">
+          <span>Review History</span>
+          <button onclick="toggleHistory()" style="background:none; border:none; color:var(--review-text); cursor:pointer; font-size:1rem;">✕</button>
+        </div>
+        <div class="history-list" id="historyList">
+          <span style="font-size:0.75rem; color:var(--review-text-muted);">Select a document to see history.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shortcut toast -->
+    <div class="shortcut-toast" id="shortcutToast"></div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- REVIEW WORKSPACE JAVASCRIPT                                         -->
+  <!-- =================================================================== -->
+  <script>
+    const CASE_ID = {{ case.id }};
+    const API = '/api/v1/review';
+
+    // ---- State ----
+    let results = [];
+    let selectedIndex = -1;
+    let selectedEvidence = null;
+    let currentPage = 1;
+    let totalPages = 1;
+    let batchSelected = new Set();
+    let caseTags = [];
+    let searchDebounce = null;
+
+    // ---- Init ----
+    document.addEventListener('DOMContentLoaded', function() {
+      loadStats();
+      loadTags();
+      executeSearch();
+
+      document.getElementById('searchInput').addEventListener('input', function() {
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(function() { currentPage = 1; executeSearch(); }, 350);
+      });
+
+      document.getElementById('searchInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); currentPage = 1; executeSearch(); }
+      });
+
+      ['filterFileType', 'filterCode', 'filterSort'].forEach(function(id) {
+        document.getElementById(id).addEventListener('change', function() { currentPage = 1; executeSearch(); });
+      });
+
+      // Keyboard shortcuts
+      document.addEventListener('keydown', handleKeyboard);
+    });
+
+    // ==== SEARCH ====
+
+    async function executeSearch() {
+      const q = document.getElementById('searchInput').value.trim();
+      const fileType = document.getElementById('filterFileType').value;
+      const codeFilter = document.getElementById('filterCode').value;
+      const sortVal = document.getElementById('filterSort').value;
+      const [sortBy, sortOrder] = sortVal.split('-');
+
+      const params = new URLSearchParams({
+        case_id: CASE_ID,
+        page: currentPage,
+        page_size: 50,
+        sort_by: sortBy || 'relevance',
+        sort_order: sortOrder || 'desc',
+      });
+
+      if (q) params.set('q', q);
+      if (fileType) params.set('file_type', fileType);
+      if (codeFilter === '__uncoded__') {
+        params.set('uncoded', 'true');
+      } else if (codeFilter) {
+        params.set('review_code', codeFilter);
+      }
+
+      try {
+        const resp = await fetch(API + '/search?' + params.toString(), { credentials: 'same-origin' });
+        if (!resp.ok) throw new Error('Search failed');
+        const data = await resp.json();
+
+        results = data.results || [];
+        totalPages = data.pagination ? data.pagination.total_pages : 1;
+        currentPage = data.pagination ? data.pagination.page : 1;
+
+        renderResults(data);
+        updatePagination(data.pagination);
+      } catch (e) {
+        document.getElementById('resultsList').innerHTML =
+          '<div style="padding:1rem; color:var(--color-error-400); font-size:0.8125rem;">Search failed. Check your connection.</div>';
+      }
+    }
+
+    function renderResults(data) {
+      const container = document.getElementById('resultsList');
+      if (!results.length) {
+        container.innerHTML = '<div style="padding:2rem 1rem; text-align:center; color:var(--review-text-muted); font-size:0.8125rem;">No results found.</div>';
+        return;
+      }
+
+      container.innerHTML = results.map(function(item, idx) {
+        const isSelected = selectedEvidence && selectedEvidence.evidence_id === item.evidence_id;
+        const isBatch = batchSelected.has(item.evidence_id);
+        const codeClass = item.review_decision ? 'code-' + item.review_decision.review_code : '';
+        const codeLabel = item.review_decision ? item.review_decision.review_code.replace('_', '-') : '';
+        const sizeStr = item.file_size_bytes ? formatSize(item.file_size_bytes) : '';
+        const dateStr = item.collected_date ? new Date(item.collected_date).toLocaleDateString() : '';
+
+        return '<div class="result-item' + (isSelected ? ' selected' : '') + '" data-idx="' + idx + '" onclick="selectResult(' + idx + ')" role="option" aria-selected="' + isSelected + '">'
+          + '<input type="checkbox" class="batch-check" ' + (isBatch ? 'checked' : '') + ' onclick="event.stopPropagation(); toggleBatch(' + item.evidence_id + ', this.checked)" tabindex="-1" />'
+          + '<div class="filename" style="padding-left:1.25rem;">' + escapeHtml(item.original_filename) + '</div>'
+          + '<div class="meta" style="padding-left:1.25rem;">'
+          + (item.file_type ? '<span>' + item.file_type.toUpperCase() + '</span>' : '')
+          + (sizeStr ? '<span>' + sizeStr + '</span>' : '')
+          + (dateStr ? '<span>' + dateStr + '</span>' : '')
+          + (codeLabel ? '<span class="code-badge ' + codeClass + '">' + codeLabel + '</span>' : '')
+          + '</div>'
+          + (item.snippet ? '<div class="snippet">' + escapeHtml(item.snippet) + '</div>' : '')
+          + '</div>';
+      }).join('');
+    }
+
+    function selectResult(idx) {
+      if (idx < 0 || idx >= results.length) return;
+      selectedIndex = idx;
+      selectedEvidence = results[idx];
+
+      // Update selected state in list
+      document.querySelectorAll('.result-item').forEach(function(el, i) {
+        el.classList.toggle('selected', i === idx);
+        el.setAttribute('aria-selected', i === idx);
+      });
+
+      // Scroll selected into view
+      const selected = document.querySelector('.result-item.selected');
+      if (selected) selected.scrollIntoView({ block: 'nearest' });
+
+      loadDocumentViewer(selectedEvidence);
+      loadCurrentDecision(selectedEvidence);
+      loadAnnotations(selectedEvidence);
+      loadDocumentTags(selectedEvidence);
+    }
+
+    // ==== DOCUMENT VIEWER ====
+
+    async function loadDocumentViewer(item) {
+      const header = document.getElementById('viewerHeader');
+      const content = document.getElementById('viewerContent');
+      const filenameEl = document.getElementById('viewerFilename');
+      const metaEl = document.getElementById('viewerMeta');
+
+      filenameEl.textContent = item.original_filename;
+      metaEl.textContent = [item.file_type, formatSize(item.file_size_bytes), item.processing_status].filter(Boolean).join(' · ');
+
+      const ft = (item.file_type || '').toLowerCase();
+      const mime = (item.mime_type || '').toLowerCase();
+
+      // PDF
+      if (ft === 'pdf' || mime === 'application/pdf') {
+        content.innerHTML = '<div id="pdf-viewer-container"><div style="color:var(--review-text-muted);font-size:0.8125rem;">Loading PDF…</div></div>';
+        loadPDFViewer(item);
+        return;
+      }
+
+      // Image
+      if (['jpg','jpeg','png','gif','bmp','webp','tiff','svg'].includes(ft) || mime.startsWith('image/')) {
+        content.innerHTML = '<div style="text-align:center; padding:1rem; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">'
+          + '<div style="color:var(--review-text-muted); font-size:0.8125rem;">[Image viewer — file available on server]</div></div>';
+        return;
+      }
+
+      // Text / extracted content
+      try {
+        const resp = await fetch(API + '/evidence/' + item.evidence_id + '/text?case_id=' + CASE_ID, { credentials: 'same-origin' });
+        if (resp.ok) {
+          const data = await resp.json();
+          if (data.text) {
+            const highlighted = highlightSearchTerms(escapeHtml(data.text));
+            content.innerHTML = '<div class="text-viewer">' + highlighted + '</div>';
+            return;
+          }
+        }
+      } catch(e) { /* fall through */ }
+
+      // HTML / email
+      if (['html','htm','eml','msg'].includes(ft) || mime.includes('html')) {
+        content.innerHTML = '<div class="html-viewer" style="color:var(--review-text-muted);">[Email/HTML viewer — content sanitized for safe rendering]</div>';
+        return;
+      }
+
+      // Fallback
+      content.innerHTML = '<div class="empty-state"><span>No preview available for ' + (ft || 'this file type') + '</span><span style="font-size:0.75rem;">Extracted text will appear here when processing is complete.</span></div>';
+    }
+
+    async function loadPDFViewer(item) {
+      const container = document.getElementById('pdf-viewer-container');
+      if (!container) return;
+
+      // Try to load extracted text as fallback for MVP
+      try {
+        const resp = await fetch(API + '/evidence/' + item.evidence_id + '/text?case_id=' + CASE_ID, { credentials: 'same-origin' });
+        if (resp.ok) {
+          const data = await resp.json();
+          if (data.text) {
+            const highlighted = highlightSearchTerms(escapeHtml(data.text));
+            container.innerHTML = '<div class="text-viewer">' + highlighted + '</div>';
+            return;
+          }
+        }
+      } catch(e) { /* continue */ }
+
+      container.innerHTML = '<div style="padding:2rem; color:var(--review-text-muted); font-size:0.8125rem; text-align:center;">PDF viewer ready — extracted text not yet available for this document.</div>';
+    }
+
+    function highlightSearchTerms(text) {
+      const q = document.getElementById('searchInput').value.trim();
+      if (!q) return text;
+
+      // Extract quoted phrases and individual terms
+      const phrases = [];
+      const quoted = q.match(/"([^"]+)"/g);
+      if (quoted) quoted.forEach(function(p) { phrases.push(p.replace(/"/g, '')); });
+
+      const remaining = q.replace(/"[^"]*"/g, '').trim();
+      if (remaining) {
+        remaining.split(/\s+/).forEach(function(w) {
+          if (w.toUpperCase() !== 'AND' && w.toUpperCase() !== 'OR') phrases.push(w);
+        });
+      }
+
+      if (!phrases.length) return text;
+
+      // Build regex
+      const escaped = phrases.map(function(p) { return p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
+      const re = new RegExp('(' + escaped.join('|') + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    // ==== CODING ====
+
+    async function applyCode(code) {
+      if (!selectedEvidence) { showToast('Select a document first'); return; }
+
+      try {
+        const resp = await fetch(API + '/code', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            case_id: CASE_ID,
+            evidence_id: selectedEvidence.evidence_id,
+            review_code: code,
+          }),
+        });
+
+        if (!resp.ok) throw new Error('Failed');
+        const data = await resp.json();
+
+        // Update local state
+        selectedEvidence.review_decision = data.decision;
+        results[selectedIndex] = selectedEvidence;
+        renderResults({});
+        selectResult(selectedIndex);
+        loadStats();
+        showToast('Coded as ' + code.replace('_', ' '));
+
+        // Auto-advance to next uncoded doc
+        advanceToNext();
+      } catch(e) {
+        showToast('Failed to apply code');
+      }
+    }
+
+    async function batchCode(code) {
+      if (!batchSelected.size) return;
+
+      try {
+        const resp = await fetch(API + '/code/batch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            case_id: CASE_ID,
+            evidence_ids: Array.from(batchSelected),
+            review_code: code,
+          }),
+        });
+
+        if (!resp.ok) throw new Error('Failed');
+        const data = await resp.json();
+
+        showToast('Batch coded ' + data.applied_count + ' items as ' + code.replace('_', ' '));
+        clearBatchSelection();
+        executeSearch();
+        loadStats();
+      } catch(e) {
+        showToast('Batch coding failed');
+      }
+    }
+
+    function advanceToNext() {
+      if (selectedIndex < results.length - 1) {
+        selectResult(selectedIndex + 1);
+      }
+    }
+
+    function loadCurrentDecision(item) {
+      const el = document.getElementById('currentDecision');
+      if (!item.review_decision) {
+        el.innerHTML = '<span style="color:var(--review-text-muted);">Not coded</span>';
+      } else {
+        const d = item.review_decision;
+        const codeClass = 'code-' + d.review_code;
+        el.innerHTML = '<span class="code-badge ' + codeClass + '">' + d.review_code.replace('_', ' ') + '</span>'
+          + '<div style="margin-top:0.375rem; font-size:0.75rem; color:var(--review-text-muted);">'
+          + (d.created_at ? new Date(d.created_at).toLocaleString() : '')
+          + (d.reviewer_note ? '<br>' + escapeHtml(d.reviewer_note) : '')
+          + '</div>';
+      }
+
+      // Highlight active code button
+      document.querySelectorAll('.code-btn').forEach(function(btn) {
+        const code = btn.getAttribute('data-code');
+        btn.classList.toggle('active', item.review_decision && item.review_decision.review_code === code);
+      });
+    }
+
+    // ==== TAGS ====
+
+    async function loadTags() {
+      try {
+        const resp = await fetch(API + '/tags?case_id=' + CASE_ID, { credentials: 'same-origin' });
+        if (!resp.ok) return;
+        const data = await resp.json();
+        caseTags = data.tags || [];
+        renderTags();
+      } catch(e) { /* silent */ }
+    }
+
+    function renderTags() {
+      const el = document.getElementById('tagsList');
+      if (!caseTags.length) {
+        el.innerHTML = '<span style="font-size:0.75rem; color:var(--review-text-muted);">No tags yet.</span>';
+        return;
+      }
+      el.innerHTML = caseTags.map(function(t) {
+        const applied = selectedEvidence && selectedEvidence.tags && selectedEvidence.tags.some(function(x) { return x.id === t.id; });
+        return '<span class="tag-chip' + (applied ? ' applied' : '') + '" style="background:' + t.color + '20; color:' + t.color + ';" onclick="toggleTag(' + t.id + ')" title="Click to toggle">'
+          + escapeHtml(t.name)
+          + '</span>';
+      }).join('');
+    }
+
+    function loadDocumentTags(item) {
+      // Refresh tag rendering for current document
+      renderTags();
+    }
+
+    async function createTag() {
+      const name = document.getElementById('newTagName').value.trim();
+      const color = document.getElementById('newTagColor').value;
+      if (!name) return;
+
+      try {
+        const resp = await fetch(API + '/tags', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ case_id: CASE_ID, name: name, color: color }),
+        });
+        if (!resp.ok) throw new Error('Failed');
+        document.getElementById('newTagName').value = '';
+        loadTags();
+        showToast('Tag created: ' + name);
+      } catch(e) {
+        showToast('Failed to create tag');
+      }
+    }
+
+    async function toggleTag(tagId) {
+      if (!selectedEvidence) { showToast('Select a document first'); return; }
+
+      const applied = selectedEvidence.tags && selectedEvidence.tags.some(function(t) { return t.id === tagId; });
+      const method = applied ? 'DELETE' : 'POST';
+
+      try {
+        const resp = await fetch(API + '/tag', {
+          method: method,
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            case_id: CASE_ID,
+            evidence_ids: [selectedEvidence.evidence_id],
+            tag_id: tagId,
+          }),
+        });
+        if (!resp.ok) throw new Error('Failed');
+
+        // Refresh evidence detail to get updated tags
+        const detResp = await fetch(API + '/evidence/' + selectedEvidence.evidence_id + '?case_id=' + CASE_ID, { credentials: 'same-origin' });
+        if (detResp.ok) {
+          const det = await detResp.json();
+          selectedEvidence.tags = det.tags;
+          renderTags();
+        }
+      } catch(e) {
+        showToast('Failed to toggle tag');
+      }
+    }
+
+    // ==== ANNOTATIONS ====
+
+    async function loadAnnotations(item) {
+      const el = document.getElementById('annotationsList');
+      if (!item) { el.innerHTML = '<span style="font-size:0.75rem; color:var(--review-text-muted);">Select a document.</span>'; return; }
+
+      try {
+        const resp = await fetch(API + '/annotations?case_id=' + CASE_ID + '&evidence_id=' + item.evidence_id, { credentials: 'same-origin' });
+        if (!resp.ok) throw new Error('Failed');
+        const data = await resp.json();
+        const annotations = data.annotations || [];
+
+        if (!annotations.length) {
+          el.innerHTML = '<span style="font-size:0.75rem; color:var(--review-text-muted);">No notes yet.</span>';
+          return;
+        }
+
+        el.innerHTML = annotations.map(function(a) {
+          return '<div class="annotation-item" style="border-left:3px solid ' + (a.color || '#fbbf24') + ';">'
+            + '<div>' + escapeHtml(a.content) + '</div>'
+            + '<div class="annotation-meta">' + (a.created_at ? new Date(a.created_at).toLocaleString() : '') + '</div>'
+            + '</div>';
+        }).join('');
+      } catch(e) {
+        el.innerHTML = '<span style="font-size:0.75rem; color:var(--review-text-muted);">Failed to load notes.</span>';
+      }
+    }
+
+    async function addAnnotation() {
+      if (!selectedEvidence) { showToast('Select a document first'); return; }
+      const text = document.getElementById('annotationText').value.trim();
+      if (!text) return;
+
+      try {
+        const resp = await fetch(API + '/annotations', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            case_id: CASE_ID,
+            evidence_id: selectedEvidence.evidence_id,
+            content: text,
+          }),
+        });
+        if (!resp.ok) throw new Error('Failed');
+        document.getElementById('annotationText').value = '';
+        loadAnnotations(selectedEvidence);
+        showToast('Note added');
+      } catch(e) {
+        showToast('Failed to add note');
+      }
+    }
+
+    // ==== HISTORY ====
+
+    async function loadHistory(item) {
+      const el = document.getElementById('historyList');
+      if (!item) return;
+
+      try {
+        const resp = await fetch(API + '/evidence/' + item.evidence_id + '/history?case_id=' + CASE_ID, { credentials: 'same-origin' });
+        if (!resp.ok) throw new Error('Failed');
+        const data = await resp.json();
+
+        const events = (data.audit_events || []);
+        if (!events.length) {
+          el.innerHTML = '<span style="font-size:0.75rem; color:var(--review-text-muted);">No history yet.</span>';
+          return;
+        }
+
+        el.innerHTML = events.map(function(ev) {
+          const details = ev.details || {};
+          let desc = ev.action;
+          if (details.review_code) desc += ': ' + details.review_code;
+          if (details.tag_name) desc += ': ' + details.tag_name;
+          return '<div class="history-event">'
+            + '<div class="event-action">' + escapeHtml(desc) + '</div>'
+            + '<div class="event-time">' + (ev.created_at ? new Date(ev.created_at).toLocaleString() : '') + ' · User ' + ev.actor_id + '</div>'
+            + '</div>';
+        }).join('');
+      } catch(e) {
+        el.innerHTML = '<span style="font-size:0.75rem; color:var(--review-text-muted);">Failed to load history.</span>';
+      }
+    }
+
+    function toggleHistory() {
+      const panel = document.getElementById('historyPanel');
+      panel.classList.toggle('open');
+      if (panel.classList.contains('open') && selectedEvidence) {
+        loadHistory(selectedEvidence);
+      }
+    }
+
+    // ==== BATCH SELECTION ====
+
+    function toggleBatch(evidenceId, checked) {
+      if (checked) {
+        batchSelected.add(evidenceId);
+      } else {
+        batchSelected.delete(evidenceId);
+      }
+      updateBatchBar();
+    }
+
+    function updateBatchBar() {
+      const bar = document.getElementById('batchBar');
+      const count = document.getElementById('batchCount');
+      if (batchSelected.size > 0) {
+        bar.style.display = 'flex';
+        count.textContent = batchSelected.size + ' selected';
+      } else {
+        bar.style.display = 'none';
+      }
+    }
+
+    function clearBatchSelection() {
+      batchSelected.clear();
+      updateBatchBar();
+      document.querySelectorAll('.batch-check').forEach(function(cb) { cb.checked = false; });
+    }
+
+    // ==== PAGINATION ====
+
+    function changePage(delta) {
+      currentPage += delta;
+      if (currentPage < 1) currentPage = 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      executeSearch();
+    }
+
+    function updatePagination(p) {
+      if (!p) return;
+      document.getElementById('prevPage').disabled = !p.has_prev;
+      document.getElementById('nextPage').disabled = !p.has_next;
+      document.getElementById('pageInfo').textContent = 'Page ' + p.page + ' of ' + p.total_pages + ' (' + p.total_results + ' results)';
+    }
+
+    // ==== STATS ====
+
+    async function loadStats() {
+      try {
+        const resp = await fetch(API + '/stats?case_id=' + CASE_ID, { credentials: 'same-origin' });
+        if (!resp.ok) return;
+        const data = await resp.json();
+        document.getElementById('statTotal').textContent = data.total_evidence + ' items';
+        document.getElementById('statCoded').textContent = data.coded + ' coded';
+        document.getElementById('statUncoded').textContent = data.uncoded + ' uncoded';
+      } catch(e) { /* silent */ }
+    }
+
+    // ==== TABS ====
+
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(function(el) { el.style.display = 'none'; });
+      document.querySelectorAll('.panel-tab').forEach(function(el) { el.classList.remove('active'); });
+
+      const tabEl = document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1));
+      if (tabEl) tabEl.style.display = 'flex';
+
+      document.querySelector('.panel-tab[data-tab="' + tab + '"]').classList.add('active');
+    }
+
+    // ==== KEYBOARD NAVIGATION ====
+
+    function handleKeyboard(e) {
+      // Skip if user is typing in an input/textarea
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+
+      switch(e.key) {
+        case 'ArrowDown':
+        case 'j':
+          e.preventDefault();
+          if (selectedIndex < results.length - 1) selectResult(selectedIndex + 1);
+          break;
+        case 'ArrowUp':
+        case 'k':
+          e.preventDefault();
+          if (selectedIndex > 0) selectResult(selectedIndex - 1);
+          break;
+        case 'Enter':
+          e.preventDefault();
+          if (selectedEvidence) loadDocumentViewer(selectedEvidence);
+          break;
+        case '1':
+          e.preventDefault();
+          applyCode('responsive');
+          break;
+        case '2':
+          e.preventDefault();
+          applyCode('non_responsive');
+          break;
+        case '3':
+          e.preventDefault();
+          applyCode('privileged');
+          break;
+        case '4':
+          e.preventDefault();
+          applyCode('hot');
+          break;
+        case '5':
+          e.preventDefault();
+          applyCode('irrelevant');
+          break;
+        case 'n':
+          e.preventDefault();
+          if (selectedIndex < results.length - 1) selectResult(selectedIndex + 1);
+          break;
+        case 'p':
+          e.preventDefault();
+          if (selectedIndex > 0) selectResult(selectedIndex - 1);
+          break;
+        case 'h':
+          e.preventDefault();
+          toggleHistory();
+          break;
+        case '/':
+          e.preventDefault();
+          document.getElementById('searchInput').focus();
+          break;
+        case '?':
+          e.preventDefault();
+          showShortcutHelp();
+          break;
+      }
+    }
+
+    function showShortcutHelp() {
+      showToast('↑↓/jk: navigate · 1-5: code · n/p: next/prev · /: search · h: history · ?: help', 4000);
+    }
+
+    // ==== UTILITIES ====
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function formatSize(bytes) {
+      if (!bytes) return '';
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    function showToast(msg, duration) {
+      duration = duration || 2000;
+      const el = document.getElementById('shortcutToast');
+      el.textContent = msg;
+      el.classList.add('visible');
+      setTimeout(function() { el.classList.remove('visible'); }, duration);
+    }
+  </script>
+</body>
+</html>

@@ -116,7 +116,7 @@ class ForensicAudioMetadata(db.Model):
     custodian = db.Column(db.String(200))
     acquisition_date = db.Column(db.DateTime)
     acquisition_method = db.Column(db.String(100))  # original, dump, recovery
-    forensic_examiner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    forensic_examiner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     examiner_certification = db.Column(db.String(100))  # CFCA, CFCE, etc.
     
     # Court Admissibility
@@ -245,7 +245,7 @@ class ForensicVideoMetadata(db.Model):
     custodian = db.Column(db.String(200))
     acquisition_date = db.Column(db.DateTime)
     acquisition_method = db.Column(db.String(100))
-    forensic_examiner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    forensic_examiner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     examiner_certification = db.Column(db.String(100))
     
     # Court Admissibility
@@ -340,14 +340,14 @@ class AudioTranscription(db.Model):
     
     # Edit Summary
     human_corrected = db.Column(db.Boolean, default=False)
-    corrected_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    corrected_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     corrected_date = db.Column(db.DateTime)
     correction_notes = db.Column(db.Text)
     
     # Court Admissibility
     court_certified = db.Column(db.Boolean, default=False)
     certification_date = db.Column(db.DateTime)
-    certified_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    certified_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
@@ -406,7 +406,7 @@ class MediaForensicReport(db.Model):
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False)
     
     # Report Details
-    examiner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    examiner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     examiner_name = db.Column(db.String(200))
     examiner_qualifications = db.Column(db.Text)  # Expertise, certifications
     

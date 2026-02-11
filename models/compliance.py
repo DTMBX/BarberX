@@ -34,12 +34,12 @@ class ComplianceObligation(db.Model):
     # Compliance Details
     required_actions = db.Column(db.Text)  # JSON array of actions
     responsible_party = db.Column(db.String(300))
-    assigned_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    assigned_to_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Documentation
     supporting_documents = db.Column(db.Text)  # JSON array of document IDs
     certification_status = db.Column(db.String(50))  # uncertified, certified
-    certified_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    certified_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     certified_date = db.Column(db.DateTime)
     
     # Risk Assessment
@@ -83,7 +83,7 @@ class DeadlineTracker(db.Model):
     
     # Responsibility
     responsible_party = db.Column(db.String(300))
-    assigned_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    assigned_to_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Notifications
     days_before_alert = db.Column(db.Integer, default=7)
@@ -119,7 +119,7 @@ class AuditLog(db.Model):
     entity_id = db.Column(db.String(100))
     
     # User Information
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     username = db.Column(db.String(200))
     
     # Change Details
@@ -240,7 +240,7 @@ class CertificationOfCustody(db.Model):
     # Submission
     submitted_to = db.Column(db.String(300))  # Court, opposing counsel, etc.
     submission_date = db.Column(db.DateTime)
-    submitted_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    submitted_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Status
     status = db.Column(db.String(50), default='draft')  # draft, signed, notarized, filed, challenged, accepted
@@ -286,10 +286,10 @@ class ComplianceReport(db.Model):
     issues_remediated = db.Column(db.Integer, default=0)
     
     # Sign-Off
-    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     reviewed_date = db.Column(db.DateTime)
     approved = db.Column(db.Boolean, default=False)
-    approved_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    approved_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     approved_date = db.Column(db.DateTime)
     
     # Metadata
@@ -339,7 +339,7 @@ class RiskAssessment(db.Model):
     next_review_date = db.Column(db.DateTime)
     
     # Assessment Details
-    assessed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    assessed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -401,13 +401,13 @@ class DocumentRetention(db.Model):
     
     # Destruction
     destruction_approved = db.Column(db.Boolean, default=False)
-    destruction_approved_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    destruction_approved_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     destruction_approved_date = db.Column(db.DateTime)
     
     destruction_completed = db.Column(db.Boolean, default=False)
     destruction_date = db.Column(db.DateTime)
     destruction_method = db.Column(db.String(100))  # shred, securely_delete, burn, etc.
-    destruction_completed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    destruction_completed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Certification
     destruction_certificate = db.Column(db.String(500))  # Path to certificate

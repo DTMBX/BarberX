@@ -143,14 +143,16 @@ lighthouse-*.html
 # Archive and temporary documentation
 archive/
 docs/archive/
+docs/pypi_check.json
+_pypi_versions.txt
 
 # Build artifacts
 lighthouse-*.html
 test_*.html
 
-# Numbered version folders
-[0-9]*
-[0-9]*.[0-9]*.[0-9]*
+# Numbered version folders (root level only)
+/[0-9]*
+/[0-9]*.[0-9]*.[0-9]*
 
 # Evident Security Rules (Added 2026-01-28)
 # Evident Confidential Financial Data
@@ -353,6 +355,15 @@ _site/
 .venv/
 __pycache__/
 *.pyc
+# Python virtual environments (all common patterns)
+env/
+env-*/
+venv/
+venv-*/
+ENV/
+env.bak/
+venv.bak/
+pyvenv.cfg
 
 # IDE
 .vs/
@@ -370,8 +381,18 @@ run_*.log
 uploads/
 logs/
 
+# Evidence data directories (contain actual evidence, not source code)
+evidence_store/
+exports/
+
 # CI log outputs (generated)
 ci-logs/
 
 # Security scan outputs (do not commit)
 security/secret-scan-results.txt
+
+# Redis dump
+dump.rdb
+
+# Ruby bundler cache
+vendor/

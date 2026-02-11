@@ -84,8 +84,8 @@ class MediaValidator:
 
     # File size limits (in MB)
     SIZE_LIMITS = {
-        MediaType.VIDEO: 500,      # 500 MB for video
-        MediaType.AUDIO: 100,      # 100 MB for audio
+        MediaType.VIDEO: 2500,     # 2.5 GB for BWC video evidence
+        MediaType.AUDIO: 500,      # 500 MB for audio evidence
         MediaType.PDF: 50,         # 50 MB for PDF
         MediaType.IMAGE: 10,       # 10 MB for image
         MediaType.DOCUMENT: 25,    # 25 MB for document

@@ -1,0 +1,38 @@
+# -----------------------------------------------------------------
+# Evident — systemd Service Unit
+# -----------------------------------------------------------------
+# Install:
+#   sudo cp deploy/evident.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now evident
+# -----------------------------------------------------------------
+
+[Unit]
+Description=Evident Platform (Gunicorn)
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=notify
+User=evident
+Group=evident
+WorkingDirectory=/opt/evident
+Environment="FLASK_ENV=production"
+Environment="DATABASE_URL=postgresql://evident:CHANGE_ME@localhost:5432/evident"
+
+ExecStart=/opt/evident/venv/bin/gunicorn -c deploy/gunicorn.conf.py wsgi:app
+ExecReload=/bin/kill -s HUP $MAINPID
+
+# Restart policy
+Restart=on-failure
+RestartSec=5s
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/evident/instance /opt/evident/uploads /opt/evident/evidence_store
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

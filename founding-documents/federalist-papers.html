@@ -1,0 +1,93 @@
+---
+layout: default
+permalink: /founding-documents/federalist-papers
+title: "The Federalist Papers — Evident Technologies"
+description: >-
+  The Federalist Papers, a collection of 85 essays written by Alexander Hamilton,
+  James Madison, and John Jay in support of ratifying the Constitution.
+---
+
+<section class="w-full bg-gradient-to-br from-blue-50 to-blue-100 py-10 md:py-14">
+  <div class="max-w-4xl mx-auto px-4">
+    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}" class="hover:text-blue-700">Home</a>
+      <span class="mx-1">/</span>
+      <a href="{{ '/honor' | relative_url }}" class="hover:text-blue-700">Honor Wall</a>
+      <span class="mx-1">/</span>
+      <a href="{{ '/founding-documents/' | relative_url }}" class="hover:text-blue-700">Founding Documents</a>
+      <span class="mx-1">/</span>
+      <span class="text-gray-900">Federalist Papers</span>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      The Federalist Papers
+    </h1>
+    <p class="text-gray-600 leading-relaxed max-w-3xl">
+      A collection of 85 essays written by Alexander Hamilton, James Madison, and
+      John Jay between 1787 and 1788. Published under the pseudonym "Publius" to
+      promote ratification of the United States Constitution.
+    </p>
+  </div>
+</section>
+
+<section class="w-full bg-white border-b border-gray-200">
+  <div class="max-w-4xl mx-auto px-4 py-6">
+    <dl class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Status</dt>
+        <dd class="text-gray-900">Historical Commentary</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Published</dt>
+        <dd class="text-gray-900">1787 &ndash; 1788</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Authors</dt>
+        <dd class="text-gray-900">Hamilton, Madison, Jay</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-500 uppercase text-xs tracking-wide mb-1">Source</dt>
+        <dd class="text-gray-900">
+          <a href="https://www.congress.gov/resources/display/content/The+Federalist+Papers"
+             class="text-blue-700 hover:underline"
+             target="_blank" rel="noopener noreferrer">
+            Library of Congress
+          </a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<article class="w-full bg-white py-12">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
+      <p class="text-amber-800 font-semibold mb-2">Document Pending Retrieval</p>
+      <p class="text-amber-700 text-sm">
+        This collection will be retrieved from the National Archives and Library
+        of Congress sources once the API key is provisioned. Run
+        <code class="bg-amber-100 px-1 py-0.5 rounded text-xs">python scripts/fetch_founding_documents.py --document federalist-papers</code>
+        to fetch it manually.
+      </p>
+    </div>
+  </div>
+</article>
+
+<section class="w-full bg-gray-50 border-t border-gray-200 py-10">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="flex flex-wrap gap-3">
+      <a href="{{ '/founding-documents/emancipation-proclamation' | relative_url }}"
+         class="inline-flex items-center gap-2 text-sm text-blue-700 hover:underline">
+        &larr; Emancipation Proclamation
+      </a>
+      <a href="{{ '/founding-documents/' | relative_url }}"
+         class="inline-flex items-center gap-2 text-sm text-blue-700 hover:underline">
+        All Founding Documents
+      </a>
+      <a href="{{ '/founding-documents/treaty-of-paris' | relative_url }}"
+         class="inline-flex items-center gap-2 text-sm text-blue-700 hover:underline">
+        Next: Treaty of Paris &rarr;
+      </a>
+    </div>
+  </div>
+</section>

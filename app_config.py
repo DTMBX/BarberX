@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, render_template_string
 from flask_login import LoginManager, current_user
+from version import __version__ as APP_VERSION
 
 # Load environment variables
 load_dotenv()
@@ -39,7 +40,7 @@ class Config:
     WTF_CSRF_TIME_LIMIT = None
     
     # Media Upload Configuration
-    MAX_CONTENT_LENGTH = 500 * 1024 * 1024  # 500MB max upload for large video files
+    MAX_CONTENT_LENGTH = 3 * 1024 * 1024 * 1024  # 3 GB for large BWC video files
     UPLOAD_FOLDER = 'uploads'
     ALLOWED_EXTENSIONS = {
         'mp4', 'avi', 'mov', 'mkv', 'webm', 'flv',  # Video
@@ -86,10 +87,23 @@ def create_app():
     # Initialize Flask
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.config['APP_VERSION'] = APP_VERSION
     
     # Initialize database
     from auth.models import db
     db.init_app(app)
+    
+    # Initialize Alembic migrations via Flask-Migrate
+    from flask_migrate import Migrate
+    Migrate(app, db, directory='migrations')
+    
+    # Structured logging (must come before other init so they log properly)
+    from services.structured_logging import init_logging
+    init_logging(app)
+
+    # Security hardening (headers, rate limits, session)
+    from auth.security import init_security
+    init_security(app)
     
     # Initialize Flask-Login
     login_manager = LoginManager()
@@ -118,6 +132,26 @@ def create_app():
     from routes.legal_admin import legal_admin_bp
     from routes.chat_routes import chat_bp
     from routes.chat_admin import chat_admin_bp
+    from routes.nara_webhook import nara_bp
+    from routes.case_routes import case_bp
+    from routes.case_event_routes import case_event_bp
+    
+    # Health-check endpoints (no auth required)
+    from routes.health import health_bp
+    
+    # Phase 7 — external trust & transparency (no auth on portal/transparency)
+    from routes.share_routes import share_bp
+    from routes.transparency import transparency_bp
+    
+    # Phase 8 — versioned REST API (Bearer-token auth)
+    from routes.api_v1 import api_v1_bp
+    
+    # Phase 9 — document processing engine
+    from routes.processing_routes import processing_bp
+
+    # Phase 10 — search & review platform
+    from routes.review_api import review_api_bp
+    from routes.review_routes import review_bp
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
@@ -127,6 +161,16 @@ def create_app():
     app.register_blueprint(legal_admin_bp)
     app.register_blueprint(chat_bp)
     app.register_blueprint(chat_admin_bp)
+    app.register_blueprint(nara_bp)
+    app.register_blueprint(case_event_bp)
+    app.register_blueprint(case_bp)
+    app.register_blueprint(health_bp)
+    app.register_blueprint(share_bp)
+    app.register_blueprint(transparency_bp)
+    app.register_blueprint(api_v1_bp)
+    app.register_blueprint(processing_bp)
+    app.register_blueprint(review_api_bp)
+    app.register_blueprint(review_bp)
     
     # Create tables
     with app.app_context():

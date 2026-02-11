@@ -40,13 +40,13 @@ class DiscoveryRequest(db.Model):
     partial_response_notes = db.Column(db.Text)
     
     # Metadata
-    assigned_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    assigned_to_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     priority = db.Column(db.String(20), default='normal')  # low, normal, high
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Relationships
     assigned_to = db.relationship('User', foreign_keys=[assigned_to_id])
@@ -104,7 +104,7 @@ class ProductionSet(db.Model):
     Represents a production of documents to opposing counsel
     Groups documents produced together in response to discovery
     """
-    __tablename__ = 'production_set'
+    __tablename__ = 'ediscovery_production_set'
     
     id = db.Column(db.Integer, primary_key=True)
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False)
@@ -135,7 +135,7 @@ class ProductionSet(db.Model):
     status = db.Column(db.String(50), default='pending')  # pending, produced, supplemental, modified
     
     # Metadata
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
@@ -154,10 +154,10 @@ class ProductionItem(db.Model):
     Individual item in a production set
     Links evidence to specific productions with Bates numbering
     """
-    __tablename__ = 'production_item'
+    __tablename__ = 'ediscovery_production_item'
     
     id = db.Column(db.Integer, primary_key=True)
-    production_id = db.Column(db.Integer, db.ForeignKey('production_set.id'), nullable=False, index=True)
+    production_id = db.Column(db.Integer, db.ForeignKey('ediscovery_production_set.id'), nullable=False, index=True)
     evidence_id = db.Column(db.Integer, db.ForeignKey('evidence_item.id'), nullable=False)
     
     # Bates Numbering
@@ -193,7 +193,7 @@ class PrivilegeLog(db.Model):
     Maintains privilege log for withheld documents
     Required by discovery rules when claiming privilege
     """
-    __tablename__ = 'privilege_log'
+    __tablename__ = 'ediscovery_privilege_log'
     
     id = db.Column(db.Integer, primary_key=True)
     case_id = db.Column(db.Integer, db.ForeignKey('legal_case.id'), nullable=False)
@@ -229,7 +229,7 @@ class PrivilegeLog(db.Model):
     status = db.Column(db.String(50), default='withheld')  # withheld, produced, supplemental
     
     # Metadata
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
@@ -328,7 +328,7 @@ class LitigationHold(db.Model):
     status = db.Column(db.String(50), default='active')  # active, suspended, lifted
     
     # Metadata
-    issued_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    issued_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
@@ -442,7 +442,7 @@ class DocumentSearchQuery(db.Model):
     
     # Metadata
     is_saved = db.Column(db.Boolean, default=True)
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -492,7 +492,7 @@ class ESIProtocol(db.Model):
     # Technical Requirements
     technical_specifications = db.Column(db.Text)  # Load file formats, etc.
     
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

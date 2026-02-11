@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Timeline Viewer — {{ event.event_name }} — Evident</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
+         Design tokens (local subset — no external CSS dependency)
+         ============================================================ */
+      :root {
+        --color-bg:           #0f172a;
+        --color-surface:      #1e293b;
+        --color-surface-alt:  #334155;
+        --color-border:       #475569;
+        --color-text:         #f1f5f9;
+        --color-text-muted:   #94a3b8;
+        --color-primary-400:  #60a5fa;
+        --color-primary-600:  #2563eb;
+        --color-success-400:  #4ade80;
+        --color-warning-400:  #facc15;
+        --color-error-400:    #f87171;
+        --font-family:        'Inter', system-ui, -apple-system, sans-serif;
+        --radius:             6px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: var(--font-family);
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.5;
+      }
+
+      /* ============================================================
+         Layout
+         ============================================================ */
+      .viewer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem;
+      }
+
+      .breadcrumb {
+        margin-bottom: 1rem;
+      }
+      .breadcrumb a {
+        color: var(--color-primary-400);
+        text-decoration: none;
+        font-size: 0.875rem;
+      }
+      .breadcrumb a:hover { text-decoration: underline; }
+
+      .viewer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      .viewer-header h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .viewer-header .meta {
+        font-size: 0.8125rem;
+        color: var(--color-text-muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Integrity notice */
+      .integrity-notice {
+        background: rgba(250, 204, 21, 0.08);
+        border: 1px solid rgba(250, 204, 21, 0.25);
+        border-radius: var(--radius);
+        padding: 0.625rem 1rem;
+        font-size: 0.8125rem;
+        color: var(--color-warning-400);
+        margin-bottom: 1.25rem;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      /* ============================================================
+         Timeline ruler
+         ============================================================ */
+      .timeline-panel {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+      .timeline-ruler {
+        position: relative;
+        height: 32px;
+        background: var(--color-surface-alt);
+        border-bottom: 1px solid var(--color-border);
+        user-select: none;
+      }
+      .ruler-tick {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        border-left: 1px solid var(--color-border);
+        font-size: 0.6875rem;
+        color: var(--color-text-muted);
+        padding: 2px 4px;
+        pointer-events: none;
+      }
+
+      /* ============================================================
+         Track rows
+         ============================================================ */
+      .track-row {
+        display: flex;
+        align-items: stretch;
+        border-bottom: 1px solid var(--color-border);
+        min-height: 56px;
+      }
+      .track-row:last-child { border-bottom: none; }
+
+      .track-label {
+        flex: 0 0 180px;
+        padding: 0.5rem 0.75rem;
+        border-right: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.8125rem;
+        background: var(--color-surface);
+      }
+      .track-label .camera-name {
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 160px;
+      }
+      .track-label .track-meta {
+        font-size: 0.6875rem;
+        color: var(--color-text-muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .track-label .anchor-badge {
+        display: inline-block;
+        font-size: 0.625rem;
+        font-weight: 600;
+        padding: 0 0.375rem;
+        border-radius: 3px;
+        background: var(--color-primary-600);
+        color: #fff;
+        margin-top: 2px;
+        width: fit-content;
+      }
+
+      .track-timeline {
+        flex: 1;
+        position: relative;
+        min-height: 56px;
+      }
+      .track-bar {
+        position: absolute;
+        top: 8px;
+        height: calc(100% - 16px);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: opacity 0.15s;
+        display: flex;
+        align-items: center;
+        padding-left: 6px;
+        font-size: 0.6875rem;
+        color: #fff;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .track-bar:hover { opacity: 0.85; }
+
+      /* Track bar colors (cycled by index) */
+      .track-bar--0 { background: rgba(96, 165, 250, 0.6); border: 1px solid rgba(96, 165, 250, 0.8); }
+      .track-bar--1 { background: rgba(74, 222, 128, 0.6); border: 1px solid rgba(74, 222, 128, 0.8); }
+      .track-bar--2 { background: rgba(251, 191, 36, 0.6); border: 1px solid rgba(251, 191, 36, 0.8); }
+      .track-bar--3 { background: rgba(248, 113, 113, 0.6); border: 1px solid rgba(248, 113, 113, 0.8); }
+      .track-bar--4 { background: rgba(192, 132, 252, 0.6); border: 1px solid rgba(192, 132, 252, 0.8); }
+      .track-bar--5 { background: rgba(45, 212, 191, 0.6); border: 1px solid rgba(45, 212, 191, 0.8); }
+
+      /* ============================================================
+         Playhead
+         ============================================================ */
+      .playhead {
+        position: absolute;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: var(--color-error-400);
+        z-index: 10;
+        pointer-events: none;
+        transition: left 0.05s linear;
+      }
+      .playhead::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -5px;
+        width: 12px;
+        height: 12px;
+        background: var(--color-error-400);
+        border-radius: 50%;
+      }
+
+      /* ============================================================
+         Transport controls
+         ============================================================ */
+      .transport {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        margin-bottom: 1rem;
+      }
+      .transport button {
+        background: var(--color-surface-alt);
+        border: 1px solid var(--color-border);
+        color: var(--color-text);
+        padding: 0.375rem 0.75rem;
+        border-radius: var(--radius);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: var(--font-family);
+      }
+      .transport button:hover {
+        background: var(--color-primary-600);
+        border-color: var(--color-primary-600);
+      }
+      .transport .time-display {
+        font-variant-numeric: tabular-nums;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        min-width: 140px;
+      }
+      .transport .scrubber {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 4px;
+        background: var(--color-surface-alt);
+        border-radius: 2px;
+        outline: none;
+        cursor: pointer;
+      }
+      .transport .scrubber::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--color-primary-400);
+        cursor: pointer;
+      }
+
+      /* ============================================================
+         Video grid (proxy playback)
+         ============================================================ */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .video-cell {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .video-cell-header {
+        padding: 0.375rem 0.625rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        background: var(--color-surface-alt);
+        border-bottom: 1px solid var(--color-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .video-cell-header .offset-tag {
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--color-text-muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .video-cell video {
+        display: block;
+        width: 100%;
+        background: #000;
+      }
+      .video-cell .no-video {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        color: var(--color-text-muted);
+        font-size: 0.8125rem;
+      }
+
+      /* ============================================================
+         Hash display
+         ============================================================ */
+      .hash-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0.75rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        font-size: 0.75rem;
+        font-variant-numeric: tabular-nums;
+        color: var(--color-text-muted);
+        word-break: break-all;
+      }
+      .hash-bar .label { font-weight: 600; color: var(--color-text); margin-right: 0.5rem; }
+
+      /* ============================================================
+         Loading / error states
+         ============================================================ */
+      .viewer-loading, .viewer-error {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--color-text-muted);
+      }
+      .viewer-error { color: var(--color-error-400); }
+
+      /* ============================================================
+         Responsive
+         ============================================================ */
+      @media (max-width: 768px) {
+        .track-label { flex: 0 0 120px; }
+        .video-grid { grid-template-columns: 1fr; }
+        .viewer-header { flex-direction: column; }
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .playhead { transition: none; }
+        .track-bar { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'components/navbar.html' %}
+
+    <main id="main">
+      <div class="viewer-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="{{ url_for('cases.case_detail', case_id=event.case_id) }}">← Back to case</a>
+        </div>
+
+        <!-- Header -->
+        <div class="viewer-header">
+          <div>
+            <h1>{{ event.event_name }}</h1>
+            <p class="meta">
+              Event {{ event.id[:8] }}…
+              {% if event.event_type %} · {{ event.event_type }}{% endif %}
+              {% if event.event_start %} ·
+                {{ event.event_start.strftime('%Y-%m-%d %H:%M UTC') }}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+
+        <!-- Integrity notice -->
+        <div class="integrity-notice" role="status">
+          Timeline alignment is metadata-only. Original recordings are unaltered.
+        </div>
+
+        <!-- Loading state -->
+        <div id="viewerLoading" class="viewer-loading">
+          Loading timeline…
+        </div>
+
+        <!-- Error state (hidden) -->
+        <div id="viewerError" class="viewer-error" style="display:none"></div>
+
+        <!-- Timeline panel (hidden until loaded) -->
+        <div id="timelinePanel" style="display:none">
+
+          <!-- Transport controls -->
+          <div class="transport" role="toolbar" aria-label="Playback controls">
+            <button id="btnPlay" type="button" aria-label="Play">&#9654; Play</button>
+            <button id="btnPause" type="button" aria-label="Pause">&#9646;&#9646; Pause</button>
+            <button id="btnStop" type="button" aria-label="Stop">&#9632; Stop</button>
+            <input id="scrubber" class="scrubber" type="range" min="0" max="1000" value="0" step="1" aria-label="Scrub position" />
+            <span id="timeDisplay" class="time-display">00:00.000 / 00:00.000</span>
+          </div>
+
+          <!-- Timeline visualization -->
+          <div class="timeline-panel" role="img" aria-label="Timeline alignment tracks">
+            <div class="timeline-ruler" id="timelineRuler"></div>
+            <div id="trackContainer" style="position:relative">
+              <!-- Playhead -->
+              <div class="playhead" id="playhead" style="left:0"></div>
+              <!-- Track rows injected here -->
+            </div>
+          </div>
+
+          <!-- Video grid -->
+          <div class="video-grid" id="videoGrid"></div>
+
+          <!-- Hash bar -->
+          <div class="hash-bar">
+            <span><span class="label">Timeline SHA-256:</span> <span id="timelineHash">—</span></span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================================================================
+         JavaScript — Timeline Alignment Viewer
+         ================================================================ -->
+    <script>
+    (function () {
+      'use strict';
+
+      /* ----------------------------------------------------------------
+         Config
+         ---------------------------------------------------------------- */
+      const EVENT_ID = {{ event.id | tojson }};
+      const API_URL  = `/api/case-events/events/${EVENT_ID}/alignment-timeline`;
+      const PROXY_BASE = '/api/case-events/evidence';
+      const LABEL_WIDTH = 180;
+      const COLOR_COUNT = 6;
+      const TICK_TARGET_COUNT = 10;
+
+      /* ----------------------------------------------------------------
+         DOM refs
+         ---------------------------------------------------------------- */
+      const $loading      = document.getElementById('viewerLoading');
+      const $error        = document.getElementById('viewerError');
+      const $panel        = document.getElementById('timelinePanel');
+      const $ruler        = document.getElementById('timelineRuler');
+      const $trackCont    = document.getElementById('trackContainer');
+      const $playhead     = document.getElementById('playhead');
+      const $videoGrid    = document.getElementById('videoGrid');
+      const $hashDisplay  = document.getElementById('timelineHash');
+      const $btnPlay      = document.getElementById('btnPlay');
+      const $btnPause     = document.getElementById('btnPause');
+      const $btnStop      = document.getElementById('btnStop');
+      const $scrubber     = document.getElementById('scrubber');
+      const $timeDisplay  = document.getElementById('timeDisplay');
+
+      /* ----------------------------------------------------------------
+         State
+         ---------------------------------------------------------------- */
+      let timeline = null;
+      let playing  = false;
+      let currentMs = 0;
+      let totalMs   = 0;
+      let startOffset = 0;
+      let animFrame = null;
+      let lastTimestamp = null;
+      const videos = [];  // { el, offsetMs, durationMs }
+
+      /* ----------------------------------------------------------------
+         Fetch timeline
+         ---------------------------------------------------------------- */
+      async function init() {
+        try {
+          const resp = await fetch(API_URL, { credentials: 'same-origin' });
+          if (!resp.ok) {
+            const data = await resp.json().catch(() => ({}));
+            throw new Error(data.error || `HTTP ${resp.status}`);
+          }
+          timeline = await resp.json();
+          render();
+        } catch (err) {
+          $loading.style.display = 'none';
+          $error.textContent = `Could not load timeline: ${err.message}`;
+          $error.style.display = '';
+        }
+      }
+
+      /* ----------------------------------------------------------------
+         Render
+         ---------------------------------------------------------------- */
+      function render() {
+        $loading.style.display = 'none';
+        $panel.style.display = '';
+
+        totalMs     = timeline.total_duration_ms || 0;
+        startOffset = timeline.timeline_start_offset_ms || 0;
+
+        $hashDisplay.textContent = timeline.timeline_hash || '—';
+        $scrubber.max = totalMs;
+
+        renderRuler();
+        renderTracks();
+        renderVideoGrid();
+        updateTimeDisplay();
+      }
+
+      /* -- Ruler -------------------------------------------------------- */
+      function renderRuler() {
+        $ruler.innerHTML = '';
+        if (totalMs <= 0) return;
+        const step = niceStep(totalMs, TICK_TARGET_COUNT);
+        for (let ms = 0; ms <= totalMs; ms += step) {
+          const pct = (ms / totalMs) * 100;
+          const tick = document.createElement('div');
+          tick.className = 'ruler-tick';
+          tick.style.left = pct + '%';
+          tick.textContent = formatTime(ms);
+          $ruler.appendChild(tick);
+        }
+      }
+
+      /* -- Tracks ------------------------------------------------------- */
+      function renderTracks() {
+        // Remove old rows (keep playhead)
+        Array.from($trackCont.querySelectorAll('.track-row')).forEach(r => r.remove());
+
+        (timeline.tracks || []).forEach((track, i) => {
+          const row = document.createElement('div');
+          row.className = 'track-row';
+
+          // Label
+          const label = document.createElement('div');
+          label.className = 'track-label';
+          label.innerHTML = `
+            <span class="camera-name" title="${esc(track.camera_label)}">${esc(track.camera_label)}</span>
+            <span class="track-meta">${formatTime(track.duration_ms || 0)} · ${track.offset_ms >= 0 ? '+' : ''}${track.offset_ms} ms</span>
+            ${track.is_sync_anchor ? '<span class="anchor-badge">ANCHOR</span>' : ''}
+          `;
+
+          // Timeline bar
+          const tl = document.createElement('div');
+          tl.className = 'track-timeline';
+
+          if (totalMs > 0) {
+            const relStart = (track.offset_ms - startOffset);
+            const left = (relStart / totalMs) * 100;
+            const width = ((track.duration_ms || 0) / totalMs) * 100;
+
+            const bar = document.createElement('div');
+            bar.className = `track-bar track-bar--${i % COLOR_COUNT}`;
+            bar.style.left = Math.max(0, left) + '%';
+            bar.style.width = Math.max(0.5, width) + '%';
+            bar.textContent = track.original_filename;
+            bar.title = `${track.original_filename}\nOffset: ${track.offset_ms} ms\nDuration: ${formatTime(track.duration_ms || 0)}`;
+            tl.appendChild(bar);
+          }
+
+          row.appendChild(label);
+          row.appendChild(tl);
+          $trackCont.appendChild(row);
+        });
+      }
+
+      /* -- Video grid --------------------------------------------------- */
+      function renderVideoGrid() {
+        $videoGrid.innerHTML = '';
+        videos.length = 0;
+
+        (timeline.tracks || []).forEach((track, i) => {
+          const cell = document.createElement('div');
+          cell.className = 'video-cell';
+
+          const header = document.createElement('div');
+          header.className = 'video-cell-header';
+          header.innerHTML = `
+            <span>${esc(track.camera_label)}</span>
+            <span class="offset-tag">${track.offset_ms >= 0 ? '+' : ''}${track.offset_ms} ms</span>
+          `;
+          cell.appendChild(header);
+
+          const isVideo = (track.mime_type || '').startsWith('video/') ||
+                          ['mp4','avi','mov','mkv','webm','flv'].includes((track.file_type || '').toLowerCase());
+
+          if (isVideo) {
+            const video = document.createElement('video');
+            video.preload = 'metadata';
+            video.muted = (i > 0); // mute all except first
+            video.playsInline = true;
+            video.src = `${PROXY_BASE}/${track.evidence_id}/proxy`;
+            cell.appendChild(video);
+
+            videos.push({
+              el: video,
+              offsetMs: track.offset_ms - startOffset,
+              durationMs: track.duration_ms || 0,
+            });
+          } else {
+            const noVid = document.createElement('div');
+            noVid.className = 'no-video';
+            noVid.textContent = `${track.file_type || 'File'} — no video preview`;
+            cell.appendChild(noVid);
+          }
+
+          $videoGrid.appendChild(cell);
+        });
+      }
+
+      /* ----------------------------------------------------------------
+         Transport
+         ---------------------------------------------------------------- */
+      function play() {
+        if (playing) return;
+        playing = true;
+        lastTimestamp = null;
+        animFrame = requestAnimationFrame(tick);
+      }
+
+      function pause() {
+        playing = false;
+        if (animFrame) cancelAnimationFrame(animFrame);
+        animFrame = null;
+        videos.forEach(v => v.el.pause());
+      }
+
+      function stop() {
+        pause();
+        seek(0);
+      }
+
+      function seek(ms) {
+        currentMs = Math.max(0, Math.min(ms, totalMs));
+        syncVideos();
+        updatePlayhead();
+        updateTimeDisplay();
+        $scrubber.value = currentMs;
+      }
+
+      function tick(ts) {
+        if (!playing) return;
+        if (lastTimestamp !== null) {
+          const delta = ts - lastTimestamp;
+          currentMs += delta;
+          if (currentMs >= totalMs) {
+            currentMs = totalMs;
+            pause();
+          }
+        }
+        lastTimestamp = ts;
+        syncVideos();
+        updatePlayhead();
+        updateTimeDisplay();
+        $scrubber.value = currentMs;
+        if (playing) animFrame = requestAnimationFrame(tick);
+      }
+
+      function syncVideos() {
+        videos.forEach(v => {
+          const trackTime = currentMs - v.offsetMs;
+          if (trackTime < 0 || trackTime > v.durationMs) {
+            v.el.pause();
+            return;
+          }
+          const targetSec = trackTime / 1000;
+          if (Math.abs(v.el.currentTime - targetSec) > 0.15) {
+            v.el.currentTime = targetSec;
+          }
+          if (playing && v.el.paused) {
+            v.el.play().catch(() => {});
+          }
+        });
+      }
+
+      function updatePlayhead() {
+        if (totalMs <= 0) return;
+        const pct = (currentMs / totalMs) * 100;
+        $playhead.style.left = pct + '%';
+      }
+
+      function updateTimeDisplay() {
+        $timeDisplay.textContent = `${formatTime(currentMs)} / ${formatTime(totalMs)}`;
+      }
+
+      /* ----------------------------------------------------------------
+         Events
+         ---------------------------------------------------------------- */
+      $btnPlay.addEventListener('click', play);
+      $btnPause.addEventListener('click', pause);
+      $btnStop.addEventListener('click', stop);
+      $scrubber.addEventListener('input', () => {
+        seek(parseInt($scrubber.value, 10));
+      });
+
+      /* ----------------------------------------------------------------
+         Helpers
+         ---------------------------------------------------------------- */
+      function formatTime(ms) {
+        if (ms == null || isNaN(ms)) return '00:00.000';
+        const totalSec = Math.abs(ms) / 1000;
+        const min = Math.floor(totalSec / 60);
+        const sec = Math.floor(totalSec % 60);
+        const millis = Math.floor(Math.abs(ms) % 1000);
+        const sign = ms < 0 ? '-' : '';
+        return `${sign}${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}.${String(millis).padStart(3, '0')}`;
+      }
+
+      function niceStep(total, targetTicks) {
+        const raw = total / targetTicks;
+        const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+        const residual = raw / mag;
+        let nice;
+        if (residual <= 1.5) nice = 1;
+        else if (residual <= 3.5) nice = 2;
+        else if (residual <= 7.5) nice = 5;
+        else nice = 10;
+        return Math.max(nice * mag, 1);
+      }
+
+      function esc(str) {
+        const el = document.createElement('span');
+        el.textContent = str || '';
+        return el.innerHTML;
+      }
+
+      /* ----------------------------------------------------------------
+         Init
+         ---------------------------------------------------------------- */
+      init();
+
+    })();
+    </script>
+  </body>
+</html>

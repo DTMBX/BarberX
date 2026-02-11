@@ -40,8 +40,8 @@ class LegalDocument(db.Model):
     
     # Basic Info
     title = db.Column(db.String(500), nullable=False, index=True)
-    case_number = db.Column(db.String(100), unique=True, sparse=True, index=True)  # e.g., "No. 21-1086"
-    docket_number = db.Column(db.String(100), sparse=True, index=True)
+    case_number = db.Column(db.String(100), unique=True, index=True)  # e.g., "No. 21-1086"
+    docket_number = db.Column(db.String(100), index=True)
     
     # Classification
     category = db.Column(db.String(50), nullable=False, index=True)  # DocumentCategory
@@ -164,7 +164,7 @@ class DocumentComment(db.Model):
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     
     document_id = db.Column(db.String(36), db.ForeignKey('legal_documents.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
     highlight_text = db.Column(db.Text, nullable=True)  # Text being commented on
     comment = db.Column(db.Text, nullable=False)
@@ -180,7 +180,7 @@ class SavedDocument(db.Model):
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     
     document_id = db.Column(db.String(36), db.ForeignKey('legal_documents.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
     folder = db.Column(db.String(200), nullable=True)  # User's folder name
     

@@ -1,3 +1,17 @@
+"""Quarantined: backend package removed from main branch.
+Source modules (backend.tools.cli.hashing, backend.tools.cli.manifest)
+no longer exist. Functions partially relocated to scripts/generate-checksums.py
+with different signatures.
+Tracked: Phase 10 gate — restore when CLI module is re-implemented.
+Deadline: Phase 11 or remove permanently.
+"""
+import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="quarantined — backend.tools.cli.hashing and .manifest removed from main; "
+           "source modules do not exist (see Phase 10 gate)"
+)
+
 import hashlib
 import tempfile
 from pathlib import Path

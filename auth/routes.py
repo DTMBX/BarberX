@@ -13,8 +13,20 @@ import secrets
 from email_validator import validate_email, EmailNotValidError
 
 from auth.models import db, User, UserRole, TierLevel, AuditLog
+from auth.security import get_limiter
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
+
+
+def _limit(*args):
+    """Apply rate limit if limiter is available, otherwise no-op."""
+    limiter = get_limiter()
+    if limiter:
+        return limiter.limit(*args)
+    # Return a no-op decorator when limiter is not initialized
+    def noop(f):
+        return f
+    return noop
 
 
 def get_client_ip():
@@ -25,6 +37,7 @@ def get_client_ip():
 
 
 @auth_bp.route('/register', methods=['GET', 'POST'])
+@_limit("5 per minute")
 def register():
     """User registration"""
     if current_user.is_authenticated:
@@ -101,6 +114,7 @@ def register():
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
+@_limit("10 per minute")
 def login():
     """User login"""
     if current_user.is_authenticated:
@@ -151,6 +165,7 @@ def logout():
 
 
 @auth_bp.route('/forgot-password', methods=['GET', 'POST'])
+@_limit("3 per minute")
 def forgot_password():
     """Request password reset"""
     if current_user.is_authenticated:
@@ -183,6 +198,7 @@ def forgot_password():
 
 
 @auth_bp.route('/reset-password/<token>', methods=['GET', 'POST'])
+@_limit("5 per minute")
 def reset_password(token):
     """Reset password with token"""
     if current_user.is_authenticated:

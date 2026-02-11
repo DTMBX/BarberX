@@ -125,7 +125,7 @@ class CourtGradeDiscoveryPackage(db.Model):
     verified_responsive = db.Column(db.Boolean, default=False)
     
     # Expert Certification
-    producing_attorney_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    producing_attorney_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     producing_attorney_name = db.Column(db.String(200))
     producing_attorney_firm = db.Column(db.String(200))
     producing_attorney_bar_number = db.Column(db.String(50))
@@ -259,7 +259,7 @@ class CourSubmissionChecklist(db.Model):
     
     # Verification
     all_items_verified = db.Column(db.Boolean, default=False)
-    verified_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    verified_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     verified_date = db.Column(db.DateTime)
     
     # Remediation
@@ -307,7 +307,7 @@ class CourtGradeQAWorkflow(db.Model):
     sampling_method = db.Column(db.String(100))  # How documents were selected
     
     # QA Testing
-    qa_coordinator_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    qa_coordinator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     qa_start_date = db.Column(db.DateTime)
     qa_end_date = db.Column(db.DateTime)
     
@@ -357,7 +357,7 @@ class CourtGradeQAWorkflow(db.Model):
     ready_for_production = db.Column(db.Boolean, default=False)
     
     # Sign-Off
-    qa_approved_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    qa_approved_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     qa_approval_date = db.Column(db.DateTime)
     qa_approval_notes = db.Column(db.Text)
     
@@ -401,7 +401,7 @@ class ComplianceCheckResult(db.Model):
     remediation_items = db.Column(db.Text)  # JSON
     
     # Verification
-    checked_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    checked_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     checked_date = db.Column(db.DateTime)
     
     # Evidence

@@ -35,6 +35,49 @@ rejected.
 
 ---
 
+## EVIDENT COPILOT GUARDRAILS — MANDATORY
+
+You are contributing to a forensic evidence platform.
+
+**You must ALWAYS:**
+
+✔ Preserve original evidence immutability  
+✔ Hash all evidence and derivatives  
+✔ Log every access, transform, and export  
+✔ Treat audit logs as append-only  
+✔ Keep UI code separate from forensic logic  
+✔ Keep exports reproducible from originals
+
+**You must NEVER:**
+
+✘ Overwrite or mutate original evidence  
+✘ Delete or hide audit records  
+✘ Infer intent, guilt, liability, or conclusions  
+✘ Embed legal advice or jurisdictional rulings  
+✘ Introduce nondeterministic processing  
+✘ Fabricate metadata or timestamps
+
+**All analysis must be:**
+
+- deterministic
+- explainable
+- verifiable
+- reproducible
+
+**Critical Flag Requirement:**
+
+If a change could affect:
+
+- evidentiary admissibility
+- chain of custody
+- forensic defensibility
+
+**YOU MUST PAUSE AND FLAG IT.**
+
+Evident prioritizes **integrity over convenience**.
+
+---
+
 ## Point of View (POV)
 
 All output must assume a **high-altitude, neutral observer perspective**.

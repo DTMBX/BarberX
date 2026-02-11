@@ -371,7 +371,7 @@ class UserResearchSession(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     
     # User reference
-    user_id = db.Column(db.Integer, ForeignKey('user.id'), nullable=False, index=True)
+    user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False, index=True)
     
     # Session information
     session_name = db.Column(db.String(255))

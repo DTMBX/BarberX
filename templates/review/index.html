@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review — Select Case — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  {% include 'components/navbar.html' %}
+  <main id="main">
+    <div style="max-width: 800px; margin: 0 auto; padding: 3rem 1rem;">
+      <h1 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Document Review</h1>
+      <p style="color: var(--color-neutral-500); margin-bottom: 2rem;">Select a case to begin review.</p>
+
+      <div id="case-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <p style="color: var(--color-neutral-400);">Loading cases…</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (async function() {
+      const container = document.getElementById('case-list');
+      try {
+        const resp = await fetch('/cases/', { headers: { 'Accept': 'application/json' } });
+        if (!resp.ok) throw new Error('Failed to load cases');
+        const data = await resp.json();
+        const cases = data.cases || [];
+        if (cases.length === 0) {
+          container.innerHTML = '<p style="color:var(--color-neutral-400);">No cases found. Create a case first.</p>';
+          return;
+        }
+        container.innerHTML = cases.map(function(c) {
+          return '<a href="/review/case/' + c.id + '" style="display:block; padding:1rem 1.25rem; background:var(--color-surface,#1e1e3a); border:1px solid var(--color-border,#2a2a4a); border-radius:8px; text-decoration:none; transition:border-color 0.15s;"'
+            + ' onmouseover="this.style.borderColor=\'var(--color-primary-400)\'" onmouseout="this.style.borderColor=\'var(--color-border,#2a2a4a)\'">'
+            + '<div style="font-weight:600; color:var(--color-text-primary,#e0e0e0); margin-bottom:0.25rem;">' + (c.case_name || c.case_number) + '</div>'
+            + '<div style="font-size:0.8125rem; color:var(--color-neutral-500);">' + c.case_number + (c.status ? ' · ' + c.status : '') + (c.evidence_count !== undefined ? ' · ' + c.evidence_count + ' items' : '') + '</div>'
+            + '</a>';
+        }).join('');
+      } catch(e) {
+        container.innerHTML = '<p style="color:var(--color-error-400);">Failed to load cases.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

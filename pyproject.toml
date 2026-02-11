@@ -16,7 +16,7 @@ unfixable = ["F401"]  # optional: keep unused-import removal manual
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
-known-first-party = ["backend", "tools"]  # adjust to your import roots
+known-first-party = ["models", "services", "routes", "tools", "config"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

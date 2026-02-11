@@ -85,7 +85,7 @@ class LegalViolation(db.Model):
     processing_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     
     # Expert Review & Verification
-    reviewed_by_attorney_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    reviewed_by_attorney_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     attorney_agrees = db.Column(db.Boolean)  # True/False/None (not reviewed)
     attorney_comments = db.Column(db.Text)
     attorney_confidence_level = db.Column(db.String(20))  # Expert assessment

@@ -1,0 +1,114 @@
+name: Update Founding Documents
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: 'Force refresh (ignore cache)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write  # Required to commit changes
+
+jobs:
+  update-documents:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests python-dotenv
+      
+      - name: Fetch founding documents
+        env:
+          NARA_API_KEY: ${{ secrets.NARA_API_KEY }}
+        run: |
+          python scripts/fetch_founding_documents.py --all
+      
+      - name: Verify documents
+        run: |
+          # Check that documents were fetched
+          if [ ! -f "documents/founding/constitution.md" ]; then
+            echo "Error: Constitution not found"
+            exit 1
+          fi
+          
+          # Count documents
+          DOC_COUNT=$(find documents/founding -name "*.md" | wc -l)
+          echo "Documents fetched: $DOC_COUNT"
+          
+          if [ "$DOC_COUNT" -lt 3 ]; then
+            echo "Warning: Fewer documents than expected"
+          fi
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet documents/founding/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected"
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add documents/founding/
+          git commit -m "Update founding documents from National Archives [automated]
+
+          Updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          Workflow: ${{ github.workflow }}
+          Run: ${{ github.run_number }}"
+          git push
+      
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## Founding Documents Update" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "**Workflow Run:** #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+            echo "✅ **Status:** Documents updated" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Changes" >> $GITHUB_STEP_SUMMARY
+            git diff --stat documents/founding/ >> $GITHUB_STEP_SUMMARY || echo "No changes"
+          else
+            echo "ℹ️ **Status:** No changes - documents are current" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Documents" >> $GITHUB_STEP_SUMMARY
+          ls -lh documents/founding/*.md | awk '{print "- " $9 " (" $5 ")"}' >> $GITHUB_STEP_SUMMARY || echo "No documents found"
+      
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fetch-report
+          path: documents/founding/fetch-report-*.json
+          retention-days: 30

@@ -15,7 +15,7 @@ class Conversation(db.Model):
     __tablename__ = 'chat_conversations'
     
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
     title = db.Column(db.String(255), nullable=False, default='New Conversation')
     system_role = db.Column(
         db.String(50), 
@@ -103,11 +103,10 @@ class Message(db.Model):
     output_tokens = db.Column(db.Integer, default=0, nullable=False)
     
     # Optional metadata
-    metadata = db.Column(db.JSON, nullable=True)  # Custom metadata dict
+    message_metadata = db.Column(db.JSON, nullable=True)  # Custom metadata dict
     is_deleted = db.Column(db.Boolean, default=False, nullable=False)
     
-    # Relationships
-    conversation = db.relationship('Conversation', backref='message_items')
+    # 'conversation' backref is created by Conversation.messages relationship
     
     # Indexes
     __table_args__ = (
@@ -130,7 +129,7 @@ class Message(db.Model):
             'created_at': self.created_at.isoformat(),
             'input_tokens': self.input_tokens,
             'output_tokens': self.output_tokens,
-            'metadata': self.metadata,
+            'metadata': self.message_metadata,
         }
     
     def get_tool_calls(self):
@@ -147,7 +146,7 @@ class UserAPIKey(db.Model):
     __tablename__ = 'user_api_keys'
     
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
     
     service_name = db.Column(
         db.String(100),
@@ -178,7 +177,7 @@ class UserAPIKey(db.Model):
     monthly_cost = db.Column(db.Float, default=0.0, nullable=False)
     
     # Optional metadata (e.g., endpoint URL for custom providers)
-    metadata = db.Column(db.JSON, nullable=True)
+    provider_metadata = db.Column(db.JSON, nullable=True)
     
     # Relationships
     user = db.relationship('User', backref='api_keys')
@@ -227,7 +226,7 @@ class ChatSession(db.Model):
     __tablename__ = 'chat_sessions'
     
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
     conversation_id = db.Column(db.String(36), db.ForeignKey('chat_conversations.id'), nullable=False, index=True)
     
     session_token = db.Column(db.String(255), unique=True, nullable=False)

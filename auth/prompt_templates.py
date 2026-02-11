@@ -165,10 +165,10 @@ class PromptTemplateManager:
     """Manages prompt templates and customization"""
     
     TEMPLATES: Dict[str, str] = {
-        ChatRole.LEGAL_ASSISTANT: LEGAL_ASSISTANT,
-        ChatRole.EVIDENCE_MANAGER: EVIDENCE_MANAGER,
-        ChatRole.CASE_ANALYZER: CASE_ANALYZER,
-        ChatRole.RESEARCH_SPECIALIST: RESEARCH_SPECIALIST,
+        ChatRole.LEGAL_ASSISTANT: PromptTemplates.LEGAL_ASSISTANT,
+        ChatRole.EVIDENCE_MANAGER: PromptTemplates.EVIDENCE_MANAGER,
+        ChatRole.CASE_ANALYZER: PromptTemplates.CASE_ANALYZER,
+        ChatRole.RESEARCH_SPECIALIST: PromptTemplates.RESEARCH_SPECIALIST,
     }
     
     # Prefix prompts to add context about available tools
