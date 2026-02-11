@@ -127,7 +127,16 @@ describe('BatchUploadContainer Component', () => {
 
     render(<BatchUploadContainer />);
 
-    // Simulate upload completion
+    // Add file
+    const file = new File(['video'], 'test.mp4', { type: 'video/mp4' });
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    fireEvent.change(input, { target: { files: [file] } });
+
+    // Click start upload button
+    const uploadButton = screen.getByText(/Start Upload/i);
+    fireEvent.click(uploadButton);
+
+    // Verify upload progress is displayed
     await waitFor(() => {
       expect(screen.queryByText(/Upload Progress/i)).toBeInTheDocument();
     });

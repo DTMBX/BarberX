@@ -1,6 +1,7 @@
 #!/bin/sh
 # Evident Technologies — pre-commit hook
 # Runs lint-staged if installed locally; skips gracefully otherwise.
+. "$(dirname "$0")/_/husky.sh"
 
 if [ -f node_modules/.bin/lint-staged ]; then
   npx lint-staged --concurrent false

@@ -53,7 +53,6 @@ jobs:
 
       - name: Ruff lint (errors only)
         run: ruff check --select=E,F --no-fix .
-        continue-on-error: true
 
       - name: Tests
         run: |
@@ -62,4 +61,3 @@ jobs:
           else
             echo "No tests/ directory found; skipping pytest."
           fi
-        continue-on-error: true
