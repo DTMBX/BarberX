@@ -6,8 +6,8 @@
     <rect x="80" y="80" width="220" height="36" rx="12" fill="#F7B32B"/>
     <rect x="80" y="182" width="220" height="36" rx="12" fill="#C41E3A"/>
     <rect x="80" y="284" width="220" height="36" rx="12" fill="#2F5D9F"/>
-    <rect x="80" y="80" width="36" height="240" rx="12" fill="#181818"/>
+    <rect x="80" y="80" width="36" height="240" rx="12" fill="#fff"/>
   </g>
   <!-- Wordmark: EVIDENT (E as part of the word, close to V) -->
-  <text x="340" y="320" font-family="'Cormorant Garamond', 'Times New Roman', serif" font-size="260" font-weight="700" fill="#181818">VIDENT</text>
+  <text x="340" y="320" font-family="'Cormorant Garamond', 'Times New Roman', serif" font-size="260" font-weight="700" fill="#fff">VIDENT</text>
 </svg>

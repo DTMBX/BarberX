@@ -1,0 +1,493 @@
+/* ============================================================================
+   SITE HEADER — Evident Technologies (CANONICAL VERSION 1.0.0)
+   ============================================================================
+   
+   DO NOT MODIFY WITHOUT ARCHITECTURAL REVIEW
+   
+   This is the finalized, court-defensible header component for Evident.
+   
+   Features:
+   - Sticky positioning with proper z-index layering
+   - Dual logo variants (light/dark) with theme-aware switching
+   - Accessible desktop navigation with ARIA landmarks
+   - Keyboard-navigable dropdown menus
+   - Mobile-first responsive drawer with focus trap & scroll-lock
+   - Full WCAG 2.1 AA compliance
+   - BEM methodology throughout
+   
+   Dependencies:
+   - HTML: /src/_includes/header.njk
+   - JavaScript: /src/assets/js/menu.js
+   - Tokens: /assets/css/tokens/evident-design-tokens.css
+   
+   Last locked: 2026-02-11
+   ============================================================================ */
+
+/* ---- Shell ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 4rem;
+}
+
+/* ---- Brand / Logo ---- */
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.site-header__logo {
+  height: 2rem;
+  width: auto;
+  display: block;
+}
+
+/* Light logo for white header (default) — hide dark */
+.site-header__logo--dark {
+  display: none;
+}
+
+/* Dark-mode: show dark-variant (white text), hide light-variant */
+[data-theme='dark'] .site-header__logo--light {
+  display: none;
+}
+[data-theme='dark'] .site-header__logo--dark {
+  display: block;
+}
+
+/* ---- Desktop navigation ---- */
+.site-header__nav {
+  display: none;
+}
+
+.site-header__menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__item {
+  position: relative;
+}
+
+.site-header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.site-header__link:hover,
+.site-header__link:focus-visible {
+  color: #0b73d2;
+  background-color: #f3f4f6;
+}
+
+.site-header__link:focus-visible {
+  outline: 2px solid #0b73d2;
+  outline-offset: 2px;
+}
+
+.site-header__chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.site-header__link[aria-expanded='true'] .site-header__chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- Dropdown ---- */
+.site-header__dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 14rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08),
+    0 10px 15px -3px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(-4px);
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease,
+    transform 0.15s ease;
+  z-index: 110;
+}
+
+.site-header__dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.site-header__dropdown-link {
+  display: block;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 450;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.site-header__dropdown-link:hover,
+.site-header__dropdown-link:focus-visible {
+  color: #0b73d2;
+  background-color: #f3f4f6;
+}
+
+.site-header__dropdown-link:focus-visible {
+  outline: 2px solid #0b73d2;
+  outline-offset: -2px;
+}
+
+/* ---- CTA buttons ---- */
+.site-header__actions {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.site-header__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.site-header__btn:focus-visible {
+  outline: 2px solid #0b73d2;
+  outline-offset: 2px;
+}
+
+.site-header__btn--ghost {
+  color: #374151;
+  background: transparent;
+}
+
+.site-header__btn--ghost:hover {
+  color: #0b73d2;
+  background-color: #f3f4f6;
+}
+
+.site-header__btn--primary {
+  color: #fff;
+  background-color: #0b73d2;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.site-header__btn--primary:hover {
+  background-color: #0962b3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- Mobile toggle ---- */
+.site-header__mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #374151;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.site-header__mobile-toggle:hover {
+  background-color: #f3f4f6;
+}
+
+.site-header__mobile-toggle:focus-visible {
+  outline: 2px solid #0b73d2;
+  outline-offset: 2px;
+}
+
+/* Hamburger / close icon swap */
+.site-header__close {
+  display: none;
+}
+
+.site-header__mobile-toggle[aria-expanded='true'] .site-header__hamburger {
+  display: none;
+}
+
+.site-header__mobile-toggle[aria-expanded='true'] .site-header__close {
+  display: block;
+}
+
+/* ---- Mobile drawer ---- */
+.site-header__drawer {
+  position: fixed;
+  inset: 4rem 0 0 0;
+  background: #fff;
+  z-index: 99;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.5rem 1.25rem 2rem;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  visibility: hidden;
+}
+
+.site-header__drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.site-header__drawer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__drawer-link {
+  display: block;
+  padding: 0.875rem 0;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  text-decoration: none;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+}
+
+.site-header__drawer-link:hover,
+.site-header__drawer-link:focus-visible {
+  color: #0b73d2;
+}
+
+.site-header__drawer-link:focus-visible {
+  outline: 2px solid #0b73d2;
+  outline-offset: 2px;
+}
+
+.site-header__drawer-details {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.site-header__drawer-details summary {
+  list-style: none;
+}
+
+.site-header__drawer-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-header__drawer-details summary::after {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.5rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+}
+
+.site-header__drawer-details[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.site-header__drawer-sub {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem 1rem;
+}
+
+.site-header__drawer-sublink {
+  display: block;
+  padding: 0.625rem 0;
+  font-size: 0.9375rem;
+  font-weight: 450;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.site-header__drawer-sublink:hover,
+.site-header__drawer-sublink:focus-visible {
+  color: #0b73d2;
+}
+
+.site-header__drawer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.site-header__drawer-actions .site-header__btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+/* ---- Desktop breakpoint (768px+) ---- */
+@media (min-width: 768px) {
+  .site-header__nav {
+    display: flex;
+  }
+
+  .site-header__actions {
+    display: flex;
+  }
+
+  .site-header__mobile-toggle {
+    display: none;
+  }
+
+  .site-header__drawer {
+    display: none;
+  }
+}
+
+/* ---- Dark mode ---- */
+[data-theme='dark'] .site-header {
+  background-color: #111827;
+  border-bottom-color: #1f2937;
+}
+
+[data-theme='dark'] .site-header__link {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .site-header__link:hover,
+[data-theme='dark'] .site-header__link:focus-visible {
+  color: #60a5fa;
+  background-color: #1f2937;
+}
+
+[data-theme='dark'] .site-header__dropdown {
+  background-color: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .site-header__dropdown-link {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .site-header__dropdown-link:hover,
+[data-theme='dark'] .site-header__dropdown-link:focus-visible {
+  color: #60a5fa;
+  background-color: #374151;
+}
+
+[data-theme='dark'] .site-header__btn--ghost {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .site-header__btn--ghost:hover {
+  color: #60a5fa;
+  background-color: #1f2937;
+}
+
+[data-theme='dark'] .site-header__mobile-toggle {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .site-header__mobile-toggle:hover {
+  background-color: #1f2937;
+}
+
+[data-theme='dark'] .site-header__drawer {
+  background-color: #111827;
+}
+
+[data-theme='dark'] .site-header__drawer-link {
+  color: #e5e7eb;
+  border-bottom-color: #1f2937;
+}
+
+[data-theme='dark'] .site-header__drawer-link:hover {
+  color: #60a5fa;
+}
+
+[data-theme='dark'] .site-header__drawer-details {
+  border-bottom-color: #1f2937;
+}
+
+[data-theme='dark'] .site-header__drawer-sublink {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .site-header__drawer-sublink:hover {
+  color: #60a5fa;
+}
+
+[data-theme='dark'] .site-header__drawer-actions {
+  border-top-color: #1f2937;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .site-header__dropdown,
+  .site-header__drawer,
+  .site-header__chevron,
+  .site-header__link,
+  .site-header__btn {
+    transition: none;
+  }
+}

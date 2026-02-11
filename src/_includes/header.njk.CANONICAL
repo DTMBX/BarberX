@@ -1,28 +1,22 @@
 {# 
   ╔══════════════════════════════════════════════════════════════════════════╗
   ║                     CANONICAL HEADER COMPONENT                            ║
-  ║                     DO NOT MODIFY WITHOUT REVIEW                          ║
+  ║                     REFERENCE BACKUP - DO NOT USE                         ║
   ╚══════════════════════════════════════════════════════════════════════════╝
   
-  This header component represents the finalized, court-defensible design
-  for Evident Technologies. It includes:
+  This is a read-only reference backup of the finalized header component.
   
-  - Dual logo variants (light/dark) with Trinity E branding
-  - Accessible desktop navigation with ARIA landmarks
-  - Keyboard-navigable dropdown menus
-  - Mobile-first responsive drawer with focus trap
-  - BEM methodology CSS architecture
-  - Full WCAG 2.1 AA compliance
+  If header.njk is accidentally modified or corrupted, restore from this file.
   
-  Styling: /assets/css/components/site-header.css
-  Behavior: /assets/js/menu.js
+  DO NOT include this file in templates.
+  DO NOT modify this file.
   
-  Last locked: 2026-02-11
+  Locked: 2026-02-11
   Version: 1.0.0-canonical
 #}
 <header class="site-header" role="banner">
   <div class="site-header__inner site-container">
-    {# Brand — light logo for white header, dark logo for dark-mode #}
+    
     <a href="/" class="site-header__brand" aria-label="EVIDENT — Home">
       <img
         src="/assets/img/logo/light-variant-logo.svg"
@@ -42,10 +36,10 @@
       />
     </a>
 
-    {# Desktop navigation #}
+    
     <nav id="primary-nav" class="site-header__nav" aria-label="Main navigation">
       <ul class="site-header__menu" role="menubar">
-        {# Services dropdown #}
+        
         <li class="site-header__item site-header__item--has-dropdown" role="none" data-nav-item>
           <button
             class="site-header__link"
@@ -77,13 +71,13 @@
       </ul>
     </nav>
 
-    {# CTA buttons — desktop #}
+    
     <div class="site-header__actions">
       <a href="https://app.evident.info/login" class="site-header__btn site-header__btn--ghost">Sign In</a>
       <a href="https://app.evident.info/register" class="site-header__btn site-header__btn--primary">Get Started</a>
     </div>
 
-    {# Mobile toggle #}
+    
     <button
       id="mobile-nav-toggle"
       class="site-header__mobile-toggle"
@@ -104,7 +98,7 @@
     </button>
   </div>
 
-  {# Mobile drawer — slides in from right #}
+  
   <div id="mobile-drawer" class="site-header__drawer" aria-hidden="true">
     <nav aria-label="Mobile navigation">
       <ul class="site-header__drawer-menu">

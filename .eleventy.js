@@ -2,6 +2,21 @@ const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
   // Assets passthrough with key static files
+  // 1. Specific root assets needed by templates but not in src/assets/
+  eleventyConfig.addPassthroughCopy({ 'assets/css/style.css': 'assets/css/style.css' });
+  eleventyConfig.addPassthroughCopy({ 'assets/css/core.css': 'assets/css/core.css' });
+  eleventyConfig.addPassthroughCopy({ 'assets/css/tokens/': 'assets/css/tokens/' });
+  eleventyConfig.addPassthroughCopy({ 'assets/css/components/flag-hero.css': 'assets/css/components/flag-hero.css' });
+  eleventyConfig.addPassthroughCopy({ 'assets/img/flags/': 'assets/img/flags/' });
+  eleventyConfig.addPassthroughCopy({ 'assets/img/logo/dark-variant-logo.svg': 'assets/img/logo/dark-variant-logo.svg' });
+  eleventyConfig.addPassthroughCopy({ 'assets/img/logo/dark-variant-logo-transparent.svg': 'assets/img/logo/dark-variant-logo-transparent.svg' });
+  eleventyConfig.addPassthroughCopy({ 'assets/img/logo/light-variant-logo-transparent.svg': 'assets/img/logo/light-variant-logo-transparent.svg' });
+  eleventyConfig.addPassthroughCopy({ 'assets/img/brand/': 'assets/img/brand/' });
+  eleventyConfig.addPassthroughCopy({ 'assets/css/components/site-header.css': 'assets/css/components/site-header.css' });
+  eleventyConfig.addPassthroughCopy({ 'assets/icons/': 'assets/icons/' });
+  eleventyConfig.addPassthroughCopy({ 'assets/svg/': 'assets/svg/' });
+
+  // 2. src/assets/ — primary source for templates, components, media
   eleventyConfig.addPassthroughCopy({
     'src/assets/': 'assets/',
     'src/robots.txt': 'robots.txt',

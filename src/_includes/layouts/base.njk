@@ -7,7 +7,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     {% include "header.njk" %}
 
-    <main id="main" class="site-container py-8 md:py-12 lg:py-16">
+    <main id="main" class="{% block mainClass %}site-container py-8 md:py-12 lg:py-16{% endblock %}">
       {% block content %}{{ content | safe }}{% endblock %}
     </main>
 
