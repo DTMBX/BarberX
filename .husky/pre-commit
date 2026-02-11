@@ -1,4 +1,6 @@
 #!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
 # Evident Technologies — pre-commit hook
 # Runs lint-staged if installed locally; skips gracefully otherwise.
 

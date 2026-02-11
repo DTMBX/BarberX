@@ -80,7 +80,7 @@
       const item = document.createElement('li');
       const link = document.createElement('a');
       link.href = '#' + section.id;
-      link.className = 'case-quick-nav-link';
+      link.className = 'case-quick-nav__link';
       link.textContent = heading.textContent.trim();
 
       item.appendChild(link);

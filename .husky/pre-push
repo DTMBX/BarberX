@@ -1,4 +1,6 @@
 #!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
 # Evident Technologies — pre-push hook
 # Prevents accidental pushes to protected branches.
 
