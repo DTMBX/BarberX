@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Replay Verification — {{ case.case_number }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+      --ed-success: #4ade80;
+      --ed-danger: #f87171;
+      --ed-warning: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .breadcrumb { font-size: 0.8125rem; color: var(--ed-text-muted); }
+    .breadcrumb a { color: var(--ed-accent); text-decoration: none; }
+    .ed-content { max-inline-size: 64rem; margin: 2rem auto; padding: 0 2rem; }
+
+    .section-panel {
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.5rem; padding: 1.5rem; margin-block-end: 1.5rem;
+    }
+    .section-panel h2 { margin: 0 0 1rem; font-size: 1rem; font-weight: 600; }
+
+    .action-btn {
+      padding: 0.5rem 1rem; font-size: 0.8125rem; font-family: inherit;
+      color: var(--ed-text); background: var(--ed-surface);
+      border: 1px solid var(--ed-border); border-radius: 0.375rem;
+      cursor: pointer; transition: border-color 0.15s;
+    }
+    .action-btn:hover { border-color: var(--ed-accent); }
+    .action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .action-btn.primary { background: rgba(96,165,250,0.15); border-color: var(--ed-accent); }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      gap: 0.75rem;
+      margin-block-end: 1.5rem;
+    }
+    .summary-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+      padding: 1rem; text-align: center;
+    }
+    .summary-card .value { font-size: 1.5rem; font-weight: 700; }
+    .summary-card .label { font-size: 0.75rem; color: var(--ed-text-muted); margin-block-start: 0.25rem; }
+
+    .verdict-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+    .verdict-table th {
+      text-align: start; font-weight: 500; padding: 0.5rem;
+      color: var(--ed-text-muted); border-bottom: 1px solid var(--ed-border);
+    }
+    .verdict-table td { padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.04); }
+
+    .badge { display: inline-block; font-size: 0.6875rem; font-weight: 600;
+      padding: 0.15rem 0.45rem; border-radius: 0.25rem;
+      text-transform: uppercase; letter-spacing: 0.04em; }
+    .badge-pass { background: rgba(74,222,128,0.15); color: var(--ed-success); }
+    .badge-fail { background: rgba(248,113,113,0.15); color: var(--ed-danger); }
+    .badge-error { background: rgba(251,191,36,0.15); color: var(--ed-warning); }
+
+    .hash-mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.6875rem; color: var(--ed-text-muted);
+    }
+
+    #replay-output { display: none; }
+    #replay-output.active { display: block; }
+
+    .back-link {
+      display: inline-block; margin-block-end: 1rem;
+      font-size: 0.8125rem; color: var(--ed-accent); text-decoration: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>Replay Verification</h1>
+    <span class="breadcrumb">
+      <a href="{{ url_for('ediscovery.ediscovery_index') }}">eDiscovery</a>
+      &rsaquo; <a href="{{ url_for('ediscovery.algorithm_dashboard', case_id=case.id) }}">Algorithms</a>
+      &rsaquo; Replay
+    </span>
+  </header>
+
+  <main class="ed-content">
+    <a class="back-link" href="{{ url_for('ediscovery.algorithm_dashboard', case_id=case.id) }}">
+      &larr; Back to Dashboard
+    </a>
+
+    <section class="section-panel">
+      <h2>Deterministic Replay</h2>
+      <p style="font-size: 0.8125rem; color: var(--ed-text-muted); margin-block-end: 1rem;">
+        Re-run all recorded algorithm executions for this case and verify that
+        outputs match the original result hashes. This proves reproducibility.
+      </p>
+      <button class="action-btn primary" id="btn-start-replay" type="button">
+        Start Replay Verification
+      </button>
+    </section>
+
+    <div id="replay-output">
+      <!-- Summary -->
+      <section class="section-panel">
+        <h2>Summary</h2>
+        <div class="summary-grid" id="summary-grid"></div>
+        <p style="font-size: 0.75rem; color: var(--ed-text-muted);">
+          Report hash: <span class="hash-mono" id="report-hash">—</span>
+        </p>
+      </section>
+
+      <!-- Verdicts -->
+      <section class="section-panel">
+        <h2>Per-Run Verdicts</h2>
+        <table class="verdict-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Run ID</th>
+              <th scope="col">Algorithm</th>
+              <th scope="col">Result Match</th>
+              <th scope="col">Integrity Match</th>
+              <th scope="col">Original Hash</th>
+              <th scope="col">Replay Hash</th>
+            </tr>
+          </thead>
+          <tbody id="verdict-body"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const CASE_ID = {{ case.id }};
+
+    function badge(match, error) {
+      if (error) return '<span class="badge badge-error">Error</span>';
+      return match
+        ? '<span class="badge badge-pass">Match</span>'
+        : '<span class="badge badge-fail">Mismatch</span>';
+    }
+
+    function summaryCard(value, label, color) {
+      return `<div class="summary-card">
+        <div class="value" style="color:${color}">${value}</div>
+        <div class="label">${label}</div>
+      </div>`;
+    }
+
+    document.getElementById('btn-start-replay').addEventListener('click', async () => {
+      const btn = document.getElementById('btn-start-replay');
+      btn.disabled = true;
+      btn.textContent = 'Running…';
+
+      try {
+        const res = await fetch('/api/v1/algorithms/replay', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ case_id: CASE_ID }),
+          credentials: 'same-origin',
+        });
+        const data = await res.json();
+
+        // Summary
+        const grid = document.getElementById('summary-grid');
+        grid.innerHTML =
+          summaryCard(data.total_runs, 'Total Runs', 'var(--ed-text)') +
+          summaryCard(data.matched, 'Matched', 'var(--ed-success)') +
+          summaryCard(data.mismatched, 'Mismatched', 'var(--ed-danger)') +
+          summaryCard(data.errors, 'Errors', 'var(--ed-warning)');
+
+        document.getElementById('report-hash').textContent = data.report_hash || '—';
+
+        // Verdicts
+        const tbody = document.getElementById('verdict-body');
+        tbody.innerHTML = '';
+        (data.verdicts || []).forEach(v => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><span class="hash-mono">${(v.original_run_id || '').slice(0, 12)}…</span></td>
+            <td>${(v.algorithm_id || '').replace(/_/g, ' ')}</td>
+            <td>${badge(v.match, v.replay_error)}</td>
+            <td>${badge(v.integrity_match, v.replay_error)}</td>
+            <td><span class="hash-mono">${(v.original_result_hash || '').slice(0, 16)}…</span></td>
+            <td><span class="hash-mono">${(v.replay_result_hash || '').slice(0, 16)}…</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById('replay-output').classList.add('active');
+      } catch (err) {
+        alert('Replay failed: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Start Replay Verification';
+      }
+    });
+  </script>
+</body>
+</html>

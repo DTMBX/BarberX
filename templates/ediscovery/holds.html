@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Litigation Holds · {{ case.case_name }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .ed-nav { display: flex; gap: 0.5rem; margin-left: auto; }
+    .ed-nav a {
+      font-size: 0.8125rem; color: var(--ed-accent); text-decoration: none;
+      padding: 0.35rem 0.75rem; border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+    }
+    .ed-nav a:hover { background: rgba(96,165,250,0.1); }
+    .ed-content { max-width: 56rem; margin: 2rem auto; padding: 0 2rem; }
+    .status-card {
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.75rem; padding: 1.5rem 2rem; margin-bottom: 1.5rem;
+    }
+    .status-row { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; }
+    .status-label { font-size: 0.8125rem; color: var(--ed-text-muted); min-width: 10rem; }
+    .status-value { font-size: 0.9375rem; font-weight: 500; }
+    .hold-on { color: #f87171; }
+    .hold-off { color: #4ade80; }
+    .btn-hold {
+      display: inline-block; margin-top: 1rem; padding: 0.5rem 1.25rem;
+      border: none; border-radius: 0.375rem; cursor: pointer;
+      font-size: 0.8125rem; font-weight: 600; font-family: inherit;
+      transition: opacity 0.15s;
+    }
+    .btn-hold:hover { opacity: 0.85; }
+    .btn-place { background: #dc2626; color: #fff; }
+    .btn-release { background: #22c55e; color: #fff; }
+    .btn-hold:disabled { opacity: 0.5; cursor: not-allowed; }
+    .evidence-hold-list {
+      margin-top: 1.5rem; border-top: 1px solid var(--ed-border); padding-top: 1rem;
+    }
+    .evidence-hold-list h3 { font-size: 0.875rem; margin: 0 0 0.75rem; }
+    .evidence-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.5rem 0; border-bottom: 1px solid var(--ed-border);
+      font-size: 0.8125rem;
+    }
+    .evidence-row .filename { flex: 1; }
+    .hold-indicator {
+      display: inline-block; width: 0.5rem; height: 0.5rem;
+      border-radius: 50%; flex-shrink: 0;
+    }
+    .hold-indicator.active { background: #f87171; }
+    .hold-indicator.none { background: #4ade80; }
+    .toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      padding: 0.75rem 1.25rem; border-radius: 0.5rem; font-size: 0.8125rem;
+      transform: translateY(120%); opacity: 0; transition: all 0.3s;
+      z-index: 9999;
+    }
+    .toast.visible { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>Litigation Holds · {{ case.case_number }}</h1>
+    <nav class="ed-nav">
+      <a href="{{ url_for('ediscovery.ediscovery_index') }}">eDiscovery</a>
+      <a href="{{ url_for('ediscovery.privilege_log', case_id=case.id) }}">Privilege Log</a>
+      <a href="{{ url_for('ediscovery.production_sets', case_id=case.id) }}">Productions</a>
+    </nav>
+  </header>
+
+  <main class="ed-content">
+    <!-- Case-level hold status -->
+    <section class="status-card">
+      <div class="status-row">
+        <span class="status-label">Case</span>
+        <span class="status-value">{{ case.case_name }}</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Hold Status</span>
+        <span class="status-value {% if case.is_legal_hold %}hold-on{% else %}hold-off{% endif %}">
+          {% if case.is_legal_hold %}ACTIVE{% else %}Not active{% endif %}
+        </span>
+      </div>
+      {% if case.legal_hold_date %}
+      <div class="status-row">
+        <span class="status-label">Hold placed</span>
+        <span class="status-value">{{ case.legal_hold_date.strftime('%Y-%m-%d %H:%M UTC') }}</span>
+      </div>
+      {% endif %}
+      {% if case.discovery_deadline %}
+      <div class="status-row">
+        <span class="status-label">Discovery deadline</span>
+        <span class="status-value">{{ case.discovery_deadline.strftime('%Y-%m-%d') }}</span>
+      </div>
+      {% endif %}
+
+      <button id="holdToggle" class="btn-hold {% if case.is_legal_hold %}btn-release{% else %}btn-place{% endif %}"
+        onclick="toggleHold()">
+        {% if case.is_legal_hold %}Release Hold{% else %}Place Legal Hold{% endif %}
+      </button>
+    </section>
+
+    <!-- Evidence under hold -->
+    <section class="evidence-hold-list">
+      <h3>Evidence items under legal hold</h3>
+      <div id="holdList">Loading…</div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    var CASE_ID = {{ case.id }};
+    var holdActive = {{ 'true' if case.is_legal_hold else 'false' }};
+
+    async function toggleHold() {
+      var btn = document.getElementById('holdToggle');
+      btn.disabled = true;
+      try {
+        var resp = await fetch('/api/legal/cases/' + CASE_ID + '/legal-hold', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            action: holdActive ? 'release' : 'place',
+            reason: holdActive ? 'Hold released via eDiscovery UI' : 'Hold placed via eDiscovery UI',
+          }),
+        });
+        if (!resp.ok) throw new Error('Failed');
+        holdActive = !holdActive;
+        btn.textContent = holdActive ? 'Release Hold' : 'Place Legal Hold';
+        btn.className = 'btn-hold ' + (holdActive ? 'btn-release' : 'btn-place');
+        showToast(holdActive ? 'Legal hold placed' : 'Legal hold released');
+        loadEvidence();
+      } catch (e) {
+        showToast('Operation failed');
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    async function loadEvidence() {
+      try {
+        var resp = await fetch('/api/legal/cases/' + CASE_ID + '/evidence', { credentials: 'same-origin' });
+        if (!resp.ok) throw new Error('Failed');
+        var data = await resp.json();
+        var items = data.evidence || [];
+        if (!items.length) {
+          document.getElementById('holdList').innerHTML =
+            '<p style="color:var(--ed-text-muted); font-size:0.8125rem;">No evidence in this case.</p>';
+          return;
+        }
+        document.getElementById('holdList').innerHTML = items.map(function(ev) {
+          var held = ev.is_under_legal_hold;
+          return '<div class="evidence-row">' +
+            '<span class="hold-indicator ' + (held ? 'active' : 'none') + '"></span>' +
+            '<span class="filename">' + escapeHtml(ev.original_filename || ev.filename || ('EV-' + ev.id)) + '</span>' +
+            '<span style="font-size:0.75rem;color:var(--ed-text-muted);">' + (held ? 'Under hold' : 'No hold') + '</span>' +
+            '</div>';
+        }).join('');
+      } catch (e) {
+        document.getElementById('holdList').innerHTML =
+          '<p style="color:#f87171; font-size:0.8125rem;">Failed to load evidence.</p>';
+      }
+    }
+
+    function escapeHtml(s) {
+      if (!s) return '';
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function showToast(msg) {
+      var el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('visible');
+      setTimeout(function() { el.classList.remove('visible'); }, 2500);
+    }
+
+    document.addEventListener('DOMContentLoaded', loadEvidence);
+  </script>
+</body>
+</html>
