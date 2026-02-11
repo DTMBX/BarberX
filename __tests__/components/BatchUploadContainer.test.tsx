@@ -116,6 +116,7 @@ describe('BatchUploadContainer Component', () => {
   });
 
   test('displays progress component after upload starts', async () => {
+    const user = userEvent.setup();
     const mockFetch = global.fetch as jest.Mock;
     mockFetch.mockResolvedValueOnce({
       status: 202,
@@ -127,7 +128,16 @@ describe('BatchUploadContainer Component', () => {
 
     render(<BatchUploadContainer />);
 
-    // Simulate upload completion
+    // Add file
+    const file = new File(['video'], 'test.mp4', { type: 'video/mp4' });
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    await user.upload(input, file);
+
+    // Click start upload
+    const uploadButton = screen.getByText(/Start Upload/i);
+    await user.click(uploadButton);
+
+    // Wait for upload progress to appear
     await waitFor(() => {
       expect(screen.queryByText(/Upload Progress/i)).toBeInTheDocument();
     });
