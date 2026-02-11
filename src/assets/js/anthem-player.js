@@ -36,6 +36,8 @@
    * Initialize the anthem player
    */
   function init() {
+    console.log('[Anthem] Initializing player...');
+    
     player = document.getElementById('anthem-player');
     audio = document.getElementById('anthem-audio');
     toggleBtn = document.getElementById('anthem-toggle');
@@ -44,9 +46,14 @@
     status = document.getElementById('anthem-status');
 
     if (!player || !audio) {
-      console.log('[Anthem] Player elements not found');
+      console.error('[Anthem] Player elements not found', {
+        player: !!player,
+        audio: !!audio
+      });
       return;
     }
+
+    console.log('[Anthem] Player elements found, setting up listeners...');
 
     // Check if audio source is available
     audio.addEventListener('error', handleAudioError);
@@ -58,6 +65,7 @@
     // Button event listeners
     if (toggleBtn) {
       toggleBtn.addEventListener('click', togglePlayPause);
+      console.log('[Anthem] Toggle button listener attached');
     }
     if (muteBtn) {
       muteBtn.addEventListener('click', toggleMute);
@@ -70,6 +78,7 @@
     restoreMutePreference();
 
     // Load the audio
+    console.log('[Anthem] Loading audio...');
     audio.load();
   }
 
