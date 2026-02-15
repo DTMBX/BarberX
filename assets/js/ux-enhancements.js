@@ -654,8 +654,8 @@
       return;
     }
 
-    initStickyHeader();
-    initMobileNav();
+    // initStickyHeader(); — disabled: targets #siteHeader which does not exist; header is styled via CSS sticky
+    // initMobileNav(); — disabled: navigation.js already handles mobile nav via [data-nav-toggle]
     initBackToTop();
     initFormValidation();
     initButtonLoading();

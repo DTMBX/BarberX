@@ -1,21 +1,23 @@
 {# 
   ╔══════════════════════════════════════════════════════════════════════════╗
   ║                   CANONICAL FLAG HERO COMPONENT                           ║
-  ║                   DO NOT MODIFY WITHOUT REVIEW                            ║
+  ║                   REFERENCE BACKUP - DO NOT USE                           ║
   ╚══════════════════════════════════════════════════════════════════════════╝
   
-  This component represents the finalized, court-defensible flag hero design
-  for Evident Technologies. It includes:
+  This is a read-only reference backup of the finalized flag hero component.
   
-  - Full-width video background with American flag
-  - Mission statement overlay with patriotic messaging
-  - Accessible, performant, reduced-motion aware
-  - Respectful presentation honoring service members
+  If flag-hero.njk is accidentally modified or corrupted, restore from this file.
   
-  Styling: /assets/css/components/flag-hero.css
+  DO NOT include this file in templates.
+  DO NOT modify this file.
   
-  Last locked: 2026-02-11
+  Locked: 2026-02-11
   Version: 1.0.0-canonical
+#}
+
+{# Flag Video Hero Component
+   Full-width video background with mission statement overlay
+   Accessible, performant, respects reduced motion preferences
 #}
 
 <section class="flag-hero" aria-label="Evident mission statement">
@@ -53,7 +55,4 @@
       </a>
     </div>
   </div>
-
-  {# National Anthem audio player — respectful presentation #}
-  {% include "components/anthem-player.njk" %}
 </section>

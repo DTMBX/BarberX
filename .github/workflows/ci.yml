@@ -65,13 +65,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install Python deps (if present)
+      - name: Install Python dependencies
         run: |
-          if [ -f backend/requirements.txt ]; then python -m pip install --upgrade pip && pip install -r backend/requirements.txt; fi
+          python -m pip install --upgrade pip
+          pip install -r requirements-media-ai.txt
+          pip install -r requirements-phase9.txt
 
       - name: Run Python tests
         run: |
-          if [ -d backend ] ; then pytest -q || true; fi
+          mkdir -p test-results
+          pytest -q --tb=short --junitxml=test-results/pytest.xml --court-report 2>&1 | tee test-results/pytest-output.txt
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-test-results
+          path: test-results/
+          retention-days: 30
 
       - name: Run security audits (non-blocking)
         continue-on-error: true

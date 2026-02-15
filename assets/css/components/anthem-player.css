@@ -1,0 +1,260 @@
+/* ============================================================================
+   NATIONAL ANTHEM AUDIO PLAYER — Evident Technologies
+   ============================================================================
+   
+   Respectful audio player for The Star-Spangled Banner.
+   Positioned at bottom-right of flag hero section.
+   
+   Features:
+   - Elegant, minimal controls
+   - Glass-effect backdrop
+   - Smooth transitions
+   - Reduced-motion support
+   - Responsive design
+   
+   Last updated: 2026-02-11
+   ============================================================================ */
+
+/* ---- Container ---- */
+.anthem-player {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.anthem-player__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2rem;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Enhanced visibility when audio is ready */
+.anthem-player.is-ready .anthem-player__controls {
+  opacity: 1;
+  transform: translateY(0);
+  animation: glow-border 3s ease-in forwards;
+}
+
+/* ---- Buttons ---- */
+.anthem-player__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.anthem-player__btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.anthem-player__btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.anthem-player__btn:active {
+  transform: scale(0.95);
+}
+
+/* Toggle button (play/pause) */
+.anthem-player__btn--toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.anthem-player__btn--toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Icon visibility states */
+.anthem-player__icon--play {
+  display: none;
+}
+
+.anthem-player.is-paused .anthem-player__icon--pause {
+  display: none;
+}
+
+.anthem-player.is-paused .anthem-player__icon--play {
+  display: block;
+}
+
+/* Mute button */
+.anthem-player__icon--muted {
+  display: none;
+}
+
+.anthem-player.is-muted .anthem-player__icon--volume {
+  display: none;
+}
+
+.anthem-player.is-muted .anthem-player__icon--muted {
+  display: block;
+}
+
+/* Replay button */
+.anthem-player__btn--replay {
+  display: none;
+  gap: 0.375rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.anthem-player.is-ended .anthem-player__btn--replay {
+  display: flex;
+}
+
+.anthem-player.is-ended .anthem-player__btn--toggle {
+  display: none;
+}
+
+/* ---- Status indicator ---- */
+.anthem-player__status {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0 0.5rem 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.anthem-player__note {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  animation: pulse-note 2s ease-in-out infinite;
+}
+
+@keyframes pulse-note {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.anthem-player.is-paused .anthem-player__note,
+.anthem-player.is-ended .anthem-player__note {
+  animation: none;
+  opacity: 0.5;
+}
+
+.anthem-player__label {
+  font-size: 0.8125rem;
+}
+
+/* ---- Fade animation for audio (visual indicator) ---- */
+.anthem-player.is-fading-in .anthem-player__controls {
+  animation: glow-border 3s ease-out forwards;
+}
+
+@keyframes glow-border {
+  0% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 24px rgba(11, 115, 210, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ---- Mobile responsive ---- */
+@media (max-width: 768px) {
+  .anthem-player {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    left: 1.25rem;
+  }
+
+  .anthem-player__controls {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .anthem-player__status {
+    display: none;
+  }
+
+  .anthem-player.is-ended .anthem-player__status {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .anthem-player__controls {
+    padding: 0.375rem 0.5rem;
+    gap: 0.375rem;
+  }
+
+  .anthem-player__btn--toggle {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .anthem-player__controls {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .anthem-player__btn {
+    transition: none;
+  }
+
+  .anthem-player__note {
+    animation: none;
+    opacity: 0.7;
+  }
+
+  @keyframes glow-border {
+    0%, 100% {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+/* ---- Hidden state (when no audio file or error) ---- */
+.anthem-player.is-unavailable {
+  display: none;
+}
+
+/* ---- Dismiss animation ---- */
+.anthem-player.is-dismissing {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}

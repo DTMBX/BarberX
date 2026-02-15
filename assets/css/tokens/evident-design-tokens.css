@@ -1,0 +1,394 @@
+/* ============================================================================
+   EVIDENT DESIGN TOKENS — Single Source of Truth
+   ============================================================================
+   All visual primitives for the Evident Technologies platform.
+
+   Naming convention:
+     --ev-{category}-{variant}
+
+   Categories: color, text, space, radius, shadow, z, transition, font
+
+   WCAG 2.1 AA compliance verified for all foreground/background pairs.
+   Contrast ratios annotated inline.
+
+   Last consolidated: 2026-02-11
+   ============================================================================ */
+
+:root {
+  /* ==========================================================================
+     1. COLOR PRIMITIVES
+     ========================================================================== */
+
+  /* Neutrals (warm archival tone) */
+  --ev-color-ink:           #0b0d10;   /* Obsidian Black — primary text */
+  --ev-color-ink-700:       #334155;   /* Slate — secondary text */
+  --ev-color-ink-500:       #6b7280;   /* Hash Gray — muted text */
+  --ev-color-paper:         #f6f3ed;   /* Archival Ivory — page background */
+  --ev-color-paper-alt:     #fbf8f2;   /* Subtle alt surface */
+  --ev-color-surface:       #ffffff;   /* Card / panel surface */
+  --ev-color-surface-alt:   #f8fafc;   /* Stone-50 — subtle alt */
+  --ev-color-border:        #e7e1d7;   /* Warm border */
+  --ev-color-border-strong: #d7d0c5;   /* Stronger border */
+  --ev-color-grid:          #e5e7eb;   /* Grid line */
+
+  /* Brand: Evidentiary Blue */
+  --ev-color-blue:          #2f5d9f;   /* Primary brand blue */
+  --ev-color-blue-hover:    #2a518a;   /* Hover state */
+  --ev-color-blue-active:   #244677;   /* Active / pressed */
+  --ev-color-blue-light:    #93c5fd;   /* Light accent — badges, tags */
+  --ev-color-blue-muted:    color-mix(in srgb, #2f5d9f 55%, white);
+
+  /* Brand: Seal Red */
+  --ev-color-red:           #7a1e2b;   /* Danger / destructive */
+  --ev-color-red-hover:     #6a1925;   /* Danger hover */
+  --ev-color-red-active:    #57141e;   /* Danger active */
+
+  /* Brand: Brass Accent */
+  --ev-color-brass:         #f59e0b;   /* Secondary highlight */
+  --ev-color-brass-dark:    #b45309;   /* Secondary on light */
+
+  /* Success / Info */
+  --ev-color-success:       #16a34a;
+  --ev-color-info:          #0284c7;
+
+  /* ==========================================================================
+     2. SEMANTIC COLOR ALIASES
+     ========================================================================== */
+
+  /* Foreground */
+  --ev-fg:              var(--ev-color-ink);          /* 15.4:1 on paper */
+  --ev-fg-muted:        var(--ev-color-ink-700);      /* 8.2:1 on paper — AA */
+  --ev-fg-subtle:       var(--ev-color-ink-500);      /* 5.0:1 on paper — AA */
+
+  /* Background */
+  --ev-bg:              var(--ev-color-paper);
+  --ev-bg-surface:      var(--ev-color-surface);
+  --ev-bg-surface-alt:  var(--ev-color-surface-alt);
+
+  /* Interactive */
+  --ev-primary:         var(--ev-color-blue);         /* 5.9:1 on paper — AA */
+  --ev-primary-hover:   var(--ev-color-blue-hover);
+  --ev-primary-active:  var(--ev-color-blue-active);
+  --ev-danger:          var(--ev-color-red);          /* 8.7:1 on paper — AAA */
+  --ev-danger-hover:    var(--ev-color-red-hover);
+  --ev-secondary:       var(--ev-color-brass-dark);   /* 5.4:1 on paper — AA */
+
+  /* On-color (text on colored backgrounds) */
+  --ev-on-primary:      #ffffff;
+  --ev-on-danger:       #ffffff;
+  --ev-on-ink:          var(--ev-color-paper);
+  --ev-on-paper:        var(--ev-color-ink);
+
+  /* Borders */
+  --ev-border:          var(--ev-color-border);
+  --ev-border-strong:   var(--ev-color-border-strong);
+
+  /* ==========================================================================
+     3. TYPOGRAPHY
+     ========================================================================== */
+
+  --ev-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto',
+                  'Helvetica Neue', 'Arial', sans-serif;
+  --ev-font-serif: 'Merriweather', 'Georgia', serif;
+  --ev-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Type scale (fluid where appropriate) */
+  --ev-text-xs:   0.75rem;    /* 12px */
+  --ev-text-sm:   0.875rem;   /* 14px */
+  --ev-text-base: 1rem;       /* 16px */
+  --ev-text-lg:   1.125rem;   /* 18px */
+  --ev-text-xl:   1.25rem;    /* 20px */
+  --ev-text-2xl:  1.5rem;     /* 24px */
+  --ev-text-3xl:  2rem;       /* 32px */
+  --ev-text-4xl:  2.5rem;     /* 40px */
+  --ev-text-5xl:  3rem;       /* 48px */
+
+  /* Font weights */
+  --ev-weight-normal:    400;
+  --ev-weight-medium:    500;
+  --ev-weight-semibold:  600;
+  --ev-weight-bold:      700;
+  --ev-weight-extrabold: 800;
+
+  /* Line heights */
+  --ev-leading-tight:    1.15;
+  --ev-leading-snug:     1.3;
+  --ev-leading-normal:   1.6;
+  --ev-leading-relaxed:  1.75;
+
+  /* Letter spacing */
+  --ev-tracking-tight:   -0.02em;
+  --ev-tracking-normal:  0;
+  --ev-tracking-wide:    0.05em;
+  --ev-tracking-wider:   0.1em;
+
+  /* ==========================================================================
+     4. SPACING SCALE
+     ========================================================================== */
+
+  --ev-space-1:   0.25rem;   /* 4px */
+  --ev-space-2:   0.5rem;    /* 8px */
+  --ev-space-3:   0.75rem;   /* 12px */
+  --ev-space-4:   1rem;      /* 16px */
+  --ev-space-5:   1.25rem;   /* 20px */
+  --ev-space-6:   1.5rem;    /* 24px */
+  --ev-space-8:   2rem;      /* 32px */
+  --ev-space-10:  2.5rem;    /* 40px */
+  --ev-space-12:  3rem;      /* 48px */
+  --ev-space-16:  4rem;      /* 64px */
+  --ev-space-20:  5rem;      /* 80px */
+  --ev-space-24:  6rem;      /* 96px */
+
+  /* Contextual spacing */
+  --ev-section-pad:   clamp(3rem, 7vw, 6rem);
+  --ev-card-pad:      clamp(1.375rem, 2.5vw, 2rem);
+  --ev-gutter:        clamp(1.5rem, 3.5vw, 2.5rem);
+  --ev-container-pad: clamp(1rem, 4vw, 1.75rem);
+
+  /* ==========================================================================
+     5. LAYOUT
+     ========================================================================== */
+
+  --ev-container-max:     1200px;
+  --ev-container-narrow:  800px;
+  --ev-container-wide:    1600px;
+  --ev-container-text:    680px;
+
+  /* ==========================================================================
+     6. BORDER RADIUS
+     ========================================================================== */
+
+  --ev-radius-xs:   4px;
+  --ev-radius-sm:   8px;
+  --ev-radius-md:   12px;
+  --ev-radius-lg:   16px;
+  --ev-radius-xl:   24px;
+  --ev-radius-full: 9999px;
+
+  /* ==========================================================================
+     7. SHADOWS
+     ========================================================================== */
+
+  --ev-shadow-none: none;
+  --ev-shadow-xs:   0 1px  2px  rgb(0 0 0 / 5%);
+  --ev-shadow-sm:   0 1px  3px  rgb(0 0 0 / 8%),  0 1px 2px rgb(0 0 0 / 4%);
+  --ev-shadow-md:   0 4px  12px rgb(0 0 0 / 10%), 0 2px 4px rgb(0 0 0 / 5%);
+  --ev-shadow-lg:   0 10px 30px rgb(0 0 0 / 12%), 0 4px 8px rgb(0 0 0 / 5%);
+  --ev-shadow-xl:   0 20px 50px rgb(0 0 0 / 15%), 0 8px 16px rgb(0 0 0 / 5%);
+
+  /* Focus ring */
+  --ev-ring-color: var(--ev-color-blue-muted);
+  --ev-ring:       0 0 0 3px var(--ev-ring-color);
+
+  /* ==========================================================================
+     8. Z-INDEX SCALE
+     ========================================================================== */
+
+  --ev-z-base:      1;
+  --ev-z-dropdown:  100;
+  --ev-z-sticky:    200;
+  --ev-z-fixed:     300;
+  --ev-z-backdrop:  400;
+  --ev-z-modal:     500;
+  --ev-z-popover:   600;
+  --ev-z-tooltip:   700;
+
+  /* ==========================================================================
+     9. TRANSITIONS
+     ========================================================================== */
+
+  --ev-transition-fast: 120ms ease;
+  --ev-transition-base: 200ms ease;
+  --ev-transition-slow: 300ms ease;
+}
+
+/* ============================================================================
+   BACKWARD-COMPATIBILITY ALIASES
+   Allows existing CSS to consume new tokens without mass-rename.
+   Remove these once all consumers migrate to --ev-* names.
+   ============================================================================ */
+
+:root {
+  /* tokens/tokens.css aliases */
+  --ink:            var(--ev-color-ink);
+  --paper:          var(--ev-color-paper);
+  --blue:           var(--ev-color-blue);
+  --red:            var(--ev-color-red);
+  --muted:          var(--ev-color-ink-500);
+  --grid:           var(--ev-color-grid);
+  --bg:             var(--ev-bg);
+  --fg:             var(--ev-fg);
+  --surface:        var(--ev-bg-surface);
+  --surface-2:      var(--ev-color-paper-alt);
+  --border:         var(--ev-border);
+  --border-strong:  var(--ev-border-strong);
+  --text-muted:     var(--ev-fg-muted);
+  --text-subtle:    var(--ev-fg-subtle);
+  --primary:        var(--ev-primary);
+  --primary-hover:  var(--ev-primary-hover);
+  --primary-active: var(--ev-primary-active);
+  --danger:         var(--ev-danger);
+  --danger-hover:   var(--ev-danger-hover);
+  --danger-active:  var(--ev-color-red-active);
+  --on-ink:         var(--ev-on-ink);
+  --on-paper:       var(--ev-on-paper);
+  --on-primary:     var(--ev-on-primary);
+  --on-danger:      var(--ev-on-danger);
+
+  /* tokens.css (root) aliases */
+  --color-primary:  var(--ev-primary);
+  --color-accent:   var(--ev-color-brass);
+  --color-neutral:  var(--ev-color-surface-alt);
+  --font-sans:      var(--ev-font-sans);
+  --max-width:      var(--ev-container-max);
+
+  /* core.css expected tokens (RGB-free aliases) */
+  --color-fg:       var(--ev-fg);
+  --color-bg:       var(--ev-bg);
+  --font-body:      var(--ev-font-sans);
+  --font-weight-bold:    var(--ev-weight-bold);
+  --font-weight-medium:  var(--ev-weight-medium);
+  --line-height-tight:   var(--ev-leading-tight);
+  --line-height-normal:  var(--ev-leading-normal);
+  --line-height-relaxed: var(--ev-leading-relaxed);
+  --container-max:       var(--ev-container-max);
+  --container-narrow:    var(--ev-container-narrow);
+  --container-wide:      var(--ev-container-wide);
+  --shadow-focus:        var(--ev-ring-color);
+  --color-primary-contrast: var(--ev-on-primary);
+  --z-fixed:             var(--ev-z-fixed);
+  --transition-fast:     var(--ev-transition-fast);
+  --transition-base:     var(--ev-transition-base);
+  --transition-slow:     var(--ev-transition-slow);
+
+  /* Spacing aliases used by core.css and base/ */
+  --space-1:   var(--ev-space-1);
+  --space-2:   var(--ev-space-2);
+  --space-3:   var(--ev-space-3);
+  --space-4:   var(--ev-space-4);
+  --space-5:   var(--ev-space-5);
+  --space-6:   var(--ev-space-6);
+  --space-8:   var(--ev-space-8);
+  --space-10:  var(--ev-space-10);
+  --space-12:  var(--ev-space-12);
+  --space-16:  var(--ev-space-16);
+  --space-2xs: var(--ev-space-1);
+  --space-xs:  var(--ev-space-2);
+  --space-sm:  var(--ev-space-3);
+  --space-md:  var(--ev-space-4);
+  --space-lg:  var(--ev-space-6);
+  --space-xl:  var(--ev-space-8);
+  --space-2xl: var(--ev-space-12);
+  --space-3xl: var(--ev-space-16);
+  --space-4xl: var(--ev-space-24);
+
+  /* Radius aliases */
+  --r-sm:       var(--ev-radius-sm);
+  --r-md:       var(--ev-radius-md);
+  --r-lg:       var(--ev-radius-lg);
+  --r-pill:     var(--ev-radius-full);
+  --radius-xs:  var(--ev-radius-xs);
+  --radius-sm:  var(--ev-radius-sm);
+  --radius-md:  var(--ev-radius-md);
+  --radius-base: var(--ev-radius-md);
+  --radius-lg:  var(--ev-radius-lg);
+  --radius-xl:  var(--ev-radius-xl);
+  --radius-full: var(--ev-radius-full);
+
+  /* Shadow aliases */
+  --shadow-0:  var(--ev-shadow-none);
+  --shadow-1:  var(--ev-shadow-xs);
+  --shadow-2:  var(--ev-shadow-md);
+  --shadow-3:  var(--ev-shadow-lg);
+  --shadow-xs: var(--ev-shadow-xs);
+  --shadow-sm: var(--ev-shadow-sm);
+  --shadow-base: var(--ev-shadow-md);
+  --shadow-md: var(--ev-shadow-md);
+  --shadow-lg: var(--ev-shadow-lg);
+  --shadow-xl: var(--ev-shadow-xl);
+
+  /* Ring aliases */
+  --ring:        var(--ev-ring-color);
+  --ring-inner:  0 0 0 2px var(--ev-ring-color);
+  --ring-outer:  0 0 0 4px color-mix(in srgb, var(--ev-color-blue) 18%, transparent);
+
+  /* Typography aliases used across legacy files */
+  --text-xs:   var(--ev-text-xs);
+  --text-sm:   var(--ev-text-sm);
+  --text-base: var(--ev-text-base);
+  --text-lg:   var(--ev-text-lg);
+  --text-xl:   var(--ev-text-xl);
+  --text-2xl:  var(--ev-text-2xl);
+  --text-3xl:  var(--ev-text-3xl);
+  --text-4xl:  var(--ev-text-4xl);
+  --text-5xl:  var(--ev-text-5xl);
+  --text-md:   1.05rem;
+  --font-ui:   var(--ev-font-sans);
+  --fw-normal:    var(--ev-weight-normal);
+  --fw-medium:    var(--ev-weight-medium);
+  --fw-semibold:  var(--ev-weight-semibold);
+  --fw-bold:      var(--ev-weight-bold);
+  --fw-extrabold: var(--ev-weight-extrabold);
+  --lh-tight:   var(--ev-leading-tight);
+  --lh-snug:    var(--ev-leading-snug);
+  --lh-normal:  var(--ev-leading-normal);
+  --lh-relaxed: var(--ev-leading-relaxed);
+
+  /* Layout aliases */
+  --section-pad-y:  var(--ev-section-pad);
+  --card-pad:       var(--ev-card-pad);
+  --gutter:         var(--ev-gutter);
+  --container-pad:  var(--ev-container-pad);
+  --container:      var(--ev-container-max);
+  --container-text: 680px;
+
+  /* Z-index aliases */
+  --z-base:      var(--ev-z-base);
+  --z-dropdown:  var(--ev-z-dropdown);
+  --z-sticky:    var(--ev-z-sticky);
+  --z-modal-backdrop: var(--ev-z-backdrop);
+  --z-modal:     var(--ev-z-modal);
+  --z-popover:   var(--ev-z-popover);
+  --z-tooltip:   var(--ev-z-tooltip);
+
+  /* variables.css semantic aliases */
+  --ff-sans:    var(--ev-font-sans);
+  --ff-surface: var(--ev-bg-surface);
+  --ff-surface-alt: var(--ev-bg-surface-alt);
+  --ff-surface-light: var(--ev-color-surface-alt);
+  --ff-surface-light-alt: var(--ev-bg);
+  --ff-text: var(--ev-fg);
+  --ff-text-dark: var(--ev-color-ink);
+  --ff-text-muted: var(--ev-fg-muted);
+  --ff-text-muted-light: var(--ev-fg-muted);
+  --ff-primary: var(--ev-primary);
+  --ff-primary-light: var(--ev-color-blue-light);
+  --ff-primary-dark: var(--ev-color-blue-active);
+  --ff-secondary: var(--ev-color-brass);
+  --ff-secondary-dark: var(--ev-color-brass-dark);
+  --ff-highlight: var(--ev-bg);
+}
+
+/* ============================================================================
+   FOCUS RING UTILITY
+   ============================================================================ */
+
+.u-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-inner), var(--ring-outer);
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -7,12 +7,13 @@
     <a class="skip-link" href="#main">Skip to content</a>
     {% include "header.njk" %}
 
-    <main id="main" class="site-container py-8 md:py-12 lg:py-16">
+    <main id="main" class="{% block mainClass %}site-container py-8 md:py-12 lg:py-16{% endblock %}">
       {% block content %}{{ content | safe }}{% endblock %}
     </main>
 
     {% include "footer.njk" %}
       <script src="/assets/js/menu.js" defer></script>
+      <script src="/assets/js/anthem-player.js" defer></script>
       {% if page.extra_js %}{% for js in page.extra_js %}
         <script src="{{ js }}" defer></script>
       {% endfor %}{% endif %}

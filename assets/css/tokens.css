@@ -1,25 +1,14 @@
 /* stylelint-disable value-keyword-case declaration-block-single-line-max-declarations */
-/* Evident Technologies LLC - Design Tokens */
-:root {
-  /* Primary Branding Colors */
-  --color-primary: #0b73d2; /* Evident core blue */
-  --color-accent: #e07a5f; /* Accent orange */
-  --color-neutral: #f6f7f9; /* Light neutral */
-
-  /* Typography */
-  --font-sans:
-    'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
-
-  /* Layout */
-  --max-width: 1200px;
-  --spacing-base: 1rem;
-}
+/* Evident Technologies — Design Tokens (consolidated 2026-02-11)
+   Single source of truth: tokens/evident-design-tokens.css
+   This file re-exports the unified token set for backward compatibility. */
+@import url('tokens/evident-design-tokens.css');
 
 /* Utility classes for layout components */
 .container {
-  max-width: var(--max-width);
+  max-width: var(--ev-container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: var(--ev-container-pad);
+  padding-right: var(--ev-container-pad);
 }

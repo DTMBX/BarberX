@@ -1,0 +1,94 @@
+{# 
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║                   NATIONAL ANTHEM AUDIO PLAYER                            ║
+  ║                   Respectful presentation for service members             ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+  
+  Auto-plays The Star-Spangled Banner with gentle fade-in on homepage landing.
+  Includes optional replay functionality with elegant, minimal UI.
+  
+  Features:
+  - 3-second fade-in on page load (not startling)
+  - Graceful fade-out when song ends
+  - Optional replay button (appears after first play)
+  - Respects user preferences (remembers mute state)
+  - Accessible controls with ARIA labels
+  - Reduced-motion aware
+  
+  Audio: /assets/media/audio/star-spangled-banner.mp3
+  Version: 1.0.0
+#}
+
+<div class="anthem-player" id="anthem-player" aria-label="National Anthem audio player">
+  {# Hidden audio element #}
+  <audio 
+    id="anthem-audio"
+    preload="auto"
+    aria-hidden="true"
+  >
+    <source src="/assets/media/audio/star-spangled-banner.mp3" type="audio/mpeg">
+    <source src="/assets/media/audio/star-spangled-banner.ogg" type="audio/ogg">
+  </audio>
+
+  {# Minimal, elegant controls - appears bottom-right of hero #}
+  <div class="anthem-player__controls">
+    {# Play/Pause toggle #}
+    <button 
+      class="anthem-player__btn anthem-player__btn--toggle"
+      id="anthem-toggle"
+      type="button"
+      aria-label="Pause National Anthem"
+      title="Pause National Anthem"
+    >
+      <svg class="anthem-player__icon anthem-player__icon--pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <rect x="6" y="4" width="4" height="16" rx="1"/>
+        <rect x="14" y="4" width="4" height="16" rx="1"/>
+      </svg>
+      <svg class="anthem-player__icon anthem-player__icon--play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M8 5.14v14l11-7-11-7z"/>
+      </svg>
+    </button>
+
+    {# Replay button - shows after song ends #}
+    <button 
+      class="anthem-player__btn anthem-player__btn--replay"
+      id="anthem-replay"
+      type="button"
+      aria-label="Replay The Star-Spangled Banner"
+      title="Replay The Star-Spangled Banner"
+      hidden
+    >
+      <svg class="anthem-player__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M1 4v6h6"/>
+        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+      </svg>
+      <span class="anthem-player__label">Replay</span>
+    </button>
+
+    {# Volume/mute toggle #}
+    <button 
+      class="anthem-player__btn anthem-player__btn--mute"
+      id="anthem-mute"
+      type="button"
+      aria-label="Mute National Anthem"
+      title="Mute"
+    >
+      <svg class="anthem-player__icon anthem-player__icon--volume" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <svg class="anthem-player__icon anthem-player__icon--muted" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/>
+        <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
+
+    {# Status indicator #}
+    <span class="anthem-player__status" id="anthem-status" aria-live="polite">
+      <span class="anthem-player__note">♪</span>
+      <span class="anthem-player__text">The Star-Spangled Banner</span>
+    </span>
+  </div>
+</div>
