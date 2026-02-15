@@ -1,0 +1,57 @@
+---
+title: Apps
+permalink: /apps/
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section class="site-container py-12">
+    <h1 class="text-3xl font-bold mb-6">Evident Applications</h1>
+    <p class="text-lg text-gray-600 mb-8">
+      Standalone tools and reference applications built on the Evident platform.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold mb-2">
+          <a href="/apps/civics-hierarchy/" class="text-blue-700 hover:underline">Civics Hierarchy</a>
+        </h2>
+        <p class="text-gray-600">
+          Constitutional law hierarchy reference tool. Understand the precedence of federal, state, and local law.
+        </p>
+      </article>
+
+      <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold mb-2">
+          <a href="/apps/epstein-library/" class="text-blue-700 hover:underline">Epstein Document Library</a>
+        </h2>
+        <p class="text-gray-600">
+          Searchable archive of court documents from the Epstein case files with forensic metadata.
+        </p>
+      </article>
+
+      <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold mb-2">
+          <a href="/apps/essential-goods/" class="text-blue-700 hover:underline">Essential Goods Ledger</a>
+        </h2>
+        <p class="text-gray-600">
+          Supply chain transparency and price tracking for essential commodities.
+        </p>
+      </article>
+
+      <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold mb-2">
+          <a href="/apps/geneva-bible-study/" class="text-blue-700 hover:underline">Geneva Bible Study</a>
+        </h2>
+        <p class="text-gray-600">
+          Cross-reference study tool for the Geneva Bible with historical annotations.
+        </p>
+      </article>
+    </div>
+
+    <p class="mt-8 text-sm text-gray-500">
+      These applications are part of the Evident monorepo and deploy alongside the main platform.
+    </p>
+  </section>
+{% endblock %}

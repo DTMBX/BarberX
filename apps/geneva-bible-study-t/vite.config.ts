@@ -10,7 +10,8 @@ const projectRoot = process.env.PROJECT_ROOT || import.meta.dirname
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/spark-template/' : '/',
+  // Base path for deployment under evident.icu/apps/geneva-bible-study/
+  base: '/apps/geneva-bible-study/',
   plugins: [
     react(),
     tailwindcss(),

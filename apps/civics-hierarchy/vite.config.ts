@@ -8,8 +8,8 @@ const projectRoot = process.env.PROJECT_ROOT || import.meta.dirname
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Use repo name as base path for GitHub Pages; set to '/' for custom domain
-  base: '/civics-hierarchy/',
+  // Base path for deployment under evident.icu/apps/civics-hierarchy/
+  base: '/apps/civics-hierarchy/',
   plugins: [
     react(),
     tailwindcss(),

@@ -65,6 +65,45 @@ jobs:
         env:
           ELEVENTY_ENV: production
 
+      - name: Build satellite apps
+        run: |
+          echo "Building satellite apps..."
+          mkdir -p _site/apps
+
+          # Build civics-hierarchy
+          cd apps/civics-hierarchy
+          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
+          npm run build
+          cp -r dist/* ../../_site/apps/civics-hierarchy/
+          cd ../..
+
+          # Build epstein-library
+          cd apps/epstein-library-evid
+          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
+          npm run build
+          mkdir -p ../../_site/apps/epstein-library
+          cp -r dist/* ../../_site/apps/epstein-library/
+          cd ../..
+
+          # Build essential-goods
+          cd apps/essential-goods-ledg
+          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
+          npm run build
+          mkdir -p ../../_site/apps/essential-goods
+          cp -r dist/* ../../_site/apps/essential-goods/
+          cd ../..
+
+          # Build geneva-bible-study
+          cd apps/geneva-bible-study-t
+          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
+          npm run build
+          mkdir -p ../../_site/apps/geneva-bible-study
+          cp -r dist/* ../../_site/apps/geneva-bible-study/
+          cd ../..
+
+          echo "Satellite apps built successfully"
+          ls -la _site/apps/
+
       - name: Verify build output
         run: node scripts/pages-verify.js
 
