@@ -1,0 +1,31 @@
+/*
+ * index.css – Civic theme overrides
+ * 
+ * All :root variables are now consolidated in main.css.
+ * This file only contains component-specific style extensions.
+ */
+
+/* Skip focus outlines on mouse interactions, keep for keyboard */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* High-contrast mode support */
+@media (forced-colors: active) {
+  .badge,
+  .button,
+  [role="tab"] {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

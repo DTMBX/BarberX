@@ -1,0 +1,11 @@
+/* ── Radix UI colour tokens — only the scales actually referenced ────── */
+@import '@radix-ui/colors/slate.css' layer(base);
+@import '@radix-ui/colors/slate-dark.css' layer(base);
+@import '@radix-ui/colors/blue.css' layer(base);
+@import '@radix-ui/colors/blue-dark.css' layer(base);
+
+/*
+  All other Radix imports (62 total) removed — they were unused.
+  tailwindcss is imported once in main.css — no duplicate here.
+  #spark-app variables removed — this app uses #root.
+*/
