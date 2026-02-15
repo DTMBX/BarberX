@@ -1,0 +1,245 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+        env:
+          HUSKY: 0
+      
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+          GITHUB_ACTIONS: true
+      
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Error: dist directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "Error: dist/index.html not found"
+            exit 1
+          fi
+          echo "Build verification passed"
+          ls -la dist/
+      
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.13.x
+      
+      - name: Run Lighthouse CI
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      
+      - name: Upload Lighthouse results as artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-results
+          path: .lighthouseci/
+          retention-days: 30
+      
+      - name: Parse Lighthouse scores
+        id: lighthouse-scores
+        if: always()
+        run: |
+          # Check if manifest exists
+          if [ ! -f ".lighthouseci/manifest.json" ]; then
+            echo "No Lighthouse results found"
+            exit 0
+          fi
+          
+          # Extract scores from the first report
+          REPORT_PATH=$(jq -r '.[0].jsonPath' .lighthouseci/manifest.json)
+          
+          if [ -f "$REPORT_PATH" ]; then
+            PERFORMANCE=$(jq -r '.categories.performance.score * 100' "$REPORT_PATH")
+            ACCESSIBILITY=$(jq -r '.categories.accessibility.score * 100' "$REPORT_PATH")
+            BEST_PRACTICES=$(jq -r '.categories["best-practices"].score * 100' "$REPORT_PATH")
+            SEO=$(jq -r '.categories.seo.score * 100' "$REPORT_PATH")
+            PWA=$(jq -r '.categories.pwa.score * 100' "$REPORT_PATH")
+            
+            echo "performance=$PERFORMANCE" >> $GITHUB_OUTPUT
+            echo "accessibility=$ACCESSIBILITY" >> $GITHUB_OUTPUT
+            echo "best-practices=$BEST_PRACTICES" >> $GITHUB_OUTPUT
+            echo "seo=$SEO" >> $GITHUB_OUTPUT
+            echo "pwa=$PWA" >> $GITHUB_OUTPUT
+            
+            echo "📊 Lighthouse Scores:"
+            echo "  Performance: $PERFORMANCE"
+            echo "  Accessibility: $ACCESSIBILITY"
+            echo "  Best Practices: $BEST_PRACTICES"
+            echo "  SEO: $SEO"
+            echo "  PWA: $PWA"
+          fi
+      
+      - name: Comment PR with Lighthouse results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            // Check if results exist
+            if (!fs.existsSync('.lighthouseci/manifest.json')) {
+              console.log('No Lighthouse results to comment');
+              return;
+            }
+            
+            const manifest = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'));
+            const reportPath = manifest[0].jsonPath;
+            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            
+            const performance = Math.round(report.categories.performance.score * 100);
+            const accessibility = Math.round(report.categories.accessibility.score * 100);
+            const bestPractices = Math.round(report.categories['best-practices'].score * 100);
+            const seo = Math.round(report.categories.seo.score * 100);
+            const pwa = Math.round(report.categories.pwa.score * 100);
+            
+            const getEmoji = (score) => {
+              if (score >= 90) return '🟢';
+              if (score >= 50) return '🟡';
+              return '🔴';
+            };
+            
+            const getScoreColor = (score) => {
+              if (score >= 90) return '✅';
+              if (score >= 50) return '⚠️';
+              return '❌';
+            };
+            
+            const comment = `## 🔦 Lighthouse Performance Report
+            
+            | Category | Score | Status |
+            |----------|-------|--------|
+            | ${getEmoji(performance)} Performance | **${performance}** | ${getScoreColor(performance)} |
+            | ${getEmoji(accessibility)} Accessibility | **${accessibility}** | ${getScoreColor(accessibility)} |
+            | ${getEmoji(bestPractices)} Best Practices | **${bestPractices}** | ${getScoreColor(bestPractices)} |
+            | ${getEmoji(seo)} SEO | **${seo}** | ${getScoreColor(seo)} |
+            | ${getEmoji(pwa)} PWA | **${pwa}** | ${getScoreColor(pwa)} |
+            
+            ### 📈 Key Metrics
+            
+            | Metric | Value |
+            |--------|-------|
+            | First Contentful Paint | ${report.audits['first-contentful-paint'].displayValue} |
+            | Largest Contentful Paint | ${report.audits['largest-contentful-paint'].displayValue} |
+            | Total Blocking Time | ${report.audits['total-blocking-time'].displayValue} |
+            | Cumulative Layout Shift | ${report.audits['cumulative-layout-shift'].displayValue} |
+            | Speed Index | ${report.audits['speed-index'].displayValue} |
+            
+            ### 📦 Bundle Size
+            
+            | Resource Type | Size |
+            |---------------|------|
+            | Total | ${report.audits['total-byte-weight'].displayValue} |
+            | JavaScript | ${report.audits['bootup-time'].displayValue} (bootup time) |
+            
+            ---
+            
+            💡 **Tip:** Scores of 90+ are considered good. Scores below 50 need improvement.
+            
+            _Generated by Lighthouse CI • [View full report in artifacts](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})_
+            `;
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('🔦 Lighthouse Performance Report')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment,
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment,
+              });
+            }
+      
+      - name: Check performance thresholds
+        if: always()
+        run: |
+          # Check if results exist
+          if [ ! -f ".lighthouseci/manifest.json" ]; then
+            echo "No Lighthouse results to check"
+            exit 0
+          fi
+          
+          REPORT_PATH=$(jq -r '.[0].jsonPath' .lighthouseci/manifest.json)
+          
+          if [ -f "$REPORT_PATH" ]; then
+            PERFORMANCE=$(jq -r '.categories.performance.score * 100' "$REPORT_PATH")
+            ACCESSIBILITY=$(jq -r '.categories.accessibility.score * 100' "$REPORT_PATH")
+            
+            echo "Checking performance thresholds..."
+            echo "  Performance: $PERFORMANCE (threshold: 70)"
+            echo "  Accessibility: $ACCESSIBILITY (threshold: 90)"
+            
+            FAILED=0
+            
+            if (( $(echo "$PERFORMANCE < 70" | bc -l) )); then
+              echo "❌ Performance score ($PERFORMANCE) is below threshold (70)"
+              FAILED=1
+            else
+              echo "✅ Performance score passed"
+            fi
+            
+            if (( $(echo "$ACCESSIBILITY < 90" | bc -l) )); then
+              echo "⚠️  Accessibility score ($ACCESSIBILITY) is below threshold (90)"
+              echo "Note: This is a warning, not blocking the build"
+            else
+              echo "✅ Accessibility score passed"
+            fi
+            
+            if [ $FAILED -eq 1 ]; then
+              echo ""
+              echo "Performance checks failed. Please review the Lighthouse report."
+              exit 1
+            fi
+          fi

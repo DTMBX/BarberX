@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Geneva Bible Study - Android Adaptive Icon Configuration -->
+<!-- Place this file in: android/app/src/main/res/mipmap-anydpi-v26/ -->
+
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background layer - solid color or drawable -->
+    <background android:drawable="@color/ic_launcher_background"/>
+    
+    <!-- Foreground layer - icon content -->
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>
