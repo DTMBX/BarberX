@@ -1,0 +1,324 @@
+name: Lighthouse CI - Full Audit
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lighthouse-desktop:
+    name: Desktop Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+        env:
+          HUSKY: 0
+      
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+          GITHUB_ACTIONS: true
+      
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.13.x
+      
+      - name: Run Lighthouse CI (Desktop)
+        run: lhci autorun --config=lighthouserc.json
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      
+      - name: Upload Desktop Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-desktop-results
+          path: .lighthouseci/
+          retention-days: 30
+      
+      - name: Parse Desktop Scores
+        id: desktop-scores
+        if: always()
+        run: |
+          if [ ! -f ".lighthouseci/manifest.json" ]; then
+            echo "No Lighthouse results found"
+            exit 0
+          fi
+          
+          REPORT_PATH=$(jq -r '.[0].jsonPath' .lighthouseci/manifest.json)
+          
+          if [ -f "$REPORT_PATH" ]; then
+            echo "performance=$(jq -r '.categories.performance.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "accessibility=$(jq -r '.categories.accessibility.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "best-practices=$(jq -r '.categories["best-practices"].score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "seo=$(jq -r '.categories.seo.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "pwa=$(jq -r '.categories.pwa.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+          fi
+
+  lighthouse-mobile:
+    name: Mobile Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+        env:
+          HUSKY: 0
+      
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+          GITHUB_ACTIONS: true
+      
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.13.x
+      
+      - name: Run Lighthouse CI (Mobile)
+        run: lhci autorun --config=lighthouserc.mobile.json
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      
+      - name: Upload Mobile Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-mobile-results
+          path: .lighthouseci/
+          retention-days: 30
+      
+      - name: Parse Mobile Scores
+        id: mobile-scores
+        if: always()
+        run: |
+          if [ ! -f ".lighthouseci/manifest.json" ]; then
+            echo "No Lighthouse results found"
+            exit 0
+          fi
+          
+          REPORT_PATH=$(jq -r '.[0].jsonPath' .lighthouseci/manifest.json)
+          
+          if [ -f "$REPORT_PATH" ]; then
+            echo "performance=$(jq -r '.categories.performance.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "accessibility=$(jq -r '.categories.accessibility.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "best-practices=$(jq -r '.categories["best-practices"].score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "seo=$(jq -r '.categories.seo.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+            echo "pwa=$(jq -r '.categories.pwa.score * 100' "$REPORT_PATH")" >> $GITHUB_OUTPUT
+          fi
+
+  report:
+    name: Generate Report
+    needs: [lighthouse-desktop, lighthouse-mobile]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Download Desktop Results
+        uses: actions/download-artifact@v4
+        with:
+          name: lighthouse-desktop-results
+          path: ./desktop-results/
+        continue-on-error: true
+      
+      - name: Download Mobile Results
+        uses: actions/download-artifact@v4
+        with:
+          name: lighthouse-mobile-results
+          path: ./mobile-results/
+        continue-on-error: true
+      
+      - name: Create Performance Report Issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const date = new Date().toISOString().split('T')[0];
+            
+            let desktopScores = null;
+            let mobileScores = null;
+            
+            // Parse desktop results
+            try {
+              const desktopManifest = JSON.parse(fs.readFileSync('./desktop-results/manifest.json', 'utf8'));
+              const desktopReport = JSON.parse(fs.readFileSync(desktopManifest[0].jsonPath, 'utf8'));
+              desktopScores = {
+                performance: Math.round(desktopReport.categories.performance.score * 100),
+                accessibility: Math.round(desktopReport.categories.accessibility.score * 100),
+                bestPractices: Math.round(desktopReport.categories['best-practices'].score * 100),
+                seo: Math.round(desktopReport.categories.seo.score * 100),
+                pwa: Math.round(desktopReport.categories.pwa.score * 100),
+                fcp: desktopReport.audits['first-contentful-paint'].displayValue,
+                lcp: desktopReport.audits['largest-contentful-paint'].displayValue,
+                tbt: desktopReport.audits['total-blocking-time'].displayValue,
+                cls: desktopReport.audits['cumulative-layout-shift'].displayValue,
+                si: desktopReport.audits['speed-index'].displayValue
+              };
+            } catch (e) {
+              console.log('Could not parse desktop results:', e.message);
+            }
+            
+            // Parse mobile results
+            try {
+              const mobileManifest = JSON.parse(fs.readFileSync('./mobile-results/manifest.json', 'utf8'));
+              const mobileReport = JSON.parse(fs.readFileSync(mobileManifest[0].jsonPath, 'utf8'));
+              mobileScores = {
+                performance: Math.round(mobileReport.categories.performance.score * 100),
+                accessibility: Math.round(mobileReport.categories.accessibility.score * 100),
+                bestPractices: Math.round(mobileReport.categories['best-practices'].score * 100),
+                seo: Math.round(mobileReport.categories.seo.score * 100),
+                pwa: Math.round(mobileReport.categories.pwa.score * 100),
+                fcp: mobileReport.audits['first-contentful-paint'].displayValue,
+                lcp: mobileReport.audits['largest-contentful-paint'].displayValue,
+                tbt: mobileReport.audits['total-blocking-time'].displayValue,
+                cls: mobileReport.audits['cumulative-layout-shift'].displayValue,
+                si: mobileReport.audits['speed-index'].displayValue
+              };
+            } catch (e) {
+              console.log('Could not parse mobile results:', e.message);
+            }
+            
+            const getEmoji = (score) => {
+              if (score >= 90) return '🟢';
+              if (score >= 50) return '🟡';
+              return '🔴';
+            };
+            
+            const getScoreColor = (score) => {
+              if (score >= 90) return '✅';
+              if (score >= 50) return '⚠️';
+              return '❌';
+            };
+            
+            let issueBody = `# 📊 Weekly Lighthouse Performance Report
+            
+            **Report Date:** ${date}
+            **Generated By:** Automated Lighthouse CI
+            
+            ---
+            `;
+            
+            if (desktopScores) {
+              issueBody += `
+            ## 🖥️ Desktop Performance
+            
+            | Category | Score | Status |
+            |----------|-------|--------|
+            | ${getEmoji(desktopScores.performance)} Performance | **${desktopScores.performance}** | ${getScoreColor(desktopScores.performance)} |
+            | ${getEmoji(desktopScores.accessibility)} Accessibility | **${desktopScores.accessibility}** | ${getScoreColor(desktopScores.accessibility)} |
+            | ${getEmoji(desktopScores.bestPractices)} Best Practices | **${desktopScores.bestPractices}** | ${getScoreColor(desktopScores.bestPractices)} |
+            | ${getEmoji(desktopScores.seo)} SEO | **${desktopScores.seo}** | ${getScoreColor(desktopScores.seo)} |
+            | ${getEmoji(desktopScores.pwa)} PWA | **${desktopScores.pwa}** | ${getScoreColor(desktopScores.pwa)} |
+            
+            ### Desktop Metrics
+            - **First Contentful Paint:** ${desktopScores.fcp}
+            - **Largest Contentful Paint:** ${desktopScores.lcp}
+            - **Total Blocking Time:** ${desktopScores.tbt}
+            - **Cumulative Layout Shift:** ${desktopScores.cls}
+            - **Speed Index:** ${desktopScores.si}
+            `;
+            }
+            
+            if (mobileScores) {
+              issueBody += `
+            
+            ## 📱 Mobile Performance
+            
+            | Category | Score | Status |
+            |----------|-------|--------|
+            | ${getEmoji(mobileScores.performance)} Performance | **${mobileScores.performance}** | ${getScoreColor(mobileScores.performance)} |
+            | ${getEmoji(mobileScores.accessibility)} Accessibility | **${mobileScores.accessibility}** | ${getScoreColor(mobileScores.accessibility)} |
+            | ${getEmoji(mobileScores.bestPractices)} Best Practices | **${mobileScores.bestPractices}** | ${getScoreColor(mobileScores.bestPractices)} |
+            | ${getEmoji(mobileScores.seo)} SEO | **${mobileScores.seo}** | ${getScoreColor(mobileScores.seo)} |
+            | ${getEmoji(mobileScores.pwa)} PWA | **${mobileScores.pwa}** | ${getScoreColor(mobileScores.pwa)} |
+            
+            ### Mobile Metrics
+            - **First Contentful Paint:** ${mobileScores.fcp}
+            - **Largest Contentful Paint:** ${mobileScores.lcp}
+            - **Total Blocking Time:** ${mobileScores.tbt}
+            - **Cumulative Layout Shift:** ${mobileScores.cls}
+            - **Speed Index:** ${mobileScores.si}
+            `;
+            }
+            
+            issueBody += `
+            
+            ---
+            
+            ## 📈 Recommendations
+            
+            ### Priority Actions
+            `;
+            
+            const allScores = [];
+            if (desktopScores) {
+              allScores.push({ name: 'Desktop Performance', score: desktopScores.performance });
+              allScores.push({ name: 'Desktop Accessibility', score: desktopScores.accessibility });
+            }
+            if (mobileScores) {
+              allScores.push({ name: 'Mobile Performance', score: mobileScores.performance });
+              allScores.push({ name: 'Mobile Accessibility', score: mobileScores.accessibility });
+            }
+            
+            const needsWork = allScores.filter(s => s.score < 90).sort((a, b) => a.score - b.score);
+            
+            if (needsWork.length === 0) {
+              issueBody += `
+            🎉 **Excellent!** All scores are above 90. Keep up the great work!
+            `;
+            } else {
+              needsWork.forEach(item => {
+                issueBody += `
+            - **${item.name}**: Score ${item.score} - Review Lighthouse report for specific improvements
+            `;
+              });
+            }
+            
+            issueBody += `
+            
+            ### 📚 Resources
+            - [Download Desktop Report](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            - [Download Mobile Report](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            - [Lighthouse Documentation](https://developer.chrome.com/docs/lighthouse/)
+            - [Web Vitals Guide](https://web.dev/vitals/)
+            
+            ---
+            
+            _This report is automatically generated weekly. Review the artifacts for detailed HTML reports._
+            `;
+            
+            // Create issue
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📊 Weekly Lighthouse Report - ${date}`,
+              body: issueBody,
+              labels: ['performance', 'lighthouse', 'automated-report']
+            });

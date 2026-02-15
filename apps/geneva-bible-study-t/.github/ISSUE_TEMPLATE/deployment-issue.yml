@@ -1,0 +1,121 @@
+name: Deployment Issue
+description: Report a problem with deploying to GitHub Pages
+title: "[Deployment] "
+labels: ["deployment", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a deployment issue! Please fill out the information below to help us resolve it quickly.
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Deployment Stage
+      description: At which stage did you encounter the issue?
+      options:
+        - Configuration (setting up files)
+        - GitHub Pages Setup (enabling Pages)
+        - Build Process (GitHub Actions building)
+        - Deploy Process (GitHub Actions deploying)
+        - Live Site (site is deployed but not working)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Describe what went wrong
+      placeholder: "Example: The build succeeds but the site shows a 404 error"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps Taken
+      description: What steps did you follow before encountering this issue?
+      placeholder: |
+        1. Updated vite.config.ts
+        2. Enabled GitHub Pages
+        3. Pushed to main branch
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Paste any error messages from GitHub Actions, browser console, or terminal
+      render: shell
+      placeholder: |
+        Error: Failed to build
+        ...
+
+  - type: input
+    id: repo-url
+    attributes:
+      label: Repository URL
+      description: Link to your repository (if public)
+      placeholder: "https://github.com/username/repo"
+
+  - type: input
+    id: pages-url
+    attributes:
+      label: GitHub Pages URL
+      description: Your GitHub Pages URL (even if not working)
+      placeholder: "https://username.github.io/repo/"
+
+  - type: dropdown
+    id: followed-guide
+    attributes:
+      label: Which guide did you follow?
+      options:
+        - QUICK_DEPLOY.md
+        - GITHUB_PAGES_DEPLOYMENT.md
+        - DEPLOYMENT.md
+        - README.md
+        - Other / None
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please verify you've tried these steps
+      options:
+        - label: I've updated the base path in vite.config.ts
+          required: true
+        - label: I've set GitHub Pages source to "GitHub Actions"
+          required: true
+        - label: I've checked the Actions tab for workflow errors
+          required: true
+        - label: I've cleared my browser cache
+          required: false
+        - label: Build succeeds locally with `npm run build`
+          required: false
+        - label: I've reviewed the troubleshooting section
+          required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that might help
+      placeholder: "Browser used, Node.js version, operating system, etc."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## 📚 Helpful Resources
+        
+        Before submitting, you may find answers in:
+        - [Quick Deploy Guide](./QUICK_DEPLOY.md)
+        - [Troubleshooting Section](./GITHUB_PAGES_DEPLOYMENT.md#troubleshooting)
+        - [Deployment Checklist](./DEPLOYMENT_CHECKLIST.md)
+        - [Verification Guide](./DEPLOYMENT_VERIFICATION.md)

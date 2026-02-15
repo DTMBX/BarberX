@@ -1,0 +1,80 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "npm run preview",
+      "startServerReadyPattern": "Local:.*http://localhost:4173",
+      "startServerReadyTimeout": 30000,
+      "url": [
+        "http://localhost:4173/"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "preset": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "formFactor": "desktop",
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo",
+          "pwa"
+        ]
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.7 }],
+        "categories:accessibility": ["warn", { "minScore": 0.9 }],
+        "categories:best-practices": ["warn", { "minScore": 0.8 }],
+        "categories:seo": ["warn", { "minScore": 0.8 }],
+        "categories:pwa": "off",
+        
+        "first-contentful-paint": ["warn", { "maxNumericValue": 2000 }],
+        "largest-contentful-paint": ["warn", { "maxNumericValue": 3000 }],
+        "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.1 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 300 }],
+        "speed-index": ["warn", { "maxNumericValue": 3500 }],
+        
+        "interactive": ["warn", { "maxNumericValue": 5000 }],
+        "max-potential-fid": ["warn", { "maxNumericValue": 200 }],
+        
+        "unused-javascript": "off",
+        "unused-css-rules": "off",
+        "uses-long-cache-ttl": "off",
+        "uses-rel-preconnect": "off",
+        "uses-text-compression": "off",
+        
+        "bootup-time": ["warn", { "maxNumericValue": 3000 }],
+        "mainthread-work-breakdown": ["warn", { "maxNumericValue": 4000 }],
+        "dom-size": ["warn", { "maxNumericValue": 2000 }],
+        
+        "aria-allowed-attr": "error",
+        "aria-required-attr": "error",
+        "aria-valid-attr": "error",
+        "button-name": "error",
+        "color-contrast": "error",
+        "duplicate-id-aria": "error",
+        "image-alt": "error",
+        "label": "error",
+        "link-name": "error",
+        "meta-viewport": "error",
+        "valid-lang": "error"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

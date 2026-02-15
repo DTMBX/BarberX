@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Geneva Bible Study - Android Icon Background Color -->
+<!-- Place this file in: android/app/src/main/res/values/colors.xml -->
+
+<resources>
+    <!-- App Icon Background Color -->
+    <color name="ic_launcher_background">#5A3A31</color>
+    
+    <!-- Theme Colors -->
+    <color name="colorPrimary">#5A3A31</color>
+    <color name="colorPrimaryDark">#4A2A21</color>
+    <color name="colorAccent">#8B6914</color>
+    
+    <!-- Status Bar -->
+    <color name="statusBarColor">#5A3A31</color>
+    
+    <!-- Splash Screen -->
+    <color name="splashScreenBackground">#5A3A31</color>
+</resources>
