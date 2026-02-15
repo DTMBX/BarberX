@@ -152,6 +152,12 @@ def create_app():
     # Phase 10 — search & review platform
     from routes.review_api import review_api_bp
     from routes.review_routes import review_bp
+
+    # Phase 11 — eDiscovery UI (litigation holds, privilege log, productions)
+    from routes.ediscovery_routes import ediscovery_bp
+
+    # Phase 12 — Court-defensible evidence algorithms
+    from routes.algorithms_api import algorithms_api_bp
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
@@ -171,6 +177,8 @@ def create_app():
     app.register_blueprint(processing_bp)
     app.register_blueprint(review_api_bp)
     app.register_blueprint(review_bp)
+    app.register_blueprint(ediscovery_bp)
+    app.register_blueprint(algorithms_api_bp)
     
     # Create tables
     with app.app_context():

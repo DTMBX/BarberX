@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privilege Log · {{ case.case_name }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .ed-nav { display: flex; gap: 0.5rem; margin-left: auto; }
+    .ed-nav a {
+      font-size: 0.8125rem; color: var(--ed-accent); text-decoration: none;
+      padding: 0.35rem 0.75rem; border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+    }
+    .ed-nav a:hover { background: rgba(96,165,250,0.1); }
+    .ed-content { max-width: 72rem; margin: 2rem auto; padding: 0 2rem; }
+    .log-table {
+      width: 100%; border-collapse: collapse; font-size: 0.8125rem;
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.5rem; overflow: hidden;
+    }
+    .log-table th {
+      text-align: left; padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.03); font-weight: 600;
+      border-bottom: 1px solid var(--ed-border);
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--ed-text-muted);
+    }
+    .log-table td {
+      padding: 0.6rem 1rem; border-bottom: 1px solid var(--ed-border);
+      vertical-align: top;
+    }
+    .log-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block; padding: 0.1rem 0.4rem; border-radius: 0.25rem;
+      font-size: 0.6875rem; font-weight: 600;
+    }
+    .badge-priv { background: #854d0e30; color: #fbbf24; }
+    .badge-disputed { background: #dc262620; color: #f87171; }
+    .empty-state {
+      text-align: center; padding: 3rem 1rem; color: var(--ed-text-muted);
+      font-size: 0.875rem;
+    }
+    .summary-bar {
+      display: flex; gap: 2rem; margin-bottom: 1.5rem; font-size: 0.8125rem;
+      color: var(--ed-text-muted);
+    }
+    .summary-bar strong { color: var(--ed-text); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>Privilege Log · {{ case.case_number }}</h1>
+    <nav class="ed-nav">
+      <a href="{{ url_for('ediscovery.ediscovery_index') }}">eDiscovery</a>
+      <a href="{{ url_for('ediscovery.litigation_holds', case_id=case.id) }}">Holds</a>
+      <a href="{{ url_for('ediscovery.production_sets', case_id=case.id) }}">Productions</a>
+    </nav>
+  </header>
+
+  <main class="ed-content">
+    <div class="summary-bar">
+      <span>Total entries: <strong>{{ logs | length }}</strong></span>
+      <span>Disputed: <strong>{{ logs | selectattr('is_disputed') | list | length }}</strong></span>
+    </div>
+
+    {% if logs %}
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th>Document</th>
+          <th>Privilege Type</th>
+          <th>Holder</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{ log.document_identifier or ('EV-' ~ log.evidence_id) }}</td>
+          <td><span class="badge badge-priv">{{ log.privilege_type }}</span></td>
+          <td>{{ log.privilege_holder or '—' }}</td>
+          <td>{{ (log.privilege_description or '')[:120] }}{{ '…' if log.privilege_description and log.privilege_description|length > 120 else '' }}</td>
+          <td style="white-space:nowrap;">{{ log.created_at.strftime('%Y-%m-%d') if log.created_at else '—' }}</td>
+          <td>
+            {% if log.is_disputed %}
+              <span class="badge badge-disputed">Disputed</span>
+            {% elif log.exempt_from_disclosure %}
+              Exempt
+            {% else %}
+              Asserted
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty-state">
+      No privilege log entries for this case. Mark evidence as privileged from
+      the <a href="{{ url_for('review.review_workspace', case_id=case.id) }}"
+      style="color:var(--ed-accent);">Review Workspace</a>.
+    </div>
+    {% endif %}
+  </main>
+</body>
+</html>

@@ -142,6 +142,14 @@ class EvidenceItem(db.Model):
     tags = db.relationship('EvidenceTag', secondary='evidence_tag_association', backref='evidence_items')
     case_evidence_links = db.relationship('CaseEvidence', back_populates='evidence')
 
+    # Phase 10.1 hardening: search-hot column indexes
+    __table_args__ = (
+        db.Index("ix_evidence_item_file_type", "file_type"),
+        db.Index("ix_evidence_item_collected_date", "collected_date"),
+        db.Index("ix_evidence_item_evidence_type", "evidence_type"),
+        db.Index("ix_evidence_item_processing_status", "processing_status"),
+    )
+
     @property
     def linked_cases(self):
         """Return actively linked cases (not soft-unlinked)."""

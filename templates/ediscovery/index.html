@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eDiscovery — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .ed-header a {
+      color: var(--ed-accent); text-decoration: none; font-size: 0.8125rem;
+    }
+    .ed-content { max-width: 64rem; margin: 2rem auto; padding: 0 2rem; }
+    .ed-card {
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.5rem; padding: 1.25rem 1.5rem; margin-bottom: 0.75rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-color 0.15s;
+    }
+    .ed-card:hover { border-color: var(--ed-accent); }
+    .ed-card h2 { margin: 0; font-size: 1rem; font-weight: 500; }
+    .ed-card p { margin: 0.25rem 0 0; font-size: 0.8125rem; color: var(--ed-text-muted); }
+    .ed-links { display: flex; gap: 0.75rem; }
+    .ed-links a {
+      font-size: 0.8125rem; color: var(--ed-accent); text-decoration: none;
+      padding: 0.35rem 0.75rem; border: 1px solid var(--ed-border);
+      border-radius: 0.375rem; transition: background 0.15s;
+    }
+    .ed-links a:hover { background: rgba(96,165,250,0.1); }
+    .hold-badge {
+      display: inline-block; font-size: 0.6875rem; font-weight: 600;
+      padding: 0.15rem 0.45rem; border-radius: 0.25rem; margin-left: 0.5rem;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .hold-active { background: #dc262620; color: #f87171; }
+    .hold-none { background: #22c55e15; color: #4ade80; }
+    .empty-state {
+      text-align: center; padding: 3rem 1rem;
+      color: var(--ed-text-muted); font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>eDiscovery</h1>
+    <a href="{{ url_for('case.case_list') }}">Back to Cases</a>
+  </header>
+
+  <main class="ed-content">
+    <p style="font-size:0.875rem; color:var(--ed-text-muted); margin-bottom:1.5rem;">
+      Select a case to manage litigation holds, privilege logs, and production sets.
+    </p>
+
+    {% if cases %}
+      {% for case in cases %}
+      <div class="ed-card">
+        <div>
+          <h2>
+            {{ case.case_number }} — {{ case.case_name }}
+            {% if case.is_legal_hold %}
+              <span class="hold-badge hold-active">Hold Active</span>
+            {% else %}
+              <span class="hold-badge hold-none">No Hold</span>
+            {% endif %}
+          </h2>
+          <p>{{ case.case_type | capitalize }} · {{ case.status | capitalize }}
+            {% if case.discovery_deadline %}
+              · Discovery deadline: {{ case.discovery_deadline.strftime('%Y-%m-%d') }}
+            {% endif %}
+          </p>
+        </div>
+        <div class="ed-links">
+          <a href="{{ url_for('ediscovery.litigation_holds', case_id=case.id) }}">Holds</a>
+          <a href="{{ url_for('ediscovery.privilege_log', case_id=case.id) }}">Privilege Log</a>
+          <a href="{{ url_for('ediscovery.production_sets', case_id=case.id) }}">Productions</a>
+          <a href="{{ url_for('ediscovery.algorithm_dashboard', case_id=case.id) }}">Algorithms</a>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty-state">No cases found.</div>
+    {% endif %}
+  </main>
+</body>
+</html>

@@ -388,6 +388,16 @@ class ReviewSearchService:
     # ------------------------------------------------------------------
     # Audit
     # ------------------------------------------------------------------
+    # Audit sensitivity constants
+    # ------------------------------------------------------------------
+    _QUERY_LOG_MAX_CHARS = 120   # Truncate search text in audit log
+    _SAFE_FILTER_KEYS = frozenset({
+        "file_type", "date_from", "date_to", "has_ocr",
+        "evidence_type", "processing_status", "review_code", "uncoded",
+    })
+    # 'custodian' is omitted — may contain PII (names). Log presence only.
+
+    # ------------------------------------------------------------------
 
     def _log_search(
         self,
@@ -397,7 +407,13 @@ class ReviewSearchService:
         filters: Dict,
         total_results: int,
     ):
-        """Log search query to review audit events."""
+        """Log search query to review audit events.
+
+        Audit sensitivity rules:
+          - Query text is truncated to _QUERY_LOG_MAX_CHARS.
+          - PII-bearing filter values (e.g. custodian) are logged as
+            presence indicators ("***") rather than verbatim values.
+        """
         if not actor_id:
             return
 
@@ -410,14 +426,31 @@ class ReviewSearchService:
             except RuntimeError:
                 pass
 
+            # Truncate query text
+            safe_query = None
+            if query_text:
+                if len(query_text) > self._QUERY_LOG_MAX_CHARS:
+                    safe_query = query_text[: self._QUERY_LOG_MAX_CHARS] + "…"
+                else:
+                    safe_query = query_text
+
+            # Redact PII-bearing filter values
+            safe_filters = {}
+            for key, val in (filters or {}).items():
+                if key in self._SAFE_FILTER_KEYS:
+                    safe_filters[key] = val
+                else:
+                    # Log presence but redact the value
+                    safe_filters[key] = "***"
+
             event = ReviewAuditEvent(
                 case_id=case_id,
                 evidence_id=None,
                 action="review.search",
                 actor_id=actor_id,
                 details_json=json.dumps({
-                    "query": query_text,
-                    "filters": filters,
+                    "query": safe_query,
+                    "filters": safe_filters,
                     "total_results": total_results,
                 }, default=str),
                 ip_address=ip,

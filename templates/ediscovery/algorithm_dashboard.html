@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forensic Algorithms — {{ case.case_number }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+      --ed-success: #4ade80;
+      --ed-danger: #f87171;
+      --ed-warning: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .ed-header .breadcrumb {
+      font-size: 0.8125rem; color: var(--ed-text-muted);
+    }
+    .ed-header .breadcrumb a {
+      color: var(--ed-accent); text-decoration: none;
+    }
+    .ed-content { max-inline-size: 72rem; margin: 2rem auto; padding: 0 2rem; }
+
+    /* Section panels */
+    .section-panel {
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.5rem; padding: 1.5rem; margin-block-end: 1.5rem;
+    }
+    .section-panel h2 {
+      margin: 0 0 1rem; font-size: 1rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    /* Algorithm grid */
+    .algo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+      gap: 0.75rem;
+    }
+    .algo-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+      padding: 1rem;
+      transition: border-color 0.15s;
+    }
+    .algo-card:hover { border-color: var(--ed-accent); }
+    .algo-card h3 { margin: 0 0 0.25rem; font-size: 0.875rem; font-weight: 500; }
+    .algo-card p { margin: 0; font-size: 0.75rem; color: var(--ed-text-muted); }
+    .algo-card .algo-meta {
+      margin-block-start: 0.5rem; font-size: 0.6875rem;
+      color: var(--ed-text-muted);
+    }
+    .algo-card .run-btn {
+      margin-block-start: 0.75rem;
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--ed-accent);
+      border: 1px solid var(--ed-border);
+      border-radius: 0.25rem;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .algo-card .run-btn:hover { background: rgba(96,165,250,0.1); }
+    .algo-card .run-btn:disabled {
+      opacity: 0.4; cursor: not-allowed;
+    }
+
+    /* Run history table */
+    .run-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+    .run-table th { text-align: start; font-weight: 500; padding: 0.5rem; color: var(--ed-text-muted); border-bottom: 1px solid var(--ed-border); }
+    .run-table td { padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .run-table tr:hover { background: rgba(255,255,255,0.02); }
+    .run-table a { color: var(--ed-accent); text-decoration: none; }
+
+    /* Status badges */
+    .badge {
+      display: inline-block; font-size: 0.6875rem; font-weight: 600;
+      padding: 0.15rem 0.45rem; border-radius: 0.25rem;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .badge-pass { background: rgba(74,222,128,0.15); color: var(--ed-success); }
+    .badge-fail { background: rgba(248,113,113,0.15); color: var(--ed-danger); }
+    .badge-running { background: rgba(251,191,36,0.15); color: var(--ed-warning); }
+
+    /* Action bar */
+    .action-bar {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      margin-block-end: 1.5rem;
+    }
+    .action-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+      font-family: inherit;
+      color: var(--ed-text);
+      background: var(--ed-surface);
+      border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .action-btn:hover { border-color: var(--ed-accent); background: rgba(96,165,250,0.05); }
+    .action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .action-btn.primary {
+      background: rgba(96,165,250,0.15); border-color: var(--ed-accent);
+    }
+
+    .hash-mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.6875rem;
+      color: var(--ed-text-muted);
+    }
+
+    .empty-state {
+      text-align: center; padding: 2rem 1rem;
+      color: var(--ed-text-muted); font-size: 0.875rem;
+    }
+
+    /* Status indicator */
+    #run-status {
+      display: none;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      margin-block-end: 1rem;
+      font-size: 0.8125rem;
+      border: 1px solid var(--ed-border);
+    }
+    #run-status.running { display: block; background: rgba(251,191,36,0.1); border-color: var(--ed-warning); }
+    #run-status.success { display: block; background: rgba(74,222,128,0.1); border-color: var(--ed-success); }
+    #run-status.error { display: block; background: rgba(248,113,113,0.1); border-color: var(--ed-danger); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>Forensic Algorithms</h1>
+    <span class="breadcrumb">
+      <a href="{{ url_for('ediscovery.ediscovery_index') }}">eDiscovery</a>
+      &rsaquo; {{ case.case_number }}
+    </span>
+  </header>
+
+  <main class="ed-content">
+
+    <!-- Status indicator -->
+    <div id="run-status" role="status" aria-live="polite"></div>
+
+    <!-- Action bar -->
+    <div class="action-bar">
+      <button class="action-btn primary" id="btn-run-all" type="button"
+              aria-label="Run all algorithms for this case">
+        Run All Algorithms
+      </button>
+      <button class="action-btn" id="btn-replay" type="button"
+              aria-label="Replay and verify all prior runs">
+        Verify Reproducibility
+      </button>
+      <button class="action-btn" id="btn-sealed" type="button"
+              aria-label="Generate sealed court package">
+        Generate Sealed Package
+      </button>
+    </div>
+
+    <!-- Available Algorithms -->
+    <section class="section-panel">
+      <h2>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Available Algorithms
+      </h2>
+      <div class="algo-grid">
+        {% for algo in algorithms %}
+        <div class="algo-card" data-algo-id="{{ algo.algorithm_id }}">
+          <h3>{{ algo.algorithm_id | replace('_', ' ') | title }}</h3>
+          <p>{{ algo.get('description', '') }}</p>
+          <div class="algo-meta">Version {{ algo.version }}</div>
+          <button class="run-btn" type="button"
+                  data-algo-id="{{ algo.algorithm_id }}"
+                  aria-label="Run {{ algo.algorithm_id | replace('_', ' ') }}">
+            Run
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Run History -->
+    <section class="section-panel">
+      <h2>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Recent Runs
+      </h2>
+      {% if runs %}
+      <table class="run-table" role="table">
+        <thead>
+          <tr>
+            <th scope="col">Algorithm</th>
+            <th scope="col">Status</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Result Hash</th>
+            <th scope="col">Executed</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for run in runs %}
+          <tr>
+            <td>{{ run.algorithm_id | replace('_', ' ') | title }}</td>
+            <td>
+              {% if run.success %}
+                <span class="badge badge-pass">Pass</span>
+              {% else %}
+                <span class="badge badge-fail">Fail</span>
+              {% endif %}
+            </td>
+            <td>{{ "%.2f"|format(run.duration_seconds or 0) }}s</td>
+            <td><span class="hash-mono">{{ (run.result_hash or '')[:16] }}…</span></td>
+            <td>{{ run.created_at.strftime('%Y-%m-%d %H:%M') if run.created_at else '—' }}</td>
+            <td>
+              <a href="{{ url_for('ediscovery.algorithm_run_detail', case_id=case.id, run_id=run.run_id) }}"
+                 aria-label="View details for run {{ run.run_id[:8] }}">
+                View
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <div class="empty-state">
+        <p>No algorithm runs yet. Use the actions above to run algorithms.</p>
+      </div>
+      {% endif %}
+    </section>
+
+  </main>
+
+  <script>
+    /* global: case_id from Jinja context */
+    const CASE_ID = {{ case.id }};
+    const API_BASE = '/api/v1/algorithms';
+    const statusEl = document.getElementById('run-status');
+
+    function showStatus(msg, cls) {
+      statusEl.textContent = msg;
+      statusEl.className = cls;
+    }
+
+    async function apiPost(endpoint, body) {
+      const res = await fetch(API_BASE + endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        credentials: 'same-origin',
+      });
+      return { ok: res.ok, status: res.status, data: await res.json() };
+    }
+
+    /* Run a single algorithm */
+    document.querySelectorAll('.run-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const algoId = btn.dataset.algoId;
+        btn.disabled = true;
+        showStatus(`Running ${algoId.replace(/_/g, ' ')}…`, 'running');
+
+        try {
+          const { ok, data } = await apiPost('/run', {
+            algorithm_id: algoId,
+            case_id: CASE_ID,
+          });
+          if (ok) {
+            showStatus(`${algoId.replace(/_/g, ' ')} completed.`, 'success');
+            setTimeout(() => location.reload(), 1200);
+          } else {
+            showStatus(`Error: ${data.error || 'Unknown error'}`, 'error');
+          }
+        } catch (err) {
+          showStatus(`Network error: ${err.message}`, 'error');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    });
+
+    /* Run all algorithms */
+    document.getElementById('btn-run-all').addEventListener('click', async () => {
+      const btn = document.getElementById('btn-run-all');
+      btn.disabled = true;
+      showStatus('Running all algorithms…', 'running');
+
+      try {
+        const { ok, data } = await apiPost('/court-package', { case_id: CASE_ID });
+        if (ok) {
+          showStatus('All algorithms completed.', 'success');
+          setTimeout(() => location.reload(), 1500);
+        } else {
+          showStatus(`Error: ${data.error || 'Unknown error'}`, 'error');
+        }
+      } catch (err) {
+        showStatus(`Network error: ${err.message}`, 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    /* Replay (verify reproducibility) */
+    document.getElementById('btn-replay').addEventListener('click', async () => {
+      const btn = document.getElementById('btn-replay');
+      btn.disabled = true;
+      showStatus('Running deterministic replay verification…', 'running');
+
+      try {
+        const { ok, data } = await apiPost('/replay', { case_id: CASE_ID });
+        if (data.all_reproducible) {
+          showStatus(
+            `Replay complete — ALL ${data.total_runs} runs reproducible. Report hash: ${data.report_hash.slice(0, 16)}…`,
+            'success'
+          );
+        } else {
+          showStatus(
+            `Replay complete — ${data.mismatched} mismatches, ${data.errors} errors out of ${data.total_runs} runs.`,
+            'error'
+          );
+        }
+      } catch (err) {
+        showStatus(`Network error: ${err.message}`, 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    /* Sealed package */
+    document.getElementById('btn-sealed').addEventListener('click', async () => {
+      const btn = document.getElementById('btn-sealed');
+      btn.disabled = true;
+      showStatus('Building integrity-sealed court package…', 'running');
+
+      try {
+        const { ok, data } = await apiPost('/sealed-package', { case_id: CASE_ID });
+        if (data.success) {
+          showStatus(
+            `Sealed package created — ${data.total_files} files, seal: ${data.seal_hash.slice(0, 16)}…`,
+            'success'
+          );
+        } else {
+          showStatus(`Failed: ${data.error || 'Unknown error'}`, 'error');
+        }
+      } catch (err) {
+        showStatus(`Network error: ${err.message}`, 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

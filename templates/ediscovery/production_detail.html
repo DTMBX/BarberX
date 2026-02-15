@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ production.production_number }} · {{ case.case_name }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .ed-nav { display: flex; gap: 0.5rem; margin-left: auto; }
+    .ed-nav a {
+      font-size: 0.8125rem; color: var(--ed-accent); text-decoration: none;
+      padding: 0.35rem 0.75rem; border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+    }
+    .ed-nav a:hover { background: rgba(96,165,250,0.1); }
+    .ed-content { max-width: 64rem; margin: 2rem auto; padding: 0 2rem; }
+    .detail-card {
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.75rem; padding: 1.5rem 2rem; margin-bottom: 1.5rem;
+    }
+    .detail-row { display: flex; gap: 1rem; margin-bottom: 0.5rem; }
+    .detail-label { font-size: 0.8125rem; color: var(--ed-text-muted); min-width: 10rem; }
+    .detail-value { font-size: 0.875rem; }
+    .badge-status {
+      display: inline-block; padding: 0.15rem 0.5rem; border-radius: 0.25rem;
+      font-size: 0.6875rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-draft { background: #6366f120; color: #a5b4fc; }
+    .badge-ready { background: #2563eb20; color: #60a5fa; }
+    .badge-produced { background: #22c55e15; color: #4ade80; }
+    .badge-received { background: #854d0e30; color: #fbbf24; }
+    .item-table {
+      width: 100%; border-collapse: collapse; font-size: 0.8125rem;
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.5rem; overflow: hidden;
+    }
+    .item-table th {
+      text-align: left; padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.03); font-weight: 600;
+      border-bottom: 1px solid var(--ed-border);
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--ed-text-muted);
+    }
+    .item-table td {
+      padding: 0.6rem 1rem; border-bottom: 1px solid var(--ed-border);
+    }
+    .item-table tr:last-child td { border-bottom: none; }
+    .btn-finalize {
+      padding: 0.5rem 1.25rem; border: none; border-radius: 0.375rem;
+      background: #22c55e; color: #fff; font-size: 0.8125rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; margin-top: 0.75rem;
+    }
+    .btn-finalize:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-finalize:hover:not(:disabled) { opacity: 0.85; }
+    .toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      padding: 0.75rem 1.25rem; border-radius: 0.5rem; font-size: 0.8125rem;
+      transform: translateY(120%); opacity: 0; transition: all 0.3s;
+      z-index: 9999;
+    }
+    .toast.visible { transform: translateY(0); opacity: 1; }
+    .empty-state {
+      text-align: center; padding: 2rem 1rem; color: var(--ed-text-muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>{{ production.production_number }} · {{ case.case_number }}</h1>
+    <nav class="ed-nav">
+      <a href="{{ url_for('ediscovery.production_sets', case_id=case.id) }}">All Productions</a>
+      <a href="{{ url_for('ediscovery.ediscovery_index') }}">eDiscovery</a>
+    </nav>
+  </header>
+
+  <main class="ed-content">
+    <section class="detail-card">
+      <div class="detail-row">
+        <span class="detail-label">Status</span>
+        <span class="detail-value">
+          <span class="badge-status badge-{{ production.status or 'draft' }}">{{ production.status or 'draft' }}</span>
+        </span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Description</span>
+        <span class="detail-value">{{ production.description or '—' }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Items</span>
+        <span class="detail-value">{{ production.item_count or 0 }}</span>
+      </div>
+      {% if production.bates_start %}
+      <div class="detail-row">
+        <span class="detail-label">Bates range</span>
+        <span class="detail-value">{{ production.bates_start }} — {{ production.bates_end }}</span>
+      </div>
+      {% endif %}
+      <div class="detail-row">
+        <span class="detail-label">Created</span>
+        <span class="detail-value">{{ production.created_at.strftime('%Y-%m-%d %H:%M UTC') if production.created_at else '—' }}</span>
+      </div>
+
+      {% if production.status == 'draft' or production.status == 'ready' %}
+      <button id="btnFinalize" class="btn-finalize" onclick="finalizeProduction()">Finalize Production</button>
+      {% endif %}
+    </section>
+
+    <!-- Items table -->
+    <h3 style="font-size:0.875rem; margin-bottom:0.75rem;">Production Items</h3>
+    {% if production.items %}
+    <table class="item-table">
+      <thead>
+        <tr>
+          <th>Bates #</th>
+          <th>Evidence ID</th>
+          <th>Redacted</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in production.items %}
+        <tr>
+          <td>{{ item.bates_number or '—' }}</td>
+          <td>{{ item.evidence_id }}</td>
+          <td>{{ 'Yes' if item.is_redacted else 'No' }}</td>
+          <td>{{ (item.redaction_notes or '')[:80] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty-state">
+      No items in this production set. Add items via the
+      <a href="/api/legal/productions/{{ production.id }}/items" style="color:var(--ed-accent);">API</a>.
+    </div>
+    {% endif %}
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    var PROD_ID = {{ production.id }};
+
+    async function finalizeProduction() {
+      var btn = document.getElementById('btnFinalize');
+      if (!confirm('Finalize this production set? This cannot be undone.')) return;
+      btn.disabled = true;
+      try {
+        var resp = await fetch('/api/legal/productions/' + PROD_ID + '/finalize', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+        });
+        if (!resp.ok) throw new Error('Failed');
+        showToast('Production finalized');
+        setTimeout(function() { location.reload(); }, 800);
+      } catch(e) {
+        showToast('Finalize failed');
+        btn.disabled = false;
+      }
+    }
+
+    function showToast(msg) {
+      var el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('visible');
+      setTimeout(function() { el.classList.remove('visible'); }, 2500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algorithm Run — {{ run.algorithm_id }} — Evident</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-tokens.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ed-border: var(--color-border, #2a2a4a);
+      --ed-surface: var(--color-surface, #1a1a2e);
+      --ed-text: var(--color-text-primary, #e0e0e0);
+      --ed-text-muted: var(--color-neutral-500, #6a6a8a);
+      --ed-accent: var(--color-primary-400, #60a5fa);
+      --ed-success: #4ade80;
+      --ed-danger: #f87171;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg-primary, #0f0f23); color: var(--ed-text);
+    }
+    .ed-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--ed-border);
+      background: var(--ed-surface);
+    }
+    .ed-header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .breadcrumb { font-size: 0.8125rem; color: var(--ed-text-muted); }
+    .breadcrumb a { color: var(--ed-accent); text-decoration: none; }
+    .ed-content { max-inline-size: 64rem; margin: 2rem auto; padding: 0 2rem; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 0.25rem 1rem;
+      font-size: 0.8125rem;
+      margin-block-end: 1.5rem;
+    }
+    .detail-grid dt { color: var(--ed-text-muted); font-weight: 500; padding: 0.35rem 0; }
+    .detail-grid dd { margin: 0; padding: 0.35rem 0; }
+
+    .hash-mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem; color: var(--ed-text-muted);
+      word-break: break-all;
+    }
+
+    .badge {
+      display: inline-block; font-size: 0.6875rem; font-weight: 600;
+      padding: 0.15rem 0.45rem; border-radius: 0.25rem;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .badge-pass { background: rgba(74,222,128,0.15); color: var(--ed-success); }
+    .badge-fail { background: rgba(248,113,113,0.15); color: var(--ed-danger); }
+
+    .section-panel {
+      background: var(--ed-surface); border: 1px solid var(--ed-border);
+      border-radius: 0.5rem; padding: 1.5rem; margin-block-end: 1.5rem;
+    }
+    .section-panel h2 { margin: 0 0 1rem; font-size: 1rem; font-weight: 600; }
+
+    .payload-pre {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--ed-border);
+      border-radius: 0.375rem;
+      padding: 1rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      max-block-size: 32rem;
+      color: var(--ed-text-muted);
+    }
+
+    .back-link {
+      display: inline-block; margin-block-end: 1rem;
+      font-size: 0.8125rem; color: var(--ed-accent); text-decoration: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="ed-header">
+    <h1>Algorithm Run Detail</h1>
+    <span class="breadcrumb">
+      <a href="{{ url_for('ediscovery.ediscovery_index') }}">eDiscovery</a>
+      &rsaquo; <a href="{{ url_for('ediscovery.algorithm_dashboard', case_id=case.id) }}">Algorithms</a>
+      &rsaquo; {{ run.algorithm_id | replace('_', ' ') | title }}
+    </span>
+  </header>
+
+  <main class="ed-content">
+    <a class="back-link" href="{{ url_for('ediscovery.algorithm_dashboard', case_id=case.id) }}">
+      &larr; Back to Dashboard
+    </a>
+
+    <section class="section-panel">
+      <h2>Run Metadata</h2>
+      <dl class="detail-grid">
+        <dt>Algorithm</dt>
+        <dd>{{ run.algorithm_id | replace('_', ' ') | title }}</dd>
+
+        <dt>Version</dt>
+        <dd>{{ run.algorithm_version }}</dd>
+
+        <dt>Run ID</dt>
+        <dd><span class="hash-mono">{{ run.run_id }}</span></dd>
+
+        <dt>Status</dt>
+        <dd>
+          {% if run.success %}
+            <span class="badge badge-pass">Pass</span>
+          {% else %}
+            <span class="badge badge-fail">Fail</span>
+          {% endif %}
+        </dd>
+
+        <dt>Duration</dt>
+        <dd>{{ "%.3f"|format(run.duration_seconds or 0) }}s</dd>
+
+        <dt>Executed</dt>
+        <dd>{{ run.created_at.strftime('%Y-%m-%d %H:%M:%S UTC') if run.created_at else '—' }}</dd>
+
+        <dt>Result Hash</dt>
+        <dd><span class="hash-mono">{{ run.result_hash or '—' }}</span></dd>
+
+        <dt>Params Hash</dt>
+        <dd><span class="hash-mono">{{ run.params_hash or '—' }}</span></dd>
+
+        <dt>Integrity Check</dt>
+        <dd><span class="hash-mono">{{ run.integrity_check or '—' }}</span></dd>
+
+        {% if run.error_message %}
+        <dt>Error</dt>
+        <dd style="color: var(--ed-danger);">{{ run.error_message }}</dd>
+        {% endif %}
+      </dl>
+    </section>
+
+    <section class="section-panel">
+      <h2>Result Payload</h2>
+      {% if payload %}
+      <pre class="payload-pre"><code>{{ payload | tojson(indent=2) }}</code></pre>
+      {% else %}
+      <p style="color: var(--ed-text-muted); font-size: 0.8125rem;">No payload data available.</p>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>

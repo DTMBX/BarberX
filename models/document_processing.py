@@ -333,6 +333,11 @@ class ContentExtractionIndex(db.Model):
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # Phase 10.1 hardening: index on case_id for search joins
+    __table_args__ = (
+        db.Index("ix_content_extraction_case_id", "case_id"),
+    )
     
     def __repr__(self):
         return f'<ContentExtractionIndex Evidence:{self.evidence_id}>'
