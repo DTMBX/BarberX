@@ -122,7 +122,7 @@
       }
     });
 
-    nav.querySelectorAll('.case-quick-nav-link').forEach((link) => {
+    nav.querySelectorAll('.case-quick-nav__link').forEach((link) => {
       link.classList.remove('is-active');
       if (current && link.getAttribute('href') === '#' + current.id) {
         link.classList.add('is-active');
