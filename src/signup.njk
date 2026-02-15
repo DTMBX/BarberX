@@ -1,18 +1,68 @@
 ---
 title: Sign up
 permalink: /signup/
-description: Create an account with Evident.
+description: Create an account with Evident Technologies.
 ---
 
 {% extends "layouts/base.njk" %}
 
+{% block mainClass %}bg-surface{% endblock %}
+
 {% block content %}
-  <section class="site-container py-16">
-    <h1 class="text-3xl font-bold">Create an account</h1>
-    <p class="mt-4">Join Evident. For account creation, proceed to the secure signup flow.</p>
-    <div class="mt-6">
-      <a class="btn btn-primary" href="/auth/signup">Sign up securely</a>
-      <a class="btn btn-ghost ml-3" href="/pricing/">Back to pricing</a>
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero" style="text-align:center;">
+    <div class="page-hero__inner" style="max-width:640px; margin-inline:auto;">
+      <span class="page-hero__label">Get started</span>
+      <h1 class="page-hero__title">Create your account</h1>
+      <p class="page-hero__subtitle" style="margin-inline:auto;">Access forensic-grade evidence workflows, immutable audit trails, and court-ready export tools.</p>
     </div>
   </section>
+
+  {# ── Signup form ──────────────────────── #}
+  <div class="page-body page-body--narrow" style="text-align:center;">
+
+    <div class="form-card" style="text-align:left; max-width:480px; margin-inline:auto;">
+      <h2 style="font-size:1.2rem; font-weight:700; margin:0 0 1.5rem; color:#1a1a2e;">Account details</h2>
+      <form action="/auth/signup" method="post" aria-label="Signup form">
+        <div class="form-group">
+          <label class="form-label" for="signup-name">Full name</label>
+          <input class="form-input" id="signup-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-email">Work email</label>
+          <input class="form-input" id="signup-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-org">Organization <span style="font-weight:400; color:#9ca3af;">(optional)</span></label>
+          <input class="form-input" id="signup-org" name="organization" type="text" autocomplete="organization" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signup-password">Password</label>
+          <input class="form-input" id="signup-password" name="password" type="password" autocomplete="new-password" required minlength="8" />
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--lg" style="margin-block-start:0.5rem;">Create account</button>
+      </form>
+      <p style="font-size:0.8rem; color:#9ca3af; margin-block-start:1.25rem; text-align:center;">By creating an account you agree to the <a href="/terms/" style="color:var(--color-primary);">Terms of Service</a> and <a href="/privacy/" style="color:var(--color-primary);">Privacy Policy</a>.</p>
+    </div>
+
+    <p style="font-size:0.95rem; color:#6b7280; margin-block-start:2rem;">Already have an account? <a href="/auth/login" style="color:var(--color-primary); font-weight:600;">Sign in</a></p>
+
+    {# ── Trust signals ──────────────────── #}
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-block-start:3rem; padding-block-start:2rem; border-top:1px solid #e5e7eb;">
+      <div style="text-align:center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b73d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-inline:auto; display:block;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p style="font-size:0.75rem; color:#9ca3af; margin-block-start:0.5rem;">Encrypted</p>
+      </div>
+      <div style="text-align:center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b73d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-inline:auto; display:block;"><polyline points="20 6 9 17 4 12"/></svg>
+        <p style="font-size:0.75rem; color:#9ca3af; margin-block-start:0.5rem;">Verified</p>
+      </div>
+      <div style="text-align:center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0b73d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-inline:auto; display:block;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <p style="font-size:0.75rem; color:#9ca3af; margin-block-start:0.5rem;">Immutable</p>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

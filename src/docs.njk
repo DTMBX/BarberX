@@ -1,26 +1,77 @@
 ---
 title: Documentation
-description: Developer and user documentation for Evident
+description: Developer and user documentation for Evident.
+permalink: /docs/
 ---
 
 {% extends "layouts/base.njk" %}
 
-{% block content %}
-  <section class="site-container py-12">
-    <header class="mb-6">
-      <h1 class="text-3xl md:text-4xl font-bold">Documentation</h1>
-      <p class="mt-2 text-lg text-gray-700">Find guides, API references, and developer notes here.</p>
-    </header>
+{% block mainClass %}bg-surface{% endblock %}
 
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <article class="p-6 border rounded prose">
-        <h3 class="font-semibold">Getting started</h3>
-        <p>Quickstart guides for installation and configuration.</p>
-      </article>
-      <article class="p-6 border rounded prose">
-        <h3 class="font-semibold">API Reference</h3>
-        <p>Endpoints, schemas, and usage examples.</p>
-      </article>
+{% block content %}
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__label">Documentation</span>
+      <h1 class="page-hero__title">Guides &amp; references</h1>
+      <p class="page-hero__subtitle">Find installation guides, API references, architecture notes, and developer documentation.</p>
     </div>
   </section>
+
+  {# ── Documentation grid ───────────────── #}
+  <div class="page-body">
+    <div class="feature-grid">
+
+      <a href="/docs/" class="feature-card" style="text-decoration:none; color:inherit;">
+        <div class="feature-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3 class="feature-card__title">Getting started</h3>
+        <p class="feature-card__body">Installation, configuration, and first-run guides for new deployments.</p>
+      </a>
+
+      <a href="/docs/" class="feature-card" style="text-decoration:none; color:inherit;">
+        <div class="feature-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="feature-card__title">API reference</h3>
+        <p class="feature-card__body">Endpoints, schemas, authentication, and usage examples for the REST API.</p>
+      </a>
+
+      <a href="/docs/" class="feature-card" style="text-decoration:none; color:inherit;">
+        <div class="feature-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="feature-card__title">Architecture</h3>
+        <p class="feature-card__body">System design, data flows, and component diagrams for the Evident platform.</p>
+      </a>
+
+      <a href="/docs/" class="feature-card" style="text-decoration:none; color:inherit;">
+        <div class="feature-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="feature-card__title">Security</h3>
+        <p class="feature-card__body">Encryption, hashing, access controls, and threat model documentation.</p>
+      </a>
+
+      <a href="/docs/" class="feature-card" style="text-decoration:none; color:inherit;">
+        <div class="feature-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 class="feature-card__title">Changelog</h3>
+        <p class="feature-card__body">Version history, release notes, and migration guides for each update.</p>
+      </a>
+
+      <a href="/docs/" class="feature-card" style="text-decoration:none; color:inherit;">
+        <div class="feature-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3 class="feature-card__title">FAQ &amp; support</h3>
+        <p class="feature-card__body">Common questions, troubleshooting steps, and how to reach the support team.</p>
+      </a>
+
+    </div>
+  </div>
+
 {% endblock %}

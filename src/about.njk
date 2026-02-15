@@ -1,13 +1,98 @@
 ---
 title: About
 permalink: /about/
+description: About Evident Technologies — legal-grade evidence processing.
 ---
 
 {% extends "layouts/base.njk" %}
 
+{% block mainClass %}bg-surface{% endblock %}
+
 {% block content %}
-  <section class="site-container py-12">
-    <h1 class="text-3xl font-bold">About Evident</h1>
-    <p class="mt-4">Evident Technologies builds legal-grade evidence processing tools. For inquiries, please <a href="/contact/">contact us</a>.</p>
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__label">About</span>
+      <h1 class="page-hero__title">Making truth legible and durable</h1>
+      <p class="page-hero__subtitle">Evident Technologies builds forensic-grade systems for evidence integrity, chain of custody, and institutional accountability.</p>
+    </div>
   </section>
+
+  {# ── Mission ───────────────────────────── #}
+  <div class="page-body">
+    <section class="page-section">
+      <div class="prose-block" style="max-width:720px;">
+        <h2>Our mission</h2>
+        <p>Evident Technologies exists to preserve the integrity of evidence throughout its lifecycle — from intake through processing, analysis, and court-ready export. We serve legal professionals, oversight bodies, and institutions that require deterministic, auditable, and reproducible evidence workflows.</p>
+        <p>Every system we build is designed to withstand scrutiny — not just today, but decades from now. We believe that trust in institutions depends on transparent, verifiable records that any party can independently audit.</p>
+      </div>
+    </section>
+
+    {# ── Values ───────────────────────────── #}
+    <section class="page-section">
+      <h2 class="page-section__title">Principles</h2>
+      <p class="page-section__subtitle">The standards that guide every design decision, every line of code, and every interaction.</p>
+
+      <div class="feature-grid" style="max-width:900px;">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Integrity first</h3>
+          <p class="feature-card__body">Original evidence is immutable. Every derivative and export is cryptographically verified.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="feature-card__title">Deterministic by design</h3>
+          <p class="feature-card__body">Processing is reproducible. Given the same inputs, the system produces identical outputs every time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="feature-card__title">Transparent oversight</h3>
+          <p class="feature-card__body">Every access, transform, and export is logged in append-only audit records for full accountability.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="feature-card__title">Due process</h3>
+          <p class="feature-card__body">Systems are designed for lawful authority and constitutional accountability, not convenience.</p>
+        </div>
+      </div>
+    </section>
+
+    {# ── Stats ─────────────────────────────── #}
+    <section class="page-section">
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat__value">100%</div>
+          <div class="stat__label">Deterministic</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">SHA-256</div>
+          <div class="stat__label">Hash Verified</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">Append</div>
+          <div class="stat__label">Only Audit Logs</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">Zero</div>
+          <div class="stat__label">Data Mutation</div>
+        </div>
+      </div>
+    </section>
+
+    {# ── CTA ───────────────────────────────── #}
+    <section class="page-section" style="text-align:center; padding-block-start:1rem;">
+      <p style="font-size:1.1rem; color:#374151; margin-block-end:1.5rem;">Questions about our approach or capabilities?</p>
+      <a class="btn btn--primary btn--lg" href="/contact/">Contact our team</a>
+    </section>
+  </div>
+
 {% endblock %}

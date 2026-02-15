@@ -1,28 +1,75 @@
 ---
 title: Compliance
 description: Policy templates, review workflows, and continuous monitoring mapped to legal requirements.
+permalink: /services/compliance/
 ---
 
 {% extends "layouts/base.njk" %}
 
-{% block content %}
-  <section class="site-container py-12">
-    <header class="mb-4">
-      <h1 class="text-3xl md:text-4xl font-bold">Compliance</h1>
-      <p class="mt-2 text-lg text-gray-700 max-w-prose">Policies, audits, and monitoring tools to help organizations meet legal and regulatory standards.</p>
-    </header>
+{% block mainClass %}bg-surface{% endblock %}
 
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-4 md:p-6 border rounded bg-white prose">
-        <img src="/assets/images/service-compliance.svg" alt="Compliance icon" class="h-12 w-12"/>
-        <h3 class="mt-4 font-semibold">Regulatory mapping</h3>
-        <p>Map standards and requirements to processes and evidence retention policies.</p>
-      </div>
-      <div class="p-4 md:p-6 border rounded bg-white prose">
-        <img src="/assets/images/service-custody.svg" alt="Custody icon" class="h-12 w-12"/>
-        <h3 class="mt-4 font-semibold">Continuous monitoring</h3>
-        <p>Ongoing checks and alerts to ensure compliance posture remains intact.</p>
-      </div>
+{% block content %}
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__label">Service</span>
+      <h1 class="page-hero__title">Compliance</h1>
+      <p class="page-hero__subtitle">Policies, audits, and monitoring tools to help organizations meet legal and regulatory standards with verifiable evidence.</p>
     </div>
   </section>
+
+  {# ── Feature grid ──────────────────────── #}
+  <div class="page-body">
+
+    <section class="page-section">
+      <h2 class="page-section__title">Capabilities</h2>
+      <p class="page-section__subtitle">Map requirements to processes, enforce policies, and monitor compliance posture continuously.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="feature-card__title">Regulatory mapping</h3>
+          <p class="feature-card__body">Map standards and requirements to internal processes, evidence retention policies, and organizational controls.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="feature-card__title">Continuous monitoring</h3>
+          <p class="feature-card__body">Ongoing automated checks and configurable alerts to ensure compliance posture remains intact across all evidence workflows.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3 class="feature-card__title">Policy templates</h3>
+          <p class="feature-card__body">Pre-built policy templates aligned with common regulatory frameworks that can be customized for organizational needs.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Audit readiness</h3>
+          <p class="feature-card__body">Maintain court-defensible records and generate compliance reports that can be independently verified against source evidence.</p>
+        </div>
+      </div>
+    </section>
+
+    {# ── CTA ──────────────────────────────── #}
+    <section class="page-section" style="text-align:center; padding-block-start:1rem;">
+      <p style="font-size:1.1rem; color:#374151; margin-block-end:1.5rem;">Align your evidence workflows with regulatory requirements.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn--primary btn--lg" href="/signup/">Start free trial</a>
+        <a class="btn btn--secondary btn--lg" href="/contact/">Talk to our team</a>
+      </div>
+    </section>
+
+  </div>
+
 {% endblock %}

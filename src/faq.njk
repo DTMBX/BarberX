@@ -1,17 +1,112 @@
 ---
 title: FAQ
 permalink: /faq/
+description: Frequently asked questions about Evident Technologies.
 ---
 
 {% extends "layouts/base.njk" %}
 
+{% block mainClass %}bg-surface{% endblock %}
+
 {% block content %}
-  <section class="site-container py-12">
-    <h1 class="text-3xl font-bold">Frequently Asked Questions</h1>
-    <p class="mt-4">See common questions about Evident Technologies and our services.</p>
-    <ul class="mt-4 list-disc ml-6">
-      <li><strong>What is Evident?</strong> A platform focused on evidence integrity and auditability.</li>
-      <li><strong>How do I get support?</strong> Use our <a href="/contact/">contact</a> page.</li>
-    </ul>
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__label">FAQ</span>
+      <h1 class="page-hero__title">Frequently asked questions</h1>
+      <p class="page-hero__subtitle">Common questions about our platform, evidence handling, compliance, and support.</p>
+    </div>
   </section>
+
+  {# ── FAQ Accordion ─────────────────────── #}
+  <div class="page-body page-body--narrow">
+
+    <section class="page-section">
+      <h2 class="page-section__title">General</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>What is Evident Technologies?</summary>
+          <div class="faq-item__answer">
+            <p>Evident Technologies builds forensic-grade evidence processing systems designed for legal professionals, oversight bodies, and institutions that require immutable records, deterministic analysis, and reproducible exports.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Who is the platform designed for?</summary>
+          <div class="faq-item__answer">
+            <p>Legal teams, law enforcement agencies, compliance departments, government auditors, and any professional or organization that needs court-defensible evidence workflows with full chain-of-custody documentation.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What makes Evident different from standard document management?</summary>
+          <div class="faq-item__answer">
+            <p>Standard document systems allow edits and deletions. Evident enforces immutability — originals cannot be modified, every action is logged in append-only audit trails, and all outputs are cryptographically verified against source material.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section class="page-section">
+      <h2 class="page-section__title">Security &amp; integrity</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>How is evidence integrity maintained?</summary>
+          <div class="faq-item__answer">
+            <p>Every piece of evidence is hashed using SHA-256 at the point of intake. All subsequent access, transformations, and exports are logged in immutable, append-only audit records. Processing is deterministic — the same inputs always produce the same outputs.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can original evidence be modified or deleted?</summary>
+          <div class="faq-item__answer">
+            <p>No. Original evidence is stored as immutable. The system does not permit overwrites, edits, or deletions of source material. Derived outputs are always linked back to and verifiable against their originals.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is audit log data ever purged?</summary>
+          <div class="faq-item__answer">
+            <p>Audit logs are append-only and are never deleted or overwritten. This is required for chain-of-custody integrity and evidentiary admissibility.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section class="page-section">
+      <h2 class="page-section__title">Support &amp; access</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>How do I get support?</summary>
+          <div class="faq-item__answer">
+            <p>Reach our team through the <a href="/contact/">contact page</a>. Professional and Enterprise plan users receive priority support with guaranteed response times.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is there a free plan available?</summary>
+          <div class="faq-item__answer">
+            <p>Yes. The Starter plan provides access to core evidence integrity features at no cost. See the <a href="/pricing/">pricing page</a> for details on all available plans.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    {# ── CTA ──────────────────────────────── #}
+    <div class="info-card" style="margin-block-start:2rem;">
+      <div class="info-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <p class="info-card__body">Have a question not listed here? <a href="/contact/" style="color:var(--color-primary); text-decoration:underline;">Contact our team</a> and we will respond within one business day.</p>
+    </div>
+
+  </div>
+
 {% endblock %}

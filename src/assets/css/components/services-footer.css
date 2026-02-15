@@ -1,0 +1,360 @@
+/* ═══════════════════════════════════════════════════════════
+   SERVICES SECTION — Glassmorphism Cards
+   ═══════════════════════════════════════════════════════════ */
+
+.services-section {
+  position: relative;
+  width: 100%;
+  padding-block: 5rem 6rem;
+  background:
+    linear-gradient(135deg, #f0f4f8 0%, #e8eef5 50%, #f6f7f9 100%);
+  overflow: hidden;
+}
+
+/* Subtle decorative gradient orbs */
+.services-section::before,
+.services-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.services-section::before {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(11,115,210,0.25), transparent 70%);
+}
+.services-section::after {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(224,122,95,0.2), transparent 70%);
+}
+
+.services-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.services-header {
+  text-align: center;
+  margin-block-end: 3.5rem;
+}
+
+.services-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(11,115,210,0.08);
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  margin-block-end: 1rem;
+}
+
+.services-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text, #1a1a2e);
+  margin: 0 0 0.75rem;
+}
+
+.services-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #6b7280);
+  max-width: 580px;
+  margin-inline: auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Glassmorphism card */
+.glass-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.75rem 2.25rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.06),
+    0 1px 3px rgba(0,0,0,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.1),
+    0 2px 6px rgba(0,0,0,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.glass-card:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card {
+    transition: none;
+  }
+  .glass-card:hover {
+    transform: none;
+  }
+}
+
+.glass-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, var(--color-primary), #2b8ce8);
+  color: #fff;
+  margin-block-end: 1.25rem;
+  flex-shrink: 0;
+}
+
+.glass-card__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text, #1a1a2e);
+  margin: 0 0 0.75rem;
+}
+
+.glass-card__body {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+  flex: 1;
+}
+
+.glass-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-block-start: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+.glass-card__link:hover {
+  gap: 0.65rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.glass-card__link svg {
+  transition: transform 0.2s ease;
+}
+.glass-card__link:hover svg {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card__link,
+  .glass-card__link svg {
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER — Modern Glassmorphism
+   ═══════════════════════════════════════════════════════════ */
+
+.site-footer {
+  position: relative;
+  width: 100%;
+  background:
+    linear-gradient(160deg, #0d1b2a 0%, #1b2838 40%, #162133 100%);
+  color: #cbd5e1;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 10% 100%, rgba(11,115,210,0.12), transparent),
+    radial-gradient(ellipse 500px 350px at 90% 0%, rgba(224,122,95,0.08), transparent);
+  pointer-events: none;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 4rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1.4fr 2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.footer-brand {
+  display: inline-block;
+  margin-block-end: 1rem;
+}
+.footer-brand img {
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-tagline {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin: 0 0 1.25rem;
+  max-width: 280px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #94a3b8;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.footer-social__link:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.footer-social__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-social__link {
+    transition: none;
+  }
+  .footer-social__link:hover {
+    transform: none;
+  }
+}
+
+/* Footer navigation */
+.footer-nav {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav__heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e2e8f0;
+  margin: 0 0 1rem;
+}
+
+.footer-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-nav__list a {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-nav__list a:hover {
+  color: #fff;
+}
+
+/* Footer legal */
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-legal__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-legal__links a {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-legal__links a:hover {
+  color: #fff;
+}
+
+/* Footer bottom bar */
+.footer-bottom {
+  margin-block-start: 3rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}

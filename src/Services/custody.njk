@@ -1,28 +1,75 @@
 ---
 title: Chain of Custody
 description: Standardized intake, transfer, and release processes to maintain admissibility.
+permalink: /services/custody/
 ---
 
 {% extends "layouts/base.njk" %}
 
-{% block content %}
-  <section class="site-container py-12">
-    <header class="mb-4">
-      <h1 class="text-3xl md:text-4xl font-bold">Chain of Custody</h1>
-      <p class="mt-2 text-lg text-gray-700 max-w-prose">Document every transfer and handling step with audit records and role-based approvals.</p>
-    </header>
+{% block mainClass %}bg-surface{% endblock %}
 
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-4 md:p-6 border rounded bg-white prose">
-        <img src="/assets/images/service-custody.svg" alt="Custody icon" class="h-12 w-12"/>
-        <h3 class="mt-4 font-semibold">Provenance tracking</h3>
-        <p>Track each actor, timestamp, and action for full provenance records.</p>
-      </div>
-      <div class="p-4 md:p-6 border rounded bg-white prose">
-        <img src="/assets/images/service-audit.svg" alt="Audit icon" class="h-12 w-12"/>
-        <h3 class="mt-4 font-semibold">Secure transfers</h3>
-        <p>Secure handoffs with cryptographic receipts and audit proofs.</p>
-      </div>
+{% block content %}
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__label">Service</span>
+      <h1 class="page-hero__title">Chain of custody</h1>
+      <p class="page-hero__subtitle">Document every transfer and handling step with cryptographic receipts, role-based approvals, and complete provenance records.</p>
     </div>
   </section>
+
+  {# ── Feature grid ──────────────────────── #}
+  <div class="page-body">
+
+    <section class="page-section">
+      <h2 class="page-section__title">Capabilities</h2>
+      <p class="page-section__subtitle">From intake to final disposition — every handoff is documented, verified, and auditable.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="feature-card__title">Provenance tracking</h3>
+          <p class="feature-card__body">Track each actor, timestamp, and action for complete provenance records. Every custody transfer is logged with full context.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="feature-card__title">Secure transfers</h3>
+          <p class="feature-card__body">Secure handoffs with cryptographic receipts and audit proofs ensuring evidence integrity is maintained through every transition.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3 class="feature-card__title">Role-based approvals</h3>
+          <p class="feature-card__body">Define approval workflows that require designated roles to authorize evidence transfers, ensuring proper authorization at every step.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="feature-card__title">Full visibility</h3>
+          <p class="feature-card__body">Real-time dashboards showing current evidence location, handler, and status across all active custody chains.</p>
+        </div>
+      </div>
+    </section>
+
+    {# ── CTA ──────────────────────────────── #}
+    <section class="page-section" style="text-align:center; padding-block-start:1rem;">
+      <p style="font-size:1.1rem; color:#374151; margin-block-end:1.5rem;">Ensure admissibility with documented chain of custody.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn--primary btn--lg" href="/signup/">Start free trial</a>
+        <a class="btn btn--secondary btn--lg" href="/contact/">Talk to our team</a>
+      </div>
+    </section>
+
+  </div>
+
 {% endblock %}

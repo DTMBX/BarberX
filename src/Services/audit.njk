@@ -1,28 +1,75 @@
 ---
 title: Audit Trails
 description: Append-only audit trails and verifiable snapshots for evidentiary purposes.
+permalink: /services/audit/
 ---
 
 {% extends "layouts/base.njk" %}
 
-{% block content %}
-  <section class="site-container py-12">
-    <header class="mb-4">
-      <h1 class="text-3xl md:text-4xl font-bold">Audit Trails</h1>
-      <p class="mt-2 text-lg text-gray-700 max-w-prose">Maintain immutable, append-only logs and verifiable snapshots designed for legal and administrative workflows.</p>
-    </header>
+{% block mainClass %}bg-surface{% endblock %}
 
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-4 md:p-6 border rounded bg-white prose">
-        <img src="/assets/images/logo-source.svg" alt="Audit icon" class="h-12 w-12"/>
-        <h3 class="mt-4 font-semibold">Tamper-evident logs</h3>
-        <p>Cryptographic hashing and append-only storage provide clear chains of custody.</p>
-      </div>
-      <div class="p-4 md:p-6 border rounded bg-white prose">
-        <img src="/assets/images/logo-source.svg" alt="Verify icon" class="h-12 w-12"/>
-        <h3 class="mt-4 font-semibold">Verifiable snapshots</h3>
-        <p>Create time-stamped snapshots for court-ready evidence packages.</p>
-      </div>
+{% block content %}
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__label">Service</span>
+      <h1 class="page-hero__title">Audit trails</h1>
+      <p class="page-hero__subtitle">Maintain immutable, append-only logs and verifiable snapshots designed for legal and administrative workflows.</p>
     </div>
   </section>
+
+  {# ── Feature grid ──────────────────────── #}
+  <div class="page-body">
+
+    <section class="page-section">
+      <h2 class="page-section__title">Capabilities</h2>
+      <p class="page-section__subtitle">Every action records who, what, when, and why — creating an unbroken chain of accountability.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Tamper-evident logs</h3>
+          <p class="feature-card__body">Cryptographic hashing and append-only storage provide clear, verifiable chains of custody that cannot be retroactively altered.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="feature-card__title">Verifiable snapshots</h3>
+          <p class="feature-card__body">Create time-stamped, hash-verified snapshots of evidence state for court-ready evidence packages and regulatory review.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="feature-card__title">Real-time monitoring</h3>
+          <p class="feature-card__body">Track evidence access and processing events as they occur, with configurable alerts for anomalous activity patterns.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="feature-card__title">Exportable reports</h3>
+          <p class="feature-card__body">Generate reproducible audit reports tied to original evidence hashes, suitable for court submission and compliance review.</p>
+        </div>
+      </div>
+    </section>
+
+    {# ── CTA ──────────────────────────────── #}
+    <section class="page-section" style="text-align:center; padding-block-start:1rem;">
+      <p style="font-size:1.1rem; color:#374151; margin-block-end:1.5rem;">Ready to implement verifiable audit trails?</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn--primary btn--lg" href="/signup/">Start free trial</a>
+        <a class="btn btn--secondary btn--lg" href="/contact/">Talk to our team</a>
+      </div>
+    </section>
+
+  </div>
+
 {% endblock %}

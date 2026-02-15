@@ -1,17 +1,85 @@
 ---
 title: Pricing
 permalink: /pricing/
-description: Simple pricing summary and links.
+description: Transparent pricing for evidence integrity services.
 ---
 
 {% extends "layouts/base.njk" %}
 
+{% block mainClass %}bg-surface{% endblock %}
+
 {% block content %}
-  <section class="site-container py-12">
-    <h1 class="text-3xl font-bold">Pricing</h1>
-    <p class="mt-4">Transparent pricing — choose the plan that fits your needs. For the legacy document, see <a href="/pricing/">pricing page</a>.</p>
-    <div class="mt-6">
-      <a class="btn btn-primary" href="/signup/">Get Started</a>
+
+  {# ── Page Hero ────────────────────────── #}
+  <section class="page-hero">
+    <div class="page-hero__inner" style="text-align:center; max-width:640px;">
+      <span class="page-hero__label">Pricing</span>
+      <h1 class="page-hero__title">Plans built for trust</h1>
+      <p class="page-hero__subtitle" style="margin-inline:auto;">Transparent, predictable pricing. Every plan includes append-only audit logs and cryptographic verification.</p>
     </div>
   </section>
+
+  {# ── Pricing Cards ────────────────────── #}
+  <div class="page-body">
+    <div class="pricing-grid">
+
+      {# Starter #}
+      <div class="pricing-card">
+        <h2 class="pricing-card__name">Starter</h2>
+        <p class="pricing-card__price">$0<span>/mo</span></p>
+        <p class="pricing-card__desc">For individuals and small teams evaluating evidence workflows.</p>
+        <ul class="pricing-card__features">
+          <li>Up to 500 evidence records</li>
+          <li>SHA-256 hash verification</li>
+          <li>Append-only audit log</li>
+          <li>Community support</li>
+          <li>Single-user access</li>
+        </ul>
+        <a class="btn btn--ghost btn--full" href="/signup/">Get started free</a>
+      </div>
+
+      {# Professional (featured) #}
+      <div class="pricing-card pricing-card--featured">
+        <span class="pricing-card__badge">Most Popular</span>
+        <h2 class="pricing-card__name">Professional</h2>
+        <p class="pricing-card__price">$99<span>/mo</span></p>
+        <p class="pricing-card__desc">For legal teams and organizations requiring court-ready outputs.</p>
+        <ul class="pricing-card__features">
+          <li>Unlimited evidence records</li>
+          <li>Chain-of-custody tracking</li>
+          <li>Court-ready export packages</li>
+          <li>Role-based access controls</li>
+          <li>Priority email support</li>
+          <li>API access</li>
+        </ul>
+        <a class="btn btn--white btn--full" href="/signup/">Start 14-day trial</a>
+      </div>
+
+      {# Enterprise #}
+      <div class="pricing-card">
+        <h2 class="pricing-card__name">Enterprise</h2>
+        <p class="pricing-card__price">Custom</p>
+        <p class="pricing-card__desc">For institutions requiring dedicated infrastructure and compliance alignment.</p>
+        <ul class="pricing-card__features">
+          <li>Dedicated environment</li>
+          <li>Custom compliance mapping</li>
+          <li>SSO &amp; advanced RBAC</li>
+          <li>SLA &amp; uptime guarantee</li>
+          <li>Dedicated account manager</li>
+          <li>On-premise option</li>
+        </ul>
+        <a class="btn btn--secondary btn--full" href="/contact/">Contact sales</a>
+      </div>
+
+    </div>
+
+    {# ── Comparison note ─────────────────── #}
+    <div class="info-card" style="margin-top:3rem; max-width:720px;">
+      <div class="info-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </div>
+      <p class="info-card__body">All plans include immutable originals, deterministic processing, and reproducible exports. No data leaves your jurisdiction without explicit authorization.</p>
+    </div>
+  </div>
+
 {% endblock %}

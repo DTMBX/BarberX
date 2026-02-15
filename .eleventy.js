@@ -16,6 +16,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'assets/img/logo/light-variant-logo-transparent.svg': 'assets/img/logo/light-variant-logo-transparent.svg' });
   eleventyConfig.addPassthroughCopy({ 'assets/img/brand/': 'assets/img/brand/' });
   eleventyConfig.addPassthroughCopy({ 'assets/css/components/site-header.css': 'assets/css/components/site-header.css' });
+  eleventyConfig.addPassthroughCopy({ 'assets/css/components/pages.css': 'assets/css/components/pages.css' });
   eleventyConfig.addPassthroughCopy({ 'assets/css/components/anthem-player.css': 'assets/css/components/anthem-player.css' });
   eleventyConfig.addPassthroughCopy({ 'assets/icons/': 'assets/icons/' });
   eleventyConfig.addPassthroughCopy({ 'assets/svg/': 'assets/svg/' });
