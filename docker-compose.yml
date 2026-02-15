@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  engine:
+    image: public-records-platform/local-engine:latest
+    container_name: records-engine
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - HOST=0.0.0.0
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/records
+      - VECTOR_DB_URL=http://qdrant:6333
+      - REDIS_URL=redis://redis:6379
+      - DATA_DIR=/data
+      - CACHE_DIR=/cache
+      - ENABLE_OCR=true
+      - ENABLE_TRANSCRIPTION=true
+      - ENABLE_EMBEDDINGS=true
+      - MAX_CONCURRENT_JOBS=4
+      - OCR_DPI=250
+      - CHUNK_SIZE=1500
+    volumes:
+      - engine-data:/data
+      - engine-cache:/cache
+      - ./local-engine/config:/config
+    depends_on:
+      - postgres
+      - qdrant
+      - redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: records-postgres
+    environment:
+      - POSTGRES_DB=records
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: records-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant-data:/qdrant/storage
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: records-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  engine-data:
+    driver: local
+  engine-cache:
+    driver: local
+  postgres-data:
+    driver: local
+  qdrant-data:
+    driver: local
+  redis-data:
+    driver: local
+
+networks:
+  default:
+    name: records-network
