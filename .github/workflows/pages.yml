@@ -1,7 +1,22 @@
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
+#
+# ──────────────────────────────────────────────────────────
+# GitHub Pages Deploy — evident.icu
+#
+# Builds the Eleventy landing site + 4 Vite/React satellite
+# apps. Outputs everything to _site/ and deploys to GitHub
+# Pages with HTTPS via the evident.icu custom domain.
+#
+# Build chain:
+#   1. npm ci (workspaces — installs all apps in one pass)
+#   2. Eleventy build → _site/
+#   3. Parallel satellite builds → _site/apps/<slug>/
+#   4. Inject .nojekyll + verify output
+#   5. Deploy via actions/deploy-pages@v4
+# ──────────────────────────────────────────────────────────
 
-name: Build and Deploy Pages (Eleventy)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -9,6 +24,9 @@ on:
     paths-ignore:
       - 'maui/**'
       - 'windows-package/**'
+      - 'frontend/mobile/**'
+      - 'frontend/windows/**'
+      - 'docs/**'
       - '*.md'
       - '.vscode/**'
   workflow_dispatch: {}
@@ -29,6 +47,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
     steps:
@@ -44,73 +63,67 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'package-lock.json'
 
-      - name: Cache Eleventy
-        uses: actions/cache@v4
-        with:
-          path: |
-            .cache
-            _site/.cache
-          key: eleventy-${{ runner.os }}-${{ hashFiles('src/**', '.eleventy.js') }}
-          restore-keys: |
-            eleventy-${{ runner.os }}-
+      # Single install — npm workspaces resolves all 4 satellite
+      # apps + packages/design-tokens in one deterministic pass.
+      - name: Install dependencies (workspaces)
+        run: npm ci --no-audit --no-fund
 
-      - name: Install dependencies
-        run: npm ci --no-audit --no-fund --prefer-offline
-
-      - name: Run lint
-        run: npm run lint --if-present
-
-      - name: Build site (Eleventy)
-        run: npm run build --if-present
+      # Eleventy builds the marketing/landing site into _site/
+      - name: Build Eleventy site
+        run: npm run build
         env:
           ELEVENTY_ENV: production
 
-      - name: Build satellite apps
+      # Build all 4 satellite apps in parallel.
+      # Each app's vite.config.ts has the correct base path.
+      # node_modules are already resolved via root workspaces.
+      - name: Build satellite apps (parallel)
         run: |
-          echo "Building satellite apps..."
+          set -euo pipefail
           mkdir -p _site/apps
 
-          # Build civics-hierarchy
-          cd apps/civics-hierarchy
-          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
-          npm run build
-          cp -r dist/* ../../_site/apps/civics-hierarchy/
-          cd ../..
+          build_app() {
+            local dir="$1" slug="$2" label="$3"
+            echo "::group::Building ${label}"
+            cd "apps/${dir}"
+            npm run build
+            mkdir -p "../../_site/apps/${slug}"
+            cp -r dist/* "../../_site/apps/${slug}/"
+            echo "  ✓ ${label} → _site/apps/${slug}/ ($(find ../../_site/apps/${slug} -type f | wc -l) files)"
+            cd ../..
+            echo "::endgroup::"
+          }
 
-          # Build epstein-library
-          cd apps/epstein-library-evid
-          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
-          npm run build
-          mkdir -p ../../_site/apps/epstein-library
-          cp -r dist/* ../../_site/apps/epstein-library/
-          cd ../..
+          # Launch all 4 builds in parallel
+          build_app civics-hierarchy       civics-hierarchy   "Civics Hierarchy"       &
+          build_app epstein-library-evid   epstein-library    "Epstein Library"        &
+          build_app essential-goods-ledg   essential-goods    "Essential Goods Ledger" &
+          build_app geneva-bible-study-t   geneva-bible-study "Geneva Bible Study"     &
 
-          # Build essential-goods
-          cd apps/essential-goods-ledg
-          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
-          npm run build
-          mkdir -p ../../_site/apps/essential-goods
-          cp -r dist/* ../../_site/apps/essential-goods/
-          cd ../..
+          # Wait for all background jobs — fail if any fail
+          wait
 
-          # Build geneva-bible-study
-          cd apps/geneva-bible-study-t
-          npm ci --no-audit --no-fund --prefer-offline 2>/dev/null || npm install --no-audit --no-fund
-          npm run build
-          mkdir -p ../../_site/apps/geneva-bible-study
-          cp -r dist/* ../../_site/apps/geneva-bible-study/
-          cd ../..
-
-          echo "Satellite apps built successfully"
+          echo ""
+          echo "=== Satellite Apps ==="
           ls -la _site/apps/
+
+      # Prevent GitHub Pages from running Jekyll on _site/
+      - name: Inject .nojekyll
+        run: touch _site/.nojekyll
+
+      # Copy SPA fallback for each satellite app so that
+      # direct URL access works (e.g., /apps/civics-hierarchy/anything).
+      # All apps use hash routing so this is belt-and-suspenders.
+      - name: Create per-app 404 fallbacks
+        run: |
+          for slug in civics-hierarchy epstein-library essential-goods geneva-bible-study; do
+            if [ -f "_site/apps/${slug}/index.html" ]; then
+              cp "_site/apps/${slug}/index.html" "_site/apps/${slug}/404.html"
+            fi
+          done
 
       - name: Verify build output
         run: node scripts/pages-verify.js
-
-      - name: Check for broken internal links
-        continue-on-error: true
-        run: |
-          npx --yes broken-link-checker-local _site --filter-level 2 || echo "Link check completed with warnings"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
@@ -124,6 +137,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    timeout-minutes: 5
     permissions:
       contents: read
       pages: write

@@ -6,13 +6,13 @@
 
 title: Evident Technologies
 description: Legal-grade evidence processing and verification platform for video, documents, and records
-url: "https://www.evident.info"
+url: "https://evident.icu"
 baseurl: ""
 
 # Contact Information
-email: contact@evident.info
+email: contact@evident.icu
 support_email: dTb33@pm.me
-sales_email: sales@evident.info
+sales_email: sales@evident.icu
 
 # Build settings
 markdown: kramdown

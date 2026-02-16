@@ -1,8 +1,9 @@
 const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
-  // GitHub Pages custom domain
+  // GitHub Pages custom domain + disable Jekyll processing
   eleventyConfig.addPassthroughCopy('CNAME');
+  eleventyConfig.addPassthroughCopy('.nojekyll');
 
   // Assets passthrough with key static files
   // 1. Specific root assets needed by templates but not in src/assets/

@@ -4,19 +4,22 @@
 {%- set seo_image = page.image or site.image -%}
 {%- set seo_type = page.og_type or 'website' -%}
 
+{%- set seo_url = (site.url or 'https://evident.icu') + (page.url or '/') -%}
+{%- set seo_image_abs = seo_image if seo_image and seo_image.startsWith('http') else (site.url or 'https://evident.icu') + seo_image -%}
+
 <title>{{ seo_title }}</title>
 <meta name="description" content="{{ seo_desc | escape }}" />
 <meta name="robots" content="index, follow" />
-<link rel="canonical" href="{{ page.url or '/' }}" />
+<link rel="canonical" href="{{ seo_url }}" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="{{ seo_type }}" />
 <meta property="og:site_name" content="{{ site.title or 'EVIDENT' }}" />
 <meta property="og:title" content="{{ seo_title | escape }}" />
 <meta property="og:description" content="{{ seo_desc | escape }}" />
-<meta property="og:url" content="{{ page.url or '/' }}" />
+<meta property="og:url" content="{{ seo_url }}" />
 {% if seo_image %}
-<meta property="og:image" content="{{ seo_image }}" />
+<meta property="og:image" content="{{ seo_image_abs }}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 {% endif %}
@@ -26,5 +29,5 @@
 <meta name="twitter:title" content="{{ seo_title | escape }}" />
 <meta name="twitter:description" content="{{ seo_desc | escape }}" />
 {% if seo_image %}
-<meta name="twitter:image" content="{{ seo_image }}" />
+<meta name="twitter:image" content="{{ seo_image_abs }}" />
 {% endif %}
