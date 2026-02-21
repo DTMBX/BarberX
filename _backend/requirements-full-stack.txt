@@ -355,7 +355,7 @@ ultralytics==8.4.7
 ultralytics-thop==2.0.18
 urllib3==2.6.3
 user-agents==2.2.0
-uuid_utils==0.14.0
+uuid_utils==0.14.1
 uvicorn==0.40.0
 validators==0.35.0
 vine==5.1.0
