@@ -1,8 +1,0 @@
-#!/bin/sh
-# placeholder pre-push hook required by CI check
-exit 0
-#!/usr/bin/env bash
-set -e
-
-PYTHON_BIN=${Evident_PYTHON:-python}
-$PYTHON_BIN scripts/security/encrypt_files.py --stage
