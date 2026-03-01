@@ -1,37 +1,31 @@
 source "https://rubygems.org"
 
-# Ruby version specification
-ruby ">= 3.3.0"
+# Ruby version - updated to allow 3.4.x for better compatibility
+ruby ">= 3.2", "< 3.5"
 
-# Jekyll for static site generation
-gem "jekyll", "~> 4.4.1"
+# Core Jekyll via GitHub Pages (includes all necessary plugins)
+gem "github-pages", "~> 232", group: :jekyll_plugins
 
-# Required for Ruby 3.0+
-gem "csv"
-gem "base64"
-gem "bigdecimal"
+# Jekyll plugins (included in github-pages, but explicit for clarity)
+group :jekyll_plugins do
+  gem "jekyll-remote-theme"
+  gem "jekyll-sitemap"
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-paginate"
+end
 
-# Core Jekyll plugins for SEO and feeds
-gem "jekyll-feed", "~> 0.17"
-gem "jekyll-sitemap", "~> 1.4"
-gem "jekyll-seo-tag", "~> 2.8"
-
-# Web server for local development (Ruby 3.0+)
+# Required dependencies
+gem "activesupport", "~> 7.0"
 gem "webrick", "~> 1.8"
+gem "bigdecimal", "~> 3.1"
+gem "faraday-retry", "~> 2.4"
+gem "tzinfo-data", "~> 1.2024", platforms: %i[windows jruby]
 
-# HTTP parser (performance)
-gem "http_parser.rb", "~> 0.8.1"
-
+# Development dependencies
 group :development do
-  gem "bundler", ">= 2.4.0"
+  gem "jekyll-watch", "~> 2.2"
 end
 
-# Platform-specific dependencies
-platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", ">= 1", "< 3"
-  gem "tzinfo-data"
-end
-
-# Windows performance optimization
-gem "wdm", "~> 0.1", platforms: [:mingw, :x64_mingw, :mswin]
-
+# Performance (versions compatible with github-pages)
+gem "sassc", "~> 2.4"  # Faster SASS compilation
