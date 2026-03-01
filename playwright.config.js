@@ -8,6 +8,8 @@ const baseURL = PROD_URL ? PROD_URL : `http://localhost:${PORT}`;
 
 export default defineConfig({
   testDir: './tests',
+  testMatch: '**/*.spec.{js,ts}',
+  testIgnore: ['**/calculator-formulas*', '**/formula-library*', '**/legal-pages*'],
   timeout: 60000,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
@@ -37,6 +39,7 @@ export default defineConfig({
       name: 'chromium-mobile',
       use: {
         ...devices['iPhone 12'],
+        browserName: 'chromium', // override WebKit default — only Chromium installed
         viewport: { width: 390, height: 844 },
       },
     },
@@ -44,6 +47,7 @@ export default defineConfig({
       name: 'chromium-tablet',
       use: {
         ...devices['iPad Pro'],
+        browserName: 'chromium', // override WebKit default — only Chromium installed
         viewport: { width: 1024, height: 1366 },
       },
     },

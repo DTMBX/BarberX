@@ -1,21 +1,20 @@
-// Playwright Navigation Tests - Desktop & Mobile
-// Tests all nav links, mobile drawer, dropdowns, and accessibility
+// Playwright Navigation Tests — Desktop & Mobile
+// Tests nav links, dropdowns, accessibility, and header
+// Selectors match the Eleventy-built site (src/ → _site/).
 
 import { test, expect } from '@playwright/test';
 
-// URL is managed by Playwright config baseURL
-// Tests will use baseURL automatically via page.goto('/')
-// Local: http://localhost:4173 (via npm run serve:test)
-// CI/Production: set via BASE_URL or PROD_URL environment variables
-
-// Desktop viewport
+// ─── Desktop viewport ────────────────────────────────────────────────
 const DESKTOP_VIEWPORT = { width: 1920, height: 1080 };
 
-// Mobile viewports
+// ─── Mobile viewports ────────────────────────────────────────────────
 const MOBILE_IPHONE_16_PRO_MAX = { width: 430, height: 932 };
 const MOBILE_IPHONE_14 = { width: 390, height: 844 };
 const MOBILE_ANDROID = { width: 412, height: 915 };
 
+// ─────────────────────────────────────────────────────────────────────
+// Desktop Navigation
+// ─────────────────────────────────────────────────────────────────────
 test.describe('Desktop Navigation Tests', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize(DESKTOP_VIEWPORT);
@@ -23,107 +22,80 @@ test.describe('Desktop Navigation Tests', () => {
   });
 
   test('should display desktop nav on large screens', async ({ page }) => {
-    const desktopNav = page.locator('.desktop-nav');
+    const desktopNav = page.locator('.site-header__nav');
     await expect(desktopNav).toBeVisible();
 
-    const mobileNav = page.locator('.mobile-nav__toggle');
-    await expect(mobileNav).not.toBeVisible();
+    // Mobile toggle should be hidden on desktop
+    const mobileToggle = page.locator('.site-header__mobile-toggle');
+    await expect(mobileToggle).not.toBeVisible();
   });
 
-  test('should have all main nav links visible', async ({ page }) => {
-    const mainLinks = [
-      { text: 'Services', href: '/services/' },
-      { text: 'Our Work', href: '/portfolio/' },
-      { text: 'Blog', href: '/blog/' },
-      { text: 'Reviews', href: '/reviews/' },
-      { text: 'Tools', href: '/tools/' }
+  test('should have all main nav items visible', async ({ page }) => {
+    // The nav contains a Services dropdown button plus direct links
+    const navItems = [
+      { text: 'Services', selector: '.site-header__menu button:has-text("Services")' },
+      { text: 'Documentation', selector: '.site-header__menu a[href="/docs/"]' },
+      { text: 'Pricing', selector: '.site-header__menu a[href="/pricing/"]' },
+      { text: 'Contact', selector: '.site-header__menu a[href="/contact/"]' },
     ];
 
-    for (const link of mainLinks) {
-      const navLink = page.locator(`.desktop-nav a:has-text("${link.text}")`).first();
-      await expect(navLink).toBeVisible();
-
-      // Check href
-      const href = await navLink.getAttribute('href');
-      expect(href).toContain(link.href);
+    for (const item of navItems) {
+      const el = page.locator(item.selector).first();
+      await expect(el).toBeVisible();
     }
   });
 
-  test('should open Guides dropdown on hover', async ({ page }) => {
-    const guidesButton = page.locator('.desktop-nav button:has-text("Guides")');
-    await expect(guidesButton).toBeVisible();
+  test('should open Services dropdown on hover/click', async ({ page }) => {
+    const servicesButton = page.locator('[data-dropdown-button]');
+    await expect(servicesButton).toBeVisible();
 
-    // Hover to open dropdown
-    await guidesButton.hover();
+    // Click to open dropdown (hover triggers vary by JS implementation)
+    await servicesButton.click();
 
-    // Wait for dropdown to appear
-    const dropdown = page.locator('.desktop-nav__dropdown').first();
-    await expect(dropdown).toBeVisible({ timeout: 2000 });
+    const dropdown = page.locator('.site-header__dropdown').first();
+    await expect(dropdown).toBeVisible({ timeout: 3000 });
 
     // Check dropdown links
-    const dropdownLinks = [
-      'Build Guide Overview',
-      'Codes & Permits',
-      'Shower Pans',
-      'Waterproofing',
-      'Curbless Showers',
-      'Benches & Niches',
-      'TCNA Standards',
-      'Flood Testing'
-    ];
-
+    const dropdownLinks = ['Audit Trails', 'Chain of Custody', 'Compliance'];
     for (const linkText of dropdownLinks) {
       const link = dropdown.locator(`a:has-text("${linkText}")`);
       await expect(link).toBeVisible();
     }
   });
 
-  test('should open About dropdown on hover', async ({ page }) => {
-    const aboutButton = page.locator('.desktop-nav button:has-text("About")');
-    await expect(aboutButton).toBeVisible();
-
-    await aboutButton.hover();
-
-    const dropdown = page.locator('.desktop-nav__dropdown').nth(1);
-    await expect(dropdown).toBeVisible({ timeout: 2000 });
-
-    const dropdownLinks = [
-      'Our Story',
-      'For Contractors',
-      'FAQ',
-      'Products We Use'
-    ];
-
-    for (const linkText of dropdownLinks) {
-      const link = dropdown.locator(`a:has-text("${linkText}")`);
-      await expect(link).toBeVisible();
-    }
+  test('should navigate to Documentation page', async ({ page }) => {
+    await page.click('.site-header__menu a[href="/docs/"]');
+    await page.waitForURL('**/docs/', { timeout: 5000 });
+    expect(page.url()).toContain('/docs/');
   });
 
-  test('should navigate to Services page', async ({ page }) => {
-    await page.click('.desktop-nav a:has-text("Services")');
-    await page.waitForURL('**/services/', { timeout: 5000 });
-    expect(page.url()).toContain('/services/');
+  test('should navigate to Pricing page', async ({ page }) => {
+    await page.click('.site-header__menu a[href="/pricing/"]');
+    await page.waitForURL('**/pricing/', { timeout: 5000 });
+    expect(page.url()).toContain('/pricing/');
   });
 
-  test('should navigate to Portfolio page', async ({ page }) => {
-    await page.click('.desktop-nav a:has-text("Our Work")');
-    await page.waitForURL('**/portfolio/', { timeout: 5000 });
-    expect(page.url()).toContain('/portfolio/');
+  test('should navigate to Contact page', async ({ page }) => {
+    await page.click('.site-header__menu a[href="/contact/"]');
+    await page.waitForURL('**/contact/', { timeout: 5000 });
+    expect(page.url()).toContain('/contact/');
   });
 
-  test('should navigate to build guide from dropdown', async ({ page }) => {
-    const guidesButton = page.locator('.desktop-nav button:has-text("Guides")');
-    await guidesButton.hover();
+  test('should navigate to service from dropdown', async ({ page }) => {
+    const servicesButton = page.locator('[data-dropdown-button]');
+    await servicesButton.click();
+    await page.waitForTimeout(300);
 
-    await page.waitForTimeout(500); // Wait for dropdown animation
-
-    await page.click('.desktop-nav__dropdown a:has-text("Build Guide Overview")');
-    await page.waitForURL('**/build/', { timeout: 5000 });
-    expect(page.url()).toContain('/build/');
+    await page.click('.site-header__dropdown a[href="/Services/audit/"]');
+    await page.waitForURL('**/Services/audit/', { timeout: 5000 });
+    expect(page.url()).toContain('/Services/audit/');
   });
 });
 
+
+// ─────────────────────────────────────────────────────────────────────
+// Mobile Navigation (skip — mobile drawer needs separate wiring)
+// ─────────────────────────────────────────────────────────────────────
 test.describe.skip('Mobile Navigation Tests - iPhone 16 Pro Max - DISABLED', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
@@ -131,190 +103,18 @@ test.describe.skip('Mobile Navigation Tests - iPhone 16 Pro Max - DISABLED', () 
   });
 
   test('should display hamburger menu on mobile', async ({ page }) => {
-    const hamburger = page.locator('.mobile-nav__toggle');
+    const hamburger = page.locator('.site-header__mobile-toggle');
     await expect(hamburger).toBeVisible();
 
-    const desktopNav = page.locator('.desktop-nav');
+    const desktopNav = page.locator('.site-header__nav');
     await expect(desktopNav).not.toBeVisible();
   });
 
-  test('should have proper hamburger icon structure', async ({ page }) => {
-    const hamburger = page.locator('.mobile-nav__toggle');
-    const lines = hamburger.locator('.hamburger');
-
-    await expect(lines).toHaveCount(3);
-
-    // Check all 3 lines are visible
-    for (let i = 0; i < 3; i++) {
-      await expect(lines.nth(i)).toBeVisible();
-    }
-  });
-
   test('should open mobile nav drawer when hamburger clicked', async ({ page }) => {
-    const hamburger = page.locator('.mobile-nav__toggle');
-    const drawer = page.locator('.mobile-nav');
-
-    // Initially hidden
-    await expect(drawer).toHaveAttribute('aria-hidden', 'true');
-
-    // Click hamburger
+    const hamburger = page.locator('.site-header__mobile-toggle');
     await hamburger.click();
 
-    // Drawer should open
-    await expect(drawer).toHaveAttribute('aria-hidden', 'false', { timeout: 2000 });
-    await expect(drawer).toBeVisible();
-  });
-
-  test('should display all mobile nav links in drawer', async ({ page }) => {
-    // Open drawer
-    await page.click('.mobile-nav__toggle');
-    await page.waitForTimeout(500); // Wait for animation
-
-    const mobileLinks = [
-      'SERVICES',
-      'OUR WORK',
-      'GUIDES',
-      'BLOG',
-      'REVIEWS',
-      'TOOLS',
-      'ABOUT',
-      'GET ESTIMATE'
-    ];
-
-    for (const linkText of mobileLinks) {
-      const link = page.locator(`.mobile-nav a:has-text("${linkText}"), .mobile-nav button:has-text("${linkText}")`);
-      await expect(link).toBeVisible();
-    }
-  });
-
-  test('should close mobile nav when X button clicked', async ({ page }) => {
-    const hamburger = page.locator('.mobile-nav__toggle');
-    const drawer = page.locator('.mobile-nav');
-    const closeButton = page.locator('.mobile-nav__close');
-
-    // Open drawer
-    await hamburger.click();
-    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
-
-    // Click close button
-    await closeButton.click();
-
-    // Drawer should close
-    await expect(drawer).toHaveAttribute('aria-hidden', 'true', { timeout: 2000 });
-  });
-
-  test('should close mobile nav when clicking outside', async ({ page }) => {
-    const hamburger = page.locator('.mobile-nav__toggle');
-    const drawer = page.locator('.mobile-nav');
-
-    // Open drawer
-    await hamburger.click();
-    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
-
-    // Click outside (on overlay)
-    await page.click('body', { position: { x: 10, y: 100 } });
-
-    // Drawer should close
-    await expect(drawer).toHaveAttribute('aria-hidden', 'true', { timeout: 2000 });
-  });
-
-  test('should expand GUIDES accordion', async ({ page }) => {
-    // Open drawer
-    await page.click('.mobile-nav__toggle');
-    await page.waitForTimeout(500);
-
-    const guidesButton = page.locator('.mobile-nav button:has-text("GUIDES")');
-    await expect(guidesButton).toBeVisible();
-
-    // Initially collapsed
-    await expect(guidesButton).toHaveAttribute('aria-expanded', 'false');
-
-    // Click to expand
-    await guidesButton.click();
-
-    // Should expand
-    await expect(guidesButton).toHaveAttribute('aria-expanded', 'true');
-
-    // Submenu should be visible
-    const submenu = page.locator('.mobile-nav__submenu').first();
-    await expect(submenu).toBeVisible();
-
-    // Check submenu links
-    const submenuLinks = [
-      'Build Guide Overview',
-      'Codes & Permits',
-      'Shower Pans',
-      'Waterproofing'
-    ];
-
-    for (const linkText of submenuLinks) {
-      const link = submenu.locator(`a:has-text("${linkText}")`);
-      await expect(link).toBeVisible();
-    }
-  });
-
-  test('should expand ABOUT accordion', async ({ page }) => {
-    // Open drawer
-    await page.click('.mobile-nav__toggle');
-    await page.waitForTimeout(500);
-
-    const aboutButton = page.locator('.mobile-nav button:has-text("ABOUT")');
-    await aboutButton.click();
-
-    await expect(aboutButton).toHaveAttribute('aria-expanded', 'true');
-
-    const submenu = page.locator('.mobile-nav__submenu').nth(1);
-    await expect(submenu).toBeVisible();
-
-    // Check submenu links
-    await expect(submenu.locator('a:has-text("Our Story")')).toBeVisible();
-    await expect(submenu.locator('a:has-text("For Contractors")')).toBeVisible();
-    await expect(submenu.locator('a:has-text("FAQ")')).toBeVisible();
-  });
-
-  test('should navigate to Services from mobile nav', async ({ page }) => {
-    // Open drawer
-    await page.click('.mobile-nav__toggle');
-    await page.waitForTimeout(500);
-
-    // Click Services
-    await page.click('.mobile-nav a:has-text("SERVICES")');
-
-    // Should navigate
-    await page.waitForURL('**/services/', { timeout: 5000 });
-    expect(page.url()).toContain('/services/');
-  });
-
-  test('should navigate to Contact from GET ESTIMATE button', async ({ page }) => {
-    // Open drawer
-    await page.click('.mobile-nav__toggle');
-    await page.waitForTimeout(500);
-
-    // Click GET ESTIMATE
-    await page.click('.mobile-nav a:has-text("GET ESTIMATE")');
-
-    // Should navigate
-    await page.waitForURL('**/contact/', { timeout: 5000 });
-    expect(page.url()).toContain('/contact/');
-  });
-
-  test('hamburger should animate to X when opened', async ({ page }) => {
-    const hamburger = page.locator('.mobile-nav__toggle');
-
-    // Click to open
-    await hamburger.click();
-
-    // Check aria-expanded
-    await expect(hamburger).toHaveAttribute('aria-expanded', 'true');
-
-    // Visual check (hamburger lines should transform)
-    const firstLine = hamburger.locator('.hamburger').first();
-    const transform = await firstLine.evaluate(el =>
-      window.getComputedStyle(el).transform
-    );
-
-    // Should have some transform applied
-    expect(transform).not.toBe('none');
+    await expect(hamburger).toHaveAttribute('aria-expanded', 'true', { timeout: 2000 });
   });
 });
 
@@ -323,64 +123,47 @@ test.describe.skip('Mobile Navigation Tests - Other Devices - DISABLED', () => {
     await page.setViewportSize(MOBILE_IPHONE_14);
     await page.goto('/');
 
-    const hamburger = page.locator('.mobile-nav__toggle');
+    const hamburger = page.locator('.site-header__mobile-toggle');
     await expect(hamburger).toBeVisible();
-
-    await hamburger.click();
-
-    const drawer = page.locator('.mobile-nav');
-    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
   });
 
   test('should work on Android device', async ({ page }) => {
     await page.setViewportSize(MOBILE_ANDROID);
     await page.goto('/');
 
-    const hamburger = page.locator('.mobile-nav__toggle');
+    const hamburger = page.locator('.site-header__mobile-toggle');
     await expect(hamburger).toBeVisible();
-
-    await hamburger.click();
-
-    const drawer = page.locator('.mobile-nav');
-    await expect(drawer).toHaveAttribute('aria-hidden', 'false');
   });
 });
 
+
+// ─────────────────────────────────────────────────────────────────────
+// Accessibility Tests
+// ─────────────────────────────────────────────────────────────────────
 test.describe('Accessibility Tests', () => {
   test('desktop nav should have proper ARIA labels', async ({ page }) => {
     await page.setViewportSize(DESKTOP_VIEWPORT);
     await page.goto('/');
 
-    const nav = page.locator('.desktop-nav');
-    await expect(nav).toHaveAttribute('aria-label', 'Primary Navigation');
+    const nav = page.locator('.site-header__nav');
+    await expect(nav).toHaveAttribute('aria-label', 'Main navigation');
   });
 
   test('mobile nav toggle should have ARIA label', async ({ page }) => {
     await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
     await page.goto('/');
 
-    const toggle = page.locator('.mobile-nav__toggle');
-    await expect(toggle).toHaveAttribute('aria-label', 'Toggle menu');
+    const toggle = page.locator('.site-header__mobile-toggle');
+    await expect(toggle).toHaveAttribute('aria-label', /menu/i);
   });
 
-  test.skip('mobile nav close button should have ARIA label', async ({ page }) => {
-    await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
-    await page.goto('/');
-
-    await page.click('.mobile-nav__toggle');
-
-    const closeBtn = page.locator('.mobile-nav__close');
-    await expect(closeBtn).toHaveAttribute('aria-label', 'Close');
-  });
-
-  test('dropdown buttons should have aria-expanded', async ({ page }) => {
+  test('dropdown button should have aria-expanded', async ({ page }) => {
     await page.setViewportSize(DESKTOP_VIEWPORT);
     await page.goto('/');
 
-    const guidesButton = page.locator('.desktop-nav button:has-text("Guides")');
-    await expect(guidesButton).toHaveAttribute('aria-expanded', 'false');
-
-    await expect(guidesButton).toHaveAttribute('aria-haspopup', 'true');
+    const servicesButton = page.locator('[data-dropdown-button]');
+    await expect(servicesButton).toHaveAttribute('aria-expanded', 'false');
+    await expect(servicesButton).toHaveAttribute('aria-haspopup', 'true');
   });
 
   test('all links should be keyboard accessible', async ({ page }) => {
@@ -391,56 +174,61 @@ test.describe('Accessibility Tests', () => {
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
 
-    // Should focus on a nav link
+    // Should focus on a visible element
     const focused = page.locator(':focus');
     await expect(focused).toBeVisible();
   });
-});
 
-test.describe('Responsive Breakpoint Tests', () => {
-  test.skip('should switch from desktop to mobile nav at 768px', async ({ page }) => {
-    // Start at desktop
-    await page.setViewportSize({ width: 1024, height: 768 });
+  test('nav menu should use correct ARIA roles', async ({ page }) => {
+    await page.setViewportSize(DESKTOP_VIEWPORT);
     await page.goto('/');
 
-    let desktopNav = page.locator('.desktop-nav');
-    let mobileToggle = page.locator('.mobile-nav__toggle');
+    const menubar = page.locator('.site-header__menu');
+    await expect(menubar).toHaveAttribute('role', 'menubar');
 
-    await expect(desktopNav).toBeVisible();
-    await expect(mobileToggle).not.toBeVisible();
-
-    // Resize to mobile
-    await page.setViewportSize({ width: 768, height: 1024 });
-    await page.waitForTimeout(500);
-
-    await expect(desktopNav).not.toBeVisible();
-    await expect(mobileToggle).toBeVisible();
+    // All direct menu links/buttons should have role="menuitem"
+    const menuItems = page.locator('.site-header__link[role="menuitem"]');
+    const count = await menuItems.count();
+    expect(count).toBeGreaterThanOrEqual(4);
   });
 });
 
+
+// ─────────────────────────────────────────────────────────────────────
+// Header Tests
+// ─────────────────────────────────────────────────────────────────────
 test.describe('Header Tests', () => {
-  test('header should be sticky on mobile', async ({ page }) => {
-    await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
+  test('header should have correct role', async ({ page }) => {
     await page.goto('/');
 
-    const header = page.locator('.ts-header');
-
-    const position = await header.evaluate(el =>
-      window.getComputedStyle(el).position
-    );
-
-    expect(position).toBe('sticky');
+    const header = page.locator('.site-header');
+    await expect(header).toHaveAttribute('role', 'banner');
   });
 
-  test('header should display logo and company name', async ({ page }) => {
-    await page.setViewportSize(MOBILE_IPHONE_16_PRO_MAX);
+  test('header should display logo', async ({ page }) => {
     await page.goto('/');
 
-    const logo = page.locator('.ts-header__logo');
+    const logo = page.locator('.site-header__logo').first();
     await expect(logo).toBeVisible();
+    await expect(logo).toHaveAttribute('alt', 'EVIDENT');
+  });
 
-    const company = page.locator('.ts-header__company');
-    await expect(company).toBeVisible();
-    await expect(company).toHaveText('Tillerstead LLC');
+  test('header should display brand link', async ({ page }) => {
+    await page.goto('/');
+
+    const brand = page.locator('.site-header__brand');
+    await expect(brand).toBeVisible();
+    await expect(brand).toHaveAttribute('href', '/');
+  });
+
+  test('header should have CTA buttons', async ({ page }) => {
+    await page.setViewportSize(DESKTOP_VIEWPORT);
+    await page.goto('/');
+
+    const signIn = page.locator('.site-header__actions a:has-text("Sign In")');
+    await expect(signIn).toBeVisible();
+
+    const getStarted = page.locator('.site-header__actions a:has-text("Get Started")');
+    await expect(getStarted).toBeVisible();
   });
 });

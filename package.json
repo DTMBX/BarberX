@@ -30,11 +30,15 @@
     "dev": "npm run build:css && eleventy --serve",
     "start": "eleventy --serve",
     "preview": "npm run build && npx http-server _site -p 8080 -c-1",
+    "serve:test": "npx http-server _site -p 4173 -c-1 --silent",
+    "test:e2e": "npx playwright test",
+    "test:formulas": "node tests/tools/formula-library.test.mjs",
     "scan:site": "node ./scripts/site-agent.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@lhci/cli": "^0.15.1",
+    "@playwright/test": "1.58.2",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.9",
