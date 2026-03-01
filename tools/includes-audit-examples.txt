@@ -1,0 +1,54 @@
+# ============================================================================
+# Example Commands for includes-audit.ps1
+# ============================================================================
+
+# 1. Basic audit (report only - SAFE)
+.\tools\includes-audit.ps1
+
+# 2. Preview cleanup actions (dry run - SAFE)
+.\tools\includes-audit.ps1 -ArchiveRedundant -FixReferences -WhatIf
+
+# 3. Archive redundant files only (no reference fixing)
+.\tools\includes-audit.ps1 -ArchiveRedundant
+
+# 4. Full cleanup: Archive + fix all references
+.\tools\includes-audit.ps1 -ArchiveRedundant -FixReferences
+
+# 5. After testing, delete archived files (DESTRUCTIVE)
+.\tools\includes-audit.ps1 -ArchiveRedundant -DeleteAfterArchive
+
+# ============================================================================
+# Complete Workflow Example
+# ============================================================================
+
+# Step 1: Initial audit
+.\tools\includes-audit.ps1
+
+# Step 2: Review the plan
+notepad _reports\includes-cleanup-plan.md
+
+# Step 3: Preview (check what will happen)
+.\tools\includes-audit.ps1 -ArchiveRedundant -FixReferences -WhatIf
+
+# Step 4: Execute cleanup
+.\tools\includes-audit.ps1 -ArchiveRedundant -FixReferences
+
+# Step 5: Test the site
+bundle exec jekyll build
+bundle exec jekyll serve
+# Open http://localhost:4000 and test all pages
+
+# Step 6: Run automated tests (if available)
+npm test
+
+# Step 7: Check git diff
+git status
+git diff
+
+# Step 8: Commit if everything works
+git add .
+git commit -m "chore: cleanup redundant includes via audit tool"
+
+# Step 9: (Optional) Delete archived files
+.\tools\includes-audit.ps1 -ArchiveRedundant -DeleteAfterArchive
+

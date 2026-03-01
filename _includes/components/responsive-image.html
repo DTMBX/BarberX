@@ -1,0 +1,77 @@
+/**
+ * Accessible Responsive Image Component
+ * Creates responsive image markup with WebP support and full accessibility
+ * 
+ * Usage in templates:
+ * {% include components/responsive-image.html 
+ *   src="portfolio/bathroom.jpg" 
+ *   alt="Modern bathroom with marble tile shower and heated floors" 
+ *   sizes="(max-width: 768px) 100vw, 50vw"
+ *   decorative=false
+ * %}
+ * 
+ * WCAG 1.1.1 - Non-text Content:
+ * - Always provide meaningful alt text for informative images
+ * - Set decorative=true and alt="" for decorative images
+ */
+
+<!-- Responsive Picture Element with WebP Support and Accessibility -->
+{% assign img_base = include.src | remove: '.jpg' | remove: '.jpeg' | remove: '.png' %}
+{% assign img_sizes = include.sizes | default: "100vw" %}
+{% assign img_class = include.class | default: "" %}
+{% assign img_loading = include.loading | default: "lazy" %}
+{% assign img_decorative = include.decorative | default: false %}
+
+{% comment %}
+  Alt text handling:
+  - If decorative=true: alt="" and role="presentation"
+  - If alt provided: use it
+  - Otherwise: generate from filename (fallback, not recommended)
+{% endcomment %}
+{% if img_decorative %}
+  {% assign img_alt = "" %}
+  {% assign img_role = 'role="presentation"' %}
+  {% assign img_aria = 'aria-hidden="true"' %}
+{% elsif include.alt and include.alt != "" %}
+  {% assign img_alt = include.alt %}
+  {% assign img_role = "" %}
+  {% assign img_aria = "" %}
+{% else %}
+  {% comment %}Fallback: Generate alt from filename - NOT RECOMMENDED{% endcomment %}
+  {% assign img_alt = img_base | split: "/" | last | replace: "-", " " | replace: "_", " " | capitalize %}
+  {% assign img_role = "" %}
+  {% assign img_aria = "" %}
+{% endif %}
+
+<picture class="responsive-image {{ img_class }}">
+  <!-- WebP sources for modern browsers -->
+  <source
+    type="image/webp"
+    srcset="
+      /assets/img/optimized/{{ img_base }}-small.webp 400w,
+      /assets/img/optimized/{{ img_base }}-medium.webp 800w,
+      /assets/img/optimized/{{ img_base }}-large.webp 1200w,
+      /assets/img/optimized/{{ img_base }}-xlarge.webp 1920w
+    "
+    sizes="{{ img_sizes }}"
+  />
+
+  <!-- Fallback for browsers without WebP support -->
+  <img
+    src="/assets/img/{{ include.src }}"
+    srcset="
+      /assets/img/optimized/{{ img_base }}-small.webp 400w,
+      /assets/img/optimized/{{ img_base }}-medium.webp 800w,
+      /assets/img/optimized/{{ img_base }}-large.webp 1200w
+    "
+    sizes="{{ img_sizes }}"
+    alt="{{ img_alt }}"
+    loading="{{ img_loading }}"
+    decoding="async"
+    class="responsive-img"
+    {% if img_decorative %}role="presentation" aria-hidden="true"{% endif %}
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+    {% if include.height %}height="{{ include.height }}"{% endif %}
+  />
+</picture>
+

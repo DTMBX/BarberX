@@ -1,0 +1,38 @@
+# CODEOWNERS for Tillerstead.com
+# This file defines who owns and approves changes to different parts of the codebase
+
+# Default owner for everything
+* @DTMBX
+
+# Proprietary TillerPro Suite
+/tillerpro.html @DTMBX
+/assets/js/tillerpro-config.js @DTMBX
+/assets/css/pages/tillerpro.css @DTMBX
+/_includes/sections/tillerpro-banner.html @DTMBX
+
+# Calculator System
+/tillerstead-toolkit/backend/app/calculators/ @DTMBX
+/assets/js/build-calculators.js @DTMBX
+/assets/js/financing-calculator.js @DTMBX
+/assets/js/adapters/*-calculator-adapter.js @DTMBX
+/_includes/tools/*-calculator.html @DTMBX
+/tools/pricing-calculator.html @DTMBX
+
+# Documentation with proprietary information
+/tillerstead-toolkit/CALCULATOR_SYSTEM.md @DTMBX
+/tillerstead-toolkit/CALCULATOR_ROADMAP.md @DTMBX
+
+# Admin and security systems
+/admin/ @DTMBX
+/.git-encrypt/ @DTMBX
+
+# CI/CD and deployment
+/.github/ @DTMBX
+/netlify.toml @DTMBX
+/_redirects @DTMBX
+/_headers @DTMBX
+
+# Configuration files
+/package.json @DTMBX
+/_config.yml @DTMBX
+/.gitattributes @DTMBX

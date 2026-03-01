@@ -1,0 +1,237 @@
+/**
+ * ====================================
+ * SECTION CARD STYLING - TILLERSTEAD
+ * ====================================
+ * Softened edges and card effects for white/light sections
+ */
+
+/* ====================================
+   BASE SECTION CARD STYLES
+   ==================================== */
+
+/* Standard white section card */
+section.card-white,
+.section-card-white {
+  background-color: #ffffff;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+              0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
+  margin: clamp(1.5rem, 3vw, 3rem) 0;
+  overflow: hidden;
+}
+
+/* Light gray section card */
+section.card-light,
+.section-card-light {
+  background-color: #f8f9fa;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04),
+              0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
+  margin: clamp(1.5rem, 3vw, 3rem) 0;
+  overflow: hidden;
+}
+
+/* Soft white section card */
+section.card-soft,
+.section-card-soft {
+  background-color: #fafbfc;
+  border-radius: clamp(0.75rem, 1.5vw, 1.25rem);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03),
+              0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
+  margin: clamp(1.5rem, 3vw, 3rem) 0;
+  overflow: hidden;
+}
+
+/* ====================================
+   ELEVATED CARD VARIANTS
+   ==================================== */
+
+/* Elevated white card */
+section.card-elevated,
+.section-card-elevated {
+  background-color: #ffffff;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
+              0 12px 32px rgba(0, 0, 0, 0.12);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
+  margin: clamp(1.5rem, 3vw, 3rem) 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section.card-elevated:hover,
+.section-card-elevated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1),
+              0 16px 40px rgba(0, 0, 0, 0.14);
+}
+
+/* ====================================
+   COMPACT CARD VARIANTS
+   ==================================== */
+
+.card-compact {
+  background-color: #ffffff;
+  border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05),
+              0 6px 18px rgba(0, 0, 0, 0.07);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  overflow: hidden;
+}
+
+.card-compact-light {
+  background-color: #f8f9fa;
+  border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  overflow: hidden;
+}
+
+/* ====================================
+   CONTENT CARDS (for smaller elements)
+   ==================================== */
+
+.content-card {
+  background-color: #ffffff;
+  border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05),
+              0 6px 18px rgba(0, 0, 0, 0.07);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08),
+              0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.content-card-light {
+  background-color: #f8f9fa;
+  border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-card-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+              0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ====================================
+   BORDERED CARD VARIANT
+   ==================================== */
+
+.card-bordered {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: clamp(0.75rem, 1.5vw, 1rem);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-bordered:hover {
+  border-color: rgba(0, 225, 132, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 225, 132, 0.08),
+              0 8px 20px rgba(0, 225, 132, 0.1);
+}
+
+/* ====================================
+   GLASS CARD VARIANT (semi-transparent)
+   ==================================== */
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
+              0 12px 32px rgba(0, 0, 0, 0.12);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden;
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+/* Remove top margin */
+.card-no-top-margin {
+  margin-top: 0;
+}
+
+/* Remove bottom margin */
+.card-no-bottom-margin {
+  margin-bottom: 0;
+}
+
+/* Full width (no side margins on mobile) */
+.card-full-width-mobile {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .card-full-width-mobile {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Increase padding on larger screens */
+.card-extra-padding {
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem);
+}
+
+/* Reduce padding on smaller screens */
+.card-tight-padding {
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* ====================================
+   RESPONSIVE ADJUSTMENTS
+   ==================================== */
+
+@media (max-width: 768px) {
+  section.card-white,
+  section.card-light,
+  section.card-soft,
+  section.card-elevated,
+  .section-card-white,
+  .section-card-light,
+  .section-card-soft,
+  .section-card-elevated {
+    border-radius: clamp(0.75rem, 2vw, 1rem);
+    margin: clamp(1rem, 2vw, 1.5rem) 0;
+  }
+}
+
+/* ====================================
+   NESTED CARD SUPPORT
+   ==================================== */
+
+/* Slightly reduce shadow for nested cards */
+.card-white .content-card,
+.card-light .content-card,
+.section-card-white .content-card,
+.section-card-light .content-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+              0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Ensure proper contrast for nested light cards in white sections */
+.card-white .content-card-light,
+.section-card-white .content-card-light {
+  background-color: #fafbfc;
+}

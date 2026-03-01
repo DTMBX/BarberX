@@ -1,0 +1,317 @@
+---
+layout: default
+title: Modern Design Showcase
+permalink: /modern-design/
+---
+
+<style>
+  /* Page-specific styles */
+  .hero-modern {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-hero);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: var(--space-8);
+  }
+  
+  .hero-title {
+    font-size: var(--text-6xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-6);
+    color: white;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-8);
+  }
+  
+  .demo-section {
+    padding: var(--space-20) 0;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+  
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-modern">
+  <div class="hero-content animate-fade-in-up">
+    <h1 class="hero-title">Modern Tech-Forward Design</h1>
+    <p class="hero-subtitle">
+      Glassmorphism • Gradient Accents • Smooth Animations
+    </p>
+    <div class="flex gap-4 justify-center">
+      <button class="btn-modern btn-primary btn-lg hover-lift">
+        Get Started
+      </button>
+      <button class="btn-modern btn-ghost btn-lg hover-scale">
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Glass Cards Demo -->
+<section class="demo-section">
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-gradient">Glassmorphic Cards</h2>
+      <p class="text-lg">Modern frosted glass effects with smooth interactions</p>
+    </div>
+    
+    <div class="showcase-grid">
+      <div class="glass-card animate-fade-in-up animate-delay-1">
+        <div class="card-header">
+          <h3 class="card-title">Licensed & Insured</h3>
+          <p class="card-subtitle">NJ HIC #13VH12345600</p>
+        </div>
+        <div class="card-body">
+          <p>Fully licensed home improvement contractor serving Ocean, Atlantic, and Cape May counties.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge-modern badge-success">
+            ✓ Verified
+          </span>
+        </div>
+      </div>
+      
+      <div class="glass-card animate-fade-in-up animate-delay-2">
+        <div class="card-header">
+          <h3 class="card-title">Premium Tile Work</h3>
+          <p class="card-subtitle">Expert Installation</p>
+        </div>
+        <div class="card-body">
+          <p>Specialized in custom tile patterns, waterproofing, and luxury bathroom renovations.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge-modern badge-primary">
+            ⭐ Featured
+          </span>
+        </div>
+      </div>
+      
+      <div class="glass-card animate-fade-in-up animate-delay-3">
+        <div class="card-header">
+          <h3 class="card-title">Warranty Protection</h3>
+          <p class="card-subtitle">Peace of Mind</p>
+        </div>
+        <div class="card-body">
+          <p>All projects include comprehensive warranty coverage and lifetime craftsmanship guarantee.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge-modern badge-accent">
+            🛡️ Protected
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Buttons Showcase -->
+<section class="demo-section" style="background: var(--glass-bg-dark);">
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-gradient-accent">Button Styles</h2>
+      <p class="text-lg">Modern interactive buttons with gradients and effects</p>
+    </div>
+    
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button class="btn-modern btn-primary btn-xl">Primary XL</button>
+      <button class="btn-modern btn-accent btn-lg">Accent Large</button>
+      <button class="btn-modern btn-success">Success</button>
+      <button class="btn-modern btn-ghost btn-sm">Ghost Small</button>
+    </div>
+    
+    <div class="flex flex-wrap gap-4 justify-center mt-8">
+      <button class="btn-gradient hover-lift">Gradient Button</button>
+      <button class="btn-gradient-accent hover-glow">Glow Effect</button>
+      <button class="glass-btn hover-scale">Glass Button</button>
+    </div>
+  </div>
+</section>
+
+<!-- Form Demo -->
+<section class="demo-section">
+  <div class="container-sm">
+    <div class="section-title">
+      <h2 class="text-gradient">Modern Form Design</h2>
+      <p class="text-lg">Glassmorphic inputs with floating labels</p>
+    </div>
+    
+    <form class="form-modern glass-card" style="max-width: 600px; margin: 0 auto;">
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-input" placeholder="John Doe" />
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="john@example.com" />
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-input" rows="4" placeholder="Tell us about your project..."></textarea>
+      </div>
+      
+      <button type="submit" class="btn-modern btn-primary" style="width: 100%;">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Gradient Backgrounds Demo -->
+<section class="demo-section bg-gradient-animated">
+  <div class="container">
+    <div class="section-title">
+      <h2 style="color: white;">Animated Gradients</h2>
+      <p style="color: rgba(255, 255, 255, 0.9);">Smooth color transitions for engaging backgrounds</p>
+    </div>
+    
+    <div class="grid grid-cols-3 gap-6 mt-8">
+      <div class="glass-card text-center">
+        <h3 class="text-gradient-success">1,200+</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div class="glass-card text-center">
+        <h3 class="text-gradient-accent">15+</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="glass-card text-center">
+        <h3 class="text-gradient">100%</h3>
+        <p>Satisfaction Rate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Animation Demo -->
+<section class="demo-section">
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-gradient">Micro-Interactions</h2>
+      <p class="text-lg">Smooth animations and hover effects</p>
+    </div>
+    
+    <div class="grid grid-cols-4 gap-6">
+      <div class="glass-card text-center hover-lift">
+        <div class="text-4xl mb-4">🎯</div>
+        <h4>Hover Lift</h4>
+      </div>
+      <div class="glass-card text-center hover-scale">
+        <div class="text-4xl mb-4">📏</div>
+        <h4>Hover Scale</h4>
+      </div>
+      <div class="glass-card text-center hover-glow">
+        <div class="text-4xl mb-4">✨</div>
+        <h4>Hover Glow</h4>
+      </div>
+      <div class="glass-card text-center animate-pulse">
+        <div class="text-4xl mb-4">💫</div>
+        <h4>Pulse</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Loading States -->
+<section class="demo-section" style="background: var(--glass-bg-dark);">
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-gradient-accent">Loading States</h2>
+      <p class="text-lg">Professional loading indicators</p>
+    </div>
+    
+    <div class="flex gap-8 justify-center items-center">
+      <div class="spinner"></div>
+      <div class="dots-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="skeleton" style="width: 200px; height: 40px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Badges & Tags -->
+<section class="demo-section">
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-gradient">Status Badges</h2>
+      <p class="text-lg">Modern indicators and tags</p>
+    </div>
+    
+    <div class="flex flex-wrap gap-4 justify-center">
+      <span class="badge-modern badge-success">✓ Licensed HIC</span>
+      <span class="badge-modern badge-primary">⭐ Top Rated</span>
+      <span class="badge-modern badge-accent">🔥 Trending</span>
+      <span class="glass-badge">💎 Premium</span>
+      <span class="glass-badge">🛡️ Insured</span>
+      <span class="glass-badge">⚡ Fast Response</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="demo-section bg-gradient-ocean">
+  <div class="container text-center">
+    <h2 class="text-5xl font-bold mb-6" style="color: white;">Ready to Transform Your Space?</h2>
+    <p class="text-xl mb-8" style="color: rgba(255, 255, 255, 0.9);">
+      Let's bring your vision to life with professional tile work and waterproofing.
+    </p>
+    <button class="btn-modern btn-accent btn-xl hover-lift">
+      Get Free Estimate
+    </button>
+  </div>
+</section>
+
+<script>
+// Scroll reveal animation
+const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Add scroll class to nav
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav-modern');
+  if (nav) {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+});
+</script>

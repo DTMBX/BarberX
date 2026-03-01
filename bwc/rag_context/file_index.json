@@ -1,0 +1,387 @@
+{
+  "schemaVersion": "2",
+  "generatedUtc": "2026-02-28T06:22:48Z",
+  "scriptVersion": "2.0.0",
+  "suiteRoot": "bwc",
+  "fileCount": 63,
+  "files": [
+    {
+      "path": "/.dockerignore",
+      "bytes": 135,
+      "sha256": "9f0d6b1842303e7d47cfc260bc8f67a5c916e77c2871be4bc959a22902fa7129",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/.env",
+      "bytes": 1791,
+      "sha256": "d6d514f107068112e167922430d7ea7f837348252d7be5e100e8b27d7b2e860e",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/.env.example",
+      "bytes": 1515,
+      "sha256": "df5b4805186c1a619b0b745ecdffa33582717e692db23a89a3804b81ff7a3ee6",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/.gitignore",
+      "bytes": 223,
+      "sha256": "6cc979695f528aa1d40c0115434616477e599d36fbb1ed51841ab0ee17a2f889",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/backend/alembic.ini",
+      "bytes": 647,
+      "sha256": "a5925ee5ef005c16af33a9f16151f23415f48ec5dd826637022d0daa0dbd2348",
+      "lastWriteUtc": "2026-02-28T06:17:02Z"
+    },
+    {
+      "path": "/backend/alembic/env.py",
+      "bytes": 1403,
+      "sha256": "4447539239411e2bbf22d2952bb98f9d2423ba0b0d1eac7b3d6a75eedfb63917",
+      "lastWriteUtc": "2026-02-28T06:17:05Z"
+    },
+    {
+      "path": "/backend/alembic/script.py.mako",
+      "bytes": 634,
+      "sha256": "0dd9fc884e17a48a2c3422b197f733c174858ea53cfcb8a667bba0f1d755bc7d",
+      "lastWriteUtc": "2026-02-28T06:17:06Z"
+    },
+    {
+      "path": "/backend/alembic/versions/0001_initial.py",
+      "bytes": 3415,
+      "sha256": "bc90575ad11e94949c1565a586f2d254a568ecd12d6d9640d7d32b1cd5f295d4",
+      "lastWriteUtc": "2026-02-28T06:17:09Z"
+    },
+    {
+      "path": "/backend/app/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lastWriteUtc": "2026-02-28T05:03:29Z"
+    },
+    {
+      "path": "/backend/app/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 117,
+      "sha256": "aac63bf46e0b4767e0c8f02b6a4046b171c78993dba5bb16dc154c20a4066f91",
+      "lastWriteUtc": "2026-02-28T05:07:19Z"
+    },
+    {
+      "path": "/backend/app/__pycache__/main.cpython-312.pyc",
+      "bytes": 448,
+      "sha256": "1651615ca6ee32fae9f9769e39ae2208e1dec82e776641507f59e98b16f7bbb4",
+      "lastWriteUtc": "2026-02-28T05:07:19Z"
+    },
+    {
+      "path": "/backend/app/api/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lastWriteUtc": "2026-02-28T05:03:30Z"
+    },
+    {
+      "path": "/backend/app/api/routes/__init__.py",
+      "bytes": 302,
+      "sha256": "49d0b70f1f550612241734a2396e616aa8a0abe1860c9e764e05934c426cf20d",
+      "lastWriteUtc": "2026-02-28T06:18:29Z"
+    },
+    {
+      "path": "/backend/app/api/routes/cases.py",
+      "bytes": 835,
+      "sha256": "aba5f044203e33e494fc828004b635943790f0a8b829e4d125d01619d1ecc9c8",
+      "lastWriteUtc": "2026-02-28T06:18:32Z"
+    },
+    {
+      "path": "/backend/app/api/routes/evidence.py",
+      "bytes": 3370,
+      "sha256": "2ecaa08517058bdca24b2cd1a4b35804e8969e49cde756f33cba39aad1fc28db",
+      "lastWriteUtc": "2026-02-28T06:18:34Z"
+    },
+    {
+      "path": "/backend/app/api/routes/manifest.py",
+      "bytes": 1899,
+      "sha256": "538eec5d2ab5edfb7515847e316590ce6280e00c86eb9452bdf2502e9517fa4e",
+      "lastWriteUtc": "2026-02-28T06:18:37Z"
+    },
+    {
+      "path": "/backend/app/api/schemas.py",
+      "bytes": 2276,
+      "sha256": "e8612ceb4801a21e7bdfb03dae458292ea1149564ee18353f53176a70169ffeb",
+      "lastWriteUtc": "2026-02-28T06:18:02Z"
+    },
+    {
+      "path": "/backend/app/core/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lastWriteUtc": "2026-02-28T05:03:32Z"
+    },
+    {
+      "path": "/backend/app/core/config.py",
+      "bytes": 1440,
+      "sha256": "c50ac8638df0b22b32f68b957cef737359ac80237c782f5d68a59f98496a7224",
+      "lastWriteUtc": "2026-02-28T06:16:03Z"
+    },
+    {
+      "path": "/backend/app/core/database.py",
+      "bytes": 753,
+      "sha256": "b2ce1adb74119199d978e924146d989cc3666bac617e66c6ec786b101f8226eb",
+      "lastWriteUtc": "2026-02-28T06:16:05Z"
+    },
+    {
+      "path": "/backend/app/main.py",
+      "bytes": 1607,
+      "sha256": "5f8f645504c8da1905b8011923c031a62d49971b4a1ed418cbf58fe6c6f7efdb",
+      "lastWriteUtc": "2026-02-28T06:18:48Z"
+    },
+    {
+      "path": "/backend/app/models/__init__.py",
+      "bytes": 296,
+      "sha256": "9877b1c74d6f7f506e3049993c0bee328a60180fcd29ed0e23c12548c3f0fa20",
+      "lastWriteUtc": "2026-02-28T06:16:28Z"
+    },
+    {
+      "path": "/backend/app/models/audit_event.py",
+      "bytes": 1166,
+      "sha256": "c2e204f6fac24a64d256b3825a6041c14de3b138ba786c153009aa8b0e07e9d9",
+      "lastWriteUtc": "2026-02-28T06:16:36Z"
+    },
+    {
+      "path": "/backend/app/models/case.py",
+      "bytes": 1443,
+      "sha256": "199196ac21a05a0fa4fc602ba32798ab7868d107fcc44733d34a2aa1f812997a",
+      "lastWriteUtc": "2026-02-28T06:16:31Z"
+    },
+    {
+      "path": "/backend/app/models/evidence_file.py",
+      "bytes": 1478,
+      "sha256": "8366a2a2cffa8db92e9b7b206d279fa5bfd4794a74249c059285f18d1c4e0e8f",
+      "lastWriteUtc": "2026-02-28T06:16:33Z"
+    },
+    {
+      "path": "/backend/app/models/job.py",
+      "bytes": 1719,
+      "sha256": "9e968ea8d166fa7904badc390c5388859edc0bcc357fa5fe2c6178af5b53fa20",
+      "lastWriteUtc": "2026-02-28T06:16:38Z"
+    },
+    {
+      "path": "/backend/app/services/__init__.py",
+      "bytes": 24,
+      "sha256": "feb005d1bfc448e9ca3523514c3801b6fe43ea4f2559fc0a9ce7c7d3fdda388c",
+      "lastWriteUtc": "2026-02-28T06:17:46Z"
+    },
+    {
+      "path": "/backend/app/services/audit.py",
+      "bytes": 2045,
+      "sha256": "53ac761a30d54032106033221ffb524a6dfeda26efcb9b1e022277d6ba1198f7",
+      "lastWriteUtc": "2026-02-28T06:17:49Z"
+    },
+    {
+      "path": "/backend/app/services/hashing.py",
+      "bytes": 414,
+      "sha256": "52230148095e8afeeba87ca21cecc09b37eb0130bdca4f4ca6eb19a1383f7025",
+      "lastWriteUtc": "2026-02-28T06:17:50Z"
+    },
+    {
+      "path": "/backend/app/services/s3.py",
+      "bytes": 1814,
+      "sha256": "dbcffb1e0660b056dd8fd8bacd60b5e301ad1c4517671a68433f2353f243a5c4",
+      "lastWriteUtc": "2026-02-28T06:17:44Z"
+    },
+    {
+      "path": "/backend/app/workers/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lastWriteUtc": "2026-02-28T05:03:34Z"
+    },
+    {
+      "path": "/backend/app/workers/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 125,
+      "sha256": "6b1779bddef4c92e17c923ead287e44917f8ca7e99ae38eff10c7836ae565a80",
+      "lastWriteUtc": "2026-02-28T06:00:55Z"
+    },
+    {
+      "path": "/backend/app/workers/__pycache__/celery_app.cpython-312.pyc",
+      "bytes": 793,
+      "sha256": "14b0e5a4a7061d75d9391ae56b38436e4cad85de38f4d78f71e2c63dd51bbffd",
+      "lastWriteUtc": "2026-02-28T06:00:55Z"
+    },
+    {
+      "path": "/backend/app/workers/celery_app.py",
+      "bytes": 4063,
+      "sha256": "c18b204998f788e7e10e3c3314dedf5fa9eb95cbd72ee0befd36b62b988f2274",
+      "lastWriteUtc": "2026-02-28T06:19:14Z"
+    },
+    {
+      "path": "/backend/evident_bwc_backend.egg-info/dependency_links.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "lastWriteUtc": "2026-02-28T06:00:30Z"
+    },
+    {
+      "path": "/backend/evident_bwc_backend.egg-info/PKG-INFO",
+      "bytes": 626,
+      "sha256": "35bf196e154fd8cdb6f362a3abc7eae5e388ef8a8d0ac2e62dcfa2f28a0eba59",
+      "lastWriteUtc": "2026-02-28T06:00:30Z"
+    },
+    {
+      "path": "/backend/evident_bwc_backend.egg-info/requires.txt",
+      "bytes": 223,
+      "sha256": "8abcd09f20180a4130cba55d2abfe9b932302f444816fc26743f6a5770b54204",
+      "lastWriteUtc": "2026-02-28T06:00:30Z"
+    },
+    {
+      "path": "/backend/evident_bwc_backend.egg-info/SOURCES.txt",
+      "bytes": 347,
+      "sha256": "c0c32e2a0818818232757bac93a2b34b73b2ca308a1c1e3edd3d20967455eeab",
+      "lastWriteUtc": "2026-02-28T06:00:30Z"
+    },
+    {
+      "path": "/backend/evident_bwc_backend.egg-info/top_level.txt",
+      "bytes": 4,
+      "sha256": "8a8f60ecb09b7e64c6d5214a8043865e608507db8c3f61f995eae6d078875901",
+      "lastWriteUtc": "2026-02-28T06:00:30Z"
+    },
+    {
+      "path": "/backend/pyproject.toml",
+      "bytes": 741,
+      "sha256": "1aead6a3264905609b393a363f04f904846b7dab8383ad669951be494aeb290c",
+      "lastWriteUtc": "2026-02-28T06:20:23Z"
+    },
+    {
+      "path": "/docs/LOCAL_DEV.md",
+      "bytes": 1539,
+      "sha256": "e4a2cd1a967a0e86de3b371b3446104196e77e984ad178bf294be1828d6aaa25",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/ops/docker/docker-compose.yml",
+      "bytes": 3423,
+      "sha256": "ea76dd9286cf99f40f3a6df4ae07e2c86d7ed5f9a8a0f47f32a2f949392a45e6",
+      "lastWriteUtc": "2026-02-28T06:20:37Z"
+    },
+    {
+      "path": "/rag_context/audit_log.jsonl",
+      "bytes": 4586,
+      "sha256": "4fa52b3309c1b2d207bc6f9e5d181155bbb5e8c69303b021af896ada37ae0119",
+      "lastWriteUtc": "2026-02-28T06:22:53Z"
+    },
+    {
+      "path": "/rag_context/excerpts/.dockerignore",
+      "bytes": 135,
+      "sha256": "9f0d6b1842303e7d47cfc260bc8f67a5c916e77c2871be4bc959a22902fa7129",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/rag_context/excerpts/.env.example",
+      "bytes": 1515,
+      "sha256": "df5b4805186c1a619b0b745ecdffa33582717e692db23a89a3804b81ff7a3ee6",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/rag_context/excerpts/.gitignore",
+      "bytes": 223,
+      "sha256": "6cc979695f528aa1d40c0115434616477e599d36fbb1ed51841ab0ee17a2f889",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/rag_context/excerpts/backend/alembic.ini",
+      "bytes": 647,
+      "sha256": "a5925ee5ef005c16af33a9f16151f23415f48ec5dd826637022d0daa0dbd2348",
+      "lastWriteUtc": "2026-02-28T06:17:02Z"
+    },
+    {
+      "path": "/rag_context/excerpts/backend/app/main.py",
+      "bytes": 1607,
+      "sha256": "5f8f645504c8da1905b8011923c031a62d49971b4a1ed418cbf58fe6c6f7efdb",
+      "lastWriteUtc": "2026-02-28T06:18:48Z"
+    },
+    {
+      "path": "/rag_context/excerpts/backend/pyproject.toml",
+      "bytes": 741,
+      "sha256": "1aead6a3264905609b393a363f04f904846b7dab8383ad669951be494aeb290c",
+      "lastWriteUtc": "2026-02-28T06:20:23Z"
+    },
+    {
+      "path": "/rag_context/excerpts/docs/LOCAL_DEV.md",
+      "bytes": 1539,
+      "sha256": "e4a2cd1a967a0e86de3b371b3446104196e77e984ad178bf294be1828d6aaa25",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/rag_context/excerpts/ops/docker/docker-compose.yml",
+      "bytes": 3423,
+      "sha256": "ea76dd9286cf99f40f3a6df4ae07e2c86d7ed5f9a8a0f47f32a2f949392a45e6",
+      "lastWriteUtc": "2026-02-28T06:20:37Z"
+    },
+    {
+      "path": "/rag_context/excerpts/RAG_UPGRADE_PROMPT.md",
+      "bytes": 2930,
+      "sha256": "dc5033d7537a24fd1965506241bbe99c590cd038786a4099061f4d9cc1b8e79a",
+      "lastWriteUtc": "2026-02-28T03:04:51Z"
+    },
+    {
+      "path": "/rag_context/file_index.json",
+      "bytes": 12876,
+      "sha256": "f46b127d04a9e8b908e4d9a24545b4c85a4b29f4537de10d83e5f9fad8a28fd2",
+      "lastWriteUtc": "2026-02-28T06:22:20Z"
+    },
+    {
+      "path": "/rag_context/integrity_statement.json",
+      "bytes": 549,
+      "sha256": "67ccc2a0816c69146d35131759c98702e80c39b329ce64198af4ae14057b7d70",
+      "lastWriteUtc": "2026-02-28T04:34:25Z"
+    },
+    {
+      "path": "/rag_context/repo_tree.txt",
+      "bytes": 24744,
+      "sha256": "ca2c051a96600dd1e16261051edb20752e332af73b3dc1fb2def9c162a9f2a58",
+      "lastWriteUtc": "2026-02-28T06:22:53Z"
+    },
+    {
+      "path": "/rag_context/test_report.txt",
+      "bytes": 1524,
+      "sha256": "48d3de93dc59c512df50be3109ea17c88e54e83e43b0c1182335875fcc84bb87",
+      "lastWriteUtc": "2026-02-28T04:34:26Z"
+    },
+    {
+      "path": "/rag_context/verification_report.txt",
+      "bytes": 1997,
+      "sha256": "2e2f19c930d582e5cb08afb46bd72bd98c0b8c169cba2fa2496b44197b34ab5f",
+      "lastWriteUtc": "2026-02-28T04:34:25Z"
+    },
+    {
+      "path": "/RAG_UPGRADE_PROMPT.md",
+      "bytes": 2930,
+      "sha256": "dc5033d7537a24fd1965506241bbe99c590cd038786a4099061f4d9cc1b8e79a",
+      "lastWriteUtc": "2026-02-28T03:04:51Z"
+    },
+    {
+      "path": "/scripts/smoke.ps1",
+      "bytes": 5364,
+      "sha256": "9fe6c5688d9876556c90a14ef9cf7b4fcf9dfb6b29cea6b250a857ab0e76a27a",
+      "lastWriteUtc": "2026-02-28T06:20:10Z"
+    },
+    {
+      "path": "/scripts/smoke.sh",
+      "bytes": 4741,
+      "sha256": "eaf04d685ede7a453463a289f4394c770f0c10bd4121aa900ca2055d0e7a9511",
+      "lastWriteUtc": "2026-02-28T06:20:07Z"
+    },
+    {
+      "path": "/tests/Test-RagContext.ps1",
+      "bytes": 11130,
+      "sha256": "eaaab3a12ac88a2ad9fa48ffd6e4d0e9e7dd83dd2eb947ec1f87f9cc664664f3",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/Update-RagContext.ps1",
+      "bytes": 12124,
+      "sha256": "63eaaa4ebf0ad9062a628836e98214473193af23ff2a6693b4ade0e27c5ff6e2",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    },
+    {
+      "path": "/Verify-Integrity.ps1",
+      "bytes": 8085,
+      "sha256": "18869e1a186fbfcfd0920bfd16285866eed08d5a38922fbc383ac3b9e4bcff95",
+      "lastWriteUtc": "2026-02-28T04:41:06Z"
+    }
+  ]
+}

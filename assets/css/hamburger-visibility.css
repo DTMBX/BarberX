@@ -1,0 +1,40 @@
+/* ============================================
+   MOBILE HAMBURGER EMERGENCY VISIBILITY FIX
+   ============================================ */
+
+/* CRITICAL: Ensure hamburger is always visible */
+.ts-nav-toggle {
+  /* Visual prominence */
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.ts-nav-toggle:hover {
+  background: rgba(0, 163, 92, 0.3) !important;
+  border-color: #00e184 !important;
+}
+
+.ts-hamburger__line {
+  /* Maximum visibility */
+  background: #ffffff !important;
+  height: 3px !important;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.3) !important;
+  filter: brightness(1.2) !important;
+}
+
+/* Ensure it's always on top */
+.ts-nav-toggle {
+  position: relative !important;
+  z-index: 2001 !important;
+}
+
+/* Add glow effect on focus */
+.ts-nav-toggle:focus-visible {
+  box-shadow: 
+    0 0 0 3px rgba(0, 225, 132, 0.4),
+    0 0 16px rgba(0, 225, 132, 0.6) !important;
+}

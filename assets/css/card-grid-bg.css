@@ -1,0 +1,81 @@
+
+.has-grid-bg {
+  position: relative;
+}
+
+.has-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+  linear-gradient(to right, var(--grid-line-color, rgb(201 162 39 / 8%)) 1px, transparent 1px),
+  linear-gradient(to bottom, var(--grid-line-color, rgb(201 162 39 / 8%)) 1px, transparent 1px);
+  background-size: var(--grid-size, 32px) var(--grid-size, 32px);
+  border-radius: inherit;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+}
+
+.has-grid-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.has-grid-bg--dense {
+  --grid-size: 20px;
+}
+
+.has-grid-bg--large {
+  --grid-size: 48px;
+}
+
+.has-grid-bg--gold {
+  --grid-line-color: rgb(201 162 39 / 12%);
+}
+
+.has-grid-bg--subtle {
+  --grid-line-color: rgb(255 255 255 / 4%);
+}
+
+.has-grid-bg--emerald {
+  --grid-line-color: rgb(16 185 129 / 8%);
+}
+
+.cards--3col,
+.cards--4col,
+.ts-plans__grid {
+  position: relative;
+}
+
+.cards--3col::before,
+.cards--4col::before,
+.ts-plans__grid::before {
+  content: '';
+  position: absolute;
+  inset: -1rem;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+  linear-gradient(to right, rgb(201 162 39 / 6%) 1px, transparent 1px),
+  linear-gradient(to bottom, rgb(201 162 39 / 6%) 1px, transparent 1px);
+  background-size: 32px 32px;
+  border-radius: var(--tiller-border-radius-lg, 12px);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 100%);
+}
+
+.cards--3col > *,
+.cards--4col > *,
+.ts-plans__grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-grid-bg::before,
+  .cards--3col::before,
+  .cards--4col::before,
+  .ts-plans__grid::before {
+  animation: none;
+  }
+}

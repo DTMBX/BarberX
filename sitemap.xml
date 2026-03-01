@@ -1,0 +1,217 @@
+---
+layout: none
+permalink: /sitemap.xml
+noindex: true
+exclude_from_nav: true
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home: TCNA-compliant, NJ HIC-licensed contractor, transparent process -->
+  <url>
+    <loc>https://www.evident.icu/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Services: Tile, bath, and remodeling per TCNA standards -->
+  <url>
+    <loc>https://www.evident.icu/services/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Portfolio: Documented TCNA-compliant installations -->
+  <url>
+    <loc>https://www.evident.icu/portfolio/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- General Contractors: B2B partnerships, NJ HIC compliance -->
+  <url>
+    <loc>https://www.evident.icu/for-general-contractors/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Reviews: Verified client testimonials, NJ Consumer Fraud Act compliant -->
+  <url>
+    <loc>https://www.evident.icu/reviews/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About: Credentials, TCNA/NJ HIC license, technical expertise -->
+  <url>
+    <loc>https://www.evident.icu/about/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Financing: Transparent, NJ-compliant financing options -->
+  <url>
+    <loc>https://www.evident.icu/financing/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Plans: Pre-construction planning, TCNA detail drawings -->
+  <url>
+    <loc>https://www.evident.icu/plans/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Process: Step-by-step, code-compliant workflow -->
+  <url>
+    <loc>https://www.evident.icu/process/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Build Guides: TCNA-compliant construction methods -->
+  <url>
+    <loc>https://www.evident.icu/build/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/nj-codes-permits/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/shower-pans-slopes-drains/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/waterproofing-systems/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/curbs-curbless/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/framing-benches-niches/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/tile-installation-standards/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/flood-testing/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/build/common-build-failures/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Tools: Tile calculators and estimators -->
+  <url>
+    <loc>https://www.evident.icu/tools/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQ: Common tile and remodeling questions -->
+  <url>
+    <loc>https://www.evident.icu/faq/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Design Showcase: Accessible, standards-based design inspiration -->
+  <url>
+    <loc>https://www.evident.icu/design-showcase/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact: Direct, accessible, NJ HIC-licensed communication -->
+  <url>
+    <loc>https://www.evident.icu/contact/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog: Technical articles, TCNA/NJ code updates, consumer education -->
+  <url>
+    <loc>https://www.evident.icu/blog/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- County Service Pages: Local SEO -->
+  <url>
+    <loc>https://www.evident.icu/atlantic-county-nj/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/ocean-county-nj/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.evident.icu/cape-may-county-nj/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Terms: NJ Consumer Fraud Act, contract transparency -->
+  <url>
+    <loc>https://www.evident.icu/terms/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Privacy: Data protection, NJ legal compliance -->
+  <url>
+    <loc>https://www.evident.icu/privacy/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

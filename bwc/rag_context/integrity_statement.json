@@ -1,0 +1,12 @@
+{
+  "statement": "RAG Context Pack Integrity Statement",
+  "generatedUtc": "2026-02-28T04:34:24Z",
+  "scriptVersion": "2.0.0",
+  "reportSha256": "2e2f19c930d582e5cb08afb46bd72bd98c0b8c169cba2fa2496b44197b34ab5f",
+  "indexSha256": "39c0195efe778b7583447e3859c6b77c8cbc0f95dfcf48539e45485fb6ce7b5a",
+  "treeSha256": "e6b2f4f9f3a55f2fa252186ededb557eaf9a080de06e53f317ecb1f1b050d8be",
+  "auditLogSha256": "06d8838ac1862a0ad216d55e292d60a2a9356c47e8db7e0e19463ac6cf1532d5",
+  "allArtifactsPass": true,
+  "fileCount": 11,
+  "excerptCount": 6
+}

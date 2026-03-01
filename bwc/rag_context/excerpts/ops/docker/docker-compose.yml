@@ -1,0 +1,131 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-evident}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-evident}
+      POSTGRES_DB: ${POSTGRES_DB:-evident}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-evident}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    ports:
+      - "${MINIO_PORT:-9000}:9000"
+      - "${MINIO_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - miniodata:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  backend:
+    image: python:3.12-slim
+    working_dir: /app
+    volumes:
+      - ../../backend:/app
+      - ../../rag_context:/bwc/rag_context
+      - bwc-logs:/var/log/bwc
+    env_file:
+      - ../../.env
+    environment:
+      BWC_SUITE_ROOT: /bwc
+    command: >
+      bash -lc "python -m pip install --upgrade pip &&
+                pip install -e '.[dev]' &&
+                uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/health')\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s
+    restart: unless-stopped
+
+  worker:
+    image: python:3.12-slim
+    working_dir: /app
+    volumes:
+      - ../../backend:/app
+      - ../../rag_context:/bwc/rag_context
+      - bwc-logs:/var/log/bwc
+    env_file:
+      - ../../.env
+    environment:
+      BWC_SUITE_ROOT: /bwc
+    command: >
+      bash -lc "python -m pip install --upgrade pip &&
+                pip install -e '.[dev]' &&
+                celery -A app.workers.celery_app worker --loglevel=INFO"
+    depends_on:
+      backend:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ../../frontend:/app
+    env_file:
+      - ../../.env
+    command: >
+      bash -lc "corepack enable &&
+                pnpm install &&
+                pnpm dev --host 0.0.0.0 --port 3000"
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000',r=>{process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  miniodata:
+  bwc-logs:

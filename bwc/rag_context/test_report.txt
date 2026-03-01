@@ -1,0 +1,45 @@
+=== Evident RAG Context Test Report ===
+Generated: 2026-02-27 23:34:26 -05:00
+SuiteRoot: c:\web-dev\github-repos\Evident\bwc
+
+[PASS] EXISTS: rag_context\repo_tree.txt
+[PASS] EXISTS: rag_context\file_index.json
+[PASS] EXISTS: rag_context\integrity_statement.json
+[PASS] EXISTS: RAG_UPGRADE_PROMPT.md
+[PASS] EXISTS: .env.example
+[PASS] EXISTS: docs\LOCAL_DEV.md
+[PASS] EXISTS: ops\docker\docker-compose.yml
+[PASS] EXISTS: Update-RagContext.ps1
+[PASS] EXISTS: Verify-Integrity.ps1
+[PASS] Index schema version
+[PASS] Index has files
+[PASS] HASH: .dockerignore
+[PASS] HASH: .env
+[PASS] HASH: .env.example
+[PASS] HASH: .gitignore
+[PASS] HASH: docs\LOCAL_DEV.md
+[PASS] HASH: ops\docker\docker-compose.yml
+[PASS] HASH: rag_context\test_report.txt
+[PASS] HASH: RAG_UPGRADE_PROMPT.md
+[PASS] HASH: tests\Test-RagContext.ps1
+[PASS] HASH: Update-RagContext.ps1
+[PASS] HASH: Verify-Integrity.ps1
+[PASS] Statement has scriptVersion
+[PASS] Statement has generatedUtc
+[PASS] Statement allArtifactsPass
+[PASS] Integrity->Index hash
+[PASS] Integrity->Tree hash
+[PASS] Tampered index differs from original
+[PASS] Tampered hash detected (mismatch)
+[PASS] Rebuild produces integrity statement
+[PASS] Post-rebuild index is valid JSON
+[PASS] Post-rebuild Verify-Integrity exit code
+[PASS] Audit log is non-empty
+[PASS] All audit log entries are valid JSON
+[PASS] Has INDEX_REBUILD_START event
+[PASS] Has INDEX_REBUILD_COMPLETE event
+[PASS] Has TREE_REBUILT event
+[PASS] Has INDEX_REBUILT event
+
+Passed: 38  Failed: 0  Total: 38
+Result: ALL PASSED

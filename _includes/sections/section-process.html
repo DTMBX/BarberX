@@ -1,0 +1,32 @@
+{%- comment -%}
+  Homepage Process Section
+  
+  Parameters:
+    - data: The process data object from _data/home.yml
+{%- endcomment -%}
+
+{%- assign process = include.data -%}
+
+<section class="home-process bg-soft" aria-labelledby="process-title">
+  <div class="container container--wide">
+    <header class="section-header">
+      <p class="section-eyebrow">{{ process.eyebrow }}</p>
+      <h2 id="process-title" class="section-title">{{ process.title }}</h2>
+      <p class="section-summary">{{ process.summary }}</p>
+    </header>
+
+    <div class="process-steps">
+      {% for step in process.steps %}
+      <div class="process-step ts-tile-bordered">
+        <div class="step-number" aria-label="Step {{ forloop.index }}">{{ forloop.index }}</div>
+        <h3 class="step-title">{{ step.title }}</h3>
+        <p class="step-description">{{ step.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="process-fun-fact">
+      <strong>Why this matters:</strong> {{ process.fun_fact }}
+    </p>
+  </div>
+</section>

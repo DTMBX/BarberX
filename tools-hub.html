@@ -1,0 +1,295 @@
+---
+layout: null
+title: "TillerPro™ Suite - Professional Quote System & Project Tools | Tillerstead LLC"
+description: "Enterprise-grade quote generation, financing calculator, e-signature integration, and TCNA-compliant project calculators. Professional tools for contractors and tile installation businesses."
+permalink: /tools-hub/
+sitemap:
+  priority: 0.9
+  changefreq: weekly
+---
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, minimum-scale=1.0">
+  
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#10b981" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1110" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="dark light">
+  
+  <!-- SEO -->
+  <meta name="description" content="{{ page.description }}">
+  <title>{{ page.title }}</title>
+  <link rel="canonical" href="https://tillerstead.com/tools-hub/">
+  
+  <!-- JS Detection -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+  
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TillerPro">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="HandheldFriendly" content="true">
+  
+  <!-- Keywords -->
+  <meta name="keywords" content="tile quote generator, contractor quote software, tile calculator professional, financing calculator, e-signature integration, TCNA compliant tools, tile business software">
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/assets/js/project-state-manager.js" as="script">
+  <link rel="preload" href="/assets/js/tools-hub-router.js" as="script">
+  <link rel="preload" href="/assets/css/tools-hub.css" as="style">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  
+  <!-- Styles (in order of specificity) -->
+  <link rel="stylesheet" href="/assets/css/root-vars.css">
+  <link rel="stylesheet" href="/assets/css/accessibility.css">
+  <link rel="stylesheet" href="/assets/css/accessibility-enhanced.css">
+  <link rel="stylesheet" href="/assets/css/mobile-thumb-zones.css">
+  <link rel="stylesheet" href="/assets/css/modern-devices.css">
+  <link rel="stylesheet" href="/assets/css/tools-hub.css">
+  <link rel="stylesheet" href="/assets/css/quote-generator.css">
+  <link rel="stylesheet" href="/assets/css/financing-calculator.css">
+  <link rel="stylesheet" href="/assets/css/e-signature.css">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tillerstead.com/tools-hub/">
+  <meta property="og:image" content="https://tillerstead.com/assets/img/og-tools.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  
+  <!-- Critical CSS for first paint -->
+  <style>
+    /* Prevent FOUC */
+    html { opacity: 0; transition: opacity 0.15s; }
+    html.js { opacity: 1; }
+    
+    /* Loading state */
+    .loading-indicator {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 9999;
+    }
+    
+    .loading-spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(16, 185, 129, 0.2);
+      border-top-color: #10b981;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="tools-hub-page">
+
+  <!-- Loading Indicator (hidden after load) -->
+  <div id="loading-indicator" class="loading-indicator" aria-live="polite" aria-busy="true">
+    <div class="loading-spinner"></div>
+    <p>Loading Tools Hub...</p>
+  </div>
+
+  <!-- Main App Container -->
+  <div id="app-container" class="app-container" style="display: none;">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="app-header__content">
+        <div class="app-header__left">
+          <a href="/" class="app-logo">
+            <img src="/assets/img/logo/logo-compact.webp" alt="Tillerstead LLC" width="40" height="40">
+            <span class="app-logo__text">Tools Hub</span>
+          </a>
+        </div>
+        
+        <div class="app-header__center">
+          <h1 id="app-title" class="app-title">Project Overview</h1>
+        </div>
+        
+        <div class="app-header__right">
+          <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Open navigation" aria-expanded="false">
+            <span class="hamburger-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Layout (Desktop: Sidebar + Content, Mobile: Stack) -->
+    <div class="app-layout">
+      
+      <!-- Desktop: Left Rail Navigation -->
+      <aside id="nav-rail" class="nav-rail" aria-label="Main navigation">
+        {% include tools-hub/nav-rail.html %}
+      </aside>
+
+      <!-- Main Content Area -->
+      <main id="app-content" class="app-content" role="main" aria-live="polite" aria-busy="false">
+        <!-- Router will inject content here -->
+        <div class="empty-state">
+          <p>Loading...</p>
+        </div>
+      </main>
+
+      <!-- Desktop: Right Sidebar (Project Summary) -->
+      <aside id="project-summary" class="project-summary" aria-label="Project summary">
+        {% include tools-hub/project-summary.html %}
+      </aside>
+
+    </div>
+
+    <!-- Mobile: Bottom Sheet Navigation -->
+    <div id="nav-sheet" class="nav-sheet" aria-label="Mobile navigation" aria-hidden="true">
+      {% include tools-hub/nav-sheet.html %}
+    </div>
+
+    <!-- Mobile: Bottom Sheet Backdrop -->
+    <div id="nav-backdrop" class="nav-backdrop" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- Scripts (Load in Order) -->
+  
+  <!-- 1. Accessibility Init (must load first) -->
+  <script src="/assets/js/a11y-init.js"></script>
+  
+  <!-- 2. TillerPro Configuration (white-label settings) -->
+  <script src="/assets/js/tillerpro-config.js"></script>
+  
+  <!-- 3. Quote Validator (validation + legal compliance) -->
+  <script src="/assets/js/quote-validator.js"></script>
+  
+  <!-- 4. jsPDF Library for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- 5. State Manager (before router) -->
+  <script src="/assets/js/project-state-manager.js"></script>
+  
+  <!-- 6. Financing Calculator (for quote form) -->
+  <script src="/assets/js/financing-calculator.js"></script>
+  
+  <!-- 7. E-Signature Manager (for quote signing) -->
+  <script src="/assets/js/e-signature.js"></script>
+  
+  <!-- 8. Quote Generator (depends on state, config, validator, jsPDF) -->
+  <script src="/assets/js/quote-generator.js"></script>
+  
+  <!-- 9. Router (depends on state manager) -->
+  <script src="/assets/js/tools-hub-router.js"></script>
+  
+  <!-- 4. UI Initialization -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // Hide loading indicator, show app
+      function initApp() {
+        const loading = document.getElementById('loading-indicator');
+        const appContainer = document.getElementById('app-container');
+        
+        if (loading) loading.style.display = 'none';
+        if (appContainer) appContainer.style.display = 'block';
+        
+        console.log('[App] Initialized');
+      }
+      
+      // Mobile nav toggle
+      function initMobileNav() {
+        const toggle = document.getElementById('mobile-nav-toggle');
+        const sheet = document.getElementById('nav-sheet');
+        const backdrop = document.getElementById('nav-backdrop');
+        
+        if (!toggle || !sheet || !backdrop) return;
+        
+        function openNav() {
+          sheet.classList.add('active');
+          backdrop.classList.add('active');
+          sheet.setAttribute('aria-hidden', 'false');
+          toggle.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+        
+        function closeNav() {
+          sheet.classList.remove('active');
+          backdrop.classList.remove('active');
+          sheet.setAttribute('aria-hidden', 'true');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+        
+        toggle.addEventListener('click', () => {
+          if (sheet.classList.contains('active')) {
+            closeNav();
+          } else {
+            openNav();
+          }
+        });
+        
+        backdrop.addEventListener('click', closeNav);
+        
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && sheet.classList.contains('active')) {
+            closeNav();
+          }
+        });
+      }
+      
+      
+      // Update title based on route
+      window.addEventListener('toolshub:viewloaded', (e) => {
+        const title = document.getElementById('app-title');
+        const route = e.detail?.route;
+        if (title && route?.route?.meta?.title) {
+          title.textContent = route.route.meta.title;
+        }
+      });
+      
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          initApp();
+          initMobileNav();
+        });
+      } else {
+        initApp();
+        initMobileNav();
+      }
+    })();
+  </script>
+  
+  <!-- Analytics (if applicable) -->
+  <!-- Add Google Analytics or other tracking here -->
+  
+</body>
+</html>
