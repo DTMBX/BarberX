@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TillerPro™ Admin Settings</title>
+  
+  <style>
+    :root {
+      --color-primary: #8b5cf6;
+      --color-secondary: #6366f1;
+      --color-success: #10b981;
+      --color-warning: #f59e0b;
+      --color-danger: #ef4444;
+      --color-bg: #f8fafc;
+      --color-surface: #ffffff;
+      --color-text: #1e293b;
+      --color-text-secondary: #64748b;
+      --color-border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    .admin-header {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* Tabs */
+    .admin-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .admin-tab {
+      padding: 1rem 1.5rem;
+      border: none;
+      background: none;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .admin-tab:hover {
+      color: var(--color-primary);
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .admin-tab.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+
+    /* Tab Content */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Settings Section */
+    .settings-section {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .settings-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+
+    .settings-section p {
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    /* Form Elements */
+    .form-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-field label {
+      font-weight: 600;
+      color: var(--color-text);
+      font-size: 0.875rem;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-family: inherit;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+
+    .form-field textarea {
+      min-height: 100px;
+      resize: vertical;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.8125rem;
+    }
+
+    .form-field small {
+      color: var(--color-text-secondary);
+      font-size: 0.8125rem;
+    }
+
+    /* Switch Toggle */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--color-primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    .toggle-field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(139, 92, 246, 0.02);
+      border-radius: 6px;
+    }
+
+    .toggle-field-content {
+      flex: 1;
+    }
+
+    .toggle-field-title {
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.25rem;
+    }
+
+    .toggle-field-desc {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .btn-danger {
+      background: var(--color-danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+
+    .btn-success {
+      background: var(--color-success);
+      color: white;
+    }
+
+    /* Action Bar */
+    .action-bar {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Legal Text Editor */
+    .legal-editor {
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .legal-editor-header {
+      background: rgba(139, 92, 246, 0.05);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .legal-editor-title {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .legal-editor-body {
+      padding: 1rem;
+    }
+
+    .legal-editor textarea {
+      width: 100%;
+      min-height: 150px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 0.75rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.8125rem;
+    }
+
+    /* Color Picker Grid */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .color-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .color-field label {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .color-input-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .color-input-wrapper input[type="color"] {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--color-border);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .color-input-wrapper input[type="text"] {
+      flex: 1;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.875rem;
+    }
+
+    /* Success Message */
+    .success-message {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--color-success);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      color: #065f46;
+    }
+
+    .success-message.show {
+      display: flex;
+    }
+
+    /* Warning Box */
+    .warning-box {
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid var(--color-warning);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: #78350f;
+    }
+
+    /* Export/Import Section */
+    .transfer-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .transfer-box {
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .transfer-box h3 {
+      margin-bottom: 1rem;
+      color: var(--color-text);
+    }
+
+    .transfer-box p {
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .admin-container {
+        padding: 1rem;
+      }
+
+      .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .header-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .header-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .admin-tabs {
+        overflow-x: auto;
+      }
+
+      .transfer-section {
+        grid-template-columns: 1fr;
+      }
+
+      .color-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Header -->
+    <div class="admin-header">
+      <div>
+        <h1>⚙️ Admin Settings</h1>
+        <p style="color: var(--color-text-secondary); margin-top: 0.5rem;">
+          Configure TillerPro™ system settings, branding, and features
+        </p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="resetToDefaults()">
+          🔄 Reset to Defaults
+        </button>
+        <button class="btn btn-primary" onclick="saveAllSettings()">
+          💾 Save All Changes
+        </button>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="success-message">
+      <span style="font-size: 1.5rem;">✅</span>
+      <span>Settings saved successfully!</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('company')">
+        🏢 Company Info
+      </button>
+      <button class="admin-tab" onclick="switchTab('legal')">
+        ⚖️ Legal Text
+      </button>
+      <button class="admin-tab" onclick="switchTab('pricing')">
+        💰 Pricing
+      </button>
+      <button class="admin-tab" onclick="switchTab('branding')">
+        🎨 Branding
+      </button>
+      <button class="admin-tab" onclick="switchTab('features')">
+        🚀 Features
+      </button>
+      <button class="admin-tab" onclick="switchTab('import-export')">
+        📦 Import/Export
+      </button>
+    </div>
+
+    <!-- Tab: Company Info -->
+    <div class="tab-content active" id="tab-company">
+      <div class="settings-section">
+        <h2>Company Information</h2>
+        <p>Basic company details displayed in quotes and communications</p>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="company-name">Company Name *</label>
+            <input type="text" id="company-name" placeholder="e.g., Tillerstead LLC">
+          </div>
+
+          <div class="form-field">
+            <label for="company-license">License Number</label>
+            <input type="text" id="company-license" placeholder="e.g., NJ-13VH09876500">
+          </div>
+
+          <div class="form-field">
+            <label for="company-owner">Owner/Contact Name</label>
+            <input type="text" id="company-owner" placeholder="e.g., Devon Tyler">
+          </div>
+
+          <div class="form-field">
+            <label for="company-email">Email *</label>
+            <input type="email" id="company-email" placeholder="e.g., devon@tillerstead.com">
+          </div>
+
+          <div class="form-field">
+            <label for="company-phone">Phone *</label>
+            <input type="tel" id="company-phone" placeholder="e.g., (973) 555-0100">
+          </div>
+
+          <div class="form-field">
+            <label for="company-address">Street Address</label>
+            <input type="text" id="company-address" placeholder="e.g., 123 Main St">
+          </div>
+
+          <div class="form-field">
+            <label for="company-city">City</label>
+            <input type="text" id="company-city" placeholder="e.g., Newark">
+          </div>
+
+          <div class="form-field">
+            <label for="company-state">State</label>
+            <input type="text" id="company-state" placeholder="e.g., NJ" maxlength="2">
+          </div>
+
+          <div class="form-field">
+            <label for="company-zip">ZIP Code</label>
+            <input type="text" id="company-zip" placeholder="e.g., 07102">
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" onclick="saveCompanyInfo()">
+            💾 Save Company Info
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Legal Text -->
+    <div class="tab-content" id="tab-legal">
+      <div class="warning-box">
+        <strong>⚠️ Legal Notice:</strong> These disclaimers and terms protect your business. We recommend consulting with a lawyer before making changes. Default text is based on NJ contractor requirements.
+      </div>
+
+      <div class="settings-section">
+        <h2>Contract Disclaimers</h2>
+        <p>Edit disclaimer text that appears on Page 2 of quotes</p>
+
+        <div id="disclaimers-container">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-secondary" onclick="addDisclaimer()">
+            ➕ Add Disclaimer
+          </button>
+          <button class="btn btn-primary" onclick="saveDisclaimers()">
+            💾 Save Disclaimers
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section" style="margin-top: 2rem;">
+        <h2>Contract Terms</h2>
+        <p>Edit contract terms that appear on Page 3 of quotes</p>
+
+        <div id="terms-container">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-secondary" onclick="addTerm()">
+            ➕ Add Term
+          </button>
+          <button class="btn btn-primary" onclick="saveTerms()">
+            💾 Save Terms
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Pricing -->
+    <div class="tab-content" id="tab-pricing">
+      <div class="settings-section">
+        <h2>Default Pricing Configuration</h2>
+        <p>Set base pricing (can be overridden per location in Dashboard)</p>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="pricing-labor-rate">Labor Rate (per hour)</label>
+            <input type="number" id="pricing-labor-rate" step="5" min="0" placeholder="70">
+            <small>Default: $70/hour</small>
+          </div>
+
+          <div class="form-field">
+            <label for="pricing-tile-markup">Tile Markup (%)</label>
+            <input type="number" id="pricing-tile-markup" step="5" min="0" placeholder="35">
+            <small>Default: 35%</small>
+          </div>
+
+          <div class="form-field">
+            <label for="pricing-grout-markup">Grout Markup (%)</label>
+            <input type="number" id="pricing-grout-markup" step="5" min="0" placeholder="40">
+            <small>Default: 40%</small>
+          </div>
+
+          <div class="form-field">
+            <label for="pricing-mortar-markup">Mortar/Thinset Markup (%)</label>
+            <input type="number" id="pricing-mortar-markup" step="5" min="0" placeholder="45">
+            <small>Default: 45%</small>
+          </div>
+
+          <div class="form-field">
+            <label for="pricing-tax-rate">Sales Tax Rate (%)</label>
+            <input type="number" id="pricing-tax-rate" step="0.1" min="0" placeholder="6.625">
+            <small>NJ Default: 6.625%</small>
+          </div>
+
+          <div class="form-field">
+            <label for="pricing-deposit">Deposit Required (%)</label>
+            <input type="number" id="pricing-deposit" step="5" min="0" max="100" placeholder="30">
+            <small>Default: 30%</small>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" onclick="savePricing()">
+            💾 Save Pricing
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Branding -->
+    <div class="tab-content" id="tab-branding">
+      <div class="settings-section">
+        <h2>Brand Colors</h2>
+        <p>Customize colors for quotes, emails, and dashboard</p>
+
+        <div class="color-grid" id="color-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" onclick="saveBranding()">
+            💾 Save Branding
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Features -->
+    <div class="tab-content" id="tab-features">
+      <div class="settings-section">
+        <h2>Feature Toggles</h2>
+        <p>Enable or disable features based on your license tier</p>
+
+        <div id="features-container">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" onclick="saveFeatures()">
+            💾 Save Feature Settings
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Import/Export -->
+    <div class="tab-content" id="tab-import-export">
+      <div class="transfer-section">
+        <div class="transfer-box">
+          <h3>📤 Export Settings</h3>
+          <p>Download all your settings as a JSON file for backup or transfer to another installation</p>
+          <button class="btn btn-primary" onclick="exportSettings()">
+            📥 Download Settings
+          </button>
+        </div>
+
+        <div class="transfer-box">
+          <h3>📥 Import Settings</h3>
+          <p>Upload a settings file to restore or apply settings from another installation</p>
+          <input type="file" id="import-file" accept=".json" style="display: none;" onchange="importSettings()">
+          <button class="btn btn-secondary" onclick="document.getElementById('import-file').click()">
+            📤 Upload Settings
+          </button>
+        </div>
+      </div>
+
+      <div class="warning-box" style="margin-top: 1.5rem;">
+        <strong>💡 Use Cases:</strong>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          <li>Backup settings before major changes</li>
+          <li>Clone settings to new location/installation</li>
+          <li>Share white-label configuration with licensees</li>
+          <li>Restore to previous configuration</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Admin Manager Script -->
+  <script src="/assets/js/admin-manager.js"></script>
+</body>
+</html>

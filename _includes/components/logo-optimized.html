@@ -1,0 +1,144 @@
+{% comment %}
+  Optimized Logo Component - Unified System
+  
+  Usage:
+    {% include components/logo-optimized.html variant="header" %}
+    {% include components/logo-optimized.html variant="sprite" symbol="logo-full" %}
+    {% include components/logo-optimized.html variant="hero" %}
+    
+  Parameters:
+    - variant: 'header', 'footer', 'hero', 'sprite' (default: 'header')
+    - symbol: For sprite variant - 'logo-mark', 'logo-full', 'logo-stacked'
+    - className: Additional CSS classes
+    - loading: 'eager' or 'lazy' (default: auto-determined by variant)
+    - fetchpriority: 'high', 'low', 'auto'
+    - width: Custom width (default: auto by variant)
+    - height: Custom height (default: auto by variant)
+{% endcomment %}
+
+{% assign variant = include.variant | default: 'header' %}
+{% assign className = include.className | default: '' %}
+
+{% case variant %}
+  {% when 'sprite' %}
+    {% comment %} Use inline SVG sprite (most efficient, 0 HTTP requests) {% endcomment %}
+    {% assign symbol = include.symbol | default: 'logo-mark' %}
+    {% assign width = include.width | default: 60 %}
+    {% assign height = include.height | default: 60 %}
+    
+    <svg 
+      class="logo-svg logo-svg--{{ symbol }} {{ className }}" 
+      width="{{ width }}" 
+      height="{{ height }}"
+      aria-label="Tillerstead Logo"
+      role="img"
+    >
+      <use href="/assets/img/tillerstead-logo-sprite.svg#{{ symbol }}"></use>
+    </svg>
+
+  {% when 'hero' %}
+    {% comment %} Hero section: Use sprite for performance {% endcomment %}
+    <svg 
+      class="logo-svg logo-svg--hero {{ className }}" 
+      width="200" 
+      height="200"
+      aria-label="Tillerstead - Professional Tile & Waterproofing"
+      role="img"
+    >
+      <use href="/assets/img/tillerstead-logo-sprite.svg#logo-full"></use>
+    </svg>
+
+  {% when 'header' %}
+    {% comment %} Header: AVIF/WebP/PNG fallback, retina-ready {% endcomment %}
+    {% assign width = include.width | default: 60 %}
+    {% assign height = include.height | default: 60 %}
+    {% assign loading = include.loading | default: 'eager' %}
+    {% assign fetchpriority = include.fetchpriority | default: 'high' %}
+    
+    <picture class="logo-picture logo-picture--header {{ className }}">
+      <source 
+        srcset="/assets/img/logo/logo-header@2x.avif 2x, /assets/img/logo/logo-header.avif 1x" 
+        type="image/avif" 
+      />
+      <source 
+        srcset="/assets/img/logo/logo-header@2x.webp 2x, /assets/img/logo/logo-header.webp 1x" 
+        type="image/webp" 
+      />
+      <source 
+        srcset="/assets/img/logo/logo-header@2x.png 2x, /assets/img/logo/logo-header.png 1x" 
+        type="image/png" 
+      />
+      <img 
+        src="/assets/img/logo/logo-header.png" 
+        alt="Tillerstead Logo"
+        width="{{ width }}"
+        height="{{ height }}"
+        loading="{{ loading }}"
+        fetchpriority="{{ fetchpriority }}"
+        class="logo-img logo-img--header"
+      />
+    </picture>
+
+  {% when 'footer' %}
+    {% comment %} Footer: AVIF/WebP/PNG lazy-loaded, larger size {% endcomment %}
+    {% assign width = include.width | default: 200 %}
+    {% assign height = include.height | default: 200 %}
+    {% assign loading = include.loading | default: 'lazy' %}
+    
+    <picture class="logo-picture logo-picture--footer {{ className }}">
+      <source 
+        srcset="/assets/img/logo/logo-optimized@2x.avif 2x, /assets/img/logo/logo-optimized.avif 1x" 
+        type="image/avif" 
+      />
+      <source 
+        srcset="/assets/img/logo/logo-optimized@2x.webp 2x, /assets/img/logo/logo-optimized.webp 1x" 
+        type="image/webp" 
+      />
+      <source 
+        srcset="/assets/img/logo/logo-optimized@2x.png 2x, /assets/img/logo/logo-optimized.png 1x" 
+        type="image/png" 
+      />
+      <img 
+        src="/assets/img/logo/logo-optimized.png" 
+        alt="Tillerstead - Professional Tile & Waterproofing Contractor"
+        width="{{ width }}"
+        height="{{ height }}"
+        loading="{{ loading }}"
+        class="logo-img logo-img--footer"
+      />
+    </picture>
+
+  {% when 'compact' %}
+    {% comment %} Compact variant for tight spaces - AVIF/WebP/PNG {% endcomment %}
+    {% assign width = include.width | default: 40 %}
+    {% assign height = include.height | default: 40 %}
+    {% assign loading = include.loading | default: 'eager' %}
+    
+    <picture class="logo-picture logo-picture--compact {{ className }}">
+      <source 
+        srcset="/assets/img/logo/logo-compact@2x.avif 2x, /assets/img/logo/logo-compact.avif 1x" 
+        type="image/avif" 
+      />
+      <source 
+        srcset="/assets/img/logo/logo-compact@2x.webp 2x, /assets/img/logo/logo-compact.webp 1x" 
+        type="image/webp" 
+      />
+      <source 
+        srcset="/assets/img/logo/logo-compact@2x.png 2x, /assets/img/logo/logo-compact.png 1x" 
+        type="image/png" 
+      />
+      <img 
+        src="/assets/img/logo/logo-compact.png" 
+        alt="Tillerstead Logo"
+        width="{{ width }}"
+        height="{{ height }}"
+        loading="{{ loading }}"
+        class="logo-img logo-img--compact"
+      />
+    </picture>
+
+  {% else %}
+    {% comment %} Default to header variant {% endcomment %}
+    {% include components/logo-optimized.html variant="header" className=className %}
+
+{% endcase %}

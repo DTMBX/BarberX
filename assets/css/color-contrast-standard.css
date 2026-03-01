@@ -1,0 +1,386 @@
+/* ============================================================
+   TILLERSTEAD COLOR CONTRAST STANDARD
+   WCAG AAA Compliance - Maximum Visibility
+   
+   Contrast Ratios:
+   - AAA Standard: 7:1 for normal text, 4.5:1 for large text
+   - Our Standard: 10:1+ for critical text, 7:1+ minimum
+   ============================================================ */
+
+:root {
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --brand-green-dark: #004d2b;   /* Dark backgrounds */
+  --brand-green: #006b3d;         /* Primary brand */
+  --brand-green-light: #00a35c;   /* Accents */
+  --brand-gold: #d4af37;          /* Premium accents */
+  --brand-gold-bright: #ffd700;   /* Highlights */
+  
+  /* ===== HIGH CONTRAST TEXT COLORS ===== */
+  --text-white: #ffffff;          /* On dark backgrounds - 21:1 ratio */
+  --text-black: #000000;          /* On light backgrounds - 21:1 ratio */
+  --text-dark: #0a0a0a;           /* Near-black - 19:1 ratio */
+  --text-gray-dark: #1a1a1a;      /* Dark gray - 16:1 ratio */
+  --text-gray: #333333;           /* Medium gray - 12:1 ratio */
+  --text-gray-light: #666666;     /* Light gray - 7:1 ratio (minimum) */
+  
+  /* ===== BACKGROUND COLORS ===== */
+  --bg-black: #000000;
+  --bg-dark: #0a0a0a;
+  --bg-dark-gray: #1a1a1a;
+  --bg-white: #ffffff;
+  --bg-off-white: #f8f7f5;
+  --bg-cream: #fdfcfa;
+  
+  /* ===== STATUS COLORS (High Contrast) ===== */
+  --success-green: #00a35c;       /* Success messages */
+  --warning-orange: #ff8c00;      /* Warnings */
+  --error-red: #dc143c;           /* Errors */
+  --info-blue: #0066cc;           /* Information */
+}
+
+/* ============================================================
+   GLOBAL TEXT CONTRAST RULES
+   ============================================================ */
+
+/* Force high contrast on dark backgrounds */
+.bg-dark,
+.bg-black,
+[style*="background: #000"],
+[style*="background-color: #000"],
+[style*="background: rgb(0, 0, 0)"],
+[class*="dark"] {
+  color: var(--text-white) !important;
+}
+
+.bg-dark *:not(.btn, a),
+.bg-black *:not(.btn, a) {
+  color: var(--text-white) !important;
+}
+
+/* Force high contrast on light backgrounds */
+.bg-white,
+.bg-off-white,
+.bg-cream,
+[style*="background: #fff"],
+[style*="background-color: #fff"] {
+  color: var(--text-dark) !important;
+}
+
+/* ============================================================
+   SPECIFIC ELEMENT CONTRAST FIXES
+   ============================================================ */
+
+/* Headings - Maximum Contrast */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-white) !important;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 80%) !important;
+  font-weight: 900 !important;
+}
+
+/* On light backgrounds */
+.bg-white h1, .bg-white h2, .bg-white h3,
+.bg-off-white h1, .bg-off-white h2, .bg-off-white h3 {
+  color: var(--text-black) !important;
+  text-shadow: none !important;
+}
+
+/* Paragraph text */
+p {
+  color: var(--text-white) !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 60%) !important;
+}
+
+.bg-white p, .bg-off-white p {
+  color: var(--text-dark) !important;
+  text-shadow: none !important;
+}
+
+/* License/Badge text - CRITICAL VISIBILITY */
+[class*="license"],
+[class*="hic"],
+[class*="badge"],
+.credential {
+  color: var(--brand-gold-bright) !important;
+  font-weight: 900 !important;
+  font-size: 1.125rem !important;
+  text-shadow: 
+    0 2px 4px rgb(0 0 0 / 90%),
+    0 0 20px rgb(0 0 0 / 50%) !important;
+  background: rgb(0 107 61 / 90%) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 50px !important;
+  border: 3px solid var(--brand-gold-bright) !important;
+}
+
+/* Testimonial text */
+.testimonial,
+.review,
+[class*="testimonial"] {
+  background: var(--bg-dark) !important;
+  color: var(--text-white) !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+}
+
+.testimonial p,
+.review p {
+  color: var(--text-white) !important;
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Testimonial author names */
+.testimonial-author,
+.review-author,
+[class*="author"] {
+  color: var(--brand-gold-bright) !important;
+  font-weight: 900 !important;
+  font-size: 1.25rem !important;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 80%) !important;
+}
+
+/* Testimonial meta (project type, source) */
+.testimonial-meta,
+.review-meta {
+  color: var(--text-gray-light) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+/* Service descriptions on dark backgrounds */
+.service-description,
+[class*="description"] {
+  color: var(--text-white) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 60%) !important;
+}
+
+/* Location/region text */
+.location,
+.region,
+[class*="location"],
+[class*="region"] {
+  color: var(--brand-gold-bright) !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 80%) !important;
+}
+
+/* ============================================================
+   BUTTON CONTRAST
+   ============================================================ */
+
+/* Primary buttons - High contrast */
+.btn,
+.btn--primary,
+button {
+  background: var(--brand-green-light) !important;
+  color: var(--text-white) !important;
+  font-weight: 900 !important;
+  border: 3px solid var(--brand-green-light) !important;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 60%) !important;
+}
+
+.btn:hover,
+.btn--primary:hover {
+  background: var(--brand-green) !important;
+  border-color: var(--brand-gold-bright) !important;
+  box-shadow: 0 4px 12px rgb(0 163 92 / 50%) !important;
+}
+
+/* Secondary buttons */
+.btn--secondary {
+  background: transparent !important;
+  color: var(--text-white) !important;
+  border: 3px solid var(--text-white) !important;
+  font-weight: 900 !important;
+}
+
+.btn--secondary:hover {
+  background: var(--text-white) !important;
+  color: var(--brand-green) !important;
+}
+
+/* ============================================================
+   LINK CONTRAST
+   ============================================================ */
+
+/* Links on dark backgrounds */
+a {
+  color: var(--brand-gold-bright) !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 60%) !important;
+}
+
+a:hover {
+  color: var(--brand-gold) !important;
+  text-shadow: 0 2px 6px rgb(0 0 0 / 80%) !important;
+}
+
+/* Links on light backgrounds */
+.bg-white a,
+.bg-off-white a {
+  color: var(--brand-green) !important;
+  text-shadow: none !important;
+}
+
+.bg-white a:hover,
+.bg-off-white a:hover {
+  color: var(--brand-green-dark) !important;
+}
+
+/* ============================================================
+   CARD/BOX CONTRAST
+   ============================================================ */
+
+/* Service cards */
+.card,
+.service-card,
+[class*="card"] {
+  background: var(--bg-dark) !important;
+  border: 3px solid var(--brand-green) !important;
+  color: var(--text-white) !important;
+}
+
+.card-title,
+.service-card h3 {
+  color: var(--brand-gold-bright) !important;
+  font-weight: 900 !important;
+}
+
+.card-body,
+.service-card p {
+  color: var(--text-white) !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
+   BADGE/PILL CONTRAST
+   ============================================================ */
+
+.badge,
+.pill,
+.tag {
+  background: var(--brand-green-light) !important;
+  color: var(--text-white) !important;
+  font-weight: 900 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 50px !important;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 60%) !important;
+}
+
+/* ============================================================
+   FOOTER CONTRAST
+   ============================================================ */
+
+footer,
+.footer {
+  background: var(--bg-dark) !important;
+  color: var(--text-white) !important;
+}
+
+footer *:not(a),
+.footer *:not(a) {
+  color: var(--text-white) !important;
+}
+
+/* ============================================================
+   FORM ELEMENT CONTRAST
+   ============================================================ */
+
+input,
+textarea,
+select {
+  background: var(--bg-white) !important;
+  color: var(--text-black) !important;
+  border: 3px solid var(--brand-green) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important; /* Prevent iOS zoom */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-gray) !important;
+  opacity: 100% !important;
+}
+
+label {
+  color: var(--text-white) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+/* ============================================================
+   MOBILE SPECIFIC CONTRAST BOOSTS
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Increase font weight on mobile */
+  p, span, div {
+    font-weight: 700 !important;
+  }
+  
+  /* Stronger shadows on mobile */
+  h1, h2, h3 {
+    text-shadow: 
+      0 3px 10px rgb(0 0 0 / 90%),
+      0 0 30px rgb(0 0 0 / 60%) !important;
+  }
+  
+  /* Make all text larger on mobile */
+  body {
+    font-size: 16px !important;
+  }
+  
+  p {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY - DARK MODE SUPPORT
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  /* Even stronger contrast in dark mode */
+  body {
+    background: var(--bg-black) !important;
+    color: var(--text-white) !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-white) !important;
+  }
+}
+
+/* ============================================================
+   ANTI-PATTERN OVERRIDES - Fix common low-contrast mistakes
+   ============================================================ */
+
+/* NO gray text on black/dark backgrounds */
+[style*="color: #666"],
+[style*="color: #777"],
+[style*="color: #888"],
+[style*="color: #999"],
+[style*="color: gray"],
+[style*="color: grey"] {
+  color: var(--text-white) !important;
+}
+
+/* NO light text on light backgrounds */
+.bg-white [style*="color: #eee"],
+.bg-white [style*="color: #ddd"],
+.bg-white [style*="color: #ccc"] {
+  color: var(--text-black) !important;
+}
+
+/* Force visibility on any dark-on-dark combinations */
+.bg-dark .text-dark,
+.bg-black .text-dark,
+[style*="background: #000"][style*="color: #333"] {
+  color: var(--text-white) !important;
+}

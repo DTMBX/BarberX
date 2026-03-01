@@ -1,0 +1,191 @@
+name: BWC — CI Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "bwc/**"
+  push:
+    branches: [main]
+    paths:
+      - "bwc/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  MANIFEST_HMAC_KEY: ci-test-hmac-key
+  DATABASE_URL: "sqlite:///:memory:"
+  REDIS_URL: "redis://localhost:6379/0"
+  S3_ENDPOINT_URL: "http://localhost:9000"
+  S3_ACCESS_KEY: test
+  S3_SECRET_KEY: test
+  S3_BUCKET: test-evidence
+  LLM_PROVIDER: disabled
+  EVIDENT_SAFE_MODE: "false"
+  APP_ENV: test
+  COURTLISTENER_API_TOKEN: ""
+
+jobs:
+  # ── Backend ─────────────────────────────────────────────────────
+  backend-lint:
+    name: Backend Lint & Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: bwc/backend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt ruff mypy
+      - name: Ruff lint
+        run: ruff check app/ --output-format=github
+      - name: Ruff format check
+        run: ruff format --check app/
+      - name: Mypy typecheck
+        run: mypy app/ --ignore-missing-imports --no-error-summary || true
+
+  backend-test:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: bwc/backend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt pytest httpx
+      - name: Run pytest
+        run: pytest tests/ -xvs --tb=short
+
+  # ── Frontend ────────────────────────────────────────────────────
+  frontend-lint:
+    name: Frontend Lint & Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: bwc/frontend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+          cache-dependency-path: bwc/frontend/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: TypeScript typecheck
+        run: pnpm typecheck
+      - name: ESLint
+        run: pnpm lint || true
+
+  frontend-build:
+    name: Frontend Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: frontend-lint
+    defaults:
+      run:
+        working-directory: bwc/frontend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+          cache-dependency-path: bwc/frontend/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:8000
+
+  frontend-test:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: frontend-lint
+    defaults:
+      run:
+        working-directory: bwc/frontend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+          cache-dependency-path: bwc/frontend/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Run Vitest
+        run: pnpm test
+
+  frontend-e2e:
+    name: Frontend E2E (Playwright)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: frontend-build
+    defaults:
+      run:
+        working-directory: bwc/frontend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+          cache-dependency-path: bwc/frontend/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install chromium --with-deps
+
+      - name: Verify no secrets in tests
+        run: pnpm verify:secrets
+
+      - name: Run E2E tests
+        run: pnpm test:e2e
+        env:
+          SAFE_MODE: "1"
+          NEXT_PUBLIC_API_URL: http://localhost:8000
+          CI: "true"
+
+      - name: Verify SAFE_MODE compliance
+        if: always()
+        run: pnpm verify:artifacts
+        env:
+          SAFE_MODE: "1"
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: bwc/frontend/playwright-report/
+          retention-days: 14

@@ -1,0 +1,20 @@
+{% comment %}
+  Reusable CTA Buttons Component
+  Displays primary (Request Estimate) and secondary (Call) action buttons
+  
+  Parameters:
+    - primary_class: CSS classes for primary button (default: "btn btn--primary btn--lg btn--pulse")
+    - secondary_class: CSS classes for secondary button (default: "btn btn--ghost btn--lg")
+    - container_class: CSS classes for container (default: "")
+    - magnetic: Add data-magnetic attribute to primary button (default: true)
+    - gap: Add gap spacing between buttons (default: true)
+{% endcomment %}
+{%- assign primary_class = include.primary_class | default: "btn btn--primary btn--lg btn--pulse" -%}
+{%- assign secondary_class = include.secondary_class | default: "btn btn--ghost btn--lg" -%}
+{%- assign magnetic = include.magnetic | default: true -%}
+{%- assign gap = include.gap | default: true -%}
+
+<div class="cta-buttons{% if include.container_class %} {{ include.container_class }}{% endif %}">
+  <a href="/contact/" class="{{ primary_class }}"{% if magnetic %} data-magnetic{% endif %}>Request an Estimate</a>
+  {% if gap %}<span class="mr-2"></span>{% endif %}<a href="tel:+16098628808" class="{{ secondary_class }}">Call (609) 862-8808</a>
+</div>

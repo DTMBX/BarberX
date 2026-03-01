@@ -1,0 +1,121 @@
+{%- comment -%}
+  TCNA Authority Callout Component
+  Usage: {% include components/tcna-callout.html type="method" code="B415" link="/tcna-methods/#waterproofing" %}
+  Types: method, code, inspector, ada
+{%- endcomment -%}
+
+{% if include.type == "method" %}
+<div class="tcna-callout method-callout">
+  <div class="callout-icon">📋</div>
+  <div class="callout-content">
+    <strong>TCNA Method {{ include.code }}:</strong> 
+    {% if include.description %}{{ include.description }}{% endif %}
+    {% if include.link %}<a href="{{ include.link }}" class="callout-link">View full specifications →</a>{% endif %}
+  </div>
+</div>
+
+{% elsif include.type == "code" %}
+<div class="tcna-callout code-callout">
+  <div class="callout-icon">🏗️</div>
+  <div class="callout-content">
+    <strong>Code Requirement:</strong> 
+    {% if include.description %}{{ include.description }}{% endif %}
+    {% if include.link %}<a href="{{ include.link }}" class="callout-link">See compliance guide →</a>{% endif %}
+  </div>
+</div>
+
+{% elsif include.type == "inspector" %}
+<div class="tcna-callout inspector-callout">
+  <div class="callout-icon">✅</div>
+  <div class="callout-content">
+    <strong>Inspector Checkpoint:</strong> 
+    {% if include.description %}{{ include.description }}{% endif %}
+    {% if include.link %}<a href="{{ include.link }}" class="callout-link">View inspection checklist →</a>{% endif %}
+  </div>
+</div>
+
+{% elsif include.type == "ada" %}
+<div class="tcna-callout ada-callout">
+  <div class="callout-icon">♿</div>
+  <div class="callout-content">
+    <strong>ADA Compliance:</strong> 
+    {% if include.description %}{{ include.description }}{% endif %}
+    {% if include.link %}<a href="{{ include.link }}" class="callout-link">View accessibility standards →</a>{% endif %}
+  </div>
+</div>
+
+{% endif %}
+
+<style>
+.tcna-callout {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: var(--callout-bg, #f8f9fa);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.tcna-callout .callout-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.tcna-callout .callout-content {
+  flex: 1;
+}
+
+.tcna-callout strong {
+  color: var(--primary-color, #1a5490);
+  font-weight: 600;
+}
+
+.tcna-callout .callout-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--link-color, #0066cc);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.tcna-callout .callout-link:hover {
+  text-decoration: underline;
+}
+
+/* Type-specific styling */
+.method-callout {
+  border-left-color: #0066cc;
+  background: #f0f7ff;
+}
+
+.code-callout {
+  border-left-color: #d97706;
+  background: #fffbeb;
+}
+
+.inspector-callout {
+  border-left-color: #059669;
+  background: #f0fdf4;
+}
+
+.ada-callout {
+  border-left-color: #7c3aed;
+  background: #faf5ff;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .tcna-callout {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+  }
+  
+  .method-callout { background: rgba(0, 102, 204, 0.1); }
+  .code-callout { background: rgba(217, 119, 6, 0.1); }
+  .inspector-callout { background: rgba(5, 150, 105, 0.1); }
+  .ada-callout { background: rgba(124, 58, 237, 0.1); }
+}
+</style>

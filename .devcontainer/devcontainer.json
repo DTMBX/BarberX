@@ -1,0 +1,65 @@
+{
+  "name": "EVIDENT",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.2",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "bundle config set --local path vendor/bundle && bundle install --jobs 4 && npm ci",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // Use bash for consistency with CI and local scripts (OUTPUT_RULES.md)
+        "terminal.integrated.defaultProfile.linux": "bash",
+        // Enforce Prettier for formatting, Ruby LSP for advanced Ruby support (OUTPUT_RULES.md)
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "eslint.validate": ["javascript", "javascriptreact"],
+        "ruby.lint": {
+          "rubocop": true
+        }
+      },
+      "extensions": ["shopify.ruby-lsp", "rebornix.ruby", "esbenp.prettier-vscode"]
+    }
+  },
+  "forwardPorts": [4000, 35729, 3000, 8000, 5432, 6379, 9000, 9001],
+  "portsAttributes": {
+    "4000": {
+      "label": "Jekyll (TCNA/NJ HIC-compliant site preview)",
+      "onAutoForward": "notify"
+    },
+    "35729": {
+      "label": "LiveReload (for rapid standards-compliant iteration)",
+      "onAutoForward": "ignore"
+    },
+    "8000": {
+      "label": "BWC Backend (FastAPI)",
+      "onAutoForward": "notify"
+    },
+    "3000": {
+      "label": "BWC Frontend",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "Postgres",
+      "onAutoForward": "ignore"
+    },
+    "6379": {
+      "label": "Redis",
+      "onAutoForward": "ignore"
+    },
+    "9000": {
+      "label": "MinIO S3",
+      "onAutoForward": "ignore"
+    },
+    "9001": {
+      "label": "MinIO Console",
+      "onAutoForward": "ignore"
+    }
+  },
+  "remoteUser": "vscode"
+}

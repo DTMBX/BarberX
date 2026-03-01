@@ -397,3 +397,28 @@ dump.rdb
 
 # Ruby bundler cache
 vendor/
+
+# Package manager caches (pnpm, yarn, npm)
+**/.pnpm-store/
+.yarn/cache/
+.npm/
+
+# Large binary assets — use Git LFS or external storage
+codebooks/*.pdf
+
+# Oversized originals (keep optimized versions only)
+assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.jpg
+assets/img/tillerstead-work/bathrooms/bathroom-wall-tile-detail-pre-grout.webp
+
+# Nested optimized duplicates (build artifact from image optimizer)
+assets/img/optimized/assets/
+
+# Lint/report output files (regenerated)
+lint-css-output.txt
+lint-js-output.txt
+wget-log
+bandit-report.json
+compliance-audit-report.json
+contrast-audit-report.json
+lighthouse-mobile-report.json
+optimization-reports/

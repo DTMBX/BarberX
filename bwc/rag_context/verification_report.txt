@@ -1,0 +1,27 @@
+=== RAG Context Verification Report ===
+Generated : 2026-02-28T04:34:24Z
+Script    : Update-RagContext.ps1 v2.0.0
+SuiteRoot : c:\web-dev\github-repos\Evident\bwc
+
+Path                                         Exists Bytes     LastWriteTimeUtc        SHA-256
+----                                         ------ -----     ----------------        -------
+rag_context\repo_tree.txt                    True   1673      2026-02-28T04:34:24Z    e6b2f4f9f3a55f2fa252186ededb557eaf9a080de06e53f317ecb1f1b050d8be
+rag_context\file_index.json                  True   2459      2026-02-28T04:34:25Z    39c0195efe778b7583447e3859c6b77c8cbc0f95dfcf48539e45485fb6ce7b5a
+RAG_UPGRADE_PROMPT.md                        True   2930      2026-02-28T03:04:51Z    dc5033d7537a24fd1965506241bbe99c590cd038786a4099061f4d9cc1b8e79a
+.env.example                                 True   1515      2026-02-28T04:26:07Z    df5b4805186c1a619b0b745ecdffa33582717e692db23a89a3804b81ff7a3ee6
+docs\LOCAL_DEV.md                            True   1539      2026-02-28T04:33:54Z    e4a2cd1a967a0e86de3b371b3446104196e77e984ad178bf294be1828d6aaa25
+ops\docker\docker-compose.yml                True   3102      2026-02-28T04:25:53Z    319357d39c08c77e56db1b6d1bf6a5fd69352f861d2e240abb216a4ce64f80f5
+
+Excerpts count : 6
+  .dockerignore  sha256=9f0d6b1842303e7d47cfc260bc8f67a5c916e77c2871be4bc959a22902fa7129
+  .env.example  sha256=df5b4805186c1a619b0b745ecdffa33582717e692db23a89a3804b81ff7a3ee6
+  .gitignore  sha256=6cc979695f528aa1d40c0115434616477e599d36fbb1ed51841ab0ee17a2f889
+  RAG_UPGRADE_PROMPT.md  sha256=dc5033d7537a24fd1965506241bbe99c590cd038786a4099061f4d9cc1b8e79a
+  docs\LOCAL_DEV.md  sha256=e4a2cd1a967a0e86de3b371b3446104196e77e984ad178bf294be1828d6aaa25
+  ops\docker\docker-compose.yml  sha256=319357d39c08c77e56db1b6d1bf6a5fd69352f861d2e240abb216a4ce64f80f5
+
+file_index.json schema  : v2
+file_index.json entries : 11
+audit_log.jsonl events  : 8
+
+RESULT: PASS - all required artifacts present.

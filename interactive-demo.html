@@ -1,0 +1,237 @@
+---
+layout: default
+title: "Interactive Components Demo"
+meta_title: "Interactive Components Showcase | Tillerstead"
+description: "Interactive components demonstration including FAQ accordion, before/after slider, pricing calculator, and more."
+permalink: /interactive-demo/
+body_class: page-demo
+---
+
+<style>
+.demo-section {
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-section h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.demo-section p {
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+</style>
+
+<!-- Hero -->
+<div class="gradient-mesh">
+  <section class="hero" style="min-height: 50vh; display: flex; align-items: center; justify-content: center;" data-animate="fade">
+    <div class="container" style="text-align: center;">
+      <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">Interactive Components</h1>
+      <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">World-class interactive features for modern web experiences</p>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  
+  <!-- FAQ Accordion Demo -->
+  <section class="demo-section" data-animate="fade-up">
+    <h2>FAQ Accordion</h2>
+    <p>Smooth, accessible accordion with ARIA support and keyboard navigation.</p>
+    
+    <div data-accordion data-accordion-exclusive>
+      <div data-accordion-item>
+        <button data-accordion-trigger>
+          What makes Tillerstead different from other contractors?
+        </button>
+        <div data-accordion-content>
+          <p>
+            We follow TCNA industry standards for every project—not shortcuts. Every installation 
+            is owner-supervised, documented with photos, and backed by proper licensing and insurance. 
+            You get real accountability and transparent communication.
+          </p>
+        </div>
+      </div>
+
+      <div data-accordion-item>
+        <button data-accordion-trigger>
+          Do you provide warranties on your work?
+        </button>
+        <div data-accordion-content>
+          <p>
+            Yes. All tile installations include workmanship warranties, and waterproofing systems 
+            come with manufacturer warranties (typically 10-15 years depending on the product). 
+            We provide warranty documentation and photo records for every project.
+          </p>
+        </div>
+      </div>
+
+      <div data-accordion-item>
+        <button data-accordion-trigger>
+          What areas do you serve?
+        </button>
+        <div data-accordion-content>
+          <p>
+            We serve Atlantic, Ocean, and Cape May Counties in South Jersey. Licensed NJ HIC 
+            #13VH10808800 with full general liability and workers' compensation coverage.
+          </p>
+        </div>
+      </div>
+
+      <div data-accordion-item>
+        <button data-accordion-trigger>
+          How long does a typical bathroom remodel take?
+        </button>
+        <div data-accordion-content>
+          <p>
+            A standard shower remodel typically takes 7-14 days, depending on the scope. Full 
+            bathroom remodels (including fixtures, flooring, and vanity work) generally take 
+            2-4 weeks. We provide detailed timelines during the estimate process.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After Slider Demo -->
+  <section class="demo-section" data-animate="fade-up" data-delay="100">
+    <h2>Before/After Image Slider</h2>
+    <p>Interactive comparison slider with touch support for showcasing transformations.</p>
+    
+    <div data-before-after>
+      <img data-ba-before src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&h=600&fit=crop" alt="Bathroom before renovation">
+      <div data-ba-overlay>
+        <img data-ba-after src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop" alt="Bathroom after renovation">
+      </div>
+      <div data-ba-handle></div>
+    </div>
+  </section>
+
+  <!-- Pricing Calculator Demo -->
+  <section class="demo-section" data-animate="fade-up" data-delay="200">
+    <h2>Pricing Calculator</h2>
+    <p>Interactive estimator for project planning (estimates only - not final quotes).</p>
+    
+    <div data-pricing-calculator data-base-price="2000">
+      <div class="calc-input-group">
+        <label class="calc-label" for="calc-sqft">Shower Area (sq ft)</label>
+        <input 
+          type="number" 
+          id="calc-sqft" 
+          name="sqft" 
+          data-calc-input 
+          data-multiplier="45"
+          value="50"
+          min="0"
+          step="1"
+        />
+      </div>
+
+      <div class="calc-input-group">
+        <label class="calc-label" for="calc-niche">Shower Niches</label>
+        <input 
+          type="number" 
+          id="calc-niche" 
+          name="niches" 
+          data-calc-input 
+          data-multiplier="350"
+          value="1"
+          min="0"
+          step="1"
+        />
+      </div>
+
+      <div class="calc-input-group">
+        <label class="calc-label" for="calc-bench">Built-in Bench</label>
+        <select id="calc-bench" name="bench" data-calc-input data-multiplier="800">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="calc-input-group">
+        <label class="calc-label" for="calc-tile-quality">Tile Quality</label>
+        <select id="calc-tile-quality" name="tile_quality" data-calc-input>
+          <option value="0">Standard</option>
+          <option value="500">Premium</option>
+          <option value="1200">Luxury</option>
+        </select>
+      </div>
+
+      <div class="calc-output-wrapper">
+        <span class="calc-output-label">Estimated Range</span>
+        <div data-calc-output>$0.00</div>
+        <p style="font-size: 0.875rem; margin-top: 1rem; color: rgba(255,255,255,0.7);">
+          * Estimate only. Final pricing depends on site conditions, material selection, and project scope. 
+          Contact us for an accurate quote.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notifications Demo -->
+  <section class="demo-section" data-animate="fade-up" data-delay="300">
+    <h2>Toast Notifications</h2>
+    <p>Modern notification system for user feedback.</p>
+    
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <button class="btn-premium btn-premium--gradient" onclick="showToast('Form submitted successfully!', 'success')">
+        Show Success
+      </button>
+      <button class="btn-premium btn-premium--outline" onclick="showToast('An error occurred. Please try again.', 'error')">
+        Show Error
+      </button>
+      <button class="btn-premium btn-premium--ghost" onclick="showToast('This is a warning message.', 'warning')">
+        Show Warning
+      </button>
+      <button class="btn-premium btn-premium--outline" onclick="showToast('Here is some helpful information.', 'info')">
+        Show Info
+      </button>
+    </div>
+  </section>
+
+  <!-- Image Gallery Demo -->
+  <section class="demo-section" data-animate="fade-up" data-delay="400">
+    <h2>Image Gallery (Click any image)</h2>
+    <p>Lightbox gallery with keyboard navigation and touch support.</p>
+    
+    <div class="bento-grid" data-gallery>
+      <div class="bento-item glass-card" data-gallery-item style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop" 
+             alt="Modern bathroom" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px;">
+      </div>
+      <div class="bento-item glass-card" data-gallery-item style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop" 
+             alt="Tile shower" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px;">
+      </div>
+      <div class="bento-item glass-card" data-gallery-item style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&h=400&fit=crop" 
+             alt="Bathroom vanity" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px;">
+      </div>
+      <div class="bento-item glass-card" data-gallery-item style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&h=400&fit=crop" 
+             alt="Modern tile" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px;">
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- CTA -->
+<div data-animate="scale">
+  <section style="padding: 4rem 0; text-align: center;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Get Started?</h2>
+      <p style="font-size: 1.125rem; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
+        Contact us today for a free estimate on your tile or bathroom remodeling project.
+      </p>
+      <a href="/contact/" class="btn-premium btn-premium--gradient" data-magnetic data-ripple>
+        Request Free Estimate
+      </a>
+    </div>
+  </section>
+</div>

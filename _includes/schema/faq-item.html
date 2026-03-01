@@ -1,0 +1,11 @@
+<!-- FAQ Schema Template -->
+<!-- Usage: {% include schema/faq-item.html question="..." answer="..." %} -->
+
+{
+  "@type": "Question",
+  "name": "{{ include.question }}",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "{{ include.answer | strip_html | escape }}"
+  }
+}{% unless include.last %},{% endunless %}

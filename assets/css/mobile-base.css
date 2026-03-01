@@ -1,0 +1,195 @@
+/**
+ * MOBILE BASE - Proper Mobile-First Foundation
+ * Replaces all emergency fix files with correct, maintainable CSS
+ */
+
+@layer mobile-base {
+  /* ===========================================
+     VIEWPORT & DOCUMENT FLOW
+     =========================================== */
+  
+  @media (max-width: 768px) {
+    html {
+      overflow-x: hidden;
+      overflow-y: auto;
+      text-size-adjust: 100%;
+    }
+    
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Prevent horizontal overflow */
+    * {
+      max-width: 100%;
+    }
+    
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  
+  /* ===========================================
+     NAVIGATION - Mobile Drawer (CORRECT)
+     =========================================== */
+  
+  @media (max-width: 768px) {
+    /* Toggle button - MUST be visible */
+    .ts-nav-toggle,
+    .mobile-nav__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    /* Drawer - hidden by default */
+    #ts-mobile-nav,
+    .ts-mobile-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(320px, 85vw);
+      background: var(--color-surface, #ffffff);
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Drawer open state */
+    #ts-mobile-nav[aria-hidden="false"],
+    .ts-mobile-nav[aria-hidden="false"] {
+      transform: translateX(0);
+    }
+    
+    /* Overlay */
+    .ts-drawer__overlay {
+      position: fixed;
+      inset: 0;
+      background: rgb(0 0 0 / 50%);
+      opacity: 0%;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+    
+    /* Overlay visible when drawer open */
+    #ts-mobile-nav[aria-hidden="false"] ~ .ts-drawer__overlay,
+    .ts-mobile-nav[aria-hidden="false"] .ts-drawer__overlay {
+      opacity: 100%;
+      pointer-events: auto;
+    }
+    
+    /* Body scroll lock when nav open */
+    body.nav-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+  }
+  
+  /* ===========================================
+     CONTENT VISIBILITY - NO FORCED OVERRIDES
+     =========================================== */
+  
+  @media (max-width: 768px) {
+    /* Main content - natural display */
+    .ts-main-content,
+    main {
+      display: block;
+      width: 100%;
+      flex: 1;
+    }
+    
+    /* Sections - natural flow */
+    section {
+      width: 100%;
+      padding-inline: var(--space-sm, 1rem);
+    }
+  }
+  
+  /* ===========================================
+     REDUCED MOTION SUPPORT
+     =========================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* ===========================================
+     TOUCH TARGETS - WCAG 2.5.5
+     =========================================== */
+  
+  @media (max-width: 768px) {
+    button,
+    a,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [tabindex]:not([tabindex="-1"]) {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Exception for inline text links */
+    p a,
+    li a {
+      min-height: auto;
+      min-width: auto;
+      display: inline;
+    }
+  }
+  
+  /* ===========================================
+     HEADER - Sticky positioning
+     =========================================== */
+  
+  @media (max-width: 768px) {
+    .ts-header,
+    header[role="banner"] {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: var(--color-surface, #ffffff);
+      border-bottom: 1px solid var(--color-border, #e5e7eb);
+    }
+  }
+  
+  /* ===========================================
+     FOCUS MANAGEMENT
+     =========================================== */
+  
+  *:focus-visible {
+    outline: 2px solid var(--color-focus, #2563eb);
+    outline-offset: 2px;
+  }
+  
+  /* Remove outline for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+}

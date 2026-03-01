@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-01-26T17:02:24.3612054-05:00",
+  "mode": "apply",
+  "repoRoot": "C:\\web-dev\\github-repos\\Tillerstead.com",
+  "environment": {
+    "git": "git version 2.52.0.windows.1",
+    "os": "Microsoft Windows 10.0.26100",
+    "powershell": "7.5.4"
+  },
+  "actions": [
+    "Verified .githooks/pre-commit exists",
+    "Installed/updated .git/hooks/pre-commit",
+    "Set core.hooksPath=.githooks",
+    "Quarantined .github/hooks to .github/_archive-hooks",
+    "Created .github/copilot-instructions.md stub"
+  ],
+  "warnings": [
+    "Existing .githooks/pre-commit differs from recommended template",
+    ".github/hooks exists, but Git does NOT execute hooks from .github/"
+  ],
+  "errors": [],
+  "hooks": {
+    "hooksPathChanged": true,
+    "pre-commit": {
+      "executable": true,
+      "exists": true,
+      "installed": true,
+      "template": "C:\\web-dev\\github-repos\\Tillerstead.com\\.githooks\\pre-commit"
+    },
+    "currentHooksPath": ".git/hooks (default)"
+  }
+}

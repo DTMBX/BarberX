@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"{% if include.html_attrs %} {{ include.html_attrs }}{% endif %}>
+<head>
+  <title>{% if page.meta_title %}{{ page.meta_title | strip | escape }}{% elsif page.title %}{{ page.title | strip | escape }} | {{ site.title | strip | escape }}{% else %}{{ site.title | strip | escape }}{% endif %}</title>
+  {% include layout/head-clean.html %}
+  {% include schema/schema-combined.js %}
+  {% include layout/meta-open-graph.html %}
+  {% include layout/meta-geo.html %}
+  {% include layout/meta-canonical.html %}
+  {% include layout/meta-success-confetti.html %}
+  {% if page.url == "/contact/" %}{% include forms/contact-page.html %}{% endif %}
+  {% if page.extra_head %}{{ page.extra_head }}{% endif %}
+  <link rel="stylesheet" href="/assets/css/components/sticky-mobile-cta.css" />
+</head>
+<body class="ts-body{% if page.body_class %} {{ page.body_class }}{% endif %}{% if layout.body_class %} {{ layout.body_class }}{% endif %}{% if page.build_guide %} page-build-guide{% endif %}">
+  <nav class="skip-links" aria-label="Skip navigation">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </nav>
+  <div class="ts-scroll-progress" aria-hidden="true" data-scroll-progress></div>
+  {% include header.html %}
+  {% if include.show_breadcrumbs != false %}{% include navigation/ts-breadcrumbs.html %}{% endif %}
+  <main class="ts-main-content" role="main" id="main-content" aria-label="Main content">
+    {{ include.body | default: content }}
+  </main>
+  {% include layout/footer.html %}
+  
+  {%- comment -%} Accessibility toolbar (all devices) {%- endcomment -%}
+  {% include components/a11y-toolbar.html %}
+  
+  {%- comment -%} Desktop-only features (too heavy for mobile) {%- endcomment -%}
+  <div class="desktop-only-features">
+    {% include components/c-sticky-mobile-cta.html %}
+  </div>
+  
+  {%- comment -%} Lead Magnet - Desktop Homepage only {%- endcomment -%}
+  {% if page.is_home == true %}
+  <div class="desktop-only-features">
+    {% include components/lead-magnet-popup.html %}
+  </div>
+  {% endif %}
+  {% include layout/scripts.html %}
+  <script>
+    if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('[SW] Registration failed:',err))})}
+  </script>
+</body>
+</html>

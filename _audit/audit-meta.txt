@@ -1,0 +1,3 @@
+Root: C:\web-dev\github-repos\Tillerstead.com
+Mode: FAST
+Date: 2026-01-26 17:21:10

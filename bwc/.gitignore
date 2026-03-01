@@ -1,0 +1,19 @@
+# bwc suite ignores
+.env
+*.log
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.next/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+_verify*.log
+_inv.log
+_phase*.log
+_rag_update.log
+_bootstrap_verify.log
+_bwc_files.log
+docker-compose.override.yml

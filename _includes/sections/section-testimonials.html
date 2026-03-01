@@ -1,0 +1,41 @@
+{%- comment -%}
+  Homepage Testimonials Section
+  
+  Parameters:
+    - data: The testimonials data object from _data/home.yml
+{%- endcomment -%}
+
+{%- assign testimonials_data = include.data -%}
+
+<section class="home-testimonials bg-light" aria-labelledby="testimonials-title">
+  <div class="container container--wide">
+    <header class="section-header">
+      <p class="section-eyebrow">{{ testimonials_data.eyebrow }}</p>
+      <h2 id="testimonials-title" class="section-title">{{ testimonials_data.title }}</h2>
+    </header>
+
+    <div class="testimonials-grid">
+      {% assign reviews = site.data.reviews.reviews %}
+      {% assign limit = testimonials_data.limit | default: 3 %}
+      {% for review in reviews limit: limit %}
+      <article class="testimonial-card ts-tile-framed">
+        <div class="testimonial-rating" aria-label="{{ review.rating }} star rating">
+          {% for i in (1..review.rating) %}★{% endfor %}
+        </div>
+        <div class="testimonial-quote">
+          {{ review.quote_html }}
+        </div>
+        <div class="testimonial-author">
+          <strong>{{ review.author }}</strong>
+          {% if review.job_type %}<span class="job-type">{{ review.job_type }}</span>{% endif %}
+        </div>
+        {% if review.platform %}
+        <div class="testimonial-source">
+          <small>via {{ review.platform }}</small>
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

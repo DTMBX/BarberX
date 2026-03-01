@@ -1,0 +1,499 @@
+/*
+ * UX Enhancements - Critical Improvements
+ * Fixes: Touch targets, focus states, safe areas, loading states
+ */
+
+/* ========================================
+   IMPROVED TOUCH TARGETS (WCAG AAA 44x44px)
+   ======================================== */
+
+/* Mobile button sizing - WCAG AAA compliance */
+@media (max-width: 768px) {
+  .btn,
+  button,
+  [type="submit"],
+  [type="button"],
+  [type="reset"],
+  .button {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 1.25rem 1.75rem;
+  }
+  
+  .btn--sm {
+    min-height: 44px;
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Ensure CTA buttons are tappable */
+  .sticky-cta__btn {
+    min-height: 48px;
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Mobile nav items */
+  .mobile-nav__link,
+  .mobile-nav-link {
+    min-height: 48px;
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  select,
+  textarea {
+    min-height: 48px;
+    padding: 0.875rem 1rem;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* ========================================
+   SAFE AREA INSETS (iPhone Notch/Home Indicator)
+   ======================================== */
+
+/* Sticky CTA safe area */
+.sticky-cta {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Mobile nav safe area */
+.mobile-nav,
+.mobile-nav-drawer {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Bottom-fixed elements */
+.fixed-bottom,
+[class*="sticky-bottom"],
+[class*="fixed-bottom"] {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Viewport safe areas */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* ========================================
+   GLOBAL FOCUS INDICATORS (Keyboard Navigation)
+   ======================================== */
+
+/* Remove default outlines */
+*:focus {
+  outline: none;
+}
+
+/* Modern focus-visible styles (keyboard only) */
+*:focus-visible {
+  outline: 3px solid var(--color-primary-500, #0EA5E9);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Specific element focus styles */
+a:focus-visible {
+  outline-color: var(--color-primary-600, #1E40AF);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+[type="submit"]:focus-visible,
+[type="button"]:focus-visible {
+  outline-color: var(--color-accent-500, #F59E0B);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-color: var(--color-primary-500, #0EA5E9);
+  outline-width: 3px;
+  outline-offset: 1px;
+}
+
+/* Skip link enhancement */
+.skip-link:focus-visible {
+  outline: 4px solid #ffffff;
+  outline-offset: 4px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+
+/* Button loading state */
+.btn--loading,
+.button--loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  cursor: wait;
+}
+
+.btn--loading::after,
+.button--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 3px solid rgb(255 255 255 / 30%);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* Form loading overlay */
+.form--loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 60%;
+}
+
+.form--loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(255 255 255 / 90%);
+  z-index: 10;
+  border-radius: var(--radius-lg, 8px);
+}
+
+.form--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 4px solid var(--color-neutral-300, #D1D5DB);
+  border-top-color: var(--color-primary-500, #0EA5E9);
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+  z-index: 11;
+}
+
+/* ========================================
+   ERROR VISIBILITY
+   ======================================== */
+
+/* Form error summary - ALWAYS visible when errors exist */
+.error-summary {
+  display: none;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-left-width: 6px;
+  border-radius: var(--radius-md, 6px);
+  color: #991B1B;
+  font-weight: 600;
+}
+
+.error-summary.visible,
+.error-summary[aria-hidden="false"] {
+  display: block;
+  animation: shake 0.4s ease-in-out;
+}
+
+.error-summary__icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+  vertical-align: middle;
+}
+
+.error-summary__title {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.error-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.error-list li {
+  margin-bottom: 0.5rem;
+}
+
+.error-list a {
+  color: #DC2626;
+  text-decoration: underline;
+}
+
+.error-list a:hover {
+  color: #991B1B;
+}
+
+/* Individual field errors - more prominent */
+.error-message,
+.field-error {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #FEE2E2;
+  border-left: 3px solid #DC2626;
+  color: #991B1B;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.error-message::before,
+.field-error::before {
+  content: '⚠ ';
+  margin-right: 0.25rem;
+}
+
+/* Input error state */
+input.error,
+textarea.error,
+select.error,
+input:invalid,
+textarea:invalid,
+select:invalid {
+  border-color: #DC2626;
+  border-width: 2px;
+  background-color: #FEF2F2;
+}
+
+input.error:focus,
+textarea.error:focus,
+select.error:focus {
+  border-color: #991B1B;
+  box-shadow: 0 0 0 3px rgb(220 38 38 / 10%);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+/* ========================================
+   SUCCESS STATES
+   ======================================== */
+
+/* Success toast */
+.toast--success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #ECFDF5;
+  border: 2px solid #10B981;
+  border-left-width: 6px;
+  border-radius: var(--radius-md, 6px);
+  color: #065F46;
+  font-weight: 600;
+  box-shadow: 0 10px 40px rgb(16 185 129 / 20%);
+  animation: slide-in-right 0.3s ease-out;
+}
+
+.toast--success::before {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #10B981;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0%;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--color-primary-500, #0EA5E9), var(--color-primary-700, #0369A1));
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0%;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgb(14 165 233 / 40%);
+  z-index: 998;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.back-to-top.visible {
+  opacity: 100%;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: linear-gradient(135deg, var(--color-primary-600, #0284C7), var(--color-primary-800, #075985));
+  box-shadow: 0 8px 30px rgb(14 165 233 / 60%);
+  transform: translateY(-4px);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px);
+}
+
+.back-to-top::before {
+  content: '↑';
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Mobile positioning */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    right: 1rem;
+  }
+  
+  .back-to-top::before {
+    font-size: 1.5rem;
+  }
+  
+  /* Adjust if sticky CTA is visible */
+  .sticky-cta.visible ~ .back-to-top {
+    bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ========================================
+   SKELETON SCREENS
+   ======================================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-200, #E5E7EB) 0%,
+    var(--color-neutral-100, #F3F4F6) 50%,
+    var(--color-neutral-200, #E5E7EB) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: var(--radius-md, 6px);
+}
+
+.skeleton--text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.skeleton--title {
+  height: 2rem;
+  margin-bottom: 1rem;
+  width: 60%;
+}
+
+.skeleton--button {
+  height: 48px;
+  width: 120px;
+}
+
+.skeleton--card {
+  height: 300px;
+  border-radius: var(--radius-lg, 8px);
+}
+
+.skeleton--circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--loading::after,
+  .form--loading::after,
+  .skeleton {
+    animation: none;
+  }
+  
+  .back-to-top {
+    transition: opacity 0.1s;
+  }
+  
+  .toast--success {
+    animation: none;
+  }
+  
+  .error-summary.visible {
+    animation: none;
+  }
+}
+
+/* ========================================
+   HIGH CONTRAST MODE
+   ======================================== */
+
+@media (prefers-contrast: more) {
+  *:focus-visible {
+    outline-width: 4px;
+    outline-offset: 4px;
+  }
+  
+  .error-summary,
+  .error-message,
+  .field-error {
+    border-width: 3px;
+  }
+  
+  input.error,
+  textarea.error,
+  select.error {
+    border-width: 3px;
+  }
+}

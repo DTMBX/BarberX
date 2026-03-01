@@ -1,0 +1,463 @@
+---
+layout: default
+title: Admin Dashboard | SweatEquity Insurance
+description: Administrative controls for member management, claims, and compliance
+robots: noindex, nofollow
+permalink: /ventures/sei/admin/
+---
+
+<script src="/ventures/sei/demo-data.js"></script>
+
+<div class="sei-app bg-gray-900 text-white min-h-screen">
+  
+  <!-- Admin Header -->
+  <header class="sei-app-header bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <a href="/ventures/sei/app" class="flex items-center mr-8">
+            <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold">SEI <span class="text-purple-400">Admin</span></span>
+          </a>
+          
+          <nav class="hidden md:flex space-x-6 text-sm">
+            <a href="#overview" class="text-purple-400 font-semibold">Overview</a>
+            <a href="#members" class="text-gray-400 hover:text-white">Members</a>
+            <a href="#claims" class="text-gray-400 hover:text-white">Claims</a>
+            <a href="#fraud" class="text-gray-400 hover:text-white">Fraud</a>
+            <a href="#compliance" class="text-gray-400 hover:text-white">Compliance</a>
+          </nav>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <span class="text-xs text-gray-400">Admin User</span>
+          <div class="w-10 h-10 bg-purple-700 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Demo Disclaimer Banner -->
+  <div class="bg-yellow-900 bg-opacity-20 border-b border-yellow-700">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex items-center justify-center">
+        <svg class="w-5 h-5 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span class="text-sm text-yellow-200">
+          <strong>ADMIN DEMO MODE:</strong> Administrative interface with simulated data. All controls are for demonstration only.
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Admin Dashboard -->
+  <main class="container mx-auto px-4 py-8">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-2">Administrative Dashboard</h1>
+        <p class="text-gray-400">Member management, claims processing, fraud detection, and compliance controls</p>
+      </div>
+      
+      <!-- Top Stats Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-gray-400">Total Members</span>
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold mb-2" id="totalMembers">2,847</div>
+          <div class="text-xs text-green-400">+108 pending onboarding</div>
+        </div>
+        
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-gray-400">Open Claims</span>
+            <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold mb-2" id="openClaims">23</div>
+          <div class="text-xs text-gray-400">Avg processing: 6.2 days</div>
+        </div>
+        
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-gray-400">Fraud Alerts</span>
+            <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-red-400 mb-2" id="fraudAlerts">5</div>
+          <div class="text-xs text-gray-400">2 investigations open</div>
+        </div>
+        
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm text-gray-400">Monthly Revenue</span>
+            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-green-400 mb-2" id="monthlyRevenue">$290K</div>
+          <div class="text-xs text-gray-400">$178K expenses</div>
+        </div>
+        
+      </div>
+      
+      <!-- Main Content Grid -->
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Left Column - Member Management & Claims -->
+        <div class="lg:col-span-2 space-y-8">
+          
+          <!-- Member Management -->
+          <section id="members" class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <h2 class="text-xl font-bold mb-6">Member Management</h2>
+            
+            <!-- Member Search -->
+            <div class="mb-6">
+              <input type="text" placeholder="Search members by name, email, or member ID..." class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400">
+            </div>
+            
+            <!-- Member Stats -->
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div class="bg-gray-700 rounded-lg p-4 text-center">
+                <div class="text-2xl font-bold text-green-400">2,721</div>
+                <div class="text-xs text-gray-400 mt-1">Active</div>
+              </div>
+              <div class="bg-gray-700 rounded-lg p-4 text-center">
+                <div class="text-2xl font-bold text-yellow-400">108</div>
+                <div class="text-xs text-gray-400 mt-1">Onboarding</div>
+              </div>
+              <div class="bg-gray-700 rounded-lg p-4 text-center">
+                <div class="text-2xl font-bold text-red-400">18</div>
+                <div class="text-xs text-gray-400 mt-1">Suspended</div>
+              </div>
+            </div>
+            
+            <!-- Recent Members Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-gray-700">
+                    <th class="text-left py-3 px-2 text-gray-400 font-semibold">Member</th>
+                    <th class="text-left py-3 px-2 text-gray-400 font-semibold">Score</th>
+                    <th class="text-left py-3 px-2 text-gray-400 font-semibold">Premium</th>
+                    <th class="text-left py-3 px-2 text-gray-400 font-semibold">Status</th>
+                    <th class="text-right py-3 px-2 text-gray-400 font-semibold">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="membersTable"></tbody>
+              </table>
+            </div>
+          </section>
+          
+          <!-- Claims Queue -->
+          <section id="claims" class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold">Claims Processing Queue</h2>
+              <select class="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm">
+                <option>All Claims</option>
+                <option>Under Review</option>
+                <option>Awaiting Info</option>
+                <option>Approved</option>
+                <option>Denied</option>
+              </select>
+            </div>
+            
+            <div class="space-y-4" id="claimsQueue"></div>
+          </section>
+          
+        </div>
+        
+        <!-- Right Column - Fraud & Compliance -->
+        <div class="space-y-8">
+          
+          <!-- Fraud Detection -->
+          <section id="fraud" class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <h2 class="text-xl font-bold mb-6">Fraud Detection</h2>
+            
+            <div class="space-y-4">
+              
+              <div class="bg-red-900 bg-opacity-30 border border-red-700 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-red-300">High Priority</span>
+                  <span class="px-2 py-1 bg-red-700 text-red-100 rounded text-xs font-bold">NEW</span>
+                </div>
+                <div class="text-sm mb-2">Multiple claims pattern detected</div>
+                <div class="text-xs text-gray-400">Member ID: user-047 (3 claims in 2 months)</div>
+                <div class="flex gap-2 mt-3">
+                  <button class="flex-1 py-2 bg-red-700 hover:bg-red-600 rounded text-xs font-semibold transition">Investigate</button>
+                  <button class="flex-1 py-2 bg-gray-700 hover:bg-gray-600 rounded text-xs font-semibold transition">Dismiss</button>
+                </div>
+              </div>
+              
+              <div class="bg-yellow-900 bg-opacity-30 border border-yellow-700 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-yellow-300">Medium Priority</span>
+                </div>
+                <div class="text-sm mb-2">Score drop after claim filed</div>
+                <div class="text-xs text-gray-400">Member ID: user-152 (Score: 88 → 62)</div>
+                <div class="flex gap-2 mt-3">
+                  <button class="flex-1 py-2 bg-yellow-700 hover:bg-yellow-600 rounded text-xs font-semibold transition">Review</button>
+                  <button class="flex-1 py-2 bg-gray-700 hover:bg-gray-600 rounded text-xs font-semibold transition">Dismiss</button>
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-gray-700">
+              <div class="text-xs text-gray-400 mb-2">Fraud Detection Stats</div>
+              <div class="grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <div class="text-gray-400">Flagged Claims</div>
+                  <div class="font-bold">5</div>
+                </div>
+                <div>
+                  <div class="text-gray-400">Suspended Members</div>
+                  <div class="font-bold text-red-400">3</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Compliance Controls -->
+          <section id="compliance" class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <h2 class="text-xl font-bold mb-6">Compliance Mode</h2>
+            
+            <div class="space-y-4">
+              
+              <div>
+                <label class="block text-sm font-semibold mb-2">Operating State</label>
+                <select class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
+                  <option value="NJ">New Jersey (Demo)</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="FL">Florida</option>
+                </select>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-semibold mb-2">Compliance Mode</label>
+                <select class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
+                  <option value="beta">Beta Testing</option>
+                  <option value="full">Full Benefit Ledger</option>
+                  <option value="rewards">Rewards-Only</option>
+                </select>
+              </div>
+              
+              <div class="flex items-center justify-between py-3 border-b border-gray-700">
+                <span class="text-sm">Benefit Ledger Enabled</span>
+                <label class="relative inline-block w-12 h-6">
+                  <input type="checkbox" checked class="sr-only peer">
+                    <label class="sr-only">Benefit Ledger Enabled</label>
+                  <div class="w-12 h-6 bg-gray-600 rounded-full peer peer-checked:bg-blue-600 peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                </label>
+              </div>
+              
+              <div class="flex items-center justify-between py-3 border-b border-gray-700">
+                <span class="text-sm">Rewards-Only Mode</span>
+                <label class="relative inline-block w-12 h-6">
+                  <input type="checkbox" class="sr-only peer">
+                    <label class="sr-only">Rewards-Only Mode</label>
+                  <div class="w-12 h-6 bg-gray-600 rounded-full peer peer-checked:bg-blue-600 peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                </label>
+              </div>
+              
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">Court-Ready Audit Log</span>
+                <label class="relative inline-block w-12 h-6">
+                  <input type="checkbox" checked disabled class="sr-only peer">
+                    <label class="sr-only">Court-Ready Audit Log</label>
+                  <div class="w-12 h-6 bg-blue-600 rounded-full opacity-75 after:content-[''] after:absolute after:top-0.5 after:left-6.5 after:bg-white after:rounded-full after:h-5 after:w-5"></div>
+                </label>
+              </div>
+              
+            </div>
+            
+            <div class="mt-6 p-4 bg-purple-900 bg-opacity-20 border border-purple-700 rounded text-xs text-purple-200">
+              <strong>Note:</strong> Compliance mode changes require regulatory approval and may affect member benefit calculations.
+            </div>
+          </section>
+          
+          <!-- Financial Overview -->
+          <section class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <h2 class="text-xl font-bold mb-6">Financial Overview</h2>
+            
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-400">Monthly Revenue</span>
+                <span class="font-bold text-green-400">$290,340</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-400">Monthly Expenses</span>
+                <span class="font-bold text-red-400">$178,420</span>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                <span class="text-sm text-gray-400">Reserve Balance</span>
+                <span class="font-bold text-yellow-400">$850,000</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-400">Reserve Ratio</span>
+                <span class="font-bold">36.3%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-400">Reinsurance Utilization</span>
+                <span class="font-bold text-green-400">0%</span>
+              </div>
+            </div>
+            
+            <button class="w-full mt-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold text-sm transition">
+              Export Financial Report (PDF)
+            </button>
+          </section>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </main>
+  
+  <!-- Exit Admin Footer -->
+  <footer class="bg-gray-800 border-t border-gray-700 py-8 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <div class="mb-4">
+        <a href="/ventures/sei" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Exit Admin - Back to SEI Product Page
+        </a>
+      </div>
+      <p class="text-xs text-gray-400">
+        SweatEquity Insurance (SEI) Admin Dashboard - Demo Only. © 2026 Tillerstead Ventures LLC.
+      </p>
+    </div>
+  </footer>
+  
+</div>
+
+<script>
+// Load admin stats
+const stats = ADMIN_STATS;
+const users = DEMO_USERS;
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+  renderMembersTable();
+  renderClaimsQueue();
+});
+
+function renderMembersTable() {
+  const membersArray = Object.values(users);
+  const html = membersArray.map(member => {
+    const scoreColor = member.drivingScore >= 90 ? 'text-green-400' : 
+                       member.drivingScore >= 80 ? 'text-yellow-400' : 
+                       member.drivingScore >= 70 ? 'text-orange-400' : 'text-red-400';
+    
+    return `
+      <tr class="border-b border-gray-700 hover:bg-gray-750">
+        <td class="py-3 px-2">
+          <div class="font-semibold">${member.name}</div>
+          <div class="text-xs text-gray-400">${member.id}</div>
+        </td>
+        <td class="py-3 px-2">
+          <span class="font-bold ${scoreColor}">${member.drivingScore}</span>
+        </td>
+        <td class="py-3 px-2">$${member.premium.monthly}</td>
+        <td class="py-3 px-2">
+          <span class="px-2 py-1 bg-green-900 text-green-300 border border-green-700 rounded text-xs">Active</span>
+        </td>
+        <td class="py-3 px-2 text-right">
+          <button class="text-blue-400 hover:text-blue-300 text-xs">View Details</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+  
+  document.getElementById('membersTable').innerHTML = html;
+}
+
+function renderClaimsQueue() {
+  const allClaims = [];
+  Object.values(users).forEach(user => {
+    user.claims.forEach(claim => {
+      allClaims.push({
+        ...claim,
+        memberName: user.name,
+        memberId: user.id
+      });
+    });
+  });
+  
+  const html = allClaims.map(claim => {
+    const statusColors = {
+      'Under Review': 'bg-yellow-900 text-yellow-300 border-yellow-700',
+      'Approved': 'bg-green-900 text-green-300 border-green-700',
+      'Denied': 'bg-red-900 text-red-300 border-red-700',
+      'Paid': 'bg-blue-900 text-blue-300 border-blue-700'
+    };
+    
+    return `
+      <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-650 transition">
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex-1">
+            <div class="font-semibold mb-1">${claim.type}</div>
+            <div class="text-xs text-gray-400">Member: ${claim.memberName} (${claim.memberId})</div>
+          </div>
+          <span class="px-3 py-1 ${statusColors[claim.status]} border rounded-full text-xs font-semibold">${claim.status}</span>
+        </div>
+        <div class="grid grid-cols-3 gap-3 text-xs mt-3">
+          <div>
+            <div class="text-gray-400">Claim ID</div>
+            <div class="font-semibold">${claim.id}</div>
+          </div>
+          <div>
+            <div class="text-gray-400">Filed</div>
+            <div class="font-semibold">${claim.date}</div>
+          </div>
+          <div>
+            <div class="text-gray-400">Amount</div>
+            <div class="font-semibold">${claim.amount > 0 ? '$' + claim.amount.toLocaleString() : 'TBD'}</div>
+          </div>
+        </div>
+        <div class="flex gap-2 mt-4">
+          <button class="flex-1 py-2 bg-blue-600 hover:bg-blue-700 rounded text-xs font-semibold transition">Review</button>
+          <button class="flex-1 py-2 bg-gray-600 hover:bg-gray-500 rounded text-xs font-semibold transition">Export</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  document.getElementById('claimsQueue').innerHTML = html || '<div class="text-center py-8 text-gray-400">No claims in queue</div>';
+}
+</script>
+
+<style>
+.sei-app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.bg-gray-750 {
+  background-color: #2d3748;
+}
+
+.bg-gray-650 {
+  background-color: #3a4556;
+}
+</style>
