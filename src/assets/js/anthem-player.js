@@ -2,16 +2,16 @@
  * ============================================================================
  * National Anthem Audio Player — Evident Technologies
  * ============================================================================
- * 
+ *
  * Respectful playback of The Star-Spangled Banner on homepage landing.
- * 
+ *
  * Features:
  * - Gentle 3-second fade-in (not startling)
  * - Graceful fade-out when song ends
  * - Remembers user's mute preference
  * - Graceful degradation if audio unavailable
  * - Respects browser autoplay policies
- * 
+ *
  * Version: 1.0.0
  * Last updated: 2026-02-11
  */
@@ -20,13 +20,13 @@
 
   // Configuration
   const CONFIG = {
-    fadeInDuration: 3000,     // 3 seconds fade-in
-    fadeOutDuration: 2000,    // 2 seconds fade-out
-    initialVolume: 0.4,       // 40% volume (respectful level)
-    maxVolume: 0.5,           // Maximum 50% volume
-    fadeSteps: 50,            // Smoothness of fade
-    autoplayDelay: 1500,      // Wait 1.5s after page load
-    storageKey: 'evident_anthem_muted'
+    fadeInDuration: 3000, // 3 seconds fade-in
+    fadeOutDuration: 2000, // 2 seconds fade-out
+    initialVolume: 0.4, // 40% volume (respectful level)
+    maxVolume: 0.5, // Maximum 50% volume
+    fadeSteps: 50, // Smoothness of fade
+    autoplayDelay: 1500, // Wait 1.5s after page load
+    storageKey: 'evident_anthem_muted',
   };
 
   // DOM elements
@@ -37,7 +37,7 @@
    */
   function init() {
     console.log('[Anthem] Initializing player...');
-    
+
     player = document.getElementById('anthem-player');
     audio = document.getElementById('anthem-audio');
     toggleBtn = document.getElementById('anthem-toggle');
@@ -48,7 +48,7 @@
     if (!player || !audio) {
       console.error('[Anthem] Player elements not found', {
         player: !!player,
-        audio: !!audio
+        audio: !!audio,
       });
       return;
     }
@@ -88,7 +88,7 @@
   function handleAudioReady() {
     console.log('[Anthem] Audio ready');
     player.classList.add('is-ready');
-    
+
     // Attempt autoplay after delay
     setTimeout(function () {
       attemptAutoplay();
@@ -105,30 +105,31 @@
       error: audio.error,
       networkState: audio.networkState,
       readyState: audio.readyState,
-      currentSrc: audio.currentSrc
+      currentSrc: audio.currentSrc,
     };
-    
+
     console.error('[Anthem] Audio error:', errorDetails);
-    
+
     if (audio.error) {
       console.error('[Anthem] MediaError code:', audio.error.code);
       console.error('[Anthem] MediaError message:', audio.error.message);
-      
+
       const errorMessages = {
         1: 'MEDIA_ERR_ABORTED - User aborted download',
         2: 'MEDIA_ERR_NETWORK - Network error occurred',
         3: 'MEDIA_ERR_DECODE - Audio decoding failed',
-        4: 'MEDIA_ERR_SRC_NOT_SUPPORTED - Audio format not supported'
+        4: 'MEDIA_ERR_SRC_NOT_SUPPORTED - Audio format not supported',
       };
-      
+
       console.error('[Anthem] Error type:', errorMessages[audio.error.code] || 'Unknown error');
     }
-    
+
     player.classList.add('is-unavailable');
-    
+
     // Show user-friendly message
     if (status) {
-      status.innerHTML = '<span class="anthem-player__text" style="color: rgba(255,255,255,0.7);">Audio unavailable</span>';
+      status.innerHTML =
+        '<span class="anthem-player__text" style="color: rgba(255,255,255,0.7);">Audio unavailable</span>';
     }
   }
 
@@ -154,7 +155,7 @@
     // Start muted with volume at 0 to satisfy browser autoplay policies
     audio.muted = true;
     audio.volume = 0;
-    
+
     // Attempt to play
     const playPromise = audio.play();
 
@@ -211,7 +212,7 @@
 
     const fadeInterval = setInterval(function () {
       currentStep++;
-      const newVolume = Math.max(startVolume - (volumeStep * currentStep), 0);
+      const newVolume = Math.max(startVolume - volumeStep * currentStep, 0);
       audio.volume = newVolume;
 
       if (currentStep >= CONFIG.fadeSteps) {
@@ -265,7 +266,7 @@
       readyState: audio.readyState,
       networkState: audio.networkState,
       src: audio.src,
-      error: audio.error ? audio.error.message : 'none'
+      error: audio.error ? audio.error.message : 'none',
     });
 
     if (audio.paused) {
@@ -274,7 +275,7 @@
         console.log('[Anthem] Starting playback with fade-in');
         audio.muted = false;
         audio.volume = 0;
-        
+
         const playPromise = audio.play();
         if (playPromise !== undefined) {
           playPromise
@@ -304,7 +305,7 @@
    */
   function toggleMute() {
     audio.muted = !audio.muted;
-    
+
     if (audio.muted) {
       player.classList.add('is-muted');
       updateMuteLabel('Unmute');
@@ -322,13 +323,16 @@
   function replayAnthem() {
     audio.currentTime = 0;
     audio.volume = 0;
-    
-    audio.play().then(function () {
-      player.classList.remove('is-ended');
-      fadeIn();
-    }).catch(function (e) {
-      console.log('[Anthem] Replay failed:', e);
-    });
+
+    audio
+      .play()
+      .then(function () {
+        player.classList.remove('is-ended');
+        fadeIn();
+      })
+      .catch(function (e) {
+        console.log('[Anthem] Replay failed:', e);
+      });
   }
 
   /**

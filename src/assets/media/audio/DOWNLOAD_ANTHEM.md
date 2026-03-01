@@ -2,7 +2,8 @@
 
 ## Status: Audio File Missing (Manual Download Required)
 
-The automated download failed due to network restrictions. The audio file must be manually downloaded.
+The automated download failed due to network restrictions. The audio file must
+be manually downloaded.
 
 ## Quick Steps
 
@@ -16,29 +17,34 @@ The automated download failed due to network restrictions. The audio file must b
 ## Recommended Sources (Public Domain)
 
 ### Option 1: YouTube Audio Library (Free, No Attribution Required)
+
 1. Visit: https://www.youtube.com/audiolibrary
 2. Search: "Star Spangled Banner"
 3. Download MP3
 4. Rename to: `star-spangled-banner.mp3`
 
 ### Option 2: Free Music Archive
+
 1. Visit: https://freemusicarchive.org/
 2. Search: "Star Spangled Banner instrumental"
 3. Filter by: "Public Domain" or "CC0"
 4. Download MP3
 
 ### Option 3: Pixabay (Free Music)
+
 1. Visit: https://pixabay.com/music/
 2. Search: "National Anthem" or "Star Spangled Banner"
 3. Download MP3 (free account required)
 
 ### Option 4: Internet Archive
+
 1. Visit: https://archive.org/details/audio
 2. Search: "Star Spangled Banner instrumental"
 3. Filter: "Public Domain"
 4. Download MP3 version
 
 ### Option 5: Use Your Own Recording
+
 - Any MP3 file works
 - Instrumental version recommended (respectful, no distractions)
 - Recommended specs:
@@ -52,6 +58,7 @@ The automated download failed due to network restrictions. The audio file must b
 ## Manual Download Steps
 
 **Windows PowerShell:**
+
 ```powershell
 # After manually downloading the file:
 Move-Item "Downloads\your-anthem-file.mp3" "src\assets\media\audio\star-spangled-banner.mp3"
@@ -59,6 +66,7 @@ npx @11ty/eleventy
 ```
 
 **Or simply:**
+
 1. Download any Star-Spangled Banner MP3
 2. Rename it to: `star-spangled-banner.mp3`
 3. Copy to: `c:\web-dev\github-repos\Evident\src\assets\media\audio\`
@@ -69,6 +77,7 @@ npx @11ty/eleventy
 ## After Adding the File
 
 The anthem will automatically:
+
 - ✓ Autoplay with 3-second gentle fade-in
 - ✓ Start at 40% volume (not startling)
 - ✓ Show glass-effect controls (bottom-right of hero)
@@ -90,10 +99,11 @@ The anthem will automatically:
 **Why Manual Download?**
 
 Automated downloads failed due to:
+
 - Anti-scraping protection on source sites
 - Network timeouts
 - 404 errors on direct file URLs
 - CORS restrictions
 
-Manual download is more reliable and gives you control over the audio source quality.
-
+Manual download is more reliable and gives you control over the audio source
+quality.

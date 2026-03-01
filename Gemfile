@@ -1,8 +1,5 @@
 source "https://rubygems.org"
 
-# Ruby version - updated to allow 3.4.x for better compatibility
-ruby ">= 3.2", "< 3.5"
-
 # Jekyll - direct dependency (deployed via GitHub Actions, not github-pages gem)
 gem "jekyll", "~> 4.4.1"
 

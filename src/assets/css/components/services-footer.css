@@ -6,8 +6,7 @@
   position: relative;
   width: 100%;
   padding-block: 5rem 6rem;
-  background:
-    linear-gradient(135deg, #f0f4f8 0%, #e8eef5 50%, #f6f7f9 100%);
+  background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 50%, #f6f7f9 100%);
   overflow: hidden;
 }
 
@@ -113,7 +112,9 @@
     0 4px 24px rgb(0 0 0 / 6%),
     0 1px 3px rgb(0 0 0 / 4%),
     inset 0 1px 0 rgb(255 255 255 / 80%);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .glass-card:hover {
@@ -208,8 +209,7 @@
 .site-footer {
   position: relative;
   width: 100%;
-  background:
-    linear-gradient(160deg, #0d1b2a 0%, #1b2838 40%, #162133 100%);
+  background: linear-gradient(160deg, #0d1b2a 0%, #1b2838 40%, #162133 100%);
   color: #cbd5e1;
   overflow: hidden;
 }
@@ -277,7 +277,10 @@
   background: rgb(255 255 255 / 6%);
   border: 1px solid rgb(255 255 255 / 8%);
   color: #94a3b8;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .footer-social__link:hover {
