@@ -67,7 +67,7 @@ class IngestResult:
 
     # Deduplication info
     is_duplicate: bool = False
-Optional[duplicate_of_doc_id: int] = None
+    duplicate_of_doc_id: Optional[int] = None
 
 
 @dataclass
@@ -77,9 +77,9 @@ class PageExtraction:
     page_number: int  # 1-indexed
     text: str
     char_count: int
-Optional[storage_path: str] = None  # Path to cached page text file
+    storage_path: Optional[str] = None  # Path to cached page text file
     extraction_method: ExtractionMethod = ExtractionMethod.TEXT
-Optional[confidence_score: float] = None  # OCR confidence if applicable
+    confidence_score: Optional[float] = None  # OCR confidence if applicable
 
 
 @dataclass
@@ -102,7 +102,7 @@ class ExtractResult:
     text_layer_detected: bool  # Was native text present?
     extraction_method: ExtractionMethod  # How we got the text
     ocr_triggered: bool = False
-Optional[storage_path_processed: str] = None  # Path to OCR'd PDF if created
+    storage_path_processed: Optional[str] = None  # Path to OCR'd PDF if created
 
     # Quality metrics
     total_chars: int = 0
@@ -133,7 +133,7 @@ class IndexResult:
 
     # Quality metrics
     total_terms: int = 0  # Unique terms in keyword index
-Optional[embedding_dimensions: int] = None
+    embedding_dimensions: Optional[int] = None
 
     indexed_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -210,8 +210,8 @@ class CitationRecord:
     snippet: str  # Cited text
 
     # Authority info (if legal citation)
-Optional[authority_name: str] = None  # e.g., "Miranda v. Arizona"
-Optional[authority_citation: str] = None  # e.g., "384 U.S. 436 (1966)"
+    authority_name: Optional[str] = None  # e.g., "Miranda v. Arizona"
+    authority_citation: Optional[str] = None  # e.g., "384 U.S. 436 (1966)"
 
     created_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -241,7 +241,7 @@ class AnalysisResult:
     # Metadata
     model: str = "gpt-4"
     tokens_used: int = 0
-Optional[confidence_score: float] = None
+    confidence_score: Optional[float] = None
 
     created_at: datetime = field(default_factory=datetime.utcnow)
 
@@ -277,7 +277,7 @@ class ManifestRecord:
 
     # Provenance
     source_system: str = "app"
-Optional[doc_id: int] = None  # DB primary key once inserted
+    doc_id: Optional[int] = None  # DB primary key once inserted
 
 
 # Validation helpers

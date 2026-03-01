@@ -205,24 +205,26 @@ async def stream_transcription(sid: str, file_id: str, update_interval: float = 
     Polls transcription status and emits updates
     """
     try:
-        from models.database import Transcription, MediaFile
+        from models.document_processing import TranscriptionResult, DocumentProcessingTask
+        # TODO: MediaFile model not yet created — using DocumentProcessingTask as proxy
+        # Replace with proper MediaFile model when media pipeline models are implemented
         
         max_attempts = 600  # 10 minutes with 1-second intervals
         attempts = 0
         
         while attempts < max_attempts:
-            transcription = Transcription.query.filter_by(
-                media_file_id=file_id
+            transcription = TranscriptionResult.query.filter_by(
+                evidence_id=file_id
             ).first()
             
             if transcription:
                 # Transcription complete
-                segments = json.loads(transcription.segments_json) \
-                    if transcription.segments_json else []
+                segments = json.loads(transcription.timecoded_transcript) \
+                    if transcription.timecoded_transcript else []
                 
                 await sio.emit('transcription_complete', {
                     'file_id': file_id,
-                    'full_text': transcription.full_text,
+                    'full_text': transcription.full_transcript,
                     'segments': segments,
                     'word_count': len(transcription.full_text.split()),
                     'completed_at': datetime.utcnow().isoformat(),
@@ -281,7 +283,8 @@ async def stream_sync_status(sid: str, batch_id: str):
     Stream synchronization status and progress
     """
     try:
-        from models.database import MediaFile
+        from models.document_processing import DocumentProcessingTask
+        # TODO: MediaFile model not yet created — using DocumentProcessingTask as proxy
         
         max_attempts = 300  # 5 minutes
         attempts = 0

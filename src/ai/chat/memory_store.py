@@ -42,7 +42,7 @@ class ConversationMemoryStore:
         logger.info("ConversationMemoryStore initialized")
 
     def store_conversation(
-Optional[self, user_id: int, project_id: int]Optional[, title: str, metadata: dict] = None
+        self, user_id: int, project_id: Optional[int] = None, title: Optional[str] = None, metadata: Optional[dict] = None
     ) -> int:
         """
         Create new conversation record
@@ -67,8 +67,8 @@ Optional[self, user_id: int, project_id: int]Optional[, title: str, metadata: di
         conversation_id: int,
         role: str,
         content: str,
-Optional[citations: list[dict]] = None,
-Optional[metadata: dict] = None,
+        citations: Optional[list[dict]] = None,
+        metadata: Optional[dict] = None,
     ) -> int:
         """
         Store a message in conversation
@@ -118,11 +118,11 @@ Optional[metadata: dict] = None,
     def search_conversations(
         self,
         user_id: int,
-Optional[query: str] = None,
-Optional[date_from: datetime] = None,
-Optional[date_to: datetime] = None,
+        query: Optional[str] = None,
+        date_from: Optional[datetime] = None,
+        date_to: Optional[datetime] = None,
         has_citations: bool = False,
-Optional[topics: list[str]] = None,
+        topics: Optional[list[str]] = None,
         limit: int = 50,
     ) -> list[dict[str, Any]]:
         """
@@ -194,7 +194,7 @@ Optional[topics: list[str]] = None,
         return {"nodes": list(nodes.values()), "edges": edges, "total_citations": len(citations)}
 
     def get_conversation_analytics(
-Optional[self, user_id: int, date_from: datetime] = None
+        self, user_id: int, date_from: Optional[datetime] = None
     ) -> dict[str, Any]:
         """
         Get analytics for user's conversations

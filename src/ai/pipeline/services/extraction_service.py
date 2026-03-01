@@ -31,7 +31,7 @@ class ExtractionService:
     and ensures OCR on image-only PDFs.
     """
 
-Optional[def __init__(self, config: dict] = None, manifest_service=None):
+    def __init__(self, config: Optional[dict] = None, manifest_service=None):
         self.config = config or {}
         self.manifest_service = manifest_service
 

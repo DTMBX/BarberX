@@ -34,7 +34,7 @@ class EnhancedChatAssistant:
     - Multi-modal context (text, audio transcripts, evidence)
     """
 
-Optional[def __init__(self, user_id: int, project_id: int] = None):
+    def __init__(self, user_id: int, project_id: Optional[int] = None):
         """
         Initialize enhanced chat assistant
 
@@ -49,14 +49,14 @@ Optional[def __init__(self, user_id: int, project_id: int] = None):
         self.orchestrator = get_orchestrator()
 
         # Conversation state
-Optional[self.conversation_id: int] = None
+        self.conversation_id: Optional[int] = None
         self.message_history: list[dict] = []
         self.referenced_documents: list[int] = []  # Track doc_ids
 
         logger.info(f"EnhancedChatAssistant initialized for user_id={user_id}")
 
     def start_conversation(
-Optional[self, title: str]Optional[= None, context_documents: list[int]] = None
+        self, title: Optional[str] = None, context_documents: Optional[list[int]] = None
     ) -> dict[str, Any]:
         """
         Start a new conversation with optional document context
@@ -220,7 +220,7 @@ Optional[self, title: str]Optional[= None, context_documents: list[int]] = None
         }
 
     def search_conversation_history(
-Optional[self, query: str, message_type: str] = None
+        self, query: str, message_type: Optional[str] = None
     ) -> list[dict[str, Any]]:
         """
         Search within conversation history

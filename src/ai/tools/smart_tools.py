@@ -37,7 +37,7 @@ class ToolResult:
     data: Any
     source: str = ""
     confidence: float = 1.0
-Optional[error: str] = None
+    error: Optional[str] = None
 
 
 class SmartTools:
@@ -535,7 +535,7 @@ class SmartTools:
         except Exception as e:
             return ToolResult(tool="math", success=False, data=None, error=str(e))
 
-Optional[def _extract_math_expression(self, query: str) -> str]:
+    def _extract_math_expression(self, query: str) -> Optional[str]:
         """Extract mathematical expression from natural language"""
         # Remove common question words
         cleaned = re.sub(r"^(what is|calculate|compute|solve|evaluate|find)\s*", "", query.lower())

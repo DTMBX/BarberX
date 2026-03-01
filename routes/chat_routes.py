@@ -272,8 +272,7 @@ def send_message():
                 success, result, metadata = chat_service.execute_tool(
                     conversation_id,
                     tool_name,
-                    tool_args,
-                    execute_tool
+                    tool_args
                 )
                 
                 tool_results.append({
