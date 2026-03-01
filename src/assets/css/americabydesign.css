@@ -1,5 +1,7 @@
 /* EVIDENT TECHNOLOGIES LLC - DESIGN SYSTEM */
+
 /* Note: This file was previously "America by Design" which was used as inspiration only  */
+
 /* Restored to Evident Technologies branding for the Evident multi-platform app */
 
 :root {
@@ -7,7 +9,7 @@
   --evident-primary: #0b73d2; /* Primary blue */
   --evident-accent: #e07a5f; /* Accent orange */
   --evident-neutral: #f6f7f9; /* Light gray */
-  --evident-bg: #ffffff; /* White background */
+  --evident-bg: #fff; /* White background */
   --evident-text: #1a1a2e; /* Dark text */
 
   /* Legacy aliases for compatibility */
@@ -17,7 +19,7 @@
   --ad-accent: #e07a5f; /* Maps to Evident accent */
   --ad-neutral: #f6f7f9; /* Maps to Evident neutral */
   --ad-font-sans:
-    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica', Arial, sans-serif;
+    'Inter', system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica', arial, sans-serif;
 }
 
 /* Typography - Evident Standards */
@@ -50,23 +52,24 @@ h6 {
 .btn-primary {
   background-color: var(--ad-navy);
   color: white;
-  border: 1px solid rgba(11, 115, 210, 0.2);
+  border: 1px solid rgb(11 115 210 / 20%);
 }
 
 .btn-primary:hover {
   background-color: #0a5ba8;
-  box-shadow: 0 2px 8px rgba(11, 115, 210, 0.2);
+  box-shadow: 0 2px 8px rgb(11 115 210 / 20%);
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--ad-navy);
-  border: 1px solid rgba(11, 115, 210, 0.2);
+  border: 1px solid rgb(11 115 210 / 20%);
 }
 
 .btn-ghost:hover {
-  background-color: rgba(11, 115, 210, 0.05);
+  background-color: rgb(11 115 210 / 5%);
 }
+
 h4 {
   font-family: var(--ad-font-sans);
   color: var(--ad-navy);
@@ -78,6 +81,6 @@ h4 {
   height: 1px;
   width: 1px;
   overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
   white-space: nowrap;
 }
