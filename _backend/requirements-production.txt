@@ -30,7 +30,7 @@ openai==2.15.0              # OpenAI API client (for cloud transcription)
 pytesseract==0.3.13         # OCR (uses system tesseract)
 pdf2image==1.17.0           # PDF to image conversion
 pyotp==2.9.0                # 2FA/TOTP authentication
-qrcode[pil]==8.0            # QR code generation
+qrcode[pil]==8.2            # QR code generation
 stripe==11.4.0              # Payment processing
 
 # NOTE: openai-whisper NOT included (requires ffmpeg, pytorch, causes build timeout)
