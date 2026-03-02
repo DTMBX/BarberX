@@ -69,6 +69,56 @@
   --border-medium: var(--gray-300);
   --border-dark: var(--gray-400);
 
+  /* ===== TEMPLATE ALIASES ===== */
+  /* Maps --color-* names used in templates to canonical tokens */
+
+  /* Neutral / Gray aliases */
+  --color-neutral-50: var(--gray-50);
+  --color-neutral-100: var(--gray-100);
+  --color-neutral-200: var(--gray-200);
+  --color-neutral-300: var(--gray-300);
+  --color-neutral-400: var(--gray-400);
+  --color-neutral-500: var(--gray-500);
+  --color-neutral-600: var(--gray-600);
+  --color-neutral-700: var(--gray-700);
+  --color-neutral-800: var(--gray-800);
+  --color-neutral-900: var(--gray-900);
+
+  /* Primary aliases */
+  --color-primary-50: var(--brand-primary-50);
+  --color-primary-100: var(--brand-primary-100);
+  --color-primary-400: var(--brand-primary-400);
+  --color-primary-500: var(--brand-primary-500);
+  --color-primary-600: var(--brand-primary-600);
+  --color-primary-700: var(--brand-primary-700);
+
+  /* Accent aliases */
+  --color-accent-600: var(--brand-accent-600);
+
+  /* Semantic text aliases */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-tertiary);
+  --color-text: var(--text-primary);
+
+  /* Surface / background aliases */
+  --color-surface: var(--bg-primary);
+  --color-surface-alt: var(--bg-secondary);
+  --color-bg: var(--bg-primary);
+  --color-bg-primary: var(--bg-primary);
+
+  /* Border alias */
+  --color-border: var(--border-light);
+
+  /* Semantic status aliases */
+  --color-error-400: var(--color-error);
+  --color-success-400: var(--color-success);
+  --color-success-500: var(--color-success);
+  --color-success-600: #059669;
+  --color-warning-400: var(--color-warning);
+  --color-warning-500: var(--color-warning);
+  --color-warning-600: #d97706;
+
   /* ===== GRADIENTS ===== */
   --gradient-primary: linear-gradient(135deg, var(--brand-primary-500) 0%, var(--brand-primary-600) 100%);
   --gradient-accent: linear-gradient(135deg, var(--brand-accent-500) 0%, var(--brand-accent-600) 100%);
