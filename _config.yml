@@ -283,6 +283,7 @@ exclude:
   - README.md
   - LICENSE
   - "*.ps1"
+  - "*.njk"
   - admin/
   - bwc/
   - env/
