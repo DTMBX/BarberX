@@ -158,7 +158,10 @@ def create_app():
 
     # Phase 12 — Court-defensible evidence algorithms
     from routes.algorithms_api import algorithms_api_bp
-    
+
+    # Phase 13 — AI Assistant capability-restricted action layer
+    from backend.app.core.assistant_routes import assistant_bp
+
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
     app.register_blueprint(upload_bp)
@@ -179,6 +182,7 @@ def create_app():
     app.register_blueprint(review_bp)
     app.register_blueprint(ediscovery_bp)
     app.register_blueprint(algorithms_api_bp)
+    app.register_blueprint(assistant_bp)
     
     # Create tables
     with app.app_context():

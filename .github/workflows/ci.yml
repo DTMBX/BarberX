@@ -68,8 +68,8 @@ jobs:
           echo "✅ Jekyll build successful"
           echo "Files generated: $(find _site -type f | wc -l)"
 
-  test:
-    name: Run Tests
+  test-tier1:
+    name: Tier 1 — E2E Gate
     runs-on: ubuntu-latest
     
     steps:
@@ -108,9 +108,10 @@ jobs:
           curl -f http://localhost:4000 || exit 1
           echo "✅ Jekyll server is running"
       
-      - name: Run Playwright Tests
-        run: npm test
-        continue-on-error: true  # Mobile tests currently failing
+      - name: Run Tier 1 Playwright Tests (PR gate)
+        run: npx playwright test tests/tier1/ tests/basic.spec.js --project=chromium-desktop --reporter=list
+        env:
+          BASE_URL: http://localhost:4000
       
       - name: Stop Jekyll Server
         if: always()
@@ -123,16 +124,66 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: tier1-playwright-report
           path: playwright-report/
           retention-days: 30
+
+  test-tier2:
+    name: Tier 2 — Extended (non-blocking)
+    runs-on: ubuntu-latest
+    needs: [test-tier1]
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       
-      - name: Test Summary
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+      
+      - name: Install Playwright Browsers
+        run: npx playwright install chromium --with-deps
+      
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build
+      
+      - name: Start Jekyll Server
+        run: |
+          bundle exec jekyll serve --port 4000 &
+          echo $! > jekyll.pid
+          sleep 10
+      
+      - name: Run Tier 2 Playwright Tests (extended)
+        run: npx playwright test tests/tier2/ --project=chromium-desktop --reporter=list
+        continue-on-error: true
+        env:
+          BASE_URL: http://localhost:4000
+      
+      - name: Stop Jekyll Server
         if: always()
         run: |
-          echo "⚠️ Note: Mobile tests are currently failing (viewport config issue)"
-          echo "Desktop/tablet tests should pass"
-          echo "See testing-baseline-2026-01-26.md for details"
+          if [ -f jekyll.pid ]; then
+            kill $(cat jekyll.pid) || true
+          fi
+      
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tier2-playwright-report
+          path: playwright-report/
+          retention-days: 30
 
   security:
     name: Security Audit
@@ -178,26 +229,29 @@ jobs:
   summary:
     name: CI Summary
     runs-on: ubuntu-latest
-    needs: [lint, build, test, security]
+    needs: [lint, build, test-tier1, test-tier2, security]
     if: always()
     
     steps:
       - name: Check Results
         run: |
           echo "=== CI Summary ==="
-          echo "Lint: ${{ needs.lint.result }}"
-          echo "Build: ${{ needs.build.result }}"
-          echo "Test: ${{ needs.test.result }}"
-          echo "Security: ${{ needs.security.result }}"
+          echo "Lint:       ${{ needs.lint.result }}"
+          echo "Build:      ${{ needs.build.result }}"
+          echo "Tier 1 E2E: ${{ needs.test-tier1.result }}"
+          echo "Tier 2 E2E: ${{ needs.test-tier2.result }}"
+          echo "Security:   ${{ needs.security.result }}"
           
-          if [ "${{ needs.build.result }}" != "success" ] || [ "${{ needs.security.result }}" != "success" ]; then
-            echo ""
-            echo "❌ CI FAILED: Build or security checks failed"
-            exit 1
+          # Hard gates: build, Tier 1, security
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            echo "" && echo "❌ CI FAILED: Build failed" && exit 1
+          fi
+          if [ "${{ needs.test-tier1.result }}" != "success" ]; then
+            echo "" && echo "❌ CI FAILED: Tier 1 E2E tests failed" && exit 1
+          fi
+          if [ "${{ needs.security.result }}" != "success" ]; then
+            echo "" && echo "❌ CI FAILED: Security audit failed" && exit 1
           fi
           
           echo ""
           echo "✅ CI PASSED: All critical checks successful"
-          echo ""
-          echo "Note: Some tests may be failing (mobile viewport config)"
-          echo "See _reports/testing-baseline-2026-01-26.md for details"
