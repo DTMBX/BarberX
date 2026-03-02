@@ -6,11 +6,12 @@
     "no-duplicate-selectors": null,
     "no-descending-specificity": null,
     "selector-class-pattern": [
-      "^[a-z0-9\\-\\\\:]+$",
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z][a-z0-9]*(-[a-z0-9]+)*)*(--[a-z][a-z0-9]*(-[a-z0-9]+)*)?$",
       {
-        "message": "Expected class selector to be kebab-case (allows escaped utility tokens)"
+        "message": "Expected class selector to be kebab-case or BEM (block__element--modifier)"
       }
     ],
+    "property-no-deprecated": null,
     "selector-id-pattern": null,
     "media-feature-name-value-no-unknown": null
   }

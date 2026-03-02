@@ -61,7 +61,7 @@ class PipelineOrchestrator:
         )
     """
 
-Optional[def __init__(self, config: dict] = None):
+    def __init__(self, config: Optional[dict] = None):
         """
         Initialize orchestrator with services and adapters
 
@@ -93,7 +93,7 @@ Optional[def __init__(self, config: dict] = None):
     # =================================================================
 
     def ingest_document(
-Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = None
+        self, file_path: str, source_system: SourceSystem, metadata: Optional[dict] = None
     ) -> IngestResult:
         """
         Ingest a document into the pipeline
@@ -204,7 +204,7 @@ Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = No
         return result
 
     def retrieve(
-Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str = "keyword"
+        self, query: str, filters: Optional[dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
@@ -240,7 +240,7 @@ Optional[self, query: str, filters: dict] = None, top_k: int = 10, method: str =
         return result
 
     def analyze(
-Optional[self, query: str, context: list[Passage]] = None, mode: str = "legal_research"
+        self, query: str, context: Optional[list[Passage]] = None, mode: str = "legal_research"
     ) -> AnalysisResult:
         """
         Perform LLM analysis with grounded citations
@@ -382,10 +382,10 @@ Optional[self, query: str, context: list[Passage]] = None, mode: str = "legal_re
 
 
 # Singleton instance for global access
-Optional[_orchestrator_instance: PipelineOrchestrator] = None
+_orchestrator_instance: Optional[PipelineOrchestrator] = None
 
 
-Optional[def get_orchestrator(config: dict] = None) -> PipelineOrchestrator:
+def get_orchestrator(config: Optional[dict] = None) -> PipelineOrchestrator:
     """
     Get global orchestrator instance (singleton)
 

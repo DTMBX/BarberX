@@ -107,11 +107,6 @@ class VideoProcessingClient:
         Returns:
             {batch_id, total_files, files, ws_endpoint, status_endpoint}
         """
-        files = []
-        for file_path in file_paths:
-            with open(file_path, 'rb') as f:
-                files.append(('files', f))
-        
         data = {
             'case_id': case_id,
             'quality': quality,
@@ -119,14 +114,25 @@ class VideoProcessingClient:
             'sync_bwc': 'true' if sync_bwc else 'false',
         }
         
-        # Prepare multipart data manually for list of files
-        response = requests.post(
-            f'{self.base_url}/api/upload/batch',
-            files=[(('files', open(fp, 'rb'))) for fp in file_paths],
-            data=data,
-            headers=self.headers,
-            timeout=self.timeout,
-        )
+        # Open file handles and ensure they are closed after upload
+        file_handles = []
+        try:
+            for fp in file_paths:
+                fh = open(fp, 'rb')
+                file_handles.append(fh)
+            
+            files_param = [('files', fh) for fh in file_handles]
+            
+            response = requests.post(
+                f'{self.base_url}/api/upload/batch',
+                files=files_param,
+                data=data,
+                headers=self.headers,
+                timeout=self.timeout,
+            )
+        finally:
+            for fh in file_handles:
+                fh.close()
         
         response.raise_for_status()
         return response.json()

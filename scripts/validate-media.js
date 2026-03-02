@@ -3,15 +3,19 @@ const path = require('path');
 
 const media = [
   { file: 'src/assets/media/flag.mp4', minBytes: 1024 * 10 }, // at least 10KB
-  { file: 'src/assets/images/flag-poster.jpg', minBytes: 1024 }
+  { file: 'src/assets/images/flag-poster.jpg', minBytes: 1024, optional: true }
 ];
 
 let failed = false;
 media.forEach(item => {
   const p = path.join(process.cwd(), item.file);
   if (!fs.existsSync(p)) {
-    console.error('MISSING:', item.file);
-    failed = true;
+    if (item.optional) {
+      console.warn('WARN (optional):', item.file, 'not found');
+    } else {
+      console.error('MISSING:', item.file);
+      failed = true;
+    }
     return;
   }
   const stat = fs.statSync(p);

@@ -39,7 +39,7 @@ class ManifestService:
         manifest/{sha256}.json                  - Audit trail
     """
 
-Optional[def __init__(self, config: dict] = None):
+    def __init__(self, config: Optional[dict] = None):
         self.config = config or {}
 
         # Base paths
@@ -56,7 +56,7 @@ Optional[def __init__(self, config: dict] = None):
         logger.info(f"ManifestService initialized: storage={self.storage_root}")
 
     def ingest(
-Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = None
+        self, file_path: str, source_system: SourceSystem, metadata: Optional[dict] = None
     ) -> IngestResult:
         """
         Ingest file: hash, dedupe, save to canonical location, create manifest
@@ -171,7 +171,7 @@ Optional[self, file_path: str, source_system: SourceSystem, metadata: dict] = No
         self._save_manifest(sha256, manifest)
         logger.info(f"Updated manifest for {sha256}")
 
-Optional[def get_manifest(self, sha256: str) -> ManifestRecord]:
+    def get_manifest(self, sha256: str) -> Optional[ManifestRecord]:
         """Load manifest by SHA-256"""
         return self._load_manifest(sha256)
 
@@ -187,7 +187,7 @@ Optional[def get_manifest(self, sha256: str) -> ManifestRecord]:
                 sha256.update(chunk)
         return sha256.hexdigest()
 
-Optional[def _check_duplicate(self, sha256: str) -> tuple[bool, int]]:
+    def _check_duplicate(self, sha256: str) -> tuple[bool, Optional[int]]:
         """
         Check if document with this hash already exists
 
@@ -241,7 +241,7 @@ Optional[def _check_duplicate(self, sha256: str) -> tuple[bool, int]]:
 
         logger.debug(f"Saved manifest: {manifest_path}")
 
-Optional[def _load_manifest(self, sha256: str) -> ManifestRecord]:
+    def _load_manifest(self, sha256: str) -> Optional[ManifestRecord]:
         """Load manifest from disk"""
         manifest_path = self.manifest_root / f"{sha256}.json"
 

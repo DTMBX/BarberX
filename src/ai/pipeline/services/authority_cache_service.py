@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 class AuthorityCacheService:
     """Caches legal authority lookups to avoid repeated API calls"""
 
-Optional[def __init__(self, config: dict] = None):
+    def __init__(self, config: Optional[dict] = None):
         self.config = config or {}
 
         # Cache TTL (default: 90 days)
@@ -31,7 +31,7 @@ Optional[def __init__(self, config: dict] = None):
 
         logger.info(f"AuthorityCacheService initialized: TTL={self.cache_ttl_days} days")
 
-Optional[def lookup_authority(self, citation: str, source: str = "courtlistener") -> dict]:
+    def lookup_authority(self, citation: str, source: str = "courtlistener") -> Optional[dict]:
         """
         Lookup authority by citation (cached)
 
@@ -66,7 +66,7 @@ Optional[def lookup_authority(self, citation: str, source: str = "courtlistener"
 
     def bulk_lookup(
         self, citations: list[str], source: str = "courtlistener"
-Optional[) -> dict[str, dict]]:
+    ) -> Optional[dict[str, dict]]:
         """
         Lookup multiple authorities (batch)
 
@@ -103,7 +103,7 @@ Optional[) -> dict[str, dict]]:
         # Fallback: just clean whitespace
         return citation.lower().strip().replace(" ", "_")
 
-Optional[def _fetch_from_api(self, citation: str, source: str) -> dict]:
+    def _fetch_from_api(self, citation: str, source: str) -> Optional[dict]:
         """
         Fetch authority from external API
 

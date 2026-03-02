@@ -3,9 +3,9 @@
  * Site Header – Menu, Dropdown, Mobile Drawer (CANONICAL VERSION 1.0.0)
  * Evident Technologies
  * ============================================================================
- * 
+ *
  * DO NOT MODIFY WITHOUT ARCHITECTURAL REVIEW
- * 
+ *
  * This is the finalized, court-defensible header behavior system.
  *
  * Features:
