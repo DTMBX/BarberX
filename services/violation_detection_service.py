@@ -70,7 +70,7 @@ class ViolationDetectionService:
         80-85% accuracy, identifies obvious violations
         """
         violations = []
-        text = evidence.document_text or ""
+        text = evidence.text_content or ""
         
         # Constitutional violations - basic keywords
         constitutional = self._detect_constitutional_basic(text, evidence)
@@ -107,7 +107,7 @@ class ViolationDetectionService:
         # This would call ML models for semantic analysis
         
         # For now, structures the framework
-        text = evidence.document_text or ""
+        text = evidence.text_content or ""
         
         constitutional = self._detect_constitutional_comprehensive(text, evidence)
         violations.extend(constitutional)
@@ -132,7 +132,7 @@ class ViolationDetectionService:
         violations = self._detect_comprehensive_violations(evidence)
         
         # Add expert-level analysis
-        text = evidence.document_text or ""
+        text = evidence.text_content or ""
         case = evidence.legal_case
         
         # Deep constitutional analysis
