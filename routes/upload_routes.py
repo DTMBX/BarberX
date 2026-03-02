@@ -35,6 +35,8 @@ from services.media_processor import (
 # Forensic evidence pipeline
 from services.evidence_store import EvidenceStore, compute_file_hash
 from services.audit_stream import AuditStream, AuditAction
+from models.evidence import EvidenceItem, CaseEvidence
+from auth.models import db
 
 logger = logging.getLogger(__name__)
 
@@ -259,6 +261,20 @@ def upload_single():
                 details={'note': 'Audio processing pending'},
             )
 
+        # 5b. Transcription (video and audio files)
+        if media_type in (MediaType.VIDEO, MediaType.AUDIO):
+            transcription_result = _process_transcription(
+                ingest_result, evidence_item, audit
+            )
+            if transcription_result:
+                derivatives_result['transcription'] = transcription_result
+
+        # 5c. Violation detection (if transcript text is available)
+        if evidence_item.text_content and evidence_item.text_content.strip():
+            violation_result = _run_violation_detection(evidence_item)
+            if violation_result:
+                derivatives_result['violations'] = violation_result
+
         # 6. Mark processing complete
         evidence_item.processing_status = 'completed'
         db.session.commit()
@@ -410,6 +426,145 @@ def _process_video_derivatives(ingest_result, evidence_item, audit):
         result_summary['errors'] = proc_result.get('errors', [])
 
     return result_summary
+
+
+def _process_transcription(ingest_result, evidence_item, audit):
+    """
+    Transcribe an evidence file (video or audio) and store the result.
+
+    Updates the EvidenceItem with:
+      - text_content: full transcript text (for violation detection)
+      - transcript: full transcript JSON (binary, for retrieval)
+      - has_been_transcribed: True
+
+    Stores the transcript JSON as a derivative in the evidence store.
+    Audit-logs the transcription event.
+
+    Returns a summary dict, or None on skip/failure.
+    """
+    from auth.models import db
+    from services.transcription_service import transcribe_evidence_file
+
+    original_path = ingest_result.stored_path
+
+    try:
+        logger.info("Starting transcription for: %s", original_path)
+        result = transcribe_evidence_file(original_path, model_size="base")
+
+        if result.error:
+            logger.warning("Transcription error: %s", result.error)
+            return {'error': result.error}
+
+        if not result.full_text.strip():
+            logger.info("Transcription produced no text (silent or no speech).")
+            evidence_item.has_been_transcribed = True
+            evidence_item.text_content = ""
+            db.session.commit()
+            return {'word_count': 0, 'note': 'No speech detected'}
+
+        # 1. Update evidence item in database
+        transcript_json = json.dumps(result.to_dict(), indent=2)
+        evidence_item.text_content = result.full_text
+        evidence_item.transcript = transcript_json.encode("utf-8")
+        evidence_item.has_been_transcribed = True
+        db.session.commit()
+
+        # 2. Store transcript as a derivative in the evidence store
+        import tempfile as _tmpmod
+        with _tmpmod.TemporaryDirectory(prefix="evident_transcript_") as tmp_dir:
+            transcript_path = os.path.join(tmp_dir, "transcript.json")
+            with open(transcript_path, "w", encoding="utf-8") as f:
+                f.write(transcript_json)
+
+            rec = _evidence_store.store_derivative(
+                ingest_result.sha256, "transcript", transcript_path, "transcript.json"
+            )
+
+            # Update manifest
+            manifest = _evidence_store.load_manifest(ingest_result.evidence_id)
+            if manifest:
+                manifest.derivatives.append(rec)
+                _evidence_store.save_manifest(manifest)
+
+        # 3. Audit log
+        audit.record(
+            evidence_id=ingest_result.evidence_id,
+            db_evidence_id=evidence_item.id,
+            action=AuditAction.TRANSCRIPT_CREATED,
+            actor_id=None,
+            actor_name="system",
+            details={
+                'model': result.model_name,
+                'language': result.language,
+                'language_probability': round(result.language_probability, 4),
+                'word_count': result.word_count,
+                'segment_count': len(result.segments),
+                'duration_seconds': round(result.duration_seconds, 2),
+                'processing_time_seconds': round(result.processing_time_seconds, 2),
+                'sha256': rec.sha256 if rec else None,
+            },
+        )
+
+        logger.info(
+            "Transcription stored: %d words, %d segments, lang=%s",
+            result.word_count,
+            len(result.segments),
+            result.language,
+        )
+
+        return {
+            'word_count': result.word_count,
+            'segment_count': len(result.segments),
+            'language': result.language,
+            'language_probability': round(result.language_probability, 4),
+            'duration_seconds': round(result.duration_seconds, 2),
+            'processing_time_seconds': round(result.processing_time_seconds, 2),
+            'sha256': rec.sha256 if rec else None,
+        }
+
+    except Exception as exc:
+        logger.error("Transcription processing failed: %s", exc, exc_info=True)
+        return {'error': str(exc)}
+
+
+def _run_violation_detection(evidence_item):
+    """
+    Run violation detection on an evidence item that has text_content.
+
+    Uses the ViolationDetectionService at the 'basic' level (keyword matching)
+    to scan transcript text for constitutional, statutory, procedural,
+    ethical, and discovery-fraud violations.
+
+    Returns a summary dict, or None on failure.
+    """
+    try:
+        from services.violation_detection_service import ViolationDetectionService
+
+        detector = ViolationDetectionService()
+        violations = detector.detect_violations(
+            evidence_id=evidence_item.id,
+            confidence_level="basic",
+        )
+
+        logger.info(
+            "Violation detection complete for evidence %d: %d violations found",
+            evidence_item.id,
+            len(violations),
+        )
+
+        return {
+            'total_violations': len(violations),
+            'violations': violations,
+        }
+
+    except Exception as exc:
+        logger.error(
+            "Violation detection failed for evidence %d: %s",
+            evidence_item.id,
+            exc,
+            exc_info=True,
+        )
+        return {'error': str(exc)}
 
 
 # ============================================================================
@@ -792,3 +947,168 @@ def download_export(evidence_id: str):
         as_attachment=True,
         download_name=candidates[0].name,
     )
+
+
+# ============================================================================
+# ROUTES: Transcription & Violation Detection API
+# ============================================================================
+
+
+@upload_bp.route('/evidence/<int:evidence_id>/transcript', methods=['GET'])
+@login_required
+def get_transcript(evidence_id):
+    """
+    Retrieve the transcript for an evidence item.
+
+    Returns the full text, segments, and metadata.
+    """
+    evidence = EvidenceItem.query.get(evidence_id)
+    if not evidence:
+        return jsonify({'error': 'Evidence not found'}), 404
+
+    if not evidence.has_been_transcribed:
+        return jsonify({
+            'evidence_id': evidence_id,
+            'has_transcript': False,
+            'message': 'This evidence has not been transcribed yet.',
+        }), 200
+
+    # Decode the stored transcript JSON
+    transcript_data = None
+    if evidence.transcript:
+        try:
+            transcript_data = json.loads(evidence.transcript.decode('utf-8'))
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            transcript_data = None
+
+    return jsonify({
+        'evidence_id': evidence_id,
+        'has_transcript': True,
+        'text_content': evidence.text_content or '',
+        'transcript_detail': transcript_data,
+        'word_count': len((evidence.text_content or '').split()) if evidence.text_content else 0,
+    }), 200
+
+
+@upload_bp.route('/evidence/<int:evidence_id>/transcribe', methods=['POST'])
+@login_required
+def transcribe_evidence(evidence_id):
+    """
+    Trigger transcription (or re-transcription) of an evidence item.
+
+    Accepts optional JSON body:
+      { "model_size": "base" }   — base, small, medium
+    """
+    from services.transcription_service import transcribe_evidence_file
+
+    evidence = EvidenceItem.query.get(evidence_id)
+    if not evidence:
+        return jsonify({'error': 'Evidence not found'}), 404
+
+    if not evidence.evidence_store_id:
+        return jsonify({'error': 'Evidence has no stored file'}), 400
+
+    # Find the original file
+    manifest = _evidence_store.load_manifest(evidence.evidence_store_id)
+    if not manifest:
+        return jsonify({'error': 'Evidence manifest not found'}), 404
+
+    original_path = manifest.original_path
+    if not os.path.exists(original_path):
+        return jsonify({'error': 'Original file not found on disk'}), 404
+
+    # Get model_size from request
+    body = request.get_json(silent=True) or {}
+    model_size = body.get('model_size', 'base')
+    if model_size not in ('tiny', 'base', 'small', 'medium'):
+        return jsonify({'error': f'Invalid model_size: {model_size}'}), 400
+
+    # Run transcription
+    result = transcribe_evidence_file(original_path, model_size=model_size)
+
+    if result.error:
+        return jsonify({'error': result.error}), 500
+
+    # Update DB
+    transcript_json = json.dumps(result.to_dict(), indent=2)
+    evidence.text_content = result.full_text
+    evidence.transcript = transcript_json.encode('utf-8')
+    evidence.has_been_transcribed = True
+    db.session.commit()
+
+    # Store transcript derivative
+    import tempfile as _tmpmod
+    with _tmpmod.TemporaryDirectory(prefix="evident_transcript_") as tmp_dir:
+        transcript_path = os.path.join(tmp_dir, "transcript.json")
+        with open(transcript_path, "w", encoding="utf-8") as f:
+            f.write(transcript_json)
+        _evidence_store.store_derivative(
+            evidence.hash_sha256, "transcript", transcript_path, "transcript.json"
+        )
+
+    # Audit
+    audit = AuditStream(db.session, _evidence_store)
+    audit.record(
+        evidence_id=evidence.evidence_store_id,
+        db_evidence_id=evidence.id,
+        action=AuditAction.TRANSCRIPT_CREATED,
+        actor_id=current_user.id,
+        actor_name=current_user.email,
+        details={
+            'model': result.model_name,
+            'language': result.language,
+            'word_count': result.word_count,
+            'segment_count': len(result.segments),
+            'triggered_by': 'manual',
+        },
+    )
+
+    return jsonify({
+        'success': True,
+        'evidence_id': evidence_id,
+        'word_count': result.word_count,
+        'segment_count': len(result.segments),
+        'language': result.language,
+        'language_probability': round(result.language_probability, 4),
+        'processing_time_seconds': round(result.processing_time_seconds, 2),
+    }), 200
+
+
+@upload_bp.route('/evidence/<int:evidence_id>/violations', methods=['POST'])
+@login_required
+def scan_violations(evidence_id):
+    """
+    Run violation detection on an evidence item.
+
+    Accepts optional JSON body:
+      { "confidence_level": "basic" }   — basic, comprehensive, expert
+    """
+    from services.violation_detection_service import ViolationDetectionService
+
+    evidence = EvidenceItem.query.get(evidence_id)
+    if not evidence:
+        return jsonify({'error': 'Evidence not found'}), 404
+
+    if not evidence.text_content or not evidence.text_content.strip():
+        return jsonify({
+            'error': 'No text content available. Transcribe the evidence first.',
+        }), 400
+
+    body = request.get_json(silent=True) or {}
+    confidence_level = body.get('confidence_level', 'basic')
+    if confidence_level not in ('basic', 'comprehensive', 'expert'):
+        return jsonify({'error': f'Invalid confidence_level: {confidence_level}'}), 400
+
+    detector = ViolationDetectionService()
+    violations = detector.detect_violations(
+        evidence_id=evidence_id,
+        confidence_level=confidence_level,
+    )
+
+    return jsonify({
+        'success': True,
+        'evidence_id': evidence_id,
+        'confidence_level': confidence_level,
+        'total_violations': len(violations),
+        'violations': violations,
+    }), 200
