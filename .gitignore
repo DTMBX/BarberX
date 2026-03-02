@@ -422,3 +422,7 @@ compliance-audit-report.json
 contrast-audit-report.json
 lighthouse-mobile-report.json
 optimization-reports/
+
+# Dev-only helper scripts
+_create_test_accounts.py
+_seed_api_key.py

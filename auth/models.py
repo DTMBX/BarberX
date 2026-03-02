@@ -231,6 +231,25 @@ class AuditLog(db.Model):
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, index=True)
 
+    @staticmethod
+    def log_failed_login(email: str, ip_address: str = None):
+        """Log a failed login attempt without requiring a valid user."""
+        from flask import request
+        log = AuditLog(
+            user_id=0,  # System/anonymous event
+            action='login_failed',
+            resource_type='auth',
+            details={'email': email, 'reason': 'invalid_credentials'},
+            ip_address=ip_address,
+            user_agent=request.headers.get('User-Agent', '')[:512] if request else None,
+            status='failure'
+        )
+        try:
+            db.session.add(log)
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
+
     def to_dict(self):
         """Convert to dictionary"""
         return {

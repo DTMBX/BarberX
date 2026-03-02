@@ -67,7 +67,7 @@ class ChatService:
         self,
         title: str = "New Conversation",
         system_role: str = "legal_assistant",
-        model: str = "gpt-4",
+        model: str = "gpt-4o-mini",
         temperature: float = 0.7,
         max_context_tokens: int = 8000,
         context_strategy: str = "rolling_window",
