@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 
 const OUTPUT_DIR = '_site';
-const EXPECTED_DOMAIN = 'evident.icu';
+const EXPECTED_DOMAIN = 'www.evident.icu';
 
 const errors = [];
 const warnings = [];

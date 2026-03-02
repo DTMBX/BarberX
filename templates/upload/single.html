@@ -475,31 +475,42 @@
         const resultMetadata = document.getElementById('resultMetadata');
 
         resultContainer.classList.add('active', 'success');
-        resultTitle.textContent = '✅ ' + selectedFile.name + ' uploaded successfully';
+        resultTitle.textContent = '✅ ' + (data.filename || selectedFile.name) + ' uploaded successfully';
 
         let metadataHtml = '';
         metadataHtml += `<div class="metadata-item">
                 <div class="metadata-label">Status</div>
-                <div class="metadata-value">${data.status}</div>
+                <div class="metadata-value">${data.processing_status || 'completed'}</div>
             </div>`;
         metadataHtml += `<div class="metadata-item">
-                <div class="metadata-label">Media Type</div>
-                <div class="metadata-value">${data.media_type}</div>
+                <div class="metadata-label">Type</div>
+                <div class="metadata-value">${data.mime_type || 'Unknown'}</div>
             </div>`;
         metadataHtml += `<div class="metadata-item">
                 <div class="metadata-label">File Size</div>
-                <div class="metadata-value">${(data.file_size / 1024 / 1024).toFixed(2)} MB</div>
+                <div class="metadata-value">${((data.size_bytes || 0) / 1024 / 1024).toFixed(2)} MB</div>
             </div>`;
         metadataHtml += `<div class="metadata-item">
-                <div class="metadata-label">Processing Time</div>
-                <div class="metadata-value">${data.processing_time.toFixed(2)}s</div>
+                <div class="metadata-label">Evidence ID</div>
+                <div class="metadata-value" style="font-family:monospace;font-size:0.85rem;">${data.evidence_id || '—'}</div>
+            </div>`;
+        metadataHtml += `<div class="metadata-item">
+                <div class="metadata-label">SHA-256</div>
+                <div class="metadata-value" style="font-family:monospace;font-size:0.8rem;word-break:break-all;">${data.sha256 || '—'}</div>
             </div>`;
 
-        if (data.metadata) {
-          Object.entries(data.metadata).forEach(([key, value]) => {
+        if (data.duplicate) {
+          metadataHtml += `<div class="metadata-item">
+                <div class="metadata-label">Note</div>
+                <div class="metadata-value">Duplicate detected — linked to existing evidence</div>
+            </div>`;
+        }
+
+        if (data.derivatives && Object.keys(data.derivatives).length > 0) {
+          Object.entries(data.derivatives).forEach(([key, value]) => {
             metadataHtml += `<div class="metadata-item">
                         <div class="metadata-label">${key}</div>
-                        <div class="metadata-value">${value}</div>
+                        <div class="metadata-value">${typeof value === 'object' ? JSON.stringify(value) : value}</div>
                     </div>`;
           });
         }
