@@ -1,0 +1,150 @@
+/**
+ * Assistant Receipt Styles
+ * ========================
+ * Calm, professional, restrained styling for action receipts.
+ * WCAG 2.1 AA compliant. Respects prefers-reduced-motion.
+ */
+
+.assistant-receipt {
+  --receipt-border: var(--color-border, #d1d5db);
+  --receipt-bg: var(--color-surface, #ffffff);
+  --receipt-text: var(--color-text, #1f2937);
+  --receipt-muted: var(--color-text-muted, #6b7280);
+  --receipt-success: #059669;
+  --receipt-error: #dc2626;
+  --receipt-warning: #d97706;
+  --receipt-denied: #7c3aed;
+
+  border: 1px solid var(--receipt-border);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-block-end: 0.75rem;
+  background: var(--receipt-bg);
+  color: var(--receipt-text);
+  font-family: inherit;
+}
+
+.assistant-receipt[data-status="success"] {
+  border-inline-start: 3px solid var(--receipt-success);
+}
+
+.assistant-receipt[data-status="denied"] {
+  border-inline-start: 3px solid var(--receipt-denied);
+}
+
+.assistant-receipt[data-status="validation_error"] {
+  border-inline-start: 3px solid var(--receipt-warning);
+}
+
+.assistant-receipt[data-status="error"] {
+  border-inline-start: 3px solid var(--receipt-error);
+}
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block-end: 0.75rem;
+  padding-block-end: 0.5rem;
+  border-block-end: 1px solid var(--receipt-border);
+}
+
+.receipt-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.receipt-status {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.receipt-timestamp {
+  margin-inline-start: auto;
+  font-size: 0.75rem;
+  color: var(--receipt-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.receipt-details {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.receipt-row {
+  display: flex;
+  gap: 0.5rem;
+  padding-block: 0.25rem;
+  align-items: baseline;
+}
+
+.receipt-row dt {
+  min-inline-size: 7rem;
+  color: var(--receipt-muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.receipt-row dd {
+  margin: 0;
+  word-break: break-all;
+}
+
+.receipt-row code {
+  font-size: 0.8125rem;
+  background: #f3f4f6;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+}
+
+.receipt-audit-link {
+  color: var(--receipt-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.receipt-audit-link:hover {
+  color: var(--receipt-success);
+}
+
+.receipt-audit-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.receipt-errors ul {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.receipt-errors li {
+  color: var(--receipt-error);
+}
+
+.receipt-error dd {
+  color: var(--receipt-error);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .assistant-receipt {
+    transition: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .assistant-receipt {
+    --receipt-bg: #1f2937;
+    --receipt-text: #f3f4f6;
+    --receipt-muted: #9ca3af;
+    --receipt-border: #374151;
+  }
+
+  .receipt-row code {
+    background: #374151;
+  }
+}
