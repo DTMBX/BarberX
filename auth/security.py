@@ -42,10 +42,77 @@ def init_security(app):
 
     Call this once from create_app(), after extensions are initialized.
     """
+    _init_cors(app)
     _init_secure_headers(app)
     _init_rate_limiter(app)
     _harden_session(app)
     logger.info("Security hardening applied.")
+
+
+# ---------------------------------------------------------------------------
+# CORS Configuration
+# ---------------------------------------------------------------------------
+
+
+def _init_cors(app):
+    """
+    Configure Cross-Origin Resource Sharing (CORS) for API endpoints.
+    
+    SECURITY:
+    - Only allows origins specified in CORS_ORIGINS environment variable.
+    - Credentials (cookies, Authorization headers) are allowed.
+    - Preflight requests are cached for 1 hour.
+    - Methods are restricted to safe + write operations.
+    
+    Environment:
+      CORS_ORIGINS — Comma-separated list of allowed origins.
+                     If not set, allows all origins in development only.
+    """
+    import os
+    from flask_cors import CORS
+    
+    origins_env = os.environ.get("CORS_ORIGINS", "")
+    
+    if origins_env:
+        # Production: explicit origin list
+        origins = [o.strip() for o in origins_env.split(",") if o.strip()]
+    elif app.debug:
+        # Development: allow localhost ports
+        origins = [
+            "http://localhost:5173",  # Vite default
+            "http://localhost:5174",
+            "http://localhost:5175",  # Founder-Hub
+            "http://localhost:3000",
+            "http://127.0.0.1:5173",
+            "http://127.0.0.1:5175",
+        ]
+        logger.warning("CORS: Development mode - allowing localhost origins")
+    else:
+        # Production without CORS_ORIGINS: fail closed (no CORS)
+        logger.warning("CORS: No CORS_ORIGINS set in production - API will reject cross-origin requests")
+        return
+    
+    CORS(
+        app,
+        origins=origins,
+        supports_credentials=True,  # Allow Authorization headers and cookies
+        allow_headers=[
+            "Authorization",
+            "Content-Type",
+            "Accept",
+            "Origin",
+            "X-Requested-With",
+        ],
+        methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        max_age=3600,  # Cache preflight for 1 hour
+        expose_headers=[
+            "X-RateLimit-Limit",
+            "X-RateLimit-Remaining",
+            "X-RateLimit-Reset",
+        ],
+    )
+    
+    logger.info("CORS configured for origins: %s", origins)
 
 
 # ---------------------------------------------------------------------------
