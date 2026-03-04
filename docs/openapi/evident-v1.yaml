@@ -1,0 +1,451 @@
+openapi: 3.1.0
+info:
+  title: Evident API
+  description: |
+    Versioned REST API for the Evident evidence management platform.
+    
+    ## Authentication
+    
+    Evident supports two authentication methods:
+    
+    1. **Supabase JWT** (recommended for Founder-Hub integration)
+       - Pass JWT in `Authorization: Bearer <token>` header
+       - JWT is validated via Supabase JWKS
+       - User is auto-provisioned on first request
+    
+    2. **API Token** (for programmatic access)
+       - Generate tokens via `/api/v1/tokens`
+       - Pass token in `Authorization: Bearer <token>` header
+    
+    ## Rate Limiting
+    
+    - Default: 200 requests/hour, 50/minute
+    - Auth endpoints: 10/minute (anti-brute-force)
+    - Rate limit headers included in responses
+    
+    ## Pagination
+    
+    List endpoints support `page` and `per_page` query parameters.
+    - Default: 25 items per page
+    - Maximum: 100 items per page
+    
+  version: 1.0.0
+  contact:
+    name: Evident Technologies
+    url: https://www.evident.icu
+  license:
+    name: Proprietary
+    
+servers:
+  - url: https://evident.yourdomain.com
+    description: Production
+  - url: http://localhost:5000
+    description: Development
+
+tags:
+  - name: Health
+    description: Health check endpoints
+  - name: User
+    description: Current user operations
+  - name: Cases
+    description: Case management (read-only from Founder-Hub)
+  - name: Audit
+    description: Audit log access (admin only)
+  - name: Pipeline
+    description: Transcription pipeline status
+
+paths:
+  /health:
+    get:
+      tags: [Health]
+      summary: Health check
+      description: Returns system health status. Does not require authentication.
+      operationId: getHealth
+      responses:
+        '200':
+          description: System health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  
+  /api/v1/user/me:
+    get:
+      tags: [User]
+      summary: Get current user
+      description: Returns the authenticated user's profile.
+      operationId: getCurrentUser
+      security:
+        - supabaseJwt: []
+        - apiToken: []
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  
+  /api/v1/cases:
+    get:
+      tags: [Cases]
+      summary: List cases
+      description: |
+        Returns cases accessible to the current user.
+        Results are filtered by organization (tenant isolation).
+      operationId: listCases
+      security:
+        - supabaseJwt: []
+        - apiToken: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 25
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/CaseStatus'
+      responses:
+        '200':
+          description: Paginated list of cases
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  
+  /api/v1/cases/{caseId}:
+    get:
+      tags: [Cases]
+      summary: Get case by ID
+      description: Returns a single case. User must have access to this case's organization.
+      operationId: getCase
+      security:
+        - supabaseJwt: []
+        - apiToken: []
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Case details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  
+  /api/v1/admin/audit:
+    get:
+      tags: [Audit]
+      summary: List audit log entries
+      description: |
+        Returns audit log entries. Requires admin role.
+        Audit logs are append-only and immutable.
+      operationId: listAuditEntries
+      security:
+        - supabaseJwt: []
+        - apiToken: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 25
+        - name: action
+          in: query
+          description: Filter by action type
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Paginated audit log
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  
+  /api/v1/pipeline/status:
+    get:
+      tags: [Pipeline]
+      summary: Get pipeline status
+      description: Returns transcription pipeline job counts and worker health.
+      operationId: getPipelineStatus
+      security:
+        - supabaseJwt: []
+        - apiToken: []
+      responses:
+        '200':
+          description: Pipeline status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineStatus'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  securitySchemes:
+    supabaseJwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Supabase-issued JWT (validated via JWKS)
+    apiToken:
+      type: http
+      scheme: bearer
+      description: Evident API token
+  
+  responses:
+    Unauthorized:
+      description: Authentication required or token invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+          description: Human-readable error message
+        code:
+          type: string
+          description: Machine-readable error code
+    
+    HealthResponse:
+      type: object
+      required: [status, version, timestamp]
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+        version:
+          type: string
+          example: "1.0.0"
+        database:
+          type: string
+          enum: [connected, disconnected]
+        redis:
+          type: string
+          enum: [connected, disconnected, not_configured]
+        timestamp:
+          type: string
+          format: date-time
+    
+    User:
+      type: object
+      required: [id, email, username, role, tier, is_active, created_at]
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        full_name:
+          type: string
+        organization:
+          type: string
+          nullable: true
+        role:
+          $ref: '#/components/schemas/UserRole'
+        tier:
+          $ref: '#/components/schemas/TierLevel'
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+    
+    UserRole:
+      type: string
+      enum: [admin, moderator, pro_user, user]
+    
+    TierLevel:
+      type: string
+      enum: [free, pro, enterprise, admin]
+    
+    Case:
+      type: object
+      required: [id, case_number, case_name, status, created_at]
+      properties:
+        id:
+          type: integer
+        case_number:
+          type: string
+        case_name:
+          type: string
+        case_type:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/CaseStatus'
+        jurisdiction:
+          type: string
+          nullable: true
+        jurisdiction_state:
+          type: string
+          nullable: true
+        court_name:
+          type: string
+          nullable: true
+        filed_date:
+          type: string
+          format: date
+          nullable: true
+        trial_date:
+          type: string
+          format: date
+          nullable: true
+        discovery_deadline:
+          type: string
+          format: date
+          nullable: true
+        is_legal_hold:
+          type: boolean
+        evidence_count:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+          nullable: true
+    
+    CaseStatus:
+      type: string
+      enum: [open, in_progress, review, closed, archived]
+    
+    CaseListResponse:
+      type: object
+      required: [cases, meta]
+      properties:
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Case'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    
+    PaginationMeta:
+      type: object
+      required: [page, per_page, total, pages]
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+        pages:
+          type: integer
+    
+    AuditEntry:
+      type: object
+      required: [id, timestamp, action, actor_id]
+      properties:
+        id:
+          type: integer
+        timestamp:
+          type: string
+          format: date-time
+        action:
+          type: string
+        actor_id:
+          type: integer
+        actor_email:
+          type: string
+        target_type:
+          type: string
+          nullable: true
+        target_id:
+          type: string
+          nullable: true
+        details:
+          type: string
+          nullable: true
+        ip_address:
+          type: string
+          nullable: true
+    
+    AuditResponse:
+      type: object
+      required: [entries, meta]
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditEntry'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    
+    PipelineStatus:
+      type: object
+      required: [pending_jobs, processing_jobs, completed_today, failed_today, worker_status]
+      properties:
+        pending_jobs:
+          type: integer
+        processing_jobs:
+          type: integer
+        completed_today:
+          type: integer
+        failed_today:
+          type: integer
+        worker_status:
+          type: string
+          enum: [healthy, degraded, offline]

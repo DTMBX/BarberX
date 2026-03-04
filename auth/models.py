@@ -41,6 +41,9 @@ class User(UserMixin, db.Model):
     full_name = db.Column(db.String(255), nullable=False)
     organization = db.Column(db.String(255), nullable=True)
     
+    # External identity provider (Supabase)
+    supabase_user_id = db.Column(db.String(36), unique=True, nullable=True, index=True)
+    
     # Security
     password_hash = db.Column(db.String(255), nullable=False)
     is_active = db.Column(db.Boolean, default=True, nullable=False)
