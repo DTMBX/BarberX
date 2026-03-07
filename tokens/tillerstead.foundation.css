@@ -1,0 +1,116 @@
+/* ============================================================================
+   Tillerstead Foundation Tokens — v1.0
+   ============================================================================
+   Canonical design tokens for the Tillerstead product family.
+
+   Usage:
+     <link rel="stylesheet" href="tokens/tillerstead.foundation.css">
+     — or —
+     Copy this file into your repo and import it.
+
+   Scope:
+     All repos where .evident-repo.json has "brand": "tillerstead"
+     This includes: Tillerstead (site), tillerstead-toolkit,
+     Contractor Command Center, Sweat Equity Insurance.
+
+   Naming convention:  --ts-{category}-{name}
+   ============================================================================ */
+
+:root {
+  /* ── Color: Brand ── */
+  --ts-color-primary:            #00e184;
+  --ts-color-primary-hover:      #3bf0aa;
+  --ts-color-primary-active:     #00b46a;
+  --ts-color-primary-accessible: #008f5d;
+  --ts-color-accent:             #d4af37;
+  --ts-color-accent-hover:       #f2d75c;
+  --ts-color-accent-active:      #9c7a14;
+  --ts-color-accent-accessible:  #8c6a12;
+
+  /* ── Color: Semantic ── */
+  --ts-color-success:            #00e184;
+  --ts-color-warning:            #d4af37;
+  --ts-color-danger:             #f87171;
+  --ts-color-info:               #38bdf8;
+
+  /* ── Background ── */
+  --ts-bg-ink:                   #000;
+  --ts-bg-elevated:              #0f0f0f;
+  --ts-bg-card:                  #161616;
+  --ts-bg-hover:                 #222;
+  --ts-bg-surface:               #fff;
+
+  /* ── Text ── */
+  --ts-text-primary:             #fff;
+  --ts-text-secondary:           #e5e7eb;
+  --ts-text-tertiary:            #9ca3af;
+  --ts-text-muted:               #6b7280;
+  --ts-text-ink:                 #0f0f0f;
+  --ts-text-on-primary:          #000;
+
+  /* ── Font ── */
+  --ts-font-sans:                'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --ts-font-display:             'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --ts-font-mono:                'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* ── Size (fluid type scale) ── */
+  --ts-size-xs:                  clamp(0.75rem, 1vw, 0.875rem);
+  --ts-size-sm:                  clamp(0.875rem, 1.2vw, 1rem);
+  --ts-size-base:                clamp(1rem, 1.5vw, 1.125rem);
+  --ts-size-lg:                  clamp(1.125rem, 2vw, 1.25rem);
+  --ts-size-xl:                  clamp(1.25rem, 2.5vw, 1.5rem);
+  --ts-size-2xl:                 clamp(1.5rem, 3vw, 2rem);
+  --ts-size-3xl:                 clamp(2rem, 4vw, 3rem);
+  --ts-size-4xl:                 clamp(2.5rem, 5vw, 4rem);
+
+  /* ── Spacing (fluid) ── */
+  --ts-space-xs:                 clamp(0.25rem, 0.5vw, 0.5rem);
+  --ts-space-sm:                 clamp(0.5rem, 1vw, 0.75rem);
+  --ts-space-md:                 clamp(1rem, 2vw, 1.5rem);
+  --ts-space-lg:                 clamp(1.5rem, 3vw, 2.5rem);
+  --ts-space-xl:                 clamp(2rem, 4vw, 4rem);
+  --ts-space-2xl:                clamp(3rem, 6vw, 6rem);
+
+  /* ── Radius ── */
+  --ts-radius-sm:                4px;
+  --ts-radius-md:                8px;
+  --ts-radius-lg:                12px;
+  --ts-radius-xl:                16px;
+  --ts-radius-full:              9999px;
+
+  /* ── Shadow ── */
+  --ts-shadow-sm:                0 1px 3px rgb(0 0 0 / 40%);
+  --ts-shadow-md:                0 4px 8px rgb(0 0 0 / 50%);
+  --ts-shadow-lg:                0 10px 20px rgb(0 0 0 / 60%);
+  --ts-shadow-xl:                0 20px 40px rgb(0 0 0 / 70%);
+  --ts-shadow-glow-primary:      0 0 20px rgb(0 225 132 / 30%);
+  --ts-shadow-glow-accent:       0 0 15px rgb(212 175 55 / 45%);
+  --ts-shadow-focus:             0 0 0 3px rgb(0 225 132 / 40%);
+
+  /* ── Duration ── */
+  --ts-dur-fast:                 150ms;
+  --ts-dur-normal:               250ms;
+  --ts-dur-slow:                 400ms;
+
+  /* ── Ease ── */
+  --ts-ease-smooth:              cubic-bezier(0.4, 0, 0.2, 1);
+  --ts-ease-bounce:              cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ts-ease-out:                 cubic-bezier(0, 0, 0.2, 1);
+
+  /* ── Z-Index ── */
+  --ts-z-base:                   1;
+  --ts-z-dropdown:               100;
+  --ts-z-sticky:                 200;
+  --ts-z-overlay:                300;
+  --ts-z-modal:                  400;
+  --ts-z-toast:                  500;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ts-dur-fast:               0ms;
+    --ts-dur-normal:             0ms;
+    --ts-dur-slow:               0ms;
+  }
+}

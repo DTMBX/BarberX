@@ -1,0 +1,115 @@
+/* ============================================================================
+   Evident Foundation Tokens — v1.0
+   ============================================================================
+   Canonical design tokens for the Evident product family.
+
+   Usage:
+     <link rel="stylesheet" href="tokens/evident.foundation.css">
+     — or —
+     Copy this file into your repo and import it.
+
+   Scope:
+     All repos where .evident-repo.json has "brand": "evident"
+     This includes: Evident core, Founder-Hub, DOJ Document Library,
+     Civics Hierarchy, Informed Consent Companion, Essential Goods Ledger.
+
+   Naming convention:  --ev-{category}-{name}
+   ============================================================================ */
+
+:root {
+  /* ── Color: Brand ── */
+  --ev-color-primary:            #2f5d9f;
+  --ev-color-primary-hover:      #3a6db5;
+  --ev-color-primary-active:     #254a80;
+  --ev-color-primary-accessible: #1d4a85;
+  --ev-color-accent:             #f59e0b;
+  --ev-color-accent-hover:       #d97706;
+  --ev-color-accent-active:      #b45309;
+  --ev-color-accent-accessible:  #b45309;
+
+  /* ── Color: Semantic ── */
+  --ev-color-success:            #16a34a;
+  --ev-color-warning:            #f59e0b;
+  --ev-color-danger:             #7a1e2b;
+  --ev-color-info:               #0284c7;
+
+  /* ── Background ── */
+  --ev-bg-ink:                   #0b0d10;
+  --ev-bg-elevated:              #141820;
+  --ev-bg-card:                  #1a1f2a;
+  --ev-bg-muted:                 #1e2433;
+  --ev-bg-paper:                 #f6f3ed;
+  --ev-bg-surface:               #fff;
+
+  /* ── Text ── */
+  --ev-text-primary:             #f1f5f9;
+  --ev-text-secondary:           #94a3b8;
+  --ev-text-muted:               #64748b;
+  --ev-text-ink:                 #0b0d10;
+  --ev-text-on-primary:          #fff;
+
+  /* ── Font ── */
+  --ev-font-sans:                'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --ev-font-serif:               'Merriweather', ui-serif, georgia, 'Times New Roman', serif;
+  --ev-font-mono:                'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* ── Size (type scale) ── */
+  --ev-size-xs:                  0.75rem;
+  --ev-size-sm:                  0.875rem;
+  --ev-size-base:                1rem;
+  --ev-size-lg:                  1.125rem;
+  --ev-size-xl:                  1.25rem;
+  --ev-size-2xl:                 1.5rem;
+  --ev-size-3xl:                 2rem;
+  --ev-size-4xl:                 2.5rem;
+
+  /* ── Spacing ── */
+  --ev-space-xs:                 0.25rem;
+  --ev-space-sm:                 0.5rem;
+  --ev-space-md:                 1rem;
+  --ev-space-lg:                 1.5rem;
+  --ev-space-xl:                 2rem;
+  --ev-space-2xl:                3rem;
+  --ev-space-3xl:                4rem;
+
+  /* ── Radius ── */
+  --ev-radius-sm:                4px;
+  --ev-radius-md:                8px;
+  --ev-radius-lg:                12px;
+  --ev-radius-xl:                16px;
+  --ev-radius-full:              9999px;
+
+  /* ── Shadow ── */
+  --ev-shadow-sm:                0 1px 2px rgb(0 0 0 / 15%);
+  --ev-shadow-md:                0 4px 8px rgb(0 0 0 / 20%);
+  --ev-shadow-lg:                0 10px 20px rgb(0 0 0 / 25%);
+  --ev-shadow-xl:                0 20px 40px rgb(0 0 0 / 30%);
+  --ev-shadow-focus:             0 0 0 3px rgb(47 93 159 / 40%);
+
+  /* ── Duration ── */
+  --ev-dur-fast:                 120ms;
+  --ev-dur-normal:               200ms;
+  --ev-dur-slow:                 350ms;
+
+  /* ── Ease ── */
+  --ev-ease-default:             cubic-bezier(0.2, 0, 0, 1);
+  --ev-ease-out:                 cubic-bezier(0, 0, 0.2, 1);
+  --ev-ease-in-out:              cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Z-Index ── */
+  --ev-z-base:                   1;
+  --ev-z-dropdown:               100;
+  --ev-z-sticky:                 200;
+  --ev-z-overlay:                300;
+  --ev-z-modal:                  400;
+  --ev-z-toast:                  500;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ev-dur-fast:               0ms;
+    --ev-dur-normal:             0ms;
+    --ev-dur-slow:               0ms;
+  }
+}

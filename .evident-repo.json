@@ -1,0 +1,27 @@
+{
+  "_manifest": "evident-repo",
+  "_version": 1,
+  "name": "Evident",
+  "description": "BWC and eDiscovery platform — forensic evidence processing, chain of custody, case management.",
+  "role": "platform-core",
+  "family": "Evident",
+  "business": "Evident Technologies LLC",
+  "stack": "Python + FastAPI + 11ty + .NET MAUI",
+  "outputType": "web-app",
+  "exportTargets": ["Render", "GitHub Pages"],
+  "siteUrl": "https://www.evident.icu",
+  "githubUrl": "https://github.com/DTMBX/Evident",
+  "brand": "evident",
+  "packagingStatus": "in-progress",
+  "releaseStatus": "beta",
+  "sharedStandardsVersion": "1.0",
+  "tools": [
+    "analyze-document",
+    "bates-generator",
+    "integrity-sweep",
+    "search-legal-documents"
+  ],
+  "owner": "Devon Tyler",
+  "catalogVisibility": "listed",
+  "tokenFamily": "evident"
+}
