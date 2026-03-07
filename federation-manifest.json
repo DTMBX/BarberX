@@ -1,0 +1,75 @@
+{
+  "targets": [
+    {
+      "releaseChannel": "dev",
+      "slug": "epstein-library",
+      "app": "epstein-library-evid",
+      "resolvedShaFull": "bd41de5096f5c1765f7e8132927371bcbfc0dba7",
+      "role": "product-satellite",
+      "repo": "DTMBX/epstein-library-evid",
+      "branch": "main",
+      "resolvedSha": "bd41de5",
+      "pin": "HEAD",
+      "fileCount": 5,
+      "buildSuccess": true,
+      "tag": null,
+      "business": "Evident Technologies LLC"
+    },
+    {
+      "releaseChannel": "dev",
+      "slug": "civics-hierarchy",
+      "app": "civics-hierarchy",
+      "resolvedShaFull": "652a31c367034bbb18475ccbf2d187f0c9b6e1d2",
+      "role": "product-satellite",
+      "repo": "DTMBX/civics-hierarchy",
+      "branch": "main",
+      "resolvedSha": "652a31c",
+      "pin": "HEAD",
+      "fileCount": 32,
+      "buildSuccess": true,
+      "tag": null,
+      "business": "Evident Technologies LLC"
+    },
+    {
+      "releaseChannel": "dev",
+      "slug": "essential-goods",
+      "app": "essential-goods-ledg",
+      "resolvedShaFull": "3d0495db94e3b88073630e23c22f32c9786fdf55",
+      "role": "product-satellite",
+      "repo": "DTMBX/essential-goods-ledg",
+      "branch": "main",
+      "resolvedSha": "3d0495d",
+      "pin": "HEAD",
+      "fileCount": 5,
+      "buildSuccess": true,
+      "tag": null,
+      "business": "Evident Technologies LLC"
+    },
+    {
+      "releaseChannel": "dev",
+      "slug": "geneva-bible-study",
+      "app": "geneva-bible-study-t",
+      "resolvedShaFull": "d666d0373d02236542981c36ff5ce2dbe29a4ad8",
+      "role": "product-satellite",
+      "repo": "DTMBX/geneva-bible-study-t",
+      "branch": "main",
+      "resolvedSha": "d666d03",
+      "pin": "HEAD",
+      "fileCount": 10,
+      "buildSuccess": true,
+      "tag": null,
+      "business": "Personal"
+    }
+  ],
+  "builtAt": "2026-03-07T01:17:01.3221428-05:00",
+  "summary": {
+    "failed": 0,
+    "totalTargets": 4,
+    "channel": "dev",
+    "succeeded": 4
+  },
+  "buildMode": "dev",
+  "_version": 2,
+  "_schema": "evident-federation-manifest",
+  "registryVersion": 5
+}
