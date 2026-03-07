@@ -3,13 +3,11 @@
 # ----------------------------
 # Site identity
 # ----------------------------
-title: "Tillerstead LLC"
-tagline: "TCNA-Compliant Tile & Stone Installation — South Jersey, New Jersey"
+title: "Evident Technologies"
+tagline: "Evidence Integrity Platform"
 description: >-
-  Expert TCNA-compliant tile and stone installation in South Jersey, New Jersey. Specializing in custom showers,
-  heated floors, waterproof assemblies, and natural stone surfaces. Licensed New Jersey Home Improvement Contractor
-  (HIC #13VH10808800) proudly serving Atlantic, Ocean, and Cape May Counties with precision craftsmanship,
-  transparent pricing, and direct owner oversight on every project.
+  Evident Technologies is a legal-technology platform for evidence integrity, chain-of-custody management,
+  and forensic auditability. Built for transparency, due process, and long-term institutional trust.
 url: "https://www.evident.icu"
 baseurl: ""
 timezone: "America/New_York"
