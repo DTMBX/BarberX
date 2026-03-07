@@ -1,5 +1,3 @@
-# DISABLED: This workflow conflicts with pages.yml which is the primary deployment workflow
-# To re-enable, remove the .disabled extension and ensure no conflicts with pages.yml
 name: Deploy Eleventy to GitHub Pages
 
 on:
@@ -53,7 +51,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Wait for Pages to become available and smoke-test
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -61,17 +59,16 @@ jobs:
             const repo = context.repo.repo;
             // Poll Pages API for up to 60s
             let url = null;
-            for (let i=0;i<12;i++){
-              try{
+            for (let i = 0; i < 12; i++) {
+              try {
                 const resp = await github.rest.repos.getPages({ owner, repo });
                 if (resp && resp.data && resp.data.html_url) { url = resp.data.html_url; break; }
-              } catch(e){}
-              await new Promise(r=>setTimeout(r,5000));
+              } catch (e) {}
+              await new Promise(r => setTimeout(r, 5000));
             }
             if (!url) {
               core.info('Pages URL not available yet; skipping smoke test.');
               return;
             }
-            const exec = require('@actions/exec');
-            // Perform a simple curl smoke-test
+            // exec is already provided by actions/github-script
             await exec.exec('curl', ['-fLsS', url]);
