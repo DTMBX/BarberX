@@ -122,7 +122,7 @@ jobs:
       
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: tier1-playwright-report
           path: playwright-report/
@@ -179,7 +179,7 @@ jobs:
       
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: tier2-playwright-report
           path: playwright-report/
