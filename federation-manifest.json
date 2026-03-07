@@ -59,14 +59,44 @@
       "buildSuccess": true,
       "tag": null,
       "business": "Personal"
+    },
+    {
+      "releaseChannel": "dev",
+      "slug": "informed-consent",
+      "app": "informed-consent-com",
+      "resolvedShaFull": "53053c6",
+      "role": "product-satellite",
+      "repo": "DTMBX/informed-consent-com",
+      "branch": "main",
+      "resolvedSha": "53053c6",
+      "pin": "HEAD",
+      "fileCount": 0,
+      "buildSuccess": true,
+      "tag": null,
+      "business": "Evident Technologies LLC"
+    },
+    {
+      "releaseChannel": "dev",
+      "slug": "contractor-command-center",
+      "app": "contractor-command-c",
+      "resolvedShaFull": "43f801a",
+      "role": "product-satellite",
+      "repo": "DTMBX/contractor-command-c",
+      "branch": "main",
+      "resolvedSha": "43f801a",
+      "pin": "HEAD",
+      "fileCount": 0,
+      "buildSuccess": true,
+      "tag": null,
+      "business": "Evident Technologies LLC"
     }
   ],
   "builtAt": "2026-03-07T01:17:01.3221428-05:00",
   "summary": {
     "failed": 0,
-    "totalTargets": 4,
+    "totalTargets": 6,
     "channel": "dev",
-    "succeeded": 4
+    "succeeded": 6
   },
   "buildMode": "dev",
   "_version": 2,
