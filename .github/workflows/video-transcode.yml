@@ -24,7 +24,7 @@ jobs:
             echo "No src/assets/media/flag.mp4 found, skipping transcode"
           fi
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: flag-renditions
           path: optimized/media/
