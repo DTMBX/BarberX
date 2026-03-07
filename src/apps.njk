@@ -12,46 +12,70 @@ permalink: /apps/
       Standalone tools and reference applications built on the Evident platform.
     </p>
 
-    <div class="grid gap-6 md:grid-cols-2">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
         <h2 class="text-xl font-semibold mb-2">
-          <a href="/apps/civics-hierarchy/" class="text-blue-700 hover:underline">Civics Hierarchy</a>
+          <a href="https://civics.evident.icu" class="text-blue-700 hover:underline">Civics Hierarchy</a>
         </h2>
         <p class="text-gray-600">
           Constitutional law hierarchy reference tool. Understand the precedence of federal, state, and local law.
         </p>
+        <p class="text-xs text-gray-400 mt-2">civics.evident.icu</p>
       </article>
 
       <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
         <h2 class="text-xl font-semibold mb-2">
-          <a href="/apps/epstein-library/" class="text-blue-700 hover:underline">Epstein Document Library</a>
+          <a href="https://library.evident.icu" class="text-blue-700 hover:underline">Document Library</a>
         </h2>
         <p class="text-gray-600">
-          Searchable archive of court documents from the Epstein case files with forensic metadata.
+          Searchable archive of court documents with forensic metadata and chain-of-custody verification.
         </p>
+        <p class="text-xs text-gray-400 mt-2">library.evident.icu</p>
       </article>
 
       <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
         <h2 class="text-xl font-semibold mb-2">
-          <a href="/apps/essential-goods/" class="text-blue-700 hover:underline">Essential Goods Ledger</a>
+          <a href="https://ledger.evident.icu" class="text-blue-700 hover:underline">Essential Goods Ledger</a>
         </h2>
         <p class="text-gray-600">
           Supply chain transparency and price tracking for essential commodities.
         </p>
+        <p class="text-xs text-gray-400 mt-2">ledger.evident.icu</p>
       </article>
 
       <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
         <h2 class="text-xl font-semibold mb-2">
-          <a href="/apps/geneva-bible-study/" class="text-blue-700 hover:underline">Geneva Bible Study</a>
+          <a href="https://bible.evident.icu" class="text-blue-700 hover:underline">Geneva Bible Study</a>
         </h2>
         <p class="text-gray-600">
           Cross-reference study tool for the Geneva Bible with historical annotations.
         </p>
+        <p class="text-xs text-gray-400 mt-2">bible.evident.icu</p>
+      </article>
+
+      <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold mb-2">
+          <a href="https://consent.evident.icu" class="text-blue-700 hover:underline">Informed Consent Companion</a>
+        </h2>
+        <p class="text-gray-600">
+          Medical informed consent reference with procedure-specific information and patient rights.
+        </p>
+        <p class="text-xs text-gray-400 mt-2">consent.evident.icu</p>
+      </article>
+
+      <article class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold mb-2">
+          <a href="https://contractor.evident.icu" class="text-blue-700 hover:underline">Contractor Command Center</a>
+        </h2>
+        <p class="text-gray-600">
+          Project management and estimating tools for construction contractors.
+        </p>
+        <p class="text-xs text-gray-400 mt-2">contractor.evident.icu</p>
       </article>
     </div>
 
     <p class="mt-8 text-sm text-gray-500">
-      These applications are part of the Evident monorepo and deploy alongside the main platform.
+      Each application deploys independently on its own subdomain under evident.icu.
     </p>
   </section>
 {% endblock %}
