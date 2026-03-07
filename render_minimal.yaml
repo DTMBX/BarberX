@@ -1,6 +1,10 @@
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
+# DEPRECATED: This file is superseded by render.yaml and must NOT be submitted
+# as an active Render blueprint. It is retained for historical reference only.
+# Use render.yaml as the single authoritative Render blueprint.
+
 services:
   - type: web
     name: Evident-legal-tech

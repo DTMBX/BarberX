@@ -154,6 +154,13 @@ test_*.html
 /[0-9]*
 /[0-9]*.[0-9]*.[0-9]*
 
+# Federation build cache & logs (Phase 3B)
+.federation-cache/
+.federation-build-log.txt
+.fed-build-*.txt
+.git-health.txt
+element-inspector.html
+
 # Evident Security Rules (Added 2026-01-28)
 # Evident Confidential Financial Data
 INVESTOR-LOG.md

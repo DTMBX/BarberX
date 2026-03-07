@@ -13,8 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
     <style>
       .admin-layout {
         display: grid;
@@ -227,21 +225,30 @@
           </div>
         </div>
 
+        <!-- Tab Navigation -->
+        <div class="admin-tabs" style="margin-bottom: 2rem;">
+          <button class="tab active" data-tab="overview">📊 Overview</button>
+          <button class="tab" data-tab="logs">📋 Audit Logs</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+
         <!-- Statistics Cards -->
         <div class="admin-stat-grid">
           <div class="admin-stat-card">
             <div class="admin-stat-label">Total Users</div>
-            <div class="admin-stat-value">{{ total_users }}</div>
+            <div class="admin-stat-value" id="totalUsers">{{ total_users }}</div>
           </div>
 
           <div class="admin-stat-card">
             <div class="admin-stat-label">Active Users</div>
-            <div class="admin-stat-value">{{ active_users }}</div>
+            <div class="admin-stat-value" id="activeUsers">{{ active_users }}</div>
           </div>
 
           <div class="admin-stat-card">
             <div class="admin-stat-label">Verified Users</div>
-            <div class="admin-stat-value">{{ verified_users }}</div>
+            <div class="admin-stat-value" id="verifiedUsers">{{ verified_users }}</div>
           </div>
 
           <div class="admin-stat-card">
@@ -360,9 +367,81 @@
               {% endfor %}
             </tbody>
           </table>
-        </div>
+        </div><!-- /overview tab -->
+
+        <!-- Audit Logs Tab -->
+        <div id="logs" class="tab-content">
+          <div class="card" style="padding: 1.5rem">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h2 style="margin: 0; font-size: 1.25rem; color: var(--color-neutral-900)">Audit Logs</h2>
+              <div style="display: flex; gap: 0.75rem; align-items: center;">
+                <input
+                  id="logFilter"
+                  type="text"
+                  placeholder="Filter by action…"
+                  style="padding: 0.5rem 0.75rem; border: 1px solid var(--color-neutral-300); border-radius: 0.375rem; font-size: 0.875rem;"
+                  oninput="filterLogs()"
+                />
+                <button
+                  onclick="refreshLogs()"
+                  style="padding: 0.5rem 1rem; background: var(--color-primary-600); color: white; border: none; border-radius: 0.375rem; cursor: pointer; font-size: 0.875rem;"
+                >
+                  Refresh
+                </button>
+              </div>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Action</th>
+                    <th>User ID</th>
+                    <th>Resource</th>
+                    <th>IP Address</th>
+                    <th>Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody id="logsTable">
+                  <tr>
+                    <td colspan="5" style="text-align: center; padding: 2rem; color: var(--color-neutral-500);">
+                      Switch to this tab to load audit logs.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div><!-- /logs tab -->
+
       </div>
     </div>
+
+    <!-- Loading overlay -->
+    <div
+      id="loadingOverlay"
+      style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.25); z-index: 1000; align-items: center; justify-content: center;"
+    >
+      <div style="background: white; border-radius: 0.5rem; padding: 1.5rem 2rem; font-weight: 600; color: var(--color-neutral-700);">
+        Loading…
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div
+      id="toast"
+      role="status"
+      aria-live="polite"
+      style="position: fixed; bottom: 1.5rem; right: 1.5rem; padding: 0.75rem 1.25rem; border-radius: 0.375rem; font-weight: 600; font-size: 0.875rem; color: white; z-index: 1100; opacity: 0; transition: opacity 0.25s ease; pointer-events: none;"
+    ></div>
+
+    <style>
+      #loadingOverlay.active { display: flex !important; }
+      #toast.active { opacity: 1; pointer-events: auto; }
+      #toast.toast-success { background: #059669; }
+      #toast.toast-error { background: #dc2626; }
+      .tab-content { display: none; }
+      .tab-content.active { display: block; }
+    </style>
 
     <script>
       // Update last update time
@@ -376,6 +455,7 @@
       setInterval(updateTime, 60000);
     </script>
 
+    <script src="{{ url_for('static', filename='js/admin-panel.js') }}"></script>
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
     <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
   </body>

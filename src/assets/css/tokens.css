@@ -1,11 +1,14 @@
 /* stylelint-disable value-keyword-case declaration-block-single-line-max-declarations */
 
-/* Evident Technologies LLC - Design Tokens */
+/* Evident Technologies LLC - Design Tokens (single source of truth) */
 :root {
   /* Primary Branding Colors */
   --color-primary: #0b73d2; /* Evident core blue */
   --color-accent: #e07a5f; /* Accent orange */
   --color-neutral: #f6f7f9; /* Light neutral */
+  --color-bg: #fff; /* White background */
+  --color-text: #1a1a2e; /* Dark text */
+  --color-text-muted: #6b7280; /* Muted gray */
 
   /* Typography */
   --font-sans:

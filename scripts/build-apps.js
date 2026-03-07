@@ -11,6 +11,8 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
+console.warn('[DEPRECATED] build-apps.js will be replaced by build-federate.ps1 — see docs/architecture/FEDERATION-STRATEGY.md');
+
 const SITE_DIR = path.resolve(__dirname, '..', '_site');
 const APPS_DIR = path.resolve(__dirname, '..', 'apps');
 const APPS_OUTPUT = path.join(SITE_DIR, 'apps');

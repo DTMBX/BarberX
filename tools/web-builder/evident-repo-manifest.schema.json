@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evident.tech/schemas/evident-repo-manifest.schema.json",
+  "title": "Evident Repo Manifest",
+  "description": "Repo-level identity file for any repository in the Evident Technologies ecosystem. Place at repo root as .evident-repo.json.",
+  "type": "object",
+  "required": ["name", "role"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Optional pointer to this schema for editor validation."
+    },
+    "_manifest": {
+      "type": "string",
+      "const": "evident-repo",
+      "description": "Schema identifier. Always 'evident-repo'."
+    },
+    "_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Schema version. Currently 1."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "description": "Human-readable display name for this repo."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "One-sentence purpose of this repo."
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "main-suite-core",
+        "main-suite-ui",
+        "satellite-app",
+        "site",
+        "tooling",
+        "ops",
+        "archive",
+        "experiment"
+      ],
+      "description": "Ecosystem role. Determines how this repo is categorized and treated."
+    },
+    "family": {
+      "type": "string",
+      "description": "Product family this repo belongs to (e.g. 'Evident', 'Tillerstead')."
+    },
+    "stack": {
+      "type": "string",
+      "description": "Primary language and framework (e.g. 'Python + FastAPI')."
+    },
+    "outputType": {
+      "type": "string",
+      "enum": [
+        "web-app",
+        "api",
+        "static-site",
+        "pwa",
+        "mobile-app",
+        "desktop-app",
+        "library",
+        "docs",
+        "scripts",
+        "other"
+      ],
+      "description": "What this repo primarily produces."
+    },
+    "exportTargets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Where this repo deploys (e.g. ['GitHub Pages', 'Render'])."
+    },
+    "siteUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Live URL if deployed."
+    },
+    "githubUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "GitHub repository URL."
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand identity this repo operates under (e.g. 'evident', 'tillerstead')."
+    },
+    "packagingStatus": {
+      "type": "string",
+      "enum": ["not-started", "planned", "in-progress", "packaged", "published"],
+      "description": "How far along the repo is toward clean packaging."
+    },
+    "releaseStatus": {
+      "type": "string",
+      "enum": ["draft", "alpha", "beta", "rc", "stable", "maintenance", "archived"],
+      "description": "Current release maturity."
+    },
+    "sharedStandardsVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Version of shared Evident standards this repo follows (e.g. '1.0')."
+    },
+    "tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "IDs of tools registered in ToolHub that live in this repo."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Person or team responsible for this repo."
+    },
+    "satelliteTier": {
+      "type": "string",
+      "enum": ["companion", "venture", "independent"],
+      "description": "Relationship tier to the main Evident suite. Companions extend the platform mission, ventures serve a different vertical, independents share only governance."
+    },
+    "catalogVisibility": {
+      "type": "string",
+      "enum": ["published", "listed", "draft", "archived"],
+      "description": "How this repo appears in catalogs. Published = stable and public. Listed = functional but developing. Draft = owner-only. Archived = historical."
+    },
+    "tokenFamily": {
+      "type": "string",
+      "enum": ["evident", "tillerstead", "custom", "none"],
+      "description": "Which foundation token set this repo uses. Determines --ev-* or --ts-* prefix and which foundation CSS file applies."
+    },
+    "stackTier": {
+      "type": "string",
+      "enum": ["native", "aware", "prompt", "metadata"],
+      "description": "Builder support tier for this repo's stack. Computed from the stack field. native = builder generates directly. aware = builder adapts export. prompt = builder assembles AI prompts. metadata = builder stores info only."
+    }
+  }
+}
