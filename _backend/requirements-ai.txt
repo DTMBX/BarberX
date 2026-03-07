@@ -35,7 +35,7 @@ langchain-openai==0.0.2
 langchain-anthropic==0.0.1
 
 # Vector Database for Case Law
-chromadb==0.4.22
+chromadb==1.5.2
 faiss-cpu==1.7.4
 
 # Document Processing
