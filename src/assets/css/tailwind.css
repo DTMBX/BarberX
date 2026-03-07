@@ -6,17 +6,9 @@
 
 /* @import 'components/flag-video.css'; */
 
-/* @import "./americabydesign.css"; -- Removed: America by Design was inspiration only; restored to Evident branding */
+/* americabydesign.css removed — was inspiration only; Evident branding lives in tokens.css */
 
-:root {
-  /* Evident Technologies branding */
-  --color-primary: #0b73d2; /* Evident blue */
-  --color-accent: #e07a5f; /* Accent orange */
-  --color-neutral: #f6f7f9; /* Light neutral */
-  --color-bg: #fff; /* White background */
-  --color-text: #1a1a2e; /* Dark text */
-  --color-text-muted: #6b7280; /* Muted gray */
-}
+/* All color tokens consolidated in tokens.css (imported above) */
 
 /* Basic accessibility helpers */
 .skip-link {
